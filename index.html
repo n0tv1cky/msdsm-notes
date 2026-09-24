@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>msdsm-notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:800px; margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.9em;}
+
+  header{padding:64px 0 40px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0 0 14px;}
+  h1{font-size:clamp(1.9rem,4.5vw,2.6rem); line-height:1.15; margin:0 0 14px;}
+  .dek{color:var(--ink-dim); max-width:60ch; margin:0;}
+
+  .term{padding:44px 0 8px;}
+  .term-head{border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:22px;}
+  .term-head h2{font-size:1.35rem; margin:0 0 4px;}
+  .term-head p{color:var(--ink-faint); font-size:0.9rem; margin:0; font-family:'IBM Plex Mono',monospace;}
+
+  .course-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+  .course-row{background:var(--panel); padding:18px 22px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;}
+  .course-info{display:flex; flex-direction:column; gap:3px; min-width:200px;}
+  .course-code{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint);}
+  .course-title{font-family:'Fraunces',serif; font-size:1.08rem;}
+  .course-links{display:flex; gap:10px; flex-wrap:wrap;}
+  .pill{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; text-decoration:none;
+    padding:7px 13px; border-radius:20px; border:1px solid var(--line); white-space:nowrap;
+    transition:border-color .15s, color .15s;
+  }
+  .pill.recap{color:var(--teal); border-color:var(--teal-dim);}
+  .pill.recap:hover{border-color:var(--teal);}
+  .pill.lectures{color:var(--amber); border-color:var(--amber-dim);}
+  .pill.lectures:hover{border-color:var(--amber);}
+  .pill.soon{color:var(--ink-faint); cursor:default;}
+
+  .term-note{color:var(--ink-faint); font-size:0.9rem; margin:18px 0 0; font-style:italic;}
+
+  footer{border-top:1px solid var(--line); margin-top:56px; padding:32px 0 64px; color:var(--ink-faint); font-size:0.86rem;}
+  footer a{color:var(--ink-dim);}
+
+  @media (max-width:560px){
+    header{padding:44px 0 28px;} .term{padding:32px 0 4px;}
+    .course-row{padding:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="kicker">n0tv1cky/msdsm-notes</p>
+    <h1>MSDSM study notes</h1>
+    <p class="dek">Lecture-wise AI-generated notes and interactive revision pages for IIM Indore / IIT Indore's MSDSM program (Batch 6). One folder per course, organized by term.</p>
+  </header>
+
+  <section class="term">
+    <div class="term-head">
+      <h2>Term 1</h2>
+      <p>term1/ — six courses so far</p>
+    </div>
+    <div class="course-list">
+
+      <div class="course-row">
+        <div class="course-info">
+          <span class="course-code">DSM-101</span>
+          <span class="course-title">Probability &amp; Statistics</span>
+        </div>
+        <div class="course-links">
+          <a class="pill lectures" href="https://github.com/n0tv1cky/msdsm-notes/tree/main/term1/dsm101-probability-and-statistics/lectures">Lecture notes</a>
+        </div>
+      </div>
+
+      <div class="course-row">
+        <div class="course-info">
+          <span class="course-code">DSM-102</span>
+          <span class="course-title">Programming Fundamentals for Data Science</span>
+        </div>
+        <div class="course-links">
+          <a class="pill lectures" href="https://github.com/n0tv1cky/msdsm-notes/tree/main/term1/dsm102-programming-fundamentals/lectures">Lecture notes</a>
+        </div>
+      </div>
+
+      <div class="course-row">
+        <div class="course-info">
+          <span class="course-code">DSM-103</span>
+          <span class="course-title">Data Structures</span>
+        </div>
+        <div class="course-links">
+          <a class="pill lectures" href="https://github.com/n0tv1cky/msdsm-notes/tree/main/term1/dsm103-data-structures/lectures">Lecture notes</a>
+        </div>
+      </div>
+
+      <div class="course-row">
+        <div class="course-info">
+          <span class="course-code">DSM-104</span>
+          <span class="course-title">Managerial Communication</span>
+        </div>
+        <div class="course-links">
+          <a class="pill lectures" href="https://github.com/n0tv1cky/msdsm-notes/tree/main/term1/dsm104-managerial-communication/lectures">Lecture notes</a>
+        </div>
+      </div>
+
+      <div class="course-row">
+        <div class="course-info">
+          <span class="course-code">DSM-106</span>
+          <span class="course-title">Business Research</span>
+        </div>
+        <div class="course-links">
+          <a class="pill lectures" href="https://github.com/n0tv1cky/msdsm-notes/tree/main/term1/dsm106-business-research/lectures">Lecture notes</a>
+        </div>
+      </div>
+
+      <div class="course-row">
+        <div class="course-info">
+          <span class="course-code">DSM-107</span>
+          <span class="course-title">Managerial Economics</span>
+        </div>
+        <div class="course-links">
+          <a class="pill recap" href="term1/dsm107-managerial-economics/recap/course-recap.html">Interactive recap</a>
+          <a class="pill lectures" href="https://github.com/n0tv1cky/msdsm-notes/tree/main/term1/dsm107-managerial-economics/lectures">Lecture notes</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="term-note">Recap pages are added as they're built — most courses only have lecture notes so far.</p>
+  </section>
+
+  <footer>
+    Generated from lecture transcripts via <code>generate_notes.py</code> in this repo. Recap pages are self-contained HTML, no build step.
+    <br><a href="https://github.com/n0tv1cky/msdsm-notes">View source on GitHub</a>
+  </footer>
+</div>
+
+</body>
+</html>

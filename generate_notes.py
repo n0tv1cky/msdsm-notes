@@ -6,15 +6,19 @@ so new lectures/courses only need a dict entry, not a new script.
 
 Lives in this repo (projects/msdsm-notes, standalone git repo, remote
 github.com/n0tv1cky/msdsm-notes) and writes ITS OWN output here --
-<this-repo>/<course-dir-name>/lectures/<name>.md -- not back into
+<this-repo>/<TERM>/<course-dir-name>/lectures/<name>.md -- not back into
 subjects/. Raw transcripts stay private under subjects/<course>/transcripts/
 (gitignored, not redistributable); only the derived notes this script
 produces are published in this repo.
 
+TERM is a single hardcoded constant below (all courses in COURSE_GUIDANCE
+today are Batch 6 Term 1) -- bump it by hand when a new term's courses
+start, there's no way to infer it from the transcripts path.
+
 Usage: python3 generate_notes.py <transcripts_dir> [file1.txt file2.txt ...]
   <transcripts_dir> is still subjects/<dsm-code>-<short-title>/transcripts
   (files default to every *.txt in that dir; already-generated .md files
-   in this repo's <course-dir-name>/lectures/ are skipped)
+   in this repo's <TERM>/<course-dir-name>/lectures/ are skipped)
 """
 import json
 import re
@@ -24,6 +28,7 @@ from pathlib import Path
 
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
 NOTES_REPO_DIR = Path(__file__).resolve().parent
+TERM = "term1"
 MODEL = "claude-opus-5"
 MAX_TOKENS = 16000
 
@@ -164,7 +169,7 @@ def main():
     course_dir_name = transcripts_dir.parent.name  # e.g. "dsm107-managerial-economics"
 
     api_key = load_api_key()
-    notes_dir = NOTES_REPO_DIR / course_dir_name / "lectures"
+    notes_dir = NOTES_REPO_DIR / TERM / course_dir_name / "lectures"
     notes_dir.mkdir(parents=True, exist_ok=True)
 
     txt_files = sorted(transcripts_dir.glob("*.txt"))
