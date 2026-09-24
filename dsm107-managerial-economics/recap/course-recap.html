@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSM-107 Full Course Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+    --rust:#C1594A; --maxw:680px; --wide:920px;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber-dim); color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .wrap-wide{max-width:var(--wide); margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.92em;}
+
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); z-index:50; transition:width .1s linear;}
+  section,.cheatsheet{scroll-margin-top:54px;}
+  nav.jumpnav{
+    position:sticky; top:3px; z-index:40; background:rgba(20,23,28,.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); padding:10px 24px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none;
+  }
+  nav.jumpnav::-webkit-scrollbar{display:none;}
+  nav.jumpnav a{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); text-decoration:none; white-space:nowrap;
+    padding:6px 11px; border-radius:20px; border:1px solid var(--line); flex:none; transition:color .15s,border-color .15s;
+  }
+  nav.jumpnav a:hover, nav.jumpnav a:focus-visible{color:var(--ink); border-color:var(--amber);}
+
+  header.hero{padding:40px 0 28px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0;}
+  h1.title{font-size:clamp(2rem,4.4vw,2.9rem); line-height:1.1; margin:0 0 18px; max-width:16ch;}
+  .dek{color:var(--ink-dim); font-size:1.05rem; max-width:58ch; margin:0 0 22px;}
+  .crosslink{
+    display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:13px;
+    color:var(--teal); text-decoration:none; border:1px solid var(--teal-dim); padding:8px 14px; border-radius:20px;
+  }
+  .crosslink:hover{border-color:var(--teal);}
+
+  .module{padding:52px 0 8px;}
+  .module-head{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px;}
+  .module-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 8px;}
+  .module h2{font-size:1.55rem; margin:0 0 10px;}
+  .module .lede{color:var(--ink-dim); max-width:64ch; margin:0;}
+
+  .cheat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:32px;}
+  .cheat-card{background:var(--panel); padding:18px 20px;}
+  .cheat-card h3{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:0 0 12px;}
+  .cheat-card dl{margin:0;}
+  .cheat-card dt{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); margin:0 0 2px;}
+  .cheat-card dt.t{color:var(--teal);}
+  .cheat-card dd{margin:0 0 12px; font-size:14px; color:var(--ink-dim); line-height:1.5;}
+  .cheat-card dd:last-child{margin-bottom:0;}
+  .cheat-card ul{margin:0; padding:0; list-style:none;}
+  .cheat-card li{font-size:14px; color:var(--ink-dim); margin:0 0 9px; padding-left:14px; position:relative; line-height:1.5;}
+  .cheat-card li:last-child{margin-bottom:0;}
+  .cheat-card li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+  .cheat-card strong{color:var(--ink); font-weight:600;}
+  @media (max-width:760px){.cheat-grid{grid-template-columns:1fr;}}
+
+  .legend{display:flex; gap:28px; flex-wrap:wrap; background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 20px; margin:0 0 24px; font-size:0.92rem;}
+  .legend-item{display:flex; align-items:center; gap:9px; color:var(--ink-dim);}
+  .swatch{width:14px; height:14px; border-radius:3px; flex:none;}
+  .swatch.teal{background:var(--teal);}
+  .swatch.amber{background:var(--amber);}
+
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:24px 24px 20px; margin:0 0 40px;}
+  .panel-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:6px; flex-wrap:wrap;}
+  .panel-title{font-family:'Fraunces',serif; font-size:1.02rem; color:var(--ink);}
+  .readout{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); text-align:right;}
+  svg.chart{width:100%; height:auto; display:block; margin:14px 0 8px; overflow:visible;}
+  .tick{font-family:'IBM Plex Mono',monospace; font-size:10px; fill:var(--ink-faint);}
+  .axislabel{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink-faint);}
+  .gridline{stroke:var(--line); stroke-width:1;}
+  .axis{stroke:var(--ink-faint); stroke-width:1;}
+  .controls{display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-top:10px;}
+  .slider-group{display:flex; flex-direction:column; gap:6px; flex:1; min-width:200px;}
+  .slider-label{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between;}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:var(--line); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:16px; height:16px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  .verdict{font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 12px; border-radius:5px; margin-top:14px; display:inline-block;}
+  .verdict.buy{background:rgba(79,168,160,.14); color:var(--teal);}
+  .verdict.sell{background:rgba(232,163,61,.14); color:var(--amber);}
+  .verdict.eq{background:rgba(237,234,226,.1); color:var(--ink);}
+  .verdict.bad{background:rgba(193,89,74,.16); color:var(--rust);}
+  .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:16px 0 0;}
+  .note p{margin:0 0 8px;}
+  .note p:last-child{margin-bottom:0;}
+  .note ul{margin:0; padding:0; list-style:none;}
+  .note li{margin:0 0 7px; padding-left:14px; position:relative;}
+  .note li:last-child{margin-bottom:0;}
+  .note li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+
+  /* payoff matrix widget */
+  .matrix-wrap{display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start;}
+  .presets{display:flex; gap:8px; margin-bottom:14px;}
+  .presets button{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg);
+    border:1px solid var(--line); border-radius:16px; padding:6px 12px; cursor:pointer;
+  }
+  .presets button:hover{border-color:var(--amber); color:var(--ink);}
+  table.payoff{border-collapse:collapse; font-family:'IBM Plex Mono',monospace; font-size:13px;}
+  table.payoff th{color:var(--ink-faint); font-weight:400; padding:6px 10px; font-size:11px;}
+  table.payoff td{border:1px solid var(--line); padding:0; position:relative; width:96px; height:64px; text-align:center; vertical-align:middle;}
+  table.payoff td.cell{background:var(--bg);}
+  table.payoff td.ne{background:rgba(79,168,160,.14); box-shadow:inset 0 0 0 2px var(--teal);}
+  .cellin{width:38px; background:transparent; border:none; color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:14px; text-align:center; outline:none;}
+  .cellin.row{color:var(--amber);}
+  .cellin.col{color:var(--teal);}
+  .tickmark{position:absolute; font-size:11px; font-family:'IBM Plex Mono',monospace;}
+  .tickmark.r{top:2px; left:2px; color:var(--amber);}
+  .tickmark.c{bottom:2px; right:2px; color:var(--teal);}
+  .matrix-legend{font-size:13px; color:var(--ink-dim); max-width:280px;}
+  .matrix-legend p{margin:0 0 10px;}
+
+  footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
+  @media (max-width:600px){
+    header.hero{padding:52px 0 36px;} .module{padding:40px 0 4px;} .panel{padding:18px 16px 16px;}
+    .matrix-wrap{flex-direction:column;}
+  }
+
+  /* ---------- Print / Save-as-PDF ---------- */
+  @media print{
+    @page{ margin:1.3cm; }
+    :root{
+      --bg:#ffffff; --panel:#f7f6f2; --ink:#161616; --ink-dim:#3d3d3d; --ink-faint:#6b6b6b;
+      --line:#cfcbc0; --amber:#a85e0d; --amber-dim:#d9c3a3; --teal:#136b62; --teal-dim:#a9cfc9; --rust:#9a3a2a;
+    }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-size:11pt; }
+    nav.jumpnav, .progress{ display:none !important; }
+    section, .cheatsheet{ scroll-margin-top:0; }
+    header.hero{ padding:0 0 16px; }
+    .module{ padding:28px 0 4px; }
+    .cheat-card, .panel, .legend, .note, table.payoff{ break-inside:avoid; page-break-inside:avoid; }
+    h2, .panel-head{ break-after:avoid; page-break-after:avoid; }
+    svg.chart{ break-inside:avoid; }
+    input[type=range]{ display:none; }
+    .controls .slider-group{ margin-bottom:4px; }
+    a[href]:after{ content:""; }
+    .verdict{ border:1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="jumpnav">
+  <a href="#foundations">Foundations</a>
+  <a href="#trade">Trade &amp; advantage</a>
+  <a href="#techchoice">Technology choice</a>
+  <a href="#leisure">Work &amp; leisure</a>
+  <a href="#games">Game theory</a>
+  <a href="#firm">The firm</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">DSM-107 Managerial Economics — Full course recap, Sessions 01–10</p>
+  </div>
+</header>
+
+<!-- ============ MODULE 1: FOUNDATIONS ============ -->
+<section class="module" id="foundations">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Session 01</p>
+      <h2>Opportunity cost, economic cost, economic rent</h2>
+      <p class="lede">Why growth took off ~250 years ago, and the three-part vocabulary for how anyone decides whether an action is worth it.</p>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>The big picture</h3>
+        <ul>
+          <li>Growth was flat for millennia, then a <strong>"hockey stick"</strong> from ~1750 — the <strong>Malthusian trap</strong> (income gains eaten by population growth) finally broken.</li>
+          <li>Escape driven by <strong>continuous technological progress</strong> — the Industrial Revolution, starting in Britain.</li>
+          <li>Adam Smith (1776) predicted it; Malthus (1798) didn't believe it possible.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Formulas</h3>
+        <dl>
+          <dt>Net benefit</dt><dd>Benefit − Cost.</dd>
+          <dt>Opportunity cost</dt><dd>net benefit of the <strong>next-best</strong> alternative.</dd>
+          <dt>Economic cost</dt><dd>direct cost + opportunity cost.</dd>
+          <dt class="t">Economic rent</dt><dd>net benefit − opportunity cost (= Benefit − Economic cost).</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Decision rule</h3>
+        <ul>
+          <li>Do A if <strong>Net benefit(A) &gt; Opportunity cost(A)</strong> — equivalently, <strong>Benefit(A) &gt; Economic cost(A)</strong>. The two can never disagree.</li>
+          <li>Positive rent → do it; zero → indifferent; negative → don't.</li>
+          <li>Worked numbers (concert vs. babysitting): net benefit €30, opportunity cost €22, <strong>economic rent €8</strong>.</li>
+          <li>Both benefit and cost are <strong>subjective</strong> — rent is person-specific.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">
+      <p>A model is a map, not a photograph — it throws away almost everything so the one mechanism you care about stands out.</p>
+      <ul>
+        <li><strong>To measure a subjective benefit or cost:</strong> keep raising the price until you'd refuse (that ceiling is your benefit); keep lowering the payment until you'd refuse the deal (that floor is your cost).</li>
+        <li><strong>Why economic cost isn't accounting cost:</strong> a US steel firm had a power contract at $3/unit — cheap on the books. When a power crisis sent the market price to $30/unit, the <em>opportunity cost</em> of burning that power on steel was $30, not $3 — so the firm shut its plant and started reselling power instead. The ledger never would have told them to do that.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="module divider" id="trade">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Session 02</p>
+      <h2>Comparative advantage &amp; gains from trade</h2>
+      <p class="lede">Even a worse-at-everything producer should specialize — in whatever they're <em>least</em> worse at.</p>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Definitions</h3>
+        <dl>
+          <dt>Absolute advantage</dt><dd>can produce <strong>more</strong> of a good with the same inputs.</dd>
+          <dt class="t">Comparative advantage</dt><dd><strong>lower opportunity cost</strong> of that good, relative to the other good.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Greta &amp; Carlos worked numbers</h3>
+        <ul>
+          <li>Opportunity cost of 1 ton wheat — Greta <strong>25 apples</strong>, Carlos <strong>50 apples</strong>.</li>
+          <li>Lower-cost producer specializes: <strong>Greta → wheat, Carlos → apples.</strong></li>
+          <li>Self-sufficiency total: 800 apples, 44 tons wheat. Specialize + trade: <strong>1,000 apples, 50 tons wheat</strong> — bigger pie, both eat more.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Rule to remember</h3>
+        <ul>
+          <li>Specialize where your <strong>opportunity cost is lowest</strong> — not where you're most productive in absolute terms.</li>
+          <li>Opportunity cost exists even with <strong>zero out-of-pocket cost</strong>.</li>
+          <li>Trade price must sit <strong>between both parties' opportunity costs</strong> for both to gain.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Even if Greta is better than Carlos at growing <em>both</em> crops, she still can't do both at once — the question is never "what am I good at," it's "what do I lose least by doing." She loses less by growing wheat than by growing apples, so wheat is where her time is best spent, full stop.</p>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">The feasible trading-price range</span>
+        <span class="readout" id="readoutT">price = <span style="color:var(--amber)">40</span> apples/ton</span>
+      </div>
+      <svg class="chart" id="chartT" viewBox="0 0 760 200" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>price of 1 ton of wheat, in apples</span><span id="valT">40</span></span>
+          <input type="range" id="sliderT" min="15" max="60" step="1" value="40">
+        </div>
+      </div>
+      <div id="verdictT" class="verdict buy">both gain — Greta +€225, Carlos +€150 (in apples, on 15 tons traded)</div>
+      <p class="note">Below 25, Greta loses by selling — she'd rather keep the wheat. Above 50, Carlos loses by buying — he'd rather grow it himself. Only <strong>25–50</strong> works for both.</p>
+    </div>
+  </div>
+</section>
+
+<section class="module divider" id="techchoice">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Session 03</p>
+      <h2>Technology choice &amp; the isocost line</h2>
+      <p class="lede">Once engineering-dominated technologies are discarded, only relative input prices decide which one's cheapest.</p>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Formulas</h3>
+        <dl>
+          <dt>Production function</dt><dd>Y = f(inputs); constant returns to scale: f(λX) = λf(X).</dd>
+          <dt>Average product</dt><dd>AP = output ÷ input quantity.</dd>
+          <dt class="t">Energy–labour ratio</dt><dd>= slope of the ray from origin = energy intensity.</dd>
+          <dt>Isocost line</dt><dd>C = wL + pR; intercepts C/w and C/p; slope <strong>−w/p</strong>.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Rules</h3>
+        <ul>
+          <li><strong>Dominated technology</strong>: uses more of both inputs than another for the same output — discard it (the quadrant test), no prices needed.</li>
+          <li>What's left can only be ranked with <strong>input prices</strong>.</li>
+          <li><strong>Proportional</strong> change in both input prices → isocost line <strong>unchanged</strong>. Only <em>relative</em> prices matter.</li>
+          <li>Only <strong>one</strong> price changing → isocost line <strong>rotates</strong>.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>The Industrial Revolution story</h3>
+        <ul>
+          <li>British <strong>wages rose relative to coal price</strong> → isocost line steepened.</li>
+          <li>Switched cost-minimising choice from labour-intensive to <strong>energy-intensive</strong> technology.</li>
+          <li>Same output, lower cost → higher profit → <strong>innovation rent</strong> for the first adopter → Schumpeter's <strong>creative destruction</strong>.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Why "fixed proportions" — it's cooking. Extra labour with no extra ingredients doesn't make more food; you need both together, in the ratio the recipe calls for. That's why you can't scale one input alone: double the workers with the same machines and coal, and output barely moves.</p>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Which technology is cheapest?</span>
+        <span class="readout" id="readoutI">wage/coal-price ratio = <span style="color:var(--amber)">0.60</span></span>
+      </div>
+      <svg class="chart" id="chartI" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>relative wage (w/p) — labour cost vs. coal cost</span><span id="valI">0.60</span></span>
+          <input type="range" id="sliderI" min="0.05" max="2.2" step="0.01" value="0.60">
+        </div>
+      </div>
+      <div id="verdictI" class="verdict buy">B (4 workers, 2 tons coal) is cheapest</div>
+      <p class="note">Three technologies for the same output: <strong>A</strong>(1 worker, 6 tons coal, energy-intensive), <strong>B</strong>(4, 2), <strong>E</strong>(10, 1, labour-intensive). Drag the wage up — cheap labour favours E, expensive labour favours A.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE 2: WORK & LEISURE ============ -->
+<section class="module divider" id="leisure">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Sessions 04–06</p>
+      <h2>The work–leisure choice</h2>
+      <p class="lede">A worker splits the day between paid work and free time, constrained by the wage, guided by preferences. Keynes predicted 15 hrs/week by now; actual is ≈40 — this is the model that explains why.</p>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Vocabulary</h3>
+        <dl>
+          <dt>endogenous</dt><dd>explained <strong>by</strong> the model — usually what's on the axes.</dd>
+          <dt>exogenous</dt><dd>fixed from outside — the wage; anything not modelled.</dd>
+          <dt>ceteris paribus</dt><dd>holding everything else constant.</dd>
+          <dt>equilibrium</dt><dd>self-perpetuating outcome, unless an external shock hits.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Formulas</h3>
+        <dl>
+          <dt>Y = w · H</dt><dd>income from hours worked.</dd>
+          <dt>C = w · (24 − t)</dt><dd>consumption available, t = free time.</dd>
+          <dt>MRT = w</dt><dd>slope of the frontier = opportunity cost of free time.</dd>
+          <dt class="t">MRS = |ΔC/ΔT|</dt><dd>slope of the indifference curve, utility held constant.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>The optimum &amp; wage rises</h3>
+        <ul>
+          <li><strong>MRS = MRT</strong> at the tangency — the only equilibrium. MRS &gt; MRT → take more free time; MRS &lt; MRT → cut back.</li>
+          <li>Budget line <strong>pivots</strong> on (24, 0) — a wage rise is never a parallel shift on its own.</li>
+          <li><strong>Parallel shift</strong> in a decomposition = income effect; <strong>slope change</strong> = substitution effect.</li>
+          <li>Karim, w=€30 → optimum at <strong>t=17h, work=7h, C=€210</strong>. Keynes predicted 15 hrs/week; actual today ≈ <strong>40 hrs/week</strong>, because substitution kept pace with income.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Income line — Y = w · H</span>
+        <span class="readout" id="readoutA">7.0 h → <span style="color:var(--amber)">€210</span></span>
+      </div>
+      <svg class="chart" id="chartA" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>hours worked per day (H)</span><span id="valA">7.0</span></span>
+          <input type="range" id="sliderA" min="0" max="16" step="0.5" value="7">
+        </div>
+      </div>
+      <p class="note">Karim's income is a straight line through the origin. Read backwards, it's also his price for free time: €30 per hour he doesn't work.</p>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="swatch teal"></span> preference — what he's <em>willing</em> to trade (MRS)</div>
+      <div class="legend-item"><span class="swatch amber"></span> the market — what he's <em>required</em> to trade (budget line / MRT)</div>
+    </div>
+    <p class="note">The income line is what the market <em>forces</em> on Karim — it says nothing about what he <em>wants</em>. Indifference curves curve because of a rule the professor kept coming back to all course: <strong>the more you already have of something, the less you value one more unit of it.</strong></p>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Diminishing marginal rate of substitution</span>
+        <span class="readout" id="readoutB">MRS = <span style="color:var(--teal)">€30</span> / hour</span>
+      </div>
+      <svg class="chart" id="chartB" viewBox="0 0 760 340" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>drag along the curve — free time (hours)</span><span id="valB">17.0</span></span>
+          <input type="range" id="sliderB" min="12.6" max="22" step="0.1" value="17">
+        </div>
+      </div>
+      <div class="note">
+        <p>This is the very curve Karim ends up on. Slide right and the tangent flattens — full belly, cheap next bite:</p>
+        <ul>
+          <li>Around 15 hours, he'd give up <strong>~€84</strong> for one more.</li>
+          <li>Near 21 hours, barely <strong>€9</strong>.</li>
+          <li>At 17 hours, MRS lands on exactly <strong>€30</strong> — the same €30 the market charges (next panel).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Feasible set — pivoting on the wage</span>
+        <span class="readout" id="readoutC">w = <span style="color:var(--amber)">€30</span>/hr</span>
+      </div>
+      <svg class="chart" id="chartC" viewBox="0 0 760 340" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>hourly wage</span><span id="valC">€30</span></span>
+          <input type="range" id="sliderC" min="20" max="60" step="1" value="30">
+        </div>
+      </div>
+      <p class="note" id="testVerdict">Test bundle — 12 hours free time, €400 consumption: <strong>infeasible</strong> at this wage.</p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">MRS = MRT — the tangency</span>
+        <span class="readout" id="readoutD">MRS <span style="color:var(--teal)">€30</span> · MRT <span style="color:var(--amber)">€30</span></span>
+      </div>
+      <svg class="chart" id="chartD" viewBox="0 0 760 340" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>free time chosen (hours)</span><span id="valD">17.0</span></span>
+          <input type="range" id="sliderD" min="9.5" max="21.9" step="0.1" value="17">
+        </div>
+      </div>
+      <div id="verdictD" class="verdict eq">equilibrium — no reason to move</div>
+    </div>
+
+    <div class="note">
+      <p>A raise does two things at once:</p>
+      <ul>
+        <li><strong>Income effect</strong> — makes you richer, so you buy more of everything, including free time.</li>
+        <li><strong>Substitution effect</strong> — makes not-working pricier, a kind of FOMO on pay.</li>
+        <li>It's why a <strong>promotion</strong> usually buys you less free time, not more — pay goes up, but so does the cost of your time.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Decomposing a wage rise</span>
+        <span class="readout" id="readoutE">$90 → $<span id="wageEval" style="color:var(--amber)">130</span>/day</span>
+      </div>
+      <svg class="chart" id="chartE" viewBox="0 0 760 360" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>new daily wage (student summer job, was $90)</span><span id="valE">$130</span></span>
+          <input type="range" id="sliderE" min="95" max="170" step="1" value="130">
+        </div>
+      </div>
+      <div id="verdictE" class="verdict sell">substitution effect dominates — net free time falls</div>
+      <p class="note" id="effectNums">income effect: +14.7 days of free time · substitution effect: −20.9 days · net: −6.3 days</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE 3: GAME THEORY ============ -->
+<section class="module divider" id="games">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Sessions 07–08</p>
+      <h2>Game theory &amp; social dilemmas</h2>
+      <p class="lede">When two or more people's payoffs depend on each other's choices — sometimes self-interest is fine, sometimes it wrecks everyone.</p>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Vocabulary</h3>
+        <dl>
+          <dt>social dilemma</dt><dd>actions taken independently, in self-interest, produce a socially <strong>suboptimal</strong> outcome — relative to another outcome that was <strong>feasible</strong>.</dd>
+          <dt>game</dt><dd>players, feasible strategies, information, payoffs.</dd>
+          <dt>best response</dt><dd>the strategy giving the highest payoff <strong>given</strong> the other's choice.</dd>
+          <dt class="t">Nash equilibrium</dt><dd>each player's strategy is a best response to the other's.</dd>
+          <dt>dominant strategy</dt><dd>best response to <strong>every</strong> strategy the other might play.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Solving a 2×2 matrix</h3>
+        <ul>
+          <li>Row player: tick the higher payoff <strong>down each column</strong> (holding the other's choice fixed).</li>
+          <li>Column player: tick the higher payoff <strong>across each row</strong>.</li>
+          <li>Cell with <strong>two ticks</strong> = Nash equilibrium. A game can have more than one — or none in pure strategies.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Two archetypes</h3>
+        <ul>
+          <li><strong>Invisible hand</strong> (crop game): self-interest → the cell with the <strong>highest</strong> payoff for everyone.</li>
+          <li><strong>Prisoners' Dilemma</strong> (pest control): dominant-strategy equilibrium gives <strong>lower</strong> payoffs than a feasible alternative — driven by <strong>external effects</strong> each player ignores.</li>
+          <li><strong>Pareto improvement</strong>: at least one better off, nobody worse off. <strong>Pareto efficient</strong> = not dominated by any other allocation. A dominant-strategy equilibrium need not be Pareto efficient.</li>
+          <li>Fixes: <strong>altruism</strong> (indifference curves over payoffs turn downward-sloping), <strong>repeated interaction</strong> (threat of reverting to the bad equilibrium), taxes, institutions.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">
+      <ul>
+        <li><strong>"A model is a caricature — that's the feature, not the bug."</strong> Nobody actually computes payoff matrices before choosing; you learn to play tennis by hand-eye coordination, not equations — but the programmer coding an Xbox tennis game still has to write those equations for the character to behave like a real player would. That's what a game-theory model is doing to your own decisions.</li>
+        <li><strong>Social dilemma, made concrete:</strong> nobody wants to sit in traffic, yet everyone drives — each person counts their own fuel cost and comfort, not the jam they add to everyone else's commute. Same logic behind a group flat's permanently dirty kitchen: cleaning is real effort, everyone hopes someone else does it, so nobody does.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Nash equilibrium finder — edit any payoff matrix</span>
+        <span class="readout" id="readoutN">Nash equilibrium: <span style="color:var(--teal)" id="neText">—</span></span>
+      </div>
+      <div class="presets">
+        <button type="button" data-preset="crop">Load: invisible hand (crop game)</button>
+        <button type="button" data-preset="pest">Load: prisoners' dilemma (pest control)</button>
+      </div>
+      <div class="matrix-wrap">
+        <table class="payoff" id="matrixTable">
+          <tr><th></th><th style="color:var(--teal)" id="colHead0">Bala: strategy 1</th><th style="color:var(--teal)" id="colHead1">Bala: strategy 2</th></tr>
+          <tr>
+            <th style="color:var(--amber)" id="rowHead0">Anil: strategy 1</th>
+            <td class="cell" data-r="0" data-c="0"></td>
+            <td class="cell" data-r="0" data-c="1"></td>
+          </tr>
+          <tr>
+            <th style="color:var(--amber)" id="rowHead1">Anil: strategy 2</th>
+            <td class="cell" data-r="1" data-c="0"></td>
+            <td class="cell" data-r="1" data-c="1"></td>
+          </tr>
+        </table>
+        <div class="matrix-legend">
+          <p><span style="color:var(--amber)">amber</span> number = row player's payoff. <span style="color:var(--teal)">teal</span> number = column player's payoff. Type any numbers — best-response ticks and the Nash equilibrium update live.</p>
+          <p class="note" style="margin-top:0;">Tick reading: <span style="color:var(--amber)">amber ✓</span> = row player's best response in that column. <span style="color:var(--teal)">teal ✓</span> = column player's best response in that row. Both ticks in one cell → equilibrium (teal outline).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE 4: THE FIRM ============ -->
+<section class="module divider" id="firm">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Sessions 09–10</p>
+      <h2>The firm and its customers</h2>
+      <p class="lede">Firms maximise profit subject to the demand curve — the same "willing vs. constrained" logic as the worker's problem, with price and quantity instead of consumption and free time.</p>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Profit &amp; the isoprofit curve</h3>
+        <dl>
+          <dt>π = (P − C)·Q</dt><dd>TR = P·Q, TC = C·Q.</dd>
+          <dt class="t">isoprofit curve</dt><dd>locus of (P, Q) at constant profit; downward-sloping; north-east = higher profit.</dd>
+          <dt>demand curve</dt><dd>the firm's <strong>constraint</strong>; downward-sloping; y-intercept = reservation price.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Scale &amp; cost curves</h3>
+        <ul>
+          <li>Returns to scale: Q(λX,λY) =/&gt;/&lt; λQ → <strong>CRS / IRS / DRS</strong>.</li>
+          <li><strong>AC</strong> = C(Q)/Q = slope of the ray from origin. <strong>MC</strong> = slope of the total-cost curve.</li>
+          <li>MC &lt; AC → AC falling; MC &gt; AC → AC rising; they cross at <strong>minimum AC</strong> = minimum efficient scale.</li>
+          <li><strong>Class-height trick:</strong> if the 30th person joining a room is taller than the room's average, the average rises. Same logic: if the next unit's cost (MC) is above the average so far (AC), average cost rises — below it, average cost falls. That's the whole rule, no calculus needed.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Pricing formulas</h3>
+        <dl>
+          <dt>MR = P + Q·(dP/dQ)</dt><dd>profit-max condition: <strong>MR = MC</strong>.</dd>
+          <dt>isoprofit slope</dt><dd>dP/dQ = −(P−MC)/Q.</dd>
+          <dt class="t">elasticity ε</dt><dd>(dQ/Q)/(dP/P) — always negative.</dd>
+          <dt>Lerner condition</dt><dd>(P−MC)/P = −1/ε — less price-sensitive customers ⇒ higher margin.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Elasticity, classified</h3>
+        <ul>
+          <li><strong>ε = −∞</strong> — perfectly elastic (any price rise, customers leave entirely).</li>
+          <li><strong>−∞ &lt; ε &lt; −1</strong> — elastic.</li>
+          <li><strong>ε = −1</strong> — unitary elastic.</li>
+          <li><strong>−1 &lt; ε &lt; 0</strong> — inelastic.</li>
+          <li><strong>ε = 0</strong> — perfectly inelastic (price doesn't move quantity at all — e.g. a life-saving medicine).</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Price discrimination</h3>
+        <dl>
+          <dt>1st degree</dt><dd>a <strong>different price per person</strong> — e.g. pricing by browsing history, or US tuition by parental income.</dd>
+          <dt>2nd degree</dt><dd>discount <strong>conditional on quantity</strong> — "buy one get one," bulk pricing.</dd>
+          <dt>3rd degree</dt><dd>pricing by <strong>observable group</strong> — student discounts, weekday happy hours.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Why margin strategy isn't one-size-fits-all — same theory, opposite strategies, both rational, because <em>elasticity</em> differs, not competence:</p>
+      <ul>
+        <li><strong>Tesco:</strong> "pile it high, sell it cheap" — ~6.5% margin, profit from volume, flat demand curve (customers have little willingness to pay above cost).</li>
+        <li><strong>Apple:</strong> prices at a premium — ~50–58% margin on iPhones, profit per unit, steep demand curve (loyal customers, high willingness to pay).</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Price, elasticity, and the profit-maximising margin</span>
+        <span class="readout" id="readoutE2">P = <span style="color:var(--amber)">$5.00</span></span>
+      </div>
+      <svg class="chart" id="chartE2" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>price charged</span><span id="valE2">$5.00</span></span>
+          <input type="range" id="sliderE2" min="2.2" max="9.5" step="0.05" value="5">
+        </div>
+      </div>
+      <div id="verdictE2" class="verdict buy">margin below what elasticity allows — raise price</div>
+      <p class="note" id="numsE2">Q=19,000 · ε=−0.79 (inelastic) · actual margin (P−MC)/P = 0.60 · elasticity-implied margin −1/ε = 1.27</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Full-course recap for DSM-107, Sessions 01–10 · the technology-choice, trade, and elasticity widgets use the lecture's own worked numbers; the Nash solver accepts any matrix you type in.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const COLORS = { amber:'#E8A33D', teal:'#4FA8A0', ink:'#EDEAE2', dim:'#9BA3AF', faint:'#5B6270', line:'#2A2F38', rust:'#C1594A' };
+  const NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function frame(opts){ const {x0=70,y0=20,w=640,h=250} = opts; return {x0,y0,w,h,x1:x0+w,y1:y0+h}; }
+  function ticks(min,max,step){ const a=[]; for(let v=min; v<=max+1e-9; v+=step) a.push({val:Math.round(v*100)/100, frac:(v-min)/(max-min)}); return a; }
+  function drawAxes(svg,f,xTicks,yTicks,xLabel,yLabel,xFmt,yFmt){
+    xTicks.forEach(t=>{ const gx=f.x0+t.frac*f.w;
+      svg.appendChild(el('line',{x1:gx,y1:f.y0,x2:gx,y2:f.y1,class:'gridline'}));
+      svg.appendChild(el('text',{x:gx,y:f.y1+18,class:'tick','text-anchor':'middle'})).textContent = xFmt?xFmt(t.val):t.val;
+    });
+    yTicks.forEach(t=>{ const gy=f.y1-t.frac*f.h;
+      svg.appendChild(el('line',{x1:f.x0,y1:gy,x2:f.x1,y2:gy,class:'gridline'}));
+      const lbl=el('text',{x:f.x0-10,y:gy+4,class:'tick','text-anchor':'end'}); lbl.textContent=yFmt?yFmt(t.val):t.val; svg.appendChild(lbl);
+    });
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y1,x2:f.x1,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y0,x2:f.x0,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('text',{x:(f.x0+f.x1)/2,y:f.y1+40,class:'axislabel','text-anchor':'middle'})).textContent = xLabel;
+    const yl=el('text',{x:16,y:(f.y0+f.y1)/2,class:'axislabel','text-anchor':'middle'});
+    yl.setAttribute('transform',`rotate(-90 16 ${(f.y0+f.y1)/2})`); yl.textContent=yLabel; svg.appendChild(yl);
+  }
+
+  // ---------- scroll progress ----------
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    progress.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100) + '%';
+  });
+  document.querySelectorAll('nav.jumpnav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      const navH = document.querySelector('nav.jumpnav').offsetHeight + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior:'smooth' });
+    });
+  });
+
+  // ================= Shared CES preference math (Sessions 04-06) =================
+  // U = (a*T^r + (1-a)*C^r)^(1/r)
+  function ceUtility(T, C, a, r){
+    return Math.pow(a*Math.pow(T,r) + (1-a)*Math.pow(C,r), 1/r);
+  }
+  function ceMRS(T, C, a, r){ // consumption willingly given up per extra hour of free time
+    return (a/(1-a)) * Math.pow(C/T, 1-r);
+  }
+  // solve C given T, a, r, U along one indifference curve; returns null if infeasible
+  function ceC(T, a, r, U){
+    const inner = (Math.pow(U,r) - a*Math.pow(T,r)) / (1-a);
+    if (inner <= 0) return null;
+    return Math.pow(inner, 1/r);
+  }
+  // demand given price of T (w) and full income M
+  function ceDemand(w, M, a, r){
+    const k = Math.pow(w*(1-a)/a, 1/(1-r)); // C/T ratio at optimum
+    const T = M/(w+k);
+    const C = k*T;
+    return {T, C};
+  }
+  // Karim's calibration: a=0.1643, r=-1 -> at w=30, optimum T=17, C=210
+  const KA = 0.1643, KR = -1;
+
+  // ================= CHART A — Karim's income line =================
+  (function(){
+    const svg = document.getElementById('chartA');
+    const slider = document.getElementById('sliderA');
+    const valEl = document.getElementById('valA');
+    const readout = document.getElementById('readoutA');
+    const w = 30;
+    const f = frame({x0:70,y0:16,w:640,h:250});
+    function xScale(h){ return f.x0 + (h/16)*f.w; }
+    function yScale(y){ return f.y1 - (y/500)*f.h; }
+
+    function render(){
+      clear(svg);
+      drawAxes(svg, f, ticks(0,16,4), ticks(0,500,100), 'hours worked per day (H)', 'income (€)', v=>v, v=>'€'+v);
+      svg.appendChild(el('line', {x1:xScale(0), y1:yScale(0), x2:xScale(16), y2:yScale(16*w), stroke:COLORS.amber, 'stroke-width':2.5}));
+      const H = parseFloat(slider.value);
+      const Y = H*w;
+      const px = xScale(H), py = yScale(Y);
+      svg.appendChild(el('line', {x1:px,y1:f.y1,x2:px,y2:py, stroke:COLORS.faint, 'stroke-dasharray':'3,3'}));
+      svg.appendChild(el('line', {x1:f.x0,y1:py,x2:px,y2:py, stroke:COLORS.faint, 'stroke-dasharray':'3,3'}));
+      svg.appendChild(el('circle', {cx:px, cy:py, r:6, fill:COLORS.amber, stroke:'#14171C', 'stroke-width':2}));
+      valEl.textContent = H.toFixed(1);
+      readout.innerHTML = H.toFixed(1) + ' h → <span style="color:'+COLORS.amber+'">€'+Y.toFixed(0)+'</span>';
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= CHART B — diminishing MRS =================
+  (function(){
+    const svg = document.getElementById('chartB');
+    const slider = document.getElementById('sliderB');
+    const valEl = document.getElementById('valB');
+    const readout = document.getElementById('readoutB');
+    const f = frame({x0:70,y0:16,w:640,h:260});
+    const xMin=12, xMax=23, yMin=0, yMax=700;
+    function xScale(t){ return f.x0 + ((t-xMin)/(xMax-xMin))*f.w; }
+    function yScale(c){ return f.y1 - ((c-yMin)/(yMax-yMin))*f.h; }
+    // Umid is Karim's ACTUAL indifference curve — the one tangent to the budget line at (17, 210)
+    const Umid = 73.29, Ulow = 50, Uhigh = 100;
+
+    function curvePath(U){
+      let d = ''; let drawing = false;
+      for(let t=xMin; t<=xMax; t+=0.15){
+        const c = ceC(t, KA, KR, U);
+        if (c===null || c>yMax){ drawing=false; continue; }
+        const px = xScale(t), py = yScale(c);
+        d += (drawing? 'L':'M') + px.toFixed(1) + ' ' + py.toFixed(1) + ' ';
+        drawing = true;
+      }
+      return d;
+    }
+
+    function render(){
+      clear(svg);
+      drawAxes(svg, f, ticks(xMin,xMax,2), ticks(yMin,yMax,100), 'free time (hours)', 'consumption (€)', v=>v, v=>'€'+v);
+      [[Ulow,0.35],[Umid,1],[Uhigh,0.35]].forEach(([U,op])=>{
+        const p = curvePath(U);
+        if(p) svg.appendChild(el('path', {d:p, fill:'none', stroke:COLORS.teal, 'stroke-width': U===Umid?2.5:1.5, opacity:op}));
+      });
+      const T = parseFloat(slider.value);
+      const C = ceC(T, KA, KR, Umid);
+      if (C!==null){
+        const px = xScale(T), py = yScale(Math.min(C,yMax));
+        const mrs = ceMRS(T, C, KA, KR);
+        const dt = 2.2;
+        const t1 = T-dt, t2 = T+dt;
+        const c1 = C + mrs*dt, c2 = C - mrs*dt;
+        svg.appendChild(el('line', {
+          x1:xScale(t1), y1:yScale(Math.max(0,Math.min(c1,yMax))),
+          x2:xScale(t2), y2:yScale(Math.max(0,Math.min(c2,yMax))),
+          stroke:COLORS.amber, 'stroke-width':1.6, 'stroke-dasharray':'5,4'
+        }));
+        svg.appendChild(el('circle', {cx:px, cy:py, r:6, fill:COLORS.teal, stroke:'#14171C','stroke-width':2}));
+        valEl.textContent = T.toFixed(1);
+        readout.innerHTML = 'MRS ≈ <span style="color:'+COLORS.teal+'">€'+mrs.toFixed(0)+'</span> / hour';
+      }
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= CHART C — feasible set pivot =================
+  (function(){
+    const svg = document.getElementById('chartC');
+    const slider = document.getElementById('sliderC');
+    const valEl = document.getElementById('valC');
+    const readout = document.getElementById('readoutC');
+    const verdictEl = document.getElementById('testVerdict');
+    const f = frame({x0:70,y0:16,w:640,h:260});
+    const xMin=8, xMax=24, yMin=0, yMax=1000;
+    function xScale(t){ return f.x0 + ((t-xMin)/(xMax-xMin))*f.w; }
+    function yScale(c){ return f.y1 - ((c-yMin)/(yMax-yMin))*f.h; }
+    const testT = 12, testC = 400;
+
+    function render(){
+      clear(svg);
+      drawAxes(svg, f, ticks(xMin,xMax,4), ticks(yMin,yMax,200), 'free time (hours)', 'consumption (€)', v=>v, v=>'€'+v);
+      const w = parseFloat(slider.value);
+      const cAt8 = 16*w;
+      const pts = [[xMin,cAt8],[xMin,0],[xMax,0]].map(([t,c])=>`${xScale(t)},${yScale(Math.min(c,yMax))}`).join(' ');
+      svg.appendChild(el('polygon', {points:pts, fill:COLORS.amber, opacity:0.10}));
+      svg.appendChild(el('line', {
+        x1:xScale(xMin), y1:yScale(Math.min(cAt8,yMax)), x2:xScale(xMax), y2:yScale(0),
+        stroke:COLORS.amber, 'stroke-width':2.5
+      }));
+      const maxCAtTest = w*(24-testT);
+      const feasible = testC <= maxCAtTest;
+      const tpx = xScale(testT), tpy = yScale(Math.min(testC,yMax));
+      svg.appendChild(el('circle', {cx:tpx, cy:tpy, r:6, fill: feasible?COLORS.teal:COLORS.rust, stroke:'#14171C','stroke-width':2}));
+      valEl.textContent = '€'+w;
+      readout.innerHTML = 'w = <span style="color:'+COLORS.amber+'">€'+w+'</span>/hr';
+      verdictEl.innerHTML = 'Test bundle — 12 hours free time, €400 consumption: <strong style="color:'+(feasible?COLORS.teal:COLORS.rust)+'">'+(feasible?'feasible':'infeasible')+'</strong> at this wage (max at 12h free time is €'+maxCAtTest.toFixed(0)+').';
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= CHART D — MRS = MRT tangency =================
+  (function(){
+    const svg = document.getElementById('chartD');
+    const slider = document.getElementById('sliderD');
+    const valEl = document.getElementById('valD');
+    const readout = document.getElementById('readoutD');
+    const verdictEl = document.getElementById('verdictD');
+    const f = frame({x0:70,y0:16,w:640,h:260});
+    const w = 30;
+    const xMin=8, xMax=24, yMin=0, yMax=500;
+    function xScale(t){ return f.x0 + ((t-xMin)/(xMax-xMin))*f.w; }
+    function yScale(c){ return f.y1 - ((c-yMin)/(yMax-yMin))*f.h; }
+
+    function curvePath(U){
+      let d = ''; let drawing = false;
+      for(let t=xMin; t<=xMax; t+=0.15){
+        const c = ceC(t, KA, KR, U);
+        if (c===null || c>yMax){ drawing=false; continue; }
+        const px = xScale(t), py = yScale(c);
+        d += (drawing? 'L':'M') + px.toFixed(1) + ' ' + py.toFixed(1) + ' ';
+        drawing = true;
+      }
+      return d;
+    }
+
+    function render(){
+      clear(svg);
+      drawAxes(svg, f, ticks(xMin,xMax,4), ticks(yMin,yMax,100), 'free time (hours)', 'consumption (€)', v=>v, v=>'€'+v);
+      svg.appendChild(el('line', {
+        x1:xScale(xMin), y1:yScale(16*w), x2:xScale(xMax), y2:yScale(0),
+        stroke:COLORS.amber, 'stroke-width':2.5
+      }));
+      const T = parseFloat(slider.value);
+      const C = w*(24-T);
+      const U = ceUtility(T, C, KA, KR);
+      const p = curvePath(U);
+      if(p) svg.appendChild(el('path', {d:p, fill:'none', stroke:COLORS.teal, 'stroke-width':2.2}));
+      const px = xScale(T), py = yScale(Math.min(C,yMax));
+      svg.appendChild(el('circle', {cx:px, cy:py, r:6.5, fill:COLORS.ink, stroke:COLORS.teal, 'stroke-width':2.5}));
+      const mrs = ceMRS(T, C, KA, KR);
+      const mrt = w;
+      valEl.textContent = T.toFixed(1);
+      readout.innerHTML = 'MRS <span style="color:'+COLORS.teal+'">€'+mrs.toFixed(0)+'</span> · MRT <span style="color:'+COLORS.amber+'">€'+mrt+'</span>';
+      const diff = mrs - mrt;
+      let cls, text;
+      if (Math.abs(diff) < 1){ cls='eq'; text='MRS = MRT — equilibrium, no reason to move'; }
+      else if (diff > 0){ cls='buy'; text='MRS > MRT — free time is a bargain, take more'; }
+      else { cls='sell'; text='MRS < MRT — free time costs more than it\'s worth, cut back'; }
+      verdictEl.className = 'verdict ' + cls;
+      verdictEl.textContent = text;
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= CHART E — income vs substitution decomposition =================
+  (function(){
+    const svg = document.getElementById('chartE');
+    const slider = document.getElementById('sliderE');
+    const valEl = document.getElementById('valE');
+    const wageEval = document.getElementById('wageEval');
+    const readout = document.getElementById('readoutE');
+    const verdictEl = document.getElementById('verdictE');
+    const numsEl = document.getElementById('effectNums');
+    const f = frame({x0:70,y0:16,w:640,h:270});
+    const SA = 0.8996, SR = 0.5; // student calibration
+    const wOld = 90, DAYS = 70;
+    const xMin=0, xMax=70, yMin=0, yMax=11000;
+    function xScale(t){ return f.x0 + ((t-xMin)/(xMax-xMin))*f.w; }
+    function yScale(c){ return f.y1 - ((c-yMin)/(yMax-yMin))*f.h; }
+
+    function render(){
+      clear(svg);
+      drawAxes(svg, f, ticks(xMin,xMax,10), ticks(yMin,yMax,2000), 'free time (days)', 'consumption ($)', v=>v, v=>'$'+v);
+      const wNew = parseFloat(slider.value);
+      const Mold = DAYS*wOld, Mnew = DAYS*wNew;
+      const A = ceDemand(wOld, Mold, SA, SR);
+      const Cpt = ceDemand(wOld, Mnew, SA, SR);
+      const D = ceDemand(wNew, Mnew, SA, SR);
+
+      function lineSeg(slopeW, yIntercept, dash){
+        const t0 = xMin, t1 = Math.min(xMax, yIntercept/slopeW);
+        svg.appendChild(el('line', {
+          x1:xScale(t0), y1:yScale(Math.min(yIntercept - slopeW*t0, yMax)),
+          x2:xScale(t1), y2:yScale(Math.max(0,yIntercept - slopeW*t1)),
+          stroke: dash? COLORS.faint : COLORS.amber,
+          'stroke-width': dash? 1.6:2.2,
+          'stroke-dasharray': dash? '5,4': null
+        }));
+      }
+      lineSeg(wOld, Mold, false);
+      lineSeg(wOld, Mnew, true);
+      lineSeg(wNew, Mnew, false);
+
+      function pt(p, color, label, dy){
+        const px = xScale(p.T), py = yScale(Math.min(p.C,yMax));
+        svg.appendChild(el('circle', {cx:px, cy:py, r:6, fill:color, stroke:'#14171C','stroke-width':2}));
+        const t = el('text', {x:px, y:py+dy, class:'tick', 'text-anchor':'middle', fill:color});
+        t.textContent = label;
+        t.setAttribute('style','font-size:12px;');
+        svg.appendChild(t);
+      }
+      pt(A, COLORS.teal, 'A', -14);
+      pt(Cpt, COLORS.ink, 'C', -14);
+      pt(D, COLORS.amber, 'D', 20);
+
+      function arrow(p1,p2,color){
+        svg.appendChild(el('line', {
+          x1:xScale(p1.T), y1:yScale(p1.C), x2:xScale(p2.T), y2:yScale(p2.C),
+          stroke:color, 'stroke-width':1.4, 'marker-end':'url(#arrowhead)'
+        }));
+      }
+      if(!svg.querySelector('#arrowhead')){
+        const defs = el('defs',{});
+        const marker = el('marker', {id:'arrowhead', markerWidth:8, markerHeight:8, refX:6, refY:3, orient:'auto'});
+        const tri = el('path', {d:'M0,0 L0,6 L7,3 z', fill:COLORS.dim});
+        marker.appendChild(tri); defs.appendChild(marker); svg.appendChild(defs);
+      }
+      arrow(A, Cpt, COLORS.teal);
+      arrow(Cpt, D, COLORS.amber);
+
+      const incomeEff = Cpt.T - A.T;
+      const subEff = D.T - Cpt.T;
+      const net = D.T - A.T;
+      valEl.textContent = '$'+wNew;
+      wageEval.textContent = wNew;
+      readout.innerHTML = '$90 → $<span style="color:'+COLORS.amber+'">'+wNew+'</span>/day';
+      let cls, text;
+      if (Math.abs(net) < 0.3){ cls='eq'; text='income and substitution roughly cancel — net free time unchanged'; }
+      else if (net > 0){ cls='buy'; text='income effect dominates — net free time rises'; }
+      else { cls='sell'; text='substitution effect dominates — net free time falls'; }
+      verdictEl.className = 'verdict '+cls;
+      verdictEl.textContent = text;
+      numsEl.textContent = `income effect: ${incomeEff>=0?'+':''}${incomeEff.toFixed(1)} days of free time · substitution effect: ${subEff>=0?'+':''}${subEff.toFixed(1)} days · net: ${net>=0?'+':''}${net.toFixed(1)} days`;
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= Widget T — feasible trade price range (L02) =================
+  (function(){
+    const svg = document.getElementById('chartT');
+    const slider = document.getElementById('sliderT');
+    const valEl = document.getElementById('valT');
+    const readout = document.getElementById('readoutT');
+    const verdictEl = document.getElementById('verdictT');
+    const f = frame({x0:40,y0:20,w:680,h:80});
+    const xMin=15, xMax=60;
+    function xScale(p){ return f.x0 + ((p-xMin)/(xMax-xMin))*f.w; }
+
+    function render(){
+      clear(svg);
+      // track
+      svg.appendChild(el('line',{x1:xScale(xMin),y1:f.y1,x2:xScale(xMax),y2:f.y1,stroke:COLORS.line,'stroke-width':3}));
+      // feasible band 25-50
+      svg.appendChild(el('rect',{x:xScale(25),y:f.y0,width:xScale(50)-xScale(25),height:f.h,fill:COLORS.teal,opacity:0.12}));
+      svg.appendChild(el('line',{x1:xScale(25),y1:f.y0,x2:xScale(25),y2:f.y1,stroke:COLORS.teal,'stroke-width':1.5,'stroke-dasharray':'4,3'}));
+      svg.appendChild(el('line',{x1:xScale(50),y1:f.y0,x2:xScale(50),y2:f.y1,stroke:COLORS.teal,'stroke-width':1.5,'stroke-dasharray':'4,3'}));
+      svg.appendChild(el('text',{x:xScale(25),y:f.y0-6,class:'tick','text-anchor':'middle',fill:COLORS.teal})).textContent='25 (Greta\'s cost)';
+      svg.appendChild(el('text',{x:xScale(50),y:f.y0-6,class:'tick','text-anchor':'middle',fill:COLORS.teal})).textContent='50 (Carlos\'s cost)';
+      [20,30,40,50,60].forEach(v=>{
+        svg.appendChild(el('text',{x:xScale(v),y:f.y1+22,class:'tick','text-anchor':'middle'})).textContent=v;
+      });
+
+      const p = parseFloat(slider.value);
+      const px = xScale(p);
+      const inRange = p>=25 && p<=50;
+      svg.appendChild(el('circle',{cx:px,cy:f.y1,r:7,fill: inRange?COLORS.teal:COLORS.rust, stroke:'#14171C','stroke-width':2}));
+
+      const gretaGain = (p-25)*15, carlosGain = (50-p)*15;
+      valEl.textContent = p; readout.innerHTML = 'price = <span style="color:'+COLORS.amber+'">'+p+'</span> apples/ton';
+
+      if (inRange){
+        verdictEl.className='verdict buy';
+        verdictEl.textContent = `both gain — Greta +${gretaGain} apples, Carlos +${carlosGain} apples (on 15 tons traded)`;
+      } else if (p<25){
+        verdictEl.className='verdict bad';
+        verdictEl.textContent = `below Greta's cost — she'd rather keep the wheat than sell at ${p}`;
+      } else {
+        verdictEl.className='verdict bad';
+        verdictEl.textContent = `above Carlos's cost — he'd rather grow it himself than buy at ${p}`;
+      }
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= Widget I — isocost technology flip (L03) =================
+  (function(){
+    const svg = document.getElementById('chartI');
+    const slider = document.getElementById('sliderI');
+    const valEl = document.getElementById('valI');
+    const readout = document.getElementById('readoutI');
+    const verdictEl = document.getElementById('verdictI');
+    const f = frame({x0:70,y0:16,w:640,h:250});
+    const techs = { A:{L:1,R:6,color:COLORS.amber}, B:{L:4,R:2,color:COLORS.teal}, E:{L:10,R:1,color:'#B98CD9'} };
+    const xMax=11, yMax=7;
+    function xScale(l){ return f.x0 + (l/xMax)*f.w; }
+    function yScale(r){ return f.y1 - (r/yMax)*f.h; }
+
+    function render(){
+      clear(svg);
+      drawAxes(svg,f,ticks(0,xMax,2),ticks(0,yMax,1),'workers (L)','tons of coal (R)', v=>v, v=>v);
+
+      const w = parseFloat(slider.value);
+      const costs = {};
+      Object.keys(techs).forEach(k=>{ const t=techs[k]; costs[k]= w*t.L + 1*t.R; });
+      const cheapest = Object.keys(costs).reduce((a,b)=> costs[a]<costs[b]?a:b);
+
+      // isocost line through cheapest tech: w*L + R = costs[cheapest]  => R = cost - w*L
+      const C = costs[cheapest];
+      const l0=0, l1=Math.min(xMax, C/w || xMax);
+      svg.appendChild(el('line',{
+        x1:xScale(l0), y1:yScale(Math.min(C-w*l0,yMax)),
+        x2:xScale(l1), y2:yScale(Math.max(0,C-w*l1)),
+        stroke:COLORS.ink, 'stroke-width':1.6, 'stroke-dasharray':'6,4', opacity:0.55
+      }));
+
+      Object.keys(techs).forEach(k=>{
+        const t = techs[k];
+        const px = xScale(t.L), py = yScale(t.R);
+        const isCheapest = k===cheapest;
+        svg.appendChild(el('circle',{cx:px,cy:py,r:isCheapest?8:6, fill:t.color, stroke: isCheapest?COLORS.ink:'#14171C','stroke-width':isCheapest?2.5:2}));
+        const lbl = el('text',{x:px, y:py-14, class:'tick','text-anchor':'middle', fill:t.color});
+        lbl.setAttribute('style','font-size:13px;');
+        lbl.textContent = `${k}: $${costs[k].toFixed(2)}`;
+        svg.appendChild(lbl);
+      });
+
+      valEl.textContent = w.toFixed(2);
+      readout.innerHTML = 'wage/coal-price ratio = <span style="color:'+COLORS.amber+'">'+w.toFixed(2)+'</span>';
+      const names = {A:'A (1 worker, 6 tons coal, energy-intensive)', B:'B (4 workers, 2 tons coal)', E:'E (10 workers, 1 ton coal, labour-intensive)'};
+      verdictEl.className = 'verdict ' + (cheapest==='A'?'sell':cheapest==='E'?'buy':'eq');
+      verdictEl.textContent = names[cheapest] + ' is cheapest';
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // ================= Widget N — Nash equilibrium finder (L07/08) =================
+  (function(){
+    const table = document.getElementById('matrixTable');
+    const neText = document.getElementById('neText');
+    const cells = Array.from(table.querySelectorAll('td.cell'));
+    const rowHeads = [document.getElementById('rowHead0'), document.getElementById('rowHead1')];
+    const colHeads = [document.getElementById('colHead0'), document.getElementById('colHead1')];
+
+    const presets = {
+      crop: { vals: [[4,4],[6,3],[6,6],[5,2]], rowNames:['Rice','Cassava'], colNames:['Rice','Cassava'] },
+      pest: { vals: [[3,3],[1,4],[4,1],[2,2]], rowNames:['IPC','Terminator'], colNames:['IPC','Terminator'] }
+    };
+    let rowNames = ['strategy 1','strategy 2'], colNames = ['strategy 1','strategy 2'];
+
+    function buildCellDOM(){
+      cells.forEach(td=>{
+        td.innerHTML = '';
+        const rowIn = document.createElement('input');
+        rowIn.type='number'; rowIn.className='cellin row'; rowIn.value = 0;
+        const sep = document.createTextNode(', ');
+        const colIn = document.createElement('input');
+        colIn.type='number'; colIn.className='cellin col'; colIn.value = 0;
+        const wrap = document.createElement('div');
+        wrap.style.display='flex'; wrap.style.alignItems='center'; wrap.style.justifyContent='center'; wrap.style.height='100%';
+        wrap.appendChild(rowIn); wrap.appendChild(sep); wrap.appendChild(colIn);
+        td.appendChild(wrap);
+        rowIn.addEventListener('input', solve);
+        colIn.addEventListener('input', solve);
+      });
+    }
+
+    function getMatrix(){
+      // returns [[r,c],[r,c],[r,c],[r,c]] for (0,0)(0,1)(1,0)(1,1)
+      return cells.map(td=>{
+        const inputs = td.querySelectorAll('input');
+        return [parseFloat(inputs[0].value)||0, parseFloat(inputs[1].value)||0];
+      });
+    }
+    function setMatrix(vals, names){
+      cells.forEach((td,i)=>{
+        const inputs = td.querySelectorAll('input');
+        inputs[0].value = vals[i][0];
+        inputs[1].value = vals[i][1];
+      });
+      if (names){
+        rowNames = names.rowNames; colNames = names.colNames;
+        rowHeads.forEach((h,i)=> h.textContent = 'Anil: ' + rowNames[i]);
+        colHeads.forEach((h,i)=> h.textContent = 'Bala: ' + colNames[i]);
+      }
+      solve();
+    }
+
+    function solve(){
+      const m = getMatrix(); // index: 0=r0c0, 1=r0c1, 2=r1c0, 3=r1c1
+      const grid = [[m[0],m[1]],[m[2],m[3]]]; // grid[r][c] = [rowPayoff, colPayoff]
+
+      // row player best response per column
+      const rowBR = [[false,false],[false,false]]; // rowBR[r][c] = true if r is BR for that column c
+      for(let c=0;c<2;c++){
+        const p0 = grid[0][c][0], p1 = grid[1][c][0];
+        if (p0>=p1) rowBR[0][c]=true;
+        if (p1>=p0) rowBR[1][c]=true;
+      }
+      // col player best response per row
+      const colBR = [[false,false],[false,false]]; // colBR[r][c]
+      for(let r=0;r<2;r++){
+        const p0 = grid[r][0][1], p1 = grid[r][1][1];
+        if (p0>=p1) colBR[r][0]=true;
+        if (p1>=p0) colBR[r][1]=true;
+      }
+
+      const neCells = [];
+      cells.forEach(td=>{
+        const r = +td.dataset.r, c = +td.dataset.c;
+        td.classList.remove('ne');
+        const marks = td.querySelectorAll('.tickmark'); marks.forEach(m=>m.remove());
+        if (rowBR[r][c]){
+          const t = document.createElement('span'); t.className='tickmark r'; t.textContent='✓'; td.appendChild(t);
+        }
+        if (colBR[r][c]){
+          const t = document.createElement('span'); t.className='tickmark c'; t.textContent='✓'; td.appendChild(t);
+        }
+        if (rowBR[r][c] && colBR[r][c]){
+          td.classList.add('ne');
+          neCells.push(`(${rowNames[r]}, ${colNames[c]})`);
+        }
+      });
+      neText.textContent = neCells.length ? neCells.join(' & ') : 'none in pure strategies';
+    }
+
+    document.querySelectorAll('.presets button').forEach(btn=>{
+      btn.addEventListener('click', ()=> setMatrix(presets[btn.dataset.preset].vals, presets[btn.dataset.preset]));
+    });
+
+    buildCellDOM();
+    setMatrix(presets.crop.vals, presets.crop);
+  })();
+
+  // ================= Widget E2 — elasticity & margin (L09/10) =================
+  (function(){
+    const svg = document.getElementById('chartE2');
+    const slider = document.getElementById('sliderE2');
+    const valEl = document.getElementById('valE2');
+    const readout = document.getElementById('readoutE2');
+    const verdictEl = document.getElementById('verdictE2');
+    const numsEl = document.getElementById('numsE2');
+    const f = frame({x0:80,y0:16,w:620,h:250});
+
+    const A=34000, B=3000, MC=2;
+    const xMin=0, xMax=30000, yMin=0, yMax=10;
+    function xScale(q){ return f.x0 + ((q-xMin)/(xMax-xMin))*f.w; }
+    function yScale(p){ return f.y1 - ((p-yMin)/(yMax-yMin))*f.h; }
+
+    function render(){
+      clear(svg);
+      drawAxes(svg,f,ticks(xMin,xMax,5000),ticks(yMin,yMax,2),'quantity (Q)','price ($)', v=>(v/1000)+'k', v=>'$'+v);
+
+      // demand curve Q = A - B*P, drawn across the full visible (Q,P) window
+      const qAtTop = Math.max(xMin, A - B*yMax);      // Q where the line enters at P = yMax
+      const qAtRight = Math.min(xMax, A);              // Q where the line would hit P = 0, clipped to xMax
+      const pAtRight = Math.max(0, (A - qAtRight)/B);  // price at that right-hand edge
+      svg.appendChild(el('line',{
+        x1:xScale(qAtTop), y1:yScale(yMax),
+        x2:xScale(qAtRight), y2:yScale(pAtRight),
+        stroke:COLORS.amber, 'stroke-width':2.2
+      }));
+
+      const P = parseFloat(slider.value);
+      const Q = A - B*P;
+      const eps = (P/Q)*(-B);
+      const marginActual = (P-MC)/P;
+      const marginImplied = -1/eps;
+
+      const px = xScale(Q), py = yScale(P);
+      svg.appendChild(el('line',{x1:px,y1:f.y1,x2:px,y2:py,stroke:COLORS.faint,'stroke-dasharray':'3,3'}));
+      svg.appendChild(el('line',{x1:f.x0,y1:py,x2:px,y2:py,stroke:COLORS.faint,'stroke-dasharray':'3,3'}));
+      svg.appendChild(el('circle',{cx:px,cy:py,r:6.5,fill:COLORS.teal,stroke:'#14171C','stroke-width':2}));
+      // MC line
+      svg.appendChild(el('line',{x1:f.x0,y1:yScale(MC),x2:f.x1,y2:yScale(MC),stroke:COLORS.rust,'stroke-width':1.2,'stroke-dasharray':'2,3',opacity:0.6}));
+      svg.appendChild(el('text',{x:f.x1-4,y:yScale(MC)-6,class:'tick','text-anchor':'end',fill:COLORS.rust})).textContent='MC = $2';
+
+      valEl.textContent = '$'+P.toFixed(2);
+      readout.innerHTML = 'P = <span style="color:'+COLORS.amber+'">$'+P.toFixed(2)+'</span>';
+
+      let cls, text;
+      const gap = marginActual - marginImplied;
+      if (Math.abs(gap) < 0.01){ cls='eq'; text='profit-maximizing price — MR = MC here'; }
+      else if (gap < 0){ cls='buy'; text='margin below what elasticity allows — raise price'; }
+      else { cls='sell'; text='margin above what elasticity allows — cut price'; }
+      verdictEl.className='verdict '+cls; verdictEl.textContent=text;
+
+      const elClass = Math.abs(eps+1)<0.03 ? 'unitary elastic' : eps<-1 ? 'elastic' : 'inelastic';
+      numsEl.textContent = `Q=${Q.toLocaleString()} · ε=${eps.toFixed(2)} (${elClass}) · actual margin (P−MC)/P = ${marginActual.toFixed(2)} · elasticity-implied margin −1/ε = ${marginImplied.toFixed(2)}`;
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+})();
+</script>
+</body>
+</html>
