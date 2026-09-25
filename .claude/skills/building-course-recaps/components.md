@@ -36,4 +36,5 @@ a formula already on the card, cut it and write a better card.
   algorithm on the same input and compare it state by state.
 - **Formula cards (KaTeX)**: load the page and check the console for KaTeX
   parse errors. A broken `$...$` shows up as raw red text. Currency in prose
-  must be written `\$5` when KaTeX is on, or it becomes math.
+  must be written `<span class="nomath">$5</span>` when KaTeX is on (the
+  template ignores `nomath`); `\$5` leaves a visible backslash.

@@ -42,7 +42,7 @@ Reference implementation: `term1/dsm107-managerial-economics/recap/course-recap.
 5. **Verify.** Follow the per-type checks in [components.md](components.md) (Python recompute, slider sweeps, running snippets). Then:
    - open the page in the browser pane, check for zero console errors, and try each jump-nav link
    - test the print version by injecting the `@media print` rules as a live `<style>`, running `document.querySelectorAll('details').forEach(d => d.open = true)` (injected CSS never fires `beforeprint`), then taking a screenshot
-   - test a phone-width viewport
+   - test a phone-width viewport: with all `<details>` open, `document.documentElement.scrollWidth === clientWidth` (no horizontal scroll)
    - re-scan the lecture notes for analogies you dropped
 6. **Publish.**
    - Add an `Interactive recap` pill to that course's row in the root `index.html`.
