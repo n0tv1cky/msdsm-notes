@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSM-101 Full Course Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false})"></script>
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+    --rust:#C1594A; --maxw:680px; --wide:920px;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber-dim); color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .wrap-wide{max-width:var(--wide); margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.92em;}
+  .katex{font-size:1.02em; position:relative;}
+  /* KaTeX's hidden MathML layer otherwise adds phantom horizontal scroll on phones */
+  .katex .katex-mathml{width:1px; height:1px; overflow:hidden; left:0; top:0;}
+
+  /* ---------- page chrome ---------- */
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); z-index:50; transition:width .1s linear;}
+  section{scroll-margin-top:54px;}
+  nav.jumpnav{position:sticky; top:3px; z-index:40; background:rgba(20,23,28,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:10px 24px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none;}
+  nav.jumpnav::-webkit-scrollbar{display:none;}
+  nav.jumpnav a{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); text-decoration:none; white-space:nowrap; padding:6px 11px; border-radius:20px; border:1px solid var(--line); flex:none; transition:color .15s,border-color .15s;}
+  nav.jumpnav a:hover, nav.jumpnav a:focus-visible{color:var(--ink); border-color:var(--amber);}
+  header.hero{padding:40px 0 28px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0;}
+  .legend{display:flex; gap:22px; flex-wrap:wrap; margin:14px 0 0; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim);}
+  .legend span{display:flex; align-items:center; gap:8px;}
+  .swatch{width:12px; height:12px; border-radius:3px; flex:none;}
+  .swatch.amber{background:var(--amber);} .swatch.teal{background:var(--teal);}
+
+  .module{padding:52px 0 8px;}
+  .module-head{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px;}
+  .module-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 8px;}
+  .module h2{font-size:1.55rem; margin:0 0 10px;}
+  .module .lede{color:var(--ink-dim); max-width:64ch; margin:0;}
+  h3.sub{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:30px 0 12px; letter-spacing:.02em;}
+
+  /* ---------- cheat cards ---------- */
+  .cheat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:24px;}
+  .cheat-grid.two{grid-template-columns:repeat(2,1fr);}
+  .cheat-card{background:var(--panel); padding:18px 20px; min-width:0;}
+  .cheat-card h3{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:0 0 12px;}
+  .cheat-card dl{margin:0;}
+  .cheat-card dt{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); margin:0 0 2px;}
+  .cheat-card dt.t{color:var(--teal);}
+  .cheat-card dd{margin:0 0 12px; font-size:14px; color:var(--ink-dim); line-height:1.5;}
+  .cheat-card dd:last-child{margin-bottom:0;}
+  .cheat-card ul, .note ul{margin:0; padding:0; list-style:none;}
+  .cheat-card li{font-size:14px; color:var(--ink-dim); margin:0 0 9px; padding-left:14px; position:relative; line-height:1.5;}
+  .cheat-card li:last-child, .note li:last-child{margin-bottom:0;}
+  .cheat-card li::before, .note li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+  .cheat-card strong{color:var(--ink); font-weight:600;}
+  .cheat-card .katex-display{margin:6px 0; overflow-x:auto; overflow-y:hidden;}
+  .a{color:var(--amber);} .t{color:var(--teal);}
+  @media (max-width:760px){.cheat-grid,.cheat-grid.two{grid-template-columns:1fr;}}
+
+  /* ---------- tables ---------- */
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:8px; margin:0 0 24px;}
+  table.dt{border-collapse:collapse; width:100%; font-size:13.5px; min-width:640px;}
+  table.dt th, table.dt td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; color:var(--ink-dim);}
+  table.dt th{font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:500; color:var(--ink-faint); background:var(--panel);}
+  table.dt td:first-child{color:var(--ink); font-weight:600; white-space:nowrap;}
+  table.dt tr:last-child td{border-bottom:none;}
+  table.dt tr.disc td:first-child{color:var(--amber);} table.dt tr.cont td:first-child{color:var(--teal);}
+
+  /* ---------- intuition callout ---------- */
+  .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:0 0 28px;}
+  .note p{margin:0 0 8px;} .note p:last-child{margin-bottom:0;}
+  .note li{margin:0 0 7px; padding-left:14px; position:relative;}
+  .note strong{color:var(--ink-dim); font-weight:600;}
+  .note.warn{border-left-color:var(--rust);}
+
+  /* ---------- interactive panel ---------- */
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:24px 24px 20px; margin:0 0 32px;}
+  .panel-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:6px; flex-wrap:wrap;}
+  .panel-title{font-family:'Fraunces',serif; font-size:1.02rem; color:var(--ink);}
+  .panel-sub{font-size:14px; color:var(--ink-faint); margin:0 0 6px;}
+  .readout{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); text-align:right;}
+  svg.chart{width:100%; height:auto; display:block; margin:14px 0 8px; overflow:visible;}
+  .tick{font-family:'IBM Plex Mono',monospace; font-size:10px; fill:var(--ink-faint);}
+  .axislabel{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink-faint);}
+  .gridline{stroke:var(--line); stroke-width:1;}
+  .axis{stroke:var(--ink-faint); stroke-width:1;}
+  .controls{display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-top:10px;}
+  .slider-group{display:flex; flex-direction:column; gap:6px; flex:1; min-width:180px;}
+  .slider-label{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between; gap:8px;}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:var(--line); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:16px; height:16px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  .verdict{font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 12px; border-radius:5px; margin-top:14px; display:inline-block; line-height:1.5;}
+  .verdict.good{background:rgba(79,168,160,.14); color:var(--teal);}
+  .verdict.warn{background:rgba(232,163,61,.14); color:var(--amber);}
+  .verdict.eq{background:rgba(237,234,226,.1); color:var(--ink);}
+  .verdict.bad{background:rgba(193,89,74,.16); color:var(--rust);}
+  .btn{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:6px 12px; cursor:pointer;}
+  .btn:hover{border-color:var(--amber); color:var(--ink);}
+  .btn.on{border-color:var(--teal); color:var(--teal);}
+  .btnrow{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 4px;}
+  .freq{margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim);}
+  .freqbar{display:flex; height:26px; border-radius:4px; overflow:hidden; border:1px solid var(--line); margin:6px 0;}
+  .freqbar div{height:100%;}
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim);}
+  .stats b{display:block; font-weight:500; color:var(--ink); font-size:14px;}
+
+  /* ---------- worked / practice ---------- */
+  details.worked{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 20px; margin:0 0 14px;}
+  details.worked summary{cursor:pointer; font-size:15px; color:var(--ink); list-style:none;}
+  details.worked summary::-webkit-details-marker{display:none;}
+  details.worked summary::before{content:'▸ '; color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  details.worked[open] summary::before{content:'▾ ';}
+  details.worked.practice summary::before{color:var(--teal);}
+  details.worked .tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin-left:8px; white-space:nowrap;}
+  details.worked ol{margin:12px 0 0; padding-left:22px; color:var(--ink-dim); font-size:15px;}
+  details.worked ol li{margin:0 0 6px;}
+  details.worked .answer{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal);}
+
+  footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
+  @media (max-width:600px){ .tick{font-size:17px;} .axislabel{font-size:17px;} }
+  @media (max-width:600px){ .module{padding:40px 0 4px;} .panel{padding:18px 16px 16px;} .wrap,.wrap-wide{padding:0 16px;} nav.jumpnav{padding:10px 16px;} }
+
+  @media print{
+    @page{ margin:1.3cm; }
+    :root{
+      --bg:#ffffff; --panel:#f7f6f2; --ink:#161616; --ink-dim:#3d3d3d; --ink-faint:#6b6b6b;
+      --line:#cfcbc0; --amber:#a85e0d; --amber-dim:#d9c3a3; --teal:#136b62; --teal-dim:#a9cfc9; --rust:#9a3a2a;
+    }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-size:11pt; }
+    nav.jumpnav, .progress, .btn, .btnrow, .controls{ display:none !important; }
+    section{ scroll-margin-top:0; }
+    header.hero{ padding:0 0 16px; }
+    .module{ padding:28px 0 4px; }
+    .cheat-card, .panel, .note, details.worked, table.dt tr{ break-inside:avoid; page-break-inside:avoid; }
+    h2, .panel-head, h3.sub{ break-after:avoid; page-break-after:avoid; }
+    .table-wrap{ overflow:visible; } table.dt{ min-width:0; }
+    a[href]:after{ content:""; }
+    .verdict{ border:1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="jumpnav">
+  <a href="#m1">1 · Why probability</a>
+  <a href="#m2">2 · Rules &amp; Bayes</a>
+  <a href="#m3">3 · Samples &amp; density</a>
+  <a href="#m4">4 · PMF / PDF / CDF</a>
+  <a href="#m5">5 · Moments &amp; MGF</a>
+  <a href="#m6">6 · Distributions</a>
+  <a href="#m7">7 · Normal &amp; CLT</a>
+  <a href="#m8">8 · Inequalities</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap-wide">
+    <p class="kicker">DSM-101 Probability &amp; Statistics — full course recap, S1–S10 (Majumdar) + S11 → 19 Sep (Arshad)</p>
+    <div class="legend">
+      <span><i class="swatch amber"></i>discrete · single draw · prior</span>
+      <span><i class="swatch teal"></i>continuous · sample mean · posterior</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MODULE 1 ============ -->
+<section class="module" id="m1">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S1 · S2 — Majumdar</p>
+      <h2>Why probability: inverse problems and two schools</h2>
+      <p class="lede">Conceptual framing; not examined directly, but it's the vocabulary for everything after.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>The inverse problem</h3>
+        <dl>
+          <dt>forward problem</dt><dd>Model + parameters known → predict data. Easy ("two lines of Python" for a fair coin).</dd>
+          <dt>inverse problem</dt><dd>Data (effect) known → infer model/cause. Hard: different causes explain the same data.</dd>
+          <dt>a theory earns credibility</dt><dd>by surviving <strong>independent</strong> datasets across <strong>scales</strong>.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Three types of inverse problem</h3>
+        <dl>
+          <dt>1 · hypothesis testing</dt><dd>Is a statement consistent with data? ("markets always crash")</dd>
+          <dt>2 · parameter estimation</dt><dd>What value does θ take? (TED spread threshold before 2008)</dd>
+          <dt>3 · model selection</dt><dd>Which of several fitting models? <strong>Hardest</strong> — needs the evidence term.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Where uncertainty comes from</h3>
+        <ul>
+          <li><strong>Noise</strong> in the measurement</li>
+          <li><strong>Intrinsic randomness</strong> (no two petals alike)</li>
+          <li><strong>Designed randomness</strong> of complex systems (lottery drum)</li>
+          <li><strong>Epistemic</strong> stance: causes unknown (age of universe ± error). <strong>Aleatory</strong>: games of chance, "40% rain tomorrow".</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th></th><th>Frequentist</th><th>Bayesian</th></tr>
+        <tr class="disc"><td>Probability is</td><td>relative frequency over an infinite ensemble of identical experiments</td><td>degree of belief of an observer, given their information</td></tr>
+        <tr><td>Nature</td><td>objective</td><td>subjective (observer-dependent, but grounded in data)</td></tr>
+        <tr class="cont"><td>Output</td><td>a <strong>point value</strong> per parameter (best-fit $m, c$)</td><td>a <strong>distribution</strong> (posterior) per parameter, with widths</td></tr>
+        <tr><td>One-off events</td><td>breaks down (needs hypothetical ensemble)</td><td>fine (life on Mars, Drake equation)</td></tr>
+        <tr><td>New data</td><td>refit; estimate may jump (bias–variance)</td><td>update; old posterior becomes new prior</td></tr>
+        <tr><td>People</td><td>Boole, Venn, Fisher, von Mises</td><td>Bayes, Laplace, Keynes, Jeffreys, Cox, Jaynes</td></tr>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>Majumdar's pictures of the inverse problem:</p>
+      <ul>
+        <li><strong>Newton's apple</strong>: "gravity" and "magic" both explain one falling apple; only gravity survives the Earth–Sun, galaxy and cluster scales.</li>
+        <li><strong>Tycho's Mars</strong>: naked-eye declination data (1582–1600) → Kepler's ellipses. Seeing ellipses in a wiggly plot is the hard part. Dots are data; a curve is a model or denser data — never just join the dots.</li>
+        <li><strong>Hungry shopper</strong>: "empty stomach → more chips and Coke" is a bias until you survey hungry vs not-hungry buyers.</li>
+        <li><strong>The ant and the finger</strong>: from limited data the ant infers a giant tooth; new data (squashed, or climbs over) forces an update — Bayes foreshadowed.</li>
+      </ul>
+    </div>
+    <div class="note">
+      <p>Why the Bayesian answer differs — "you always have more prior information than you think":</p>
+      <ul>
+        <li><strong>Supernova</strong>: 4 naked-eye supernovae in 10 centuries → frequentist 4/10 = 40%; see one in 1987 → 5/10 = 50%. Ignores who was looking up, population, industrialisation, night-sky darkness.</li>
+        <li><strong>Bus No. 15</strong>: 3 buses in the last hour → "every 20 min". Bayesian: peaked at 20 but 15–25 possible, because you <em>know</em> about night schedules, jams, accidents ("latent observations").</li>
+        <li><strong>Magician's coin / caveman and rain</strong>: same proposition, different information → different degrees of belief.</li>
+        <li><strong>Straight-line fit</strong>: same model $y=mx+c$; frequentist gives best-fit $m,c$, Bayesian gives posteriors — like a standard ANN vs a Bayesian neural net.</li>
+        <li><strong>History flip-flops</strong>: Pascal &amp; Fermat (1654, a gambler's split-the-stakes question) built the calculus; Bernoulli's <em>insufficient reason</em> gives each of $n$ outcomes $1/n$ but can't update; Bayes supplied the update; Gauss gave least squares, Gaussian errors and the CLT.</li>
+        <li><strong>Updating never ends, but it isn't a loop</strong>: Sun around Earth → ellipses → non-coplanar spirals; Newton → general relativity (GPS needs it). More data, sharper model.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE 2 ============ -->
+<section class="module" id="m2">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S3 · S7 · S8 · S10 (2nd half) — Majumdar</p>
+      <h2>Probability rules and Bayes' theorem</h2>
+      <p class="lede">Write the conditional probability you want, expand it with Bayes, and never drop the prior.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>The calculus of probability</h3>
+        <dl>
+          <dt>bounds · sum rule</dt><dd>$0\le P\le1$, $\;\sum_i P(i)=1$, $\;\int P(x)\,dx=1$</dd>
+          <dt>product rule</dt><dd>$P(X,Y)=P(X\mid Y)P(Y)=P(Y\mid X)P(X)$</dd>
+          <dt>independent</dt><dd>$P(X,Y)=P(X)P(Y)$ — only then multiply marginals</dd>
+          <dt>mutually exclusive</dt><dd>$P(x_1\cup\dots\cup x_n)=\sum P(x_i)$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Total probability → Bayes</h3>
+        <dl>
+          <dt>total probability</dt><dd>$P(E)=\sum_i P(E\mid A_i)P(A_i)$</dd>
+          <dt>Bayes (two hypotheses)</dt><dd>$$P(H\mid E)=\frac{P(E\mid H)P(H)}{P(E\mid H)P(H)+P(E\mid H^c)P(H^c)}$$</dd>
+          <dt>the maths is trivial</dt><dd>It's a rearranged product rule. Bayes' contribution was the <strong>interpretation</strong>: a way to update belief.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Inference form</h3>
+        <dl>
+          <dt>$P(\theta\mid D,I,M)=\dfrac{P(D\mid\theta,I,M)\,P(\theta\mid I,M)}{P(D\mid I,M)}$</dt><dd></dd>
+          <dt class="t">posterior</dt><dd>belief about θ after the data — what you want</dd>
+          <dt>likelihood</dt><dd>P(data | θ); product over <strong>independent</strong> data points only (apples from different, randomly chosen trees)</dd>
+          <dt>prior</dt><dd>everything known before the experiment</dd>
+          <dt>evidence</dt><dd>$\int P(D\mid\theta)P(\theta)\,d\theta$ — all ways the data could arise</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Working rules</h3>
+        <ul>
+          <li><strong>Posterior ∝ likelihood × prior</strong> for estimation and testing. Need the evidence only for <strong>model selection</strong>.</li>
+          <li>θ is meaningless without its model $M$; I and M are always silently conditioned on.</li>
+          <li>Flat prior $P(\theta)=$ const when you know nothing.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Updating</h3>
+        <dl>
+          <dt class="t">$P(\theta\mid D_1,D_2)\propto P(D_2\mid\theta)\,P(\theta\mid D_1)$</dt>
+          <dd>Yesterday's posterior is today's prior. Old data is never thrown away (needs $D_1, D_2$ independent).</dd>
+          <dt>prior-sensitivity test</dt><dd>If a different reasonable prior changes the answer a lot → <strong>you need more data</strong>.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Traps</h3>
+        <ul>
+          <li>$P(C\mid G)+P(C\mid G^c)\ne1$ in general. Only $P(C\mid G)+P(C^c\mid G)=1$.</li>
+          <li>Dropping implicit conditioning ("you chose door $a$", "a theft <em>did</em> happen").</li>
+          <li><strong>Rule 1</strong>: write down exactly what you want to know. "There are no rules for $n&gt;1$."</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>The prior is what intuition forgets (Majumdar, S7–S8, S10):</p>
+      <ul>
+        <li><strong>Steve, shy and tidy</strong> (Kahneman &amp; Tversky): "librarian" feels right, but farmers outnumber librarians 20:1 → only 16.7% librarian. Our brains evolved for reflex "thinking fast" and skip the base rate.</li>
+        <li><strong>Repeat offenders</strong>: even with a 50% re-offence rate, 80% of new crimes come from people with no record. Ignoring the prior → biased action → social disorder.</li>
+        <li><strong>COVID testing</strong>: a "99% effective" test with 1% false positives at 0.5% prevalence is right only 1 in 3 times — hence rapid test, then a slow low-FPR confirmation.</li>
+        <li><strong>MCQ exams</strong>: with 5 options, a correct answer means 5/6 "knew it" — why objective exams are trustworthy.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="bayesPanel">
+      <div class="panel-head">
+        <span class="panel-title">Base-rate calculator (two hypotheses)</span>
+        <span class="readout" id="bzRead"></span>
+      </div>
+      <p class="panel-sub">Pick a lecture problem or drag the sliders. The bar shows 10,000 people split by truth, then by evidence.</p>
+      <div class="btnrow" id="bzPresets"></div>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>prior P(H)</span><span id="bzP"></span></span>
+          <input type="range" id="bzPs" min="-4" max="0" step="0.01" value="-1.322">
+        </div>
+        <div class="slider-group">
+          <span class="slider-label"><span>P(E | H)</span><span id="bzA"></span></span>
+          <input type="range" id="bzAs" min="0.01" max="1" step="0.01" value="0.4">
+        </div>
+        <div class="slider-group">
+          <span class="slider-label"><span>P(E | not H)</span><span id="bzB"></span></span>
+          <input type="range" id="bzBs" min="-5" max="0" step="0.01" value="-1">
+        </div>
+      </div>
+      <div class="freq">
+        <div>Everyone (10,000) — <span class="a">H true</span> vs <span style="color:var(--ink-faint)">H false</span></div>
+        <div class="freqbar" id="bzBar1"></div>
+        <div>Only those showing the evidence E — <span class="t">H true &amp; E</span> vs <span style="color:var(--ink-faint)">H false &amp; E</span></div>
+        <div class="freqbar" id="bzBar2"></div>
+      </div>
+      <div id="bzVerdict" class="verdict eq"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Urn: 3 black + 1 white, draw two without replacement. P(black then white)? P(white then black)?<span class="tag">S3</span></summary>
+      <ol>
+        <li>Draws are dependent → product rule, not marginals.</li>
+        <li>$P(B)=\tfrac34$, then 3 left with 1 white: $P(W\mid B)=\tfrac13$ → $\tfrac34\cdot\tfrac13=\tfrac14$.</li>
+        <li>$P(W)=\tfrac14$, then all 3 left are black: $\tfrac14\cdot\tfrac33=\tfrac14$.</li>
+      </ol>
+      <p class="answer">both = 1/4 ("I care how you got it, not the number")</p>
+    </details>
+    <details class="worked">
+      <summary>Monty Hall: you pick door $a$; Monty (who knows where the car is) opens $b$, junk. Stick or switch?<span class="tag">S8</span></summary>
+      <ol>
+        <li>Want $P(a\mid B)$, $B$ = "door $b$ opened, junk". Priors $P(a)=P(b)=P(c)=\tfrac13$.</li>
+        <li>$P(B\mid a)=\tfrac12$ (Monty picks $b$ or $c$ at random). $P(B\mid b)=0$ (can't reveal the car). $P(B\mid c)=1$ (can't open $a$ or $c$ → forced).</li>
+        <li>Evidence $P(B)=\tfrac12\cdot\tfrac13+0+1\cdot\tfrac13=\tfrac12$.</li>
+        <li>$P(a\mid B)=\dfrac{\frac12\cdot\frac13}{\frac12}=\tfrac13$. The asymmetry $\tfrac12$ vs $1$ is the whole trick.</li>
+      </ol>
+      <p class="answer">stick 1/3 · switch 2/3 (1000-run simulation in class: 34% vs 68%)</p>
+    </details>
+    <details class="worked">
+      <summary>Barrister: only 1 in 2,500 lodger-thieves steal cheese ($P(S\mid T)=0.0004$), so "ignore his record". Background theft rate 1/20,000. P(he did it)?<span class="tag">S8</span></summary>
+      <ol>
+        <li>The defence dropped the fact that the cheese <strong>was</strong> stolen ($C$). Want $P(S\mid C,T)$.</li>
+        <li>$P(C\mid S,T)=1$; $P(S\mid T)=0.0004$; $P(\tilde S\mid T)=0.9996$; $P(C\mid\tilde S,T)=1/20000$.</li>
+        <li>$\dfrac{1\times0.0004}{0.0004+0.9996/20000}=\dfrac{0.0004}{0.00045}$</li>
+      </ol>
+      <p class="answer">≈ 0.889 — not 0.0004</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: 2% of parts are defective. An inspector flags 95% of defective parts and 3% of good ones. A part is flagged — P(defective)?<span class="tag">practice</span></summary>
+      <ol>
+        <li>$H$ = defective, $P(H)=0.02$; $P(E\mid H)=0.95$; $P(E\mid H^c)=0.03$.</li>
+        <li>$\dfrac{0.95\cdot0.02}{0.95\cdot0.02+0.03\cdot0.98}=\dfrac{0.019}{0.0484}$</li>
+      </ol>
+      <p class="answer">≈ 0.393 — most flags are false alarms (base rate again)</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: Box A has 3 red + 1 blue, Box B has 1 red + 3 blue. Pick a box at random, draw one ball: red. P(Box A)?<span class="tag">practice</span></summary>
+      <ol>
+        <li>Prior $\tfrac12$ each; likelihoods $P(R\mid A)=\tfrac34$, $P(R\mid B)=\tfrac14$.</li>
+        <li>$\dfrac{\frac34\cdot\frac12}{\frac34\cdot\frac12+\frac14\cdot\frac12}$</li>
+      </ol>
+      <p class="answer">3/4</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 3 ============ -->
+<section class="module" id="m3">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S3 (end) · S4 · S5 (1st half) — Majumdar</p>
+      <h2>Samples, histograms and density</h2>
+      <p class="lede">We only ever hold a finite sample; statistics compress it and estimate the population.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Population vs sample</h3>
+        <dl>
+          <dt class="t">population</dt><dd>infinite, holds the truth; never accessible</dd>
+          <dt>sample</dt><dd>finite $n$ draws; gives <strong>estimates</strong> (finite sums), not calculations (integrals)</dd>
+          <dt>statistic</dt><dd>any summary of a finite sample, no model assumed: mean, variance, skewness, kurtosis, correlation</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Histogram → PDF</h3>
+        <ul>
+          <li>Equal-width bins; height = count in the bin ∝ probability density.</li>
+          <li>Smooth the bin tops → approximate PDF ("a poor person's PDF").</li>
+          <li>Hard edges, empty bins; converges to the true PDF as $n$ grows.</li>
+          <li>Try several bin widths — the apparent shape changes.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Density, joint, marginal</h3>
+        <dl>
+          <dt>density</dt><dd>probability mass per unit length/area/volume, e.g. $\dfrac{dB}{dH\,dW}$</dd>
+          <dt>"average density"</dt><dd>$=1/V$ — meaningless; only local density informs</dd>
+          <dt class="t">marginalise</dt><dd>$P(X)=\int P(X,Y)\,dY$ — integrate out what you don't want</dd>
+          <dt>joint needed when</dt><dd>the observable depends on several variables (BMI from $h,w$)</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>How many samples are enough?</h3>
+        <ul>
+          <li>Plot the running estimate (mean, variance) against $n$; enough when it <strong>plateaus</strong>.</li>
+          <li>Coin: 102 flips → 0.49/0.51. Die: running mean settles near $3.5$ by ~100 rolls.</li>
+          <li>Cards 1–10: true variance $\frac{10^2-1}{12}=8.25$ (quoted ≈8.5 in class); simulation 8.32 at ~300 draws.</li>
+          <li>Few outcomes → hundreds suffice; high-dimensional → far more.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Always quote the error</h3>
+        <ul>
+          <li>Continuous values are never exact: a 1 cm tape → $\pm1$ cm.</li>
+          <li>Report $m\pm\Delta m$, $c\pm\Delta c$ — clients can't judge a strategy without it.</li>
+          <li>For continuous $X$: $P(X=a)=0$; ask for $P(a\le X\le a+dx)$ instead.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Majumdar's pictures:</p>
+      <ul>
+        <li><strong>Five points, eight numbers</strong>: joining 5 points with 4 segments needs 8 parameters (no compression); one fitted line needs 2. A client with a million Netflix users wants the trend, not the scatter.</li>
+        <li><strong>Bins are boxes</strong>: sort every number from a bag into its box, then count.</li>
+        <li><strong>Mountainous cake</strong>: $P(h,w)$ is a 3-D mountain drawn as contours; cutting a slab out of it is a joint probability.</li>
+        <li><strong>More dead than living</strong>: the "true" BMI population would need everyone who ever lived — the population is effectively infinite.</li>
+        <li><strong>LLM training set</strong> = a finite sample; a good one represents the underlying distribution. Insurance premiums and sample surveys (when the census is late) hinge on sampling strategy.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE 4 ============ -->
+<section class="module" id="m4">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S11 · S12 (10 Sep) · 12 Sep (1st half) · S15 doubt session — Arshad</p>
+      <h2>Random variables: PMF, PDF, CDF and transformations</h2>
+      <p class="lede">Read a CDF, classify the variable, recover the PMF/PDF, find unknown constants, transform.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Definitions</h3>
+        <dl>
+          <dt>random variable</dt><dd>$X:\Omega\to\mathbb{R}$; support $S=X(\Omega)$</dd>
+          <dt>PMF (discrete)</dt><dd>$p(x)\ge0$, $\sum_{S}p(x)=1$ — values <strong>are</strong> probabilities</dd>
+          <dt class="t">PDF (continuous)</dt><dd>$f\ge0$, $\int f=1$ — <strong>not</strong> a probability; can exceed 1 ($f=2$ on $(0,\tfrac12)$)</dd>
+          <dt class="t">link</dt><dd>$F(x)=\int_{-\infty}^x f(t)\,dt$, $\;f=F'$ (ignore finitely many kinks; set 0 there)</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>CDF $F(x)=P(X\le x)$</h3>
+        <ul>
+          <li>Defined on <strong>all of ℝ</strong>: write it piecewise, never as a 3-column table.</li>
+          <li>Valid CDF ⇔ (1) non-decreasing, (2) right-continuous $F(a)=F(a^+)$, (3) $F(-\infty)=0$, $F(\infty)=1$.</li>
+          <li>Unknown $k$: impose right-continuity for candidates, then <strong>non-decreasing</strong> to reject the wrong root.</li>
+          <li>$P(a&lt;X\le b)=F(b)-F(a)$.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Jumps classify $X$</h3>
+        <dl>
+          <dt>jump size = point mass</dt><dd>$P(X=a)=F(a)-F(a^-)$, $\;F(a^-)=\lim_{h\to0}F(a-h)$</dd>
+          <dt>Σ jumps = 1</dt><dd>discrete</dd>
+          <dt class="t">no jumps</dt><dd>continuous: $P(X=a)=0$, so $&lt;$ vs $\le$ doesn't matter</dd>
+          <dt>0 &lt; Σ jumps &lt; 1</dt><dd>mixed (rest spread over an interval)</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>Transform a discrete $X$: $Y=g(X)$</h3>
+        <ul>
+          <li>Find $S_Y$ first. $Y$ is always discrete.</li>
+          <li><strong>One-one on $S_X$</strong>: $P(Y=y)=p_X(g^{-1}(y))$.</li>
+          <li><strong>Not one-one</strong>: add all pre-images, $P(Y=y)=\sum_{g(x)=y}p_X(x)$ (pre-images outside $S_X$ give 0).</li>
+          <li>One-one is judged on $S_X$: $x^2$ is one-one on $\{0,1,2\}$.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Transform a continuous $X$</h3>
+        <dl>
+          <dt>CDF technique (any $g$)</dt><dd>$F_Y(y)=P(g(X)\le y)$ case by case → <strong>check continuity</strong> of $F_Y$ ($Y$ may be continuous, discrete or mixed) → differentiate.</dd>
+          <dt class="t">Jacobian (g one-one on $S_X$)</dt><dd>$f_Y(y)=f_X(g^{-1}(y))\left|\dfrac{d}{dy}g^{-1}(y)\right|$</dd>
+          <dt>convention</dt><dd>densities with strict inequalities; CDFs in right-continuous form</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Arshad's framing: counting → discrete (accidents, items); measuring → continuous (speed, blood pressure, sugar level). Uncountably many points can't each carry positive probability, or the total would be infinite — so continuous variables get probability only on intervals. Transformations exist because we record weight but want BMI.</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>$F(x)=0\ (x&lt;1),\ \tfrac12\ (1\le x&lt;5),\ \tfrac34\ (5\le x&lt;9),\ 1\ (x\ge9)$. PMF? Type?<span class="tag">S11</span></summary>
+      <ol>
+        <li>Jumps at 1, 5, 9: $\tfrac12-0$, $\tfrac34-\tfrac12$, $1-\tfrac34$.</li>
+        <li>Sum $=1$ → discrete.</li>
+      </ol>
+      <p class="answer">P(1)=1/2, P(5)=1/4, P(9)=1/4 · discrete</p>
+    </details>
+    <details class="worked">
+      <summary>$F(x)=0\ (x&lt;1),\ \frac{x-1}{2}\ (1\le x&lt;2),\ 1\ (x\ge2)$. Type?<span class="tag">S11</span></summary>
+      <ol>
+        <li>At 1: $F(1^-)=F(1)=F(1^+)=0$ → no jump.</li>
+        <li>At 2: $F(2^-)=\lim\frac{(2-h)-1}{2}=\tfrac12$, $F(2)=1$ → jump $\tfrac12$.</li>
+        <li>Σ jumps $=\tfrac12$, strictly between 0 and 1.</li>
+      </ol>
+      <p class="answer">mixed: P(X=2)=1/2, other 1/2 spread over [1,2)</p>
+    </details>
+    <details class="worked">
+      <summary>$F(x)=0,\ \frac{x^2}{2}\ [0,1),\ \frac{x}{2}\ [1,2),\ 1\ (x\ge2)$. PDF and $P(\tfrac12&lt;X&lt;\tfrac32)$?<span class="tag">S12 · 10 Sep</span></summary>
+      <ol>
+        <li>Continuous everywhere (values match at 0, 1, 2) → continuous type.</li>
+        <li>Differentiate: $f=x$ on $(0,1)$, $\tfrac12$ on $(1,2)$, 0 otherwise. (PDF jumps; CDF doesn't — that's allowed.)</li>
+        <li>Integrate: $\int_{1/2}^1x\,dx+\int_1^{3/2}\tfrac12\,dx=\tfrac38+\tfrac14$.</li>
+        <li>Or CDF difference: $F(\tfrac32)-F(\tfrac12)=\tfrac34-\tfrac18$.</li>
+      </ol>
+      <p class="answer">5/8 both ways</p>
+    </details>
+    <details class="worked">
+      <summary>$f(x)=k-|x|$ for $|x|&lt;\tfrac12$. Find $k$.<span class="tag">S12 · 10 Sep</span></summary>
+      <ol>
+        <li>$\int_{-1/2}^{1/2}k\,dx=k$; $\int_{-1/2}^{1/2}|x|\,dx=2\int_0^{1/2}x\,dx=\tfrac14$ (even function).</li>
+        <li>$k-\tfrac14=1$.</li>
+      </ol>
+      <p class="answer">k = 5/4</p>
+    </details>
+    <details class="worked">
+      <summary>Find $k$: branches $\tfrac23$ on $[2,5)$, $\frac{7-6k}{6}$ on $[5,9)$, …, $\frac{16k^2-16k+19}{16}$ on $[14,20]$, 1 after.<span class="tag">Module 1 Ex 2.8 · S15</span></summary>
+      <ol>
+        <li>No jump allowed at 20 (already 1 after): $\frac{16k^2-16k+19}{16}=1$ → $16k^2-16k+3=0$ → $k=\tfrac14$ or $\tfrac34$.</li>
+        <li>Non-decreasing at 5: $\tfrac23\le\frac{7-6k}{6}$ → $k\le\tfrac12$. Reject $\tfrac34$.</li>
+        <li>Lesson: one property alone leaves a wrong candidate — check <strong>all three</strong>.</li>
+      </ol>
+      <p class="answer">k = 1/4</p>
+    </details>
+    <details class="worked">
+      <summary>$p_X=\tfrac17$ on $\{-2,-1,0,1\}$, $\tfrac3{14}$ on $\{2,3\}$. PMF of $Y=X^2$?<span class="tag">S12 · 10 Sep</span></summary>
+      <ol>
+        <li>$S_Y=\{0,1,4,9\}$ — 6 points → 4, so not one-one.</li>
+        <li>$P(Y=1)=P(-1)+P(1)=\tfrac27$; $P(Y=4)=\tfrac17+\tfrac3{14}=\tfrac5{14}$; $P(Y=9)=0+\tfrac3{14}$ ($-3\notin S_X$).</li>
+      </ol>
+      <p class="answer">0: 1/7 · 1: 2/7 · 4: 5/14 · 9: 3/14 (sums to 1)</p>
+    </details>
+    <details class="worked">
+      <summary>$X\sim U(-1,1)$, $Y=X^2$ (CDF technique) and $f_X=e^{-x}$, $x&gt;0$, $Y=X^2$ (Jacobian).<span class="tag">12 Sep</span></summary>
+      <ol>
+        <li>Uniform: $F_Y(y)=P(-\sqrt y\le X\le\sqrt y)=\tfrac12\cdot2\sqrt y=\sqrt y$ on $[0,1)$; continuous → $f_Y=\frac1{2\sqrt y}$, $0&lt;y&lt;1$.</li>
+        <li>Exponential: $x^2$ is one-one on $(0,\infty)$; $x=\sqrt y$, $\frac{dx}{dy}=\frac1{2\sqrt y}$.</li>
+        <li>$f_Y=e^{-\sqrt y}\cdot\frac1{2\sqrt y}$, $y&gt;0$.</li>
+      </ol>
+      <p class="answer">1/(2√y) on (0,1) · e^(−√y)/(2√y) on (0,∞)</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $F(x)=0\ (x&lt;0),\ \frac{x^2}{4}\ (0\le x&lt;2),\ 1\ (x\ge2)$. PDF and $P(0.5&lt;X&lt;1.5)$?<span class="tag">practice</span></summary>
+      <ol>
+        <li>Continuous (0 at 0, 1 at 2). $f(x)=\frac x2$ on $(0,2)$.</li>
+        <li>$F(1.5)-F(0.5)=\frac{2.25-0.25}{4}$.</li>
+      </ol>
+      <p class="answer">f = x/2 on (0,2) · P = 0.5</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $F(x)=0\ (x&lt;0),\ \frac{x+1}{4}\ (0\le x&lt;1),\ 1\ (x\ge1)$. Type? $P(X=1)$?<span class="tag">practice</span></summary>
+      <ol>
+        <li>Jump at 0: $\tfrac14-0=\tfrac14$. Jump at 1: $1-\tfrac24=\tfrac12$.</li>
+        <li>Σ jumps $=\tfrac34$, between 0 and 1.</li>
+      </ol>
+      <p class="answer">mixed · P(X=1) = 1/2</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $f(x)=kx(1-x)$ on $(0,1)$. Find $k$; PMF of $Y=X^2$ if instead $p_X$: $-1{:}\,0.2,\ 0{:}\,0.3,\ 1{:}\,0.1,\ 2{:}\,0.4$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>$k\int_0^1(x-x^2)\,dx=k(\tfrac12-\tfrac13)=\tfrac k6=1$.</li>
+        <li>$Y$: $P(0)=0.3$, $P(1)=0.2+0.1$, $P(4)=0.4$.</li>
+      </ol>
+      <p class="answer">k = 6 · Y: 0→0.3, 1→0.3, 4→0.4</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 5 ============ -->
+<section class="module" id="m5">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S4 (moments, Majumdar) · 12 Sep (2nd half) · S14 (1st half) — Arshad</p>
+      <h2>Expectation, moments and the MGF</h2>
+      <p class="lede">Check the mean exists, get moments from the MGF, and identify a distribution by its MGF.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Expectation</h3>
+        <dl>
+          <dt>$E(X)$</dt><dd>$\sum x\,p(x)$ or $\int x\,f(x)\,dx$</dd>
+          <dt>exists only if</dt><dd>$E|X|&lt;\infty$ — check first (modulus on $x$, never on $f$)</dd>
+          <dt>$E[g(X)]$</dt><dd>$\sum g(x)p(x)$ — swap $x$ for $g(x)$, keep the density</dd>
+          <dt>Gamma shortcut</dt><dd>$\int_0^\infty x^{\alpha-1}e^{-x}dx=\Gamma(\alpha)=(\alpha-1)!$</dd>
+          <dt>odd / even</dt><dd>odd over symmetric range → 0; even → 2× half</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Moments</h3>
+        <dl>
+          <dt>raw (about 0)</dt><dd>$\mu_r'=E(X^r)$; $\mu_1'$ = mean</dd>
+          <dt>central (about mean)</dt><dd>$\mu_r=E[(X-\mu_1')^r]$; $\mu_1=0$ always</dd>
+          <dt>variance</dt><dd>$\mu_2=\mu_2'-(\mu_1')^2=E[X^2]-(E X)^2$; $=0$ ⇔ degenerate</dd>
+          <dt>skewness</dt><dd>$\gamma_1=\mu_3/\mu_2^{3/2}$ — keeps the sign</dd>
+          <dt>kurtosis</dt><dd>$\beta_2=\mu_4/\mu_2^2$, $\gamma_2=\beta_2-3$ (normal: $\beta_2=3$)</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Reading $\gamma_1$ and $\gamma_2$</h3>
+        <ul>
+          <li>$\gamma_1&gt;0$: <strong>long right tail</strong> (positive skew). $\gamma_1&lt;0$: long left tail. $=0$: symmetric.</li>
+          <li>$\beta_1=\mu_3^2/\mu_2^3\ge0$ loses the sign — prefer $\gamma_1$.</li>
+          <li>$\gamma_2&gt;0$ leptokurtic (more peaked), $=0$ mesokurtic, $&lt;0$ platykurtic.</li>
+          <li>Unit-free: cm → m scales $\mu_3$ by $10^{-6}$; ratios cancel it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <p>Caution: in the 12 Sep lecture $\mu_3&gt;0$ was called "left-skewed". The standard convention (and the one textbooks use) is that positive skew means the <strong>tail points right</strong>. Go by the sign.</p>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>Moment generating function</h3>
+        <dl>
+          <dt>$M_X(t)=E[e^{tX}]$</dt><dd>must exist on some $|t|&lt;h$ — the interval <strong>must contain 0</strong>; $M(0)=1$</dd>
+          <dt class="t">$\mu_k'=M^{(k)}(0)$</dt><dd>differentiate $k$ times, set $t=0$</dd>
+          <dt>or series</dt><dd>$\mu_k'$ = coefficient of $\frac{t^k}{k!}$ in $M_X(t)$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Uniqueness</h3>
+        <ul>
+          <li>Same MGF ⇒ same distribution. Recognise $M$ → name the distribution → read off the mean/variance.</li>
+          <li>$X\overset{d}{=}Y$ means $F_X=F_Y$ everywhere — <strong>not</strong> $X=Y$. Heads vs tails in 2 fair tosses: same PMF, but $Y=2-X$.</li>
+          <li>Memorise each PMF/PDF + MGF; derive the rest (Arshad).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Moments are the minimum set of numbers that pin down a distribution (Majumdar). A Gaussian needs only $(\mu,\sigma)$ — only $\sigma$ once centred; every other shape is a "distortion of the Gaussian" measured by skewness, kurtosis and higher moments. Arshad on kurtosis: calling someone "tall" needs a reference, and the normal curve is that reference.</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>$p(x)=\frac{3}{\pi^2x^2}$, $x=\pm1,\pm2,\dots$ Does $E(X)$ exist?<span class="tag">12 Sep</span></summary>
+      <ol>
+        <li>$E|X|=2\sum_{x\ge1}x\cdot\frac{3}{\pi^2x^2}=\frac6{\pi^2}\sum\frac1x$.</li>
+        <li>Harmonic series ($p$-series, $p=1$) diverges.</li>
+      </ol>
+      <p class="answer">E|X| = ∞ → no mean (even though the PMF is symmetric)</p>
+    </details>
+    <details class="worked">
+      <summary>$f(x)=\tfrac12e^{-|x|}$ on ℝ. Does $E(X)$ exist? Value?<span class="tag">12 Sep</span></summary>
+      <ol>
+        <li>$E|X|=2\int_0^\infty x\tfrac12e^{-x}dx=\Gamma(2)=1&lt;\infty$ → exists.</li>
+        <li>$x e^{-|x|}$ is odd over a symmetric range.</li>
+      </ol>
+      <p class="answer">E(X) = 0</p>
+    </details>
+    <details class="worked">
+      <summary>Binomial MGF, mean and variance from $p(x)=\binom nx p^x(1-p)^{n-x}$.<span class="tag">S14</span></summary>
+      <ol>
+        <li>$M=\sum\binom nx(pe^t)^x(1-p)^{n-x}=(pe^t+1-p)^n$ (binomial theorem), $t\in\mathbb R$.</li>
+        <li>$M'(0)=n(p+1-p)^{n-1}p=np$.</li>
+        <li>$M''(0)=np[(n-1)p+1]$ → Var $=n(n-1)p^2+np-n^2p^2$.</li>
+      </ol>
+      <p class="answer">E = np · Var = np(1−p)</p>
+    </details>
+    <details class="worked">
+      <summary>$M_X(t)=e^{5t+8t^2}$ and $M_X(t)=e^{e^t-1}$. Identify.<span class="tag">19 Sep b · S14</span></summary>
+      <ol>
+        <li>Normal MGF $e^{\mu t+\frac12\sigma^2t^2}$: $\mu=5$, $\tfrac12\sigma^2=8$.</li>
+        <li>Poisson MGF $e^{\lambda(e^t-1)}$: $\lambda=1$.</li>
+      </ol>
+      <p class="answer">N(5, 16) · Poisson(1)</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $M_X(t)=(0.3e^t+0.7)^{10}$ and $M_Y(t)=e^{4(e^t-1)}$. Name them; mean, variance; $P(Y=0)$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>$X\sim\text{Bin}(10,0.3)$: $np=3$, $npq=2.1$.</li>
+        <li>$Y\sim\text{Poisson}(4)$: mean = var = 4; $P(Y=0)=e^{-4}$.</li>
+      </ol>
+      <p class="answer">Bin(10,.3): 3, 2.1 · Poisson(4): 4, 4 · P(Y=0) ≈ 0.0183</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $f(x)=2x$ on $(0,1)$. Mean and variance.<span class="tag">practice</span></summary>
+      <ol>
+        <li>$E X=\int_0^12x^2dx=\tfrac23$; $E X^2=\int_0^12x^3dx=\tfrac12$.</li>
+        <li>Var $=\tfrac12-\tfrac49$.</li>
+      </ol>
+      <p class="answer">2/3 · 1/18 ≈ 0.0556</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 6 ============ -->
+<section class="module" id="m6">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S5 (2nd half) · S6 (Majumdar) · S14 (2nd half) · S15 · 19 Sep a (1st half) — Arshad</p>
+      <h2>Standard distributions</h2>
+      <p class="lede">Pick the model from the situation, then use its PMF/PDF and MGF (with its domain).</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>Distribution</th><th>Support · PMF / PDF</th><th>MGF (domain)</th><th>Mean · Var</th><th>Use when</th></tr>
+        <tr class="disc"><td>Bernoulli$(p)$</td><td>$\{0,1\}$ · $p^x(1-p)^{1-x}$</td><td>$1-p+pe^t$, all $t$</td><td>$p$ · $pq$</td><td>one yes/no trial = Bin(1,p)</td></tr>
+        <tr class="disc"><td>Binomial$(n,p)$</td><td>$0..n$ · $\binom nx p^xq^{n-x}$</td><td>$(pe^t+q)^n$, all $t$</td><td>$np$ · $npq$</td><td># successes in $n$ independent identical trials; $n$ moderate</td></tr>
+        <tr class="disc"><td>Poisson$(\lambda)$</td><td>$0,1,2,\dots$ · $\dfrac{e^{-\lambda}\lambda^x}{x!}$</td><td>$e^{\lambda(e^t-1)}$, all $t$</td><td>$\lambda$ · $\lambda$</td><td>rare events, huge $n$: accidents, calls, ER patients. Over time $t$: use $\lambda t$</td></tr>
+        <tr class="disc"><td>Geometric</td><td>$0,1,\dots$ · $q^xp$ (failures before 1st success)</td><td>$\dfrac{p}{1-qe^t}$, $t&lt;-\ln q$</td><td>$q/p$ · $q/p^2$</td><td>attempts until first success; $Y=X+1$ trials: mean $1/p$, same var</td></tr>
+        <tr class="cont"><td>Uniform$(a,b)$</td><td>$(a,b)$ · $\dfrac1{b-a}$</td><td>$\dfrac{e^{bt}-e^{at}}{t(b-a)}$, $t\ne0$; $M(0)=1$</td><td>$\frac{a+b}2$ · $\frac{(b-a)^2}{12}$</td><td>simulation; probabilities are rectangle areas $\frac{d-c}{b-a}$</td></tr>
+        <tr class="cont"><td>Exponential$(\lambda)$</td><td>$(0,\infty)$ · $\lambda e^{-\lambda x}$</td><td>$\dfrac{\lambda}{\lambda-t}$, $t&lt;\lambda$</td><td>$1/\lambda$ · $1/\lambda^2$</td><td>lifetimes / waiting times; $F=1-e^{-\lambda x}$; Var = mean²</td></tr>
+        <tr class="cont"><td>Normal$(\mu,\sigma^2)$</td><td>ℝ · $\dfrac{1}{\sigma\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu}\sigma)^2}$</td><td>$e^{\mu t+\frac12\sigma^2t^2}$, all $t$</td><td>$\mu$ · $\sigma^2$</td><td>measurements, sums of many influences (CLT); see module 7</td></tr>
+      </table>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>The limit chain</h3>
+        <dl>
+          <dt>Binomial → Poisson</dt><dd>$n\to\infty$, $p\to0$, $np=\lambda$ finite ($x\ll n$)</dd>
+          <dt class="t">Poisson → Normal</dt><dd>also $\lambda\gg1$, look near the mean, <strong>and</strong> treat the variable as continuous</dd>
+          <dt>Poisson error bar</dt><dd>var = mean, so a count $n$ is quoted $n\pm\sqrt n$ (5 accidents/h → $5\pm\sqrt5$)</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Shapes</h3>
+        <ul>
+          <li>Binomial $\gamma_1=\frac{q-p}{\sqrt{npq}}$: $p&lt;\tfrac12$ right-tailed, $p=\tfrac12$ symmetric.</li>
+          <li>Binomial $\gamma_2=\frac{1-6pq}{npq}$: leptokurtic for $p&lt;0.2113$ or $p&gt;0.7887$, platykurtic between.</li>
+          <li>Poisson: small λ piles at 0; larger λ → symmetric.</li>
+          <li>Exponential: $\gamma_1=2$, $\gamma_2=6$. Uniform: symmetric, platykurtic, $\mu_4=\frac{(b-a)^4}{80}$.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>Memoryless + simulation</h3>
+        <dl>
+          <dt>geometric</dt><dd>$P(X\ge a)=q^a$; $P(X\ge k+t\mid X\ge k)=q^t=P(X\ge t)$</dd>
+          <dt class="t">exponential</dt><dd>$P(X&gt;d+x\mid X&gt;d)=e^{-\lambda x}=P(X&gt;x)$</dd>
+          <dt>only ones</dt><dd>geometric (discrete) and exponential (continuous)</dd>
+          <dt class="t">prob. integral transform</dt><dd>$F_X(X)\sim U(0,1)$ → simulate $x_i=F^{-1}(u_i)$</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Pictures from the lectures:</p>
+      <ul>
+        <li><strong>Binomial as "mother of all distributions"</strong> (Majumdar): Poisson and Gaussian are its limits. $(P_H+P_T)^2$ expanded gives HH, 2·HT, TT — the coefficients are the statistical weights.</li>
+        <li><strong>Highway</strong>: 1000 cars/hour, a handful of breakdowns — a well-designed road makes accidents rare, which is exactly Poisson. More accidents than expected on one stretch → suspect the design (the null hypothesis rejected).</li>
+        <li><strong>Telescope photons</strong>: catching a photon from one faint galaxy is a rare success → Poisson counts come with their own $\sqrt n$ error.</li>
+        <li><strong>Loan-company calls</strong> (Arshad): keep calling until yes; at $p=1/8$ expect 8 calls. Memoryless: after 3 refusals, the next call is as good as the first.</li>
+        <li><strong>Exponential lifetime</strong>: "the system forgets its age" — a used bulb is as good as new.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath">
+      <div class="panel-head">
+        <span class="panel-title">Binomial → Poisson → Normal</span>
+        <span class="readout" id="bnRead"></span>
+      </div>
+      <p class="panel-sub"><span class="a">Bars</span>: Bin(n,p). Hollow dots: Poisson(np). <span class="t">Curve</span>: Normal(np, npq). Small p → Poisson wins; large npq → Normal wins.</p>
+      <svg class="chart" id="bnChart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>n (trials)</span><span id="bnN"></span></span>
+          <input type="range" id="bnNs" min="1" max="100" step="1" value="20">
+        </div>
+        <div class="slider-group">
+          <span class="slider-label"><span>p (success)</span><span id="bnP"></span></span>
+          <input type="range" id="bnPs" min="0.01" max="0.99" step="0.01" value="0.1">
+        </div>
+      </div>
+      <div class="stats" id="bnStats"></div>
+      <div id="bnVerdict" class="verdict eq"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Call centre: 6 calls/minute. Distribution of calls in the next 10 minutes?<span class="tag">S14</span></summary>
+      <ol>
+        <li>Align the rate with the window: $\lambda t=6\times10=60$.</li>
+        <li>$P(X=x)=\dfrac{e^{-60}60^x}{x!}$, e.g. $P(X=50)=\dfrac{e^{-60}60^{50}}{50!}$.</li>
+      </ol>
+      <p class="answer">Poisson(60), not Poisson(6)</p>
+    </details>
+    <details class="worked">
+      <summary>Simulate from $F(x)=1-e^{-x}$ using $u=0.1,\dots,0.5$.<span class="tag">S15</span></summary>
+      <ol>
+        <li>Set $u=1-e^{-x}$ → $x=-\ln(1-u)$.</li>
+        <li>Plug in each $u$.</li>
+      </ol>
+      <p class="answer">0.1054, 0.2231, 0.3567, 0.5108, 0.6931</p>
+    </details>
+    <details class="worked">
+      <summary>Geometric memoryless proof in one line.<span class="tag">S15</span></summary>
+      <ol>
+        <li>$P(X\ge a)=\sum_{x\ge a}q^xp=p\cdot\frac{q^a}{1-q}=q^a$.</li>
+        <li>$\{X\ge k+t\}\subseteq\{X\ge k\}$, so $P(X\ge k+t\mid X\ge k)=\frac{q^{k+t}}{q^k}=q^t$.</li>
+      </ol>
+      <p class="answer">= P(X ≥ t), independent of k</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: server errors arrive at 2 per hour (Poisson). P(no errors in 3 hours)? P(at most 1)?<span class="tag">practice</span></summary>
+      <ol>
+        <li>$\lambda t=6$. $P(0)=e^{-6}$.</li>
+        <li>$P(\le1)=e^{-6}(1+6)$.</li>
+      </ol>
+      <p class="answer">≈ 0.00248 · ≈ 0.0174</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: a salesperson converts 20% of calls. Expected calls to first sale? P(at least 4 failures before the first sale)? Same, given 5 failures already?<span class="tag">practice</span></summary>
+      <ol>
+        <li>Trials to first success: $1/p=5$.</li>
+        <li>$P(X\ge4)=q^4=0.8^4$.</li>
+        <li>Memoryless: $P(X\ge9\mid X\ge5)=q^4$ again.</li>
+      </ol>
+      <p class="answer">5 · 0.4096 · 0.4096</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: bulb lifetime is exponential with mean 500 h. P(lasts &gt; 300 h)? Given it has lasted 1000 h?<span class="tag">practice</span></summary>
+      <ol>
+        <li>$\lambda=1/500$; $P(X&gt;300)=e^{-300/500}$.</li>
+        <li>Memoryless: same answer.</li>
+      </ol>
+      <p class="answer">e^(−0.6) ≈ 0.549 both times</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $X\sim\text{Bin}(10,0.3)$. $P(X=2)$? Skewness sign?<span class="tag">practice</span></summary>
+      <ol>
+        <li>$\binom{10}{2}(0.3)^2(0.7)^8=45\times0.09\times0.05765$.</li>
+        <li>$p&lt;\tfrac12$ → $\gamma_1&gt;0$.</li>
+      </ol>
+      <p class="answer">≈ 0.2335 · positively skewed (right tail)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 7 ============ -->
+<section class="module" id="m7">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S6 (end) · S9 · S10 (1st half) — Majumdar · 19 Sep a (2nd half) · 19 Sep b (1st half) — Arshad</p>
+      <h2>Normal distribution, CLT and sampling distributions</h2>
+      <p class="lede">Standardise, use Φ, and first ask: is this one value, a mean of $n$, or a sum of $n$?</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Normal toolkit</h3>
+        <dl>
+          <dt>standardise</dt><dd>$Z=\dfrac{X-\mu}{\sigma}\sim N(0,1)$</dd>
+          <dt>interval</dt><dd>$P(a\le X\le b)=\Phi\!\left(\frac{b-\mu}\sigma\right)-\Phi\!\left(\frac{a-\mu}\sigma\right)$</dd>
+          <dt>symmetry</dt><dd>$\Phi(0)=\tfrac12$, $\;\Phi(-z)=1-\Phi(z)$ — one table side is enough</dd>
+          <dt>no closed-form CDF</dt><dd>hence tables; read them backwards too ($\Phi(z)=0.75$ → $z\approx0.675$ by interpolation)</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Area rule</h3>
+        <dl>
+          <dt>$\mu\pm1\sigma$</dt><dd>68.27% (34.1% each side)</dd>
+          <dt>$\mu\pm2\sigma$</dt><dd>95.45% (+13.6% each side)</dd>
+          <dt>$\mu\pm3\sigma$</dt><dd>99.73% — only ~27 in 10,000 fall outside</dd>
+          <dt>moments</dt><dd>odd central = 0; $\mu_4=3\sigma^4$; $\mu_{2n}=1\cdot3\cdots(2n-1)\sigma^{2n}$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Central Limit Theorem</h3>
+        <ul>
+          <li>Sum/mean of many i.i.d. draws from <strong>any</strong> parent with <strong>finite variance</strong> → Gaussian. Infinite variance ("pathological") → no CLT.</li>
+          <li>Sample size 1 = no summing = no CLT (you just get the parent back).</li>
+          <li>Bigger sample size → narrower and faster; skewed parents converge slower.</li>
+          <li>Learn the <strong>implications</strong>; the derivation isn't examined.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>You're asked about…</th><th>Centre</th><th>Spread</th><th>Standardise</th><th>Lecture case</th></tr>
+        <tr class="disc"><td>one value $X$</td><td>$\mu$</td><td>$\sigma$</td><td>$\frac{x-\mu}{\sigma}$</td><td>one teacher &lt; <span class="nomath">$50,000</span> → 0.386</td></tr>
+        <tr class="cont"><td>mean $\bar X$ of $n$</td><td>$\mu$</td><td>$\sigma/\sqrt n$ (standard error)</td><td>$\frac{\bar x-\mu}{\sigma/\sqrt n}$</td><td>mean of 100 teachers → 0.0019</td></tr>
+        <tr class="cont"><td>sum $\sum X_i$ of $n$</td><td>$n\mu$</td><td>$\sqrt n\,\sigma$</td><td>$\frac{y-n\mu}{\sigma\sqrt n}$</td><td>50 customers in 90–110 min → 0.8427</td></tr>
+        <tr><td>$\sum a_iX_i$ (independent normals)</td><td>$\sum a_i\mu_i$</td><td>variance $\sum a_i^2\sigma_i^2$</td><td>exact, no CLT needed</td><td>$X_1-X_2$: means subtract, variances add</td></tr>
+      </table>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>Sample statistics</h3>
+        <dl>
+          <dt class="t">$\bar X_n=\frac1n\sum X_i\sim N(\mu,\sigma^2/n)$</dt><dd>exact for normal data (MGF proof with $a_i=1/n$); approximate otherwise (CLT)</dd>
+          <dt>$S^2=\frac{1}{n-1}\sum(X_i-\bar X)^2$</dt><dd>$n-1$ makes it unbiased; $1/n$ is biased</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Rarity of a result</h3>
+        <ul>
+          <li>Where does the new value sit in the tail? Beyond ~3σ → probably not from the same distribution.</li>
+          <li>Accidents: $\mu=100$, $\sigma=5$ → normal band 85–115; a day with 200 is 20σ out → something changed (the road was rebuilt).</li>
+          <li><strong>Null hypothesis</strong>: start from the negation ("no force pulls the apple", "obesity isn't linked to processed food", "accidents here are rare"). A strong violation rejects it — your theory becomes credible, not proven.</li>
+          <li>No standard sample size exists — always quote the mean <strong>and</strong> its spread.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Why Gaussians are everywhere (Majumdar, S9–S10):</p>
+      <ul>
+        <li><strong>Everything is a sum</strong>: height (genes + food + …), ocean waves, a shopper's basket (hungry? payday?), Sensex ticks — each is many random influences added up.</li>
+        <li><strong>Convolution proof</strong>: slide one box across another and record the overlap → a triangle; triangle ∗ box → a bell; keep going → a Gaussian. It's the same smoothing your phone camera applies, and why early AI images looked too smooth.</li>
+        <li><strong>Accurate vs certain</strong>: 10 samples can hit the true mean by luck, but only large $n$ shrinks the $\sigma/\sqrt n$ band enough to be <em>confident</em>.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath">
+      <div class="panel-head">
+        <span class="panel-title">One value vs mean of n vs sum of n</span>
+        <span class="readout" id="seRead"></span>
+      </div>
+      <div class="btnrow">
+        <button class="btn on" id="seModeMean">mean · teacher salaries</button>
+        <button class="btn" id="seModeSum">sum · bank teller</button>
+      </div>
+      <p class="panel-sub" id="seSub"></p>
+      <svg class="chart" id="seChart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>n</span><span id="seN"></span></span>
+          <input type="range" id="seNs" min="1" max="200" step="1" value="1">
+        </div>
+      </div>
+      <div id="seVerdict" class="verdict eq"></div>
+    </div>
+
+    <div class="panel nomath">
+      <div class="panel-head">
+        <span class="panel-title">CLT sampler</span>
+        <span class="readout" id="cltRead"></span>
+      </div>
+      <p class="panel-sub">Each draw averages <em>sample size</em> values from the parent (faint <span class="a">amber</span>) and adds one mean to the histogram. <span class="t">Teal</span> = CLT prediction N(μ, σ²/n).</p>
+      <div class="btnrow" id="cltParents">
+        <button class="btn on" data-p="unif">uniform</button>
+        <button class="btn" data-p="exp">skewed (exponential)</button>
+        <button class="btn" data-p="arc">U-shaped (both ends)</button>
+      </div>
+      <svg class="chart" id="cltChart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>sample size n</span><span id="cltN"></span></span>
+          <input type="range" id="cltNs" min="1" max="30" step="1" value="1">
+        </div>
+        <div class="btnrow">
+          <button class="btn" id="clt50">+50 draws</button>
+          <button class="btn" id="clt500">+500 draws</button>
+          <button class="btn" id="cltReset">reset</button>
+        </div>
+      </div>
+      <div class="stats" id="cltStats"></div>
+      <div id="cltVerdict" class="verdict eq"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Teacher salaries: normal, mean <span class="nomath">$52,174</span>, SD <span class="nomath">$7,500</span>. (a) P(one teacher &lt; <span class="nomath">$50,000</span>)? (b) P(mean of 100 &lt; <span class="nomath">$50,000</span>)? (c) Why different?<span class="tag">S9 · S10</span></summary>
+      <ol>
+        <li>(a) $z=\frac{50000-52174}{7500}=-0.290$ → $\Phi(-0.29)$.</li>
+        <li>(b) $\sigma_{\bar X}=7500/\sqrt{100}=750$; $z=-2174/750=-2.90$ → $\Phi(-2.90)$.</li>
+        <li>(c) Two different distributions: the same cutoff is 0.29σ away for one teacher but 2.9σ away for the mean of 100.</li>
+      </ol>
+      <p class="answer">(a) ≈ 0.386 · (b) ≈ 0.0019</p>
+    </details>
+    <details class="worked">
+      <summary>Bank teller: service time mean 2 min, SD 1, independent. P(50 customers take 90–110 min)?<span class="tag">S10</span></summary>
+      <ol>
+        <li>Sum: mean $50\times2=100$, SD $\sqrt{50}\times1$.</li>
+        <li>$z=\pm10/\sqrt{50}=\pm\sqrt2=\pm1.414$.</li>
+        <li>$\Phi(1.414)-\Phi(-1.414)$.</li>
+      </ol>
+      <p class="answer">≈ 0.8427</p>
+    </details>
+    <details class="worked">
+      <summary>$X\sim N(3,4)$. $P(0&lt;X&lt;3)$?<span class="tag">19 Sep a</span></summary>
+      <ol>
+        <li>$\sigma=2$: $P\!\left(\frac{0-3}{2}&lt;Z&lt;0\right)=\Phi(0)-\Phi(-1.5)$.</li>
+        <li>$0.5-0.0668$.</li>
+      </ol>
+      <p class="answer">≈ 0.4332</p>
+    </details>
+    <details class="worked">
+      <summary>Recover parameters: (i) $N(\mu,1)$ with $P(X\le2)=\tfrac12$; (ii) $P(X\le4)=\tfrac12$ and $P(X\ge4)=\tfrac12$; (iii) $P(X\le4)=\tfrac12$ and $P(X\ge4)=\tfrac14$.<span class="tag">19 Sep b</span></summary>
+      <ol>
+        <li>(i) $\Phi(2-\mu)=\Phi(0)$ and Φ is monotone → $\mu=2$.</li>
+        <li>(ii) Both give $\frac{4-\mu}{\sigma}=0$ → $\mu=4$, σ undetermined (redundant conditions).</li>
+        <li>(iii) Second needs $\frac{4-\mu}{\sigma}\approx0.675$; first needs $0$ → σ = 0, degenerate → inconsistent.</li>
+      </ol>
+      <p class="answer">μ=2 · μ=4, σ free · no valid normal</p>
+    </details>
+    <details class="worked">
+      <summary>$X\sim N(0,1)$, $Y\sim\text{Bin}(2,\tfrac12)$, independent. $P(X+Y\le1)$?<span class="tag">19 Sep b</span></summary>
+      <ol>
+        <li>Total probability over $Y$: $\Phi(1)\cdot\tfrac14+\Phi(0)\cdot\tfrac12+\Phi(-1)\cdot\tfrac14$.</li>
+        <li>$=\tfrac14[\Phi(1)+\Phi(-1)]+\tfrac14=\tfrac14+\tfrac14$.</li>
+      </ol>
+      <p class="answer">1/2</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: delivery time $N(30,5^2)$ minutes. P(25 &lt; X &lt; 40)? P(mean of 25 deliveries &gt; 32)?<span class="tag">practice</span></summary>
+      <ol>
+        <li>$\Phi(2)-\Phi(-1)=0.9772-0.1587$.</li>
+        <li>SE $=5/\sqrt{25}=1$; $z=2$ → $1-\Phi(2)$.</li>
+      </ol>
+      <p class="answer">≈ 0.8186 · ≈ 0.0228</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: 36 i.i.d. jobs, each mean 4 h, SD 3 h. P(total &gt; 162 h)?<span class="tag">practice</span></summary>
+      <ol>
+        <li>Sum: mean 144, SD $\sqrt{36}\times3=18$.</li>
+        <li>$z=(162-144)/18=1$ → $1-\Phi(1)$.</li>
+      </ol>
+      <p class="answer">≈ 0.1587</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $X_1\sim N(10,4)$, $X_2\sim N(6,9)$ independent. $P(X_1&gt;X_2)$?<span class="tag">practice</span></summary>
+      <ol>
+        <li>$D=X_1-X_2\sim N(4,\,4+9)$.</li>
+        <li>$P(D&gt;0)=\Phi(4/\sqrt{13})=\Phi(1.109)$.</li>
+      </ol>
+      <p class="answer">≈ 0.866</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $X\sim N(\mu,\sigma^2)$ with $P(X\le10)=0.5$ and $P(X\le13)=0.8413$. Find μ, σ.<span class="tag">practice</span></summary>
+      <ol>
+        <li>First → $\mu=10$.</li>
+        <li>$\Phi\!\left(\frac{3}{\sigma}\right)=0.8413=\Phi(1)$ → $\sigma=3$.</li>
+      </ol>
+      <p class="answer">μ = 10, σ = 3</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 8 ============ -->
+<section class="module" id="m8">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">19 Sep b (2nd half) — Arshad</p>
+      <h2>Inequalities: Markov, Chebyshev, Jensen</h2>
+      <p class="lede">Bounds for when you know only the mean (and maybe the variance), not the distribution.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Markov</h3>
+        <dl>
+          <dt>$X\ge0$, $a&gt;0$</dt><dd>$P(X\ge a)\le\dfrac{E X}{a}$</dd>
+          <dt>generalised</dt><dd>any $X$, $g\ge0$: $P(g(X)\ge a)\le\dfrac{E[g(X)]}{a}$</dd>
+          <dt>proof idea</dt><dd>drop $\int_0^a$, then $x\ge a$ on $[a,\infty)$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Chebyshev</h3>
+        <dl>
+          <dt>upper</dt><dd>$P(|X-\mu|\ge\varepsilon)\le\dfrac{\sigma^2}{\varepsilon^2}$</dd>
+          <dt class="t">lower</dt><dd>$P(|X-\mu|&lt;\varepsilon)\ge1-\dfrac{\sigma^2}{\varepsilon^2}$</dd>
+          <dt>kσ form</dt><dd>$\le1/k^2$: at least 75% within 2σ for <strong>any</strong> distribution (normal: 95.45%)</dd>
+          <dt>from Markov</dt><dd>$g=(x-\mu)^2$, $a=\varepsilon^2$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Convexity and Jensen</h3>
+        <dl>
+          <dt>test</dt><dd>$f''\ge0$ convex (chord above), $f''\le0$ concave; $f$ convex ⇔ $-f$ concave</dd>
+          <dt>Jensen</dt><dd>convex: $E[h(X)]\ge h(EX)$; concave: $\le$</dd>
+          <dt>uses</dt><dd>$x^2$ → $E X^2\ge(EX)^2$ so Var ≥ 0; $\log$ → $E\log X\le\log EX$</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Arshad's caveat: these bounds are for "very limited information". If you know the distribution, compute the exact probability — the bound can be loose (0.52 vs an exact 0.20 below).</p>
+    </div>
+
+    <details class="worked">
+      <summary>Factory: weekly output mean 50. (a) Bound P(output exceeds 75). (b) With Var = 25, bound P(40 ≤ X ≤ 60).<span class="tag">19 Sep b</span></summary>
+      <ol>
+        <li>(a) Count, so "exceeds 75" is $X\ge76$: $P\le50/76$.</li>
+        <li>(b) $P(|X-50|\le10)\ge1-25/100$.</li>
+      </ol>
+      <p class="answer">≤ 0.658 · ≥ 0.75</p>
+    </details>
+    <details class="worked">
+      <summary>$X\sim U(0,10)$: Chebyshev bound vs exact for $P(|X-5|&gt;4)$.<span class="tag">19 Sep b</span></summary>
+      <ol>
+        <li>Var $=100/12=25/3$; bound $\frac{25/3}{16}=\frac{25}{48}$.</li>
+        <li>Exact: $1-P(1\le X\le9)=1-\tfrac8{10}$.</li>
+      </ol>
+      <p class="answer">bound ≈ 0.52 · exact 0.20 (not sharp)</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $X\ge0$ with mean 20. Bound $P(X\ge50)$. If Var = 16, bound $P(12&lt;X&lt;28)$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>Markov: $20/50$.</li>
+        <li>Chebyshev, ε = 8: $1-16/64$.</li>
+      </ol>
+      <p class="answer">≤ 0.4 · ≥ 0.75</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide"><p>Full-course recap for DSM-101, S1–S10 (Prof. Suman Majumdar) and S11 → 19 Sep (Dr. Mohammad Arshad). Session labels follow recording dates: "12 Sep" is probably S13, and "19 Sep a/b" are the two 19 Sep recordings. Widgets use the lectures' own numbers (teacher salaries, bank teller, Kahneman's Steve, barrister, COVID test). Practice problems use new numbers, and every answer was recomputed in Python.</p></div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const COLORS = { amber:'#E8A33D', teal:'#4FA8A0', ink:'#EDEAE2', dim:'#9BA3AF', faint:'#5B6270', line:'#2A2F38', rust:'#C1594A' };
+  const NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function frame(opts){ const {x0=70,y0=20,w=640,h=250} = opts||{}; return {x0,y0,w,h,x1:x0+w,y1:y0+h}; }
+  function niceStep(range, target){ const raw=range/target; const mag=Math.pow(10,Math.floor(Math.log10(raw))); const n=raw/mag; return (n<1.5?1:n<3?2:n<7?5:10)*mag; }
+  function ticksNice(min,max,target){ const s=niceStep(max-min,target||6); const a=[]; for(let v=Math.ceil(min/s-1e-9)*s; v<=max+1e-9; v+=s) a.push({val:v, frac:(v-min)/(max-min)}); return a; }
+  function drawAxes(svg,f,xTicks,yTicks,xLabel,yLabel,xFmt,yFmt){
+    xTicks.forEach(t=>{ const gx=f.x0+t.frac*f.w;
+      svg.appendChild(el('line',{x1:gx,y1:f.y0,x2:gx,y2:f.y1,class:'gridline'}));
+      svg.appendChild(el('text',{x:gx,y:f.y1+18,class:'tick','text-anchor':'middle'})).textContent = xFmt?xFmt(t.val):t.val;
+    });
+    yTicks.forEach(t=>{ const gy=f.y1-t.frac*f.h;
+      svg.appendChild(el('line',{x1:f.x0,y1:gy,x2:f.x1,y2:gy,class:'gridline'}));
+      const lbl=el('text',{x:f.x0-10,y:gy+4,class:'tick','text-anchor':'end'}); lbl.textContent=yFmt?yFmt(t.val):t.val; svg.appendChild(lbl);
+    });
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y1,x2:f.x1,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y0,x2:f.x0,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('text',{x:(f.x0+f.x1)/2,y:f.y1+40,class:'axislabel','text-anchor':'middle'})).textContent = xLabel;
+    const yl=el('text',{x:16,y:(f.y0+f.y1)/2,class:'axislabel','text-anchor':'middle'});
+    yl.setAttribute('transform',`rotate(-90 16 ${(f.y0+f.y1)/2})`); yl.textContent=yLabel; svg.appendChild(yl);
+  }
+  let clipN = 0;
+  function clipTo(svg,f){ const id='clip'+(clipN++); const d=el('defs',{}); const cp=el('clipPath',{id}); cp.appendChild(el('rect',{x:f.x0,y:f.y0,width:f.w,height:f.h})); d.appendChild(cp); svg.appendChild(d); return `url(#${id})`; }
+
+  // ---- shared math (mirrored in verify.py) ----
+  function erf(x){ const s=Math.sign(x); x=Math.abs(x); const t=1/(1+0.3275911*x);
+    const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x); return s*y; }
+  const Phi = z => 0.5*(1+erf(z/Math.SQRT2));
+  const npdf = (x,m,s) => Math.exp(-0.5*((x-m)/s)**2)/(s*Math.sqrt(2*Math.PI));
+  const fmt = (v,d) => v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+  function fmtP(p){ if(p<0.001) return p.toExponential(1); if(p<0.01) return p.toFixed(4); return p.toFixed(3); }
+
+  // Scroll progress + JS jump nav
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => { const h=document.documentElement; progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; });
+  document.querySelectorAll('nav.jumpnav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1)); if (!target) return;
+      const navH = document.querySelector('nav.jumpnav').offsetHeight + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior:'smooth' });
+    });
+  });
+  let closedForPrint = [];
+  window.addEventListener('beforeprint', () => { closedForPrint=[...document.querySelectorAll('details:not([open])')]; closedForPrint.forEach(d=>d.open=true); });
+  window.addEventListener('afterprint', () => closedForPrint.forEach(d=>d.open=false));
+
+  // ================= Widget A: base-rate Bayes =================
+  (function(){
+    const ps=document.getElementById('bzPs'), as=document.getElementById('bzAs'), bs=document.getElementById('bzBs'); if(!ps) return;
+    // prior and P(E|notH) are on log10 sliders so tiny base rates (0.0004, 1/20000) are reachable
+    const presets = [
+      {name:'Steve the librarian', p:1/21, a:0.4, b:0.1, H:'librarian', E:'fits description'},
+      {name:'Repeat offender', p:10/210, a:0.5, b:0.1, H:'known criminal', E:'committed crime'},
+      {name:'Inspector (60% sure)', p:0.6, a:1, b:0.2, H:'guilty', E:'has trait'},
+      {name:'…evidence 90% reliable', p:0.6, a:0.9, b:0.2, H:'guilty', E:'has trait'},
+      {name:'MCQ, 5 options', p:0.5, a:1, b:0.2, H:'knew it', E:'answered right'},
+      {name:'Blood test, FPR 1%', p:0.005, a:0.99, b:0.01, H:'has disease', E:'tests positive'},
+      {name:'…FPR 0.01%', p:0.005, a:0.99, b:0.0001, H:'has disease', E:'tests positive'},
+      {name:'Barrister', p:1/2500, a:1, b:1/20000, H:'lodger did it', E:'cheese stolen'}
+    ];
+    let labels = {H:'H', E:'E'};
+    let st = {p:1/21, a:0.4, b:0.1}; // exact values; sliders are only a view (log sliders round)
+    const wrap=document.getElementById('bzPresets');
+    presets.forEach((pr,i)=>{ const b=document.createElement('button'); b.className='btn'; b.textContent=pr.name;
+      b.addEventListener('click',()=>{ [...wrap.children].forEach(c=>c.classList.remove('on')); b.classList.add('on');
+        st={p:pr.p,a:pr.a,b:pr.b}; ps.value=Math.log10(pr.p); as.value=pr.a; bs.value=Math.log10(pr.b); labels={H:pr.H,E:pr.E}; render(); });
+      wrap.appendChild(b); });
+    [ps,as,bs].forEach(s=>s.addEventListener('input',()=>{ [...wrap.children].forEach(c=>c.classList.remove('on')); labels={H:'H',E:'E'};
+      st={p:Math.pow(10,+ps.value), a:+as.value, b:Math.pow(10,+bs.value)}; render(); }));
+    const pf = v => v>=0.01 ? (+v.toFixed(3)).toString() : v.toPrecision(2);
+    function render(){
+      const {p,a,b}=st;
+      const tp=p*a, fp=(1-p)*b, post=tp/(tp+fp);
+      document.getElementById('bzP').textContent=pf(p);
+      document.getElementById('bzA').textContent=pf(a);
+      document.getElementById('bzB').textContent=pf(b);
+      document.getElementById('bzRead').textContent=`P(${labels.H} | ${labels.E}) = ${post.toFixed(3)}`;
+      const N=10000;
+      const bar1=document.getElementById('bzBar1'), bar2=document.getElementById('bzBar2');
+      bar1.innerHTML=`<div style="width:${p*100}%;background:${COLORS.amber}"></div><div style="width:${(1-p)*100}%;background:${COLORS.line}"></div>`;
+      bar2.innerHTML=`<div style="width:${post*100}%;background:${COLORS.teal}"></div><div style="width:${(1-post)*100}%;background:${COLORS.faint}"></div>`;
+      const v=document.getElementById('bzVerdict');
+      const nTP=N*tp, nFP=N*fp;
+      const f1 = x => x>=100 ? Math.round(x).toLocaleString('en-US') : x.toFixed(1);
+      v.textContent=`Of 10,000: ${f1(N*p)} are "${labels.H}". ${f1(nTP)} of them show E, and so do ${f1(nFP)} others → ${f1(nTP)}/${f1(nTP+nFP)} = ${post.toFixed(3)}`;
+      v.className='verdict '+(post>=0.8?'good':post>=0.5?'eq':'warn');
+    }
+    wrap.children[0].click();
+  })();
+
+  // ================= Widget B: Binomial -> Poisson -> Normal =================
+  (function(){
+    const svg=document.getElementById('bnChart'); if(!svg) return;
+    const ns=document.getElementById('bnNs'), pS=document.getElementById('bnPs');
+    const f=frame({});
+    function binom(n,p){ const q=1-p; const a=new Array(n+1); a[0]=Math.pow(q,n);
+      if(a[0]===0){ // fallback via logs for extreme cases
+        let lg=0; const lf=[0]; for(let k=1;k<=n;k++){ lg+=Math.log(k); lf.push(lg); }
+        for(let k=0;k<=n;k++) a[k]=Math.exp(lf[n]-lf[k]-lf[n-k]+k*Math.log(p)+(n-k)*Math.log(q));
+        return a; }
+      for(let k=0;k<n;k++) a[k+1]=a[k]*(n-k)/(k+1)*p/q; return a; }
+    function pois(l,K){ const a=[Math.exp(-l)]; for(let k=0;k<K;k++) a.push(a[k]*l/(k+1)); return a; }
+    function render(){
+      const n=+ns.value, p=+pS.value, q=1-p, mu=n*p, v=n*p*q, sd=Math.sqrt(v), lam=mu;
+      document.getElementById('bnN').textContent=n; document.getElementById('bnP').textContent=p.toFixed(2);
+      const b=binom(n,p), K=Math.max(n, Math.ceil(lam+6*Math.sqrt(lam)+5)), po=pois(lam,K);
+      // total-variation distances; Poisson mass above n counts as error
+      let tvP=0; for(let k=0;k<=K;k++) tvP+=Math.abs((k<=n?b[k]:0)-po[k]); tvP/=2;
+      let tvN=0; for(let k=0;k<=n;k++){ const nk=Phi((k+0.5-mu)/sd)-Phi((k-0.5-mu)/sd); tvN+=Math.abs(b[k]-nk); }
+      tvN+= (Phi((-0.5-mu)/sd)) + (1-Phi((n+0.5-mu)/sd)); tvN/=2;
+      const lo=Math.max(0,Math.floor(Math.min(mu-4.5*sd, lam-4.5*Math.sqrt(lam))-1));
+      let hi=Math.ceil(Math.max(mu+4.5*sd, lam+4.5*Math.sqrt(lam))+1); hi=Math.max(hi, lo+10);
+      const xMin=lo-0.6, xMax=hi+0.6;
+      let yMax=0; for(let k=lo;k<=hi;k++){ yMax=Math.max(yMax, k<=n?b[k]:0, po[k]||0); } yMax*=1.12; // normal curve is clipped, not allowed to set the scale
+      const xS=x=>f.x0+(x-xMin)/(xMax-xMin)*f.w, yS=y=>f.y1-y/yMax*f.h;
+      clear(svg);
+      drawAxes(svg,f,ticksNice(Math.max(xMin,0),xMax,8).map(t=>({val:t.val,frac:(t.val-xMin)/(xMax-xMin)})),ticksNice(0,yMax,5),'x (number of successes)','P(X = x)',v=>Math.round(v),v=>+v.toFixed(3));
+      const clip=clipTo(svg,f);
+      const bw=Math.min(22,f.w/(xMax-xMin)*0.7);
+      for(let k=lo;k<=Math.min(hi,n);k++){ const y=b[k]; svg.appendChild(el('rect',{x:xS(k)-bw/2,y:yS(y),width:bw,height:f.y1-yS(y),fill:COLORS.amber,opacity:0.8})); }
+      if(sd>0){ let d=''; for(let i=0;i<=300;i++){ const x=xMin+(xMax-xMin)*i/300; d+=(i?'L':'M')+xS(x).toFixed(1)+','+yS(npdf(x,mu,sd)).toFixed(1); }
+        svg.appendChild(el('path',{d,fill:'none',stroke:COLORS.teal,'stroke-width':2.2,'clip-path':clip})); }
+      for(let k=lo;k<=hi;k++){ if(po[k]===undefined) continue; svg.appendChild(el('circle',{cx:xS(k),cy:yS(po[k]),r:3.6,fill:'none',stroke:COLORS.ink,'stroke-width':1.4})); }
+      const g1=(q-p)/Math.sqrt(n*p*q), g2=(1-6*p*q)/(n*p*q);
+      const skew = Math.abs(p-0.5)<1e-9 ? 'symmetric' : (g1>0?'right tail (γ₁>0)':'left tail (γ₁<0)');
+      const kurt = Math.abs(g2)<1e-6 ? 'mesokurtic' : (g2>0?'leptokurtic':'platykurtic');
+      document.getElementById('bnRead').textContent=`np = ${mu.toFixed(2)} · npq = ${v.toFixed(2)}`;
+      document.getElementById('bnStats').innerHTML=
+        `<div>γ₁ skewness<b>${g1.toFixed(3)}</b>${skew}</div><div>γ₂ kurtosis<b>${g2.toFixed(3)}</b>${kurt}</div>`+
+        `<div>Poisson error<b>${(tvP*100).toFixed(1)}%</b>total variation</div><div>Normal error<b>${(tvN*100).toFixed(1)}%</b>with ±0.5 correction</div>`;
+      const vd=document.getElementById('bnVerdict');
+      const best = tvP<tvN ? 'Poisson(np)' : 'Normal(np, npq)';
+      vd.textContent=`Better approximation here: ${best}`+(Math.min(tvP,tvN)>0.05?' — but neither is close yet':'')+(p<=0.1&&tvP<tvN?' (rare events: p small)':'')+(tvN<tvP&&v>=9?' (npq large → CLT)':'');
+      vd.className='verdict '+(Math.min(tvP,tvN)<=0.05?'good':'warn');
+    }
+    [ns,pS].forEach(s=>s.addEventListener('input',render)); render();
+  })();
+
+  // ================= Widget C: sigma/sqrt(n) vs sqrt(n)*sigma =================
+  (function(){
+    const svg=document.getElementById('seChart'); if(!svg) return;
+    const nS=document.getElementById('seNs'); const f=frame({});
+    let mode='mean';
+    const bM=document.getElementById('seModeMean'), bS=document.getElementById('seModeSum');
+    bM.addEventListener('click',()=>{mode='mean'; bM.classList.add('on'); bS.classList.remove('on'); nS.value=1; render();});
+    bS.addEventListener('click',()=>{mode='sum'; bS.classList.add('on'); bM.classList.remove('on'); nS.value=50; render();});
+    function curve(xMin,xMax,m,s,xS,yS){ let d=''; for(let i=0;i<=400;i++){ const x=xMin+(xMax-xMin)*i/400; d+=(i?'L':'M')+xS(x).toFixed(1)+','+yS(npdf(x,m,s)).toFixed(1);} return d; }
+    function area(a,b,m,s,xS,yS){ let d=`M${xS(a).toFixed(1)},${yS(0).toFixed(1)}`; for(let i=0;i<=200;i++){ const x=a+(b-a)*i/200; d+='L'+xS(x).toFixed(1)+','+yS(npdf(x,m,s)).toFixed(1);} return d+`L${xS(b).toFixed(1)},${yS(0).toFixed(1)}Z`; }
+    function render(){
+      const n=+nS.value; document.getElementById('seN').textContent=n;
+      clear(svg);
+      const vd=document.getElementById('seVerdict');
+      if(mode==='mean'){
+        const mu=52174, sig=7500, cut=50000, se=sig/Math.sqrt(n);
+        document.getElementById('seSub').innerHTML='Salaries N($52,174, $7,500²). <span class="a">Amber</span>: one teacher. <span class="t">Teal</span>: mean of n teachers. Shaded: below $50,000.';
+        const xMin=28000, xMax=76000; const yMax=npdf(mu,mu,se)*1.12;
+        const xS=x=>f.x0+(x-xMin)/(xMax-xMin)*f.w, yS=y=>f.y1-y/yMax*f.h;
+        drawAxes(svg,f,ticksNice(xMin,xMax,6).map(t=>({val:t.val,frac:t.frac})),[],'salary ($)','density (rescaled to fit)',v=>'$'+(v/1000)+'k');
+        const clip=clipTo(svg,f);
+        svg.appendChild(el('path',{d:area(xMin,cut,mu,se,xS,yS),fill:COLORS.teal,opacity:0.28,'clip-path':clip}));
+        svg.appendChild(el('path',{d:curve(xMin,xMax,mu,sig,xS,yS),fill:'none',stroke:COLORS.amber,'stroke-width':2,'stroke-dasharray':'5 4','clip-path':clip}));
+        svg.appendChild(el('path',{d:curve(xMin,xMax,mu,se,xS,yS),fill:'none',stroke:COLORS.teal,'stroke-width':2.4,'clip-path':clip}));
+        svg.appendChild(el('line',{x1:xS(cut),x2:xS(cut),y1:f.y0,y2:f.y1,stroke:COLORS.ink,'stroke-width':1.2,'stroke-dasharray':'3 3'}));
+        svg.appendChild(el('text',{x:xS(cut)-6,y:f.y0+12,class:'tick','text-anchor':'end'})).textContent='$50k';
+        const z=(cut-mu)/se, P=Phi(z);
+        document.getElementById('seRead').textContent=`σ/√n = $${fmt(se,0)} · z = ${z.toFixed(2)}`;
+        vd.textContent = n===1 ? `n = 1: one teacher. z = ${z.toFixed(3)} → P = ${fmtP(P)}` : `Mean of ${n}: SE = 7500/√${n} = ${fmt(se,0)}. The same $50k is now ${Math.abs(z).toFixed(2)}σ out → P = ${fmtP(P)}`;
+        vd.className='verdict '+(Math.abs(z)<1?'eq':Math.abs(z)<2?'warn':'bad');
+      } else {
+        const mu=2, sig=1, m=n*mu, s=Math.sqrt(n)*sig, a=m-10, b=m+10;
+        document.getElementById('seSub').innerHTML='Service time per customer: mean 2 min, SD 1. <span class="t">Teal</span>: total time for n customers. Shaded: within ±10 min of n·2.';
+        const half=Math.max(4*s,14), xMin=Math.max(0,m-half), xMax=m+half; const yMax=npdf(m,m,s)*1.12;
+        const xS=x=>f.x0+(x-xMin)/(xMax-xMin)*f.w, yS=y=>f.y1-y/yMax*f.h;
+        drawAxes(svg,f,ticksNice(xMin,xMax,7).map(t=>({val:t.val,frac:t.frac})),[],'total minutes','density',v=>Math.round(v));
+        const clip=clipTo(svg,f);
+        svg.appendChild(el('path',{d:area(Math.max(a,xMin),Math.min(b,xMax),m,s,xS,yS),fill:COLORS.teal,opacity:0.28,'clip-path':clip}));
+        svg.appendChild(el('path',{d:curve(xMin,xMax,m,s,xS,yS),fill:'none',stroke:COLORS.teal,'stroke-width':2.4,'clip-path':clip}));
+        const z=10/s, P=Phi(z)-Phi(-z);
+        document.getElementById('seRead').textContent=`n·μ = ${m} · √n·σ = ${s.toFixed(2)}`;
+        vd.textContent=`Sum of ${n}: SD grows as √n = ${s.toFixed(2)}, so ±10 min is ±${z.toFixed(3)}σ → P = ${P.toFixed(4)}`+(n===50?' (lecture: 0.8427)':'');
+        vd.className='verdict '+(P>=0.8?'good':P>=0.5?'eq':'warn');
+      }
+    }
+    nS.addEventListener('input',render); render();
+  })();
+
+  // ================= Widget D: CLT sampler =================
+  (function(){
+    const svg=document.getElementById('cltChart'); if(!svg) return;
+    const nS=document.getElementById('cltNs'); const f=frame({});
+    const parents={
+      unif:{mu:0.5, sd:Math.sqrt(1/12), g1:0, lo:0, hi:1, draw:()=>Math.random(), pdf:x=>(x>0&&x<1)?1:0, name:'uniform'},
+      exp:{mu:1, sd:1, g1:2, lo:0, hi:4, draw:()=>-Math.log(1-Math.random()), pdf:x=>x>0?Math.exp(-x):0, name:'exponential'},
+      arc:{mu:0.5, sd:Math.sqrt(1/8), g1:0, lo:0, hi:1, draw:()=>{const s=Math.sin(Math.PI*Math.random()/2); return s*s;}, pdf:x=>(x>0&&x<1)?1/(Math.PI*Math.sqrt(x*(1-x))):0, name:'U-shaped'}
+    };
+    let P=parents.unif, means=[];
+    document.querySelectorAll('#cltParents .btn').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('#cltParents .btn').forEach(c=>c.classList.remove('on')); b.classList.add('on'); P=parents[b.dataset.p]; means=[]; render(); }));
+    nS.addEventListener('input',()=>{ means=[]; render(); });
+    function add(k){ const n=+nS.value; for(let j=0;j<k;j++){ let s=0; for(let i=0;i<n;i++) s+=P.draw(); means.push(s/n);} render(); }
+    document.getElementById('clt50').addEventListener('click',()=>add(50));
+    document.getElementById('clt500').addEventListener('click',()=>add(500));
+    document.getElementById('cltReset').addEventListener('click',()=>{ means=[]; render(); });
+    function render(){
+      const n=+nS.value; document.getElementById('cltN').textContent=n;
+      const B=40, xMin=P.lo, xMax=P.hi, bw=(xMax-xMin)/B, counts=new Array(B).fill(0); let off=0;
+      means.forEach(m=>{ const i=Math.floor((m-xMin)/bw); if(i>=0&&i<B) counts[i]++; else off++; });
+      const N=means.length, dens=counts.map(c=>N?c/(N*bw):0);
+      const se=P.sd/Math.sqrt(n);
+      const yMax=Math.max(npdf(P.mu,P.mu,se), ...dens, 1.2)*1.12;
+      const xS=x=>f.x0+(x-xMin)/(xMax-xMin)*f.w, yS=y=>f.y1-y/yMax*f.h;
+      clear(svg);
+      drawAxes(svg,f,ticksNice(xMin,xMax,5),ticksNice(0,yMax,5),'sample mean','density',v=>+v.toFixed(2),v=>+v.toFixed(1));
+      const clip=clipTo(svg,f);
+      let d=''; for(let i=0;i<=400;i++){ const x=xMin+(xMax-xMin)*(i+0.5)/401; const y=P.pdf(x); d+=(i?'L':'M')+xS(x).toFixed(1)+','+yS(y).toFixed(1);} // clipped, never clamped
+      svg.appendChild(el('path',{d,fill:'none',stroke:COLORS.amber,'stroke-width':1.5,opacity:0.55,'clip-path':clip}));
+      dens.forEach((y,i)=>{ if(!y) return; svg.appendChild(el('rect',{x:xS(xMin+i*bw)+0.5,y:yS(y),width:Math.max(1,f.w/B-1),height:f.y1-yS(y),fill:COLORS.ink,opacity:0.35,'clip-path':clip})); });
+      let c=''; for(let i=0;i<=400;i++){ const x=xMin+(xMax-xMin)*i/400; c+=(i?'L':'M')+xS(x).toFixed(1)+','+yS(npdf(x,P.mu,se)).toFixed(1);}
+      svg.appendChild(el('path',{d:c,fill:'none',stroke:COLORS.teal,'stroke-width':2.2,'clip-path':clip}));
+      let msd=NaN, msk=NaN;
+      if(N>2){ const m=means.reduce((a,b)=>a+b,0)/N; const v=means.reduce((a,b)=>a+(b-m)**2,0)/(N-1); msd=Math.sqrt(v); msk=means.reduce((a,b)=>a+(b-m)**3,0)/N/Math.pow(v,1.5); }
+      document.getElementById('cltRead').textContent=`${N} draws`+(off?` · ${off} off-chart`:'');
+      document.getElementById('cltStats').innerHTML=
+        `<div>σ/√n predicted<b>${se.toFixed(3)}</b></div><div>SD of your means<b>${isNaN(msd)?'—':msd.toFixed(3)}</b></div>`+
+        `<div>skew predicted γ₁/√n<b>${(P.g1/Math.sqrt(n)).toFixed(3)}</b></div><div>skew of your means<b>${isNaN(msk)?'—':msk.toFixed(3)}</b></div>`;
+      const vd=document.getElementById('cltVerdict');
+      if(N===0){ vd.textContent='Add draws to build the histogram of sample means.'; vd.className='verdict eq'; }
+      else if(n===1){ vd.textContent='Sample size 1: nothing is averaged, so you just get the parent back — no CLT.'; vd.className='verdict warn'; }
+      else if(P.g1/Math.sqrt(n)>0.5){ vd.textContent=`Still visibly skewed: a skewed parent leaves skew γ₁/√n = ${(P.g1/Math.sqrt(n)).toFixed(2)} in the mean. Raise n.`; vd.className='verdict warn'; }
+      else { vd.textContent=`Means cluster around μ = ${P.mu} with spread σ/√n = ${se.toFixed(3)} — the width shrinks as n grows.`; vd.className='verdict good'; }
+    }
+    render();
+  })();
+})();
+</script>
+</body>
+</html>
