@@ -33,4 +33,6 @@ It skips any `.txt` whose `<term>/<course-dir>/lectures/<name>.md` already exist
 
 ## Recap pages (`recap/*.html`)
 
-Self-contained, single-file interactive pages -- open directly in any browser, no build step, no dependencies beyond two CDN font links. Dense formula/definition cards for fast pre-exam scanning, plus a handful of small draggable charts per course that let you test the mechanics (a payoff-matrix Nash solver, a wage/technology-choice slider, etc.) instead of just re-reading.
+Self-contained, single-file interactive pages -- open directly in any browser, no build step, no dependencies beyond CDN font links (plus KaTeX on formula-heavy courses). Dense formula/definition cards for fast pre-exam scanning, plus interactive pieces only where they teach something a card can't. The kind depends on the content: draggable charts for graph-heavy material (DSM-107's Nash solver, technology-choice slider), worked-example and practice-problem reveals for numerical material, predict-the-output cards for code, step-through visualizers for algorithms, and often none for framework-style material.
+
+Built with the Claude Code skill in [`.claude/skills/building-course-recaps/`](.claude/skills/building-course-recaps/SKILL.md). It profiles a course's `lectures/*.md` (`profile_course.py`), classifies each module by content type, proposes a module plan for approval, then builds from `base-template.html` and verifies every displayed number. To start one, ask Claude Code for "a full-course recap for DSM-1xx".

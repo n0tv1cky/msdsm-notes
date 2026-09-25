@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Base shell for a course recap page. Copy to
+     <term>/<course-dir>/recap/course-recap.html, then:
+     - replace every {{PLACEHOLDER}} (GitHub Pages runs with .nojekyll, but
+       grep for "{{" before committing anyway)
+     - delete component CSS/JS blocks you don't use
+     - duplicate the module <section> per module in the approved plan -->
+<title>{{DSM-XXX}} Full Course Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- OPTIONAL (formula-heavy courses only): KaTeX renders $...$ / $$...$$ copied from lectures/*.md -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+    --rust:#C1594A; --maxw:680px; --wide:920px;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber-dim); color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .wrap-wide{max-width:var(--wide); margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.92em;}
+
+  /* ---------- page chrome ---------- */
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); z-index:50; transition:width .1s linear;}
+  section{scroll-margin-top:54px;}
+  nav.jumpnav{position:sticky; top:3px; z-index:40; background:rgba(20,23,28,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:10px 24px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none;}
+  nav.jumpnav::-webkit-scrollbar{display:none;}
+  nav.jumpnav a{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); text-decoration:none; white-space:nowrap; padding:6px 11px; border-radius:20px; border:1px solid var(--line); flex:none; transition:color .15s,border-color .15s;}
+  nav.jumpnav a:hover, nav.jumpnav a:focus-visible{color:var(--ink); border-color:var(--amber);}
+  header.hero{padding:40px 0 28px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0;}
+
+  .module{padding:52px 0 8px;}
+  .module-head{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px;}
+  .module-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 8px;}
+  .module h2{font-size:1.55rem; margin:0 0 10px;}
+  .module .lede{color:var(--ink-dim); max-width:64ch; margin:0;}
+
+  /* ---------- cheat cards: the dense, scan-first layer ---------- */
+  .cheat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:32px;}
+  .cheat-grid.two{grid-template-columns:repeat(2,1fr);}
+  .cheat-card{background:var(--panel); padding:18px 20px;}
+  .cheat-card h3{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:0 0 12px;}
+  .cheat-card dl{margin:0;}
+  .cheat-card dt{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); margin:0 0 2px;}
+  .cheat-card dt.t{color:var(--teal);}
+  .cheat-card dd{margin:0 0 12px; font-size:14px; color:var(--ink-dim); line-height:1.5;}
+  .cheat-card dd:last-child{margin-bottom:0;}
+  .cheat-card ul, .note ul{margin:0; padding:0; list-style:none;}
+  .cheat-card li{font-size:14px; color:var(--ink-dim); margin:0 0 9px; padding-left:14px; position:relative; line-height:1.5;}
+  .cheat-card li:last-child, .note li:last-child{margin-bottom:0;}
+  .cheat-card li::before, .note li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+  .cheat-card strong{color:var(--ink); font-weight:600;}
+  @media (max-width:760px){.cheat-grid,.cheat-grid.two{grid-template-columns:1fr;}}
+
+  /* ---------- intuition callout: the professor's analogy. >1 idea => <ul> ---------- */
+  .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:16px 0 0;}
+  .note p{margin:0 0 8px;} .note p:last-child{margin-bottom:0;}
+  .note li{margin:0 0 7px; padding-left:14px; position:relative;}
+
+  /* ---------- interactive panel (charts, steppers, calculators) ---------- */
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:24px 24px 20px; margin:0 0 40px;}
+  .panel-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:6px; flex-wrap:wrap;}
+  .panel-title{font-family:'Fraunces',serif; font-size:1.02rem; color:var(--ink);}
+  .readout{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); text-align:right;}
+  svg.chart{width:100%; height:auto; display:block; margin:14px 0 8px; overflow:visible;}
+  .tick{font-family:'IBM Plex Mono',monospace; font-size:10px; fill:var(--ink-faint);}
+  .axislabel{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink-faint);}
+  .gridline{stroke:var(--line); stroke-width:1;}
+  .axis{stroke:var(--ink-faint); stroke-width:1;}
+  .controls{display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-top:10px;}
+  .slider-group{display:flex; flex-direction:column; gap:6px; flex:1; min-width:200px;}
+  .slider-label{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between;}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:var(--line); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:16px; height:16px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  .verdict{font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 12px; border-radius:5px; margin-top:14px; display:inline-block;}
+  .verdict.good{background:rgba(79,168,160,.14); color:var(--teal);}
+  .verdict.warn{background:rgba(232,163,61,.14); color:var(--amber);}
+  .verdict.eq{background:rgba(237,234,226,.1); color:var(--ink);}
+  .verdict.bad{background:rgba(193,89,74,.16); color:var(--rust);}
+  .btn{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:6px 12px; cursor:pointer;}
+  .btn:hover{border-color:var(--amber); color:var(--ink);}
+
+  /* ---------- worked example / practice problem: <details>, works with NO JS and on paper ---------- */
+  details.worked{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 20px; margin:0 0 16px;}
+  details.worked summary{cursor:pointer; font-size:15px; color:var(--ink); list-style:none;}
+  details.worked summary::-webkit-details-marker{display:none;}
+  details.worked summary::before{content:'▸ '; color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  details.worked[open] summary::before{content:'▾ ';}
+  details.worked .tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin-left:8px;}
+  details.worked ol{margin:12px 0 0; padding-left:22px; color:var(--ink-dim); font-size:15px;}
+  details.worked ol li{margin:0 0 6px;}
+  details.worked .answer{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal);}
+
+  /* ---------- code card (programming courses): snippet + predicted output ---------- */
+  pre.code{background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:14px 16px; overflow-x:auto; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.55; color:var(--ink); margin:10px 0;}
+  pre.code .c{color:var(--ink-faint);}   /* comment */
+  pre.code .k{color:var(--teal);}        /* keyword */
+  pre.code .s{color:var(--amber);}       /* string/literal */
+  pre.out{border-left:2px solid var(--teal); background:transparent; border-radius:0; color:var(--teal);}
+
+  /* ---------- step-through visualizer (algorithms / derivations) ---------- */
+  .stepper-cells{display:flex; flex-wrap:wrap; gap:6px; margin:16px 0;}
+  .stepper-cells span{min-width:40px; padding:8px 10px; text-align:center; border:1px solid var(--line); border-radius:4px; font-family:'IBM Plex Mono',monospace; font-size:14px; background:var(--bg);}
+  .stepper-cells span.hi{border-color:var(--amber); color:var(--amber);}
+  .stepper-cells span.done{border-color:var(--teal-dim); color:var(--teal);}
+  .stepper-caption{font-size:14px; color:var(--ink-dim); min-height:2.6em;}
+
+  footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
+  @media (max-width:600px){ .module{padding:40px 0 4px;} .panel{padding:18px 16px 16px;} }
+
+  /* ---------- Print / Save-as-PDF: swap tokens to a light palette ---------- */
+  @media print{
+    @page{ margin:1.3cm; }
+    :root{
+      --bg:#ffffff; --panel:#f7f6f2; --ink:#161616; --ink-dim:#3d3d3d; --ink-faint:#6b6b6b;
+      --line:#cfcbc0; --amber:#a85e0d; --amber-dim:#d9c3a3; --teal:#136b62; --teal-dim:#a9cfc9; --rust:#9a3a2a;
+    }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-size:11pt; }
+    nav.jumpnav, .progress, .btn{ display:none !important; }
+    section{ scroll-margin-top:0; }
+    header.hero{ padding:0 0 16px; }
+    .module{ padding:28px 0 4px; }
+    .cheat-card, .panel, .note, details.worked, pre.code{ break-inside:avoid; page-break-inside:avoid; }
+    h2, .panel-head{ break-after:avoid; page-break-after:avoid; }
+    input[type=range]{ display:none; }
+    a[href]:after{ content:""; }
+    .verdict{ border:1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="jumpnav">
+  <a href="#{{module-id}}">{{Module name}}</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">{{DSM-XXX Course Title}} — Full course recap, Sessions {{01–NN}}</p>
+  </div>
+</header>
+
+<!-- ============ MODULE: {{name}} ============ -->
+<section class="module" id="{{module-id}}">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">Sessions {{NN–NN}}</p>
+      <h2>{{Module title}}</h2>
+      <p class="lede">{{One sentence: what this module lets you do.}}</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>{{Card heading}}</h3>
+        <dl><dt>{{term or formula}}</dt><dd>{{one-line meaning / when to use}}</dd></dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>{{Professor's analogy, lead-in}}</p>
+      <ul><li>{{idea one}}</li><li>{{idea two}}</li></ul>
+    </div>
+
+    <details class="worked">
+      <summary>{{Problem statement with the lecture's numbers}}<span class="tag">S{{NN}} worked example</span></summary>
+      <ol><li>{{step}}</li></ol>
+      <p class="answer">{{final answer}}</p>
+    </details>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">{{Widget title}}</span>
+        <span class="readout" id="readoutX"></span>
+      </div>
+      <svg class="chart" id="chartX" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group">
+          <span class="slider-label"><span>{{parameter}}</span><span id="valX"></span></span>
+          <input type="range" id="sliderX" min="0" max="10" step="0.1" value="5">
+        </div>
+      </div>
+      <div id="verdictX" class="verdict eq"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>Full-course recap for {{DSM-XXX}}, Sessions {{01–NN}} · {{what the widgets are calibrated to}}</p></div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const COLORS = { amber:'#E8A33D', teal:'#4FA8A0', ink:'#EDEAE2', dim:'#9BA3AF', faint:'#5B6270', line:'#2A2F38', rust:'#C1594A' };
+  const NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function frame(opts){ const {x0=70,y0=20,w=640,h=250} = opts; return {x0,y0,w,h,x1:x0+w,y1:y0+h}; }
+  function ticks(min,max,step){ const a=[]; for(let v=min; v<=max+1e-9; v+=step) a.push({val:Math.round(v*100)/100, frac:(v-min)/(max-min)}); return a; }
+  function drawAxes(svg,f,xTicks,yTicks,xLabel,yLabel,xFmt,yFmt){
+    xTicks.forEach(t=>{ const gx=f.x0+t.frac*f.w;
+      svg.appendChild(el('line',{x1:gx,y1:f.y0,x2:gx,y2:f.y1,class:'gridline'}));
+      svg.appendChild(el('text',{x:gx,y:f.y1+18,class:'tick','text-anchor':'middle'})).textContent = xFmt?xFmt(t.val):t.val;
+    });
+    yTicks.forEach(t=>{ const gy=f.y1-t.frac*f.h;
+      svg.appendChild(el('line',{x1:f.x0,y1:gy,x2:f.x1,y2:gy,class:'gridline'}));
+      const lbl=el('text',{x:f.x0-10,y:gy+4,class:'tick','text-anchor':'end'}); lbl.textContent=yFmt?yFmt(t.val):t.val; svg.appendChild(lbl);
+    });
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y1,x2:f.x1,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y0,x2:f.x0,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('text',{x:(f.x0+f.x1)/2,y:f.y1+40,class:'axislabel','text-anchor':'middle'})).textContent = xLabel;
+    const yl=el('text',{x:16,y:(f.y0+f.y1)/2,class:'axislabel','text-anchor':'middle'});
+    yl.setAttribute('transform',`rotate(-90 16 ${(f.y0+f.y1)/2})`); yl.textContent=yLabel; svg.appendChild(yl);
+  }
+
+  // Scroll progress bar
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    progress.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100) + '%';
+  });
+  // Jump-nav via JS, not native #anchors: the preview pane loads pages as data: URIs where anchor jumps fail
+  document.querySelectorAll('nav.jumpnav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      const navH = document.querySelector('nav.jumpnav').offsetHeight + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior:'smooth' });
+    });
+  });
+
+  // Print = every worked example expanded (CSS can't open a closed <details>); restore afterwards
+  let closedForPrint = [];
+  window.addEventListener('beforeprint', () => {
+    closedForPrint = [...document.querySelectorAll('details:not([open])')];
+    closedForPrint.forEach(d => d.open = true);
+  });
+  window.addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
+
+  // Widget pattern: one IIFE per widget; pure math functions first (so they can be
+  // mirrored in Python to verify), then xScale/yScale over explicit [min,max], then render().
+  // Clip curves at the frame edge -- never clamp y, that draws fake flat tails.
+  (function(){
+    const svg = document.getElementById('chartX'); if (!svg) return;
+    const slider = document.getElementById('sliderX');
+    const f = frame({});
+    const xMin=0, xMax=10, yMin=0, yMax=10;
+    const xScale = x => f.x0 + ((x-xMin)/(xMax-xMin))*f.w;
+    const yScale = y => f.y1 - ((y-yMin)/(yMax-yMin))*f.h;
+    function render(){
+      const v = +slider.value;
+      clear(svg);
+      drawAxes(svg, f, ticks(xMin,xMax,2), ticks(yMin,yMax,2), '{{x label}}', '{{y label}}');
+      svg.appendChild(el('circle',{cx:xScale(v), cy:yScale(v), r:6.5, fill:COLORS.teal, stroke:'#14171C','stroke-width':2}));
+      document.getElementById('valX').textContent = v.toFixed(1);
+    }
+    slider.addEventListener('input', render);
+    render();
+  })();
+
+  // Step-through pattern (algorithms): precompute an array of states, render states[i].
+  // const steps = [{cells:[5,3,8], hi:[0,1], done:[], caption:'compare 5 and 3 → swap'}, ...];
+})();
+</script>
+</body>
+</html>
