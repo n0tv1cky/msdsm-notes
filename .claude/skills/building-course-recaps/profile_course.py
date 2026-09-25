@@ -32,7 +32,8 @@ SIGNALS = {
     "framework": re.compile(
         r"\b(framework|model of|rubric|checklist|do's|don'ts|dos and don'ts|principle|case study|case of|"
         r"evaluation criteria|audience|structure of|stakeholder|methodology|hypothesis|survey|sampling design)\b", re.I),
-    # the professor's analogies/stories -- the stuff the user values most
+    # weak proxy only -- analogies are rarely phrased with these words; a low
+    # score does NOT mean none. Always read the notes for them.
     "analogy": re.compile(r"\b(analog\w+|like a|think of|imagine|metaphor|story|anecdote|intuition|intuitively)\b", re.I),
 }
 
@@ -76,7 +77,7 @@ def main():
     cols = list(SIGNALS)
     totals = dict.fromkeys(cols, 0.0)
     print(f"{lectures.parent.name}: {len(files)} lecture notes\n")
-    print(f"{'session':<20}{'words':>7}" + "".join(f"{c:>10}" for c in cols) + "   (per 1k words)")
+    print(f"{'session':<20}{'words':>7}" + "".join(f"{c:>10}" for c in cols) + "   (per 1k words; analogy = weak proxy)")
 
     seen = {}
     for p in files:
