@@ -29,7 +29,7 @@ from pathlib import Path
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
 NOTES_REPO_DIR = Path(__file__).resolve().parent
 TERM = "term1"
-MODEL = "claude-opus-5"
+MODEL = "claude-opus-5-5"
 MAX_TOKENS = 16000
 
 COURSE_GUIDANCE = {
