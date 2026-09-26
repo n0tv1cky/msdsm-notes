@@ -129,6 +129,26 @@
   details.worked ol li{margin:0 0 6px;}
   details.worked .answer{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal);}
 
+  /* ---------- bivariate: figure + joint table ---------- */
+  .fig{display:grid; grid-template-columns:minmax(0,380px) 1fr; gap:24px; align-items:center; margin:0 0 28px;}
+  .fig svg{width:100%; height:auto; display:block;}
+  .fig p{font-size:0.9rem; color:var(--ink-dim); margin:0; max-width:52ch;}
+  .figlabel{font-family:'IBM Plex Mono',monospace; font-size:13px;}
+  @media (max-width:600px){ .figlabel{font-size:16px;} }
+  @media (max-width:760px){ .fig{grid-template-columns:1fr;} }
+  .jt-wrap{overflow-x:auto; margin:14px 0 4px;}
+  table.jt{border-collapse:collapse; font-family:'IBM Plex Mono',monospace; font-size:13px;}
+  table.jt th, table.jt td{border:1px solid var(--line); padding:7px 10px; text-align:center; min-width:52px;}
+  table.jt th{color:var(--ink-faint); font-weight:500; font-size:11.5px; background:var(--bg);}
+  table.jt td.cell{color:var(--ink);}
+  table.jt td.cell small{display:block; color:var(--ink-faint); font-size:10.5px; margin-top:2px;}
+  table.jt td.zero{color:var(--ink-faint);}
+  table.jt td.first{box-shadow:inset 0 0 0 2px var(--rust);}
+  .controls[hidden]{display:none;}
+  @media (max-width:600px){ table.jt{font-size:12px;} table.jt th, table.jt td{min-width:0; padding:6px 5px;} }
+  table.jt td.bad small{color:var(--rust);}
+  table.jt td.m{color:var(--ink-dim); background:var(--bg);}
+
   footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
   @media (max-width:600px){ .tick{font-size:17px;} .axislabel{font-size:17px;} }
   @media (max-width:600px){ .module{padding:40px 0 4px;} .panel{padding:18px 16px 16px;} .wrap,.wrap-wide{padding:0 16px;} nav.jumpnav{padding:10px 16px;} }
@@ -166,11 +186,12 @@
   <a href="#m6">6 · Distributions</a>
   <a href="#m7">7 · Normal &amp; CLT</a>
   <a href="#m8">8 · Inequalities</a>
+  <a href="#m9">9 · Bivariate</a>
 </nav>
 
 <header class="hero">
   <div class="wrap-wide">
-    <p class="kicker">DSM-101 Probability &amp; Statistics — full course recap, S1–S10 (Majumdar) + S11 → 19 Sep (Arshad)</p>
+    <p class="kicker">DSM-101 Probability &amp; Statistics — full course recap, S1–S10 (Majumdar) + S11 → 24 Sep (Arshad)</p>
     <div class="legend">
       <span><i class="swatch amber"></i>discrete · single draw · prior</span>
       <span><i class="swatch teal"></i>continuous · sample mean · posterior</span>
@@ -1163,8 +1184,311 @@
   </div>
 </section>
 
+<!-- ============ MODULE 9 ============ -->
+<section class="module" id="m9">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S18 · S19 · S20 (22–24 Sep) — Arshad</p>
+      <h2>Bivariate random variables: joint, marginal, conditional, covariance</h2>
+      <p class="lede">Two measurements on one outcome, $(X,Y):\Omega\to\mathbb{R}^2$. Everything univariate gets a joint version, plus one new question: do the two move together?</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Joint and marginal PMF</h3>
+        <dl>
+          <dt>joint PMF</dt><dd>$p(x,y)=P(X=x,Y=y)\ge0$, $\;\sum_x\sum_y p(x,y)=1$</dd>
+          <dt>marginals</dt><dd>$p_X(x)=\sum_y p(x,y)$ (row sums), $\;p_Y(y)=\sum_x p(x,y)$ (column sums)</dd>
+          <dt>dependent ranges</dt><dd>swapping the order keeps the answer but <strong>changes the limits</strong>: $\sum_{y=0}^{2}\sum_{x=0}^{y}=\sum_{x=0}^{2}\sum_{y=x}^{2}$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Joint CDF</h3>
+        <dl>
+          <dt>definition</dt><dd>$F(x,y)=P(X\le x,\,Y\le y)$: the lower-left quadrant</dd>
+          <dt>properties 1–4</dt><dd>non-decreasing and right-continuous in each coordinate; $\to0$ as $x\to-\infty$ <em>or</em> $y\to-\infty$; $\to1$ as both $\to\infty$</dd>
+          <dt>5 · rectangle inequality</dt><dd>$F(x_2,y_2)-F(x_2,y_1)-F(x_1,y_2)+F(x_1,y_1)\ge0$. <strong>Not implied by 1–4.</strong></dd>
+          <dt>marginal CDF</dt><dd>$F_X(x)=\lim_{y\to\infty}F(x,y)$: send the <em>other</em> variable to $+\infty$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Joint PDF</h3>
+        <dl>
+          <dt class="t">definition</dt><dd>$F(x,y)=\int_{-\infty}^{x}\int_{-\infty}^{y}f(u,v)\,dv\,du$; $\;f\ge0$, $\iint f=1$</dd>
+          <dt class="t">back to PDF</dt><dd>$f=\dfrac{\partial^2F}{\partial x\,\partial y}$ where $f$ is continuous</dd>
+          <dt class="t">regions</dt><dd>$P((X,Y)\in A)=\iint_A f\,dy\,dx$; $\;f_X(x)=\int f(x,y)\,dy$</dd>
+          <dt class="t">uniform on a region</dt><dd>$f=\dfrac1{\text{area}}$, so probability $=$ <strong>area ratio</strong></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="fig">
+      <svg viewBox="0 0 420 250" role="img" aria-label="Rectangle inequality: plus F at top-right and bottom-left corners, minus F at the other two corners, leaving the probability of the rectangle">
+        <line x1="40" y1="215" x2="400" y2="215" style="stroke:var(--ink-faint)"/>
+        <line x1="40" y1="20" x2="40" y2="215" style="stroke:var(--ink-faint)"/>
+        <rect x="150" y="70" width="130" height="90" style="fill:var(--teal);fill-opacity:.22;stroke:var(--teal);stroke-width:1.5"/>
+        <path d="M150 70H40M150 160H40M150 160V215M280 160V215" style="stroke:var(--ink-faint);stroke-dasharray:3 3;fill:none"/>
+        <circle cx="280" cy="70" r="4" style="fill:var(--amber)"/><circle cx="150" cy="160" r="4" style="fill:var(--amber)"/>
+        <circle cx="150" cy="70" r="4" style="fill:var(--rust)"/><circle cx="280" cy="160" r="4" style="fill:var(--rust)"/>
+        <text class="figlabel" x="280" y="58" text-anchor="middle" style="fill:var(--amber)">+F(x₂,y₂)</text>
+        <text class="figlabel" x="150" y="58" text-anchor="middle" style="fill:var(--rust)">−F(x₁,y₂)</text>
+        <text class="figlabel" x="280" y="180" text-anchor="middle" style="fill:var(--rust)">−F(x₂,y₁)</text>
+        <text class="figlabel" x="150" y="180" text-anchor="middle" style="fill:var(--amber)">+F(x₁,y₁)</text>
+        <text class="figlabel" x="215" y="113" text-anchor="middle" style="fill:var(--ink)">P(rectangle)</text>
+        <text class="figlabel" x="215" y="130" text-anchor="middle" style="fill:var(--ink)">≥ 0</text>
+        <text class="figlabel" x="150" y="234" text-anchor="middle" style="fill:var(--ink-faint)">x₁</text>
+        <text class="figlabel" x="280" y="234" text-anchor="middle" style="fill:var(--ink-faint)">x₂</text>
+        <text class="figlabel" x="30" y="164" text-anchor="end" style="fill:var(--ink-faint)">y₁</text>
+        <text class="figlabel" x="30" y="74" text-anchor="end" style="fill:var(--ink-faint)">y₂</text>
+      </svg>
+      <p>Take the whole quadrant under $(x_2,y_2)$, remove the strip below and the strip to the left, then add back the corner removed twice. What's left is $P(x_1&lt;X\le x_2,\;y_1&lt;Y\le y_2)$, and no rectangle may have negative probability. In 1-D this collapses to "non-decreasing", which is why it's new.</p>
+    </div>
+
+    <div class="note">
+      <p>From Arshad's framing (S18–S19):</p>
+      <ul>
+        <li><strong>Height and weight, rainfall and temperature</strong>: one experiment, two readings. The step from here is regression, where $Y$ depends on $X$.</li>
+        <li><strong>Joint vs marginal tell different stories</strong>: in the triangle example the joint is flat ($\tfrac16$ everywhere it lives), yet $X$ piles up at 0 and $Y$ at 2.</li>
+        <li><strong>A density is a rate, not a probability</strong>: that's why the conditional PDF can't be $P(\cdot)/P(Y=y)$ and needs a limit instead.</li>
+        <li><strong>Covariance only sees straight lines</strong>: $Y=X^2$ is completely determined by $X$ yet has zero covariance.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="jtPanel">
+      <div class="panel-head">
+        <span class="panel-title">Joint PMF table: marginals and the independence test</span>
+        <span class="readout" id="jtRead"></span>
+      </div>
+      <p class="panel-sub">Each cell shows p(x,y), with pX(x)·pY(y) underneath. Row sums give pX, column sums give pY. <span style="color:var(--rust)">Red</span> numbers mark joint ≠ product; the outlined cell is the first one, and one is enough to prove dependence.</p>
+      <div class="btnrow" id="jtPresets"></div>
+      <div class="controls" id="jtCtl" hidden>
+        <div class="slider-group">
+          <span class="slider-label"><span>a = p(0,1), with b = p(1,1) = 1/2 − a</span><span id="jtA"></span></span>
+          <input type="range" id="jtAs" min="0" max="30" step="1" value="4">
+        </div>
+      </div>
+      <div class="jt-wrap"><table class="jt" id="jtTable"></table></div>
+      <div class="verdict" id="jtVerdict"></div>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>Conditional distribution</h3>
+        <dl>
+          <dt class="t">why a limit</dt><dd>$P(Y=y)=0$ for continuous $Y$, so condition on $y-\varepsilon&lt;Y\le y+\varepsilon$ and let $\varepsilon\to0^+$</dd>
+          <dt class="t">result</dt><dd>$f_{X\mid Y}(x\mid y)=\dfrac{f(x,y)}{f_Y(y)}$, needs $f_Y(y)&gt;0$. For fixed $y$ it <strong>is a PDF</strong> in $x$.</dd>
+          <dt>multiplication rule</dt><dd>$f(x,y)=f_{Y\mid X}(y\mid x)\,f_X(x)=f_{X\mid Y}(x\mid y)\,f_Y(y)$</dd>
+          <dt>conditional mean</dt><dd>$E[Y\mid X=x]=\int y\,f_{Y\mid X}(y\mid x)\,dy$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Independence</h3>
+        <dl>
+          <dt>definition</dt><dd>$F(x,y)=F_X(x)F_Y(y)$ for all $x,y$</dd>
+          <dt>any one of</dt><dd>$p=p_Xp_Y$ · $f=f_Xf_Y$ · $M(t_1,t_2)=M_X(t_1)M_Y(t_2)$ near $(0,0)$</dd>
+          <dt>factorisation</dt><dd>$f=g(x)\,h(y)$ is enough; $g,h$ <strong>need not</strong> be densities</dd>
+          <dt class="t">support test</dt><dd>rectangular support is <strong>necessary, not sufficient</strong>. Triangle or disk ⇒ dependent.</dd>
+          <dt>dependence</dt><dd>one point with $p(x,y)\ne p_X(x)p_Y(y)$ settles it</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Covariance</h3>
+        <dl>
+          <dt>expectation</dt><dd>$E[g(X,Y)]=\sum\sum g\,p$ or $\iint g\,f$; $\;\mu'_{r,s}=E[X^rY^s]$</dd>
+          <dt>formula</dt><dd>$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$; $\;\operatorname{Cov}(X,X)=\operatorname{Var}X$</dd>
+          <dt>linear</dt><dd>$\operatorname{Cov}(aX+b,cY+d)=ac\operatorname{Cov}(X,Y)$, bilinear in each slot</dd>
+          <dt>variance of a sum</dt><dd>$\operatorname{Var}(aX+bY)=a^2\operatorname{Var}X+b^2\operatorname{Var}Y+2ab\operatorname{Cov}$</dd>
+          <dt class="t">one-way street</dt><dd>independent ⇒ Cov $=0$. <strong>Cov $=0$ ⇏ independent</strong> ($X\sim U(-1,1)$, $Y=X^2$).</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Independence in three moves (S19):</p>
+      <ul>
+        <li><strong>Support rectangular?</strong> If $x$'s range depends on $y$ (like $0&lt;x&lt;y&lt;1$), stop: dependent.</li>
+        <li><strong>Does the formula split?</strong> Products and quotients ($xy^2$, $x/y$) split; sums ($x+y$) generally don't.</li>
+        <li><strong>Both yes</strong> ⇒ independent, without computing either marginal.</li>
+      </ul>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>Joint MGF</h3>
+        <dl>
+          <dt>definition</dt><dd>$M(t_1,t_2)=E\left[e^{t_1X+t_2Y}\right]$, finite on a neighbourhood of $(0,0)$</dd>
+          <dt>marginals</dt><dd>$M_X(t_1)=M(t_1,0)$, $\;M_Y(t_2)=M(0,t_2)$</dd>
+          <dt>product moments</dt><dd>$E[X^rY^s]=\dfrac{\partial^{r+s}M}{\partial t_1^{\,r}\,\partial t_2^{\,s}}\Big|_{(0,0)}$</dd>
+          <dt>independence</dt><dd>$\iff M(t_1,t_2)=M_X(t_1)M_Y(t_2)$ on a whole neighbourhood of $(0,0)$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>Read the distribution off the MGF (uniqueness)</h3>
+        <dl>
+          <dt>$e^{\mu t+\frac12\sigma^2t^2}$</dt><dd>$N(\mu,\sigma^2)$. So $e^{t^2}$ is $N(0,2)$, not $N(0,1)$.</dd>
+          <dt>$(q+pe^t)^n$</dt><dd>$\text{Bin}(n,p)$</dd>
+          <dt>$\sum_i p_i\,e^{x_it}$</dt><dd>discrete: exponent = value, coefficient = probability</dd>
+          <dt>$e^{ct}$</dt><dd>degenerate at $c$ ($P(X=c)=1$)</dd>
+          <dt class="t">$(1-t)^{-1}$ · $(1-t)^{-2}$</dt><dd>Exp(1) · Gamma(shape 2, rate 1)</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>$p(x,y)=c$ for $x=0,\dots,y$ and $y=0,1,2$. Find $c$ both ways, then the marginals.<span class="tag">S18</span></summary>
+      <ol>
+        <li>$x$ first: $c\sum_{y=0}^{2}(y+1)=6c=1$, so $c=\tfrac16$.</li>
+        <li>$y$ first: $x\le y$ means $y$ runs $x\to2$, which is $3-x$ values: $\tfrac16\sum_{x=0}^{2}(3-x)=\tfrac16\cdot6=1$. ✓</li>
+        <li>$p_X(x)=\sum_{y=x}^{2}\tfrac16=\dfrac{3-x}{6}$; $\;p_Y(y)=\sum_{x=0}^{y}\tfrac16=\dfrac{y+1}{6}$.</li>
+        <li>The trap: summing $y$ over all of $0,1,2$ for every $x$. Arshad made and corrected exactly this slip in class.</li>
+      </ol>
+      <p class="answer">c = 1/6 · pX = (3/6, 2/6, 1/6) · pY = (1/6, 2/6, 3/6)</p>
+    </details>
+    <details class="worked">
+      <summary>Show $G(x,y)=1$ if $x+y\ge0$, else 0, satisfies properties 1–4 but is not a CDF.<span class="tag">S18</span></summary>
+      <ol>
+        <li>Monotone and right-continuous in each coordinate; $\to0$ as either goes to $-\infty$; $\to1$ as both go to $\infty$.</li>
+        <li>Rectangle $x_1=y_1=-1$, $x_2=y_2=1$: $G(1,1)-G(1,-1)-G(-1,1)+G(-1,-1)=1-1-1+0$.</li>
+        <li>$(1,-1)$ and $(-1,1)$ lie <em>on</em> $x+y=0$, so both count as 1.</li>
+      </ol>
+      <p class="answer">−1 &lt; 0 → a rectangle with negative probability, so G is not a joint CDF</p>
+    </details>
+    <details class="worked">
+      <summary>$f=\tfrac14$ on $(-1,1)^2$. Find $P(\tfrac14&lt;X&lt;\tfrac34,\;\tfrac14&lt;Y&lt;\tfrac34)$.<span class="tag">S19</span></summary>
+      <ol>
+        <li>Uniform, so area ratio: $\dfrac{\tfrac12\cdot\tfrac12}{4}$.</li>
+      </ol>
+      <p class="answer">1/16</p>
+    </details>
+    <details class="worked">
+      <summary>$X\sim U(0,1)$ and $Y\mid X=x\sim U(0,x)$. Find $f_Y$.<span class="tag">S19</span></summary>
+      <ol>
+        <li>Multiplication rule: $f(x,y)=\tfrac1x\cdot1$ on $0&lt;y&lt;x&lt;1$.</li>
+        <li>Fix $y$; then $x$ runs from $y$ to 1 (not "$x$ to 1", a slip Arshad corrected): $\int_y^1\tfrac1x\,dx=-\ln y$.</li>
+      </ol>
+      <p class="answer">f_Y(y) = −ln y on (0,1)</p>
+    </details>
+    <details class="worked">
+      <summary>$(X,Y)$ uniform on the unit disk. Find $f_X$, $f_{Y\mid X}$ and $P(X^2+Y^2\le\tfrac14)$.<span class="tag">S19</span></summary>
+      <ol>
+        <li>Area $\pi$, so $f=\tfrac1\pi$ on the disk.</li>
+        <li>$f_X(x)=\int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}\tfrac1\pi\,dy=\tfrac2\pi\sqrt{1-x^2}$ on $(-1,1)$. $f_Y$ is the same by symmetry.</li>
+        <li>$f_{Y\mid X}=\dfrac{1/\pi}{\frac2\pi\sqrt{1-x^2}}=\dfrac1{2\sqrt{1-x^2}}$: uniform on $|y|&lt;\sqrt{1-x^2}$. It changes with $x$, so $X,Y$ are dependent.</li>
+        <li>Area ratio: $\pi(\tfrac12)^2/\pi$.</li>
+      </ol>
+      <p class="answer">f_X = (2/π)√(1−x²) · Y|X=x ~ U(−√(1−x²), √(1−x²)) · P = 1/4</p>
+    </details>
+    <details class="worked">
+      <summary>Independent or not? (a) $\tfrac1x$ on $0&lt;y&lt;x&lt;1$ (b) $x+y$ on $(0,1)^2$ (c) $\tfrac{xy^2}{30}$, $x\in\{1,2,3\}$, $y\in\{1,2\}$ (d) $c\,\tfrac xy$ on $0&lt;x&lt;y&lt;1$<span class="tag">S19</span></summary>
+      <ol>
+        <li>(a) Triangular support: dependent.</li>
+        <li>(b) Rectangular support, but $x+y$ doesn't split: dependent.</li>
+        <li>(c) Rectangular support, and it splits as $\tfrac{x}{30}\cdot y^2$: independent. Check: $\tfrac{(1+2+3)(1+4)}{30}=1$.</li>
+        <li>(d) The formula splits, but the support is triangular: dependent.</li>
+      </ol>
+      <p class="answer">only (c) is independent</p>
+    </details>
+    <details class="worked">
+      <summary>$X\sim U(-1,1)$, $Y=X^2$. Find $\operatorname{Cov}(X,Y)$.<span class="tag">S19</span></summary>
+      <ol>
+        <li>$\operatorname{Cov}=E[X^3]-E[X]\,E[X^2]$.</li>
+        <li>$E[X]=0$, so the second term vanishes and $E[X^2]$ isn't needed.</li>
+        <li>$E[X^3]=\int_{-1}^{1}\tfrac{x^3}{2}\,dx=0$ ($x^3$ is odd on a symmetric interval).</li>
+      </ol>
+      <p class="answer">Cov = 0, yet Y is a function of X: zero covariance ⇏ independence</p>
+    </details>
+    <details class="worked">
+      <summary>$f=e^{-y}$ on $0&lt;x&lt;y&lt;\infty$. Find the joint MGF, the marginals, $E[XY]$ and Cov.<span class="tag">S20</span></summary>
+      <ol>
+        <li>Inner: $\int_x^\infty e^{(t_2-1)y}dy=\dfrac{e^{(t_2-1)x}}{1-t_2}$, needs $t_2&lt;1$.</li>
+        <li>Outer: $\dfrac1{1-t_2}\int_0^\infty e^{(t_1+t_2-1)x}dx$, needs $t_1+t_2&lt;1$. So $M=\dfrac1{(1-t_2)(1-t_1-t_2)}$.</li>
+        <li>$M(t_1,0)=\tfrac1{1-t_1}$ is Exp(1); $M(0,t_2)=\tfrac1{(1-t_2)^2}$ is Gamma(2,1). Their product isn't $M$, so dependent.</li>
+        <li>$\partial^2M/\partial t_1\partial t_2$ at 0: $1+2=3$. $E[X]=1$, $E[Y]=2$.</li>
+      </ol>
+      <p class="answer">E[XY] = 3 · Cov = 3 − 1·2 = 1 &gt; 0 (Y tends to rise with X)</p>
+    </details>
+    <details class="worked">
+      <summary>(a) $M=e^{t_1^2+t_2^2}$: find $P(X&lt;0,Y&lt;0)$. (b) $M=e^{t_1^2+t_2}$: identify $X$ and $Y$.<span class="tag">S20</span></summary>
+      <ol>
+        <li>(a) $M=e^{t_1^2}\cdot e^{t_2^2}$ factorises, so the variables are independent. Match $\tfrac12\sigma^2=1$: both are $N(0,2)$.</li>
+        <li>(a) $P(X&lt;0)P(Y&lt;0)=\Phi(0)^2$.</li>
+        <li>(b) Independent again. $X\sim N(0,2)$; $e^{t_2}=e^{1\cdot t_2}\cdot1$, so $P(Y=1)=1$.</li>
+      </ol>
+      <p class="answer">(a) 1/4 · (b) X ~ N(0,2), Y degenerate at 1, independent</p>
+    </details>
+    <details class="worked">
+      <summary>Identify: (a) $M(t)=\tfrac16\left(2+e^{-t}+e^{2t}+2e^{6t}\right)$ (b) $M(t)=\left(\tfrac23+\tfrac13e^t\right)^2$<span class="tag">S20</span></summary>
+      <ol>
+        <li>(a) Exponents are values and coefficients are probabilities: $P(0)=\tfrac13$, $P(-1)=\tfrac16$, $P(2)=\tfrac16$, $P(6)=\tfrac13$. They sum to 1.</li>
+        <li>(b) Matches $(q+pe^t)^n$ with $n=2$, $p=\tfrac13$.</li>
+      </ol>
+      <p class="answer">(a) PMF on {−1, 0, 2, 6}, E[X] = 13/6 · (b) Bin(2, 1/3)</p>
+    </details>
+    <details class="worked">
+      <summary>$f=8xy$ on $0&lt;x&lt;y&lt;1$. Find $E[Y\mid X=\tfrac12]$.<span class="tag">S20</span></summary>
+      <ol>
+        <li>$f_X(x)=\int_x^1 8xy\,dy=4x(1-x^2)$.</li>
+        <li>$f_{Y\mid X}=\dfrac{8xy}{4x(1-x^2)}=\dfrac{2y}{1-x^2}$ on $x&lt;y&lt;1$; at $x=\tfrac12$ this is $\tfrac{8y}3$ on $(\tfrac12,1)$, which integrates to 1 ✓.</li>
+        <li>$\int_{1/2}^1\tfrac{8y^2}{3}\,dy=\tfrac89\left(1-\tfrac18\right)$.</li>
+      </ol>
+      <p class="answer">7/9</p>
+    </details>
+    <details class="worked">
+      <summary>$p(0,0)=\tfrac16$, $p(0,1)=a$, $p(1,0)=\tfrac13$, $p(1,1)=b$. Find $a,b$ for independence.<span class="tag">S20</span></summary>
+      <ol>
+        <li>$p_Y(0)=\tfrac16+\tfrac13=\tfrac12$ is already known, so use the $y=0$ column.</li>
+        <li>At $(0,0)$: $\tfrac16=(\tfrac16+a)\cdot\tfrac12$, so $a=\tfrac16$.</li>
+        <li>At $(1,0)$: $\tfrac13=(\tfrac13+b)\cdot\tfrac12$, so $b=\tfrac13$. Total $=1$ ✓. Try it on the widget above.</li>
+      </ol>
+      <p class="answer">a = 1/6 · b = 1/3</p>
+    </details>
+
+    <details class="worked practice">
+      <summary>Practice: $f=cxy$ on $0&lt;x&lt;2$, $0&lt;y&lt;1$. Find $c$, decide independence, and find $P(X&lt;1)$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>$c\int_0^2x\,dx\int_0^1y\,dy=c\cdot2\cdot\tfrac12$, so $c=1$.</li>
+        <li>Rectangular support and $xy$ splits: independent, with $f_X=\tfrac x2$ on $(0,2)$.</li>
+        <li>$\int_0^1\tfrac x2\,dx$.</li>
+      </ol>
+      <p class="answer">c = 1 · independent · 1/4</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $\operatorname{Var}X=4$, $\operatorname{Var}Y=1$, $\operatorname{Cov}(X,Y)=0.5$. Find $\operatorname{Var}(2X-3Y)$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>$4\cdot4+9\cdot1+2(2)(-3)(0.5)=16+9-6$.</li>
+      </ol>
+      <p class="answer">19</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $M(t_1,t_2)=e^{2t_1+2t_1^2+3t_2+t_2^2/2}$. Identify $X$ and $Y$, then find $P(X&gt;2,\;Y&lt;3)$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>It factorises, so the variables are independent. $\mu_X=2$, $\tfrac12\sigma_X^2=2$ gives $N(2,4)$; $\mu_Y=3$, $\tfrac12\sigma_Y^2=\tfrac12$ gives $N(3,1)$.</li>
+        <li>Both events are "beyond the mean": $\tfrac12\cdot\tfrac12$.</li>
+      </ol>
+      <p class="answer">X ~ N(2,4), Y ~ N(3,1) · 1/4</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $(X,Y)$ uniform on the triangle $0&lt;y&lt;x&lt;1$. Find the density, $P(X&lt;\tfrac12)$ and $\operatorname{Cov}(X,Y)$.<span class="tag">practice</span></summary>
+      <ol>
+        <li>Area $\tfrac12$, so $f=2$.</li>
+        <li>Area ratio: the triangle under $x=\tfrac12$ has area $\tfrac18$, so $P=\tfrac{1/8}{1/2}$.</li>
+        <li>$E[X]=\tfrac23$, $E[Y]=\tfrac13$, $E[XY]=\int_0^1\int_0^x2xy\,dy\,dx=\tfrac14$, so $\operatorname{Cov}=\tfrac14-\tfrac29$.</li>
+      </ol>
+      <p class="answer">f = 2 · 1/4 · Cov = 1/36</p>
+    </details>
+    <details class="worked practice">
+      <summary>Practice: $p(0,0)=0.2$, $p(0,1)=a$, $p(1,0)=0.3$, $p(1,1)=b$. Find $a,b$ for independence.<span class="tag">practice</span></summary>
+      <ol>
+        <li>$p_Y(0)=0.5$. At $(0,0)$: $0.2=(0.2+a)(0.5)$. At $(1,0)$: $0.3=(0.3+b)(0.5)$.</li>
+      </ol>
+      <p class="answer">a = 0.2 · b = 0.3</p>
+    </details>
+  </div>
+</section>
+
 <footer>
-  <div class="wrap-wide"><p>Full-course recap for DSM-101, S1–S10 (Prof. Suman Majumdar) and S11 → 19 Sep (Dr. Mohammad Arshad). Session labels follow recording dates: "12 Sep" is probably S13, and "19 Sep a/b" are the two 19 Sep recordings. Widgets use the lectures' own numbers (teacher salaries, bank teller, Kahneman's Steve, barrister, COVID test). Practice problems use new numbers, and every answer was recomputed in Python.</p></div>
+  <div class="wrap-wide"><p>Full-course recap for DSM-101, S1–S10 (Prof. Suman Majumdar) and S11 → 24 Sep (Dr. Mohammad Arshad). Session labels follow recording dates: "12 Sep" is probably S13, and "19 Sep a/b" are the two 19 Sep recordings. Widgets use the lectures' own numbers (teacher salaries, bank teller, Kahneman's Steve, barrister, COVID test, the three-coin joint table). Practice problems use new numbers, and every answer was recomputed in Python.</p></div>
 </footer>
 
 <script>
@@ -1404,6 +1728,59 @@
       else { vd.textContent=`Means cluster around μ = ${P.mu} with spread σ/√n = ${se.toFixed(3)} — the width shrinks as n grows.`; vd.className='verdict good'; }
     }
     render();
+  })();
+
+  // ================= Widget E: joint PMF table =================
+  (function(){
+    const tbl=document.getElementById('jtTable'); if(!tbl) return;
+    const gcd=(a,b)=>{ a=Math.abs(a); b=Math.abs(b); while(b){ [a,b]=[b,a%b]; } return a||1; };
+    const Fr=(n,d)=>{ if(d<0){n=-n;d=-d;} const g=gcd(n,d); return {n:n/g,d:d/g}; };
+    const add=(a,b)=>Fr(a.n*b.d+b.n*a.d,a.d*b.d), mul=(a,b)=>Fr(a.n*b.n,a.d*b.d), sub=(a,b)=>add(a,{n:-b.n,d:b.d});
+    const eq=(a,b)=>a.n*b.d===b.n*a.d, fs=a=>(a.n===0?'0':a.d===1?String(a.n):`${a.n}/${a.d}`).replace('-','−'), ns=v=>String(v).replace('-','−');
+    // exact numerators over a common denominator D, rows = x values, cols = y values
+    const presets=[
+      {name:'Coin × 3 (S18)', xs:[0,1,2], ys:[0,1,2,3], D:8, g:()=>[[1,1,0,0],[0,2,2,0],[0,0,1,1]],
+       note:'X = heads in first two tosses, Y = heads in all three'},
+      {name:'Triangle, c = 1/6 (S18)', xs:[0,1,2], ys:[0,1,2], D:6, g:()=>[[1,1,1],[0,1,1],[0,0,1]],
+       note:'p = 1/6 on x ≤ y: flat joint, lopsided marginals'},
+      {name:'xy²/30 (S19)', xs:[1,2,3], ys:[1,2], D:30, g:()=>[[1,4],[2,8],[3,12]],
+       note:'rectangular support and it splits as (x/30)·y²'},
+      {name:'Y = X², discrete twin', xs:[-1,0,1], ys:[0,1], D:3, g:()=>[[0,1],[1,0],[0,1]],
+       note:'X uniform on {−1, 0, 1}, Y = X² (discrete version of the lecture’s U(−1,1) example)'},
+      {name:'Solve a, b (S20)', xs:[0,1], ys:[0,1], D:60, g:a=>[[10,a],[20,30-a]], slider:true,
+       note:'p(0,0) = 1/6, p(1,0) = 1/3; find a and b'}
+    ];
+    const wrap=document.getElementById('jtPresets'), ctl=document.getElementById('jtCtl'), aS=document.getElementById('jtAs');
+    let cur=presets[0];
+    presets.forEach(pr=>{ const b=document.createElement('button'); b.className='btn'; b.textContent=pr.name;
+      b.addEventListener('click',()=>{ [...wrap.children].forEach(c=>c.classList.remove('on')); b.classList.add('on'); cur=pr; ctl.hidden=!pr.slider; render(); });
+      wrap.appendChild(b); });
+    aS.addEventListener('input',render);
+    function render(){
+      const {xs,ys,D}=cur, a=+aS.value, G=cur.g(a);
+      const P=G.map(r=>r.map(v=>Fr(v,D)));
+      const pX=P.map(r=>r.reduce(add,Fr(0,1))), pY=ys.map((_,j)=>P.reduce((s,r)=>add(s,r[j]),Fr(0,1)));
+      let EX=Fr(0,1),EY=Fr(0,1),EXY=Fr(0,1), bad=null;
+      xs.forEach((x,i)=>ys.forEach((y,j)=>{ const p=P[i][j]; EX=add(EX,mul(p,Fr(x,1))); EY=add(EY,mul(p,Fr(y,1))); EXY=add(EXY,mul(p,Fr(x*y,1)));
+        if(!bad && !eq(p,mul(pX[i],pY[j]))) bad={i,j}; }));
+      const cov=sub(EXY,mul(EX,EY));
+      let h=`<tr><th>X \\ Y</th>${ys.map(y=>`<th>${ns(y)}</th>`).join('')}<th>pX(x)</th></tr>`;
+      xs.forEach((x,i)=>{ h+=`<tr><th>${ns(x)}</th>`;
+        ys.forEach((y,j)=>{ const p=P[i][j], pr=mul(pX[i],pY[j]), ok=eq(p,pr), v=p.n/p.d;
+          h+=`<td class="cell${p.n===0?' zero':''}${ok?'':' bad'}${bad&&bad.i===i&&bad.j===j?' first':''}" style="background:color-mix(in srgb, var(--amber) ${Math.round(Math.min(v*110,32))}%, transparent)">${fs(p)}<small>${fs(pr)}</small></td>`; });
+        h+=`<td class="m">${fs(pX[i])}</td></tr>`; });
+      h+=`<tr><th>pY(y)</th>${pY.map(p=>`<td class="m">${fs(p)}</td>`).join('')}<td class="m">1</td></tr>`;
+      tbl.innerHTML=h;
+      document.getElementById('jtRead').textContent=`E[X] = ${fs(EX)} · E[Y] = ${fs(EY)} · Cov = ${fs(cov)}`;
+      if(cur.slider) document.getElementById('jtA').textContent=`a = ${fs(Fr(a,60))}, b = ${fs(Fr(30-a,60))}`;
+      const vd=document.getElementById('jtVerdict');
+      if(!bad){ vd.textContent=`${cur.note}. Every cell equals pX·pY → independent (so Cov = 0 too)`+(cur.slider?'. Lecture answer: a = 1/6, b = 1/3.':'.'); vd.className='verdict good'; }
+      else { const {i,j}=bad, pr=mul(pX[i],pY[j]);
+        const why=`cell (${ns(xs[i])}, ${ns(ys[j])}): ${fs(P[i][j])} ≠ ${fs(pX[i])} × ${fs(pY[j])} = ${fs(pr)} → dependent`;
+        if(cov.n===0){ vd.textContent=`${cur.note}. Cov = 0, yet ${why}. Covariance misses non-linear links.`; vd.className='verdict warn'; }
+        else { vd.textContent=`${cur.note}. ${why[0].toUpperCase()+why.slice(1)}. One cell is enough.`; vd.className='verdict bad'; } }
+    }
+    wrap.children[0].click();
   })();
 })();
 </script>
