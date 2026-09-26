@@ -188,6 +188,28 @@ $$P(S\mid C,T) \approx \frac{4\times10^{-4}}{4.4998\times10^{-4}} \approx 0.889$
 
 **Q&A clarification.** A student asked what $P(C\mid \tilde S, T)$ means. Answer: $C$ is the event "the cheese was stolen"; the tilde means "the theft was *not* done by the known thief". So this is the probability that a random person (not the known thief) committed the cheese theft — hence the very small general-population figure $1/20{,}000$. (Note: the general theft rate and the general cheese-theft rate are being approximated as the same number here.)
 
+#### Intuition: why "the cheese has definitely been stolen" is the key point
+
+*(Added explanation, not from the lecture.)* Obviously the cheese was stolen. That's the point: the defence's $0.0004$ **quietly ignores that fact**.
+
+**What the defence's number actually answers.** "1 in 2,500 thieves in lodgings steal cheese" answers: *take a known thief staying in some lodging house, where we know nothing about what happened. How likely is it he steals cheese?* That's tiny, because in most such houses **nothing gets stolen at all**. Nearly all the "not him" cases come from houses where the cheese is still in the fridge. But in court the cheese is gone, so the real question is: *the cheese has disappeared. Who took it: the thief, or someone else?*
+
+**Counting it out.** Imagine 20,000,000 lodging houses, each with a known thief as a lodger:
+
+| What happens | How many houses |
+|---|---|
+| The thief steals the cheese (1 in 2,500) | **8,000** |
+| Someone else steals it (1 in 20,000) | **~1,000** |
+| Nothing is stolen | ~19,991,000 |
+
+The defence's $0.0004$ compares 8,000 against all 20 million houses. Knowing the cheese **was** stolen rules out the ~19,991,000 houses where nothing happened. Only about 9,000 houses remain, and in 8,000 of them the thief did it:
+$$\frac{8{,}000}{9{,}000} \approx 0.89$$
+So it goes from 0.04% to about 89%, and nothing changed except refusing to ignore that a theft happened.
+
+**One-line intuition.** Once you know a crime happened, you're not asking "is he likely to commit a crime?" You're asking **"which explanation for this crime is more likely?"** Both explanations are rare. But "the known thief did it" (1 in 2,500) is about **8× less rare** than "some random person did it" (1 in 20,000), so he's the likely culprit. That's the dead-body analogy: "only 1 in a million people with a motive commit murder" sounds like strong evidence of innocence, but it stops meaning much once there's a body on the floor. Someone definitely did it, and the only question left is who.
+
+In the formula, "the cheese was stolen" is the $C$ after the bar in $P(S \mid C, T)$. The defence gave you $P(S \mid T)$, which leaves $C$ out.
+
 ---
 
 ## 3. Formula Sheet
