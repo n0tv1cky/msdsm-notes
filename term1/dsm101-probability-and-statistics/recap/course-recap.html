@@ -77,6 +77,10 @@
   table.dt td:first-child{color:var(--ink); font-weight:600; white-space:nowrap;}
   table.dt tr:last-child td{border-bottom:none;}
   table.dt tr.disc td:first-child{color:var(--amber);} table.dt tr.cont td:first-child{color:var(--teal);}
+  table.dt tr.alt td{background:rgba(255,255,255,.015); font-size:12.5px;}
+  table.dt tr.alt td:first-child{font-weight:500; padding-left:22px;}
+  .xtag{display:inline-block; margin-top:4px; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; color:var(--ink-faint); border:1px solid var(--line); border-radius:10px; padding:1px 6px; white-space:nowrap; vertical-align:middle;}
+  .table-key{font-size:0.86rem; color:var(--ink-faint); max-width:78ch; margin:-12px 0 24px;}
 
   /* ---------- intuition callout ---------- */
   .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:0 0 28px;}
@@ -784,12 +788,22 @@
         <tr class="disc"><td>Bernoulli$(p)$</td><td>$\{0,1\}$ · $p^x(1-p)^{1-x}$</td><td>$1-p+pe^t$, all $t$</td><td>$p$ · $pq$</td><td>one yes/no trial = Bin(1,p)</td></tr>
         <tr class="disc"><td>Binomial$(n,p)$</td><td>$0..n$ · $\binom nx p^xq^{n-x}$</td><td>$(pe^t+q)^n$, all $t$</td><td>$np$ · $npq$</td><td># successes in $n$ independent identical trials; $n$ moderate</td></tr>
         <tr class="disc"><td>Poisson$(\lambda)$</td><td>$0,1,2,\dots$ · $\dfrac{e^{-\lambda}\lambda^x}{x!}$</td><td>$e^{\lambda(e^t-1)}$, all $t$</td><td>$\lambda$ · $\lambda$</td><td>rare events, huge $n$: accidents, calls, ER patients. Over time $t$: use $\lambda t$</td></tr>
-        <tr class="disc"><td>Geometric</td><td>$0,1,\dots$ · $q^xp$ (failures before 1st success)</td><td>$\dfrac{p}{1-qe^t}$, $t&lt;-\ln q$</td><td>$q/p$ · $q/p^2$</td><td>attempts until first success; $Y=X+1$ trials: mean $1/p$, same var</td></tr>
+        <tr class="disc"><td>Geometric</td><td>$0,1,\dots$ · $q^xp$ (failures before 1st success)</td><td>$\dfrac{p}{1-qe^t}$, $t&lt;-\ln q$</td><td>$q/p$ · $q/p^2$</td><td>attempts until first success; memoryless</td></tr>
+        <tr class="disc alt"><td>↳ trials</td><td>$1,2,\dots$ · $pq^{y-1}$, $\;Y=X+1$</td><td>$\dfrac{pe^t}{1-qe^t}$, $t&lt;-\ln q$</td><td>$1/p$ · $q/p^2$</td><td>counts the successful trial too: mean shifts by 1, <strong>variance doesn't</strong> (S15)</td></tr>
         <tr class="cont"><td>Uniform$(a,b)$</td><td>$(a,b)$ · $\dfrac1{b-a}$</td><td>$\dfrac{e^{bt}-e^{at}}{t(b-a)}$, $t\ne0$; $M(0)=1$</td><td>$\frac{a+b}2$ · $\frac{(b-a)^2}{12}$</td><td>simulation; probabilities are rectangle areas $\frac{d-c}{b-a}$</td></tr>
-        <tr class="cont"><td>Exponential$(\lambda)$</td><td>$(0,\infty)$ · $\lambda e^{-\lambda x}$</td><td>$\dfrac{\lambda}{\lambda-t}$, $t&lt;\lambda$</td><td>$1/\lambda$ · $1/\lambda^2$</td><td>lifetimes / waiting times; $F=1-e^{-\lambda x}$; Var = mean²</td></tr>
+        <tr class="cont alt"><td>↳ $U(0,1)$</td><td>$(0,1)$ · $1$, $\;F(x)=x$</td><td>$\dfrac{e^t-1}{t}$, $t\ne0$</td><td>$\frac12$ · $\frac1{12}$</td><td>standard uniform, $a=0,b=1$; the input to the probability integral transform</td></tr>
+        <tr class="cont"><td>Exponential$(\lambda)$</td><td>$(0,\infty)$ · $\lambda e^{-\lambda x}$</td><td>$\dfrac{\lambda}{\lambda-t}$, $t&lt;\lambda$</td><td>$1/\lambda$ · $1/\lambda^2$</td><td>lifetimes / waiting times; $F=1-e^{-\lambda x}$; Var = mean². <strong>Course uses this rate form.</strong></td></tr>
+        <tr class="cont alt"><td>↳ $\theta=1/\lambda$</td><td>$(0,\infty)$ · $\dfrac1\theta e^{-x/\theta}$</td><td>$\dfrac1{1-\theta t}$, $t&lt;1/\theta$</td><td>$\theta$ · $\theta^2$</td><td>mean form: same distribution, textbook parameter; check which one a question uses (19 Sep a)</td></tr>
+        <tr class="cont alt"><td>↳ Laplace</td><td>ℝ · $\tfrac12e^{-|x|}$</td><td>$\dfrac1{1-t^2}$, $|t|&lt;1$</td><td>$0$ · $2$</td><td>double exponential: two-sided version of the exponential; odd-function trick gives $E X=0$, and $E|X|=\Gamma(2)=1$ (12 Sep)</td></tr>
+        <tr class="cont"><td>Gamma$(\alpha,\lambda)$<br><span class="xtag">beyond notes</span></td><td>$(0,\infty)$ · $\dfrac{\lambda^\alpha x^{\alpha-1}e^{-\lambda x}}{\Gamma(\alpha)}$</td><td>$\left(\dfrac{\lambda}{\lambda-t}\right)^{\alpha}$, $t&lt;\lambda$</td><td>$\alpha/\lambda$ · $\alpha/\lambda^2$</td><td>waiting time to the $\alpha$-th event; sum of $\alpha$ independent Exp$(\lambda)$. $\Gamma(\alpha)=(\alpha-1)!$, $\Gamma(\tfrac12)=\sqrt\pi$</td></tr>
+        <tr class="cont alt"><td>↳ special cases</td><td colspan="4">$\alpha=1$: <strong>Exp$(\lambda)$</strong> · $\alpha=2,\lambda=1$: MGF $(1-t)^{-2}$, the $Y$ marginal in S20 · scale form $\theta=1/\lambda$: $\dfrac{x^{\alpha-1}e^{-x/\theta}}{\Gamma(\alpha)\theta^\alpha}$, mean $\alpha\theta$ · $\chi^2_k=$ Gamma$(\tfrac k2,\tfrac12)$</td></tr>
+        <tr class="cont"><td>Beta$(\alpha,\beta)$<br><span class="xtag">beyond notes</span></td><td>$(0,1)$ · $\dfrac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}$, $\;B=\dfrac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$</td><td>no closed form (not used)</td><td>$\dfrac{\alpha}{\alpha+\beta}$ · $\dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$</td><td>proportions and probabilities on $(0,1)$; the usual Bayesian prior for a coin's $p$</td></tr>
+        <tr class="cont alt"><td>↳ special cases</td><td colspan="4">$\alpha=\beta=1$: <strong>$U(0,1)$</strong> (the flat parent in the Seeing Theory CLT demo, S9) · $\alpha=\beta$: symmetric about $\tfrac12$ · $\alpha&lt;\beta$: mass near 0, right-skewed</td></tr>
         <tr class="cont"><td>Normal$(\mu,\sigma^2)$</td><td>ℝ · $\dfrac{1}{\sigma\sqrt{2\pi}}e^{-\frac12(\frac{x-\mu}\sigma)^2}$</td><td>$e^{\mu t+\frac12\sigma^2t^2}$, all $t$</td><td>$\mu$ · $\sigma^2$</td><td>measurements, sums of many influences (CLT); see module 7</td></tr>
+        <tr class="cont alt"><td>↳ $N(0,1)$</td><td>ℝ · $\dfrac1{\sqrt{2\pi}}e^{-z^2/2}$, $\;Z=\dfrac{X-\mu}\sigma$</td><td>$e^{t^2/2}$, all $t$</td><td>$0$ · $1$</td><td>standard normal: parameter-free, so one table serves all; $\Phi(-z)=1-\Phi(z)$</td></tr>
       </table>
     </div>
+    <p class="table-key">Family links: Bernoulli = Bin$(1,p)$ · sum of $n$ Bernoullis = Bin$(n,p)$ · Bin → Poisson ($np=\lambda$) → Normal · Exp = Gamma$(1,\lambda)$ · sum of $\alpha$ Exps = Gamma$(\alpha,\lambda)$ · $U(0,1)$ = Beta$(1,1)$. Rows tagged <span class="xtag">beyond notes</span> aren't in the lecture notes (sessions 13, 16 and 17 have no notes); they're standard results, added on request.</p>
 
     <div class="cheat-grid">
       <div class="cheat-card">
@@ -807,6 +821,7 @@
           <li>Binomial $\gamma_2=\frac{1-6pq}{npq}$: leptokurtic for $p&lt;0.2113$ or $p&gt;0.7887$, platykurtic between.</li>
           <li>Poisson: small λ piles at 0; larger λ → symmetric.</li>
           <li>Exponential: $\gamma_1=2$, $\gamma_2=6$. Uniform: symmetric, platykurtic, $\mu_4=\frac{(b-a)^4}{80}$.</li>
+          <li>Gamma: $\gamma_1=\frac2{\sqrt\alpha}$, $\gamma_2=\frac6\alpha$, so exponential's 2 and 6 at $\alpha=1$, heading to normal as $\alpha$ grows.</li>
         </ul>
       </div>
       <div class="cheat-card">
