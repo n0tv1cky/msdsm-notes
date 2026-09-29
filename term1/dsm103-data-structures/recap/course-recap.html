@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSM-103 Full Course Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false})"></script>
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+    --rust:#C1594A; --maxw:680px; --wide:960px;
+    --ease:cubic-bezier(.45,0,.2,1); --dur:.55s;
+  }
+  *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber-dim); color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .wrap-wide{max-width:var(--wide); margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.92em;}
+  code.t{color:var(--teal);}
+  .katex{position:relative;}
+  .katex .katex-mathml{width:1px; height:1px; overflow:hidden; left:0; top:0;}
+
+  /* ---------- page chrome ---------- */
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); z-index:50; transition:width .1s linear;}
+  section{scroll-margin-top:54px;}
+  nav.jumpnav{position:sticky; top:3px; z-index:40; background:rgba(20,23,28,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:10px 24px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none;}
+  nav.jumpnav::-webkit-scrollbar{display:none;}
+  nav.jumpnav a{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); text-decoration:none; white-space:nowrap; padding:6px 11px; border-radius:20px; border:1px solid var(--line); flex:none; transition:color .15s,border-color .15s;}
+  nav.jumpnav a:hover, nav.jumpnav a:focus-visible{color:var(--ink); border-color:var(--amber);}
+  header.hero{padding:40px 0 28px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0;}
+  .legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0 0; font-size:14px; color:var(--ink-dim);}
+  .legend span{display:inline-flex; align-items:center; gap:8px;}
+  .swatch{width:12px; height:12px; border-radius:3px; flex:none;}
+
+  .module{padding:52px 0 8px;}
+  .module-head{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px;}
+  .module-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 8px;}
+  .module h2{font-size:1.55rem; margin:0 0 10px;}
+  .module .lede{color:var(--ink-dim); max-width:64ch; margin:0;}
+  h3.sub{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); letter-spacing:.06em; margin:36px 0 14px;}
+
+  /* ---------- cheat cards ---------- */
+  .cheat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:32px;}
+  .cheat-grid.two{grid-template-columns:repeat(2,1fr);}
+  .cheat-card{background:var(--panel); padding:18px 20px; min-width:0;}
+  .cheat-card h3{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:0 0 12px;}
+  .cheat-card dl{margin:0;}
+  .cheat-card dt{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); margin:0 0 2px; overflow-wrap:anywhere;}
+  .cheat-card dt.t{color:var(--teal);}
+  .cheat-card dd{margin:0 0 12px; font-size:14px; color:var(--ink-dim); line-height:1.5;}
+  .cheat-card dd:last-child{margin-bottom:0;}
+  .cheat-card ul, .note ul{margin:0; padding:0; list-style:none;}
+  .cheat-card li{font-size:14px; color:var(--ink-dim); margin:0 0 9px; padding-left:14px; position:relative; line-height:1.5;}
+  .cheat-card li:last-child, .note li:last-child{margin-bottom:0;}
+  .cheat-card li::before, .note li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+  .cheat-card strong{color:var(--ink); font-weight:600;}
+  .cheat-card .katex-display{margin:6px 0; overflow-x:auto; overflow-y:hidden;}
+  @media (max-width:760px){.cheat-grid,.cheat-grid.two{grid-template-columns:1fr;}}
+
+  /* ---------- tables ---------- */
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:8px; margin:0 0 24px;}
+  table.dt{border-collapse:collapse; width:100%; font-size:13.5px; min-width:600px;}
+  table.dt th, table.dt td{padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; color:var(--ink-dim);}
+  table.dt th{font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:500; color:var(--ink-faint); background:var(--panel);}
+  table.dt td:first-child{color:var(--ink); font-weight:600;}
+  table.dt tr:last-child td{border-bottom:none;}
+  table.dt td.o1{color:var(--teal); font-family:'IBM Plex Mono',monospace;}
+  table.dt td.on{color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  table.dt td.mono{font-family:'IBM Plex Mono',monospace; font-size:12.5px;}
+  .table-key{font-size:0.86rem; color:var(--ink-faint); max-width:78ch; margin:-12px 0 24px;}
+  .xtag{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; color:var(--ink-faint); border:1px solid var(--line); border-radius:10px; padding:0 7px; margin-left:4px; vertical-align:1px;}
+
+  /* ---------- intuition callout ---------- */
+  .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:0 0 28px;}
+  .note p{margin:0 0 8px;} .note p:last-child{margin-bottom:0;}
+  .note li{margin:0 0 7px; padding-left:14px; position:relative;}
+  .note strong{color:var(--ink-dim);}
+
+  /* ---------- panels ---------- */
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:22px 22px 18px; margin:0 0 40px;}
+  .panel-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px 16px; margin-bottom:4px; flex-wrap:wrap;}
+  .panel-title{font-family:'Fraunces',serif; font-size:1.05rem; color:var(--ink);}
+  .panel-sub{font-size:14px; color:var(--ink-faint); margin:0 0 12px; max-width:70ch;}
+  .readout{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); text-align:right;}
+  svg.chart{width:100%; height:auto; display:block; margin:14px 0 8px; overflow:visible;}
+  .tick{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink-faint);}
+  .axislabel{font-family:'IBM Plex Mono',monospace; font-size:12px; fill:var(--ink-faint);}
+  svg.chart.narrow .tick{font-size:15px;} svg.chart.narrow .axislabel{font-size:15px;}
+  .gridline{stroke:var(--line); stroke-width:1;}
+  .axis{stroke:var(--ink-faint); stroke-width:1;}
+  .controls{display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center; margin-top:10px;}
+  .controls[hidden]{display:none;}
+  .slider-group{display:flex; flex-direction:column; gap:6px; flex:1; min-width:180px;}
+  .slider-label{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between;}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:var(--line); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:18px; height:18px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:18px; height:18px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  .verdict{font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 12px; border-radius:5px; margin-top:12px; display:inline-block;}
+  .verdict.good{background:rgba(79,168,160,.14); color:var(--teal);}
+  .verdict.warn{background:rgba(232,163,61,.14); color:var(--amber);}
+  .verdict.eq{background:rgba(237,234,226,.08); color:var(--ink);}
+  .verdict.bad{background:rgba(193,89,74,.16); color:var(--rust);}
+  .btn{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:6px 12px; cursor:pointer; line-height:1.3;}
+  .btn:hover:not(:disabled){border-color:var(--amber); color:var(--ink);}
+  .btn:disabled{opacity:.35; cursor:default;}
+  .btn.on{border-color:var(--amber); color:var(--amber);}
+  .presets{display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 12px;}
+  .field{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:inline-flex; align-items:center; gap:6px;}
+  .field input[type=text], .field input[type=number], .field select{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:5px; padding:5px 8px;}
+  .field input[type=number]{width:62px;}
+  .field input[type=text]{width:190px;}
+  .field input:focus, .field select:focus{outline:none; border-color:var(--amber);}
+
+  /* ---------- animated visualizers ---------- */
+  .viz-body{display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:16px; align-items:start;}
+  .viz-body > *{min-width:0;}
+  .viz-body.wide-side{grid-template-columns:minmax(0,1fr) 340px;}
+  @media (max-width:820px){.viz-body,.viz-body.wide-side{grid-template-columns:1fr;}}
+  .viz-body.stacked{grid-template-columns:1fr;}
+  .viz-body.stacked .side{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,280px); gap:10px; align-items:start;}
+  @media (max-width:700px){.viz-body.stacked .side{grid-template-columns:1fr;}}
+  .stage-scroll{scrollbar-color:#3A414D transparent; scrollbar-width:thin; overflow-x:auto; overflow-y:hidden; border-radius:6px; background:var(--bg); border:1px solid var(--line);}
+  .stage{position:relative; margin:0 auto;}
+  .side{display:flex; flex-direction:column; gap:10px; min-width:0;}
+  pre.pcode{scrollbar-color:#3A414D transparent; scrollbar-width:thin; margin:0; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:10px 0; font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1.6; color:var(--ink-faint); overflow-x:auto;}
+  pre.pcode .ln{display:block; padding:0 12px 0 10px; border-left:3px solid transparent; white-space:pre; transition:background .25s,color .25s,border-color .25s;}
+  pre.pcode .ln.on{background:rgba(232,163,61,.13); border-left-color:var(--amber); color:var(--ink);}
+  pre.pcode .ln.bad{background:rgba(193,89,74,.16); border-left-color:var(--rust); color:var(--ink);}
+  .vars{display:flex; flex-wrap:wrap; gap:6px;}
+  .vars span{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:4px; padding:3px 8px;}
+  .vars span b{color:var(--ink); font-weight:500;}
+  .vars span.chg{animation:varflash 1s var(--ease);}
+  @keyframes varflash{0%{border-color:var(--amber); background:rgba(232,163,61,.25);} 100%{border-color:var(--line); background:var(--bg);}}
+  .caption{font-size:15px; color:var(--ink-dim); min-height:3.2em; margin:12px 0 4px; line-height:1.5;}
+  .caption b{color:var(--ink); font-weight:600;}
+  .caption .a{color:var(--amber);} .caption .t{color:var(--teal);} .caption .r{color:var(--rust);}
+  .caption code{font-size:.88em;}
+  .transport{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:8px;}
+  .transport .btn{min-width:44px; padding:7px 12px;}
+  .transport .btn.play{min-width:84px; color:var(--ink); border-color:var(--amber-dim);}
+  .transport .ctr{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin-left:6px;}
+  .transport .bar{flex:1; min-width:80px; height:3px; background:var(--line); border-radius:2px; overflow:hidden; margin-left:6px;}
+  .transport .bar i{display:block; height:100%; width:0; background:var(--amber); transition:width .3s var(--ease);}
+  .hint{font-size:12px; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; margin:6px 0 0;}
+
+  /* moving pieces: everything that moves uses left/top/opacity transitions,
+     so the resting DOM is always the correct frame (print, thumbnails, hidden panes) */
+  .mv{position:absolute; transition:left var(--dur) var(--ease), top var(--dur) var(--ease), opacity .4s var(--ease), transform var(--dur) var(--ease), background-color .3s, border-color .3s, color .3s;}
+  .cell{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--ink); background:#20252E; border:1.5px solid #3A414D; border-radius:6px;}
+  .cell.cmp{border-color:var(--amber); color:var(--amber); background:rgba(232,163,61,.12);}
+  .cell.swap{border-color:var(--amber); color:var(--bg); background:var(--amber);}
+  .cell.done{border-color:var(--teal-dim); color:var(--teal); background:rgba(79,168,160,.10);}
+  .cell.hit{border-color:var(--teal); color:var(--bg); background:var(--teal);}
+  .cell.ghost{opacity:0;}
+  .cell.bad{border-color:var(--rust); color:var(--rust); background:rgba(193,89,74,.14);}
+  .slotlbl{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center;}
+  .ptr{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; white-space:nowrap; text-align:center; transition:left var(--dur) var(--ease), top var(--dur) var(--ease), opacity .3s;}
+  .ptr.a{color:var(--amber);} .ptr.t{color:var(--teal);} .ptr.i{color:var(--ink);} .ptr.r{color:var(--rust);}
+  .ptr .arw{display:block; font-size:13px; line-height:1;}
+  .band{position:absolute; border-radius:8px; transition:left var(--dur) var(--ease), width var(--dur) var(--ease), opacity .3s;}
+  .band.sorted{background:rgba(79,168,160,.08); border:1px dashed var(--teal-dim);}
+  .band.win{border:2px solid var(--amber); background:transparent;}
+  .flash-bad{animation:shake .45s;}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+  @keyframes drawin{from{stroke-dashoffset:var(--len);} to{stroke-dashoffset:0;}}
+  @media (prefers-reduced-motion:reduce){
+    .mv,.ptr,.band,pre.pcode .ln,.transport .bar i{transition:none !important;}
+    .vars span.chg,.flash-bad,path.new{animation:none !important;}
+  }
+
+  /* linked-list nodes */
+  .node{display:flex; height:40px; font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--ink); border:1.5px solid #3A414D; border-radius:6px; background:#20252E; overflow:hidden;}
+  .node > span{display:flex; align-items:center; justify-content:center;}
+  .node .d{flex:1; min-width:0;}
+  .node .l{width:18px; background:rgba(255,255,255,.04); border-left:1px solid #3A414D;}
+  .node .l.left{border-left:none; border-right:1px solid #3A414D;}
+  .node .l::after{content:''; width:5px; height:5px; border-radius:50%; background:var(--ink-faint);}
+  .node.header{border-style:dashed; color:var(--ink-faint);}
+  .node.header .d{font-size:12px;}
+  .node.new{border-color:var(--teal); color:var(--teal);}
+  .node.hl{border-color:var(--amber); color:var(--amber);}
+  .node.lost{opacity:.3; border-style:dashed;}
+  .node.gone{opacity:0;}
+  .node.bad{border-color:var(--rust); color:var(--rust);}
+  .addr{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center;}
+  .tagnote{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust); white-space:nowrap;}
+  svg.links{position:absolute; left:0; top:0; overflow:visible; pointer-events:none;}
+  svg.links > path{fill:none; stroke-width:1.8;}
+  svg.links > path.new{stroke-dasharray:var(--len); animation:drawin .6s var(--ease);}
+  svg.links text{font-family:'IBM Plex Mono',monospace; font-size:11px;}
+
+  /* index calculator */
+  .ixgrid{display:grid; gap:2px; margin:0 auto; width:max-content;}
+  .ixgrid div{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; border-radius:3px; cursor:pointer; position:relative; transition:background-color .2s, color .2s, box-shadow .2s;}
+  .ixgrid div.st{background:#232833; color:var(--ink-faint);}
+  .ixgrid div.z{background:transparent; color:#343a45; border:1px dashed #262b33;}
+  .ixgrid div.cnt{background:rgba(232,163,61,.22); color:var(--ink);}
+  .ixgrid div.tgt{box-shadow:inset 0 0 0 2px var(--amber);}
+  .ixgrid div.tgt.cnt{background:var(--amber); color:var(--bg); font-weight:500;}
+  .ixgrid div.z.tgt{box-shadow:inset 0 0 0 2px var(--rust);}
+  .ixgrid div:hover{box-shadow:inset 0 0 0 1px var(--ink-dim);}
+  .ixstrip{display:flex; flex-wrap:wrap; gap:2px; margin:14px 0 4px;}
+  .ixstrip span{min-width:30px; height:26px; padding:0 3px; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#3b414c; border:1px solid #2a2f38; border-radius:3px; transition:background-color .2s,color .2s;}
+  .ixstrip span.cnt{background:rgba(232,163,61,.22); color:var(--ink);}
+  .ixstrip span.tgt{background:var(--amber); color:var(--bg);}
+  .ixmath{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-dim); line-height:1.8; margin-top:10px;}
+  .ixmath b{color:var(--amber); font-weight:500;} .ixmath i{color:var(--teal); font-style:normal;}
+  .axlbl{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center; margin:0 0 6px;}
+
+  /* queue ring */
+  .ring{position:absolute; border-radius:50%; border:1px dashed #2f3540;}
+  .ringcell{position:absolute; width:40px; height:40px; margin:-20px 0 0 -20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink); background:#20252E; border:1.5px solid #3A414D; transition:background-color .3s,border-color .3s,color .3s;}
+  .ringcell.emp{color:transparent;}
+  .ringcell.waste{border-style:dashed; border-color:var(--rust);}
+  .ringcell .ix{position:absolute; font-size:10px; color:var(--ink-faint); top:-15px;}
+  .ringptr{position:absolute; left:0; top:0; width:0; height:0; transition:transform var(--dur) var(--ease), opacity .3s;}
+  .ringptr span{position:absolute; transform:translate(-50%,-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; white-space:nowrap;}
+  .lanehead{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim);}
+  .lanehead b{font-weight:500;}
+  .badge{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; padding:3px 8px; border-radius:4px; white-space:nowrap; transition:opacity .3s;}
+  .badge.bad{background:rgba(193,89,74,.18); color:var(--rust);}
+  .badge.good{background:rgba(79,168,160,.16); color:var(--teal);}
+  .badge.eq{background:rgba(237,234,226,.08); color:var(--ink-dim);}
+
+  /* worked examples */
+  details.worked{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 20px; margin:0 0 16px;}
+  details.worked summary{cursor:pointer; font-size:15px; color:var(--ink); list-style:none;}
+  details.worked summary::-webkit-details-marker{display:none;}
+  details.worked summary::before{content:'▸ '; color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  details.worked[open] summary::before{content:'▾ ';}
+  details.worked .tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin-left:8px;}
+  details.worked ol{margin:12px 0 0; padding-left:22px; color:var(--ink-dim); font-size:15px;}
+  details.worked ol li{margin:0 0 6px;}
+  details.worked .answer{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal);}
+  details.worked pre.code{margin:10px 0 0;}
+  pre.code{background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:12px 14px; overflow-x:auto; font-family:'IBM Plex Mono',monospace; font-size:12.5px; line-height:1.55; color:var(--ink); margin:10px 0;}
+  pre.code .c{color:var(--ink-faint);} pre.code .k{color:var(--teal);} pre.code .s{color:var(--amber);} pre.code .x{color:var(--rust);}
+
+  footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
+  @media (max-width:600px){ .module{padding:40px 0 4px;} .panel{padding:16px 14px 14px;} .wrap,.wrap-wide{padding:0 16px;} nav.jumpnav{padding:10px 16px;} table.dt{font-size:12.5px;} .field input[type=text]{width:150px;} }
+
+  @media print{
+    @page{ margin:1.3cm; }
+    :root{
+      --bg:#ffffff; --panel:#f7f6f2; --ink:#161616; --ink-dim:#3d3d3d; --ink-faint:#6b6b6b;
+      --line:#cfcbc0; --amber:#a85e0d; --amber-dim:#d9c3a3; --teal:#136b62; --teal-dim:#a9cfc9; --rust:#9a3a2a;
+    }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-size:11pt; }
+    nav.jumpnav, .progress, .btn, .transport, .presets, .hint, .controls{ display:none !important; }
+    section{ scroll-margin-top:0; }
+    header.hero{ padding:0 0 16px; }
+    .module{ padding:28px 0 4px; }
+    .cheat-card, .panel, .note, details.worked, pre.code, .table-wrap{ break-inside:avoid; page-break-inside:avoid; }
+    h2, .panel-head{ break-after:avoid; page-break-after:avoid; }
+    .cell,.node,.ringcell{ background:#fff !important; border-color:#999 !important; color:#161616 !important; }
+    .cell.done{ background:#e8f2f0 !important; } .cell.cmp,.cell.swap{ background:#f6ead9 !important; }
+    .ixgrid div.st{ background:#eee; color:#555; } .ixgrid div.cnt{ background:#f6ead9; color:#161616; }
+    .ixstrip span{ color:#999; } .ixstrip span.cnt{ background:#f6ead9; color:#161616; }
+    .stage-scroll{ overflow:hidden; }
+    a[href]:after{ content:""; }
+    .verdict{ border:1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="jumpnav">
+  <a href="#m1">1 · Arrays</a>
+  <a href="#m2">2 · 2-D &amp; sparse</a>
+  <a href="#m3">3 · Linked lists</a>
+  <a href="#m4">4 · Doubly &amp; multi-linked</a>
+  <a href="#m5">5 · Stacks</a>
+  <a href="#m6">6 · Queues</a>
+  <a href="#m7">7 · Big-O</a>
+  <a href="#cx">Complexity sheet</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap-wide">
+    <p class="kicker">DSM-103 Data Structures · full course recap · S01 → 21 Sep (Dey, Prakash)</p>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--amber)"></i>array / contiguous (index arithmetic)</span>
+      <span><i class="swatch" style="background:var(--teal)"></i>linked / pointer (follow the link)</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MODULE 1: foundations + 1-D arrays ============ -->
+<section class="module" id="m1">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S01 (18 Aug) · S01 (20 Aug) — Dey</p>
+      <h2>Foundations and the 1-D array</h2>
+      <p class="lede">The vocabulary, the address formula, and the first three array operations — all written with <code>L</code> and <code>U</code>, never a language's own indexing.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>VOCABULARY</h3>
+        <dl>
+          <dt>data vs information</dt><dd><strong>34</strong> is data; "age = 34" is information. A value only means something once it is tied to an attribute of an entity.</dd>
+          <dt>ADT</dt><dd>Logical description: a collection of data <strong>plus the operations</strong> on it, with no word about implementation. E.g. {5, 12, 16, 7, 10} with <code>max()</code>.</dd>
+          <dt>data structure</dt><dd>The <strong>implementation</strong> of an ADT: its physical form, built from primitives (<code>int float char double</code>).</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>THREE WAYS TO CLASSIFY</h3>
+        <dl>
+          <dt>linear | non-linear</dt><dd>array, linked list, stack, queue | tree, graph, heap, trie (jump through links; e.g. a family tree)</dd>
+          <dt>homogeneous | non-homogeneous</dt><dd>array: one type only | struct / record: name (string) + age (int) + salary (float). Types are laid out differently in memory: int 5 → <code>101</code> with a sign bit; float 5.5 = 55×10⁻¹ → sign | exponent | mantissa; char → an unsigned code. So a slot built for one type can't hold another. (Python's mixed lists hide this in library code.)</dd>
+          <dt class="t">static | dynamic</dt><dd>array: fixed block <code>L…U</code>, contiguous; free space elsewhere is useless to it | linked list: grabs scattered free blocks and links them</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>1-D ARRAY FORMULAS</h3>
+        <dl>
+          <dt>array</dt><dd>a <strong>finite, ordered</strong> collection of <strong>homogeneous</strong> elements in contiguous memory</dd>
+          <dt>size</dt><dd>$\text{Size} = U - L + 1$</dd>
+          <dt>address (mapping function)</dt><dd>$\text{Addr}(A[I]) = M + (I - L)\times W$<br>M = base address, W = bytes per element. Special case L = 1, W = 1: $M + (I-1)$.</dd>
+          <dt>I-th element</dt><dd>sits at index $L + I - 1$</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>THE THREE OPERATIONS (20 AUG) — state input, output, data structure first</h3>
+        <ul>
+          <li><strong>Traverse</strong> — <code>I ← L; while I ≤ U: process A[I]; I ← I+1</code>. O(n) time, O(1) space.</li>
+          <li><strong>Bubble sort</strong> — compare only <em>neighbours</em>, swap when out of order; each pass parks the largest at <code>I</code>, then <code>I ← I−1</code>. Inner loop is <code>J &lt; I</code>, not <code>≤</code>, or <code>A[J+1]</code> doesn't exist. O(n²) time, O(1) space. Flip the test for descending.</li>
+          <li><strong>Linear search</strong> — <code>FOUND</code> flag + <code>LOCATION</code> (start at 0, or a negative number if 0 is a valid index). Loop ends for two reasons, so test <code>FOUND</code> after it. Best O(1), worst O(n).</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>LOOPS AND INDEXING</h3>
+        <ul>
+          <li><code>while</code> / <code>for</code> check the condition <strong>first</strong>; <code>do-while</code> runs the body <strong>once</strong> before checking. With I = 5 and condition <code>5 &lt; 4</code>: while → 0 runs, do-while → 1 run.</li>
+          <li>0-based: C, Python, Java. 1-based: R vectors, SQL <code>SUBSTRING</code>. So write algorithms with <code>L</code>/<code>U</code> and let the formula absorb the difference.</li>
+          <li>Selection sort (mentioned): compare one element with <em>all</em> the others. Bubble sort only ever compares adjacent pairs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Why a data scientist needs this (S01):</p>
+      <ul>
+        <li><strong>Store, manipulate, answer queries fast</strong>: a self-driving car's decision that arrives after a minute is useless.</li>
+        <li><strong>Stock ticker</strong>: the highest-value stock must already be sitting at the front. If you had to scan for it, another stock would have overtaken it by the time you got there. That's why heaps and priority structures exist.</li>
+        <li><strong>Printer</strong>: 10 jobs come out in firing order (a queue). Add authority levels and the boss's job jumps ahead (a priority queue).</li>
+        <li><strong>Follow / follower</strong> relationships are a graph. A <strong>TF-IDF</strong> matrix is symmetric, so storing both triangles is redundant (hence module 2).</li>
+        <li>"No single storage structure is good for all applications": judge every choice on <strong>time and space</strong>, and expect to trade one for the other.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="bsPanel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Bubble sort, one comparison at a time</span><span class="readout" id="bsRead"></span></div>
+      <p class="panel-sub">The amber frame is the pair being compared (J, J+1). The teal zone is the settled part to the right of I. Watch the largest value ride to the end of each pass.</p>
+      <div class="presets" id="bsPre">
+        <button class="btn on" data-p="b">5 9 7 6 · S01 full trace</button>
+        <button class="btn" data-p="a">7 9 5 4 10 8 · S01 pass-1 example</button>
+        <span class="field"><input type="text" id="bsIn" value="5 9 7 6" aria-label="your numbers"><button class="btn" id="bsGo">sort mine</button><span id="bsErr" style="color:var(--rust)"></span></span>
+      </div>
+      <div class="viz-body">
+        <div><div class="stage-scroll"><div class="stage" id="bsStage"></div></div><p class="caption"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <p class="hint">← → step · space play/pause (click the panel first)</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>M = 1000, L = 1, U = 100, one element = 1 byte. Address of the 4th element?<span class="tag">S01 18 Aug</span></summary>
+      <ol><li>$\text{Addr}(A[4]) = 1000 + (4-1)\times 1$</li><li>Check by layout: A[1]→1000, A[2]→1001, A[3]→1002, A[4]→1003.</li></ol>
+      <p class="answer">1003</p>
+    </details>
+    <details class="worked">
+      <summary>Same base 1000, but each element takes 2 bytes. Where does A[2] start?<span class="tag">S01 18 Aug</span></summary>
+      <ol><li>A[1] occupies 1000–1001, so the next free byte is 1002.</li><li>Formula: $1000 + (2-1)\times 2 = 1002$.</li><li>Same idea on 20 Aug: first element at 453 with 2-byte elements → the second is at 455.</li></ol>
+      <p class="answer">1002</p>
+    </details>
+    <details class="worked">
+      <summary>Homework: make linear search return the <em>last</em> occurrence of KEY, then <em>all</em> occurrences.<span class="tag">S01 20 Aug assignment</span></summary>
+      <ol>
+        <li><strong>Route 1: scan backwards.</strong> Start <code>I ← U</code>, decrement, and stop at the first match. That first match from the right is the last occurrence.</li>
+        <li><strong>Route 2: drop the early exit.</strong> Remove <code>FOUND = 0</code> from the loop test and overwrite <code>LOCATION ← I</code> on every match. You always scan all n elements.</li>
+        <li>Worst case is the same for both: a single match at the very end still costs a full scan.</li>
+        <li><strong>All occurrences:</strong> keep an auxiliary flag array the same size as A and set a 1 at every matching index. That costs <strong>O(n) extra space</strong>, which is the trade-off the class discussed. A counter gives the frequency.</li>
+      </ol>
+      <p class="answer">last: I ← U, decrement · all: flag array, O(n) space</p>
+    </details>
+    <details class="worked">
+      <summary>Why must the bubble-sort inner loop be <code>J &lt; I</code> and not <code>J ≤ I</code>?<span class="tag">S01 20 Aug</span></summary>
+      <ol><li>J names the <em>pair</em> (A[J], A[J+1]).</li><li>If J reached I = U, the step would read A[U+1], an element that doesn't exist.</li><li>The outer I also stops the inner loop from re-touching the settled tail.</li></ol>
+      <p class="answer">so that A[J+1] always exists</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>An array is indexed 5…24, base M = 2000, W = 4 bytes. Find its size and the address of A[12].<span class="tag">practice</span></summary>
+      <ol><li>$\text{Size} = 24 - 5 + 1 = 20$</li><li>$\text{Addr} = 2000 + (12-5)\times 4 = 2028$</li></ol>
+      <p class="answer">20 elements · 2028</p>
+    </details>
+    <details class="worked">
+      <summary>Bubble sort on <code>4 3 2 1</code>: how many comparisons and swaps? (Type it into the widget to watch.)<span class="tag">practice</span></summary>
+      <ol><li>Passes compare 3, 2 and 1 pairs: 6 comparisons in total.</li><li>The input is in reverse order, so every comparison fails and swaps. This is the worst case.</li><li>In general that's $\frac{n(n-1)}{2}$ comparisons, which is O(n²).</li></ol>
+      <p class="answer">6 comparisons, 6 swaps</p>
+    </details>
+    <details class="worked">
+      <summary><code>I = 5; do { print I; I = I + 1 } while (I &lt; 4)</code> — what prints?<span class="tag">practice</span></summary>
+      <ol><li>do-while runs the body before it checks anything, so it prints 5.</li><li>Then it checks 6 &lt; 4, which is false, and stops. A <code>while</code> loop would have printed nothing.</li></ol>
+      <p class="answer">5 (once)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 2: 2-D arrays + sparse matrices ============ -->
+<section class="module" id="m2">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S02 (22 Aug) — Dey · S07 said exams ask indexing calculations</p>
+      <h2>2-D arrays and sparse (triangular, band) matrices</h2>
+      <p class="lede">Memory is a single line, so a grid has to be flattened. Every formula here comes from one method: count what is stored before the element.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>LOGICAL vs PHYSICAL</h3>
+        <dl>
+          <dt>logical</dt><dd>$a_{ij}$ = row $i$, column $j$ of an $m\times n$ grid (two subscripts). 1-based throughout.</dd>
+          <dt>physical</dt><dd>contiguous 1-D memory → a <strong>mapping formula</strong> turns $(i,j)$ into one index</dd>
+          <dt>row-major</dt><dd>row 1, then row 2, … — the compiler default</dd>
+          <dt class="t">column-major</dt><dd>column 1, then column 2, … — you write this conversion yourself</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>THE ONE METHOD</h3>
+        <ul>
+          <li>Find how many elements each row (or column) <strong>stores</strong>.</li>
+          <li>Add up the complete rows (or columns) <strong>before</strong> $a_{ij}$.</li>
+          <li>Add $a_{ij}$'s position <strong>inside its own row or column</strong>, counted from that row's first <em>stored</em> cell, not from column 1.</li>
+          <li>That sum is the <strong>index</strong>. Then $\text{Addr} = B + (\text{Index}-1)\,w$.</li>
+          <li>Costs one multiply plus some additions, so O(1) per access.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>FULL m × n</h3>
+        <dl>
+          <dt>row-major</dt><dd>$\text{Index} = (i-1)\,n + j$<br>$\text{Addr} = B + [(i-1)n + (j-1)]\,w$</dd>
+          <dt class="t">column-major</dt><dd>$\text{Index} = (j-1)\,m + i$<br>$\text{Addr} = B + [(j-1)m + (i-1)]\,w$</dd>
+          <dt>index ≠ address</dt><dd>5 is a <em>position</em>. The address is $B + (5-1)w$. Class kept mixing these up.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>matrix (n × n, 1-based)</th><th>stored per row</th><th>row-major index of $a_{ij}$</th><th>column-major index of $a_{ij}$</th></tr>
+        <tr><td>lower-left triangular ($j \le i$)</td><td>row $i$ has $i$</td><td>$\frac{i(i-1)}{2} + j$</td><td>$n(j-1) - \frac{(j-1)(j-2)}{2} + (i-j+1)$</td></tr>
+        <tr><td>upper-right triangular ($j \ge i$)</td><td>row $i$ has $n-i+1$</td><td>$n(i-1) - \frac{(i-1)(i-2)}{2} + (j-i+1)$</td><td>$\frac{j(j-1)}{2} + i$</td></tr>
+        <tr><td>diagonal ($i = j$)</td><td>1</td><td colspan="2">$i$ &nbsp;(both orders agree)</td></tr>
+        <tr><td>tridiagonal ($|i-j| \le 1$)</td><td>2, 3, 3, …, 3, 2</td><td>$2i + j - 2$</td><td>$2j + i - 2$</td></tr>
+        <tr><td>α–β band, case 1: $i \le \beta$</td><td>$\alpha + i - 1$ (growing)</td><td colspan="2">$(i-1)\alpha + \frac{(i-1)(i-2)}{2} + j$</td></tr>
+        <tr><td>α–β band, case 2: $\beta &lt; i \le n-\alpha+1$</td><td>$\alpha+\beta-1$ (full)</td><td colspan="2">$\beta\alpha + \frac{\beta(\beta-1)}{2} + (i-\beta-1)(\alpha+\beta-1) + (j-i+\beta)$</td></tr>
+        <tr><td>α–β band, case 3: $i &gt; n-\alpha+1$</td><td>shrinking</td><td colspan="2">case-2 prefix up to row $n-\alpha+1$ $+ \sum_{k=n-\alpha+2}^{i-1}(n-k+\beta) + (j-i+\beta)$</td></tr>
+      </table>
+    </div>
+    <p class="table-key">Upper-right is lower-left with the roles of i and j swapped ("i will be j, j will be i"). Band: <strong>α</strong> = cells in row 1 (the diagonal plus everything to its right), <strong>β</strong> = cells in column 1 (the diagonal plus everything below). The case formulas need α + β ≤ n + 1. All formulas above were checked against a brute-force count for every n up to 9.</p>
+
+    <div class="note">
+      <p>Why bother (S02):</p>
+      <ul>
+        <li>A <strong>100 × 100</strong> array with only about 500 real values wastes about 9,500 cells. A 10,000 × 10,000 array at 8 bytes per element is 8×10⁸ bytes. Store just the band.</li>
+        <li>The price is nothing: the index formula is O(1).</li>
+        <li>This mattered most in the <strong>512 MB RAM / 20 GB disk</strong> days. Today it still applies to band-shaped data, such as the matrices in PCA.</li>
+        <li>"You <strong>must practice this α–β band</strong> matrix." α and β are different parameters, so don't collapse them into one. Four triangle shapes exist: upper-left, upper-right, lower-left, lower-right.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="ixPanel">
+      <div class="panel-head"><span class="panel-title">Index calculator: watch memory fill up</span><span class="readout" id="ixRead"></span></div>
+      <p class="panel-sub">Click any cell to make it the target, then press <b>Count it</b>. Cells light up in storage order while the 1-D strip below fills in. The breakdown shows the lecture formula term by term.</p>
+      <div class="presets" id="ixPre">
+        <button class="btn on" data-p="r23">a₂₃ · 3×4 row-major</button>
+        <button class="btn" data-p="c23">a₂₃ · 3×4 column-major</button>
+        <button class="btn" data-p="lo32">lower a₃₂ · row</button>
+        <button class="btn" data-p="lo32c">lower a₃₂ · column</button>
+        <button class="btn" data-p="tri">tridiagonal a₂₃</button>
+        <button class="btn" data-p="band">band n=15 α=3 β=4 · a₁₀,₁₁</button>
+      </div>
+      <div class="controls" style="margin:0 0 12px">
+        <label class="field">type <select id="ixType"><option value="full">full m × n</option><option value="lower">lower-left triangular</option><option value="upper">upper-right triangular</option><option value="diag">diagonal</option><option value="tri">tridiagonal</option><option value="band">α–β band</option></select></label>
+        <span class="field"><button class="btn on" data-o="row">row-major</button><button class="btn" data-o="col">column-major</button></span>
+        <label class="field" id="ixMWrap">m (rows) <input type="number" id="ixM" value="3" min="1" max="8"></label>
+        <label class="field"><span id="ixNLbl">n</span> <input type="number" id="ixN" value="4" min="2" max="15"></label>
+        <span class="field" id="ixABWrap" hidden><label>α <input type="number" id="ixA" value="3" min="1"></label><label>β <input type="number" id="ixB" value="4" min="1"></label></span>
+        <label class="field">B <input type="number" id="ixBase" value="100"></label>
+        <label class="field">w <input type="number" id="ixW" value="1" min="1"></label>
+      </div>
+      <p class="axlbl" id="ixColsLbl"></p>
+      <div style="overflow-x:auto"><div class="ixgrid" id="ixGrid"></div></div>
+      <div class="ixstrip" id="ixStrip" aria-label="1-D memory"></div>
+      <p class="caption" id="ixCap" style="min-height:1.6em"></p>
+      <div class="transport"><button class="btn play" id="ixCount">▶ Count it</button></div>
+      <div class="ixmath" id="ixMath"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>3 × 4 array, B = 100, w = 1. Index and address of $a_{23}$ in row-major, then column-major.<span class="tag">S02</span></summary>
+      <ol><li>Row-major: $(2-1)\times4 + 3 = 7$, so $\text{Addr} = 100 + (7-1)\times1 = 106$.</li><li>Column-major ($m = 3$): $(3-1)\times3 + 2 = 8$, so $\text{Addr} = B + 7$.</li></ol>
+      <p class="answer">row-major 7 (address 106) · column-major 8</p>
+    </details>
+    <details class="worked">
+      <summary>Lower-left triangular 3 × 3: index of $a_{32}$ in both orders.<span class="tag">S02</span></summary>
+      <ol><li>Row-major: $\frac{3\cdot2}{2} + 2 = 5$. Layout: a11 | a21 a22 | a31 <strong>a32</strong> …</li><li>Column-major: $3(2-1) - 0 + (3-2+1) = 5$. Layout: a11 a21 a31 | a22 <strong>a32</strong> a33.</li><li>Edge case: at $j = 1$ nothing comes before, so the index is just $i$. A column "j = 0" doesn't exist; it isn't a mistake in the formula.</li></ol>
+      <p class="answer">5 in both orders (the same number by coincidence)</p>
+    </details>
+    <details class="worked">
+      <summary>α–β band: n = 15, α = 3, β = 4. Index of $a_{10,11}$.<span class="tag">S02 — practise this one</span></summary>
+      <ol><li>Which case? $\beta = 4 &lt; i = 10 \le n-\alpha+1 = 13$, so case 2.</li><li>Rows 1–4 (growing): $\beta\alpha + \frac{\beta(\beta-1)}{2} = 12 + 6 = 18$.</li><li>Rows 5–9: there are $(10-4-1) = 5$ rows ("last − first + 1"), each $3+4-1 = 6$ wide, giving 30.</li><li>Inside row 10: $j - i + \beta = 11 - 10 + 4 = 5$.</li></ol>
+      <p class="answer">18 + 30 + 5 = 53 → Address = B + 52·w</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>Upper-right triangular, n = 5, row-major, B = 500, w = 4. Index and address of $a_{24}$.<span class="tag">practice</span></summary>
+      <ol><li>Rows before: $5\cdot1 - 0 = 5$ (row 1 is full).</li><li>Row 2 starts at column 2, so $a_{24}$ is at position $4 - 2 + 1 = 3$.</li><li>Index 8, so $\text{Addr} = 500 + 7\cdot4$.</li></ol>
+      <p class="answer">Index 8 · Address 528</p>
+    </details>
+    <details class="worked">
+      <summary>Band n = 10, α = 2, β = 3: index of $a_{9,10}$. Then α = 3, β = 2: index of $a_{10,10}$.<span class="tag">practice · cases 2 and 3</span></summary>
+      <ol><li>α=2, β=3: $n-\alpha+1 = 9$ and $i = 9$, so case 2. $6 + 3 = 9$; rows 4–8 are 5 rows × 4 = 20; position $10-9+3 = 4$. Total 33.</li><li>α=3, β=2: $n-\alpha+1 = 8 &lt; 10$, so case 3. $6 + 1 = 7$; rows 3–8 are 6 × 4 = 24; shrinking row 9 holds $10 - 9 + 2 = 3$; position $10 - 10 + 2 = 2$. Total 36.</li><li>Put both into the calculator to watch the count.</li></ol>
+      <p class="answer">33 · 36</p>
+    </details>
+    <details class="worked">
+      <summary>Homework: derive both orders for the <strong>lower-right</strong> triangle (row 1 has one cell, at column n) and the <strong>upper-left</strong> triangle (row 1 full, row n has only $a_{n1}$).<span class="tag">S02 homework</span><span class="xtag">derived here, checked by brute force</span></summary>
+      <ol>
+        <li><strong>Lower-right</strong> ($i + j \ge n+1$): row $i$ holds $i$ cells, starting at column $n-i+1$. Row-major: $\frac{i(i-1)}{2} + (j - n + i)$. Column $j$ holds $j$ cells, starting at row $n-j+1$. Column-major: $\frac{j(j-1)}{2} + (i - n + j)$.</li>
+        <li><strong>Upper-left</strong> ($i + j \le n+1$): row $i$ holds $n-i+1$ cells, starting at column 1. Row-major: $n(i-1) - \frac{(i-1)(i-2)}{2} + j$. Column-major swaps $i$ and $j$: $n(j-1) - \frac{(j-1)(j-2)}{2} + i$.</li>
+        <li>Check with n = 4: lower-right $a_{33}$ gives 5 in both orders. Upper-left $a_{23}$ gives 7 (row-major) and 9 (column-major).</li>
+      </ol>
+      <p class="answer">same method: stored-before + offset from the row's first stored cell</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 3: singly + circular singly linked lists ============ -->
+<section class="module" id="m3">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S05 (29 Aug) · S06 (3 Sep) — Dey · S07 said exams ask you to fill in missing algorithm steps</p>
+      <h2>Linked lists: singly and circular</h2>
+      <p class="lede">Data goes wherever memory is free, and each node remembers where the next one is. Almost every bug comes from one of three things: where the pointer starts, which test ends the loop, or the order of two assignments.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>NODE, HEADER, NULL</h3>
+        <dl>
+          <dt class="t">linked list</dt><dd>an ordered, finite collection of <strong>homogeneous nodes</strong>, whose linear order is kept by <strong>links</strong></dd>
+          <dt class="t">node</dt><dd><code class="t">[data | link]</code>, where link = the address of the next node. Every node has the same fields.</dd>
+          <dt class="t">header</dt><dd>same node type, data unused, link → first real node. It <strong>always exists</strong>, even when the list is empty.</dd>
+          <dt class="t">NULL</dt><dd>the last node's link. It is the stop signal: without it you would read into memory you were never given.</dd>
+          <dt class="t">no indexing</dt><dd>"node i" doesn't exist. You always walk from the header.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>TWO REPRESENTATIONS</h3>
+        <dl>
+          <dt>static</dt><dd>two parallel arrays of the same size: <code>DATA[k]</code> holds the value, <code>LINK[k]</code> holds the index of the next one. Fixed size.</dd>
+          <dt class="t">dynamic</dt><dd>real pointers. <code class="t">getNode()</code> returns a fresh node's <strong>address</strong>, or NULL when memory is full (overflow). With an 8 B int and an 8 B pointer, one node is 16 B.</dd>
+          <dt class="t">ptr->data · ptr->link</dt><dd>the value · the address of the next node</dd>
+          <dt class="t">GETNODE / RETURNNODE</dt><dd>take a block from the heap's free list / give it back. Memory is never "removed".</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>POINTER DISCIPLINE (the traps)</h3>
+        <ul>
+          <li><code>ptr = header</code> + <code>while ptr->link ≠ NULL</code> stops <strong>on</strong> the last node and is safe on an empty list. Use it for insert at end, delete last, and concatenate.</li>
+          <li><code>ptr = header->link</code> + <code>while ptr ≠ NULL</code> visits every node. Use it for traverse, search and copy.</li>
+          <li><strong>Link the new node first</strong>, then redirect the old arrow, or you lose the rest of the list.</li>
+          <li>Deleting needs the <strong>predecessor</strong>, so use two pointers: <code>ptr</code> and <code>ptr1</code>.</li>
+          <li>A loop that can end for two reasons must be followed by a test that tells them apart: <code>ptr->data = key</code>.</li>
+          <li>Check <code>getNode() = NULL</code> before inserting, and check for an empty list before deleting.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>SLL → CIRCULAR SLL (last node points back to the header)</h3>
+        <ul>
+          <li>Rule: every end-of-list <code>NULL</code> becomes <code>header</code>. So <code>ptr ≠ header</code>, <code>ptr->link ≠ header</code>, <code>new->link ← header</code>. <strong>Empty:</strong> <code>header->link = header</code>.</li>
+          <li><strong>Insert at front: no change.</strong> It never looks for the end.</li>
+          <li><strong>Insert at end:</strong> <code>new->link ← header</code> plus the loop test.</li>
+          <li><strong>Insert after key:</strong> the mechanical conversion <code>if ptr->link = header</code> is <em>wrong</em> when the key is last. Test <code>ptr->data ≠ key</code> instead.</li>
+          <li><strong>Delete first:</strong> only the underflow test changes. <strong>Delete last:</strong> three changes (underflow test, loop test, <code>ptr1->link ← header</code>). <strong>Delete key:</strong> two lines.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>MORE OPERATIONS (S06)</h3>
+        <ul>
+          <li><strong>Copy:</strong> a new header, then for each node <code>getNode</code> a fresh node, copy the data and hang it on <code>ptr1</code>. Two independent lists, with no arrow between them. O(n) time and O(n) space.</li>
+          <li><strong>Concatenate:</strong> <code>ptr = header1</code>, walk to the last node, <code>ptr->link = header2->link</code>, then <code>header2->link = NULL</code> <em>before</em> <code>RETURNNODE(header2)</code>.</li>
+          <li><strong>Search:</strong> <code>flag</code> plus a <code>location</code> pointer. Loop while <code>ptr ≠ NULL</code> <em>and</em> <code>flag = 0</code>. The NULL test comes before any <code>ptr->data</code>, so empty lists and missing keys are safe.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>singly linked list</th><th>time</th><th>why</th></tr>
+        <tr><td>insert at front · delete first</td><td class="o1">O(1)</td><td>a fixed handful of statements, no loop</td></tr>
+        <tr><td>insert at end · delete last</td><td class="on">O(n)</td><td>walk to the last node (and its predecessor)</td></tr>
+        <tr><td>insert after key · delete key · search</td><td class="on">O(n)</td><td>best O(1) when the key is first; quote the <strong>worst case</strong></td></tr>
+        <tr><td>traverse · copy</td><td class="on">O(n)</td><td>every node once. Copy also uses O(n) extra space.</td></tr>
+        <tr><td>concatenate (lists of m and k nodes)</td><td class="on">O(m)</td><td>only list 1 is walked</td></tr>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>Why linked lists exist (S05, S06):</p>
+      <ul>
+        <li>Old machines often had enough free memory <strong>in total</strong>, but not in one contiguous block. So store each item wherever there is room and remember where the next one is.</li>
+        <li>Python's list "does this for you": you never manage the pointers. <span style="opacity:.8">(Strictly, CPython's <code>list</code> is a resizable array of pointers, which is why indexing it is O(1). The professor's point is that Python manages the memory for you.)</span></li>
+        <li>S06 was taught almost entirely through questions: "I have not taught anything here, only asked questions." Expect exam questions in the same style: find the line that breaks.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="llPanel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Pointer surgery, one statement at a time</span><span class="readout"></span></div>
+      <p class="panel-sub">Nodes are <b>[data | link]</b>. An <span style="color:var(--amber)">amber arrow</span> is the link the current line just changed. Dashed nodes are unreachable. The labels above the nodes are the pointer variables.</p>
+      <div class="presets">
+        <button class="btn on" data-p="front">insert at front</button>
+        <button class="btn" data-p="wrong">…in the wrong order</button>
+        <button class="btn" data-p="end">insert at end</button>
+        <button class="btn" data-p="del">delete key (ptr, ptr1)</button>
+        <button class="btn" data-p="bug">key-is-last bug</button>
+        <button class="btn" data-p="cat">concatenate</button>
+        <button class="btn" data-p="circ">circular traverse</button>
+      </div>
+      <div class="viz-body stacked">
+        <div><div class="stage-scroll"><div class="stage"></div></div><p class="caption"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <p class="hint">← → step · space play/pause · the drawing scrolls sideways on a phone</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Static representation: follow the list starting at index 109.<span class="tag">S05</span></summary>
+      <pre class="code">index : 109  105  101  125  113
+DATA  :  20   30   25   35   …
+LINK  : 105  101  125  113  NULL</pre>
+      <ol><li>109 gives 20, then go to 105. 105 gives 30, then 101. 101 gives 25, then 125. 125 gives 35, then 113. 113's link is NULL, so stop.</li><li>Rule: the DATA array at a position holds the value, and the <em>same position</em> in the LINK array holds the next index.</li></ol>
+      <p class="answer">20 → 30 → 25 → 35 → (113) → NULL</p>
+    </details>
+    <details class="worked">
+      <summary>Copy a list. What three constraints did the class insist on?<span class="tag">S06</span></summary>
+      <ol><li>The original list is <strong>not modified</strong>.</li><li>The copy gets <strong>its own header</strong>, because a list can't exist without one.</li><li>The two lists stay <strong>completely separate</strong>: a fresh <code>GETNODE</code> for every element, never a copied pointer. <code>ptr</code> walks the original while <code>ptr1</code> builds the copy in step; <code>header1</code> itself never moves, because it is what gets returned.</li></ol>
+      <p class="answer">own header · fresh node per element · O(n) time and space</p>
+    </details>
+    <details class="worked">
+      <summary>Search: why is <code>while (ptr ≠ NULL) AND (flag = 0)</code> safe on an empty list and for a missing key?<span class="tag">S06</span></summary>
+      <ol><li>Empty list: <code>ptr = header->link = NULL</code>, so the test fails immediately and <code>ptr->data</code> is never read.</li><li>Missing key (e.g. 45): ptr steps until it becomes NULL. The loop test runs <em>before</em> the data is examined, so nothing illegal is read.</li><li>After the loop, <code>flag</code> tells you which of the two exits happened, and <code>location</code> holds the node's address or NULL.</li></ol>
+      <p class="answer">the NULL check guards every dereference</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>Assignment 2: in a circular list, delete a key using the merged loop <code>while (ptr ≠ header) AND (ptr.data ≠ key)</code>. Does it work for the key first, in the middle, last, and absent?<span class="tag">S06 homework</span><span class="xtag">worked out here</span></summary>
+      <ol>
+        <li>Start with <code>ptr ← header.link</code> and <code>ptr1 ← header</code>. The loop body is <code>ptr1 ← ptr; ptr ← ptr.link</code>.</li>
+        <li><strong>First:</strong> the loop doesn't run, ptr1 = header, and <code>ptr1.link ← ptr.link</code> unlinks it. ✓</li>
+        <li><strong>Middle:</strong> it stops with ptr on the key and ptr1 on the predecessor. ✓</li>
+        <li><strong>Last:</strong> it stops on the last node, and <code>ptr1.link ← ptr.link</code> copies <code>header</code>, so the circle stays closed. ✓</li>
+        <li><strong>Absent (or empty list):</strong> the loop ends with <code>ptr = header</code>. Deleting now would unlink the <em>header</em>. ✗ Modification: add <code>if ptr = header then "key not found"</code> before deleting.</li>
+      </ol>
+      <p class="answer">works for first, middle and last · needs an "if ptr = header" check for a missing key</p>
+    </details>
+    <details class="worked">
+      <summary>A student proposes <code>if (ptr.link ≠ key)</code> for the insert-after-key fix. Why was it rejected?<span class="tag">S06</span></summary>
+      <ol><li><code>ptr.link</code> is an <strong>address</strong> and <code>key</code> is a <strong>data value</strong>.</li><li>Comparing them is meaningless. The fix has to be <code>ptr.data ≠ key</code>.</li></ol>
+      <p class="answer">you can't compare an address with a value</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 4: doubly linked + sparse multi-linked ============ -->
+<section class="module" id="m4">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S07 (5 Sep) — Dey</p>
+      <h2>Doubly linked lists and sparse matrices as multi-linked lists</h2>
+      <p class="lede">Adding a second link per node lets you walk backwards. Adding a <em>header</em> link to the last node turns "insert at end" from O(n) into O(1).</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>DOUBLY LINKED (DLL)</h3>
+        <dl>
+          <dt class="t">node</dt><dd><code class="t">[LLINK | DATA | RLINK]</code>: back to the previous node, forward to the next. The order you declare the fields in doesn't matter.</dd>
+          <dt class="t">linear DLL</dt><dd>header LLINK = NULL · header RLINK → first node · last node's RLINK = NULL</dd>
+          <dt class="t">traverse</dt><dd>one pointer: <code class="t">PTR = PTR->RLINK</code> forwards, <code class="t">PTR = PTR->LLINK</code> backwards. O(n).</dd>
+          <dt class="t">insert at front</dt><dd>4 links: NEW→R, NEW→L, old first's LLINK, HEADER->RLINK. Fix the old first node's LLINK <strong>before</strong> overwriting HEADER->RLINK. O(1).</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>CIRCULAR DOUBLY LINKED (CDLL)</h3>
+        <dl>
+          <dt class="t">shape</dt><dd>last node's RLINK → header, and <strong>HEADER->LLINK → last node</strong></dd>
+          <dt class="t">payoff</dt><dd>insert at end: <code class="t">PTR = HEADER->LLINK</code> reaches the last node with no walk. O(n) becomes <strong>O(1)</strong>.</dd>
+          <dt class="t">loop test</dt><dd><code class="t">PTR ≠ HEADER</code> instead of <code class="t">PTR ≠ NULL</code></dd>
+          <dt>empty-list trap</dt><dd>on an empty list <code>PTR = HEADER->RLINK = NULL</code>, and <code>PTR->LLINK = NEW</code> then crashes. Give the empty case its own branch.</dd>
+        </dl>
+        <p style="font-size:12.5px;color:var(--ink-faint);margin:10px 0 0">DLL delete, search and insert at an arbitrary position were set as self-study. They use the SLL logic plus the left links.</p>
+      </div>
+      <div class="cheat-card">
+        <h3>SPARSE MATRIX, MULTI-LINKED</h3>
+        <dl>
+          <dt class="t">node (5 fields)</dt><dd><code class="t">[i | j | DATA | ROW LINK | COL LINK]</code>: row link → next non-zero in the same row, col link → next non-zero in the same column</dd>
+          <dt class="t">row / column headers</dt><dd>same structure. A zero in <code>i</code> or <code>j</code> marks a header. A row header's DATA holds that row's count of non-zeros. Its ROW LINK → the row's first element, its COL LINK → the next row header.</dd>
+          <dt class="t">main header</dt><dd>stores the number of rows and columns. Its links point to RH₁ and CH₁.</dd>
+          <dt>cost</dt><dd>reaching $(i,j)$ means walking at most $n + n$ steps, so O(n), against O(1) for an array. Avoids the O(n²) full scan.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Where linked lists show up (S07):</p>
+      <ul>
+        <li><strong>Spotify playlist</strong>: "previous song" needs a backward link, so use a DLL. "Play in the order added" is a <em>queue</em>, which is an ADT: a DLL can implement it.</li>
+        <li><strong>Insert 3 into 1 2 4 5 6 7 8</strong>: an array shifts every later element one place right, while a list just re-links two pointers. This is the linked list's key advantage.</li>
+        <li><strong>Polynomials</strong>: nodes of <code>[coefficient | exponent | link]</code>. Adding or multiplying polynomials just inserts result terms as new nodes.</li>
+        <li><strong>Free-space management</strong>: the OS chains its scattered free blocks into a linked list.</li>
+        <li>Four pointers per node (so you can also go up and left) is possible, but "a <strong>nightmare</strong>" to manage. A <strong>Sudoku</strong> grid fills every cell, so it isn't sparse: use a plain 2-D array.</li>
+        <li>The online exam's questions come "one after another and you cannot go back, <strong>just like a singly linked list</strong>".</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="dlPanel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Doubly linked: forward and back arrows</span><span class="readout"></span></div>
+      <p class="panel-sub">Upper arrows are RLINK (forward) and lower arrows are LLINK (back). Compare the two "insert at end" presets: one walks every node, the other jumps straight to the end.</p>
+      <div class="presets">
+        <button class="btn on" data-p="front">insert at front (addresses 100 / 200 / 300)</button>
+        <button class="btn" data-p="empty">empty-list bug</button>
+        <button class="btn" data-p="end">insert at end · linear (walk)</button>
+        <button class="btn" data-p="cend">insert at end · circular (one jump)</button>
+      </div>
+      <div class="viz-body stacked">
+        <div><div class="stage-scroll"><div class="stage"></div></div><p class="caption"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Header at 100, NEW at 200, old first node (20) at 300. After inserting at the front, what does each link field store?<span class="tag">S07</span></summary>
+      <ol><li><code>NEW->RLINK</code> = 300 (forward to 20). <code>NEW->LLINK</code> = 100 (back to the header).</li><li><code>PTR->LLINK</code> (node 20's back link) = 200, the address of NEW itself, not "NEW->RLINK".</li><li><code>HEADER->RLINK</code> = 200.</li></ol>
+      <p class="answer">300 · 100 · 200 · 200</p>
+    </details>
+    <details class="worked">
+      <summary>A 10,000 × 10,000 matrix has 100 non-zeros, with 8-byte values and 8-byte addresses. Dense array vs linked storage?<span class="tag">S07</span></summary>
+      <ol><li>Dense: $10^4 \times 10^4 \times 8 = 8\times10^8$ bytes. The useful data is only $100 \times 8 = 800$ bytes.</li><li>Linked, as first sketched (data + 2 addresses): $8\times3 = 24$ bytes per node, and $24\times100 = 2400$ bytes.</li><li>Trade-off: you lose O(1) direct access, because you walk along rows and columns instead.</li></ol>
+      <p class="answer">8×10⁸ B vs 2,400 B</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>Draw $5x^5 + 3x^3 + x + 7$ as a linked list.<span class="tag">practice</span></summary>
+      <ol><li>One node per non-zero term, as <code>[coef | exp | link]</code>, in decreasing exponent.</li><li>The missing $x^4$ and $x^2$ terms simply have no node.</li></ol>
+      <p class="answer">[5|5] → [3|3] → [1|1] → [7|0] → NULL</p>
+    </details>
+    <details class="worked">
+      <summary>Same 100 non-zeros, but with the full 5-field node (i, j, data, row link, column link), each field 8 bytes.<span class="tag">practice</span></summary>
+      <ol><li>$5 \times 8 = 40$ bytes per node, and $40 \times 100 = 4000$ bytes.</li><li>That's still about 200,000× smaller than the dense array. The row, column and main header nodes add some overhead on top.</li></ol>
+      <p class="answer">4,000 B for the element nodes</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 5: stacks ============ -->
+<section class="module" id="m5">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S08 (14 Sep) · S09 (17 Sep) — Prakash</p>
+      <h2>Stacks and arithmetic expressions</h2>
+      <p class="lede">A stack is an array or a linked list with <em>one rule added</em>: insert and delete at one end only. That rule is enough to reverse strings and evaluate expressions.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>DEFINE ANY DATA STRUCTURE BY…</h3>
+        <ul>
+          <li><strong>what</strong> data is stored (int, char, text…)</li>
+          <li><strong>how</strong> it is arranged: linear (before/after) or non-linear (parent/child)</li>
+          <li><strong>how it may be changed</strong>: insert, delete, update. <strong>This third rule is what makes a stack a stack</strong> rather than just an array.</li>
+        </ul>
+        <dl style="margin-top:12px">
+          <dt>stack</dt><dd>an <strong>ordered collection of homogeneous elements</strong> with insertion and deletion at <strong>one end only</strong>. <strong>LIFO</strong>: last in, first out.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>ARRAY STACK (S09: 0-based, <code>top = −1</code>)</h3>
+        <dl>
+          <dt>push(x)</dt><dd>full? then OVERFLOW · <code>top ← top+1</code> <strong>then</strong> <code>A[top] ← x</code></dd>
+          <dt>pop()</dt><dd>empty? then UNDERFLOW · <code>x ← A[top]</code> <strong>then</strong> <code>top ← top−1</code></dd>
+          <dt>isEmpty · isFull</dt><dd><code>top = −1</code> · <code>top = SIZE−1</code>. With general bounds L…U (S08): empty is <code>top &lt; L</code>, full is <code>top ≥ U</code>.</dd>
+          <dt>why −1</dt><dd>it's an impossible index, and −1 + 1 = 0, so the first push needs no special case</dd>
+          <dt>status (S08)</dt><dd>free % $= \frac{\text{size}-\text{top}}{\text{size}}\times100$</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3 style="color:var(--teal)">LINKED STACK</h3>
+        <dl>
+          <dt class="t">push</dt><dd><code class="t">new←GETNODE(); new->data←item; new->link←top; top←new; stackhead->link←top</code></dd>
+          <dt class="t">pop</dt><dd><code class="t">top = NULL</code>? then empty · <code class="t">item←top->data; ptr←top->link; top←ptr; stackhead->link←ptr</code></dd>
+          <dt class="t">full?</dt><dd>meaningless, since memory is dynamic. <strong>status</strong> becomes a count of the nodes (O(n) traversal).</dd>
+          <dt class="t">the variable <code class="t">new</code></dt><dd>only a local copy of an address. The node survives because <code class="t">top</code> now holds that address.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>NOTATIONS · PRECEDENCE</h3>
+        <dl>
+          <dt>infix · prefix · postfix</dt><dd><code>a + b</code> · <code>+ a b</code> · <code>a b +</code>. Same value; only the position of the operator changes. Unary operators (<code>++a</code>, <code>a++</code>) have no infix form.</dd>
+          <dt>why postfix</dt><dd>(1) a stack evaluates it directly; (2) it needs <strong>no parentheses</strong>. Humans write infix, and the machine converts it, just as a compiler translates code.</dd>
+          <dt>precedence</dt><dd><code>^</code> &gt; <code>* /</code> &gt; <code>+ −</code>. Brackets first, innermost first.</dd>
+          <dt>associativity</dt><dd><code>^</code> is <strong>right-to-left</strong> (<code>a^b^c = a^(b^c)</code>). <code>* / + −</code> are left-to-right.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>POSTFIX EVALUATION (the rule to remember)</h3>
+        <ul>
+          <li>Operand: <strong>push</strong>. Operator: <code>arg2 = pop()</code>, <code>arg1 = pop()</code>, <code>push(arg1 op arg2)</code>.</li>
+          <li>"Remember, this is important": the <strong>first pop is arg2</strong> (the right operand). It doesn't matter for + and ×, but it decides the answer for − and ÷.</li>
+          <li>At the end exactly one value is left, and that is the answer. A pop from an empty stack means the expression was malformed (underflow).</li>
+          <li><strong>Overflow goes with push, underflow goes with pop.</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Analogies (S08, S09):</p>
+      <ul>
+        <li><strong>A stack of trays or chairs</strong>: to put one in the middle you would have to lift off the top three first. That's why a stack forbids it.</li>
+        <li>Where stacks appear: <strong>undo/redo</strong>, nested <strong>function calls</strong> (f₁ calls f₂ calls f₃…), parenthesis matching (both the count <em>and</em> the nesting), backtracking, syntax parsing, and string reversal (palindromes).</li>
+        <li>Multi-digit numbers on paper: <code>1 2 23</code> could be misread. Leave space or bracket them, e.g. <code>1 2 (23)</code>. Inside the machine each number is a separate token, so there's no ambiguity.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="stPanel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">The stack as a bucket: one open end</span><span class="readout"></span></div>
+      <p class="panel-sub">The indices 0…3 run up the side of the bucket. Watch <b>top</b> move <em>before</em> a push stores and <em>after</em> a pop reads. In postfix mode, the two popped values move out to <b>arg1 op arg2</b>, and the result drops back in.</p>
+      <div class="presets">
+        <button class="btn on" data-p="seq">push/pop trace (S09)</button>
+        <button class="btn" data-p="rev">reverse ABCD</button>
+        <button class="btn" data-p="pal">palindrome LEVEL</button>
+        <button class="btn" data-p="pf">postfix 2 3 4 + *</button>
+        <button class="btn" data-p="pf2">postfix 2 3 * 4 +</button>
+        <span class="field"><input type="text" id="pfIn" value="8 2 - 3 /" aria-label="postfix expression"><button class="btn" id="pfGo">evaluate mine</button></span>
+      </div>
+      <div class="viz-body wide-side">
+        <div><div class="stage-scroll"><div class="stage"></div></div><p class="caption"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <p class="hint">Try a broken one, like <code>3 +</code> (underflow) or <code>1 2 3 +</code> (left-over operand). Tokens are separated by spaces.</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Convert <code>(2*3)+4</code> and <code>2*(3+4)</code> to postfix.<span class="tag">S09</span></summary>
+      <ol><li><code>2*3</code> gives <code>2 3 *</code>. Then <code>(2 3 *) + 4</code> gives <code>2 3 * 4 +</code>, which is 10.</li><li><code>3+4</code> gives <code>3 4 +</code>. Then <code>2 * (3 4 +)</code> gives <code>2 3 4 + *</code>, which is 14.</li><li>The two strings differ, and each one fixes its evaluation order <em>without</em> brackets.</li></ol>
+      <p class="answer">2 3 * 4 + (=10) · 2 3 4 + * (=14)</p>
+    </details>
+    <details class="worked">
+      <summary><code>A − (B − (C − D))</code> to postfix and prefix.<span class="tag">S09</span></summary>
+      <ol><li>Innermost first: <code>C D −</code>. Then <code>B C D − −</code>. Then <code>A B C D − − −</code>.</li><li>Prefix, by the same steps with the operator written first: <code>− C D</code>, then <code>− B − C D</code>, then <code>− A − B − C D</code>.</li></ol>
+      <p class="answer">postfix A B C D − − − · prefix − A − B − C D</p>
+    </details>
+    <details class="worked">
+      <summary><code>a ^ b ^ c</code> to prefix.<span class="tag">S09 · associativity</span></summary>
+      <ol><li><code>^</code> is right-to-left, so <code>b ^ c</code> comes first: <code>^ b c</code>.</li><li>Then <code>a ^ (^ b c)</code> gives <code>^ a ^ b c</code>.</li></ol>
+      <p class="answer">^ a ^ b c</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>Evaluate <code>8 2 − 3 /</code>. What goes wrong if you swap arg1 and arg2? (It's preloaded in the input box above.)<span class="tag">practice</span></summary>
+      <ol><li>Push 8, push 2. At <code>−</code>: arg2 = 2, arg1 = 8, giving 8 − 2 = 6.</li><li>Push 3. At <code>/</code>: arg2 = 3, arg1 = 6, giving 6 / 3 = 2.</li><li>Swapped, you'd get 2 − 8 = −6 and then 3 / −6 = −0.5.</li></ol>
+      <p class="answer">2 (swapped order gives −0.5)</p>
+    </details>
+    <details class="worked">
+      <summary>Convert <code>(A + B) * C − D / E</code> to postfix.<span class="tag">practice</span></summary>
+      <ol><li>The bracket first: <code>A B +</code>.</li><li><code>*</code> and <code>/</code> before <code>−</code>: <code>(A B +) C *</code> and <code>D E /</code>.</li><li>Then the <code>−</code>.</li></ol>
+      <p class="answer">A B + C * D E / −</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 6: queues ============ -->
+<section class="module" id="m6">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S10 (18 Sep) · S11 (19 Sep) — Prakash</p>
+      <h2>Queues: linear, circular, linked</h2>
+      <p class="lede">A queue uses two ends, each with one job: insert at the rear, delete at the front. The naive array version wastes the cells it has already served. Treating the array as a ring fixes that with pointer arithmetic alone.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>QUEUE BASICS</h3>
+        <dl>
+          <dt>queue</dt><dd>linear. Add at the <strong>rear</strong> (ENQUEUE, which takes a value), remove from the <strong>front</strong> (DEQUEUE, which takes none). <strong>FIFO</strong>: first in, first out. A stack is LIFO.</dd>
+          <dt>no update</dt><dd>you can't reach into the middle and change a value</dd>
+          <dt>growing restriction</dt><dd>array / list (insert or delete anywhere), then stack (one end), then queue (two ends, one job each)</dd>
+          <dt>pointers</dt><dd>stack: <code>TOP</code> · queue: <code>FRONT</code> and <code>REAR</code>, because the two jobs happen at different ends</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>ARRAY QUEUE Q[1…N] (S10)</h3>
+        <dl>
+          <dt>empty</dt><dd><code>FRONT = REAR = 0</code>. 0 is an impossible index, the same idea as the stack's −1.</dd>
+          <dt>one element · count</dt><dd><code>FRONT = REAR</code> · <code>REAR − FRONT + 1</code> (e.g. 5…10 holds 6). <strong>Linear only.</strong></dd>
+          <dt>full</dt><dd>naive: <code>REAR = N</code>. True: <code>FRONT = 1 AND REAR = N</code>, which only makes sense with compaction.</dd>
+          <dt>two special cases (the exam trap)</dt><dd>enqueue into an <strong>empty</strong> queue also sets <code>FRONT = 1</code>. Dequeuing the <strong>last</strong> element (<code>FRONT = REAR</code>) resets <strong>both</strong> to 0.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3 style="color:var(--teal)">CIRCULAR QUEUE (S11)</h3>
+        <dl>
+          <dt class="t">advance</dt><dd>$r = (r \bmod n) + 1$, $\;f = (f \bmod n) + 1$. When $r = n$ it gives 1; otherwise it is just $r+1$.</dd>
+          <dt class="t">full</dt><dd>$(\text{rear} \bmod n) + 1 = \text{front}$: the rear sits right behind the front</dd>
+          <dt class="t">empty</dt><dd>front = rear = 0. Deleting when front = rear resets both.</dd>
+          <dt class="t">what changes</dt><dd>rear can be <strong>less than</strong> front, so $\text{R} - \text{F} + 1$ breaks. The capacity is still $n$: circularity adds <em>utilisation</em>, not space. Enqueue and dequeue are O(1).</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>THREE FIXES FOR THE FALSE "FULL"</h3>
+        <ul>
+          <li><strong>1 · Compact on full:</strong> when <code>REAR = N</code> but <code>FRONT &gt; 1</code>, shift everything back to start at index 1, set <code>REAR ← REAR − FRONT + 1</code> and <code>FRONT ← 1</code>, then insert. That costs O(N) whenever it happens.</li>
+          <li><strong>2 · Shift on every dequeue:</strong> FRONT stays at 1, so <code>REAR = N</code> becomes a true fullness test. Every dequeue costs O(N).</li>
+          <li><strong>3 · Circular:</strong> no shifting at all, so O(1). "We are just utilizing the space which is free. We are not doing anything extra to make the space free."</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3 style="color:var(--teal)">LINKED-LIST QUEUE</h3>
+        <ul>
+          <li><strong>Enqueue</strong> (at the rear): <code class="t">new->link = NULL</code>. If <code class="t">front = NULL</code>, then <code class="t">front = rear = new</code> and <code class="t">qhead->link = front</code>. Otherwise <code class="t">rear->link = new; rear = new</code>.</li>
+          <li><strong>Dequeue</strong> (at the front): <code class="t">item = front->data; ptr = front->link; qhead->link = ptr; front = ptr</code>. If <code class="t">front = NULL</code>, also set <code class="t">rear = NULL</code>.</li>
+          <li><strong>No circular version is needed</strong>: nodes exist only for real items, so there are never idle slots. Both operations are O(1).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th></th><th style="color:var(--amber)">circular array queue</th><th style="color:var(--teal)">linked-list queue</th></tr>
+        <tr><td>memory reserved</td><td>a fixed block of n slots up front</td><td>exactly one node per element</td></tr>
+        <tr><td>waste / capacity risk</td><td>may idle (100 slots, 10 used) or overflow (need 101)</td><td>neither</td></tr>
+        <tr><td>space per element</td><td><strong>better</strong>: data only</td><td>worse: data + link</td></tr>
+        <tr><td>enqueue / dequeue</td><td class="o1">O(1)</td><td class="o1">O(1)</td></tr>
+        <tr><td>overflow · underflow</td><td colspan="2">insert into a full queue · delete from an empty queue (same as a stack's push and pop)</td></tr>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>Where queues appear (S10):</p>
+      <ul>
+        <li>Toll booths, bank counters, grocery checkouts, traffic, and assembly lines: first come, first served.</li>
+        <li>In computing: an <strong>email server</strong> sends mail in arrival order. A multi-user server queues requests by arrival time. <strong>Printer spooling</strong> and access to memory, I/O and disk from several processes are all queues.</li>
+        <li>These are cases where you want neither an array's complete freedom nor a stack's single end. You want the order preserved.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="qPanel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Same operations, two queues</span><span class="readout"></span></div>
+      <p class="panel-sub">Both queues get identical operations. The data never moves: only <b>F</b> and <b>R</b> do. The ring is the circular queue's own cells 1…n bent into a circle, with the same indices. Step to the 6th operation in the first preset to see the difference.</p>
+      <div class="presets">
+        <button class="btn on" data-p="a">n = 4 · A…F (S11 trace)</button>
+        <button class="btn" data-p="b">N = 10 · 23, 21 at 8–9 (S10 trace)</button>
+        <span class="field"><button class="btn" id="qEnq">+ enqueue</button><button class="btn" id="qDeq">− dequeue</button></span>
+      </div>
+      <div class="viz-body stacked">
+        <div><div class="stage-scroll"><div class="stage"></div></div><p class="caption" style="min-height:4.6em"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <p class="hint">+ enqueue / − dequeue add your own operation to the end of the sequence</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>N = 10, with Q[8] = 23 and Q[9] = 21 (FRONT 8, REAR 9). Trace DQ, NQ 24, NQ 27, DQ, DQ, DQ, NQ 22, NQ 28, DQ, DQ.<span class="tag">S10</span></summary>
+      <ol>
+        <li>DQ removes 23, F = 9. NQ 24 gives R = 10, Q[10] = 24.</li>
+        <li>NQ 27: <strong>REAR = N, so "Queue is full"</strong>, even though cells 1–8 are empty.</li>
+        <li>DQ removes 21 (F = 10). DQ removes 24: F = R, so it was the last one, and F = R = 0. DQ: F = 0, so "Queue is empty".</li>
+        <li>NQ 22: empty, so F = R = 1. NQ 28 gives R = 2. DQ removes 22 (F = 2). DQ removes 28, and F = R = 0.</li>
+      </ol>
+      <p class="answer">the false "full" at step 3 is the drawback that motivates the circular queue</p>
+    </details>
+    <details class="worked">
+      <summary>Circular, n = 4: enqueue A B C D, dequeue, enqueue E. What are front and rear now?<span class="tag">S11 — asked in class</span></summary>
+      <ol><li>After A–D: f = 1, r = 4. Dequeue removes A, and f = 2.</li><li>Enqueue E: next = (4 mod 4) + 1 = 1 ≠ f, so r = 1 and CQ[1] = E.</li><li>Now <strong>rear &lt; front</strong>, which a linear queue can never have. A linear queue would have said "full" here, or shifted B, C, D left.</li></ol>
+      <p class="answer">r = 1, f = 2</p>
+    </details>
+    <details class="worked">
+      <summary>Homework: check a palindrome using a stack <em>and</em> a queue.<span class="tag">S11 homework</span></summary>
+      <pre class="code"><span class="k">PALINDROME</span>(S)
+  create empty stack ST and empty queue Q
+  <span class="k">for each</span> ch in S:  push(ST, ch);  enqueue(Q, ch)
+  <span class="k">while</span> ST not empty:
+      <span class="k">if</span> pop(ST) ≠ dequeue(Q):  <span class="k">return</span> <span class="s">"not a palindrome"</span>
+  <span class="k">return</span> <span class="s">"palindrome"</span></pre>
+      <ol><li>The queue gives the characters back in their original order, and the stack gives them back reversed. If the two agree everywhere, the string is a palindrome.</li><li><code>MOM</code>: M = M, O = O, M = M, so it's a palindrome. <code>MON</code>: the first comparison is N vs M, which fails immediately, so there's no need to continue.</li></ol>
+      <p class="answer">MOM ✓ · MON ✗ at the first comparison</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>Circular, n = 5, front = 4, rear = 2. How many elements, and what happens on the next two enqueues?<span class="tag">practice</span></summary>
+      <ol><li>The occupied cells are 4, 5, 1, 2, so there are 4 elements. (A closed form: $(r - f + n) \bmod n + 1 = 4$.) <span class="xtag">beyond notes</span></li><li>Enqueue: next = (2 mod 5) + 1 = 3 ≠ 4, so rear = 3. Now all 5 cells are used.</li><li>Enqueue again: next = (3 mod 5) + 1 = 4 = front, so "Queue is full".</li></ol>
+      <p class="answer">4 elements · the first enqueue fits at 3 · the second is refused (full)</p>
+    </details>
+    <details class="worked">
+      <summary>Linear N = 5 with FRONT = 3, REAR = 5, using solution 1 (compaction). Enqueue X.<span class="tag">practice</span></summary>
+      <ol><li>REAR = N but FRONT = 3 &gt; 1, so it isn't truly full. Compact: Q[3…5] moves to Q[1…3].</li><li>REAR ← 5 − 3 + 1 = 3, FRONT ← 1. Then REAR = 4 and Q[4] = X.</li><li>The shift cost 3 copies, and in the worst case it is O(N).</li></ol>
+      <p class="answer">FRONT 1, REAR 4</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 7: algorithms + Big-O ============ -->
+<section class="module" id="m7">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S10 (21 Sep) — Prakash · plus the S07 primer (Dey)</p>
+      <h2>Algorithms and Big-O</h2>
+      <p class="lede">Count steps, not seconds. Then keep only how the count <em>grows</em>, because constants and small inputs don't matter.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>ALGORITHM</h3>
+        <dl>
+          <dt>definition</dt><dd>a sequence of <strong>unambiguous</strong> instructions that solves a problem, giving the required output for every legitimate input in <strong>finite time</strong></dd>
+          <dt>vs program</dt><dd>an algorithm is language-independent (pseudocode). A program is one implementation of it in C, Pascal, and so on. One algorithm can have many programs.</dd>
+          <dt>five characteristics</dt><dd><strong>uniqueness</strong> (each step has one meaning) · <strong>finiteness</strong> (it must stop) · <strong>precision</strong> · <strong>input/output</strong> (0 or more in, at least 1 out) · <strong>generality</strong> (works for every valid input)</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>MEASURING</h3>
+        <dl>
+          <dt>why not seconds</dt><dd>5 s vs 10 s says nothing, because the CPU, disk, instruction set and compiler all differ. Count <strong>elementary steps</strong>, assuming each takes the same constant time.</dd>
+          <dt>T(n)</dt><dd>steps as a function of input size n. Time complexity and space complexity (memory) together make up computational complexity.</dd>
+          <dt>asymptotic</dt><dd>behaviour as $n \to \infty$. Adding 5 numbers costs nothing, but adding a million numbers matters.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>BIG-O</h3>
+        <dl>
+          <dt>definition</dt><dd>$f(n) = O(g(n))$ if there exist $c &gt; 0$ and $n_0$ with $f(n) \le c\,g(n)$ for <strong>all</strong> $n \ge n_0$</dd>
+          <dt>meaning</dt><dd>an <strong>upper bound</strong>, up to a constant. Where the curves cross for small $n$ doesn't matter. Ω and Θ were named but not defined yet.</dd>
+          <dt>rule of thumb</dt><dd>keep the highest-order term and drop the constants: $2n^2+3n+5 \to O(n^2)$, $2n+c \to O(n)$, $3n\log n + 5n + 20 \to O(n\log n)$</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>order</th><th>name</th><th>example from the course</th></tr>
+        <tr><td class="o1">O(1)</td><td>constant</td><td>min/max of a <em>sorted</em> array (a₁, aₙ) · insert at the front of a linked list · push/pop · circular enqueue</td></tr>
+        <tr><td class="o1">O(log n)</td><td>logarithmic</td><td>binary search</td></tr>
+        <tr><td class="on">O(n)</td><td>linear</td><td>vector addition · max of an <em>unsorted</em> array · traversal · linear search</td></tr>
+        <tr><td class="on">O(n log n)</td><td>"poly-logarithmic" in lecture; <em>linearithmic</em> in most textbooks</td><td>many sorting algorithms (after the midterm)</td></tr>
+        <tr><td class="on">O(n²)</td><td>quadratic</td><td>bubble sort · scanning every cell of an n × n matrix</td></tr>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>The intuition (S07 primer, S10):</p>
+      <ul>
+        <li><strong>Two machines</strong> add vectors at 1 s and 2 s per step: $T_1 = c_1 n$ and $T_2 = c_2 n$. Different slopes, but both grow linearly, so they count as the <em>same</em> performance.</li>
+        <li>Doubling a <strong>sorted</strong> array doesn't change how you find its min or max: O(1). An <strong>unsorted</strong> max needs every element, because the biggest might be last: O(n).</li>
+        <li>A random-number generator takes <strong>zero inputs</strong> and still counts as an algorithm. An even/odd checker that only works up to 100 lacks <strong>generality</strong>.</li>
+        <li>Dr. Dey kept the formal definition for later: "those mathematical formulations will be taught by Professor Surya."</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath">
+      <div class="panel-head"><span class="panel-title">Find c and n₀</span><span class="readout" id="boRead"></span></div>
+      <p class="panel-sub">Slide <b>c</b> until the teal bound c·g(n) stays above the amber f(n) from some point on. That point is n₀. Dots are f at whole numbers of n: teal where the bound holds, red where it fails.</p>
+      <div class="presets" id="boPre"><button class="btn on" data-p="q">n² + 3n + 1 vs c·n² (S10 proof)</button><button class="btn" data-p="l">2n + 4 vs c·n (S10 exercise)</button></div>
+      <svg class="chart" id="boChart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span>c</span><span id="boCVal"></span></span><input type="range" id="boC" min="0.5" max="8" step="0.1" value="5"></div>
+      </div>
+      <div id="boVerdict" class="verdict good"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Prove $n^2 + 3n + 1 = O(n^2)$.<span class="tag">S10</span></summary>
+      <ol><li>We need $c, n_0$ with $n^2 + 3n + 1 \le c\,n^2$ for all $n \ge n_0$.</li><li>Take $c = 5$, $n_0 = 1$. At $n = 1$: $5 \le 5$. At $n = 2$: $11 \le 20$.</li><li>In general, for $n \ge 1$: $3n \le 3n^2$ and $1 \le n^2$, so the left side is at most $5n^2$.</li></ol>
+      <p class="answer">c = 5, n₀ = 1</p>
+    </details>
+    <details class="worked">
+      <summary>Count the steps: <code>sum = 0; i = 1; input n; while i ≤ n: sum = sum + i; i = i + 1</code>.<span class="tag">S10</span></summary>
+      <ol><li>Outside the loop: declare, <code>sum = 0</code>, <code>i = 1</code> and input, which is 4 steps.</li><li>Inside: 2 steps × n iterations = 2n.</li><li>$T(n) = 2n + 4$. Exercise: $2n + 4 \le 10n \iff 4 \le 8n$, which is true for $n \ge 1$.</li></ol>
+      <p class="answer">T(n) = 2n + 4 = O(n) · c = 10, n₀ = 1</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>Find $c$ and $n_0$ for $3n + 5 = O(n)$ and for $5n^2 + 2n = O(n^2)$.<span class="tag">practice</span></summary>
+      <ol><li>$3n + 5 \le 8n \iff 5 \le 5n$, so $c = 8$, $n_0 = 1$. (Or $c = 4$, $n_0 = 5$: many pairs work.)</li><li>$5n^2 + 2n \le 7n^2 \iff 2n \le 2n^2$, which is true for $n \ge 1$. So $c = 7$, $n_0 = 1$.</li></ol>
+      <p class="answer">(8, 1) · (7, 1)</p>
+    </details>
+    <details class="worked">
+      <summary>Is $n^2 = O(n)$?<span class="tag">practice</span></summary>
+      <ol><li>We'd need $n^2 \le c\,n$, i.e. $n \le c$, for <em>all</em> large $n$.</li><li>Whatever $c$ you pick, $n = c + 1$ breaks it. No $n_0$ exists.</li></ol>
+      <p class="answer">No. (n = O(n²) is true, though.)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ COURSE-WIDE COMPLEXITY SHEET ============ -->
+<section class="module" id="cx">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">every operation in the course, worst case</p>
+      <h2>Complexity sheet</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>structure</th><th>operation</th><th>time</th><th>note</th></tr>
+        <tr><td>array</td><td>access A[I] · 2-D / triangular / band index</td><td class="o1">O(1)</td><td>one formula: a multiply plus additions</td></tr>
+        <tr><td>array</td><td>traverse · linear search</td><td class="on">O(n)</td><td>search best case O(1)</td></tr>
+        <tr><td>array</td><td>bubble sort</td><td class="on">O(n²)</td><td>n(n−1)/2 comparisons · O(1) extra space</td></tr>
+        <tr><td>array</td><td>insert into a sorted array</td><td class="on">O(n)</td><td>shift everything after the slot</td></tr>
+        <tr><td>singly linked</td><td>insert at front · delete first</td><td class="o1">O(1)</td><td></td></tr>
+        <tr><td>singly linked</td><td>insert at end · delete last · after/delete key · search · traverse</td><td class="on">O(n)</td><td>walk from the header</td></tr>
+        <tr><td>singly linked</td><td>copy · concatenate</td><td class="on">O(n) · O(m)</td><td>copy uses O(n) extra space; concatenate walks list 1 only</td></tr>
+        <tr><td>doubly linked</td><td>insert at front</td><td class="o1">O(1)</td><td>4 link updates</td></tr>
+        <tr><td>doubly linked</td><td>insert at end: linear · <strong>circular</strong></td><td class="on">O(n) · <span style="color:var(--teal)">O(1)</span></td><td>via HEADER->LLINK</td></tr>
+        <tr><td>sparse multi-linked</td><td>reach element (i, j)</td><td class="on">O(n)</td><td>n + n steps, against O(1) for an array</td></tr>
+        <tr><td>stack (array or linked)</td><td>push · pop · isEmpty · isFull</td><td class="o1">O(1)</td><td>linked status = count nodes, O(n)</td></tr>
+        <tr><td>stack</td><td>evaluate postfix · reverse a string</td><td class="on">O(n)</td><td>each token or character once</td></tr>
+        <tr><td>linear array queue</td><td>enqueue · dequeue</td><td class="o1">O(1)</td><td>but falsely "full"</td></tr>
+        <tr><td>linear array queue</td><td>with compaction · with shift-on-dequeue</td><td class="on">O(N)</td><td>non-uniform: some operations are cheap, some expensive</td></tr>
+        <tr><td>circular / linked queue</td><td>enqueue · dequeue</td><td class="o1">O(1)</td><td>pointer arithmetic only, no shifting</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide"><p>Full-course recap for DSM-103 Data Structures, S01 → 21 Sep (Dr. Somnath Dey, Dr. Surya Prakash). Built from the lecture notes in <code>lectures/</code>. Every animation replays the lecture's own examples: the bubble-sort arrays <code>7 9 5 4 10 8</code> and <code>5 9 7 6</code>, the <code>header → 20 → 25 → 35 → 40</code> list, the 100 / 200 / 300 addresses, the S09 push/pop trace and <code>2 3 4 + *</code>, and the S10 (N = 10) and S11 (n = 4) queue traces. Index formulas are checked against a brute-force count, and each step-through against an independent Python run.</p></div>
+</footer>
+<script>
+(function(){
+  "use strict";
+  const COLORS = { amber:'#E8A33D', teal:'#4FA8A0', ink:'#EDEAE2', dim:'#9BA3AF', faint:'#5B6270', line:'#2A2F38', rust:'#C1594A' };
+  const NS = 'http://www.w3.org/2000/svg';
+  const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function el(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function h(tag, cls, txt){ const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function clear(node){ while(node.firstChild) node.removeChild(node.firstChild); }
+  function esc(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+  const ns = s => String(s).replace(/-/g,'−');
+  function frame(opts){ const {x0=70,y0=20,w=640,h=250} = opts; return {x0,y0,w,h,x1:x0+w,y1:y0+h}; }
+  function ticks(min,max,step){ const a=[]; for(let v=min; v<=max+1e-9; v+=step) a.push({val:Math.round(v*100)/100, frac:(v-min)/(max-min)}); return a; }
+  function drawAxes(svg,f,xTicks,yTicks,xLabel,yLabel,xFmt,yFmt){
+    xTicks.forEach(t=>{ const gx=f.x0+t.frac*f.w;
+      svg.appendChild(el('line',{x1:gx,y1:f.y0,x2:gx,y2:f.y1,class:'gridline'}));
+      svg.appendChild(el('text',{x:gx,y:f.y1+18,class:'tick','text-anchor':'middle'})).textContent = xFmt?xFmt(t.val):t.val;
+    });
+    yTicks.forEach(t=>{ const gy=f.y1-t.frac*f.h;
+      svg.appendChild(el('line',{x1:f.x0,y1:gy,x2:f.x1,y2:gy,class:'gridline'}));
+      const lbl=el('text',{x:f.x0-10,y:gy+4,class:'tick','text-anchor':'end'}); lbl.textContent=yFmt?yFmt(t.val):t.val; svg.appendChild(lbl);
+    });
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y1,x2:f.x1,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y0,x2:f.x0,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('text',{x:(f.x0+f.x1)/2,y:f.y1+40,class:'axislabel','text-anchor':'middle'})).textContent = xLabel;
+    const yl=el('text',{x:16,y:(f.y0+f.y1)/2,class:'axislabel','text-anchor':'middle'});
+    yl.setAttribute('transform',`rotate(-90 16 ${(f.y0+f.y1)/2})`); yl.textContent=yLabel; svg.appendChild(yl);
+  }
+  window.__ds = {};   // debug hook: each widget exposes its pure step generator for verification
+
+  // Keyed element pool: reuse the same DOM element for the same logical item across
+  // steps, so a CSS transition carries it from its old spot to its new one.
+  function Pool(parent){
+    const map = new Map();
+    return {
+      get(key, make){
+        let e = map.get(key), fresh = false;
+        if (!e){ e = make(); parent.appendChild(e); map.set(key, e); fresh = true; }
+        e.__seen = true; return [e, fresh];
+      },
+      begin(){ map.forEach(e => e.__seen = false); },
+      end(){ map.forEach((e,k) => { if (!e.__seen){ e.remove(); map.delete(k); } }); },
+      clear(){ map.forEach(e => e.remove()); map.clear(); }
+    };
+  }
+  // Place an element; a brand-new element can start from `from` and glide in.
+  function place(e, x, y, fresh, from, anim){
+    if (fresh && from && anim && !REDUCED){
+      e.style.transition = 'none'; e.style.left = from[0]+'px'; e.style.top = from[1]+'px';
+      if (from[2] != null) e.style.opacity = from[2];
+      void e.offsetWidth; e.style.transition = ''; e.style.opacity = '';
+    }
+    if (!anim){ e.style.transition = 'none'; }
+    e.style.left = x+'px'; e.style.top = y+'px';
+    if (!anim){ void e.offsetWidth; e.style.transition = ''; }
+  }
+
+  // Fit a stage into its scroller: shrink a wide drawing (never below minK, so text stays
+  // legible) and let the rest scroll sideways; follow() keeps the action in view.
+  function fit(stage, w, h, minK){
+    const sc = stage.parentNode, avail = sc.clientWidth || w;
+    w = Math.max(w, avail);
+    const k = Math.max(minK || 0.72, Math.min(1, avail / w));
+    stage.style.width = w + 'px'; stage.style.height = h + 'px';
+    stage.style.transformOrigin = '0 0'; stage.style.transform = k < 1 ? `scale(${k})` : '';
+    stage.style.marginRight = (k < 1 ? -(1-k)*w : 0) + 'px'; stage.style.marginBottom = (k < 1 ? -(1-k)*h : 0) + 'px';
+    stage.__k = k; return k;
+  }
+  function follow(stage, x, anim){
+    const sc = stage.parentNode, k = stage.__k || 1;
+    if (x == null || sc.scrollWidth <= sc.clientWidth + 2) return;
+    const left = Math.max(0, x*k - sc.clientWidth/2);
+    if (Math.abs(sc.scrollLeft - left) < 30) return;
+    try { sc.scrollTo({ left, behavior: anim && !REDUCED ? 'smooth' : 'auto' }); } catch(e){ sc.scrollLeft = left; }
+  }
+
+  // ---------- the shared player: precomputed states, render(state i) from scratch ----------
+  function Player(panel, render, opts){
+    opts = opts || {};
+    const q = s => panel.querySelector(s);
+    const codeEl = q('pre.pcode'), varsEl = q('.vars'), cap = q('.caption');
+    const bReset = q('[data-act=reset]'), bBack = q('[data-act=back]'), bPlay = q('[data-act=play]'), bNext = q('[data-act=next]');
+    const ctr = q('.ctr'), bar = q('.bar i');
+    let states = [], code = [], i = 0, timer = null, prevVars = {};
+    function setCode(lines){
+      code = lines; clear(codeEl);
+      lines.forEach((l,k) => { const s = h('span','ln'); s.textContent = l || ' '; s.dataset.k = k; codeEl.appendChild(s); });
+    }
+    function paint(anim){
+      const s = states[i];
+      codeEl.querySelectorAll('.ln').forEach(ln => {
+        const k = +ln.dataset.k, on = [].concat(s.line == null ? [] : s.line);
+        ln.classList.toggle('on', on.includes(k) && !(s.bad && s.bad.includes(k)));
+        ln.classList.toggle('bad', !!(s.bad && s.bad.includes(k)));
+      });
+      clear(varsEl);
+      (s.vars || []).forEach(([k,v]) => {
+        const sp = h('span'); sp.innerHTML = esc(k)+' = <b>'+esc(v)+'</b>';
+        if (anim && prevVars[k] !== undefined && prevVars[k] !== String(v)) sp.classList.add('chg');
+        varsEl.appendChild(sp);
+      });
+      prevVars = {}; (s.vars || []).forEach(([k,v]) => prevVars[k] = String(v));
+      cap.innerHTML = s.cap || '';
+      ctr.textContent = 'step ' + i + ' / ' + (states.length-1);
+      bar.style.width = (states.length > 1 ? i/(states.length-1)*100 : 0) + '%';
+      bBack.disabled = bReset.disabled = i === 0; bNext.disabled = i === states.length-1;
+      render(s, anim, i);
+    }
+    function go(k, anim){ i = Math.max(0, Math.min(states.length-1, k)); paint(anim); }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } bPlay.textContent = '▶ Play'; }
+    function play(){
+      if (timer){ stop(); return; }
+      if (i >= states.length-1) go(0, false);
+      bPlay.textContent = '❚❚ Pause';
+      timer = setInterval(() => { if (i >= states.length-1) stop(); else go(i+1, true); }, opts.delay || 1150);
+    }
+    bNext.addEventListener('click', () => { stop(); go(i+1, true); });
+    bBack.addEventListener('click', () => { stop(); go(i-1, true); });
+    bReset.addEventListener('click', () => { stop(); go(0, true); });
+    bPlay.addEventListener('click', play);
+    panel.addEventListener('keydown', e => {
+      if (e.target.matches('input,select,textarea')) return;
+      if (e.key === 'ArrowRight'){ e.preventDefault(); stop(); go(i+1, true); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); stop(); go(i-1, true); }
+      if (e.key === ' '){ e.preventDefault(); play(); }
+    });
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => states.length && paint(false), 120); });
+    return {
+      load(st, lines, at){ stop(); states = st; if (lines) setCode(lines); prevVars = {}; go(at == null ? 0 : at, false); },
+      goto(k){ stop(); go(k, true); },
+      get index(){ return i; }, get length(){ return states.length; }
+    };
+  }
+  // Wire a preset button row: data-p attributes → callback, with the active one highlighted.
+  function presets(row, cb){
+    row.querySelectorAll('[data-p]').forEach(b => b.addEventListener('click', () => {
+      row.querySelectorAll('[data-p]').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.p);
+    }));
+  }
+
+  // ================= Widget 1: bubble sort (S01, 20 Aug) =================
+  (function(){
+    const panel = document.getElementById('bsPanel'); if (!panel) return;
+    const stage = document.getElementById('bsStage'), scroller = stage.parentNode, readout = document.getElementById('bsRead');
+    const CODE = [
+      'BUBBLE_SORT(A, L, U)',
+      '1  I ← U',
+      '2  while I > L do',
+      '3     J ← L',
+      '4     while J < I do',
+      '5        if A[J] < A[J+1] is FALSE then',
+      '6           swap A[J] and A[J+1]',
+      '7        J ← J + 1',
+      '8     I ← I − 1',
+      '9  stop'];
+    // Pure generator (mirrored in Python for verification). 1-based: L = 1, U = n.
+    function gen(vals){
+      const n = vals.length, A = [null].concat(vals.map((v,k) => ({id:'b'+k, v}))), S = [];
+      let comps = 0, swaps = 0, pass = 0;
+      const snap = (o) => S.push(Object.assign({ order:A.slice(1).map(x => x.id), vals:A.slice(1).map(x => x.v), comps, swaps, pass }, o));
+      const V = (I,J) => [['L',1],['U',n],['I',I],['J',J==null?'–':J],['A[J]',J?A[J].v:'–'],['A[J+1]',J&&J<n?A[J+1].v:'–']];
+      let I = n;
+      snap({ line:1, I, J:null, mode:'init', vars:V(I,null), cap:`Start: <b>I ← U = ${n}</b>. I marks the right end of the part that is still unsorted (everything, for now).` });
+      for(;;){
+        if (!(I > 1)){
+          snap({ line:[2,9], I, J:null, mode:'done', vars:V(I,null), cap:`I = 1, so <b>I &gt; L is false</b>: a single element is sorted by default. <span class="t">Sorted: ${A.slice(1).map(x=>x.v).join(' ')}</span> — ${comps} comparisons, ${swaps} swaps.` });
+          break;
+        }
+        pass++; let J = 1;
+        snap({ line:[2,3], I, J, mode:'start', vars:V(I,J), cap:`Pass ${pass}: I = ${I} &gt; L, so walk the pair window from the left. <b>J ← L = 1</b>.` });
+        while (J < I){
+          const a = A[J].v, b = A[J+1].v; comps++;
+          if (a < b){
+            snap({ line:[4,5], I, J, mode:'cmp', vars:V(I,J), cap:`Compare the neighbours A[${J}] = ${a} and A[${J+1}] = ${b}: <b>${a} &lt; ${b}</b> is true → already in order, no swap. Then J ← J + 1.` });
+          } else {
+            snap({ line:[4,5], I, J, mode:'cmp', vars:V(I,J), cap:`Compare the neighbours A[${J}] = ${a} and A[${J+1}] = ${b}: <b>${a} &lt; ${b}</b> is <span class="a">false</span> → they must swap.` + (a === b ? ' (Equal values fail the <code>&lt;</code> test too, so this rule swaps them.)' : '') });
+            const t = A[J]; A[J] = A[J+1]; A[J+1] = t; swaps++;
+            snap({ line:6, I, J, mode:'swap', vars:V(I,J), cap:`Swap: ${a} slides right, ${b} slides left. The bigger value keeps <b>bubbling right</b>. Then J ← J + 1.` });
+          }
+          J++;
+        }
+        const top = A[I].v; I--;
+        snap({ line:[4,8], I, J:null, mode:'pass', settled:I+1, vars:V(I,null), cap:`J = ${J} is no longer &lt; I, so pass ${pass} is over: <span class="t">${top} is now in its final place</span>. <b>I ← I − 1 = ${I}</b> — the unsorted part shrinks by one.` });
+      }
+      return S;
+    }
+    window.__ds.bubble = gen;
+
+    const cells = Pool(stage), lbls = Pool(stage);
+    const win = h('div','band win mv'), sorted = h('div','band sorted mv');
+    stage.appendChild(sorted); stage.appendChild(win);
+    const pJ = h('div','ptr a'), pI = h('div','ptr t');
+    pJ.innerHTML = '<span class="arw">▲</span>J'; pI.innerHTML = '<span class="arw">▲</span>I';
+    stage.appendChild(pJ); stage.appendChild(pI);
+    let N = 0;
+    function render(s, anim){
+      const n = s.order.length;
+      if (n !== N){ cells.clear(); lbls.clear(); N = n; }
+      const avail = Math.max(scroller.clientWidth, 300);
+      const pitch = Math.max(46, Math.min(66, Math.floor((avail - 28) / n)));
+      const cw = pitch - 10, x0 = Math.max(14, (avail - n*pitch)/2), yC = 34;
+      fit(stage, n*pitch + 28, 176, 0.8);
+      const X = k => x0 + (k-1)*pitch;          // k is the 1-based slot
+      const settledFrom = s.mode === 'done' ? 1 : s.I + 1;
+      cells.begin(); lbls.begin();
+      s.order.forEach((id, k) => {
+        const slot = k+1;
+        const [c] = cells.get(id, () => { const e = h('div','cell mv'); e.style.width = e.style.height = cw+'px'; return e; });
+        c.style.width = c.style.height = cw + 'px';
+        c.textContent = s.vals[k];
+        c.className = 'cell mv';
+        if (slot >= settledFrom) c.classList.add('done');
+        if ((s.mode === 'cmp' || s.mode === 'swap') && (slot === s.J || slot === s.J+1)) c.classList.add(s.mode === 'swap' ? 'swap' : 'cmp');
+        place(c, X(slot), yC, false, null, anim);
+        const [l] = lbls.get('l'+slot, () => h('div','slotlbl'));
+        l.textContent = slot; l.style.width = cw+'px'; place(l, X(slot), yC + cw + 6, false, null, false);
+      });
+      cells.end(); lbls.end();
+      // pair window around A[J], A[J+1]
+      const showWin = s.J != null && (s.mode === 'cmp' || s.mode === 'swap' || s.mode === 'start');
+      win.style.opacity = showWin ? 1 : 0;
+      if (s.J != null){ win.style.width = (pitch + cw + 10) + 'px'; win.style.height = (cw + 10) + 'px'; place(win, X(s.J) - 5, yC - 5, false, null, anim); }
+      // settled (sorted) region
+      const sf = Math.min(settledFrom, n+1);
+      sorted.style.opacity = sf <= n ? 1 : 0;
+      sorted.style.width = Math.max(0, (n - sf + 1) * pitch) + 'px'; sorted.style.height = (cw + 34) + 'px';
+      place(sorted, X(sf) - 5, yC - 9, false, null, anim);
+      // pointers under the index labels
+      const yP = yC + cw + 26;
+      pJ.style.opacity = s.J != null ? 1 : 0;
+      if (s.J != null){ pJ.style.width = cw + 'px'; place(pJ, X(s.J), yP, false, null, anim); }
+      pI.style.opacity = s.mode === 'done' ? 0 : 1;
+      pI.style.width = cw + 'px'; place(pI, X(Math.max(1, s.I)), yP + (s.J === s.I ? 30 : 0), false, null, anim);
+      follow(stage, s.J != null ? X(s.J) + pitch : X(Math.max(1, s.I)), anim);
+      readout.textContent = 'pass ' + s.pass + ' · comparisons ' + s.comps + ' · swaps ' + s.swaps;
+    }
+    const player = Player(panel, render, { delay:1200 });
+    const P = { a:[7,9,5,4,10,8], b:[5,9,7,6] };
+    const input = document.getElementById('bsIn'), err = document.getElementById('bsErr');
+    function load(v){ player.load(gen(v), CODE); }
+    presets(document.getElementById('bsPre'), p => { input.value = P[p].join(' '); err.textContent=''; load(P[p]); });
+    document.getElementById('bsGo').addEventListener('click', () => {
+      const v = input.value.trim().split(/[\s,]+/).filter(Boolean).map(Number);
+      if (v.length < 2 || v.length > 9 || v.some(x => !Number.isFinite(x))){ err.textContent = '2–9 numbers, separated by spaces'; return; }
+      err.textContent = ''; document.querySelectorAll('#bsPre [data-p]').forEach(x => x.classList.remove('on')); load(v);
+    });
+    load(P.b);
+  })();
+
+  // ================= Widget 2: index / address calculator (S02) =================
+  (function(){
+    const panel = document.getElementById('ixPanel'); if (!panel) return;
+    // ---- pure part (verified against brute force in Python) ----
+    function stored(t, i, j, P){
+      switch(t){
+        case 'full': return true;
+        case 'lower': return j <= i;
+        case 'upper': return j >= i;
+        case 'diag': return i === j;
+        case 'tri': return Math.abs(i-j) <= 1;
+        case 'band': return (j-i) <= P.a-1 && (i-j) <= P.b-1;
+      }
+    }
+    function walk(t, o, P){       // storage order: list of [i, j]
+      const R = t === 'full' ? P.m : P.n, C = P.n, out = [];
+      if (o === 'row'){ for (let i=1;i<=R;i++) for (let j=1;j<=C;j++) if (stored(t,i,j,P)) out.push([i,j]); }
+      else { for (let j=1;j<=C;j++) for (let i=1;i<=R;i++) if (stored(t,i,j,P)) out.push([i,j]); }
+      return out;
+    }
+    // The lecture's closed form, broken into "stored before" + "position inside".
+    function explain(t, o, P, i, j){
+      const n = P.n, m = P.m, a = P.a, b = P.b, rows = [];
+      let closed = '';
+      const row = (lbl, expr, v) => { rows.push([lbl, expr, v]); return v; };
+      const rng = (W, k) => k === 1 ? `${W} 1` : `${W}s 1…${k}`;
+      const tri = k => k <= 3 ? Array.from({length:k}, (_,x) => x+1).join(' + ') : `1 + 2 + … + ${k}`;
+      if (t === 'full' && o === 'row'){ row(`${i-1} full rows before, n = ${n} each`, `(i−1)·n = ${i-1}·${n}`, (i-1)*n); row('position inside row i', 'j', j); closed = '(i−1)·n + j'; }
+      if (t === 'full' && o === 'col'){ row(`${j-1} full columns before, m = ${m} each`, `(j−1)·m = ${j-1}·${m}`, (j-1)*m); row('position inside column j', 'i', i); closed = '(j−1)·m + i'; }
+      if (t === 'lower' && o === 'row'){ row(i === 1 ? 'nothing before row 1' : `${rng('row', i-1)} hold ${tri(i-1)}`, `i(i−1)/2 = ${i}·${i-1}/2`, i*(i-1)/2); row('position inside row i', 'j', j); closed = 'i(i−1)/2 + j'; }
+      if (t === 'lower' && o === 'col'){ row(j === 1 ? 'nothing before column 1' : `${rng('column', j-1)} hold n + (n−1) + …`, `n(j−1) − (j−1)(j−2)/2 = ${n*(j-1)} − ${(j-1)*(j-2)/2}`, n*(j-1)-(j-1)*(j-2)/2); row(`column j starts at row j = ${j}`, `i − j + 1 = ${i}−${j}+1`, i-j+1); closed = 'n(j−1) − (j−1)(j−2)/2 + (i−j+1)'; }
+      if (t === 'upper' && o === 'row'){ row(i === 1 ? 'nothing before row 1' : `${rng('row', i-1)} hold n + (n−1) + …`, `n(i−1) − (i−1)(i−2)/2 = ${n*(i-1)} − ${(i-1)*(i-2)/2}`, n*(i-1)-(i-1)*(i-2)/2); row(`row i starts at column i = ${i}`, `j − i + 1 = ${j}−${i}+1`, j-i+1); closed = 'n(i−1) − (i−1)(i−2)/2 + (j−i+1)'; }
+      if (t === 'upper' && o === 'col'){ row(j === 1 ? 'nothing before column 1' : `${rng('column', j-1)} hold ${tri(j-1)}`, `j(j−1)/2 = ${j}·${j-1}/2`, j*(j-1)/2); row('position inside column j', 'i', i); closed = 'j(j−1)/2 + i'; }
+      if (t === 'diag'){ row(`one element per ${o === 'row' ? 'row' : 'column'} before`, `${i-1}`, i-1); row('then this one', '1', 1); closed = 'i  (row- and column-major agree)'; }
+      if (t === 'tri'){
+        const p = o === 'row' ? i : j, q = o === 'row' ? j : i, W = o === 'row' ? 'row' : 'column';
+        if (p === 1){ row(`nothing before ${W} 1`, '0', 0); row(`position inside ${W} 1`, o==='row'?'j':'i', q); }
+        else { row(p === 2 ? `${W} 1 holds 2` : `${rng(W, p-1)} hold 2 + 3 + … + 3`, `2 + 3(${o==='row'?'i':'j'}−2) = 2 + 3·${p-2}`, 2+3*(p-2)); row(`${W} ${p} starts at ${o==='row'?'column':'row'} ${p-1}`, `${o==='row'?'j − i + 2':'i − j + 2'} = ${q}−${p}+2`, q-p+2); }
+        closed = o === 'row' ? '2i + j − 2' : '2j + i − 2';
+      }
+      if (t === 'band'){
+        const pre = b*a + b*(b-1)/2;
+        if (i <= b){
+          row(`case 1 (i ≤ β): rows 1…${i-1} grow α, α+1, …`, `(i−1)α + (i−1)(i−2)/2 = ${(i-1)*a} + ${(i-1)*(i-2)/2}`, (i-1)*a + (i-1)*(i-2)/2);
+          row('left edge still at column 1', 'j', j);
+          closed = '(i−1)α + (i−1)(i−2)/2 + j';
+        } else if (i <= n-a+1){
+          row(`case 2: rows 1…β = 1…${b} (growing)`, `βα + β(β−1)/2 = ${b*a} + ${b*(b-1)/2}`, pre);
+          row(`rows ${b+1}…${i-1}, full width α+β−1 = ${a+b-1}`, `(i−β−1)(α+β−1) = ${i-b-1}·${a+b-1}`, (i-b-1)*(a+b-1));
+          row(`row i starts at column i−β+1 = ${i-b+1}`, `j − i + β = ${j}−${i}+${b}`, j-i+b);
+          closed = 'βα + β(β−1)/2 + (i−β−1)(α+β−1) + (j−i+β)';
+        } else {
+          let s = 0; for (let k = n-a+2; k <= i-1; k++) s += n-k+b;
+          row(`case 3: rows 1…β = 1…${b} (growing)`, `βα + β(β−1)/2 = ${b*a} + ${b*(b-1)/2}`, pre);
+          row(`rows ${b+1}…${n-a+1} (full width ${a+b-1})`, `(n−α+1−β)(α+β−1) = ${n-a+1-b}·${a+b-1}`, (n-a+1-b)*(a+b-1));
+          row(i-1 >= n-a+2 ? `rows ${n-a+2}…${i-1} (shrinking)` : 'no shrinking rows before row i', `Σ (n−k+β), k = ${n-a+2}…${i-1}`, s);
+          row(`row i starts at column ${i-b+1}`, `j − i + β = ${j}−${i}+${b}`, j-i+b);
+          closed = 'case-2 prefix + Σ(n−k+β) + (j−i+β)';
+        }
+      }
+      return { rows, total: rows.reduce((s,r) => s + r[2], 0), closed };
+    }
+    window.__ds.index = { stored, walk, explain };
+
+    // ---- UI ----
+    const q = s => panel.querySelector(s);
+    const tSel = q('#ixType'), nIn = q('#ixN'), mIn = q('#ixM'), aIn = q('#ixA'), bIn = q('#ixB'), BIn = q('#ixBase'), wIn = q('#ixW');
+    const gridEl = q('#ixGrid'), stripEl = q('#ixStrip'), mathEl = q('#ixMath'), readout = q('#ixRead'), capEl = q('#ixCap');
+    const colsLbl = q('#ixColsLbl');
+    const S = { t:'full', o:'row', n:4, m:3, a:3, b:4, i:2, j:3, B:100, w:1 };
+    let timer = null, cellMap = new Map();
+    function clampAll(){
+      const lim = (v,lo,hi) => Math.max(lo, Math.min(hi, v|0 || lo));
+      S.n = lim(+nIn.value, 2, S.t === 'band' ? 15 : 10); S.m = lim(+mIn.value, 1, 8);
+      if (S.t === 'band'){
+        S.a = lim(+aIn.value, 1, S.n); S.b = lim(+bIn.value, 1, S.n);
+        if (S.a + S.b > S.n + 1){ S.b = S.n + 1 - S.a; }
+      }
+      if (S.t === 'band') S.o = 'row';
+      S.B = +BIn.value || 0; S.w = Math.max(1, +wIn.value || 1);
+      const R = S.t === 'full' ? S.m : S.n;
+      S.i = Math.min(Math.max(1, S.i), R); S.j = Math.min(Math.max(1, S.j), S.n);
+      nIn.value = S.n; mIn.value = S.m; aIn.value = S.a; bIn.value = S.b;
+      q('#ixMWrap').hidden = S.t !== 'full';
+      q('#ixABWrap').hidden = S.t !== 'band';
+      panel.querySelectorAll('[data-o]').forEach(x => { x.classList.toggle('on', x.dataset.o === S.o); x.disabled = S.t === 'band' && x.dataset.o === 'col'; });
+      q('#ixNLbl').textContent = S.t === 'full' ? 'n (cols)' : 'n';
+    }
+    function stopAnim(){ if (timer){ clearTimeout(timer); timer = null; } }
+    function build(){
+      stopAnim(); clampAll();
+      const R = S.t === 'full' ? S.m : S.n, C = S.n, P = {n:S.n, m:S.m, a:S.a, b:S.b};
+      const avail = Math.max(gridEl.parentNode.clientWidth - 30, 240);
+      const sz = Math.max(20, Math.min(44, Math.floor(avail / (C + 1)) - 2));
+      gridEl.style.gridTemplateColumns = `${Math.min(sz,28)}px repeat(${C}, ${sz}px)`;
+      clear(gridEl); cellMap = new Map();
+      const hd = h('div'); hd.style.cursor = 'default'; gridEl.appendChild(hd);
+      for (let j=1;j<=C;j++){ const d = h('div', null, j); d.style.cssText = `height:18px;font-size:10px;color:var(--ink-faint);cursor:default`; gridEl.appendChild(d); }
+      const fs = sz >= 34 ? 11 : 9.5;
+      for (let i=1;i<=R;i++){
+        const d = h('div', null, i); d.style.cssText = `font-size:10px;color:var(--ink-faint);cursor:default;height:${sz}px`; gridEl.appendChild(d);
+        for (let j=1;j<=C;j++){
+          const st = stored(S.t, i, j, P);
+          const c = h('div', st ? 'st' : 'z');
+          c.style.width = c.style.height = sz + 'px'; c.style.fontSize = fs + 'px';
+          c.textContent = st ? (sz >= 30 ? `${i},${j}` : '') : '0';
+          c.title = `a(${i},${j})` + (st ? '' : ' = 0, not stored');
+          c.addEventListener('click', () => { S.i = i; S.j = j; mark(); });
+          gridEl.appendChild(c); cellMap.set(i+','+j, c);
+        }
+      }
+      colsLbl.textContent = S.o === 'row' ? 'row-major: memory takes row 1, then row 2, …' : 'column-major: memory takes column 1, then column 2, …';
+      const order = walk(S.t, S.o, P);
+      clear(stripEl);
+      order.forEach(([i,j], k) => { const s = h('span', null, k+1); s.title = `position ${k+1} = a(${i},${j})`; s.dataset.ij = i+','+j; stripEl.appendChild(s); });
+      mark();
+    }
+    function mark(){
+      stopAnim();
+      const P = {n:S.n, m:S.m, a:S.a, b:S.b}, order = walk(S.t, S.o, P);
+      cellMap.forEach((c,k) => { c.classList.remove('cnt','tgt'); const [i,j] = k.split(',').map(Number); if (c.classList.contains('st')) c.textContent = c.offsetWidth >= 30 ? `${i},${j}` : ''; });
+      stripEl.querySelectorAll('span').forEach((s,k) => { s.className = ''; s.textContent = k+1; });
+      const tgt = cellMap.get(S.i+','+S.j); tgt && tgt.classList.add('tgt');
+      const isSt = stored(S.t, S.i, S.j, P);
+      const name = `a<sub>${S.i},${S.j}</sub>`;
+      if (!isSt){
+        mathEl.innerHTML = `<span style="color:var(--rust)">${name} is outside the stored region — it is a 0 that is never stored, so it has no 1-D index.</span> Click a shaded cell.`;
+        readout.textContent = `a(${S.i},${S.j}) = 0 · not stored`; capEl.textContent = ''; q('#ixCount').disabled = true; return;
+      }
+      q('#ixCount').disabled = false;
+      const ex = explain(S.t, S.o, P, S.i, S.j);
+      const counted = order.findIndex(([i,j]) => i === S.i && j === S.j) + 1;
+      const addr = S.B + (ex.total - 1) * S.w;
+      mathEl.innerHTML = ex.rows.map(r => `${esc(r[0])}: <i>${esc(r[1])}</i> = <b>${r[2]}</b>`).join('<br>') +
+        `<br>Index(${name}) = ${ex.rows.map(r => r[2]).join(' + ')} = <b>${ex.total}</b> &nbsp;<span style="color:var(--ink-faint)">[${esc(ex.closed)}]</span>` +
+        `<br>Address = B + (Index − 1)·w = ${S.B} + ${ex.total-1}·${S.w} = <b>${addr}</b>` +
+        `<br><span style="color:${counted === ex.total ? 'var(--teal)' : 'var(--rust)'}">${counted === ex.total ? '✓ matches counting the cells one by one' : '✗ count gives ' + counted}</span>`;
+      readout.textContent = `Index ${ex.total} · Address ${addr} · ${order.length} of ${(S.t==='full'?S.m:S.n)*S.n} cells stored`;
+      capEl.innerHTML = `Press <b>Count it</b> to watch memory being filled in ${S.o === 'row' ? 'row' : 'column'} order until it reaches ${name}.`;
+    }
+    function count(){
+      mark();
+      const P = {n:S.n, m:S.m, a:S.a, b:S.b}, order = walk(S.t, S.o, P);
+      const stop = order.findIndex(([i,j]) => i === S.i && j === S.j); if (stop < 0) return;
+      const spans = stripEl.querySelectorAll('span');
+      const delay = Math.max(35, Math.min(420, 2600 / (stop + 1)));
+      let k = 0;
+      const stepFn = () => {
+        const [i,j] = order[k], c = cellMap.get(i+','+j);
+        c.classList.add('cnt'); c.textContent = k+1;
+        spans[k].classList.add('cnt'); spans[k].textContent = `${i},${j}`;
+        capEl.innerHTML = `Memory slot <b>${k+1}</b> ← a<sub>${i},${j}</sub>` + (k === stop ? ` — <span class="a">that's the target: Index = ${k+1}</span>` : '');
+        if (k === stop){ spans[k].classList.add('tgt'); timer = null; return; }
+        k++; timer = setTimeout(stepFn, delay);
+      };
+      if (REDUCED){ for (k=0;k<stop;k++){ const [i,j]=order[k]; const c=cellMap.get(i+','+j); c.classList.add('cnt'); c.textContent=k+1; spans[k].classList.add('cnt'); spans[k].textContent=`${i},${j}`; } }
+      stepFn();
+    }
+    tSel.addEventListener('change', () => { S.t = tSel.value; if (S.t !== 'full' && S.t !== 'band') S.n = Math.min(S.n, 10); build(); });
+    [nIn, mIn, aIn, bIn].forEach(x => x.addEventListener('change', build));
+    [BIn, wIn].forEach(x => x.addEventListener('change', () => { clampAll(); mark(); }));
+    panel.querySelectorAll('[data-o]').forEach(x => x.addEventListener('click', () => { S.o = x.dataset.o; build(); }));
+    q('#ixCount').addEventListener('click', count);
+    const PRE = {
+      r23:{t:'full',o:'row',n:4,m:3,i:2,j:3,B:100,w:1}, c23:{t:'full',o:'col',n:4,m:3,i:2,j:3,B:100,w:1},
+      lo32:{t:'lower',o:'row',n:3,i:3,j:2,B:100,w:1}, lo32c:{t:'lower',o:'col',n:3,i:3,j:2,B:100,w:1},
+      tri:{t:'tri',o:'row',n:5,i:2,j:3,B:100,w:1}, band:{t:'band',o:'row',n:15,a:3,b:4,i:10,j:11,B:100,w:1}
+    };
+    presets(q('#ixPre'), p => {
+      Object.assign(S, PRE[p]); tSel.value = S.t; nIn.value = S.n; if (S.m) mIn.value = S.m; if (S.a) { aIn.value = S.a; bIn.value = S.b; }
+      BIn.value = S.B; wIn.value = S.w; build();
+    });
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(build, 150); });
+    build();
+  })();
+
+  // ================= Widget 3: linked-list engine (S05, S06, S07) =================
+  // A scene = { nodes:[{id,v,s(slot),lane,cls,addr,note}], links:[{f,t,k:'r'|'l',c}], ptrs:[{n,at,after,c}] }.
+  // Nodes and arrow ends are tweened in JS (rAF) so arrows stay glued to moving nodes;
+  // a timeout snaps everything to the final frame even if rAF never fires.
+  function LLStage(stage, dbl){
+    const W = dbl ? 92 : 68, H = 40, PX = dbl ? 128 : 104, X0 = 44, LANES = [70, 186];
+    const svg = el('svg', {class:'links'}); stage.appendChild(svg);
+    const defs = el('defs', {}); svg.appendChild(defs);
+    const MK = { n:'#8A93A1', a:COLORS.amber, t:COLORS.teal, r:COLORS.rust, f:'#3c434f' };
+    Object.keys(MK).forEach(k => {
+      const m = el('marker', {id:'ah-'+k+(dbl?'2':'1'), viewBox:'0 0 10 10', refX:9, refY:5, markerWidth:7, markerHeight:7, orient:'auto'});
+      m.appendChild(el('path', {d:'M0,0 L10,5 L0,10 z', fill:MK[k]})); defs.appendChild(m);
+    });
+    const N = new Map(), P = new Map(), L = new Map();
+    let raf = null, fallback = null, cur = null;
+    const ease = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2;
+    const pos = nd => ({ x: X0 + nd.s * PX, y: LANES[nd.lane || 0] });
+    function nodeEl(nd){
+      let o = N.get(nd.id);
+      if (!o){
+        const e = h('div', 'node mv'); e.style.transition = 'opacity .4s, border-color .3s, color .3s';
+        e.style.width = W + 'px';
+        if (dbl){ e.appendChild(h('span','l left')); }
+        e.appendChild(h('span','d')); e.appendChild(h('span','l'));
+        const ad = h('div','addr'), nt = h('div','tagnote');
+        stage.appendChild(e); stage.appendChild(ad); stage.appendChild(nt);
+        o = { e, ad, nt, x:null, y:null }; N.set(nd.id, o);
+      }
+      return o;
+    }
+    function geo(id, which){        // live anchor points from current (tweened) positions
+      const o = N.get(id); if (!o) return null;
+      const yr = o.y + (dbl ? 13 : 20), yl = o.y + 27;
+      if (which === 'rs') return [o.x + W - 9, yr];
+      if (which === 're') return [o.x - 1, yr];
+      if (which === 'ls') return [o.x + 9, yl];
+      if (which === 'le') return [o.x + W + 1, yl];
+    }
+    function pathD(s, e, k, self){
+      const [sx,sy] = s, [ex,ey] = e, dx = ex - sx, dy = ey - sy;
+      if (self){ const o = N.get(self), cx = o.x + W/2, top = o.y; return `M${sx},${sy} C${sx+54},${sy-6} ${cx+30},${top-52} ${cx},${top-2}`; }
+      if (k === 'r'){
+        if (Math.abs(dy) < 4 && dx > 10) return dx < PX*1.3 ? `M${sx},${sy} L${ex},${ey}` : `M${sx},${sy} C${sx+40},${sy-86} ${ex-40},${ey-86} ${ex},${ey}`;
+        if (Math.abs(dy) >= 4) return `M${sx},${sy} C${sx+55},${sy} ${ex-55},${ey} ${ex},${ey}`;
+        return `M${sx},${sy} C${sx+46},${sy+84} ${ex-46},${ey+84} ${ex},${ey}`;
+      }
+      if (Math.abs(dy) < 4 && dx < -10) return -dx < PX*1.3 ? `M${sx},${sy} L${ex},${ey}` : `M${sx},${sy} C${sx-40},${sy+62} ${ex+40},${ey+62} ${ex},${ey}`;
+      if (Math.abs(dy) >= 4) return `M${sx},${sy} C${sx-55},${sy} ${ex+55},${ey} ${ex},${ey}`;
+      return `M${sx},${sy} C${sx-46},${sy-96} ${ex+46},${ey-96} ${ex},${ey}`;
+    }
+    function draw(p){
+      const sc = cur; if (!sc) return;
+      const e = ease(p);
+      sc.nodes.forEach(nd => {
+        const o = N.get(nd.id), t = pos(nd);
+        o.x = o.fx + (t.x - o.fx) * e; o.y = o.fy + (t.y - o.fy) * e;
+        o.e.style.left = o.x + 'px'; o.e.style.top = o.y + 'px';
+        o.ad.style.left = o.x + 'px'; o.ad.style.top = (o.y + H + 4) + 'px';
+        o.nt.style.left = o.x + 'px'; o.nt.style.top = (o.y + H + (nd.addr ? 19 : 4)) + 'px';
+      });
+      sc.links.forEach(lk => {
+        const key = lk.f + ':' + lk.k, o = L.get(key);
+        const s = geo(lk.f, lk.k === 'r' ? 'rs' : 'ls');
+        let end;
+        if (lk.t == null) end = lk.k === 'r' ? [s[0] + 12, s[1]] : [s[0] - 12, s[1]];
+        else end = geo(lk.t, lk.k === 'r' ? 're' : 'le');
+        const self = lk.t === lk.f ? lk.f : null;
+        if (self){ o.p.setAttribute('d', pathD(s, [0,0], lk.k, self)); o.cur = null; return; }
+        const fe = o.fe || s, ce = o.moved ? [fe[0] + (end[0]-fe[0])*e, fe[1] + (end[1]-fe[1])*e] : end;
+        o.p.setAttribute('d', lk.t == null ? `M${s[0]},${s[1]} L${ce[0]},${ce[1]}` : pathD(s, ce, lk.k, null));
+        o.cur = ce;
+        if (lk.t == null){ o.tx.setAttribute('x', lk.k === 'r' ? s[0] + 15 : s[0] - 42); o.tx.setAttribute('y', s[1] + 4); }
+      });
+      sc.ptrs.forEach(pt => {
+        const o = P.get(pt.n), t = anchor(pt, sc);
+        const q = o.from ? [o.from[0] + (t[0]-o.from[0])*e, o.from[1] + (t[1]-o.from[1])*e] : t;
+        o.last = q; o.e.style.left = q[0] + 'px'; o.e.style.top = q[1] + 'px';
+      });
+    }
+    function anchor(pt, sc){          // where a pointer label sits, from its node's live position
+      const id = pt.at || pt.after, no = N.get(id), nd = sc.nodes.find(z => z.id === id), lane = nd.lane || 0, k = pt.stack || 0;
+      const x = pt.at ? no.x + W/2 : no.x + W + 26, w = pt.__w || 30;
+      const y = lane === 0 ? no.y - 34 - k*17 : no.y + H + (nd.addr ? 20 : 6) + k*17;
+      return [x - w/2, y];
+    }
+    function render(sc, anim){
+      cancelAnimationFrame(raf); clearTimeout(fallback);
+      if (cur) draw(1);          // finish any tween in flight so "from" positions are real
+      cur = sc;
+      const maxS = Math.max(...sc.nodes.map(n => n.s)) + 1, maxLane = Math.max(...sc.nodes.map(n => n.lane || 0));
+      fit(stage, X0 + maxS * PX + 40, stage.__h || (maxLane ? 290 : 170), 0.72);
+      svg.setAttribute('width', stage.style.width.replace('px','')); svg.setAttribute('height', stage.style.height.replace('px',''));
+      // keep the action on screen: the moving pointer, else the node or arrow just touched
+      const fp = sc.ptrs.find(p => p.c === 'a' && p.at) || sc.ptrs.find(p => p.at);
+      const fl = sc.links.find(l => l.c === 'a' || l.c === 'r');
+      const fn = sc.nodes.find(n => /new|hl|bad/.test(n.cls || ''));
+      const fid = fl ? (fl.t && fl.t !== fl.f ? fl.t : fl.f) : fp ? fp.at : fn ? fn.id : null;
+      if (fid){ const nd = sc.nodes.find(z => z.id === fid); if (nd) follow(stage, pos(nd).x + W/2, anim); }
+      const seen = new Set();
+      sc.nodes.forEach(nd => {
+        const fresh = !N.has(nd.id), o = nodeEl(nd); seen.add(nd.id);
+        const t = pos(nd);
+        if (fresh || !anim){ const fr = nd.from ? { x: X0 + nd.from[0]*PX, y: LANES[nd.from[1]] } : t; o.x = anim ? fr.x : t.x; o.y = anim ? fr.y : t.y; }
+        o.fx = o.x; o.fy = o.y;
+        o.e.className = 'node mv ' + (nd.cls || '');
+        o.e.querySelector('.d').textContent = nd.v;
+        o.ad.textContent = nd.addr ? '@' + nd.addr : ''; o.ad.style.width = W + 'px';
+        o.nt.textContent = nd.note || ''; o.nt.style.color = nd.noteC || '';
+        if (fresh && anim && !REDUCED){ o.e.style.opacity = 0; void o.e.offsetWidth; o.e.style.opacity = ''; }
+      });
+      N.forEach((o,id) => { if (!seen.has(id)){ o.e.remove(); o.ad.remove(); o.nt.remove(); N.delete(id); } });
+      // links
+      const lseen = new Set();
+      sc.links.forEach(lk => {
+        const key = lk.f + ':' + lk.k; lseen.add(key);
+        let o = L.get(key);
+        if (!o){ o = { p: el('path', {}), tx: el('text', {}) }; svg.appendChild(o.p); svg.appendChild(o.tx); L.set(key, o); o.fe = null; o.prevT = undefined; }
+        const lost = sc.nodes.find(z => z.id === lk.f && /lost|gone/.test(z.cls || ''));
+        const c = lk.c || (lost ? 'f' : 'n');
+        o.p.setAttribute('stroke', MK[c]); o.p.setAttribute('marker-end', lk.t == null ? '' : `url(#ah-${c}${dbl?'2':'1'})`);
+        o.p.setAttribute('stroke-dasharray', c === 'r' || lost ? '5 4' : '');
+        o.p.setAttribute('opacity', /gone/.test(lost && lost.cls || '') ? 0 : 1);
+        o.tx.textContent = lk.t == null ? 'NULL' : ''; o.tx.setAttribute('fill', c === 'a' ? COLORS.amber : '#6b7380');
+        o.moved = anim && o.prevT !== lk.t;
+        o.fe = o.moved ? (o.cur || null) : null;
+        o.prevT = lk.t;
+      });
+      L.forEach((o,k) => { if (!lseen.has(k)){ o.p.remove(); o.tx.remove(); L.delete(k); } });
+      // pointer labels (stack multiple labels that sit on the same node)
+      const cnt = {};
+      const pseen = new Set();
+      sc.ptrs.forEach(pt => {
+        const key = pt.at || ('after:' + pt.after); pt.stack = cnt[key] = (cnt[key] == null ? 0 : cnt[key] + 1);
+        let o = P.get(pt.n), fresh = false;
+        if (!o){ const e = h('div', 'ptr'); e.style.transition = 'opacity .3s'; stage.appendChild(e); o = { e }; P.set(pt.n, o); fresh = true; }
+        pseen.add(pt.n);
+        o.e.className = 'ptr ' + (pt.c || 'a');
+        o.e.innerHTML = (sc.nodes.find(z => z.id === pt.at && (z.lane||0) === 1) || (pt.after && (sc.nodes.find(z => z.id === pt.after).lane||0) === 1))
+          ? `<span class="arw">▲</span>${esc(pt.n)}` : `${esc(pt.n)}<span class="arw">▼</span>`;
+        pt.__w = o.e.offsetWidth || pt.n.length * 7.5;
+        // a pointer that switches node glides from where it was drawn; a new one appears in place
+        const moved = anim && !fresh && o.at !== (pt.at || 'after:' + pt.after);
+        o.from = moved ? o.last : null; o.at = pt.at || 'after:' + pt.after;
+        if (fresh && anim && !REDUCED){ o.e.style.opacity = 0; void o.e.offsetWidth; o.e.style.opacity = ''; }
+      });
+      P.forEach((o,k) => { if (!pseen.has(k)){ o.e.remove(); P.delete(k); } });
+      if (!anim || REDUCED){ draw(1); return; }
+      draw(0);
+      const t0 = performance.now(), D = 620;
+      const tick = now => { const p = Math.min(1, (now - t0) / D); draw(p); if (p < 1) raf = requestAnimationFrame(tick); else clearTimeout(fallback); };
+      raf = requestAnimationFrame(tick);
+      fallback = setTimeout(() => { cancelAnimationFrame(raf); draw(1); }, D + 120);
+    }
+    return { render, dims:{ W, PX } };
+  }
+
+  // Scene helpers
+  const ND = (id, v, s, o) => Object.assign({ id, v, s, lane:0 }, o || {});
+  const R = (f, t, c) => ({ f, t, k:'r', c });
+  const Lk = (f, t, c) => ({ f, t, k:'l', c });
+  const clone = sc => JSON.parse(JSON.stringify(sc));
+  function chain(ids, vals, lane, s0){ // singly linked row
+    const nodes = ids.map((id,k) => ND(id, vals[k], s0 + k, { lane, cls: k === 0 ? 'header' : '' }));
+    const links = ids.map((id,k) => R(id, ids[k+1] == null ? null : ids[k+1]));
+    return { nodes, links };
+  }
+  function setLink(sc, f, k, t, c){ const l = sc.links.find(x => x.f === f && x.k === k); if (l){ l.t = t; l.c = c; } else sc.links.push({f, t, k, c}); return sc; }
+  function plain(sc){ sc.links.forEach(l => { if (l.c !== 'r') delete l.c; }); return sc; }
+  function nodeOf(sc, id){ return sc.nodes.find(n => n.id === id); }
+
+  // ---------- M3 presets: singly + circular singly ----------
+  function presetsSLL(){
+    const P = {};
+    const base = () => { const c = chain(['H','n20','n25','n35','n40'], ['head',20,25,35,40], 0, 0); return { nodes:c.nodes, links:c.links, ptrs:[] }; };
+    const V = o => Object.entries(o);
+    { // insert at front
+      const code = ['INSERT_FRONT(header, x)', '1  new = getNode()', '2  if new = NULL: "overflow"; stop', '3  new->data = x', '4  new->link = header->link', '5  header->link = new', '6  stop'];
+      const S = []; let sc = base();
+      S.push({ sc:clone(sc), line:0, cap:'The list is <b>header → 20 → 25 → 35 → 40 → NULL</b>. The goal is to put <b>10</b> at the front, just after the header.' });
+      sc.nodes.push(ND('n10','?',0.55,{lane:1,cls:'new',from:[0.55,1]})); sc.links.push(R('n10',null)); sc.ptrs = [{n:'new',at:'n10',c:'t'}];
+      S.push({ sc:clone(sc), line:[1,2], cap:'<code>getNode()</code> hands back the <b>address</b> of a fresh node. It isn\'t NULL, so there\'s no overflow. The variable <code>new</code> just holds that address.' });
+      nodeOf(sc,'n10').v = 10;
+      S.push({ sc:clone(sc), line:3, cap:'<code>new->data = 10</code>. The node is filled but not yet part of the list.' });
+      setLink(sc,'n10','r','n20','a');
+      S.push({ sc:clone(sc), line:4, cap:'<code>new->link = header->link</code>: copy the header\'s arrow, so the new node points at <b>20</b>. Nothing is lost, because the header still points at 20 as well.' });
+      plain(sc); setLink(sc,'H','r','n10','a');
+      S.push({ sc:clone(sc), line:5, cap:'<code>header->link = new</code>: swing the header\'s arrow onto the new node. It is now reachable from the header.' });
+      plain(sc); nodeOf(sc,'n10').lane = 0; nodeOf(sc,'n10').s = 1; sc.nodes.forEach(n => { if (n.id !== 'H' && n.id !== 'n10') n.s += 1; }); nodeOf(sc,'n10').cls = '';
+      S.push({ sc:clone(sc), line:6, cap:'The same list redrawn in a line: <b>header → 10 → 20 → 25 → 35 → 40</b>. Four statements and no loop, so <span class="t">O(1) whatever the length</span>.' });
+      P.front = { code, S };
+    }
+    { // wrong order
+      const code = ['WRONG ORDER: steps 4 and 5 swapped', '1  new = getNode()', '3  new->data = x', '5  header->link = new        ← done first', '4  new->link = header->link', '   stop'];
+      const S = []; let sc = base();
+      S.push({ sc:clone(sc), line:0, cap:'Same job, but here the two link statements run the other way round. Watch what happens to 20.' });
+      sc.nodes.push(ND('n10',10,0.55,{lane:1,cls:'new',from:[0.55,1]})); sc.links.push(R('n10',null)); sc.ptrs = [{n:'new',at:'n10',c:'t'}];
+      S.push({ sc:clone(sc), line:[1,2], cap:'Get the node and fill in 10, exactly as before.' });
+      setLink(sc,'H','r','n10','r'); ['n20','n25','n35','n40'].forEach(id => nodeOf(sc,id).cls = 'lost'); nodeOf(sc,'n20').note = 'unreachable'; nodeOf(sc,'n20').noteC = 'var(--rust)';
+      S.push({ sc:clone(sc), line:3, bad:[3], cap:'<code>header->link = new</code> first. That overwrote the <span class="r">only arrow into 20</span>. Nodes 20, 25, 35 and 40 are still in memory, but nothing points to them any more: <b>lost</b>.' });
+      plain(sc); setLink(sc,'n10','r','n10','r');
+      S.push({ sc:clone(sc), line:4, bad:[4], cap:'<code>new->link = header->link</code> copies the header\'s arrow, which now points at <b>new itself</b>. So 10 points to 10, and the rest of the list is gone for good.' });
+      S.push({ sc:clone(sc), line:null, cap:'"We will lose the pointer of 20." <b>Fix:</b> run step 4 before step 5, or first save <code>header->link</code> in a temporary pointer.' });
+      P.wrong = { code, S };
+    }
+    { // insert at end
+      const code = ['INSERT_END(header, x)', '1  new = getNode()', '2  if new = NULL: "overflow"; stop', '3  ptr = header', '4  while ptr->link ≠ NULL do', '5      ptr = ptr->link', '6  new->data = x', '7  new->link = NULL', '8  ptr->link = new'];
+      const S = []; let sc = base(); let walked = 0;
+      S.push({ sc:clone(sc), line:0, cap:'Insert <b>50</b> at the end. There is no index to jump to, so we have to <b>walk</b> there.', vars:V({ptr:'–', steps:0}) });
+      sc.nodes.push(ND('n50','?',5,{lane:1,cls:'new',from:[5,1]})); sc.ptrs = [{n:'new',at:'n50',c:'t'}];
+      S.push({ sc:clone(sc), line:[1,2], cap:'Get a fresh node first.', vars:V({ptr:'–', steps:0}) });
+      sc.ptrs.push({n:'ptr',at:'H',c:'a'});
+      S.push({ sc:clone(sc), line:3, cap:'<code>ptr = header</code>, <b>not</b> <code>header->link</code>. On an empty list, <code>header->link</code> is NULL and the loop test <code>ptr->link</code> would read illegal memory. The header always exists.', vars:V({ptr:'header', steps:0}) });
+      [['n20',20],['n25',25],['n35',35],['n40',40]].forEach(([id,v],k,arr) => {
+        walked++; sc.ptrs.find(p => p.n === 'ptr').at = id;
+        S.push({ sc:clone(sc), line:[4,5], cap:`The link isn't NULL, so step forward: <code>ptr = ptr->link</code> puts ptr on <b>${v}</b>.`, vars:V({ptr:v, steps:walked}) });
+      });
+      S.push({ sc:clone(sc), line:4, cap:'Now <code>ptr->link</code> is NULL, so the loop stops with ptr <b>on</b> the last node. A test of <code>ptr ≠ NULL</code> would have walked right off the end, and you can\'t attach anything to NULL.', vars:V({ptr:40, steps:walked}) });
+      nodeOf(sc,'n50').v = 50; sc.links.push(R('n50',null,'a'));
+      S.push({ sc:clone(sc), line:[6,7], cap:'<code>new->data = 50</code>, <code>new->link = NULL</code>. The new node will be the new end.', vars:V({ptr:40, steps:walked}) });
+      plain(sc); setLink(sc,'n40','r','n50','a');
+      S.push({ sc:clone(sc), line:8, cap:'<code>ptr->link = new</code>: 40 now points at 50.', vars:V({ptr:40, steps:walked}) });
+      plain(sc); nodeOf(sc,'n50').lane = 0; nodeOf(sc,'n50').cls = '';
+      S.push({ sc:clone(sc), line:null, cap:`Done. The loop ran once per node (${walked} steps here), so it's <span class="a">O(n)</span>: 10 nodes means 10 steps, 100 nodes means 100.`, vars:V({ptr:40, steps:walked}) });
+      P.end = { code, S };
+    }
+    { // delete key 25 with ptr / ptr1
+      const code = ['DELETE_KEY(header, key)', '1  ptr = header;  ptr1 = NULL', '2  while ptr->data ≠ key AND ptr->link ≠ NULL do', '3      ptr1 = ptr', '4      ptr  = ptr->link', '5  if ptr->data = key then', '6      ptr1->link = ptr->link', '7      ptr->link  = NULL', '8      return ptr to free memory', '9  else "key not found"'];
+      const S = []; let sc = base();
+      S.push({ sc:clone(sc), line:0, cap:'Delete <b>25</b>. To unlink a node you need its <b>predecessor</b>, because 20\'s arrow is what has to change, and a singly linked list can\'t step backwards. So we carry two pointers.', vars:V({ptr:'–', ptr1:'–'}) });
+      sc.ptrs = [{n:'ptr',at:'H',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>ptr = header</code>, <code>ptr1 = NULL</code>. ptr1 will always trail one node behind ptr.', vars:V({ptr:'header', ptr1:'NULL'}) });
+      sc.ptrs = [{n:'ptr',at:'n20',c:'a'},{n:'ptr1',at:'H',c:'t'}];
+      S.push({ sc:clone(sc), line:[2,3,4], cap:'The header\'s data isn\'t 25, so <code>ptr1 = ptr</code> and <code>ptr = ptr->link</code>. Both slide one node right.', vars:V({ptr:20, ptr1:'header'}) });
+      sc.ptrs = [{n:'ptr',at:'n25',c:'a'},{n:'ptr1',at:'n20',c:'t'}];
+      S.push({ sc:clone(sc), line:[2,3,4], cap:'20 ≠ 25, so both slide right again.', vars:V({ptr:25, ptr1:20}) });
+      nodeOf(sc,'n25').cls = 'hl';
+      S.push({ sc:clone(sc), line:[2,5], cap:'ptr->data = 25 = key, so the loop stops. ptr is <b>on</b> the victim and ptr1 is on its predecessor, exactly the pair we need.', vars:V({ptr:25, ptr1:20}) });
+      setLink(sc,'n20','r','n35','a');
+      S.push({ sc:clone(sc), line:6, cap:'<code>ptr1->link = ptr->link</code>: 20 now <b>skips over 25</b> straight to 35. The list no longer passes through 25.', vars:V({ptr:25, ptr1:20}) });
+      plain(sc); setLink(sc,'n25','r',null,'a');
+      S.push({ sc:clone(sc), line:7, cap:'<code>ptr->link = NULL</code>: cut 25 loose completely.', vars:V({ptr:25, ptr1:20}) });
+      plain(sc); nodeOf(sc,'n25').lane = 1; nodeOf(sc,'n25').cls = 'lost'; nodeOf(sc,'n25').note = 'back to free memory'; nodeOf(sc,'n25').noteC = 'var(--ink-faint)';
+      sc.nodes.forEach(n => { if (n.id === 'n35' || n.id === 'n40') n.s -= 1; });
+      S.push({ sc:clone(sc), line:8, cap:'Return the node to free memory. The list is <b>header → 20 → 35 → 40</b>. Searching for the key dominates, so the worst case is <span class="a">O(n)</span>.', vars:V({ptr:25, ptr1:20}) });
+      P.del = { code, S };
+    }
+    { // insert-after-key bug when key is the LAST node
+      const code = ['INSERT_AFTER(header, key, x)  — slide version', '1  ptr = header', '2  while ptr->data ≠ key AND ptr->link ≠ NULL do', '3      ptr = ptr->link', '4  if ptr->link = NULL then        ✗ buggy', '5      "key not available"', '   ── the fix ──', '6  if ptr->data = key then         ✓', '7      new->link = ptr->link', '8      ptr->link = new', '9  else "key not available"'];
+      const S = []; let sc = base();
+      S.push({ sc:clone(sc), line:0, cap:'Insert <b>45 after key 40</b>. The key is the <b>last</b> node, which is the case that breaks the slide\'s version.' });
+      sc.ptrs = [{n:'ptr',at:'H',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>ptr = header</code>.' });
+      [['n20',20],['n25',25],['n35',35],['n40',40]].forEach(([id,v]) => { sc.ptrs[0].at = id; S.push({ sc:clone(sc), line:[2,3], cap:`Not the key and the link isn't NULL, so move on: ptr → <b>${v}</b>.` }); });
+      nodeOf(sc,'n40').cls = 'hl';
+      S.push({ sc:clone(sc), line:2, cap:'At 40, <b>both</b> loop conditions fail at once: the data <em>is</em> the key <em>and</em> the link <em>is</em> NULL. The loop stops for two reasons, and the next test has to tell them apart.' });
+      nodeOf(sc,'n40').cls = 'bad'; nodeOf(sc,'n40').note = '"not available"?!'; nodeOf(sc,'n40').noteC = 'var(--rust)';
+      S.push({ sc:clone(sc), line:[4,5], bad:[4,5], cap:'Buggy test: <code>ptr->link = NULL</code> is true, so it prints <span class="r">"key not available"</span>, even though 40 is right there.' });
+      nodeOf(sc,'n40').cls = 'hl'; nodeOf(sc,'n40').note = '';
+      S.push({ sc:clone(sc), line:7, cap:'<b>Fix</b> (a student\'s, accepted in class): test the <b>data</b>, <code>ptr->data = key</code>. That is true, so insert.' });
+      sc.nodes.push(ND('n45',45,5,{lane:1,cls:'new',from:[5,1]})); sc.links.push(R('n45',null,'a')); sc.ptrs.push({n:'new',at:'n45',c:'t'});
+      S.push({ sc:clone(sc), line:8, cap:'<code>new->link = ptr->link</code> copies NULL, so the new node becomes the end.' });
+      plain(sc); setLink(sc,'n40','r','n45','a');
+      S.push({ sc:clone(sc), line:9, cap:'<code>ptr->link = new</code>: 40 → 45.' });
+      plain(sc); nodeOf(sc,'n45').lane = 0; nodeOf(sc,'n45').cls = ''; nodeOf(sc,'n40').cls = '';
+      S.push({ sc:clone(sc), line:null, cap:'Works for the key first, in the middle, last, or absent. In the circular version the same bug returns as <code>if ptr.link = header</code>, and the fix is the same: <b>test the data</b>. (Never write <code>ptr.link ≠ key</code>: that compares an address with a value.)' });
+      P.bug = { code, S };
+    }
+    { // concatenate
+      const code = ['CONCATENATE(header1, header2)', '1  ptr = header1              // not header1->link', '2  while ptr->link ≠ NULL do', '3      ptr = ptr->link', '4  ptr->link = header2->link', '5  header2->link = NULL       // break first …', '6  RETURNNODE(header2)        // … then return'];
+      const S = []; const c1 = chain(['H','a20','a30','a40'], ['head₁',20,30,40], 0, 0), c2 = chain(['H2','b22','b33','b55'], ['head₂',22,33,55], 1, 3);
+      let sc = { nodes:c1.nodes.concat(c2.nodes), links:c1.links.concat(c2.links), ptrs:[] };
+      S.push({ sc:clone(sc), line:0, cap:'Two lists. Goal: hang list 2 on the end of list 1, so that after 40 come 22, 33, 55.' });
+      sc.ptrs = [{n:'ptr',at:'H',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>ptr = header1</code>. If list 1 were empty, ptr would stay on the header and list 2 would attach right after it, which is still correct.' });
+      [['a20',20],['a30',30],['a40',40]].forEach(([id,v]) => { sc.ptrs[0].at = id; S.push({ sc:clone(sc), line:[2,3], cap:`<code>ptr->link ≠ NULL</code>, so step: ptr → <b>${v}</b>.` }); });
+      S.push({ sc:clone(sc), line:2, cap:'40\'s link is NULL, so stop <b>on</b> 40 without overshooting to NULL. Testing <code>ptr ≠ NULL</code> here would lose the last node\'s address.' });
+      setLink(sc,'a40','r','b22','a');
+      S.push({ sc:clone(sc), line:4, cap:'<code>ptr->link = header2->link</code>: 40 now points at 22. The student\'s first instinct: "give the address of 22 to the link field of 40".' });
+      plain(sc); setLink(sc,'H2','r',null,'a');
+      S.push({ sc:clone(sc), line:5, cap:'<code>header2->link = NULL</code> <b>first</b>, so the spare header no longer points into the live list.' });
+      plain(sc); nodeOf(sc,'H2').cls = 'header lost'; nodeOf(sc,'H2').note = 'RETURNNODE → heap'; nodeOf(sc,'H2').noteC = 'var(--ink-faint)';
+      S.push({ sc:clone(sc), line:6, cap:'<em>Then</em> <code>RETURNNODE(header2)</code> gives it back to the heap. Memory is never "removed", only returned. Returning it before breaking the link risks freeing more than one node.' });
+      sc.nodes = sc.nodes.filter(n => n.id !== 'H2'); sc.links = sc.links.filter(l => l.f !== 'H2');
+      ['b22','b33','b55'].forEach((id,k) => { const n = nodeOf(sc,id); n.lane = 0; n.s = 4 + k; });
+      S.push({ sc:clone(sc), line:null, cap:'One list: <b>head₁ → 20 → 30 → 40 → 22 → 33 → 55</b>. Only list 1 is walked, so the cost is O(length of list 1).' });
+      P.cat = { code, S };
+    }
+    { // circular traversal
+      const code = ['TRAVERSE_CSLL(header)', '1  ptr = header->link', '2  while ptr ≠ header do          // was: ptr ≠ NULL', '3      process ptr->data', '4      ptr = ptr->link'];
+      const S = []; let sc = base(); setLink(sc,'n40','r','H');
+      S.push({ sc:clone(sc), line:0, cap:'<b>Circular</b> singly linked list: the last node points back to the <b>header</b> instead of NULL. A <code>ptr ≠ NULL</code> loop would circle forever.', vars:V({ptr:'–', printed:''}) });
+      let out = [];
+      sc.ptrs = [{n:'ptr',at:'n20',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>ptr = header->link</code>, the first real node.', vars:V({ptr:20, printed:''}) });
+      [['n20',20,'n25'],['n25',25,'n35'],['n35',35,'n40'],['n40',40,'H']].forEach(([id,v,nx]) => {
+        out.push(v); nodeOf(sc,id).cls = 'hl';
+        S.push({ sc:clone(sc), line:[2,3], cap:`ptr ≠ header, so process <b>${v}</b>.`, vars:V({ptr:v, printed:out.join(' ')}) });
+        nodeOf(sc,id).cls = ''; sc.ptrs[0].at = nx;
+        S.push({ sc:clone(sc), line:4, cap: nx === 'H' ? 'Follow 40\'s link, and it leads back to the header.' : `Follow the link to ${nodeOf(sc,nx).v}.`, vars:V({ptr: nx === 'H' ? 'header' : nodeOf(sc,nx).v, printed:out.join(' ')}) });
+      });
+      S.push({ sc:clone(sc), line:2, cap:'<code>ptr = header</code>, so stop. <b>Conversion rule:</b> every end-of-list NULL becomes <code>header</code>. An empty circular list is <code>header->link = header</code>. Always re-test the boundary cases after converting.', vars:V({ptr:'header', printed:out.join(' ')}) });
+      P.circ = { code, S };
+    }
+    return P;
+  }
+
+  // ---------- M4 presets: doubly + circular doubly ----------
+  function presetsDLL(){
+    const P = {}, V = o => Object.entries(o);
+    const base = () => {
+      const nodes = [ND('H','head',0,{cls:'header'}), ND('n20',20,1), ND('n30',30,2), ND('n40',40,3)];
+      const links = [R('H','n20'), Lk('H',null), R('n20','n30'), Lk('n20','H'), R('n30','n40'), Lk('n30','n20'), R('n40',null), Lk('n40','n30')];
+      return { nodes, links, ptrs:[] };
+    };
+    { // insert at front with addresses 100 / 200 / 300
+      const code = ['INSERT_FRONT_DLL(header, item)', '0  NEW = GETNODE();  NEW->DATA = item', '1  PTR = HEADER->RLINK', '2  NEW->RLINK = HEADER->RLINK', '3  NEW->LLINK = HEADER', '4  PTR->LLINK = NEW', '5  HEADER->RLINK = NEW'];
+      const S = []; let sc = base(); nodeOf(sc,'H').addr = 100; nodeOf(sc,'n20').addr = 300;
+      const vv = (o) => V(Object.assign({HEADER:100}, o));
+      S.push({ sc:clone(sc), line:null, cap:'Each node is <b>[LLINK | data | RLINK]</b>: an arrow back and an arrow forward. The addresses are the lecture\'s: header at 100, node 20 at 300.', vars:vv({}) });
+      sc.nodes.push(ND('nw',10,0.55,{lane:1,cls:'new',addr:200,from:[0.55,1]})); sc.ptrs = [{n:'NEW',at:'nw',c:'t'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>GETNODE()</code> returns an address, <b>200</b>. <code>NEW</code> <em>is</em> that address.', vars:vv({NEW:200}) });
+      sc.ptrs.push({n:'PTR',at:'n20',c:'a'});
+      S.push({ sc:clone(sc), line:2, cap:'<code>PTR = HEADER->RLINK = 300</code>. Naming the old first node saves writing <code>(HEADER->RLINK)->LLINK</code> later.', vars:vv({NEW:200, PTR:300}) });
+      sc.links.push(R('nw','n20','a'));
+      S.push({ sc:clone(sc), line:3, cap:'<code>NEW->RLINK = HEADER->RLINK</code>, so 200 stores <b>300</b>: forward to 20.', vars:vv({NEW:200, PTR:300, 'NEW->RLINK':300}) });
+      plain(sc); sc.links.push(Lk('nw','H','a'));
+      S.push({ sc:clone(sc), line:4, cap:'<code>NEW->LLINK = HEADER</code>, so 200 stores <b>100</b>: back to the header.', vars:vv({NEW:200, PTR:300, 'NEW->RLINK':300, 'NEW->LLINK':100}) });
+      plain(sc); setLink(sc,'n20','l','nw','a');
+      S.push({ sc:clone(sc), line:5, cap:'<code>PTR->LLINK = NEW</code>: node 20\'s back arrow now stores <b>200</b>, the address of NEW, not "NEW->RLINK". Do this <b>before</b> touching HEADER->RLINK.', vars:vv({NEW:200, PTR:300, 'PTR->LLINK':200}) });
+      plain(sc); setLink(sc,'H','r','nw','a');
+      S.push({ sc:clone(sc), line:6, cap:'<code>HEADER->RLINK = NEW</code>, so the header stores <b>200</b>. Four links touched, no loop: <span class="t">O(1)</span>.', vars:vv({NEW:200, PTR:300, 'HEADER->RLINK':200}) });
+      plain(sc); nodeOf(sc,'nw').lane = 0; nodeOf(sc,'nw').s = 1; nodeOf(sc,'nw').cls = ''; ['n20','n30','n40'].forEach(id => nodeOf(sc,id).s += 1);
+      S.push({ sc:clone(sc), line:null, cap:'Redrawn: <b>header ⇄ 10 ⇄ 20 ⇄ 30 ⇄ 40</b>. Every node can now be reached forwards <em>and</em> backwards.', vars:vv({NEW:200, PTR:300}) });
+      P.front = { code, S };
+    }
+    { // empty-list bug
+      const code = ['INSERT_FRONT_DLL on an EMPTY list', '1  PTR = HEADER->RLINK          // = NULL', '2  NEW->RLINK = HEADER->RLINK', '3  NEW->LLINK = HEADER', '4  PTR->LLINK = NEW             ✗ NULL has no LLINK', '   ── the fix ──', '5  if PTR = NULL then', '6      NEW->RLINK = NULL;  NEW->LLINK = HEADER', '7      HEADER->RLINK = NEW', '8  else  … the normal 4 steps …'];
+      const S = []; let sc = { nodes:[ND('H','head',0,{cls:'header'})], links:[R('H',null), Lk('H',null)], ptrs:[] };
+      S.push({ sc:clone(sc), line:null, cap:'An <b>empty</b> doubly linked list is just the header, with both links NULL. Run the same insert-at-front on it.' });
+      sc.nodes.push(ND('nw',10,1,{lane:1,cls:'new',from:[1,1]})); sc.links.push(R('nw',null), Lk('nw',null)); sc.ptrs = [{n:'NEW',at:'nw',c:'t'},{n:'PTR',after:'H',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>PTR = HEADER->RLINK</code>, but that is <b>NULL</b>. PTR points at nothing.', vars:V({PTR:'NULL'}) });
+      setLink(sc,'nw','l','H','a');
+      S.push({ sc:clone(sc), line:[2,3], cap:'<code>NEW->RLINK = NULL</code>, <code>NEW->LLINK = HEADER</code>. Fine so far.', vars:V({PTR:'NULL'}) });
+      plain(sc); sc.ptrs[1].c = 'r';
+      S.push({ sc:clone(sc), line:4, bad:[4], cap:'<code>PTR->LLINK = NEW</code> <span class="r">crashes</span>. NULL is not a node: it has no LLINK field to write into. This is the line the class was asked to find.', vars:V({PTR:'NULL'}) });
+      setLink(sc,'H','r','nw','a'); sc.ptrs = [{n:'NEW',at:'nw',c:'t'}];
+      S.push({ sc:clone(sc), line:[6,7], cap:'<b>Fix:</b> give the empty case its own branch and just link header ⇄ NEW. Don\'t print "list empty" and stop, because inserting into an empty list is always legal.' });
+      plain(sc); nodeOf(sc,'nw').lane = 0; nodeOf(sc,'nw').cls = '';
+      S.push({ sc:clone(sc), line:null, cap:'Result: <b>header ⇄ 10</b>, with 10\'s RLINK = NULL.' });
+      P.empty = { code, S };
+    }
+    { // insert at end, linear DLL (walk)
+      const code = ['INSERT_END_DLL(header, item)', '1  PTR = HEADER               // not HEADER->RLINK', '2  while PTR->RLINK ≠ NULL do', '3      PTR = PTR->RLINK', '4  NEW = GETNODE(); NEW->DATA = item', '5  NEW->RLINK = PTR->RLINK     // = NULL', '6  NEW->LLINK = PTR', '7  PTR->RLINK = NEW'];
+      const S = []; let sc = base(); let w = 0;
+      S.push({ sc:clone(sc), line:null, cap:'<b>Linear</b> doubly linked list: insert 50 at the end. Nothing tells us where the end is, so we walk.', vars:V({'steps walked':0}) });
+      sc.ptrs = [{n:'PTR',at:'H',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>PTR = HEADER</code>.', vars:V({'steps walked':0}) });
+      ['n20','n30','n40'].forEach(id => { w++; sc.ptrs[0].at = id; S.push({ sc:clone(sc), line:[2,3], cap:`RLINK isn't NULL, so step to <b>${nodeOf(sc,id).v}</b>.`, vars:V({'steps walked':w}) }); });
+      sc.nodes.push(ND('nw',50,4,{lane:1,cls:'new',from:[4,1]})); sc.ptrs.push({n:'NEW',at:'nw',c:'t'});
+      S.push({ sc:clone(sc), line:[2,4], cap:'40\'s RLINK is NULL, so PTR is on the last node. Now get the new node.', vars:V({'steps walked':w}) });
+      sc.links.push(R('nw',null,'a'), Lk('nw','n40','a'));
+      S.push({ sc:clone(sc), line:[5,6], cap:'<code>NEW->RLINK = NULL</code>, <code>NEW->LLINK = PTR</code>. You can\'t set NULL\'s left link, because "NULL is not a node".', vars:V({'steps walked':w}) });
+      plain(sc); setLink(sc,'n40','r','nw','a');
+      S.push({ sc:clone(sc), line:7, cap:'<code>PTR->RLINK = NEW</code>.', vars:V({'steps walked':w}) });
+      plain(sc); nodeOf(sc,'nw').lane = 0; nodeOf(sc,'nw').cls = '';
+      S.push({ sc:clone(sc), line:null, cap:`Walked ${w} nodes to find the end: <span class="a">O(n)</span>. Now try the circular version.`, vars:V({'steps walked':w}) });
+      P.end = { code, S };
+    }
+    { // insert at end, circular DLL: one jump
+      const code = ['INSERT_END_CDLL(header, item)', '1  PTR = HEADER->LLINK          // last node, no walk', '2  NEW = GETNODE(); NEW->DATA = item', '3  NEW->RLINK  = HEADER', '4  NEW->LLINK  = PTR', '5  PTR->RLINK  = NEW', '6  HEADER->LLINK = NEW'];
+      const S = []; let sc = base(); setLink(sc,'n40','r','H'); setLink(sc,'H','l','n40');
+      S.push({ sc:clone(sc), line:null, cap:'<b>Circular</b> doubly linked list: 40\'s RLINK goes back to the header, and the header\'s LLINK points at 40. <b>The header always knows the last node.</b>', vars:V({'steps walked':0}) });
+      sc.ptrs = [{n:'PTR',at:'n40',c:'a'}];
+      S.push({ sc:clone(sc), line:1, cap:'<code>PTR = HEADER->LLINK</code>: one jump straight to 40, with <b>no loop</b>.', vars:V({'steps walked':0}) });
+      sc.nodes.push(ND('nw',50,4,{lane:0,cls:'new',from:[4,1]})); sc.ptrs.push({n:'NEW',at:'nw',c:'t'});
+      S.push({ sc:clone(sc), line:2, cap:'Get the new node. It is drawn straight in its final spot, but it isn\'t linked yet.', vars:V({'steps walked':0}) });
+      sc.links.push(R('nw','H','a'), Lk('nw','n40','a'));
+      S.push({ sc:clone(sc), line:[3,4], cap:'<code>NEW->RLINK = HEADER</code> keeps the circle closed. <code>NEW->LLINK = PTR</code> points back to 40.', vars:V({'steps walked':0}) });
+      plain(sc); setLink(sc,'n40','r','nw','a');
+      S.push({ sc:clone(sc), line:5, cap:'<code>PTR->RLINK = NEW</code>.', vars:V({'steps walked':0}) });
+      plain(sc); setLink(sc,'H','l','nw','a');
+      S.push({ sc:clone(sc), line:6, cap:'<code>HEADER->LLINK = NEW</code>: the header now knows the <em>new</em> last node.', vars:V({'steps walked':0}) });
+      plain(sc); nodeOf(sc,'nw').cls = '';
+      S.push({ sc:clone(sc), line:null, cap:'"Instead of O(n) we reduce it to <span class="t">O(1)</span>: that\'s the advantage of the circular doubly linked list." The walk counter never moved.', vars:V({'steps walked':0}) });
+      P.cend = { code, S };
+    }
+    return P;
+  }
+  window.__ds.ll = { presetsSLL, presetsDLL };
+
+  function mountLL(panelId, dbl, presetsFn, first){
+    const panel = document.getElementById(panelId); if (!panel) return;
+    const stage = panel.querySelector('.stage'), readout = panel.querySelector('.readout');
+    const eng = LLStage(stage, dbl), PR = presetsFn();
+    let cur = null;
+    const player = Player(panel, (s, anim) => {
+      eng.render(s.sc, anim);
+      readout.textContent = cur ? cur.label : '';
+    }, { delay:1500 });
+    function load(p){
+      const d = PR[p]; if (!d) return;
+      cur = { label: panel.querySelector(`[data-p="${p}"]`).textContent };
+      const S = d.S.map(s => Object.assign({ vars:[] }, s));
+      stage.__h = Math.max(...S.map(s => Math.max(...s.sc.nodes.map(n => n.lane || 0)))) ? 300 : 180;
+      player.load(S, d.code);
+    }
+    presets(panel.querySelector('.presets'), load);
+    load(first);
+  }
+  mountLL('llPanel', false, presetsSLL, 'front');
+  mountLL('dlPanel', true, presetsDLL, 'front');
+
+  // ================= Widget 4: stack — push/pop, reversal, postfix (S08, S09) =================
+  (function(){
+    const panel = document.getElementById('stPanel'); if (!panel) return;
+    const stage = panel.querySelector('.stage'), readout = panel.querySelector('.readout');
+    const CODE_SEQ = ['PUSH(x)', '1  if top = SIZE − 1: OVERFLOW', '2  top = top + 1        // increment first', '3  A[top] = x           // then store', 'POP()', '4  if top = −1: UNDERFLOW', '5  x = A[top]           // read first', '6  top = top − 1        // then decrement', '7  return x'];
+    const CODE_REV = ['REVERSE(S)', '1  create an empty stack', '2  for each character ch of S, left → right:', '3      push(ch)', '4  while the stack is not empty:', '5      output pop()'];
+    const CODE_PF = ['EVALUATE_POSTFIX(expr)', '1  create an empty stack', '2  scan expr left → right, one token at a time', '3    if token is an OPERAND:  push(token)', '4    if token is an OPERATOR:', '5        arg2 = pop()     // FIRST pop = right operand', '6        arg1 = pop()     // SECOND pop = left operand', '7        push(arg1 op arg2)', '8  answer = the one value left on the stack'];
+    const fmt = v => typeof v !== 'number' ? String(v) : Number.isInteger(v) ? String(v) : String(+v.toFixed(4));
+    // ---- pure generators ----
+    function genSeq(){
+      const ops = [['push',8],['push',3],['pop'],['push',2],['push',5],['pop'],['pop'],['push',9],['push',1]];
+      const SIZE = 4, S = []; let top = -1, stack = [], out = [], uid = 0, cnt = {};
+      const vals = {};
+      const snap = o => S.push(Object.assign({ size:SIZE, top, stack:stack.slice(), out:out.slice(), vals:Object.assign({}, vals), mode:'seq' }, o));
+      snap({ line:null, cap:'Empty stack: <b>top = −1</b>. That value is impossible as an index (they start at 0), and −1 + 1 = 0, so the first push uses the same rule as every other push.', vars:[['top',-1],['SIZE',SIZE]] });
+      ops.forEach(([op, x], k) => {
+        const tag = `op ${k+1}/${ops.length}`;
+        if (op === 'push'){
+          top++;
+          snap({ line:[1,2], cap:`${tag} <b>push ${x}</b>: not full, so first <b>top = top + 1 = ${top}</b>. top now names the empty slot we're about to fill.`, vars:[['top',top],['x',x]] });
+          const id = 'i' + (uid++); vals[id] = x; stack.push(id);
+          snap({ line:3, cap:`…then <b>A[${top}] = ${x}</b>. The new value sits on top.`, vars:[['top',top],['x',x]], fresh:id });
+        } else {
+          const id = stack.pop(); out.push(id);
+          snap({ line:[4,5], cap:`${tag} <b>pop</b>: not empty, so first <b>read A[${top}] = ${vals[id]}</b>. It is the topmost value, the last one in (LIFO).`, vars:[['top',top],['x',vals[id]]] });
+          top--;
+          snap({ line:[6,7], cap:`…then <b>top = top − 1 = ${top}</b>, and return ${vals[id]}.`, vars:[['top',top],['x',vals[id]]] });
+        }
+      });
+      S[S.length-1].cap += ` <span class="t">Final stack (bottom → top): ${stack.map(i => vals[i]).join(' ')}</span>. Popped in order: ${out.map(i => vals[i]).join(', ')}.`;
+      return S;
+    }
+    function genRev(str){
+      const S = [], vals = {}; let stack = [], out = [], uid = 0;
+      const chars = str.split('');
+      const snap = o => S.push(Object.assign({ size:Math.max(4, chars.length), top:stack.length-1, stack:stack.slice(), out:out.slice(), vals:Object.assign({}, vals), mode:'rev', tape:chars, cur:-1 }, o));
+      snap({ line:1, cap:`Reverse <b>${str}</b>: push every character, then pop them all.` , vars:[['top',-1]] });
+      chars.forEach((c,k) => { const id = 'c'+(uid++); vals[id] = c; stack.push(id); snap({ line:[2,3], cur:k, cap:`push <b>${c}</b>. It lands on top of ${k ? vals[stack[stack.length-2]] : 'the empty stack'}.`, vars:[['top',stack.length-1]] }); });
+      while (stack.length){ const id = stack.pop(); out.push(id); snap({ line:[4,5], cur:chars.length, cap:`pop → <b>${vals[id]}</b>. Last in, first out.`, vars:[['top',stack.length-1],['output',out.map(i=>vals[i]).join('')]] }); }
+      const r = out.map(i=>vals[i]).join('');
+      S[S.length-1].cap += ` Output <b>${r}</b> = ${str} reversed.` + (r === str ? ' <span class="t">Same as the input, so it is a palindrome.</span>' : '');
+      return S;
+    }
+    function genPF(expr){
+      const toks = expr.trim().split(/\s+/).filter(Boolean);
+      const S = [], vals = {}; let stack = [], uid = 0, calc = null;
+      let depth = 0, d = 0; toks.forEach(t => { if (/^-?\d+(\.\d+)?$/.test(t)) d++; else d = Math.max(0, d-1); depth = Math.max(depth, d); });
+      const cap = Math.max(3, depth);
+      const snap = o => S.push(Object.assign({ size:cap, top:stack.length-1, stack:stack.slice(), out:[], vals:Object.assign({}, vals), mode:'pf', tape:toks, calc: calc && Object.assign({}, calc) }, o));
+      const sv = () => ['stack', stack.length ? stack.map(i => vals[i]).join(' ') : '(empty)'];
+      snap({ line:[1,2], cur:-1, cap:'Scan the postfix expression left to right. Every operand waits on the stack until an operator needs it.', vars:[sv()] });
+      for (let k = 0; k < toks.length; k++){
+        const t = toks[k];
+        if (/^-?\d+(\.\d+)?$/.test(t)){
+          const id = 'p'+(uid++); vals[id] = +t; stack.push(id); calc = null;
+          snap({ line:3, cur:k, cap:`<b>${t}</b> is an operand, so push it.`, vars:[['token',t], sv()], fresh:id });
+        } else if (/^[-+*/^]$/.test(t)){
+          if (stack.length < 1){ calc = null; snap({ line:5, bad:[5], cur:k, err:true, cap:`<b>${t}</b> needs two operands, but the stack is <span class="r">empty → stack underflow</span>. The expression is malformed.`, vars:[['token',t], sv()] }); return S; }
+          const a2 = stack.pop(); calc = { a2, op:t };
+          snap({ line:[4,5], cur:k, cap:`<b>${t}</b> is an operator. <b>First</b> pop gives ${fmt(vals[a2])}, which becomes <b>arg2</b>, the <em>right</em> operand.`, vars:[['token',t],['arg2',fmt(vals[a2])], sv()] });
+          if (stack.length < 1){ snap({ line:6, bad:[6], cur:k, err:true, cap:`The second pop finds the stack <span class="r">empty → underflow</span>. <b>${t}</b> had only one operand, so the expression is malformed.`, vars:[['token',t],['arg2',fmt(vals[a2])], sv()] }); return S; }
+          const a1 = stack.pop(); calc.a1 = a1;
+          snap({ line:6, cur:k, cap:`<b>Second</b> pop gives ${fmt(vals[a1])}, which becomes <b>arg1</b>, the <em>left</em> operand. This order is what makes ${t === '-' || t === '/' ? `<b>${fmt(vals[a1])} ${t} ${fmt(vals[a2])}</b> and not ${fmt(vals[a2])} ${t} ${fmt(vals[a1])}` : 'subtraction and division come out right'}.`, vars:[['token',t],['arg1',fmt(vals[a1])],['arg2',fmt(vals[a2])], sv()] });
+          const x = vals[a1], y = vals[a2];
+          const r = t === '+' ? x+y : t === '-' ? x-y : t === '*' ? x*y : t === '/' ? x/y : Math.pow(x,y);
+          const id = 'p'+(uid++); vals[id] = r; calc.res = id;
+          snap({ line:7, cur:k, cap:`Compute <b>arg1 ${t} arg2 = ${fmt(x)} ${t} ${fmt(y)} = ${fmt(r)}</b>…`, vars:[['token',t],['arg1',fmt(x)],['arg2',fmt(y)], sv()] });
+          stack.push(id); calc = null;
+          snap({ line:7, cur:k, cap:`…and push ${fmt(r)}. Two values went in and one came out.`, vars:[['token',t], sv()] });
+        } else {
+          snap({ line:2, cur:k, err:true, cap:`<span class="r">"${esc(t)}" isn't a number or one of + − * / ^</span>. Separate tokens with spaces.`, vars:[['token',t]] }); return S;
+        }
+      }
+      if (!toks.length){ snap({ line:null, cur:0, err:true, cap:'Type a postfix expression first, with tokens separated by spaces, e.g. <code>2 3 4 + *</code>.', vars:[] }); return S; }
+      if (stack.length === 1) snap({ line:8, cur:toks.length, cap:`Expression used up and exactly one value is left: <span class="t">answer = ${fmt(vals[stack[0]])}</span>.`, vars:[sv()], done:true });
+      else snap({ line:8, cur:toks.length, err:true, cap:`<span class="r">${stack.length} values are left, not 1</span>: there are too many operands, so the expression is malformed.`, vars:[sv()] });
+      return S;
+    }
+    window.__ds.stack = { genSeq, genRev, genPF };
+
+    // ---- rendering ----
+    const items = Pool(stage), slots = Pool(stage), toks = Pool(stage);
+    const bucket = h('div'); bucket.style.cssText = 'position:absolute;border:2px solid #3A414D;border-top:none;border-radius:0 0 8px 8px;';
+    const topP = h('div','ptr a'), trayL = h('div','slotlbl'), calcL = h('div','slotlbl'), opEl = h('div','ptr i'), eqEl = h('div','ptr i');
+    [bucket, topP, trayL, calcL, opEl, eqEl].forEach(e => stage.appendChild(e));
+    trayL.style.textAlign = calcL.style.textAlign = 'left';
+    function render(s, anim){
+      const avail = Math.max(stage.parentNode.clientWidth, 330);
+      const SH = 38, GAP = 4, BW = 62, bx = 44, bTop = s.mode === 'seq' ? 58 : 70, cap = s.size, bBot = bTop + cap*(SH+GAP) + 4;
+      const rx = bx + BW + 96;
+      fit(stage, Math.max(rx + 190, bx + (s.tape ? s.tape.length : 0)*38 + 10, s.mode === 'rev' ? rx + s.tape.length*45 + 10 : 0), bBot + 30, 0.72);
+      Object.assign(bucket.style, { left:(bx-6)+'px', top:bTop+'px', width:(BW+12)+'px', height:(bBot-bTop)+'px' });
+      bucket.classList.toggle('flash-bad', !!s.err && anim);
+      bucket.style.borderColor = s.err ? COLORS.rust : '#3A414D';
+      slots.begin();
+      for (let k = 0; k < cap; k++){
+        const [l] = slots.get('s'+k, () => h('div','slotlbl'));
+        l.textContent = k; l.style.width = '28px'; l.style.textAlign = 'right'; place(l, bx - 42, bBot - (k+1)*(SH+GAP) + 10, false, null, false);
+      }
+      slots.end();
+      const slotY = k => bBot - (k+1)*(SH+GAP);
+      // top pointer (array index; −1 sits just below the bucket)
+      topP.innerHTML = `◀ top = ${ns(s.top)}`; topP.style.opacity = s.mode === 'pf' ? 0 : 1;
+      place(topP, bx + BW + 10, s.top >= 0 ? slotY(s.top) + 10 : bBot + 4, false, null, anim);
+      // tray / calc labels
+      trayL.textContent = s.mode === 'pf' ? '' : 'popped →'; place(trayL, rx, bTop - 22, false, null, false);
+      calcL.textContent = s.mode === 'pf' ? 'arg1   op   arg2' : ''; place(calcL, rx, bTop + 24, false, null, false);
+      items.begin();
+      const put = (id, x, y, cls) => {
+        const [e, fresh] = items.get(id, () => { const c = h('div','cell mv'); c.style.width = BW+'px'; c.style.height = SH+'px'; return c; });
+        e.textContent = fmt(s.vals[id]); e.className = 'cell mv ' + (cls || '');
+        place(e, x, y, fresh, [x, 4, 0], anim);
+        e.style.opacity = '';
+      };
+      s.stack.forEach((id, k) => put(id, bx, slotY(k), k === s.stack.length-1 && s.mode !== 'pf' ? 'cmp' : ''));
+      s.out.forEach((id, k) => put(id, rx + k*(BW*0.62+6), bTop, 'done'));
+      if (s.calc){
+        if (s.calc.a1) put(s.calc.a1, rx, bTop + 44, 'cmp');
+        if (s.calc.a2) put(s.calc.a2, rx + 118, bTop + 44, 'cmp');
+        if (s.calc.res) put(s.calc.res, rx + 118, bTop + 100, 'hit');
+      }
+      // shrink the popped-tray cells so a long output still fits
+      s.out.forEach(id => { const [e] = items.get(id, () => h('div')); e.style.width = (BW*0.62)+'px'; });
+      items.end();
+      opEl.textContent = s.calc ? s.calc.op : ''; place(opEl, rx + BW + 18, bTop + 52, false, null, false);
+      eqEl.textContent = s.calc && s.calc.res ? '= result' : ''; place(eqEl, rx + 118 - 70, bTop + 110, false, null, false);
+      // token tape
+      toks.begin();
+      (s.tape || []).forEach((t, k) => {
+        const [e] = toks.get('t'+k+'_'+t, () => h('div','cell mv'));
+        e.textContent = t; e.style.height = '30px'; e.style.minWidth = '30px'; e.style.padding = '0 6px'; e.style.fontSize = '14px';
+        e.className = 'cell mv ' + (k === s.cur ? 'cmp' : k < s.cur ? 'done' : '');
+        if (k < s.cur) e.style.opacity = .45; else e.style.opacity = '';
+        place(e, bx - 6 + k*38, 8, false, null, false);
+      });
+      toks.end();
+      if (s.mode === 'rev'){ trayL.textContent = 'output →'; place(trayL, rx, bTop - 22, false, null, false); }
+      const stackTxt = s.stack.map(i => fmt(s.vals[i])).join(' ');
+      readout.textContent = s.mode === 'pf' ? `stack (bottom→top): ${stackTxt || 'empty'}` : `top = ${ns(s.top)} · stack: ${stackTxt || 'empty'}`;
+    }
+    const player = Player(panel, render, { delay:1250 });
+    const input = panel.querySelector('#pfIn');
+    const P = { seq: () => player.load(genSeq(), CODE_SEQ), rev: () => player.load(genRev('ABCD'), CODE_REV), pal: () => player.load(genRev('LEVEL'), CODE_REV),
+                pf: () => { input.value = '2 3 4 + *'; player.load(genPF(input.value), CODE_PF); },
+                pf2: () => { input.value = '2 3 * 4 +'; player.load(genPF(input.value), CODE_PF); } };
+    presets(panel.querySelector('.presets'), p => P[p]());
+    panel.querySelector('#pfGo').addEventListener('click', () => { panel.querySelectorAll('.presets [data-p]').forEach(x => x.classList.toggle('on', x.dataset.p === 'pf' && false)); player.load(genPF(input.value), CODE_PF); });
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') panel.querySelector('#pfGo').click(); });
+    P.seq();
+  })();
+
+  // ================= Widget 5: linear vs circular queue, same operations (S10, S11) =================
+  (function(){
+    const panel = document.getElementById('qPanel'); if (!panel) return;
+    const stage = panel.querySelector('.stage'), readout = panel.querySelector('.readout');
+    const CODE = ['ENQUEUE(CQ, item)            — circular (S11)', '1  if front = 0:', '2      front = rear = 1;  CQ[1] = item', '3  else  next = (rear mod n) + 1', '4      if next ≠ front:', '5          rear = next;  CQ[rear] = item', '6      else "Queue is full"', 'DEQUEUE(CQ)', '7  if front = 0: "Queue is empty"', '8  item = CQ[front]', '9  if front = rear: front = rear = 0', '10 else front = (front mod n) + 1'];
+    // ---- pure generator: both queues run the same op list ----
+    function gen(n, init, ops){
+      let uid = 0;
+      const mk = () => ({ F:init.F, R:init.R, q:Array(n+1).fill(null) });
+      const L = mk(), C = mk();
+      (init.items || []).forEach(([k,v]) => { L.q[k] = { id:'L'+(uid), v }; C.q[k] = { id:'C'+(uid++), v }; });
+      const S = [];
+      const lane = (Q, x) => ({ F:Q.F, R:Q.R, q:Q.q.slice(), rej:false, under:false, waste:[], hi:null, leave:null, ghost:null, msg:'', ...x });
+      const snap = (op, l, c, capL, capC, line) => S.push({ op, n, lin:l, cir:c, line, vars:[['linear F',l.F],['linear R',l.R],['circular front',c.F],['circular rear',c.R]].concat(c.next != null ? [['next',c.next]] : []),
+        cap:(op ? `<b>${op}</b><br>` : '') + `<span class="a">Linear:</span> ${capL}<br><span class="t">Circular:</span> ${capC}` });
+      snap('', lane(L,{}), lane(C,{}), init.items && init.items.length ? `FRONT = ${L.F}, REAR = ${L.R}` : 'empty: FRONT = REAR = 0', init.items && init.items.length ? `front = ${C.F}, rear = ${C.R}` : 'empty: front = rear = 0', null);
+      ops.forEach(([o, x]) => {
+        let l, c, capL, capC, line;
+        if (o === 'E'){
+          // linear (S10)
+          if (L.R === n){
+            const free = L.F > 1 ? L.F - 1 : 0;
+            l = lane(L, { rej:true, ghost:x, msg:'FULL', waste: free ? Array.from({length:free}, (_,k) => k+1) : [] });
+            capL = `REAR = N = ${n}, so "Queue is full"` + (free ? ` — <span class="r">yet cell${free > 1 ? 's 1–' + free : ' 1'} ${free > 1 ? 'are' : 'is'} empty!</span> The freed front cells are never reused.` : L.F === 0 ? '.' : ' (truly full).');
+          } else {
+            const first = L.F === 0 && L.R === 0; if (first) L.F = 1;
+            L.R++; L.q[L.R] = { id:'L'+(uid++), v:x };
+            l = lane(L, { hi:L.R }); capL = (first ? 'empty, so FRONT = 1 as well; ' : '') + `REAR = ${L.R}, Q[${L.R}] = ${x}.`;
+          }
+          // circular (S11)
+          if (C.F === 0){
+            C.F = C.R = 1; C.q[1] = { id:'C'+(uid++), v:x };
+            c = lane(C, { hi:1 }); capC = `empty, so front = rear = 1 and CQ[1] = ${x}.`; line = [0,1,2];
+          } else {
+            const old = C.R, next = (C.R % n) + 1;
+            if (next !== C.F){
+              C.R = next; C.q[next] = { id:'C'+(uid++), v:x };
+              c = lane(C, { hi:next, next }); capC = `next = (${old} mod ${n}) + 1 = <b>${next}</b> ≠ front (${C.F}), so rear = ${next} and CQ[${next}] = ${x}` + (next < old ? ' — <b>wrapped round</b> into a freed cell, no shifting.' : '.'); line = [0,3,4,5];
+            } else {
+              c = lane(C, { rej:true, ghost:x, msg:'FULL', next }); capC = `next = (${old} mod ${n}) + 1 = ${next} = front, so "Queue is full" — genuinely, all ${n} cells hold data.`; line = [0,3,4,6];
+            }
+          }
+          snap(`ENQUEUE ${x}`, l, c, capL, capC, line);
+        } else {
+          if (L.F === 0){ l = lane(L, { under:true, msg:'EMPTY' }); capL = 'FRONT = 0, so "Queue is empty" (underflow).'; }
+          else {
+            const it = L.q[L.F]; L.q[L.F] = null; const was = L.F;
+            if (L.F === L.R){ L.F = L.R = 0; capL = `remove ${it.v}; FRONT = REAR, so that was the last one: FRONT = REAR = 0.`; }
+            else { L.F++; capL = `remove ${it.v} from cell ${was}; FRONT = ${L.F}.`; }
+            l = lane(L, { leave:{ ...it, k:was } });
+          }
+          if (C.F === 0){ c = lane(C, { under:true, msg:'EMPTY' }); capC = 'front = 0, so "Queue is empty" (underflow).'; line = [7,8]; }
+          else {
+            const it = C.q[C.F]; C.q[C.F] = null; const was = C.F;
+            if (C.F === C.R){ C.F = C.R = 0; capC = `remove ${it.v}; front = rear, so it was the last one: both set to 0.`; line = [7,9,10]; }
+            else { C.F = (C.F % n) + 1; capC = `remove ${it.v}; front = (${was} mod ${n}) + 1 = <b>${C.F}</b>` + (C.F < was ? ' — front wraps round too.' : '.'); line = [7,9,11]; }
+            c = lane(C, { leave:{ ...it, k:was } });
+          }
+          snap('DEQUEUE', l, c, capL, capC, line);
+        }
+      });
+      return S;
+    }
+    window.__ds.queue = gen;
+
+    // ---- rendering ----
+    const pool = Pool(stage), statics = Pool(stage);
+    let PITCH = 50, CW = 42, X0 = 70;
+    const mkP = (cls, txt) => { const e = h('div','ptr ' + cls); e.innerHTML = txt; stage.appendChild(e); return e; };
+    const pLF = mkP('a','F<span class="arw">▼</span>'), pLR = mkP('a','<span class="arw">▲</span>R');
+    const pCF = mkP('t','F<span class="arw">▼</span>'), pCR = mkP('t','<span class="arw">▲</span>R');
+    const bL = h('div','badge'), bC = h('div','badge'), hL = h('div','lanehead'), hC = h('div','lanehead'), ring = h('div','ring');
+    [bL, bC, hL, hC, ring].forEach(e => stage.appendChild(e));
+    const rF = h('div','ringptr'), rR = h('div','ringptr');
+    rF.innerHTML = '<span style="color:var(--teal)">F</span>'; rR.innerHTML = '<span style="color:var(--teal)">R</span>';
+    stage.appendChild(rF); stage.appendChild(rR);
+    const ang = { F:0, R:0 };
+    let lastN = 0, lastIdx = -1;
+    function render(s, anim, idx){
+      const n = s.n;
+      if (n !== lastN){ pool.clear(); statics.clear(); lastN = n; ang.F = ang.R = 0; }
+      const avail = stage.parentNode.clientWidth;
+      PITCH = Math.max(40, Math.min(50, Math.floor((avail - 16) / (n + 2)))); CW = PITCH - 8; X0 = PITCH + 10;
+      if (PITCH !== render.__p){ statics.clear(); pool.clear(); render.__p = PITCH; }
+      const stripW = n*PITCH, RR = n <= 5 ? 62 : 28 + n*8.5;
+      const yL = 80, laneC = 214, yC = laneC + 60;
+      // ring beside the circular strip when there is room, otherwise underneath it
+      const side = avail >= X0 + stripW + 90 + 2*RR + 70;
+      const cx = side ? X0 + stripW + 90 + RR : Math.max(RR + 60, Math.min(avail, X0 + stripW + 20) / 2);
+      const cy = side ? Math.max(yC + CW/2, laneC + RR + 50) : yC + CW + 84 + RR + 52;
+      fit(stage, Math.max(side ? cx + RR + 70 : X0 + stripW + PITCH + 16, cx + RR + 60), Math.max(cy + RR + 60, yC + 120), 0.72);
+      hL.innerHTML = '<b style="color:var(--amber)">Linear queue</b> (S10)'; place(hL, 12, 6, false, null, false);
+      hC.innerHTML = '<b style="color:var(--teal)">Circular queue</b> (S11)'; place(hC, 12, laneC - 20, false, null, false);
+      statics.begin();
+      const cellX = k => X0 + (k-1)*PITCH;
+      [[yL,'L'],[yC,'C']].forEach(([y, P]) => {
+        const ln = P === 'L' ? s.lin : s.cir;
+        for (let k = 1; k <= n; k++){
+          const [b] = statics.get(P+'b'+k, () => { const e = h('div','cell'); e.style.cssText = `position:absolute;width:${CW}px;height:${CW}px;background:transparent;border-style:dashed;border-color:#2f3540`; return e; });
+          place(b, cellX(k), y, false, null, false);
+          b.style.borderColor = ln.waste.includes(k) ? COLORS.rust : (ln.hi === k ? COLORS.amber : '#2f3540');
+          b.style.background = ln.waste.includes(k) ? 'rgba(193,89,74,.10)' : 'transparent';
+          const [ix] = statics.get(P+'i'+k, () => h('div','slotlbl'));
+          ix.textContent = k; ix.style.width = CW+'px'; place(ix, cellX(k), y - 15, false, null, false);
+        }
+        const [z] = statics.get(P+'z', () => { const e = h('div','slotlbl'); e.textContent = '0'; return e; });
+        z.style.width = CW+'px'; z.style.opacity = .6; place(z, X0 - PITCH, y - 15, false, null, false);
+      });
+      // ring cells (circular lane): cell 1 at the top, clockwise; same indices as the strip
+      Object.assign(ring.style, { left:(cx-RR)+'px', top:(cy-RR)+'px', width:(2*RR)+'px', height:(2*RR)+'px' });
+      for (let k = 1; k <= n; k++){
+        const th = (k-1) * 2*Math.PI / n;
+        const [rc] = statics.get('rc'+k, () => { const e = h('div','ringcell'); e.innerHTML = `<span class="ix">${k}</span><b></b>`; return e; });
+        rc.style.left = (cx + RR*Math.sin(th)) + 'px'; rc.style.top = (cy - RR*Math.cos(th)) + 'px';
+        const it = s.cir.q[k]; rc.querySelector('b').textContent = it ? it.v : '·';
+        rc.querySelector('b').style.fontWeight = 500; rc.querySelector('b').style.color = it ? '' : '#3b414c';
+        rc.style.borderColor = s.cir.hi === k ? COLORS.amber : (it ? COLORS.teal : '#3A414D');
+        rc.querySelector('.ix').style.left = '50%'; rc.querySelector('.ix').style.transform = 'translateX(-50%)';
+      }
+      statics.end();
+      // items: kept in their cells (a queue never moves its data)
+      pool.begin();
+      const put = (key, v, x, y, cls, from) => {
+        const [e, fresh] = pool.get(key, () => { const c = h('div','cell mv'); c.style.width = c.style.height = CW+'px'; return c; });
+        e.textContent = v; e.className = 'cell mv ' + (cls || ''); e.style.width = e.style.height = CW + 'px';
+        place(e, x, y, fresh, from, anim);
+        e.style.opacity = '';          // an item faded out by a dequeue must reappear when stepping back
+        return e;
+      };
+      [[yL, s.lin, 'L'], [yC, s.cir, 'C']].forEach(([y, ln, P]) => {
+        for (let k = 1; k <= n; k++){ const it = ln.q[k]; if (it) put(it.id, it.v, cellX(k), y, ln.hi === k ? 'cmp' : '', [cellX(k), y - 60, 0]); }
+        if (ln.leave){ const e = put(ln.leave.id, ln.leave.v, X0 - PITCH - 20, y, 'done', null); e.style.opacity = 0; }
+        if (ln.ghost != null){
+          const gx = cellX(n + 1) + 6;   // knocking at a cell N+1 that doesn't exist
+          const e = put(P + 'g' + idx, ln.ghost, gx, y, 'bad', [gx + 40, y, 0]);
+          if (anim){ e.classList.remove('flash-bad'); void e.offsetWidth; e.classList.add('flash-bad'); }
+        }
+      });
+      pool.end();
+      // F / R pointers on the strips (0 parks them on the "0" column)
+      const px = k => (k === 0 ? X0 - PITCH : cellX(k));
+      [[pLF, s.lin.F, yL - 52], [pLR, s.lin.R, yL + CW + 2], [pCF, s.cir.F, yC - 52], [pCR, s.cir.R, yC + CW + 2]].forEach(([p, k, y]) => {
+        p.style.width = CW + 'px'; place(p, px(k), y, false, null, anim); p.style.opacity = k === 0 ? .45 : 1;
+      });
+      // ring pointers: shortest rotation so a normal step always turns clockwise by one cell
+      const setRing = (el, key, k, rad) => {
+        if (k === 0){ el.style.opacity = 0; return; }
+        const target = (k-1) * 360 / n; let d = ((target - ang[key]) % 360 + 540) % 360 - 180; ang[key] += d;
+        el.style.opacity = 1; el.style.left = cx + 'px'; el.style.top = cy + 'px';
+        if (!anim) el.style.transition = 'none';
+        el.style.transform = `rotate(${ang[key]}deg)`;
+        el.firstChild.style.transform = `translate(-50%,-50%) translateY(${-rad}px) rotate(${-ang[key]}deg)`;
+        el.firstChild.style.transition = anim && !REDUCED ? `transform var(--dur) var(--ease)` : 'none';
+        if (!anim){ void el.offsetWidth; el.style.transition = ''; }
+      };
+      setRing(rF, 'F', s.cir.F, RR + 30); setRing(rR, 'R', s.cir.R, RR + 48);
+      // badges
+      const badge = (b, ln, x, y) => {
+        b.className = 'badge ' + (ln.rej || ln.under ? 'bad' : 'eq');
+        b.textContent = ln.rej ? (ln.waste.length ? `FULL? ${ln.waste.length} free cell${ln.waste.length > 1 ? 's' : ''} wasted` : 'Queue is full') : ln.under ? 'Queue is empty' : `${ln.F ? (ln === s.lin ? (ln.R - ln.F + 1) : count(ln)) : 0} in queue`;
+        place(b, x, y, false, null, false);
+      };
+      const count = ln => ln.q.filter(Boolean).length;
+      badge(bL, s.lin, X0, yL + CW + 30);
+      badge(bC, s.cir, X0, yC + CW + 30);
+      const fk = s.lin.rej ? n + 1 : (s.lin.hi || s.cir.hi || s.lin.F || s.cir.F);
+      if (fk) follow(stage, cellX(fk) + CW/2, anim);
+      readout.textContent = s.op ? s.op : 'start';
+      lastIdx = idx;
+    }
+    const player = Player(panel, render, { delay:1700 });
+    const PRE = {
+      a:{ n:4, init:{F:0,R:0,items:[]}, ops:[['E','A'],['E','B'],['E','C'],['E','D'],['D'],['E','E'],['D'],['E','F'],['D'],['D'],['D'],['D']] },
+      b:{ n:10, init:{F:8,R:9,items:[[8,23],[9,21]]}, ops:[['D'],['E',24],['E',27],['D'],['D'],['D'],['E',22],['E',28],['D'],['D']] }
+    };
+    let cur = null;
+    function load(p){ cur = JSON.parse(JSON.stringify(PRE[p])); player.load(gen(cur.n, cur.init, cur.ops), CODE); }
+    presets(panel.querySelector('.presets'), load);
+    const nextLabel = () => {
+      const used = cur.ops.filter(o => o[0] === 'E').map(o => o[1]);
+      const nums = used.filter(v => typeof v === 'number');
+      if (nums.length) return Math.max(...nums) + 1;
+      const last = used.length ? used[used.length-1] : '@';
+      return String.fromCharCode(((last.charCodeAt(0) - 64) % 26) + 65);
+    };
+    panel.querySelector('#qEnq').addEventListener('click', () => { cur.ops.push(['E', nextLabel()]); const S = gen(cur.n, cur.init, cur.ops); player.load(S, CODE, S.length - 2); player.goto(S.length - 1); });
+    panel.querySelector('#qDeq').addEventListener('click', () => { cur.ops.push(['D']); const S = gen(cur.n, cur.init, cur.ops); player.load(S, CODE, S.length - 2); player.goto(S.length - 1); });
+    load('a');
+  })();
+
+  // ================= Widget 6: Big-O — find c and n0 (S10, 21 Sep) =================
+  (function(){
+    const svg = document.getElementById('boChart'); if (!svg) return;
+    const slider = document.getElementById('boC'), valEl = document.getElementById('boCVal'), readout = document.getElementById('boRead'), verdict = document.getElementById('boVerdict');
+    const FN = {
+      q:{ f:n => n*n + 3*n + 1, g:n => n*n, fl:'f(n) = n² + 3n + 1', gl:'c·n²', min:0.5, max:8, def:5, yMax:250, thr:1 },
+      l:{ f:n => 2*n + 4, g:n => n, fl:'f(n) = 2n + 4', gl:'c·n', min:0.5, max:12, def:10, yMax:60, thr:2 }
+    };
+    // smallest integer n0 ≥ 1 with f(n) ≤ c·g(n) for every n ≥ n0 (closed form; both gaps are monotone once c > threshold)
+    function n0(key, c){
+      if (key === 'q'){ if (c <= 1) return null; const r = (3 + Math.sqrt(9 + 4*(c-1))) / (2*(c-1)); return Math.max(1, Math.ceil(r - 1e-9)); }
+      if (c <= 2) return null; return Math.max(1, Math.ceil(4/(c-2) - 1e-9));
+    }
+    window.__ds.bigo = n0;
+    let key = 'q';
+    const xMax = 10;
+    let f = frame({ x0:62, y0:16, w:660, h:250 });
+    function render(){
+      // phones get a narrower drawing with bigger type instead of a shrunken wide one
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      svg.setAttribute('viewBox', narrow ? '0 0 420 330' : '0 0 760 320');
+      svg.classList.toggle('narrow', narrow);
+      f = narrow ? frame({ x0:52, y0:16, w:352, h:252 }) : frame({ x0:62, y0:16, w:660, h:250 });
+      const F = FN[key], c = +slider.value, yMax = F.yMax;
+      const X = n => f.x0 + n/xMax*f.w, Y = v => f.y1 - v/yMax*f.h;
+      clear(svg);
+      const defs = el('defs', {}); const cp = el('clipPath', {id:'boClip'}); cp.appendChild(el('rect', {x:f.x0, y:f.y0, width:f.w, height:f.h})); defs.appendChild(cp); svg.appendChild(defs);
+      drawAxes(svg, f, ticks(0, xMax, svg.classList.contains('narrow') ? 2 : 1), ticks(0, yMax, yMax/5), 'n (input size)', svg.classList.contains('narrow') ? '' : 'steps', null, v => Math.round(v));
+      const k0 = n0(key, c);
+      if (k0 != null && k0 <= xMax) svg.appendChild(el('rect', {x:X(k0), y:f.y0, width:f.x1 - X(k0), height:f.h, fill:'rgba(79,168,160,.07)'}));
+      const path = fn => { let d = ''; for (let n = 0; n <= xMax + 1e-9; n += 0.05) d += (d ? 'L' : 'M') + X(n).toFixed(1) + ',' + Y(fn(n)).toFixed(1); return d; };
+      const g = el('g', {'clip-path':'url(#boClip)'}); svg.appendChild(g);
+      g.appendChild(el('path', {d:path(n => c*F.g(n)), fill:'none', stroke:COLORS.teal, 'stroke-width':2.4}));
+      g.appendChild(el('path', {d:path(F.f), fill:'none', stroke:COLORS.amber, 'stroke-width':2.4}));
+      for (let n = 1; n <= xMax; n++){
+        const ok = F.f(n) <= c*F.g(n) + 1e-9, v = F.f(n);
+        if (v <= yMax) g.appendChild(el('circle', {cx:X(n), cy:Y(v), r:4.5, fill: ok ? COLORS.teal : COLORS.rust, stroke:'#14171C', 'stroke-width':1.5}));
+      }
+      if (k0 != null && k0 <= xMax){
+        svg.appendChild(el('line', {x1:X(k0), y1:f.y0, x2:X(k0), y2:f.y1, stroke:COLORS.ink, 'stroke-dasharray':'4 4', 'stroke-width':1.2}));
+        const t = el('text', {x:X(k0) + 6, y:f.y0 + 14, class:'tick', fill:COLORS.ink}); t.textContent = 'n₀ = ' + k0; t.style.fill = COLORS.ink; svg.appendChild(t);
+      }
+      // legend
+      const lg = [[F.fl, COLORS.amber], [F.gl.replace('c', c.toFixed(1)) + '  (c = ' + c.toFixed(1) + ')', COLORS.teal]];
+      lg.forEach(([txt, col], i) => { const y = f.y0 + 16 + i*20, x = f.x0 + 12;
+        svg.appendChild(el('line', {x1:x, y1:y-4, x2:x+18, y2:y-4, stroke:col, 'stroke-width':2.4}));
+        const t = el('text', {x:x+24, y, class:'tick'}); t.textContent = txt; t.style.fill = COLORS.dim; svg.appendChild(t); });
+      valEl.textContent = c.toFixed(1);
+      if (k0 == null){
+        readout.textContent = `c = ${c.toFixed(1)} · no n₀`;
+        verdict.className = 'verdict bad';
+        verdict.textContent = `c ≤ ${F.thr}: c·${key === 'q' ? 'n²' : 'n'} never gets above f(n), however large n is. Pick a bigger c. Any c > ${F.thr} works eventually.`;
+      } else {
+        readout.textContent = `c = ${c.toFixed(1)} · n₀ = ${k0}`;
+        verdict.className = 'verdict good';
+        verdict.textContent = (k0 > xMax ? `n₀ = ${k0} is off the chart to the right, but it exists. ` : '') + `For every n ≥ ${k0}: f(n) ≤ ${c.toFixed(1)}·g(n), so f(n) = O(${key === 'q' ? 'n²' : 'n'}). Red dots are where the bound fails; only large n matters.`;
+      }
+    }
+    document.querySelectorAll('#boPre [data-p]').forEach(b => b.addEventListener('click', () => {
+      key = b.dataset.p; document.querySelectorAll('#boPre [data-p]').forEach(x => x.classList.toggle('on', x === b));
+      const F = FN[key]; slider.min = F.min; slider.max = F.max; slider.value = F.def; render();
+    }));
+    slider.addEventListener('input', render);
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+    render();
+  })();
+
+  // ---------- page chrome ----------
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    progress.style.width = (d.scrollTop/(d.scrollHeight-d.clientHeight)*100) + '%';
+  });
+  // Jump-nav via JS, not native #anchors: the preview pane loads pages as data: URIs where anchor jumps fail
+  document.querySelectorAll('nav.jumpnav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      const navH = document.querySelector('nav.jumpnav').offsetHeight + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior:'smooth' });
+    });
+  });
+  let closedForPrint = [];
+  window.addEventListener('beforeprint', () => {
+    closedForPrint = [...document.querySelectorAll('details:not([open])')];
+    closedForPrint.forEach(d => d.open = true);
+  });
+  window.addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
+})();
+</script>
+</body>
+</html>
