@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-24
+start: 7:00pm
+session: "4"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 4 — 2026-08-24 — Instructor: Suman Majumdar
 

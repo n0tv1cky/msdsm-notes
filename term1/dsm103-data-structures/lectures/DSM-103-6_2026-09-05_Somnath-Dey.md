@@ -1,6 +1,14 @@
-# DSM-103 Data Structures — Session 7
+---
+course: DSM 103
+date: 2026-09-05
+start: 2:45pm
+session: "6"
+faculty: Somnath Dey
+---
+
+# DSM-103 Data Structures — Session 6
 **Date:** 2026-09-05 · **Instructor:** Somnath Dey
-**File:** DSM-103-7_2026-09-05_Somnath-Dey
+**File:** DSM-103-6_2026-09-05_Somnath-Dey
 
 ---
 

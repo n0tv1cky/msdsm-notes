@@ -1,4 +1,12 @@
-# DSM-103 Data Structures — Session 10 (2026-09-18, Instructor: Surya Prakash)
+---
+course: DSM 103
+date: 2026-09-18
+start: 7:00pm
+session: "9"
+faculty: Surya Prakash
+---
+
+# DSM-103 Data Structures — Session 9 (2026-09-18, Instructor: Surya Prakash)
 ## Topic: The Queue Data Structure (Array Implementation)
 
 ---

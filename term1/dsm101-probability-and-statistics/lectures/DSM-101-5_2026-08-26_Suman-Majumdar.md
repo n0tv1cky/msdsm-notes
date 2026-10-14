@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-26
+start: 7:00pm
+session: "5"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Session 5 (2026-08-26, Prof. Suman Majumdar)
 ## Population vs. Sample, Moments, and the Binomial Distribution
 

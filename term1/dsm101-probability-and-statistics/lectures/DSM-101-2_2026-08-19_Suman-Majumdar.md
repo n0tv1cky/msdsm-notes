@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-19
+start: 7:00pm
+session: "2"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 2 — 19 Aug 2026 — Instructor: Suman Majumdar
 ### Topic: What *is* Probability? A Historical Journey + Frequentist vs. Bayesian Views

@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-09-02
+start: 7:00pm
+session: "8"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 8 (2026-09-02) — Bayes' Theorem in Practice: Monty Hall & the "You Are the Barrister" Problem
 **Instructor: Suman Majumdar**

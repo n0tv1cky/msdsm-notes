@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-22
+start: 10:45am
+session: "3"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Session 3 (2026-08-22, Prof. Suman Majumdar)
 ## Data Compression, Statistics, and the Calculus of Probability
 

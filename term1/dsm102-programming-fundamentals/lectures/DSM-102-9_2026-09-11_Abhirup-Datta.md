@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-09-11
+start: 7:00pm
+session: "9"
+faculty: Abhirup Datta
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 9 (2026-09-11) — Data Visualisation with Matplotlib
 

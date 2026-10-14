@@ -1,3 +1,11 @@
+---
+course: DSM 103
+date: 2026-08-22
+start: 2:45pm
+session: "3"
+faculty: Somnath Dey
+---
+
 # DSM-103 — Data Structures
 ## Session Notes — 2026-08-22 (Instructor: Somnath Dey)
 ### Topic: Two-Dimensional Arrays, Row-/Column-Major Addressing, and Sparse (Triangular & Band) Matrices

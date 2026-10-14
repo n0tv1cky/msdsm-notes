@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-08-28
+start: 7:00pm
+session: "4"
+faculty: Saurabh Das
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 4 — 2026-08-28 — Instructor: Saurabh Das
 ### Topic: User-Defined Functions in Python (definition, return vs print, scope, recursion, arguments)

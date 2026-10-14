@@ -1,3 +1,11 @@
+---
+course: DSM 106
+date: 2026-09-04
+start: 7:00pm
+session: "2"
+faculty: Jagannathan Srinath
+---
+
 # DSM-106 Business Research — Session Notes
 **File:** DSM-106-2_2026-09-04_Jagannathan-Srinath
 **Topics:** Basecamp pricing case (conclusion) — interpreting Van Westendorp price-sensitivity data via interquartile ranges; A/B testing vs. survey research; introduction to the second case (30-manager, 7-item survey dataset)

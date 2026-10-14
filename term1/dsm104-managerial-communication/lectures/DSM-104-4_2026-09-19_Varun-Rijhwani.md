@@ -1,3 +1,11 @@
+---
+course: DSM 104
+date: 2026-09-19
+start: 10:45am
+session: "4"
+faculty: Varun Rijhwani
+---
+
 # DSM-104 Managerial Communication — Session 4 (19 Sep 2026)
 ## Routine, Positive & Neutral Business Messages
 

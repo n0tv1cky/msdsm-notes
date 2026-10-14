@@ -1,3 +1,11 @@
+---
+course: DSM 106
+date: 2026-09-05
+start: 10:45am
+session: "3"
+faculty: Jagannathan Srinath
+---
+
 # DSM-106 Business Research — Session 3 (2026-09-05)
 ## Instructor: Jagannathan / Srinath
 ### Topic: Reducing Survey Items to Constructs — Factor Analysis / Principal Component Analysis (PCA) on a Middle-Manager Attrition Dataset

@@ -37,7 +37,7 @@ SIGNALS = {
     "analogy": re.compile(r"\b(analog\w+|like a|think of|imagine|metaphor|story|anecdote|intuition|intuitively)\b", re.I),
 }
 
-# Session ordering: "DSM-101-12_2026-09-19-a_Arshad" or "L07"
+# Session ordering: "DSM-101-16_2026-09-19_Arshad" or "L07"
 NAME_RE = re.compile(r"DSM-\d+-(\d+)_(\d{4}-\d{2}-\d{2})(?:-([a-z]))?", re.I)
 L_RE = re.compile(r"^L(\d+)$", re.I)
 

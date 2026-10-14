@@ -1,5 +1,13 @@
+---
+course: DSM 103
+date: 2026-09-03
+start: 7:00pm
+session: "5"
+faculty: Somnath Dey
+---
+
 # DSM-103 — Data Structures
-## Session 6 — 03 Sep 2026 — Instructor: Somnath Dey
+## Session 5 — 03 Sep 2026 — Instructor: Somnath Dey
 ### Topic: Singly Linked List (copy / concatenate / search) → Circular Singly Linked List
 
 ---

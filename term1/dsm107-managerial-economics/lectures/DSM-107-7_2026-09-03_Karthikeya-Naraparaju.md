@@ -1,3 +1,11 @@
+---
+course: DSM 107
+date: 2026-09-03
+start: 7:00pm
+session: "7"
+faculty: Karthikeya Naraparaju
+---
+
 # DSM-107 Managerial Economics — Session L07 Study Notes
 
 ## 1. Overview

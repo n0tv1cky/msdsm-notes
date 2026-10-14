@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-29
+start: 10:45am
+session: "6"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 6 — 29 Aug 2026 — Instructor: Suman Majumdar
 ### Topic: From Binomial → Poisson → Gaussian; Null Hypothesis; CDF; Rarity of Events

@@ -19,12 +19,19 @@ Usage: python3 generate_notes.py <transcripts_dir> [file1.txt file2.txt ...]
   <transcripts_dir> is still subjects/<dsm-code>-<short-title>/transcripts
   (files default to every *.txt in that dir; already-generated .md files
    in this repo's <TERM>/<course-dir-name>/lectures/ are skipped)
+
+Session numbers come from ~/.zoom-recordings-sync/sessions.json (see
+sessions.py): a transcript whose name doesn't match its canonical session
+name is skipped, not generated under a stale number. Run sync_names.py --fix
+first after any Drive rename.
 """
 import json
 import re
 import sys
 import urllib.request
 from pathlib import Path
+
+from sessions import load as load_sessions, lookup, name_of, with_front_matter
 
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
 NOTES_REPO_DIR = Path(__file__).resolve().parent
@@ -95,6 +102,19 @@ COURSE_GUIDANCE = {
         "advantage), any graphs described verbally (describe the axes "
         "and the shape/movement of the curve), and worked numerical "
         "examples with their actual numbers.",
+    ),
+    "108": (
+        "DSM-108 (Spreadsheet Modeling, Excel)",
+        "This is a hands-on Excel course. Reconstruct every formula and "
+        "function the instructor types or describes as exact Excel syntax "
+        "in code blocks (e.g. =VLOOKUP(A2,$D$2:$F$50,3,FALSE), =SUMIFS(...), "
+        "absolute vs relative references), correcting ASR errors from "
+        "context and flagging where exact cell ranges/arguments had to be "
+        "inferred. Describe each worksheet model's layout (inputs, "
+        "decision variables, outputs/objective, constraints), the business "
+        "problem it models, and any tool workflows step by step (Solver "
+        "settings, Goal Seek, Data Tables, scenario manager, pivot tables, "
+        "charts) with the actual numbers used.",
     ),
 }
 
@@ -175,9 +195,18 @@ def main():
     txt_files = sorted(transcripts_dir.glob("*.txt"))
     targets = sys.argv[2:] if len(sys.argv) > 2 else [p.name for p in txt_files]
 
+    sessions = load_sessions()
     for fname in targets:
         p = transcripts_dir / fname
-        out_path = notes_dir / (p.stem + ".md")
+        entry, why = lookup(course_code, p.stem, sessions)
+        if entry is None:
+            print(f"SKIP (not in sessions.json: {why}):", p.name)
+            continue
+        name = name_of(entry)
+        if name != p.stem:
+            print(f"SKIP (stale name, canonical is {name}; run sync_names.py --fix):", p.name)
+            continue
+        out_path = notes_dir / (name + ".md")
         if out_path.exists():
             print("SKIP (exists):", out_path.name)
             continue
@@ -198,7 +227,7 @@ def main():
             print(f"  TRUNCATED (stop_reason={stop_reason}) -- NOT saving. "
                   f"Got {len(text.split())} words; raise MAX_TOKENS or split the transcript.")
             continue
-        out_path.write_text(text, encoding="utf-8")
+        out_path.write_text(with_front_matter(text, entry), encoding="utf-8")
         print(f"  saved {out_path.name} ({len(text.split())} words, stop_reason={stop_reason})")
 
 

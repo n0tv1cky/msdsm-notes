@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-08-29
+start: 2:45pm
+session: "5"
+faculty: Saurabh Das
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 5 — 2026-08-29 (Instructor: Saurabh Das)
 

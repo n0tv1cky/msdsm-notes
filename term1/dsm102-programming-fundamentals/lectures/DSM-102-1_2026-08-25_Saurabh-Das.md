@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-08-25
+start: 7:00pm
+session: "1"
+faculty: Saurabh Das
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 1 — 2026-08-25 — Instructor: Prof. Saurabh Das
 *(Dept. of Astronomy, Astrophysics & Space Engineering, IIT Indore — works with remote-sensing satellite data)*

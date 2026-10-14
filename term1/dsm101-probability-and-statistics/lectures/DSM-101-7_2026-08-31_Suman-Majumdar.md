@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-31
+start: 7:00pm
+session: "7"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 7 — Bayes' Theorem and Bayesian Inference
 **Instructor:** Suman Majumdar | **File:** DSM-101-7_2026-08-31

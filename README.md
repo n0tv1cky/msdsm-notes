@@ -29,7 +29,7 @@ python3 generate_notes.py /path/to/subjects/<dsm-code>-<short-title>/transcripts
 
 It skips any `.txt` whose `<term>/<course-dir>/lectures/<name>.md` already exists here, so re-running the whole pipeline is always safe. `TERM` is a hardcoded constant at the top of the script (currently `"term1"`) -- bump it by hand when a new term's courses start; there's no way to infer it from the transcripts path.
 
-**Note on filenames:** DSM-107's notes use clean `L01.md`..`L10.md` names; other courses currently keep their source video's full filename (e.g. `DSM-101-12_2026-09-19-a_Arshad.md`) because some sessions have ambiguous or duplicate session numbers on Drive -- see that course's notes for specifics if anything looks odd.
+**Note on filenames:** notes are named after the recording, e.g. `DSM-103-4_2026-08-29_Somnath-Dey.md`, and each starts with a front-matter block (course, date, start time, session, faculty). A lecture is identified by course + date + start time; its session N is a derived label: the Nth class of the course actually held, in date/time order, taken from the canonical session list the recording sync writes outside this repo. `generate_notes.py` refuses to write a note under a stale number, and `python3 sync_names.py --fix` renames notes and transcripts together whenever the list changes.
 
 ## Recap pages (`recap/*.html`)
 

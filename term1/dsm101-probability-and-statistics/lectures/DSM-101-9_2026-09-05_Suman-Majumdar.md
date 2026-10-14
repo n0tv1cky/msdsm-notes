@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-09-05
+start: 10:45am
+session: "9"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 9 (2026-09-05, Instr. Suman Majumdar): **The Central Limit Theorem (CLT)**
 

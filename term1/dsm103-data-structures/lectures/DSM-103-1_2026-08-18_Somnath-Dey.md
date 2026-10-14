@@ -1,3 +1,11 @@
+---
+course: DSM 103
+date: 2026-08-18
+start: 8:15pm
+session: "1"
+faculty: Somnath Dey
+---
+
 # DSM-103 (Data Structures) — Session 1
 **File:** DSM-103-1_2026-08-18 · **Instructor:** Prof. Somnath Dey, Dept. of CSE, IIT Indore
 

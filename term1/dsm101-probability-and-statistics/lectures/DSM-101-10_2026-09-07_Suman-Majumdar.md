@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-09-07
+start: 7:00pm
+session: "10"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 10 (2026-09-07) — Instructor: Suman Majumdar
 ### Topic: Revisiting the Central Limit Theorem + Bayes' Theorem Problem Clinic

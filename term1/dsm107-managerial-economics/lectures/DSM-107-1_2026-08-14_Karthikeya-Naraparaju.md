@@ -1,3 +1,11 @@
+---
+course: DSM 107
+date: 2026-08-14
+start: 8:15pm
+session: "1"
+faculty: Karthikeya Naraparaju
+---
+
 # DSM‑107 Managerial Economics — Session L01 (Microeconomics)
 ### Introductory Session: Why Do Economies Grow? Opportunity Cost, Economic Cost & Economic Rent
 

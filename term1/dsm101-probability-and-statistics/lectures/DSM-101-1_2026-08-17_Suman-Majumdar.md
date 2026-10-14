@@ -1,3 +1,11 @@
+---
+course: DSM 101
+date: 2026-08-17
+start: 7:00pm
+session: "1"
+faculty: Suman Majumdar
+---
+
 # DSM-101 — Probability & Statistics
 ## Session 1 (2026-08-17) — Instructor: Prof. Suman Majumdar
 ### Introductory Lecture: Why Statistics? Inverse Problems and the Concept of Probability

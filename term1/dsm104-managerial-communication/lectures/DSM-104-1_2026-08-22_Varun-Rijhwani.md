@@ -1,3 +1,11 @@
+---
+course: DSM 104
+date: 2026-08-22
+start: 10:45am
+session: "1"
+faculty: Varun Rijhwani
+---
+
 # DSM-104 Managerial Communication — Session 1 Study Notes
 **Date:** 2026-08-22 | **Instructor:** Varun Rijhwani | **Topic:** Course Introduction + Foundations of Verbal/Managerial Communication & Audience Analysis (PAIBOC)
 

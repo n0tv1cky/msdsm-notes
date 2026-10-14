@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-09-01
+start: 7:00pm
+session: "6"
+faculty: Saurabh Das
+---
+
 # DSM-102 — Session 6 (2026-09-01, Saurabh Das)
 ## Classes, Writing Your Own Modules, NumPy & Matplotlib
 

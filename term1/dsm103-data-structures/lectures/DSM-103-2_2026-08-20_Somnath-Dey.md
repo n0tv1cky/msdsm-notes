@@ -1,6 +1,14 @@
+---
+course: DSM 103
+date: 2026-08-20
+start: 7:00pm
+session: "2"
+faculty: Somnath Dey
+---
+
 # DSM-103 — Data Structures
 ## Session Notes: Arrays — Basic Operations (Traversal, Sorting, Searching)
-**File:** DSM-103-1_2026-08-20_Somnath-Dey**
+**File:** DSM-103-2_2026-08-20_Somnath-Dey**
 
 ---
 

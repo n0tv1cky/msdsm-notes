@@ -1,4 +1,12 @@
-# DSM-103 Session 10: Algorithms and Time Complexity (Big-O)
+---
+course: DSM 103
+date: 2026-09-21
+start: 7:00pm
+session: "11"
+faculty: Surya Prakash
+---
+
+# DSM-103 Session 11: Algorithms and Time Complexity (Big-O)
 
 *Lecturer: Surya Prakash · 2026-09-21*
 

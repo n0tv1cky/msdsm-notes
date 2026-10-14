@@ -1,6 +1,14 @@
+---
+course: DSM 103
+date: 2026-09-14
+start: 7:00pm
+session: "7"
+faculty: Surya Prakash
+---
+
 # DSM-103 — Data Structures
 
-## Session 8 · 2026-09-14 · Instructor: Surya Prakash
+## Session 7 · 2026-09-14 · Instructor: Surya Prakash
 
 ## Topic: The Stack Data Structure (Introduction, Representations, Push/Pop)
 

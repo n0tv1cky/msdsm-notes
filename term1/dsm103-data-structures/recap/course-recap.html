@@ -304,7 +304,7 @@
 <section class="module" id="m1">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S01 (18 Aug) · S01 (20 Aug) — Dey</p>
+      <p class="module-tag">S01 (18 Aug) · S02 (20 Aug) — Dey</p>
       <h2>Foundations and the 1-D array</h2>
       <p class="lede">The vocabulary, the address formula, and the first three array operations — all written with <code>L</code> and <code>U</code>, never a language's own indexing.</p>
     </div>
@@ -371,8 +371,8 @@
       <div class="panel-head"><span class="panel-title">Bubble sort, one comparison at a time</span><span class="readout" id="bsRead"></span></div>
       <p class="panel-sub">The amber frame is the pair being compared (J, J+1). The teal zone is the settled part to the right of I. Watch the largest value ride to the end of each pass.</p>
       <div class="presets" id="bsPre">
-        <button class="btn on" data-p="b">5 9 7 6 · S01 full trace</button>
-        <button class="btn" data-p="a">7 9 5 4 10 8 · S01 pass-1 example</button>
+        <button class="btn on" data-p="b">5 9 7 6 · S02 full trace</button>
+        <button class="btn" data-p="a">7 9 5 4 10 8 · S02 pass-1 example</button>
         <span class="field"><input type="text" id="bsIn" value="5 9 7 6" aria-label="your numbers"><button class="btn" id="bsGo">sort mine</button><span id="bsErr" style="color:var(--rust)"></span></span>
       </div>
       <div class="viz-body">
@@ -395,7 +395,7 @@
       <p class="answer">1002</p>
     </details>
     <details class="worked">
-      <summary>Homework: make linear search return the <em>last</em> occurrence of KEY, then <em>all</em> occurrences.<span class="tag">S01 20 Aug assignment</span></summary>
+      <summary>Homework: make linear search return the <em>last</em> occurrence of KEY, then <em>all</em> occurrences.<span class="tag">S02 20 Aug assignment</span></summary>
       <ol>
         <li><strong>Route 1: scan backwards.</strong> Start <code>I ← U</code>, decrement, and stop at the first match. That first match from the right is the last occurrence.</li>
         <li><strong>Route 2: drop the early exit.</strong> Remove <code>FOUND = 0</code> from the loop test and overwrite <code>LOCATION ← I</code> on every match. You always scan all n elements.</li>
@@ -405,7 +405,7 @@
       <p class="answer">last: I ← U, decrement · all: flag array, O(n) space</p>
     </details>
     <details class="worked">
-      <summary>Why must the bubble-sort inner loop be <code>J &lt; I</code> and not <code>J ≤ I</code>?<span class="tag">S01 20 Aug</span></summary>
+      <summary>Why must the bubble-sort inner loop be <code>J &lt; I</code> and not <code>J ≤ I</code>?<span class="tag">S02 20 Aug</span></summary>
       <ol><li>J names the <em>pair</em> (A[J], A[J+1]).</li><li>If J reached I = U, the step would read A[U+1], an element that doesn't exist.</li><li>The outer I also stops the inner loop from re-touching the settled tail.</li></ol>
       <p class="answer">so that A[J+1] always exists</p>
     </details>
@@ -433,7 +433,7 @@
 <section class="module" id="m2">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S02 (22 Aug) — Dey · S07 said exams ask indexing calculations</p>
+      <p class="module-tag">S03 (22 Aug) — Dey · S06 said exams ask indexing calculations</p>
       <h2>2-D arrays and sparse (triangular, band) matrices</h2>
       <p class="lede">Memory is a single line, so a grid has to be flattened. Every formula here comes from one method: count what is stored before the element.</p>
     </div>
@@ -483,7 +483,7 @@
     <p class="table-key">Upper-right is lower-left with the roles of i and j swapped ("i will be j, j will be i"). Band: <strong>α</strong> = cells in row 1 (the diagonal plus everything to its right), <strong>β</strong> = cells in column 1 (the diagonal plus everything below). The case formulas need α + β ≤ n + 1. All formulas above were checked against a brute-force count for every n up to 9.</p>
 
     <div class="note">
-      <p>Why bother (S02):</p>
+      <p>Why bother (S03):</p>
       <ul>
         <li>A <strong>100 × 100</strong> array with only about 500 real values wastes about 9,500 cells. A 10,000 × 10,000 array at 8 bytes per element is 8×10⁸ bytes. Store just the band.</li>
         <li>The price is nothing: the index formula is O(1).</li>
@@ -522,17 +522,17 @@
 
     <h3 class="sub">WORKED EXAMPLES</h3>
     <details class="worked">
-      <summary>3 × 4 array, B = 100, w = 1. Index and address of $a_{23}$ in row-major, then column-major.<span class="tag">S02</span></summary>
+      <summary>3 × 4 array, B = 100, w = 1. Index and address of $a_{23}$ in row-major, then column-major.<span class="tag">S03</span></summary>
       <ol><li>Row-major: $(2-1)\times4 + 3 = 7$, so $\text{Addr} = 100 + (7-1)\times1 = 106$.</li><li>Column-major ($m = 3$): $(3-1)\times3 + 2 = 8$, so $\text{Addr} = B + 7$.</li></ol>
       <p class="answer">row-major 7 (address 106) · column-major 8</p>
     </details>
     <details class="worked">
-      <summary>Lower-left triangular 3 × 3: index of $a_{32}$ in both orders.<span class="tag">S02</span></summary>
+      <summary>Lower-left triangular 3 × 3: index of $a_{32}$ in both orders.<span class="tag">S03</span></summary>
       <ol><li>Row-major: $\frac{3\cdot2}{2} + 2 = 5$. Layout: a11 | a21 a22 | a31 <strong>a32</strong> …</li><li>Column-major: $3(2-1) - 0 + (3-2+1) = 5$. Layout: a11 a21 a31 | a22 <strong>a32</strong> a33.</li><li>Edge case: at $j = 1$ nothing comes before, so the index is just $i$. A column "j = 0" doesn't exist; it isn't a mistake in the formula.</li></ol>
       <p class="answer">5 in both orders (the same number by coincidence)</p>
     </details>
     <details class="worked">
-      <summary>α–β band: n = 15, α = 3, β = 4. Index of $a_{10,11}$.<span class="tag">S02 — practise this one</span></summary>
+      <summary>α–β band: n = 15, α = 3, β = 4. Index of $a_{10,11}$.<span class="tag">S03 — practise this one</span></summary>
       <ol><li>Which case? $\beta = 4 &lt; i = 10 \le n-\alpha+1 = 13$, so case 2.</li><li>Rows 1–4 (growing): $\beta\alpha + \frac{\beta(\beta-1)}{2} = 12 + 6 = 18$.</li><li>Rows 5–9: there are $(10-4-1) = 5$ rows ("last − first + 1"), each $3+4-1 = 6$ wide, giving 30.</li><li>Inside row 10: $j - i + \beta = 11 - 10 + 4 = 5$.</li></ol>
       <p class="answer">18 + 30 + 5 = 53 → Address = B + 52·w</p>
     </details>
@@ -549,7 +549,7 @@
       <p class="answer">33 · 36</p>
     </details>
     <details class="worked">
-      <summary>Homework: derive both orders for the <strong>lower-right</strong> triangle (row 1 has one cell, at column n) and the <strong>upper-left</strong> triangle (row 1 full, row n has only $a_{n1}$).<span class="tag">S02 homework</span><span class="xtag">derived here, checked by brute force</span></summary>
+      <summary>Homework: derive both orders for the <strong>lower-right</strong> triangle (row 1 has one cell, at column n) and the <strong>upper-left</strong> triangle (row 1 full, row n has only $a_{n1}$).<span class="tag">S03 homework</span><span class="xtag">derived here, checked by brute force</span></summary>
       <ol>
         <li><strong>Lower-right</strong> ($i + j \ge n+1$): row $i$ holds $i$ cells, starting at column $n-i+1$. Row-major: $\frac{i(i-1)}{2} + (j - n + i)$. Column $j$ holds $j$ cells, starting at row $n-j+1$. Column-major: $\frac{j(j-1)}{2} + (i - n + j)$.</li>
         <li><strong>Upper-left</strong> ($i + j \le n+1$): row $i$ holds $n-i+1$ cells, starting at column 1. Row-major: $n(i-1) - \frac{(i-1)(i-2)}{2} + j$. Column-major swaps $i$ and $j$: $n(j-1) - \frac{(j-1)(j-2)}{2} + i$.</li>
@@ -564,7 +564,7 @@
 <section class="module" id="m3">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S05 (29 Aug) · S06 (3 Sep) — Dey · S07 said exams ask you to fill in missing algorithm steps</p>
+      <p class="module-tag">S04 (29 Aug) · S05 (3 Sep) — Dey · S06 said exams ask you to fill in missing algorithm steps</p>
       <h2>Linked lists: singly and circular</h2>
       <p class="lede">Data goes wherever memory is free, and each node remembers where the next one is. Almost every bug comes from one of three things: where the pointer starts, which test ends the loop, or the order of two assignments.</p>
     </div>
@@ -614,7 +614,7 @@
         </ul>
       </div>
       <div class="cheat-card">
-        <h3>MORE OPERATIONS (S06)</h3>
+        <h3>MORE OPERATIONS (S05)</h3>
         <ul>
           <li><strong>Copy:</strong> a new header, then for each node <code>getNode</code> a fresh node, copy the data and hang it on <code>ptr1</code>. Two independent lists, with no arrow between them. O(n) time and O(n) space.</li>
           <li><strong>Concatenate:</strong> <code>ptr = header1</code>, walk to the last node, <code>ptr->link = header2->link</code>, then <code>header2->link = NULL</code> <em>before</em> <code>RETURNNODE(header2)</code>.</li>
@@ -635,11 +635,11 @@
     </div>
 
     <div class="note">
-      <p>Why linked lists exist (S05, S06):</p>
+      <p>Why linked lists exist (S04, S05):</p>
       <ul>
         <li>Old machines often had enough free memory <strong>in total</strong>, but not in one contiguous block. So store each item wherever there is room and remember where the next one is.</li>
         <li>Python's list "does this for you": you never manage the pointers. <span style="opacity:.8">(Strictly, CPython's <code>list</code> is a resizable array of pointers, which is why indexing it is O(1). The professor's point is that Python manages the memory for you.)</span></li>
-        <li>S06 was taught almost entirely through questions: "I have not taught anything here, only asked questions." Expect exam questions in the same style: find the line that breaks.</li>
+        <li>S05 was taught almost entirely through questions: "I have not taught anything here, only asked questions." Expect exam questions in the same style: find the line that breaks.</li>
       </ul>
     </div>
 
@@ -665,7 +665,7 @@
 
     <h3 class="sub">WORKED EXAMPLES</h3>
     <details class="worked">
-      <summary>Static representation: follow the list starting at index 109.<span class="tag">S05</span></summary>
+      <summary>Static representation: follow the list starting at index 109.<span class="tag">S04</span></summary>
       <pre class="code">index : 109  105  101  125  113
 DATA  :  20   30   25   35   …
 LINK  : 105  101  125  113  NULL</pre>
@@ -673,19 +673,19 @@ LINK  : 105  101  125  113  NULL</pre>
       <p class="answer">20 → 30 → 25 → 35 → (113) → NULL</p>
     </details>
     <details class="worked">
-      <summary>Copy a list. What three constraints did the class insist on?<span class="tag">S06</span></summary>
+      <summary>Copy a list. What three constraints did the class insist on?<span class="tag">S05</span></summary>
       <ol><li>The original list is <strong>not modified</strong>.</li><li>The copy gets <strong>its own header</strong>, because a list can't exist without one.</li><li>The two lists stay <strong>completely separate</strong>: a fresh <code>GETNODE</code> for every element, never a copied pointer. <code>ptr</code> walks the original while <code>ptr1</code> builds the copy in step; <code>header1</code> itself never moves, because it is what gets returned.</li></ol>
       <p class="answer">own header · fresh node per element · O(n) time and space</p>
     </details>
     <details class="worked">
-      <summary>Search: why is <code>while (ptr ≠ NULL) AND (flag = 0)</code> safe on an empty list and for a missing key?<span class="tag">S06</span></summary>
+      <summary>Search: why is <code>while (ptr ≠ NULL) AND (flag = 0)</code> safe on an empty list and for a missing key?<span class="tag">S05</span></summary>
       <ol><li>Empty list: <code>ptr = header->link = NULL</code>, so the test fails immediately and <code>ptr->data</code> is never read.</li><li>Missing key (e.g. 45): ptr steps until it becomes NULL. The loop test runs <em>before</em> the data is examined, so nothing illegal is read.</li><li>After the loop, <code>flag</code> tells you which of the two exits happened, and <code>location</code> holds the node's address or NULL.</li></ol>
       <p class="answer">the NULL check guards every dereference</p>
     </details>
 
     <h3 class="sub">PRACTICE</h3>
     <details class="worked">
-      <summary>Assignment 2: in a circular list, delete a key using the merged loop <code>while (ptr ≠ header) AND (ptr.data ≠ key)</code>. Does it work for the key first, in the middle, last, and absent?<span class="tag">S06 homework</span><span class="xtag">worked out here</span></summary>
+      <summary>Assignment 2: in a circular list, delete a key using the merged loop <code>while (ptr ≠ header) AND (ptr.data ≠ key)</code>. Does it work for the key first, in the middle, last, and absent?<span class="tag">S05 homework</span><span class="xtag">worked out here</span></summary>
       <ol>
         <li>Start with <code>ptr ← header.link</code> and <code>ptr1 ← header</code>. The loop body is <code>ptr1 ← ptr; ptr ← ptr.link</code>.</li>
         <li><strong>First:</strong> the loop doesn't run, ptr1 = header, and <code>ptr1.link ← ptr.link</code> unlinks it. ✓</li>
@@ -696,7 +696,7 @@ LINK  : 105  101  125  113  NULL</pre>
       <p class="answer">works for first, middle and last · needs an "if ptr = header" check for a missing key</p>
     </details>
     <details class="worked">
-      <summary>A student proposes <code>if (ptr.link ≠ key)</code> for the insert-after-key fix. Why was it rejected?<span class="tag">S06</span></summary>
+      <summary>A student proposes <code>if (ptr.link ≠ key)</code> for the insert-after-key fix. Why was it rejected?<span class="tag">S05</span></summary>
       <ol><li><code>ptr.link</code> is an <strong>address</strong> and <code>key</code> is a <strong>data value</strong>.</li><li>Comparing them is meaningless. The fix has to be <code>ptr.data ≠ key</code>.</li></ol>
       <p class="answer">you can't compare an address with a value</p>
     </details>
@@ -707,7 +707,7 @@ LINK  : 105  101  125  113  NULL</pre>
 <section class="module" id="m4">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S07 (5 Sep) — Dey</p>
+      <p class="module-tag">S06 (5 Sep) — Dey</p>
       <h2>Doubly linked lists and sparse matrices as multi-linked lists</h2>
       <p class="lede">Adding a second link per node lets you walk backwards. Adding a <em>header</em> link to the last node turns "insert at end" from O(n) into O(1).</p>
     </div>
@@ -744,7 +744,7 @@ LINK  : 105  101  125  113  NULL</pre>
     </div>
 
     <div class="note">
-      <p>Where linked lists show up (S07):</p>
+      <p>Where linked lists show up (S06):</p>
       <ul>
         <li><strong>Spotify playlist</strong>: "previous song" needs a backward link, so use a DLL. "Play in the order added" is a <em>queue</em>, which is an ADT: a DLL can implement it.</li>
         <li><strong>Insert 3 into 1 2 4 5 6 7 8</strong>: an array shifts every later element one place right, while a list just re-links two pointers. This is the linked list's key advantage.</li>
@@ -773,12 +773,12 @@ LINK  : 105  101  125  113  NULL</pre>
 
     <h3 class="sub">WORKED EXAMPLES</h3>
     <details class="worked">
-      <summary>Header at 100, NEW at 200, old first node (20) at 300. After inserting at the front, what does each link field store?<span class="tag">S07</span></summary>
+      <summary>Header at 100, NEW at 200, old first node (20) at 300. After inserting at the front, what does each link field store?<span class="tag">S06</span></summary>
       <ol><li><code>NEW->RLINK</code> = 300 (forward to 20). <code>NEW->LLINK</code> = 100 (back to the header).</li><li><code>PTR->LLINK</code> (node 20's back link) = 200, the address of NEW itself, not "NEW->RLINK".</li><li><code>HEADER->RLINK</code> = 200.</li></ol>
       <p class="answer">300 · 100 · 200 · 200</p>
     </details>
     <details class="worked">
-      <summary>A 10,000 × 10,000 matrix has 100 non-zeros, with 8-byte values and 8-byte addresses. Dense array vs linked storage?<span class="tag">S07</span></summary>
+      <summary>A 10,000 × 10,000 matrix has 100 non-zeros, with 8-byte values and 8-byte addresses. Dense array vs linked storage?<span class="tag">S06</span></summary>
       <ol><li>Dense: $10^4 \times 10^4 \times 8 = 8\times10^8$ bytes. The useful data is only $100 \times 8 = 800$ bytes.</li><li>Linked, as first sketched (data + 2 addresses): $8\times3 = 24$ bytes per node, and $24\times100 = 2400$ bytes.</li><li>Trade-off: you lose O(1) direct access, because you walk along rows and columns instead.</li></ol>
       <p class="answer">8×10⁸ B vs 2,400 B</p>
     </details>
@@ -801,7 +801,7 @@ LINK  : 105  101  125  113  NULL</pre>
 <section class="module" id="m5">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S08 (14 Sep) · S09 (17 Sep) — Prakash</p>
+      <p class="module-tag">S07 (14 Sep) · S08 (17 Sep) — Prakash</p>
       <h2>Stacks and arithmetic expressions</h2>
       <p class="lede">A stack is an array or a linked list with <em>one rule added</em>: insert and delete at one end only. That rule is enough to reverse strings and evaluate expressions.</p>
     </div>
@@ -819,13 +819,13 @@ LINK  : 105  101  125  113  NULL</pre>
         </dl>
       </div>
       <div class="cheat-card">
-        <h3>ARRAY STACK (S09: 0-based, <code>top = −1</code>)</h3>
+        <h3>ARRAY STACK (S08: 0-based, <code>top = −1</code>)</h3>
         <dl>
           <dt>push(x)</dt><dd>full? then OVERFLOW · <code>top ← top+1</code> <strong>then</strong> <code>A[top] ← x</code></dd>
           <dt>pop()</dt><dd>empty? then UNDERFLOW · <code>x ← A[top]</code> <strong>then</strong> <code>top ← top−1</code></dd>
-          <dt>isEmpty · isFull</dt><dd><code>top = −1</code> · <code>top = SIZE−1</code>. With general bounds L…U (S08): empty is <code>top &lt; L</code>, full is <code>top ≥ U</code>.</dd>
+          <dt>isEmpty · isFull</dt><dd><code>top = −1</code> · <code>top = SIZE−1</code>. With general bounds L…U (S07): empty is <code>top &lt; L</code>, full is <code>top ≥ U</code>.</dd>
           <dt>why −1</dt><dd>it's an impossible index, and −1 + 1 = 0, so the first push needs no special case</dd>
-          <dt>status (S08)</dt><dd>free % $= \frac{\text{size}-\text{top}}{\text{size}}\times100$</dd>
+          <dt>status (S07)</dt><dd>free % $= \frac{\text{size}-\text{top}}{\text{size}}\times100$</dd>
         </dl>
       </div>
       <div class="cheat-card">
@@ -861,7 +861,7 @@ LINK  : 105  101  125  113  NULL</pre>
     </div>
 
     <div class="note">
-      <p>Analogies (S08, S09):</p>
+      <p>Analogies (S07, S08):</p>
       <ul>
         <li><strong>A stack of trays or chairs</strong>: to put one in the middle you would have to lift off the top three first. That's why a stack forbids it.</li>
         <li>Where stacks appear: <strong>undo/redo</strong>, nested <strong>function calls</strong> (f₁ calls f₂ calls f₃…), parenthesis matching (both the count <em>and</em> the nesting), backtracking, syntax parsing, and string reversal (palindromes).</li>
@@ -873,7 +873,7 @@ LINK  : 105  101  125  113  NULL</pre>
       <div class="panel-head"><span class="panel-title">The stack as a bucket: one open end</span><span class="readout"></span></div>
       <p class="panel-sub">The indices 0…3 run up the side of the bucket. Watch <b>top</b> move <em>before</em> a push stores and <em>after</em> a pop reads. In postfix mode, the two popped values move out to <b>arg1 op arg2</b>, and the result drops back in.</p>
       <div class="presets">
-        <button class="btn on" data-p="seq">push/pop trace (S09)</button>
+        <button class="btn on" data-p="seq">push/pop trace (S08)</button>
         <button class="btn" data-p="rev">reverse ABCD</button>
         <button class="btn" data-p="pal">palindrome LEVEL</button>
         <button class="btn" data-p="pf">postfix 2 3 4 + *</button>
@@ -890,17 +890,17 @@ LINK  : 105  101  125  113  NULL</pre>
 
     <h3 class="sub">WORKED EXAMPLES</h3>
     <details class="worked">
-      <summary>Convert <code>(2*3)+4</code> and <code>2*(3+4)</code> to postfix.<span class="tag">S09</span></summary>
+      <summary>Convert <code>(2*3)+4</code> and <code>2*(3+4)</code> to postfix.<span class="tag">S08</span></summary>
       <ol><li><code>2*3</code> gives <code>2 3 *</code>. Then <code>(2 3 *) + 4</code> gives <code>2 3 * 4 +</code>, which is 10.</li><li><code>3+4</code> gives <code>3 4 +</code>. Then <code>2 * (3 4 +)</code> gives <code>2 3 4 + *</code>, which is 14.</li><li>The two strings differ, and each one fixes its evaluation order <em>without</em> brackets.</li></ol>
       <p class="answer">2 3 * 4 + (=10) · 2 3 4 + * (=14)</p>
     </details>
     <details class="worked">
-      <summary><code>A − (B − (C − D))</code> to postfix and prefix.<span class="tag">S09</span></summary>
+      <summary><code>A − (B − (C − D))</code> to postfix and prefix.<span class="tag">S08</span></summary>
       <ol><li>Innermost first: <code>C D −</code>. Then <code>B C D − −</code>. Then <code>A B C D − − −</code>.</li><li>Prefix, by the same steps with the operator written first: <code>− C D</code>, then <code>− B − C D</code>, then <code>− A − B − C D</code>.</li></ol>
       <p class="answer">postfix A B C D − − − · prefix − A − B − C D</p>
     </details>
     <details class="worked">
-      <summary><code>a ^ b ^ c</code> to prefix.<span class="tag">S09 · associativity</span></summary>
+      <summary><code>a ^ b ^ c</code> to prefix.<span class="tag">S08 · associativity</span></summary>
       <ol><li><code>^</code> is right-to-left, so <code>b ^ c</code> comes first: <code>^ b c</code>.</li><li>Then <code>a ^ (^ b c)</code> gives <code>^ a ^ b c</code>.</li></ol>
       <p class="answer">^ a ^ b c</p>
     </details>
@@ -923,7 +923,7 @@ LINK  : 105  101  125  113  NULL</pre>
 <section class="module" id="m6">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S10 (18 Sep) · S11 (19 Sep) — Prakash</p>
+      <p class="module-tag">S09 (18 Sep) · S10 (19 Sep) — Prakash</p>
       <h2>Queues: linear, circular, linked</h2>
       <p class="lede">A queue uses two ends, each with one job: insert at the rear, delete at the front. The naive array version wastes the cells it has already served. Treating the array as a ring fixes that with pointer arithmetic alone.</p>
     </div>
@@ -939,7 +939,7 @@ LINK  : 105  101  125  113  NULL</pre>
         </dl>
       </div>
       <div class="cheat-card">
-        <h3>ARRAY QUEUE Q[1…N] (S10)</h3>
+        <h3>ARRAY QUEUE Q[1…N] (S09)</h3>
         <dl>
           <dt>empty</dt><dd><code>FRONT = REAR = 0</code>. 0 is an impossible index, the same idea as the stack's −1.</dd>
           <dt>one element · count</dt><dd><code>FRONT = REAR</code> · <code>REAR − FRONT + 1</code> (e.g. 5…10 holds 6). <strong>Linear only.</strong></dd>
@@ -948,7 +948,7 @@ LINK  : 105  101  125  113  NULL</pre>
         </dl>
       </div>
       <div class="cheat-card">
-        <h3 style="color:var(--teal)">CIRCULAR QUEUE (S11)</h3>
+        <h3 style="color:var(--teal)">CIRCULAR QUEUE (S10)</h3>
         <dl>
           <dt class="t">advance</dt><dd>$r = (r \bmod n) + 1$, $\;f = (f \bmod n) + 1$. When $r = n$ it gives 1; otherwise it is just $r+1$.</dd>
           <dt class="t">full</dt><dd>$(\text{rear} \bmod n) + 1 = \text{front}$: the rear sits right behind the front</dd>
@@ -989,7 +989,7 @@ LINK  : 105  101  125  113  NULL</pre>
     </div>
 
     <div class="note">
-      <p>Where queues appear (S10):</p>
+      <p>Where queues appear (S09):</p>
       <ul>
         <li>Toll booths, bank counters, grocery checkouts, traffic, and assembly lines: first come, first served.</li>
         <li>In computing: an <strong>email server</strong> sends mail in arrival order. A multi-user server queues requests by arrival time. <strong>Printer spooling</strong> and access to memory, I/O and disk from several processes are all queues.</li>
@@ -1001,8 +1001,8 @@ LINK  : 105  101  125  113  NULL</pre>
       <div class="panel-head"><span class="panel-title">Same operations, two queues</span><span class="readout"></span></div>
       <p class="panel-sub">Both queues get identical operations. The data never moves: only <b>F</b> and <b>R</b> do. The ring is the circular queue's own cells 1…n bent into a circle, with the same indices. Step to the 6th operation in the first preset to see the difference.</p>
       <div class="presets">
-        <button class="btn on" data-p="a">n = 4 · A…F (S11 trace)</button>
-        <button class="btn" data-p="b">N = 10 · 23, 21 at 8–9 (S10 trace)</button>
+        <button class="btn on" data-p="a">n = 4 · A…F (S10 trace)</button>
+        <button class="btn" data-p="b">N = 10 · 23, 21 at 8–9 (S09 trace)</button>
         <span class="field"><button class="btn" id="qEnq">+ enqueue</button><button class="btn" id="qDeq">− dequeue</button></span>
       </div>
       <div class="viz-body stacked">
@@ -1015,7 +1015,7 @@ LINK  : 105  101  125  113  NULL</pre>
 
     <h3 class="sub">WORKED EXAMPLES</h3>
     <details class="worked">
-      <summary>N = 10, with Q[8] = 23 and Q[9] = 21 (FRONT 8, REAR 9). Trace DQ, NQ 24, NQ 27, DQ, DQ, DQ, NQ 22, NQ 28, DQ, DQ.<span class="tag">S10</span></summary>
+      <summary>N = 10, with Q[8] = 23 and Q[9] = 21 (FRONT 8, REAR 9). Trace DQ, NQ 24, NQ 27, DQ, DQ, DQ, NQ 22, NQ 28, DQ, DQ.<span class="tag">S09</span></summary>
       <ol>
         <li>DQ removes 23, F = 9. NQ 24 gives R = 10, Q[10] = 24.</li>
         <li>NQ 27: <strong>REAR = N, so "Queue is full"</strong>, even though cells 1–8 are empty.</li>
@@ -1025,12 +1025,12 @@ LINK  : 105  101  125  113  NULL</pre>
       <p class="answer">the false "full" at step 3 is the drawback that motivates the circular queue</p>
     </details>
     <details class="worked">
-      <summary>Circular, n = 4: enqueue A B C D, dequeue, enqueue E. What are front and rear now?<span class="tag">S11 — asked in class</span></summary>
+      <summary>Circular, n = 4: enqueue A B C D, dequeue, enqueue E. What are front and rear now?<span class="tag">S10 — asked in class</span></summary>
       <ol><li>After A–D: f = 1, r = 4. Dequeue removes A, and f = 2.</li><li>Enqueue E: next = (4 mod 4) + 1 = 1 ≠ f, so r = 1 and CQ[1] = E.</li><li>Now <strong>rear &lt; front</strong>, which a linear queue can never have. A linear queue would have said "full" here, or shifted B, C, D left.</li></ol>
       <p class="answer">r = 1, f = 2</p>
     </details>
     <details class="worked">
-      <summary>Homework: check a palindrome using a stack <em>and</em> a queue.<span class="tag">S11 homework</span></summary>
+      <summary>Homework: check a palindrome using a stack <em>and</em> a queue.<span class="tag">S10 homework</span></summary>
       <pre class="code"><span class="k">PALINDROME</span>(S)
   create empty stack ST and empty queue Q
   <span class="k">for each</span> ch in S:  push(ST, ch);  enqueue(Q, ch)
@@ -1059,7 +1059,7 @@ LINK  : 105  101  125  113  NULL</pre>
 <section class="module" id="m7">
   <div class="wrap-wide">
     <div class="module-head">
-      <p class="module-tag">S10 (21 Sep) — Prakash · plus the S07 primer (Dey)</p>
+      <p class="module-tag">S11 (21 Sep) — Prakash · plus the S06 primer (Dey)</p>
       <h2>Algorithms and Big-O</h2>
       <p class="lede">Count steps, not seconds. Then keep only how the count <em>grows</em>, because constants and small inputs don't matter.</p>
     </div>
@@ -1103,7 +1103,7 @@ LINK  : 105  101  125  113  NULL</pre>
     </div>
 
     <div class="note">
-      <p>The intuition (S07 primer, S10):</p>
+      <p>The intuition (S06 primer, S11):</p>
       <ul>
         <li><strong>Two machines</strong> add vectors at 1 s and 2 s per step: $T_1 = c_1 n$ and $T_2 = c_2 n$. Different slopes, but both grow linearly, so they count as the <em>same</em> performance.</li>
         <li>Doubling a <strong>sorted</strong> array doesn't change how you find its min or max: O(1). An <strong>unsorted</strong> max needs every element, because the biggest might be last: O(n).</li>
@@ -1115,7 +1115,7 @@ LINK  : 105  101  125  113  NULL</pre>
     <div class="panel nomath">
       <div class="panel-head"><span class="panel-title">Find c and n₀</span><span class="readout" id="boRead"></span></div>
       <p class="panel-sub">Slide <b>c</b> until the teal bound c·g(n) stays above the amber f(n) from some point on. That point is n₀. Dots are f at whole numbers of n: teal where the bound holds, red where it fails.</p>
-      <div class="presets" id="boPre"><button class="btn on" data-p="q">n² + 3n + 1 vs c·n² (S10 proof)</button><button class="btn" data-p="l">2n + 4 vs c·n (S10 exercise)</button></div>
+      <div class="presets" id="boPre"><button class="btn on" data-p="q">n² + 3n + 1 vs c·n² (S11 proof)</button><button class="btn" data-p="l">2n + 4 vs c·n (S11 exercise)</button></div>
       <svg class="chart" id="boChart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
       <div class="controls">
         <div class="slider-group"><span class="slider-label"><span>c</span><span id="boCVal"></span></span><input type="range" id="boC" min="0.5" max="8" step="0.1" value="5"></div>
@@ -1125,12 +1125,12 @@ LINK  : 105  101  125  113  NULL</pre>
 
     <h3 class="sub">WORKED EXAMPLES</h3>
     <details class="worked">
-      <summary>Prove $n^2 + 3n + 1 = O(n^2)$.<span class="tag">S10</span></summary>
+      <summary>Prove $n^2 + 3n + 1 = O(n^2)$.<span class="tag">S11</span></summary>
       <ol><li>We need $c, n_0$ with $n^2 + 3n + 1 \le c\,n^2$ for all $n \ge n_0$.</li><li>Take $c = 5$, $n_0 = 1$. At $n = 1$: $5 \le 5$. At $n = 2$: $11 \le 20$.</li><li>In general, for $n \ge 1$: $3n \le 3n^2$ and $1 \le n^2$, so the left side is at most $5n^2$.</li></ol>
       <p class="answer">c = 5, n₀ = 1</p>
     </details>
     <details class="worked">
-      <summary>Count the steps: <code>sum = 0; i = 1; input n; while i ≤ n: sum = sum + i; i = i + 1</code>.<span class="tag">S10</span></summary>
+      <summary>Count the steps: <code>sum = 0; i = 1; input n; while i ≤ n: sum = sum + i; i = i + 1</code>.<span class="tag">S11</span></summary>
       <ol><li>Outside the loop: declare, <code>sum = 0</code>, <code>i = 1</code> and input, which is 4 steps.</li><li>Inside: 2 steps × n iterations = 2n.</li><li>$T(n) = 2n + 4$. Exercise: $2n + 4 \le 10n \iff 4 \le 8n$, which is true for $n \ge 1$.</li></ol>
       <p class="answer">T(n) = 2n + 4 = O(n) · c = 10, n₀ = 1</p>
     </details>
@@ -1180,7 +1180,7 @@ LINK  : 105  101  125  113  NULL</pre>
 </section>
 
 <footer>
-  <div class="wrap-wide"><p>Full-course recap for DSM-103 Data Structures, S01 → 21 Sep (Dr. Somnath Dey, Dr. Surya Prakash). Built from the lecture notes in <code>lectures/</code>. Every animation replays the lecture's own examples: the bubble-sort arrays <code>7 9 5 4 10 8</code> and <code>5 9 7 6</code>, the <code>header → 20 → 25 → 35 → 40</code> list, the 100 / 200 / 300 addresses, the S09 push/pop trace and <code>2 3 4 + *</code>, and the S10 (N = 10) and S11 (n = 4) queue traces. Index formulas are checked against a brute-force count, and each step-through against an independent Python run.</p></div>
+  <div class="wrap-wide"><p>Full-course recap for DSM-103 Data Structures, S01 → 21 Sep (Dr. Somnath Dey, Dr. Surya Prakash). Built from the lecture notes in <code>lectures/</code>. Every animation replays the lecture's own examples: the bubble-sort arrays <code>7 9 5 4 10 8</code> and <code>5 9 7 6</code>, the <code>header → 20 → 25 → 35 → 40</code> list, the 100 / 200 / 300 addresses, the S08 push/pop trace and <code>2 3 4 + *</code>, and the S09 (N = 10) and S10 (n = 4) queue traces. Index formulas are checked against a brute-force count, and each step-through against an independent Python run.</p></div>
 </footer>
 <script>
 (function(){
@@ -1322,7 +1322,7 @@ LINK  : 105  101  125  113  NULL</pre>
     }));
   }
 
-  // ================= Widget 1: bubble sort (S01, 20 Aug) =================
+  // ================= Widget 1: bubble sort (S02, 20 Aug) =================
   (function(){
     const panel = document.getElementById('bsPanel'); if (!panel) return;
     const stage = document.getElementById('bsStage'), scroller = stage.parentNode, readout = document.getElementById('bsRead');
@@ -1431,7 +1431,7 @@ LINK  : 105  101  125  113  NULL</pre>
     load(P.b);
   })();
 
-  // ================= Widget 2: index / address calculator (S02) =================
+  // ================= Widget 2: index / address calculator (S03) =================
   (function(){
     const panel = document.getElementById('ixPanel'); if (!panel) return;
     // ---- pure part (verified against brute force in Python) ----
@@ -1607,7 +1607,7 @@ LINK  : 105  101  125  113  NULL</pre>
     build();
   })();
 
-  // ================= Widget 3: linked-list engine (S05, S06, S07) =================
+  // ================= Widget 3: linked-list engine (S04, S05, S06) =================
   // A scene = { nodes:[{id,v,s(slot),lane,cls,addr,note}], links:[{f,t,k:'r'|'l',c}], ptrs:[{n,at,after,c}] }.
   // Nodes and arrow ends are tweened in JS (rAF) so arrows stay glued to moving nodes;
   // a timeout snaps everything to the final frame even if rAF never fires.
@@ -2019,7 +2019,7 @@ LINK  : 105  101  125  113  NULL</pre>
   mountLL('llPanel', false, presetsSLL, 'front');
   mountLL('dlPanel', true, presetsDLL, 'front');
 
-  // ================= Widget 4: stack — push/pop, reversal, postfix (S08, S09) =================
+  // ================= Widget 4: stack — push/pop, reversal, postfix (S07, S08) =================
   (function(){
     const panel = document.getElementById('stPanel'); if (!panel) return;
     const stage = panel.querySelector('.stage'), readout = panel.querySelector('.readout');
@@ -2170,11 +2170,11 @@ LINK  : 105  101  125  113  NULL</pre>
     P.seq();
   })();
 
-  // ================= Widget 5: linear vs circular queue, same operations (S10, S11) =================
+  // ================= Widget 5: linear vs circular queue, same operations (S09, S10) =================
   (function(){
     const panel = document.getElementById('qPanel'); if (!panel) return;
     const stage = panel.querySelector('.stage'), readout = panel.querySelector('.readout');
-    const CODE = ['ENQUEUE(CQ, item)            — circular (S11)', '1  if front = 0:', '2      front = rear = 1;  CQ[1] = item', '3  else  next = (rear mod n) + 1', '4      if next ≠ front:', '5          rear = next;  CQ[rear] = item', '6      else "Queue is full"', 'DEQUEUE(CQ)', '7  if front = 0: "Queue is empty"', '8  item = CQ[front]', '9  if front = rear: front = rear = 0', '10 else front = (front mod n) + 1'];
+    const CODE = ['ENQUEUE(CQ, item)            — circular (S10)', '1  if front = 0:', '2      front = rear = 1;  CQ[1] = item', '3  else  next = (rear mod n) + 1', '4      if next ≠ front:', '5          rear = next;  CQ[rear] = item', '6      else "Queue is full"', 'DEQUEUE(CQ)', '7  if front = 0: "Queue is empty"', '8  item = CQ[front]', '9  if front = rear: front = rear = 0', '10 else front = (front mod n) + 1'];
     // ---- pure generator: both queues run the same op list ----
     function gen(n, init, ops){
       let uid = 0;
@@ -2189,7 +2189,7 @@ LINK  : 105  101  125  113  NULL</pre>
       ops.forEach(([o, x]) => {
         let l, c, capL, capC, line;
         if (o === 'E'){
-          // linear (S10)
+          // linear (S09)
           if (L.R === n){
             const free = L.F > 1 ? L.F - 1 : 0;
             l = lane(L, { rej:true, ghost:x, msg:'FULL', waste: free ? Array.from({length:free}, (_,k) => k+1) : [] });
@@ -2199,7 +2199,7 @@ LINK  : 105  101  125  113  NULL</pre>
             L.R++; L.q[L.R] = { id:'L'+(uid++), v:x };
             l = lane(L, { hi:L.R }); capL = (first ? 'empty, so FRONT = 1 as well; ' : '') + `REAR = ${L.R}, Q[${L.R}] = ${x}.`;
           }
-          // circular (S11)
+          // circular (S10)
           if (C.F === 0){
             C.F = C.R = 1; C.q[1] = { id:'C'+(uid++), v:x };
             c = lane(C, { hi:1 }); capC = `empty, so front = rear = 1 and CQ[1] = ${x}.`; line = [0,1,2];
@@ -2261,8 +2261,8 @@ LINK  : 105  101  125  113  NULL</pre>
       const cx = side ? X0 + stripW + 90 + RR : Math.max(RR + 60, Math.min(avail, X0 + stripW + 20) / 2);
       const cy = side ? Math.max(yC + CW/2, laneC + RR + 50) : yC + CW + 84 + RR + 52;
       fit(stage, Math.max(side ? cx + RR + 70 : X0 + stripW + PITCH + 16, cx + RR + 60), Math.max(cy + RR + 60, yC + 120), 0.72);
-      hL.innerHTML = '<b style="color:var(--amber)">Linear queue</b> (S10)'; place(hL, 12, 6, false, null, false);
-      hC.innerHTML = '<b style="color:var(--teal)">Circular queue</b> (S11)'; place(hC, 12, laneC - 20, false, null, false);
+      hL.innerHTML = '<b style="color:var(--amber)">Linear queue</b> (S09)'; place(hL, 12, 6, false, null, false);
+      hC.innerHTML = '<b style="color:var(--teal)">Circular queue</b> (S10)'; place(hC, 12, laneC - 20, false, null, false);
       statics.begin();
       const cellX = k => X0 + (k-1)*PITCH;
       [[yL,'L'],[yC,'C']].forEach(([y, P]) => {
@@ -2360,7 +2360,7 @@ LINK  : 105  101  125  113  NULL</pre>
     load('a');
   })();
 
-  // ================= Widget 6: Big-O — find c and n0 (S10, 21 Sep) =================
+  // ================= Widget 6: Big-O — find c and n0 (S11, 21 Sep) =================
   (function(){
     const svg = document.getElementById('boChart'); if (!svg) return;
     const slider = document.getElementById('boC'), valEl = document.getElementById('boCVal'), readout = document.getElementById('boRead'), verdict = document.getElementById('boVerdict');

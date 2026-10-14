@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-08-26
+start: 7:00pm
+session: "2"
+faculty: Saurabh Das
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 2 — 2026-08-26 (Instructor: Saurabh Das)
 ### Topic: Variables, Data Types, Operators, String Manipulation & Formatting, Intro to Modules

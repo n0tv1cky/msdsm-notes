@@ -1,3 +1,11 @@
+---
+course: DSM 106
+date: 2026-08-24
+start: 7:00pm
+session: "1"
+faculty: Jagannathan Srinath
+---
+
 # DSM-106 Business Research — Session 1
 ### Case: Basecamp (Project Management SaaS) — Pricing Research
 **Date:** 2026-08-24 | **Instructor:** Jagannathan Srinath

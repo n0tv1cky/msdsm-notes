@@ -1,4 +1,12 @@
-# DSM-103 — Session 11 (2026-09-19) — Circular Queues, Linked-List Queues, Comparison
+---
+course: DSM 103
+date: 2026-09-19
+start: 2:45pm
+session: "10"
+faculty: Surya Prakash
+---
+
+# DSM-103 — Session 10 (2026-09-19) — Circular Queues, Linked-List Queues, Comparison
 
 ---
 

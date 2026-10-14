@@ -1,3 +1,11 @@
+---
+course: DSM 107
+date: 2026-09-01
+start: 7:00pm
+session: "5"
+faculty: Karthikeya Naraparaju
+---
+
 # DSM-107 Managerial Economics — Session L05
 ## Constrained Optimisation: The Work–Leisure Choice, Indifference Curves & the Feasible Set
 

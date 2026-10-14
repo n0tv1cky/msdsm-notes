@@ -1,3 +1,11 @@
+---
+course: DSM 104
+date: 2026-09-12
+start: 10:45am
+session: "3"
+faculty: Varun Rijhwani
+---
+
 # DSM-104 Managerial Communication — Session 3
 **File:** `DSM-104-3_2026-09-12_Varun-Rijhwani` | **Date:** 12 September 2026
 

@@ -1,3 +1,11 @@
+---
+course: DSM 104
+date: 2026-08-29
+start: 10:45am
+session: "2"
+faculty: Varun Rijhwani
+---
+
 # DSM-104 Managerial Communication — Session 2
 **File:** `DSM-104-2_2026-08-29_Varun-Rijhwani` | **Topic:** Non-Verbal Communication (+ recap of Audience Analysis / PAIBOC)
 

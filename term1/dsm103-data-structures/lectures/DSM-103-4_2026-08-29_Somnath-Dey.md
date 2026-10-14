@@ -1,4 +1,12 @@
-# DSM-103 Data Structures — Session 5 (2026-08-29, Prof. Somnath Dey)
+---
+course: DSM 103
+date: 2026-08-29
+start: 2:45pm
+session: "4"
+faculty: Somnath Dey
+---
+
+# DSM-103 Data Structures — Session 4 (2026-08-29, Prof. Somnath Dey)
 ## Topic: Linked Lists — Representation, Traversal, Insertion, Deletion
 
 ---

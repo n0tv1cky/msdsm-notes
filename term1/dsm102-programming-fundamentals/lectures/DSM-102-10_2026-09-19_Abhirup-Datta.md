@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-09-19
+start: 2:45pm
+session: "10"
+faculty: Abhirup Datta
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 10 — 2026-09-19 (Instructor: Abhirup Datta)
 

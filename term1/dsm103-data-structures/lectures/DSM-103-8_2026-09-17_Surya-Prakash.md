@@ -1,5 +1,13 @@
-# DSM-103 Data Structures — Session 9
-**File:** `DSM-103-9_2026-09-17_Surya-Prakash`
+---
+course: DSM 103
+date: 2026-09-17
+start: 7:00pm
+session: "8"
+faculty: Surya Prakash
+---
+
+# DSM-103 Data Structures — Session 8
+**File:** `DSM-103-8_2026-09-17_Surya-Prakash`
 **Topic:** Stacks (continued) — operations, array implementation, and applications (string reversal, arithmetic expression notation & evaluation)
 
 ---

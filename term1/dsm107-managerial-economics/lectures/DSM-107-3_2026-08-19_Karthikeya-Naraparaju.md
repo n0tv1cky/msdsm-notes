@@ -1,3 +1,11 @@
+---
+course: DSM 107
+date: 2026-08-19
+start: 7:00pm
+session: "3"
+faculty: Karthikeya Naraparaju
+---
+
 # DSM-107 Managerial Economics — Session L03
 
 ## Study Notes: Technology, Production Functions, Isocost Lines, and the Industrial Revolution

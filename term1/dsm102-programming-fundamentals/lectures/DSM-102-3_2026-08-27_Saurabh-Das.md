@@ -1,3 +1,11 @@
+---
+course: DSM 102
+date: 2026-08-27
+start: 7:00pm
+session: "3"
+faculty: Saurabh Das
+---
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 3 — 2026-08-27 (Instructor: Saurabh Das)
 ### Topic: Control Flow — `if/elif/else`, loops, `break`/`continue`/`pass`, exceptions

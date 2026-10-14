@@ -1,3 +1,11 @@
+---
+course: DSM 107
+date: 2026-09-07
+start: 7:00pm
+session: "8"
+faculty: Karthikeya Naraparaju
+---
+
 # DSM-107 Managerial Economics — Session L08
 ## Game Theory II: Invisible Hand vs. Prisoners' Dilemma, External Effects, and Pareto Criteria
 
