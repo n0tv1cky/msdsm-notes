@@ -21,7 +21,7 @@ Reference implementation: `term1/dsm107-managerial-economics/recap/course-recap.
 1. **Profile.** Run `python3 .claude/skills/building-course-recaps/profile_course.py <term>/<course-dir>/lectures`
    from the repo root. It prints per-session signal density (math, code,
    graph, worked, algo, framework) in recording-date order (session labels on
-   Drive are unreliable), plus duplicate and missing session numbers. `COURSE_GUIDANCE` in `generate_notes.py` is
+   Drive are unreliable), plus duplicate and missing session numbers. `COURSE_GUIDANCE` in `scripts/generate_notes.py` is
    a second hint. Both are evidence, not the verdict.
 2. **Read every lecture note.** Group the sessions into 4–8 **modules**
    (topic clusters). For each module, record:

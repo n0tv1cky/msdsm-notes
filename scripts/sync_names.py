@@ -9,7 +9,7 @@ are renamed together; otherwise generate_notes.py would regenerate every
 renamed lecture under its old name. Each note's leading front-matter block
 (course, date, start, session, faculty) is rewritten to match.
 
-Usage: python3 sync_names.py [--fix]
+Usage: python3 scripts/sync_names.py [--fix]
 """
 import subprocess
 import sys
@@ -17,7 +17,7 @@ from pathlib import Path
 
 from sessions import load, lookup, name_of, with_front_matter
 
-REPO = Path(__file__).resolve().parent
+REPO = Path(__file__).resolve().parent.parent
 TERM = "term1"
 SUBJECTS = Path("/Users/n0tv1cky/Documents/Personal/masters/subjects")
 

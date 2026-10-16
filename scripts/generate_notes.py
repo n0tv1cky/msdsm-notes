@@ -15,14 +15,14 @@ TERM is a single hardcoded constant below (all courses in COURSE_GUIDANCE
 today are Batch 6 Term 1) -- bump it by hand when a new term's courses
 start, there's no way to infer it from the transcripts path.
 
-Usage: python3 generate_notes.py <transcripts_dir> [file1.txt file2.txt ...]
+Usage: python3 scripts/generate_notes.py <transcripts_dir> [file1.txt file2.txt ...]
   <transcripts_dir> is still subjects/<dsm-code>-<short-title>/transcripts
   (files default to every *.txt in that dir; already-generated .md files
    in this repo's <TERM>/<course-dir-name>/lectures/ are skipped)
 
 Session numbers come from ~/.zoom-recordings-sync/sessions.json (see
 sessions.py): a transcript whose name doesn't match its canonical session
-name is skipped, not generated under a stale number. Run sync_names.py --fix
+name is skipped, not generated under a stale number. Run scripts/sync_names.py --fix
 first after any Drive rename.
 """
 import json
@@ -34,7 +34,7 @@ from pathlib import Path
 from sessions import load as load_sessions, lookup, name_of, with_front_matter
 
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
-NOTES_REPO_DIR = Path(__file__).resolve().parent
+NOTES_REPO_DIR = Path(__file__).resolve().parent.parent
 TERM = "term1"
 MODEL = "claude-opus-5-5"
 MAX_TOKENS = 16000
@@ -204,7 +204,7 @@ def main():
             continue
         name = name_of(entry)
         if name != p.stem:
-            print(f"SKIP (stale name, canonical is {name}; run sync_names.py --fix):", p.name)
+            print(f"SKIP (stale name, canonical is {name}; run scripts/sync_names.py --fix):", p.name)
             continue
         out_path = notes_dir / (name + ".md")
         if out_path.exists():
