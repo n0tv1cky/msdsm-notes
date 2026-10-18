@@ -6,6 +6,10 @@ session: "3"
 faculty: Jagannathan Srinath
 ---
 
+<!-- nav -->
+← [Session 2 (2026-09-04)](DSM-106-2_2026-09-04_Jagannathan-Srinath.md) · [All lectures](./) · [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) →
+<!-- /nav -->
+
 # DSM-106 Business Research — Session 3 (2026-09-05)
 ## Instructor: Jagannathan / Srinath
 ### Topic: Reducing Survey Items to Constructs — Factor Analysis / Principal Component Analysis (PCA) on a Middle-Manager Attrition Dataset
@@ -258,3 +262,7 @@ Shown to support the formality/informality argument. Content the instructor want
   2. **Incorporate the QUALITATIVE data** — the narrative **performance appraisal entries** for each of the 30 employees — into the same analysis, and
   3. Complete this exercise and move to **another analytics exercise spanning sessions 3 and 4.**
 - Come prepared having at least read/interpreted the shared code and the reading.
+
+<!-- nav -->
+← [Session 2 (2026-09-04)](DSM-106-2_2026-09-04_Jagannathan-Srinath.md) · [All lectures](./) · [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) →
+<!-- /nav -->

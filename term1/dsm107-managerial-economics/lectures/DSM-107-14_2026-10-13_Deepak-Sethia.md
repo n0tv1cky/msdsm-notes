@@ -6,6 +6,10 @@ session: "14"
 faculty: Deepak Sethia
 ---
 
+<!-- nav -->
+← [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics, Session 14: The Keynesian Cross, the Multiplier and Automatic Stabilizers
 
 *Instructor: Deepak Sethia. Date: 2026-10-13.*
@@ -277,3 +281,7 @@ $$\alpha_G = \frac{1}{1-c(1-t)}$$
 - **Automatic stabilizers** avoid data, political and legislative delays. Examples: income tax, unemployment benefits, NREGA.
 - **Keynesian cross mechanics:** reading $AD$ vs. the $45^\circ$ line, inventory adjustment, and $S$ vs. $I$.
 - **Participation:** chat-box polls during class were used to **record attendance**.
+
+<!-- nav -->
+← [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->

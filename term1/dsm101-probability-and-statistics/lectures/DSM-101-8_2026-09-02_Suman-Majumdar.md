@@ -6,6 +6,10 @@ session: "8"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 7 (2026-08-31)](DSM-101-7_2026-08-31_Suman-Majumdar.md) · [All lectures](./) · [Session 9 (2026-09-05)](DSM-101-9_2026-09-05_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 8 (2026-09-02) — Bayes' Theorem in Practice: Monty Hall & the "You Are the Barrister" Problem
 **Instructor: Suman Majumdar**
@@ -247,3 +251,7 @@ $$P(S\mid C,T)=\frac{P(C\mid S,T)P(S\mid T)}{P(C\mid S,T)P(S\mid T)+P(C\mid\tild
   - Optional but recommended: write your own **Python Monty Hall simulator**.
 - **Next class:** a few more Bayes problems, then beginning the **Central Limit Theorem (CLT)**. Over the next two classes: some CLT, plus more problems.
 - Students are invited to email the instructor or raise Bayes' theorem difficulties at the start of the next class (Saturday).
+
+<!-- nav -->
+← [Session 7 (2026-08-31)](DSM-101-7_2026-08-31_Suman-Majumdar.md) · [All lectures](./) · [Session 9 (2026-09-05)](DSM-101-9_2026-09-05_Suman-Majumdar.md) →
+<!-- /nav -->

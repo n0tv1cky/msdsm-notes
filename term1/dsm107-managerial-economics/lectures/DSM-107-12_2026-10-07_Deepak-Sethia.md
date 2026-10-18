@@ -6,6 +6,10 @@ session: "12"
 faculty: Deepak Sethia
 ---
 
+<!-- nav -->
+← [Session 11 (2026-10-06)](DSM-107-11_2026-10-06_Deepak-Sethia.md) · [All lectures](./) · [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics, L12: Measuring GDP (Inventories, Expenditure Components, Factor Cost vs Market Price, NDP, GNP, Savings–Investment Identity, Nominal vs Real GDP)
 
 ## 1. Overview
@@ -336,3 +340,7 @@ $$S_h = I + (G + TR - T) + (X - M)$$
 
 - **Exclusions:** financial assets, second-hand goods (margins only), transfers, gifts, illegal activity.
 - **Nominal vs real GDP:** to be continued next session.
+
+<!-- nav -->
+← [Session 11 (2026-10-06)](DSM-107-11_2026-10-06_Deepak-Sethia.md) · [All lectures](./) · [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) →
+<!-- /nav -->

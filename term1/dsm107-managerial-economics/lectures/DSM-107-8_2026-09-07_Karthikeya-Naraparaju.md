@@ -6,6 +6,10 @@ session: "8"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 7 (2026-09-03)](DSM-107-7_2026-09-03_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 9 (2026-09-09)](DSM-107-9_2026-09-09_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L08
 ## Game Theory II: Invisible Hand vs. Prisoners' Dilemma, External Effects, and Pareto Criteria
 
@@ -207,3 +211,7 @@ Three preference types:
 - **Technique to practise:** solving a 2×2 payoff matrix by checking best responses / ticking cells; identifying dominant strategies; plotting allocations on the (Player 1 payoff, Player 2 payoff) plane and using the **north-east quadrant test** for Pareto improvements.
 - **Careful with signs:** payoffs may be negative (e.g., jail years); always compare **with the sign**, never absolute values.
 - **Next session:** the remaining part of this material, then **Module/Lesson 7 — Firm Behaviour**.
+
+<!-- nav -->
+← [Session 7 (2026-09-03)](DSM-107-7_2026-09-03_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 9 (2026-09-09)](DSM-107-9_2026-09-09_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

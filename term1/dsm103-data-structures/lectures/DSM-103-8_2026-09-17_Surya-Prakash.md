@@ -6,6 +6,10 @@ session: "8"
 faculty: Surya Prakash
 ---
 
+<!-- nav -->
+← [Session 7 (2026-09-14)](DSM-103-7_2026-09-14_Surya-Prakash.md) · [All lectures](./) · [Session 9 (2026-09-18)](DSM-103-9_2026-09-18_Surya-Prakash.md) →
+<!-- /nav -->
+
 # DSM-103 Data Structures — Session 8
 **File:** `DSM-103-8_2026-09-17_Surya-Prakash`
 **Topic:** Stacks (continued) — operations, array implementation, and applications (string reversal, arithmetic expression notation & evaluation)
@@ -307,3 +311,7 @@ POSTFIX EVAL:  operand -> push
                operator -> arg2 = pop(); arg1 = pop();
                            push(arg1 op arg2)
 ```
+
+<!-- nav -->
+← [Session 7 (2026-09-14)](DSM-103-7_2026-09-14_Surya-Prakash.md) · [All lectures](./) · [Session 9 (2026-09-18)](DSM-103-9_2026-09-18_Surya-Prakash.md) →
+<!-- /nav -->

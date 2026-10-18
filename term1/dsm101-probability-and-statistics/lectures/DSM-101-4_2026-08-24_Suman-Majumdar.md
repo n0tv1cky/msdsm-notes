@@ -6,6 +6,10 @@ session: "4"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 3 (2026-08-22)](DSM-101-3_2026-08-22_Suman-Majumdar.md) · [All lectures](./) · [Session 5 (2026-08-26)](DSM-101-5_2026-08-26_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 4 — 2026-08-24 — Instructor: Suman Majumdar
 
@@ -255,3 +259,7 @@ $$M_n = \langle X^n \rangle = \int_{-\infty}^{+\infty} x^n \, P(x)\, dx$$
 | Gaussian | fully specified by **$(\mu, \sigma)$**; if centered on the mean, by **$\sigma$ alone** |
 | Beyond Gaussian | add **skewness** (3rd), **kurtosis** (4th), … |
 | Histogram bin height | = **frequency (count) of observations falling in that bin**; bin width fixed |
+
+<!-- nav -->
+← [Session 3 (2026-08-22)](DSM-101-3_2026-08-22_Suman-Majumdar.md) · [All lectures](./) · [Session 5 (2026-08-26)](DSM-101-5_2026-08-26_Suman-Majumdar.md) →
+<!-- /nav -->

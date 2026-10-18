@@ -6,6 +6,10 @@ session: "1"
 faculty: Jagannathan Srinath
 ---
 
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-09-04)](DSM-106-2_2026-09-04_Jagannathan-Srinath.md) →
+<!-- /nav -->
+
 # DSM-106 Business Research — Session 1
 ### Case: Basecamp (Project Management SaaS) — Pricing Research
 **Date:** 2026-08-24 | **Instructor:** Jagannathan Srinath
@@ -219,3 +223,7 @@ To strip out the anchoring problem and to make the three tiers comparable, the s
   - **Anchoring bias** in survey research — why survey price data cannot be taken at face value.
   - **Measures of central tendency (mean, median, mode)**, **quartiles / interquartile range** and why the median is used here.
   - **Price signals quality** as a strategic constraint.
+
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-09-04)](DSM-106-2_2026-09-04_Jagannathan-Srinath.md) →
+<!-- /nav -->

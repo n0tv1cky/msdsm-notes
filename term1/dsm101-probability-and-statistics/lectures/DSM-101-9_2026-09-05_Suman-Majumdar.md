@@ -6,6 +6,10 @@ session: "9"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 8 (2026-09-02)](DSM-101-8_2026-09-02_Suman-Majumdar.md) · [All lectures](./) · [Session 10 (2026-09-07)](DSM-101-10_2026-09-07_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 9 (2026-09-05, Instr. Suman Majumdar): **The Central Limit Theorem (CLT)**
 
@@ -184,3 +188,7 @@ $$P(\bar X < 50{,}000) = P(Z < -2.8987) \approx 0.0019$$
 - **Homework:** a **similar problem is attached at the end of the slides** (same structure as the New Jersey teacher-salary problem) — solve it yourself. The class-worked problem will also be attached to the posted slides.
 - **Recommended self-study:** go through the **Seeing Theory CLT animation** yourself and experiment with sample size and number of draws; other online demonstrations also exist.
 - **Next class:** a **Q&A session at the start**, then more CLT practice problems. Students are asked to **write down questions in advance** (especially on *where the CLT can and cannot be applied, and how it should be applied*) and ideally email them beforehand. Remaining practice problems will be posted on the **LMS**.
+
+<!-- nav -->
+← [Session 8 (2026-09-02)](DSM-101-8_2026-09-02_Suman-Majumdar.md) · [All lectures](./) · [Session 10 (2026-09-07)](DSM-101-10_2026-09-07_Suman-Majumdar.md) →
+<!-- /nav -->

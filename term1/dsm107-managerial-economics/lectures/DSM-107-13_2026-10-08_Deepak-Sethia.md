@@ -6,6 +6,10 @@ session: "13"
 faculty: Deepak Sethia
 ---
 
+<!-- nav -->
+← [Session 12 (2026-10-07)](DSM-107-12_2026-10-07_Deepak-Sethia.md) · [All lectures](./) · [Session 14 (2026-10-13)](DSM-107-14_2026-10-13_Deepak-Sethia.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics, Session 13 (08-Oct-2026, Deepak Sethia): Study Notes
 
 ---
@@ -417,3 +421,7 @@ $$1 + r = \frac{1+i}{1+\pi} \;\;\Rightarrow\;\; r \approx i - \pi^e$$
 $$C = \bar{C} + cY, \qquad c = \text{MPC} = \frac{\Delta C}{\Delta Y}$$
 
 $$Y = C + I + G + X - M$$
+
+<!-- nav -->
+← [Session 12 (2026-10-07)](DSM-107-12_2026-10-07_Deepak-Sethia.md) · [All lectures](./) · [Session 14 (2026-10-13)](DSM-107-14_2026-10-13_Deepak-Sethia.md) →
+<!-- /nav -->

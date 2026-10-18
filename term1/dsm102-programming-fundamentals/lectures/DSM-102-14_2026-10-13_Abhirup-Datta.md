@@ -6,6 +6,10 @@ session: "14"
 faculty: Abhirup Datta
 ---
 
+<!-- nav -->
+← [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->
+
 # DSM-102 Lecture 14: Linear Algebra with NumPy (Vectors, Matrices, Transformations, Least Squares)
 
 **Instructor:** Abhirup Datta  **Date:** 2026-10-13
@@ -492,3 +496,7 @@ plt.show()
 - The instructor suggested **deriving the least-squares formulas by hand** and **experimenting with `sns.regplot`**.
 - Distance and norm ideas will be reused in an upcoming **k-Nearest Neighbours** lecture.
 - **Admin:** a student asked for slides and PDFs for this and previous sessions. The instructor said recordings and materials will be on the **LMS portal**. The student reported they were not yet visible, and the instructor said they would follow up.
+
+<!-- nav -->
+← [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->

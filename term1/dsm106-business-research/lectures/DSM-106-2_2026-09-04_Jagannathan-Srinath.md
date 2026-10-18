@@ -6,6 +6,10 @@ session: "2"
 faculty: Jagannathan Srinath
 ---
 
+<!-- nav -->
+← [Session 1 (2026-08-24)](DSM-106-1_2026-08-24_Jagannathan-Srinath.md) · [All lectures](./) · [Session 3 (2026-09-05)](DSM-106-3_2026-09-05_Jagannathan-Srinath.md) →
+<!-- /nav -->
+
 # DSM-106 Business Research — Session Notes
 **File:** DSM-106-2_2026-09-04_Jagannathan-Srinath
 **Topics:** Basecamp pricing case (conclusion) — interpreting Van Westendorp price-sensitivity data via interquartile ranges; A/B testing vs. survey research; introduction to the second case (30-manager, 7-item survey dataset)
@@ -177,3 +181,7 @@ All values are **multiples of the current price**, where **1x = current price**.
   Be able to explain: the **A/B test** (design, what conversion ratios tell you, its limitations), the **Van Westendorp PSM survey** (4 questions, four price constructs), **anchoring bias**, why conventional PSM graphs fail, and how to **read medians, Q1–Q4 and whiskers** off the four curves in multiples of 1x.
 - **Next class: 10:45 a.m. the following day** (first class of the day).
 - Instructor shared **email ID and WhatsApp number** on screen and invited offline discussion of alternative scenarios.
+
+<!-- nav -->
+← [Session 1 (2026-08-24)](DSM-106-1_2026-08-24_Jagannathan-Srinath.md) · [All lectures](./) · [Session 3 (2026-09-05)](DSM-106-3_2026-09-05_Jagannathan-Srinath.md) →
+<!-- /nav -->

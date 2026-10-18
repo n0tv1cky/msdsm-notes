@@ -6,6 +6,10 @@ session: "1"
 faculty: Saurabh Das
 ---
 
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-26)](DSM-102-2_2026-08-26_Saurabh-Das.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 1 — 2026-08-25 — Instructor: Prof. Saurabh Das
 *(Dept. of Astronomy, Astrophysics & Space Engineering, IIT Indore — works with remote-sensing satellite data)*
@@ -305,3 +309,7 @@ type(x)          # -> <class 'float'>
 - The instructor will **upload the Colab notebooks** after class.
 - Classes are being held **daily this week**, at 7 or 8 (pm, presumably).
 - **Deferred topics to expect:** `class` and objects (≈ class 3–4); NumPy, SciPy, Matplotlib later in Module 1.
+
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-26)](DSM-102-2_2026-08-26_Saurabh-Das.md) →
+<!-- /nav -->

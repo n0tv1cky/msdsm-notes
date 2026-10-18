@@ -6,6 +6,10 @@ session: "3"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 2 (2026-08-17)](DSM-107-2_2026-08-17_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 4 (2026-08-20)](DSM-107-4_2026-08-20_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L03
 
 ## Study Notes: Technology, Production Functions, Isocost Lines, and the Industrial Revolution
@@ -346,3 +350,7 @@ The instructor did not announce a formal assessment item in this session, but th
 | Isocost in slope-intercept form                 | $R = \dfrac{C}{p} - \dfrac{w}{p}L$                                               |
 | Profit                                          | $\pi = \text{Revenue} - \text{Cost}$                                             |
 | Innovation rent                                 | Profit(new technology) − Profit(next best / existing technology)                 |
+
+<!-- nav -->
+← [Session 2 (2026-08-17)](DSM-107-2_2026-08-17_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 4 (2026-08-20)](DSM-107-4_2026-08-20_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

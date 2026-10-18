@@ -6,6 +6,10 @@ session: "4"
 faculty: Saurabh Das
 ---
 
+<!-- nav -->
+← [Session 3 (2026-08-27)](DSM-102-3_2026-08-27_Saurabh-Das.md) · [All lectures](./) · [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 4 — 2026-08-28 — Instructor: Saurabh Das
 ### Topic: User-Defined Functions in Python (definition, return vs print, scope, recursion, arguments)
@@ -446,3 +450,7 @@ greet("Ravi", "How do you do?")        # -> Hello Ravi, How do you do?
 - **Recursion was explicitly flagged as "one of the critical things"** — the instructor stopped and set a live exercise (write factorial with a loop) specifically to make sure recursion was understood. Be able to write factorial **both** ways (loop and recursion).
 - Next class: more on flexible argument passing (variable number of arguments, different ways to pass information into a function).
 - Next session time: **4:00**.
+
+<!-- nav -->
+← [Session 3 (2026-08-27)](DSM-102-3_2026-08-27_Saurabh-Das.md) · [All lectures](./) · [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) →
+<!-- /nav -->

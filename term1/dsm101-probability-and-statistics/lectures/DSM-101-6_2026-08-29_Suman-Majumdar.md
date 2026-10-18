@@ -6,6 +6,10 @@ session: "6"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 5 (2026-08-26)](DSM-101-5_2026-08-26_Suman-Majumdar.md) · [All lectures](./) · [Session 7 (2026-08-31)](DSM-101-7_2026-08-31_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 6 — 29 Aug 2026 — Instructor: Suman Majumdar
 ### Topic: From Binomial → Poisson → Gaussian; Null Hypothesis; CDF; Rarity of Events
@@ -224,3 +228,7 @@ $$100 + 15 = 115 \quad\text{and}\quad 100 - 15 = 85$$
  - CDF: $C(a)=\int_{-\infty}^{a}p(x)dx$; $P(a_1\le X\le a_2)=C(a_2)-C(a_1)$; $\int_{-\infty}^{\infty}p(x)dx=1$.
  - Gaussian sigma rule: 68.2 % within $\pm1\sigma$ (34.1 % each side), +13.6 % each side out to $\pm2\sigma$ (≈95 %).
 - **Next class:** Bayes' theorem, taught by starting from a problem and solving it — then extracting the meaning of the theorem. (Class resumes Monday.)
+
+<!-- nav -->
+← [Session 5 (2026-08-26)](DSM-101-5_2026-08-26_Suman-Majumdar.md) · [All lectures](./) · [Session 7 (2026-08-31)](DSM-101-7_2026-08-31_Suman-Majumdar.md) →
+<!-- /nav -->

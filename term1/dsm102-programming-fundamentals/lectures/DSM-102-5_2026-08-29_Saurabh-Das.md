@@ -6,6 +6,10 @@ session: "5"
 faculty: Saurabh Das
 ---
 
+<!-- nav -->
+← [Session 4 (2026-08-28)](DSM-102-4_2026-08-28_Saurabh-Das.md) · [All lectures](./) · [Session 6 (2026-09-01)](DSM-102-6_2026-09-01_Saurabh-Das.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 5 — 2026-08-29 (Instructor: Saurabh Das)
 
@@ -472,3 +476,7 @@ print(d)                       # {5: 28, 2: 27, 3: 'lbs'}
 - Become **highly familiar with list operations**; they replace many loops and are more efficient.
 - A **practice assignment** will be posted on the Google Drive folder; a **short quiz** is expected in the next session (Monday/Tuesday).
 - Know the Python vocabulary: **class, object/instance, method** — and the list/tuple/set/dictionary comparison table (ordered / indexed / mutable / duplicates).
+
+<!-- nav -->
+← [Session 4 (2026-08-28)](DSM-102-4_2026-08-28_Saurabh-Das.md) · [All lectures](./) · [Session 6 (2026-09-01)](DSM-102-6_2026-09-01_Saurabh-Das.md) →
+<!-- /nav -->

@@ -6,6 +6,10 @@ session: "6"
 faculty: Varun Rijhwani
 ---
 
+<!-- nav -->
+← [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->
+
 # DSM-104 Managerial Communication: Session 6 Study Notes
 **Session:** DSM-104-6, 10 Oct 2026. Instructor: Varun Rijhwani
 **Module:** Start of Module 3 (Presentation Skills). Topic: *Participating in and Managing Meetings Effectively*
@@ -253,3 +257,7 @@ The video is dated but is the original on this concept. It is narrated by the so
   - The Point, Reason, Next Step structure.
   - The Six Thinking Hats: each hat's meaning, that hats are modes not personalities, that black means reasoned caution, that there is no fixed sequence, and when to use the framework.
   - Groupthink, the Abilene Paradox, the role of power and seniority, and why speaking up matters.
+
+<!-- nav -->
+← [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->

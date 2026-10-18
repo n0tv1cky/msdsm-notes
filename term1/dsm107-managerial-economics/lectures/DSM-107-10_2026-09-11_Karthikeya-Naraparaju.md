@@ -6,6 +6,10 @@ session: "10"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 9 (2026-09-09)](DSM-107-9_2026-09-09_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 11 (2026-10-06)](DSM-107-11_2026-10-06_Deepak-Sethia.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L10 Study Notes
 
 ## 1. Overview
@@ -316,3 +320,7 @@ $$\boxed{\frac{P - MC}{P} = -\frac{1}{\varepsilon}}$$
 | Isoprofit slope | dP/dQ = −(P − MC)/Q |
 | Price elasticity | ε = (dQ/Q) / (dP/P) = (P/Q)·(dQ/dP) |
 | Tangency result | (P − MC)/P = −1/ε |
+
+<!-- nav -->
+← [Session 9 (2026-09-09)](DSM-107-9_2026-09-09_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 11 (2026-10-06)](DSM-107-11_2026-10-06_Deepak-Sethia.md) →
+<!-- /nav -->

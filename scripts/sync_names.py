@@ -15,6 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from nav_links import update_all as update_nav
 from sessions import load, lookup, name_of, with_front_matter
 
 REPO = Path(__file__).resolve().parent.parent
@@ -89,6 +90,8 @@ def main():
     for d, entry in fronts:
         d.write_text(with_front_matter(d.read_text(encoding="utf-8"), entry), encoding="utf-8")
     print(f"\nRenamed {len(moves)} file(s), updated front matter on {len(fronts)} note(s).")
+    # Renames and new labels change the previous/next links.
+    update_nav()
 
 
 if __name__ == "__main__":

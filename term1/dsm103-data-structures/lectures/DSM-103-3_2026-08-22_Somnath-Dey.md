@@ -6,6 +6,10 @@ session: "3"
 faculty: Somnath Dey
 ---
 
+<!-- nav -->
+← [Session 2 (2026-08-20)](DSM-103-2_2026-08-20_Somnath-Dey.md) · [All lectures](./) · [Session 4 (2026-08-29)](DSM-103-4_2026-08-29_Somnath-Dey.md) →
+<!-- /nav -->
+
 # DSM-103 — Data Structures
 ## Session Notes — 2026-08-22 (Instructor: Somnath Dey)
 ### Topic: Two-Dimensional Arrays, Row-/Column-Major Addressing, and Sparse (Triangular & Band) Matrices
@@ -281,3 +285,7 @@ $$\text{number of rows from } p \text{ to } q = q - p + 1$$
 ## 6. Administrative Notes
 
 - The next scheduled lecture (**Thursday**) is likely to be **cancelled** due to the instructor's travel; confirmation to be sent **by Tuesday**. Thursday and Saturday sessions were both mentioned as potentially affected.
+
+<!-- nav -->
+← [Session 2 (2026-08-20)](DSM-103-2_2026-08-20_Somnath-Dey.md) · [All lectures](./) · [Session 4 (2026-08-29)](DSM-103-4_2026-08-29_Somnath-Dey.md) →
+<!-- /nav -->

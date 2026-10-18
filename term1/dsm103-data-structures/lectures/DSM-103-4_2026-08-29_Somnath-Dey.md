@@ -6,6 +6,10 @@ session: "4"
 faculty: Somnath Dey
 ---
 
+<!-- nav -->
+← [Session 3 (2026-08-22)](DSM-103-3_2026-08-22_Somnath-Dey.md) · [All lectures](./) · [Session 5 (2026-09-03)](DSM-103-5_2026-09-03_Somnath-Dey.md) →
+<!-- /nav -->
+
 # DSM-103 Data Structures — Session 4 (2026-08-29, Prof. Somnath Dey)
 ## Topic: Linked Lists — Representation, Traversal, Insertion, Deletion
 
@@ -324,3 +328,7 @@ DELETE_KEY(header, key):
 - **Linked lists have no indexing** — you cannot refer to "node i"; all access is sequential from the header. Expect this to be contrasted with arrays.
 - **Homework/next step stated at the end:** *"Please go through this slide"* (the deletion algorithms) before the next class; the instructor offered to repeat the deletion material if doubts remain.
 - Still to be covered from the operations list: **copying** a list, **merging** two lists, and **searching**.
+
+<!-- nav -->
+← [Session 3 (2026-08-22)](DSM-103-3_2026-08-22_Somnath-Dey.md) · [All lectures](./) · [Session 5 (2026-09-03)](DSM-103-5_2026-09-03_Somnath-Dey.md) →
+<!-- /nav -->

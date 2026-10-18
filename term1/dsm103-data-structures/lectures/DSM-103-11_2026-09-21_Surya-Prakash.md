@@ -6,6 +6,10 @@ session: "11"
 faculty: Surya Prakash
 ---
 
+<!-- nav -->
+← [Session 10 (2026-09-19)](DSM-103-10_2026-09-19_Surya-Prakash.md) · [All lectures](./) · [Session 12 (2026-10-08)](DSM-103-12_2026-10-08_Somnath-Dey.md) →
+<!-- /nav -->
+
 # DSM-103 Session 11: Algorithms and Time Complexity (Big-O)
 
 *Lecturer: Surya Prakash · 2026-09-21*
@@ -177,3 +181,7 @@ $$T(n) = 2n + 4 = O(n)$$
   - Abstracting away constants to focus on the growth rate.
   - The formal Big-O definition with $c$ and $n_0$.
 - **Coming after the midterm:** sorting algorithms, with $O(n\log n)$ and $O(n^2)$ complexities.
+
+<!-- nav -->
+← [Session 10 (2026-09-19)](DSM-103-10_2026-09-19_Surya-Prakash.md) · [All lectures](./) · [Session 12 (2026-10-08)](DSM-103-12_2026-10-08_Somnath-Dey.md) →
+<!-- /nav -->

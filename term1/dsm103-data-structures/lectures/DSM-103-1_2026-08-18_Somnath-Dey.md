@@ -6,6 +6,10 @@ session: "1"
 faculty: Somnath Dey
 ---
 
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-20)](DSM-103-2_2026-08-20_Somnath-Dey.md) →
+<!-- /nav -->
+
 # DSM-103 (Data Structures) — Session 1
 **File:** DSM-103-1_2026-08-18 · **Instructor:** Prof. Somnath Dey, Dept. of CSE, IIT Indore
 
@@ -206,3 +210,7 @@ $$\textbf{Address}(A[I]) \;=\; M \;+\; (I - 1)$$
   - `index = L + I − 1`
 - **Conceptual points likely to be asked:** difference between **data and information**; **ADT vs. data structure**; the three classification axes (linear/non-linear, homogeneous/non-homogeneous, static/dynamic) with examples; the formal **definition of an array** (finite, ordered, homogeneous); **row-major vs column-major** access order.
 - **Next class:** Thursday.
+
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-20)](DSM-103-2_2026-08-20_Somnath-Dey.md) →
+<!-- /nav -->

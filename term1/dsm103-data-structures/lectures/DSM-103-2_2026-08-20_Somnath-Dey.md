@@ -6,6 +6,10 @@ session: "2"
 faculty: Somnath Dey
 ---
 
+<!-- nav -->
+← [Session 1 (2026-08-18)](DSM-103-1_2026-08-18_Somnath-Dey.md) · [All lectures](./) · [Session 3 (2026-08-22)](DSM-103-3_2026-08-22_Somnath-Dey.md) →
+<!-- /nav -->
+
 # DSM-103 — Data Structures
 ## Session Notes: Arrays — Basic Operations (Traversal, Sorting, Searching)
 **File:** DSM-103-2_2026-08-20_Somnath-Dey**
@@ -311,3 +315,7 @@ That is why step 9 must test `FOUND` to decide which message/result to produce.
 ## 9. Administrative Notes
 - LMS accounts were created; an activation email was sent on **17 August** to IIT (institute) email IDs — **check the spam folder** if not seen in the inbox.
 - Students confirmed they can log in and see the courses but that **no material was uploaded yet**; the instructor said he will now **upload this lecture's material** to the LMS.
+
+<!-- nav -->
+← [Session 1 (2026-08-18)](DSM-103-1_2026-08-18_Somnath-Dey.md) · [All lectures](./) · [Session 3 (2026-08-22)](DSM-103-3_2026-08-22_Somnath-Dey.md) →
+<!-- /nav -->

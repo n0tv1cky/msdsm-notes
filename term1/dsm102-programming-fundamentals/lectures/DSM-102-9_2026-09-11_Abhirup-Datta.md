@@ -6,6 +6,10 @@ session: "9"
 faculty: Abhirup Datta
 ---
 
+<!-- nav -->
+← [Session 6 (2026-09-01)](DSM-102-6_2026-09-01_Saurabh-Das.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 9 (2026-09-11) — Data Visualisation with Matplotlib
 
@@ -384,3 +388,7 @@ df
 - **Extension exercise from the subplot discussion:** take a 2×2 grid where the top two plots have the same y-axis and **combine/share that axis** so the two plots sit side by side with one shared y-axis (`sharey`).
 - **Next class:** pandas.
 - Notes/slides will be uploaded to the **LMS**.
+
+<!-- nav -->
+← [Session 6 (2026-09-01)](DSM-102-6_2026-09-01_Saurabh-Das.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) →
+<!-- /nav -->

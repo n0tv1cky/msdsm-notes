@@ -6,6 +6,10 @@ session: "6"
 faculty: Somnath Dey
 ---
 
+<!-- nav -->
+← [Session 5 (2026-09-03)](DSM-103-5_2026-09-03_Somnath-Dey.md) · [All lectures](./) · [Session 7 (2026-09-14)](DSM-103-7_2026-09-14_Surya-Prakash.md) →
+<!-- /nav -->
+
 # DSM-103 Data Structures — Session 6
 **Date:** 2026-09-05 · **Instructor:** Somnath Dey
 **File:** DSM-103-6_2026-09-05_Somnath-Dey
@@ -372,3 +376,7 @@ The instructor referred back to earlier lectures on **row-major vs column-major 
 
 **Language note for writing algorithms**
 - No specific programming language is mandated. The pseudocode uses C-like `if/else` and the **arrow operator (`->`)** purely to denote "follow this link". You may translate it into any language (`.` notation, asterisks/dereferencing, etc.).
+
+<!-- nav -->
+← [Session 5 (2026-09-03)](DSM-103-5_2026-09-03_Somnath-Dey.md) · [All lectures](./) · [Session 7 (2026-09-14)](DSM-103-7_2026-09-14_Surya-Prakash.md) →
+<!-- /nav -->

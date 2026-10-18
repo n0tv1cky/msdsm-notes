@@ -6,6 +6,10 @@ session: "1"
 faculty: Varun Rijhwani
 ---
 
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-29)](DSM-104-2_2026-08-29_Varun-Rijhwani.md) →
+<!-- /nav -->
+
 # DSM-104 Managerial Communication — Session 1 Study Notes
 **Date:** 2026-08-22 | **Instructor:** Varun Rijhwani | **Topic:** Course Introduction + Foundations of Verbal/Managerial Communication & Audience Analysis (PAIBOC)
 
@@ -215,3 +219,7 @@ Two broad steps:
 | Case: *Band Baaja Baaraat* | Pitch succeeded — deep research, personalisation, competitor knowledge, benefit-led offer, emotional appeal, objections anticipated & answered |
 
 **Next session:** Non-verbal communication (body language, appearance, first impressions) — next Saturday.
+
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-29)](DSM-104-2_2026-08-29_Varun-Rijhwani.md) →
+<!-- /nav -->

@@ -6,6 +6,10 @@ session: "21"
 faculty: Pritee Sharma
 ---
 
+<!-- nav -->
+← [Session 20 (2026-09-24)](DSM-101-20_2026-09-24_Arshad.md) · [All lectures](./) · [Session 22 (2026-10-05)](DSM-101-22_2026-10-05_Pritee-Sharma.md) →
+<!-- /nav -->
+
 # DSM-101 · Session 21: Descriptive Statistics Foundations and Data Sources
 
 **Lecturer:** Prof. Pritee Sharma, Professor of Economics, School of Sustainability, IIT Indore. The transcript renders the school's name as "Meta Family School of Sustainability." Her examples come mainly from economics, agricultural economics and environmental economics.
@@ -312,3 +316,7 @@ $$\hat{p} \times N = 0.01 \times 1{,}000{,}000 = 10{,}000$$
 - Sample mean: $\bar{x} = \dfrac{1}{n}\sum_{i=1}^{n} x_i$
 - Population standard deviation: $\sigma = \sqrt{\dfrac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$
 - Sample standard deviation: $s = \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$
+
+<!-- nav -->
+← [Session 20 (2026-09-24)](DSM-101-20_2026-09-24_Arshad.md) · [All lectures](./) · [Session 22 (2026-10-05)](DSM-101-22_2026-10-05_Pritee-Sharma.md) →
+<!-- /nav -->

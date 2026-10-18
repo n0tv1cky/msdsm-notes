@@ -6,6 +6,10 @@ session: "1"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-17)](DSM-107-2_2026-08-17_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM‑107 Managerial Economics — Session L01 (Microeconomics)
 ### Introductory Session: Why Do Economies Grow? Opportunity Cost, Economic Cost & Economic Rent
 
@@ -202,3 +206,7 @@ This first session sets up the microeconomics half of the course (sessions 1–1
 ## 8. Where the Next Session Picks Up
 
 The three decision concepts (opportunity cost → economic cost → economic rent) are complete. Next: the second toolkit — **specialization, division of labour, and comparative advantage** — to explain **who does which task and who produces what**, at the level of individuals, firms and countries, and how this links back to the escape from the Malthusian trap and sustained growth.
+
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-17)](DSM-107-2_2026-08-17_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

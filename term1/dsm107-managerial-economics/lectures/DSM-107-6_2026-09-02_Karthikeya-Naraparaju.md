@@ -6,6 +6,10 @@ session: "6"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 5 (2026-09-01)](DSM-107-5_2026-09-01_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 7 (2026-09-03)](DSM-107-7_2026-09-03_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L06
 ## Constrained Choice: MRS, MRT, Equilibrium, and Income vs. Substitution Effects
 
@@ -265,3 +269,7 @@ All four points lie on the **feasible frontier**, so **MRT = 30 at every point**
   3. The result that a wage rise **always** puts you on a higher indifference curve, even though whether free time rises or falls depends on preferences / which effect dominates.
 - Forward reference: **demand curve as the firm's constraint — Chapter/Module 7.**
 - Inferior goods: mentioned but explicitly **not a focus of this course**.
+
+<!-- nav -->
+← [Session 5 (2026-09-01)](DSM-107-5_2026-09-01_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 7 (2026-09-03)](DSM-107-7_2026-09-03_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

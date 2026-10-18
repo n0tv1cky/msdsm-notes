@@ -6,6 +6,10 @@ session: "11"
 faculty: Abhirup Datta
 ---
 
+<!-- nav -->
+← [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) · [All lectures](./) · [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) →
+<!-- /nav -->
+
 # DSM-102 Lecture 11: Visualizing Data with Seaborn
 *Session: DSM-102-11, 2026-10-09, Abhirup Datta*
 
@@ -396,3 +400,7 @@ sns.heatmap(corr, mask=mask, annot=True);
 
 - For every plot, be able to state **what question it answers, how to read it, and what it says about the data.**
 - No specific exam or assignment was announced in this session.
+
+<!-- nav -->
+← [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) · [All lectures](./) · [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) →
+<!-- /nav -->

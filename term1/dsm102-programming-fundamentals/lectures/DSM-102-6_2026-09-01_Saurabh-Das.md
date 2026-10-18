@@ -6,6 +6,10 @@ session: "6"
 faculty: Saurabh Das
 ---
 
+<!-- nav -->
+← [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) · [All lectures](./) · [Session 9 (2026-09-11)](DSM-102-9_2026-09-11_Abhirup-Datta.md) →
+<!-- /nav -->
+
 # DSM-102 — Session 6 (2026-09-01, Saurabh Das)
 ## Classes, Writing Your Own Modules, NumPy & Matplotlib
 
@@ -420,3 +424,7 @@ Most commonly used, as ranked by the instructor:
 - **Quiz:** was planned for the end of this session; deferred — "maybe **Friday** we can have this quiz" (explicitly *a quiz, not an exam*).
 - **Course handover:** the Python basics are essentially complete; **from next week Prof. Dutta takes over the classes**.
 - Topics still to come later in the course: **pandas** (DataFrames), and more depth in NumPy/Matplotlib — today was "just scratching the surface".
+
+<!-- nav -->
+← [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) · [All lectures](./) · [Session 9 (2026-09-11)](DSM-102-9_2026-09-11_Abhirup-Datta.md) →
+<!-- /nav -->

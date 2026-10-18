@@ -6,6 +6,10 @@ session: "4"
 faculty: Jagannathan Srinath
 ---
 
+<!-- nav -->
+← [Session 3 (2026-09-05)](DSM-106-3_2026-09-05_Jagannathan-Srinath.md) · [All lectures](./) · [Session 5 (2026-10-12)](DSM-106-5_2026-10-12_Jagannathan-Srinath.md) →
+<!-- /nav -->
+
 # DSM-106 Business Research: Session 4 Study Notes
 
 **Session file:** DSM-106-4_2026-10-09 (Jagannathan Srinath)
@@ -284,3 +288,7 @@ The remaining 5 clusters will be interpreted next session.
   - How to choose k in k-means.
 - **Next session (Monday):** Interpret Clusters 2 to 6, see which employees fall in each, wrap up the case, then move to a new exercise.
 - No explicit exam statements were made in this session.
+
+<!-- nav -->
+← [Session 3 (2026-09-05)](DSM-106-3_2026-09-05_Jagannathan-Srinath.md) · [All lectures](./) · [Session 5 (2026-10-12)](DSM-106-5_2026-10-12_Jagannathan-Srinath.md) →
+<!-- /nav -->

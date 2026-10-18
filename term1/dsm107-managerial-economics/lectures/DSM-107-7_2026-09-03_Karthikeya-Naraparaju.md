@@ -6,6 +6,10 @@ session: "7"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 6 (2026-09-02)](DSM-107-6_2026-09-02_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 8 (2026-09-07)](DSM-107-8_2026-09-07_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L07 Study Notes
 
 ## 1. Overview
@@ -251,3 +255,7 @@ No explicit assignment or exam announcement was made in this session. However, t
 - **Nash's existence theorem:** finite players + finite strategies ⇒ an equilibrium exists (including in mixed strategies).
 - **Course scope restriction:** only **simultaneous, full-information** games are studied here.
 - **Coming next:** Chapter 7 — **market demand and market supply**, the tool for large-numbers (non-strategic) settings.
+
+<!-- nav -->
+← [Session 6 (2026-09-02)](DSM-107-6_2026-09-02_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 8 (2026-09-07)](DSM-107-8_2026-09-07_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

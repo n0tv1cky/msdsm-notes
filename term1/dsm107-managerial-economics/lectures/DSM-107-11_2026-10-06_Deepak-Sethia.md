@@ -6,6 +6,10 @@ session: "11"
 faculty: Deepak Sethia
 ---
 
+<!-- nav -->
+← [Session 10 (2026-09-11)](DSM-107-10_2026-09-11_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 12 (2026-10-07)](DSM-107-12_2026-10-07_Deepak-Sethia.md) →
+<!-- /nav -->
+
 # DSM-107 (Managerial Economics), Session L11: Introduction to Macroeconomics and National Income Accounting
 
 > **Note on content:** This session is the first lecture of the **macroeconomics** part of the course, taught by Deepak. No micro tools were covered: there were no isocost/isoquant curves, MRS/MRT, demand/supply diagrams, opportunity cost or comparative-advantage models. The models used were the **circular flow of income** diagram, a long-run vs. short-run output graph, and three numerical GDP examples. The transcript is ASR output, so a few names have been reconstructed: "Mukesh Ambani," "Antilia," "Ladli Behna," "Kisan Samman Nidhi," "Rapido," and "Himachal."
@@ -296,3 +300,7 @@ No explicit "this will be on the exam" statements were made. The following were 
   - Long run (supply, growth) vs. short run (demand, fluctuations).
   - The output gap.
 - **Prepare for next class:** think through the **perishable unsold bread** puzzle.
+
+<!-- nav -->
+← [Session 10 (2026-09-11)](DSM-107-10_2026-09-11_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 12 (2026-10-07)](DSM-107-12_2026-10-07_Deepak-Sethia.md) →
+<!-- /nav -->

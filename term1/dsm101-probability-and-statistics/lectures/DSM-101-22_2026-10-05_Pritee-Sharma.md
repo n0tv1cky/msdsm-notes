@@ -6,6 +6,10 @@ session: "22"
 faculty: Pritee Sharma
 ---
 
+<!-- nav -->
+← [Session 21 (2026-10-03)](DSM-101-21_2026-10-03_Pritee-Sharma.md) · [All lectures](./) · [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) →
+<!-- /nav -->
+
 # DSM-101 Session 22: Sampling Design, Sources of Error, and Probability Sampling
 *Instructor: Pritee Sharma · Date: 2026-10-05*
 
@@ -217,3 +221,7 @@ No explicit exam or assignment instructions were given in this session. The foll
 **Coming up:**
 - Next class continues the sampling chapter with **non-probability sampling methods**.
 - **Experimental designs** (treatment/control, levels of treatment) will be covered later, in this course or another.
+
+<!-- nav -->
+← [Session 21 (2026-10-03)](DSM-101-21_2026-10-03_Pritee-Sharma.md) · [All lectures](./) · [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) →
+<!-- /nav -->

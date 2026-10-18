@@ -6,6 +6,10 @@ session: "3"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 2 (2026-08-19)](DSM-101-2_2026-08-19_Suman-Majumdar.md) · [All lectures](./) · [Session 4 (2026-08-24)](DSM-101-4_2026-08-24_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Session 3 (2026-08-22, Prof. Suman Majumdar)
 ## Data Compression, Statistics, and the Calculus of Probability
 
@@ -221,3 +225,7 @@ $$P(X) = \int P(X,Y)\, dY, \qquad P(Y) = \int P(X,Y)\, dX$$
 - Basic concepts: chance events, **expectation value**, **variance**.
 - Deeper treatment of **Bayes' theorem: interpretation and application** (updating probability in the light of new data).
 - Later in the course: errors/uncertainties in detail, histograms and recovering the population distribution, Bayesian inference and the approximate marginalization "tricks."
+
+<!-- nav -->
+← [Session 2 (2026-08-19)](DSM-101-2_2026-08-19_Suman-Majumdar.md) · [All lectures](./) · [Session 4 (2026-08-24)](DSM-101-4_2026-08-24_Suman-Majumdar.md) →
+<!-- /nav -->

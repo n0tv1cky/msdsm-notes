@@ -6,6 +6,10 @@ session: "10"
 faculty: Abhirup Datta
 ---
 
+<!-- nav -->
+← [Session 9 (2026-09-11)](DSM-102-9_2026-09-11_Abhirup-Datta.md) · [All lectures](./) · [Session 11 (2026-10-09)](DSM-102-11_2026-10-09_Abhirup-Datta.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 10 — 2026-09-19 (Instructor: Abhirup Datta)
 
@@ -328,3 +332,7 @@ plt.show()
    - Default `pd.merge` is an **inner join** → an omitted key row **silently disappears**. Insert a blank/`NaN` row instead of leaving the record out.
    - Forgetting `import matplotlib.pyplot as plt` (or the pyplot import generally) → plotting "won't work."
    - Format/colour argument position in `plt.plot()` matters.
+
+<!-- nav -->
+← [Session 9 (2026-09-11)](DSM-102-9_2026-09-11_Abhirup-Datta.md) · [All lectures](./) · [Session 11 (2026-10-09)](DSM-102-11_2026-10-09_Abhirup-Datta.md) →
+<!-- /nav -->

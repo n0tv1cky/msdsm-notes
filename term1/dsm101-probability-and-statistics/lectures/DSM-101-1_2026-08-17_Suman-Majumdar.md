@@ -6,6 +6,10 @@ session: "1"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-19)](DSM-101-2_2026-08-19_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 1 (2026-08-17) — Instructor: Prof. Suman Majumdar
 ### Introductory Lecture: Why Statistics? Inverse Problems and the Concept of Probability
@@ -176,3 +180,7 @@ All three illustrated with the **US stock market** (historical index data since 
 - **Study advice**: after each lecture, read/skim the corresponding sections of **Sheldon Ross**, focusing on the **worked examples and problems**.
 - **Conceptual emphasis for the course**: **Bayes' theorem** is the single idea the instructor will stress most, because of its pervasive use in machine learning — expect it to be central in the coming lectures.
 - **Flagged as hard / to revisit**: **model selection** given observational data.
+
+<!-- nav -->
+← (first lecture) · [All lectures](./) · [Session 2 (2026-08-19)](DSM-101-2_2026-08-19_Suman-Majumdar.md) →
+<!-- /nav -->

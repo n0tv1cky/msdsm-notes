@@ -6,6 +6,10 @@ session: "7"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 6 (2026-08-29)](DSM-101-6_2026-08-29_Suman-Majumdar.md) · [All lectures](./) · [Session 8 (2026-09-02)](DSM-101-8_2026-09-02_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 7 — Bayes' Theorem and Bayesian Inference
 **Instructor:** Suman Majumdar | **File:** DSM-101-7_2026-08-31
@@ -201,3 +205,7 @@ $$\boxed{\,P(\theta \mid D_1, D_2) \;\propto\; P(D_2 \mid \theta)\; P(\theta \mi
   - Rule-of-thumb: prior sensitivity ⇒ insufficient data.
   - Rule 1 of analysis: write the question precisely; there is no Rule 2.
 - **Self-study / recommended:** *Thinking, Fast and Slow* (Kahneman); the **3Blue1Brown** video on the Steve/librarian Bayes example; the mean-of-a-distribution slide.
+
+<!-- nav -->
+← [Session 6 (2026-08-29)](DSM-101-6_2026-08-29_Suman-Majumdar.md) · [All lectures](./) · [Session 8 (2026-09-02)](DSM-101-8_2026-09-02_Suman-Majumdar.md) →
+<!-- /nav -->

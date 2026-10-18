@@ -13,6 +13,7 @@ scripts/                note-generation tooling (Python, stdlib only)
   generate_notes.py       transcript -> study notes, via the Anthropic API
   sessions.py             reads the canonical session list; naming + front matter
   sync_names.py           renames notes/transcripts when session numbers change
+  nav_links.py            previous/next links between notes, in the order classes were held
 .claude/skills/         Claude Code skill for building recap pages
 <term>/
   <dsm-code>-<short-title>/
@@ -35,6 +36,8 @@ python3 scripts/generate_notes.py /path/to/subjects/<dsm-code>-<short-title>/tra
 It skips any `.txt` whose `<term>/<course-dir>/lectures/<name>.md` already exists here, so re-running the whole pipeline is always safe. `TERM` is a hardcoded constant at the top of the script (currently `"term1"`) -- bump it by hand when a new term's courses start; there's no way to infer it from the transcripts path.
 
 **Note on filenames:** notes are named after the recording, e.g. `DSM-103-4_2026-08-29_Somnath-Dey.md`, and each starts with a front-matter block (course, date, start time, session, faculty). A lecture is identified by course + date + start time; its session N is a derived label: the Nth class of the course actually held, in date/time order, taken from the canonical session list the recording sync writes outside this repo. `generate_notes.py` refuses to write a note under a stale number, and `python3 scripts/sync_names.py --fix` renames notes and transcripts together whenever the list changes.
+
+**Navigation:** GitHub lists files alphabetically (S1, S10, S11, ..., S2), so every note has a previous / all lectures / next line at its top and bottom, in date order. `scripts/nav_links.py` writes these between `<!-- nav -->` markers. `generate_notes.py` and `sync_names.py --fix` re-run it automatically, so it only needs running by hand after editing notes some other way.
 
 ## Recap pages (`recap/*.html`)
 

@@ -6,6 +6,10 @@ session: "5"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 4 (2026-08-24)](DSM-101-4_2026-08-24_Suman-Majumdar.md) · [All lectures](./) · [Session 6 (2026-08-29)](DSM-101-6_2026-08-29_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Session 5 (2026-08-26, Prof. Suman Majumdar)
 ## Population vs. Sample, Moments, and the Binomial Distribution
 
@@ -240,3 +244,7 @@ Discrete analogue: $\displaystyle E[X] = \sum_i x_i P(x_i)$, $\displaystyle \sum
 **Indicator-variable construction:** $x_i\in\{0,1\}$, $E[x_i]=p_1$, $n=\sum_{i=1}^{N}x_i \Rightarrow \langle n\rangle = N p_1$
 
 **Large-$N$ limit:** binomial $\xrightarrow[\;N\to\infty\;]{}$ symmetric, Gaussian-like envelope about $n=Np_1$ (Central Limit Theorem in action).
+
+<!-- nav -->
+← [Session 4 (2026-08-24)](DSM-101-4_2026-08-24_Suman-Majumdar.md) · [All lectures](./) · [Session 6 (2026-08-29)](DSM-101-6_2026-08-29_Suman-Majumdar.md) →
+<!-- /nav -->

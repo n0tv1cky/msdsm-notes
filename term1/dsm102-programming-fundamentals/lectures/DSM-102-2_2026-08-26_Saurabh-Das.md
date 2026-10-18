@@ -6,6 +6,10 @@ session: "2"
 faculty: Saurabh Das
 ---
 
+<!-- nav -->
+← [Session 1 (2026-08-25)](DSM-102-1_2026-08-25_Saurabh-Das.md) · [All lectures](./) · [Session 3 (2026-08-27)](DSM-102-3_2026-08-27_Saurabh-Das.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 2 — 2026-08-26 (Instructor: Saurabh Das)
 ### Topic: Variables, Data Types, Operators, String Manipulation & Formatting, Intro to Modules
@@ -353,3 +357,7 @@ area = math.pi * r**2   # (r must be defined)
 - **The Google Colab notebook used in class will be uploaded to the LMS portal** within a day or two.
 - **Next session (tomorrow, ~7:00 p.m.):** modules in detail — what the important modules are (`math`, NumPy, SciPy…), how to import them, and later, how to write your own module.
 - Environment: Google Colab is fine; a local desktop Python environment is equally acceptable.
+
+<!-- nav -->
+← [Session 1 (2026-08-25)](DSM-102-1_2026-08-25_Saurabh-Das.md) · [All lectures](./) · [Session 3 (2026-08-27)](DSM-102-3_2026-08-27_Saurabh-Das.md) →
+<!-- /nav -->

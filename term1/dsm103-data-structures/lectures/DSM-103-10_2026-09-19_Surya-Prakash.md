@@ -6,6 +6,10 @@ session: "10"
 faculty: Surya Prakash
 ---
 
+<!-- nav -->
+← [Session 9 (2026-09-18)](DSM-103-9_2026-09-18_Surya-Prakash.md) · [All lectures](./) · [Session 11 (2026-09-21)](DSM-103-11_2026-09-21_Surya-Prakash.md) →
+<!-- /nav -->
+
 # DSM-103 — Session 10 (2026-09-19) — Circular Queues, Linked-List Queues, Comparison
 
 ---
@@ -282,3 +286,7 @@ DEQUEUE_LL():
 - The fact that in a circular queue `rear` may be **less than** `front`, unlike in a linear queue.
 - $O(1)$ enqueue/dequeue for circular queues vs. non-constant time for the shifting-based linear solutions.
 - The circular-array vs. linked-list comparison table.
+
+<!-- nav -->
+← [Session 9 (2026-09-18)](DSM-103-9_2026-09-18_Surya-Prakash.md) · [All lectures](./) · [Session 11 (2026-09-21)](DSM-103-11_2026-09-21_Surya-Prakash.md) →
+<!-- /nav -->

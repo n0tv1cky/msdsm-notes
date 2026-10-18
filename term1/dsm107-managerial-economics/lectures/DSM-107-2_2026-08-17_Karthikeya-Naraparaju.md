@@ -6,6 +6,10 @@ session: "2"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 1 (2026-08-14)](DSM-107-1_2026-08-14_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 3 (2026-08-19)](DSM-107-3_2026-08-19_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L02 Study Notes
 
 ## 1. Overview
@@ -254,3 +258,7 @@ Check the price `1 ton of wheat = 40 apples` against each party's opportunity co
   - **Specialization + trade raises total output and makes everyone better off.**
   - **Relative prices drive technology choice** — the through-line of the whole Industrial Revolution narrative.
 - **Next session (Wednesday):** continue with the five technologies (workers vs. coal) and evaluating which technology to choose — technical vs. economic efficiency.
+
+<!-- nav -->
+← [Session 1 (2026-08-14)](DSM-107-1_2026-08-14_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 3 (2026-08-19)](DSM-107-3_2026-08-19_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

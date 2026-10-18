@@ -6,6 +6,10 @@ session: "7"
 faculty: Surya Prakash
 ---
 
+<!-- nav -->
+← [Session 6 (2026-09-05)](DSM-103-6_2026-09-05_Somnath-Dey.md) · [All lectures](./) · [Session 8 (2026-09-17)](DSM-103-8_2026-09-17_Surya-Prakash.md) →
+<!-- /nav -->
+
 # DSM-103 — Data Structures
 
 ## Session 7 · 2026-09-14 · Instructor: Surya Prakash
@@ -295,3 +299,7 @@ Logic as stated: *as long as the pointer is not NULL, keep moving to the next no
 - **Formulas to remember:** empty condition $\text{top} < L$; full condition $\text{top} \ge U$; free space $= \frac{\text{size}-\text{top}}{\text{size}}\times 100$.
 - **Next class:** applications of the stack, in particular **evaluation of arithmetic expressions** — infix, prefix, postfix notations; **infix→postfix conversion using a stack**; and **postfix evaluation using a stack**.
 - **Reference:** the textbook displayed on the final slide (same one recommended earlier in the course) — the algorithms presented are taken directly from it; slides alone are stated to be sufficient, the book is for further exploration.
+
+<!-- nav -->
+← [Session 6 (2026-09-05)](DSM-103-6_2026-09-05_Somnath-Dey.md) · [All lectures](./) · [Session 8 (2026-09-17)](DSM-103-8_2026-09-17_Surya-Prakash.md) →
+<!-- /nav -->

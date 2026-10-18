@@ -6,6 +6,10 @@ session: "3"
 faculty: Saurabh Das
 ---
 
+<!-- nav -->
+← [Session 2 (2026-08-26)](DSM-102-2_2026-08-26_Saurabh-Das.md) · [All lectures](./) · [Session 4 (2026-08-28)](DSM-102-4_2026-08-28_Saurabh-Das.md) →
+<!-- /nav -->
+
 # DSM-102 — Programming Fundamentals for Data Science
 ## Session 3 — 2026-08-27 (Instructor: Saurabh Das)
 ### Topic: Control Flow — `if/elif/else`, loops, `break`/`continue`/`pass`, exceptions
@@ -408,3 +412,7 @@ Noted limitation to be fixed next class: this function has **no control** — pa
 * **Saturday: an online mini-assignment / "surprise quiz"** (announced in advance, so "not a surprise any more") — small coding tasks to be done live so the instructor can see how you are doing. Everyone was asked to be OK with this. **Practise before Saturday.**
 * **Do NOT use ChatGPT or similar tools** for the coding exercises — stated twice, explicitly ("that is not correct and that should not be done"). Attempt everything yourself; solutions may be shared in the chat window.
 * Pace is deliberately slow because many students are new to programming — the emphasis is on **practice**.
+
+<!-- nav -->
+← [Session 2 (2026-08-26)](DSM-102-2_2026-08-26_Saurabh-Das.md) · [All lectures](./) · [Session 4 (2026-08-28)](DSM-102-4_2026-08-28_Saurabh-Das.md) →
+<!-- /nav -->

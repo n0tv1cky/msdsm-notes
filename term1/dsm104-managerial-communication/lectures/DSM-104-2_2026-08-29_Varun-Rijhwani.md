@@ -6,6 +6,10 @@ session: "2"
 faculty: Varun Rijhwani
 ---
 
+<!-- nav -->
+← [Session 1 (2026-08-22)](DSM-104-1_2026-08-22_Varun-Rijhwani.md) · [All lectures](./) · [Session 3 (2026-09-12)](DSM-104-3_2026-09-12_Varun-Rijhwani.md) →
+<!-- /nav -->
+
 # DSM-104 Managerial Communication — Session 2
 **File:** `DSM-104-2_2026-08-29_Varun-Rijhwani` | **Topic:** Non-Verbal Communication (+ recap of Audience Analysis / PAIBOC)
 
@@ -246,3 +250,7 @@ This session opens with a student-led recap of Session 1 (audience analysis and 
 - **No class next week** — the group reconvenes **in two weeks**, continuing with verbal/non-verbal communication alongside the PAIBOC model.
 - Students are invited to **email the instructor** with doubts between sessions.
 - The **teaching assistant's (Keshav's) email ID** was posted in the Zoom **chat box** on request.
+
+<!-- nav -->
+← [Session 1 (2026-08-22)](DSM-104-1_2026-08-22_Varun-Rijhwani.md) · [All lectures](./) · [Session 3 (2026-09-12)](DSM-104-3_2026-09-12_Varun-Rijhwani.md) →
+<!-- /nav -->

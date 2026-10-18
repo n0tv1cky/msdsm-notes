@@ -6,6 +6,10 @@ session: "24"
 faculty: Pritee Sharma
 ---
 
+<!-- nav -->
+← [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->
+
 # DSM-101 · Session 24: Types of Data and Levels of Measurement
 
 **Lecturer:** Pritee Sharma · **Date:** 2026-10-12
@@ -177,3 +181,7 @@ No explicit exam announcements were made. Likely-testable points and follow-ups:
   - jersey numbers → nominal
 - **Survey-design principle:** variables must be clearly defined and response options **exhaustive and unambiguous** (employment: 180-day threshold plus a part-time option).
 - **Next class:** the four measurement scales and where each type of data is used in research and statistical analysis.
+
+<!-- nav -->
+← [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->

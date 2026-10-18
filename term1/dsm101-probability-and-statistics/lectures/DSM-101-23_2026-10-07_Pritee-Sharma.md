@@ -6,6 +6,10 @@ session: "23"
 faculty: Pritee Sharma
 ---
 
+<!-- nav -->
+← [Session 22 (2026-10-05)](DSM-101-22_2026-10-05_Pritee-Sharma.md) · [All lectures](./) · [Session 24 (2026-10-12)](DSM-101-24_2026-10-12_Pritee-Sharma.md) →
+<!-- /nav -->
+
 # DSM-101 · Session 23: Non-Probability Sampling
 
 **Session file:** DSM-101-23_2026-10-07_Pritee-Sharma
@@ -293,3 +297,7 @@ No explicit exam or assignment instructions were given. The following were empha
 - **Be able to give your own example** for each method. The lecturer repeatedly asked students for original examples and pushed back when an example merely repeated the structure of one already given.
 
 **Next session:** Data and types of data.
+
+<!-- nav -->
+← [Session 22 (2026-10-05)](DSM-101-22_2026-10-05_Pritee-Sharma.md) · [All lectures](./) · [Session 24 (2026-10-12)](DSM-101-24_2026-10-12_Pritee-Sharma.md) →
+<!-- /nav -->

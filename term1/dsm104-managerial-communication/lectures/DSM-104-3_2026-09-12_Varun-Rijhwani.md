@@ -6,6 +6,10 @@ session: "3"
 faculty: Varun Rijhwani
 ---
 
+<!-- nav -->
+← [Session 2 (2026-08-29)](DSM-104-2_2026-08-29_Varun-Rijhwani.md) · [All lectures](./) · [Session 4 (2026-09-19)](DSM-104-4_2026-09-19_Varun-Rijhwani.md) →
+<!-- /nav -->
+
 # DSM-104 Managerial Communication — Session 3
 **File:** `DSM-104-3_2026-09-12_Varun-Rijhwani` | **Date:** 12 September 2026
 
@@ -215,3 +219,7 @@ Together with the **Seven C's**, this is the frame to carry into all subsequent 
 - **Level 5 Leadership:** mirror when things go wrong, window when things go right.
 - High-context (India) vs. low-context cultures shape directness — more in the negative-messages session.
 - Next: **positive / routine / goodwill messages**, then **negative messages**; later, **ethos/logos/pathos in persuasion**.
+
+<!-- nav -->
+← [Session 2 (2026-08-29)](DSM-104-2_2026-08-29_Varun-Rijhwani.md) · [All lectures](./) · [Session 4 (2026-09-19)](DSM-104-4_2026-09-19_Varun-Rijhwani.md) →
+<!-- /nav -->

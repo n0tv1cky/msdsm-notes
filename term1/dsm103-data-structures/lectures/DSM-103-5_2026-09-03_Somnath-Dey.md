@@ -6,6 +6,10 @@ session: "5"
 faculty: Somnath Dey
 ---
 
+<!-- nav -->
+← [Session 4 (2026-08-29)](DSM-103-4_2026-08-29_Somnath-Dey.md) · [All lectures](./) · [Session 6 (2026-09-05)](DSM-103-6_2026-09-05_Somnath-Dey.md) →
+<!-- /nav -->
+
 # DSM-103 — Data Structures
 ## Session 5 — 03 Sep 2026 — Instructor: Somnath Dey
 ### Topic: Singly Linked List (copy / concatenate / search) → Circular Singly Linked List
@@ -368,3 +372,7 @@ Convert each of the following **singly linked list** algorithms into the corresp
 - **`GETNODE` = allocate from heap/free list; `RETURNNODE` = give back to heap. Memory is never "removed".**
 - **Distinguish the two exit reasons of a search loop** (found vs. end-of-list) using a `flag`, and return the found node through a `location` pointer.
 - Empty-CSLL test is `header.link = header`, **not** `header.link = NULL`.
+
+<!-- nav -->
+← [Session 4 (2026-08-29)](DSM-103-4_2026-08-29_Somnath-Dey.md) · [All lectures](./) · [Session 6 (2026-09-05)](DSM-103-6_2026-09-05_Somnath-Dey.md) →
+<!-- /nav -->

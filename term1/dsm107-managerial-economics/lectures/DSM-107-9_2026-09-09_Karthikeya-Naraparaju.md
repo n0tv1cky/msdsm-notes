@@ -6,6 +6,10 @@ session: "9"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 8 (2026-09-07)](DSM-107-8_2026-09-07_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 10 (2026-09-11)](DSM-107-10_2026-09-11_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L09
 ## Study Notes
 
@@ -259,3 +263,7 @@ No explicit exam or assignment announcements were made in this session. However,
 - Know the **inverse relationship between price elasticity of demand and market power** — a simple mathematical formula for this is promised in the next sessions.
 - Be able to explain, using the pest-control payoff matrix, **how altruistic indifference curves change the dominant strategy** and **how repeated interaction sustains cooperation among selfish players**.
 - Remember the model-evaluation criterion: the model is judged by whether it **predicts the same outcome** a manager's heuristic would reach, not by whether it mimics the manager's reasoning.
+
+<!-- nav -->
+← [Session 8 (2026-09-07)](DSM-107-8_2026-09-07_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 10 (2026-09-11)](DSM-107-10_2026-09-11_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

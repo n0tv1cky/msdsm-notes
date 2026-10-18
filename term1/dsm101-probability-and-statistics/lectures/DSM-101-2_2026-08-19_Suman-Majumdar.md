@@ -6,6 +6,10 @@ session: "2"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 1 (2026-08-17)](DSM-101-1_2026-08-17_Suman-Majumdar.md) · [All lectures](./) · [Session 3 (2026-08-22)](DSM-101-3_2026-08-22_Suman-Majumdar.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 2 — 19 Aug 2026 — Instructor: Suman Majumdar
 ### Topic: What *is* Probability? A Historical Journey + Frequentist vs. Bayesian Views
@@ -253,3 +257,7 @@ with two parameters: **m = slope**, **c = intercept**. The **model is identical*
 | Supernova example | 4/10 = 40%; after 1987 → 5/10 = 50% | Build full stellar-physics + human-observation model; update it with the 1987 event |
 | Bus example | 60/3 = **20 min** exactly | Distribution **peaked at 20 min**, spread ~15–25 min |
 | ML analogue | Standard ANN (point output), least-squares/χ² minimization | Bayesian Neural Network (distributional output) |
+
+<!-- nav -->
+← [Session 1 (2026-08-17)](DSM-101-1_2026-08-17_Suman-Majumdar.md) · [All lectures](./) · [Session 3 (2026-08-22)](DSM-101-3_2026-08-22_Suman-Majumdar.md) →
+<!-- /nav -->

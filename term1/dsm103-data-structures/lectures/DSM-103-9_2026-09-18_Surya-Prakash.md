@@ -6,6 +6,10 @@ session: "9"
 faculty: Surya Prakash
 ---
 
+<!-- nav -->
+← [Session 8 (2026-09-17)](DSM-103-8_2026-09-17_Surya-Prakash.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-103-10_2026-09-19_Surya-Prakash.md) →
+<!-- /nav -->
+
 # DSM-103 Data Structures — Session 9 (2026-09-18, Instructor: Surya Prakash)
 ## Topic: The Queue Data Structure (Array Implementation)
 
@@ -292,3 +296,7 @@ The instructor did not announce a formal exam or assignment item in this session
 - **Remember that `FRONT ≤ REAR` and the simple count formula break down for circular queues** — this was called out twice.
 
 **Next session:** detailed treatment of the **circular queue**, including the **MOD-based pointer update** and its empty/full conditions.
+
+<!-- nav -->
+← [Session 8 (2026-09-17)](DSM-103-8_2026-09-17_Surya-Prakash.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-103-10_2026-09-19_Surya-Prakash.md) →
+<!-- /nav -->

@@ -6,6 +6,10 @@ session: "10"
 faculty: Suman Majumdar
 ---
 
+<!-- nav -->
+← [Session 9 (2026-09-05)](DSM-101-9_2026-09-05_Suman-Majumdar.md) · [All lectures](./) · [Session 11 (2026-09-09)](DSM-101-11_2026-09-09_Arshad.md) →
+<!-- /nav -->
+
 # DSM-101 — Probability & Statistics
 ## Session 10 (2026-09-07) — Instructor: Suman Majumdar
 ### Topic: Revisiting the Central Limit Theorem + Bayes' Theorem Problem Clinic
@@ -222,3 +226,7 @@ $$P(D\mid E) = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.0001)(0.995)} = \frac{0.0
  2. CLT applied to a **sum** ($\sqrt{n}\sigma$) vs. a **mean** ($\sigma/\sqrt{n}$).
  3. Bayes' theorem with correct marginalisation in the denominator, and the trap that $P(C\mid G)+P(C\mid G^{c}) \neq 1$.
  4. The base-rate / false-positive insight in medical testing.
+
+<!-- nav -->
+← [Session 9 (2026-09-05)](DSM-101-9_2026-09-05_Suman-Majumdar.md) · [All lectures](./) · [Session 11 (2026-09-09)](DSM-101-11_2026-09-09_Arshad.md) →
+<!-- /nav -->

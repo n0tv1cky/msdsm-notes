@@ -6,6 +6,10 @@ session: "5"
 faculty: Jagannathan Srinath
 ---
 
+<!-- nav -->
+← [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->
+
 # DSM-106 Business Research: Session 5 Study Notes
 **Session:** DSM-106-5, 2026-10-12, Instructor: Jagannathan Srinath
 **Topics:** Wrapping up the middle-manager cluster analysis case (factor, text and cluster analysis) and an introduction to causal maps
@@ -315,3 +319,7 @@ No item was explicitly labelled "on the exam", but the following were emphasised
   - Be able to translate a map into a matrix (and spot omissions like the missing $a_{5,20} = -2$).
 - **Correlation does not imply causation:** flagged in Rahul's analysis.
 - **Next class (Friday):** continue the causal map matrix comparison, followed by a business case study using causal maps.
+
+<!-- nav -->
+← [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+<!-- /nav -->

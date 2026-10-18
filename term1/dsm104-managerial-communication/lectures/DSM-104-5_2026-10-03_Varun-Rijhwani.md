@@ -6,6 +6,10 @@ session: "5"
 faculty: Varun Rijhwani
 ---
 
+<!-- nav -->
+← [Session 4 (2026-09-19)](DSM-104-4_2026-09-19_Varun-Rijhwani.md) · [All lectures](./) · [Session 6 (2026-10-10)](DSM-104-6_2026-10-10_Varun-Rijhwani.md) →
+<!-- /nav -->
+
 # DSM-104 Managerial Communication: Session 5 Study Notes
 **Session file:** DSM-104-5_2026-10-03_Varun-Rijhwani
 **Module:** Module 2, Written Communication (concluding session)
@@ -244,3 +248,7 @@ The instructor recommended screenshotting this slide as a reference for drafting
   - The 7 C's as a checklist
   - Machine heuristic bias, and writing your own first draft
 - **Next class:** Module 3, Presentation Skills.
+
+<!-- nav -->
+← [Session 4 (2026-09-19)](DSM-104-4_2026-09-19_Varun-Rijhwani.md) · [All lectures](./) · [Session 6 (2026-10-10)](DSM-104-6_2026-10-10_Varun-Rijhwani.md) →
+<!-- /nav -->

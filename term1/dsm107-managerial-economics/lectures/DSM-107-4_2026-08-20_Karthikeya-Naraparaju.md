@@ -6,6 +6,10 @@ session: "4"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 3 (2026-08-19)](DSM-107-3_2026-08-19_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 5 (2026-09-01)](DSM-107-5_2026-09-01_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L04 Study Notes
 
 ## 1. Overview
@@ -245,3 +249,7 @@ where
 - Concepts explicitly introduced as **vocabulary you will keep returning to** (so worth memorising precisely): **endogenous variable, exogenous variable, ceteris paribus, equilibrium, comparative statics**, and the **rule of thumb** that axis variables are endogenous and shifters are exogenous.
 - The **income effect vs. substitution effect** framework is flagged as "a very important framework for modelling consumer demand."
 - Practical/professional relevance flagged: these model-building principles apply to **choosing variables for regression / econometric / statistical models** later in the programme.
+
+<!-- nav -->
+← [Session 3 (2026-08-19)](DSM-107-3_2026-08-19_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 5 (2026-09-01)](DSM-107-5_2026-09-01_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

@@ -31,6 +31,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
+from nav_links import update_lectures_dir
 from sessions import load as load_sessions, lookup, name_of, with_front_matter
 
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
@@ -229,6 +230,9 @@ def main():
             continue
         out_path.write_text(with_front_matter(text, entry), encoding="utf-8")
         print(f"  saved {out_path.name} ({len(text.split())} words, stop_reason={stop_reason})")
+
+    # Link the new notes into the previous/next chain.
+    update_lectures_dir(notes_dir)
 
 
 if __name__ == "__main__":

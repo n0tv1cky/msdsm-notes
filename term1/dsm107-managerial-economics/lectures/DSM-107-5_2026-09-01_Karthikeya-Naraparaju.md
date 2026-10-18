@@ -6,6 +6,10 @@ session: "5"
 faculty: Karthikeya Naraparaju
 ---
 
+<!-- nav -->
+← [Session 4 (2026-08-20)](DSM-107-4_2026-08-20_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 6 (2026-09-02)](DSM-107-6_2026-09-02_Karthikeya-Naraparaju.md) →
+<!-- /nav -->
+
 # DSM-107 Managerial Economics — Session L05
 ## Constrained Optimisation: The Work–Leisure Choice, Indifference Curves & the Feasible Set
 
@@ -237,3 +241,7 @@ Key numbers: $w = €30$; max work $= 16$ h; min free time $= 8$ h; $C_{\max} = 
 - Compute intercepts of the budget line and identify feasible vs. infeasible bundles given $w$ and hour constraints.
 - Explain why a wage change **pivots** (not shifts) the feasible frontier.
 - Argue why interior points of the feasible set are **sub-optimal**.
+
+<!-- nav -->
+← [Session 4 (2026-08-20)](DSM-107-4_2026-08-20_Karthikeya-Naraparaju.md) · [All lectures](./) · [Session 6 (2026-09-02)](DSM-107-6_2026-09-02_Karthikeya-Naraparaju.md) →
+<!-- /nav -->

@@ -6,6 +6,10 @@ session: "4"
 faculty: Varun Rijhwani
 ---
 
+<!-- nav -->
+← [Session 3 (2026-09-12)](DSM-104-3_2026-09-12_Varun-Rijhwani.md) · [All lectures](./) · [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) →
+<!-- /nav -->
+
 # DSM-104 Managerial Communication — Session 4 (19 Sep 2026)
 ## Routine, Positive & Neutral Business Messages
 
@@ -200,3 +204,7 @@ The email contained four chunks of information, numbered as displayed:
 - **Class participation** is being recorded — chat responses to in-class writing exercises are marked.
 - **No class next weekend.**
 - **Next session's topic: negative / bad-news messages** (a different framework — indirect approach).
+
+<!-- nav -->
+← [Session 3 (2026-09-12)](DSM-104-3_2026-09-12_Varun-Rijhwani.md) · [All lectures](./) · [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) →
+<!-- /nav -->
