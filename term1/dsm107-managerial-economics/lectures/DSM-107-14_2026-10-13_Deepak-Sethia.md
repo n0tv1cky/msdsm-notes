@@ -7,7 +7,7 @@ faculty: Deepak Sethia
 ---
 
 <!-- nav -->
-← [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+← [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) · [All lectures](./) · [Session 15 (2026-10-14)](DSM-107-15_2026-10-14_Deepak-Sethia.md) →
 <!-- /nav -->
 
 # DSM-107 Managerial Economics, Session 14: The Keynesian Cross, the Multiplier and Automatic Stabilizers
@@ -283,5 +283,5 @@ $$\alpha_G = \frac{1}{1-c(1-t)}$$
 - **Participation:** chat-box polls during class were used to **record attendance**.
 
 <!-- nav -->
-← [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+← [Session 13 (2026-10-08)](DSM-107-13_2026-10-08_Deepak-Sethia.md) · [All lectures](./) · [Session 15 (2026-10-14)](DSM-107-15_2026-10-14_Deepak-Sethia.md) →
 <!-- /nav -->

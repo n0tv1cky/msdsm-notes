@@ -7,7 +7,7 @@ faculty: Jagannathan Srinath
 ---
 
 <!-- nav -->
-← [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+← [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) · [All lectures](./) · [Session 6 (2026-10-16)](DSM-106-6_2026-10-16_Jagannathan-Srinath.md) →
 <!-- /nav -->
 
 # DSM-106 Business Research: Session 5 Study Notes
@@ -321,5 +321,5 @@ No item was explicitly labelled "on the exam", but the following were emphasised
 - **Next class (Friday):** continue the causal map matrix comparison, followed by a business case study using causal maps.
 
 <!-- nav -->
-← [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+← [Session 4 (2026-10-09)](DSM-106-4_2026-10-09_Jagannathan-Srinath.md) · [All lectures](./) · [Session 6 (2026-10-16)](DSM-106-6_2026-10-16_Jagannathan-Srinath.md) →
 <!-- /nav -->

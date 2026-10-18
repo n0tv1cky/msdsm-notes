@@ -7,7 +7,7 @@ faculty: Varun Rijhwani
 ---
 
 <!-- nav -->
-← [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+← [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) · [All lectures](./) · [Session 7 (2026-10-17)](DSM-104-7_2026-10-17_Varun-Rijhwani.md) →
 <!-- /nav -->
 
 # DSM-104 Managerial Communication: Session 6 Study Notes
@@ -259,5 +259,5 @@ The video is dated but is the original on this concept. It is narrated by the so
   - Groupthink, the Abilene Paradox, the role of power and seniority, and why speaking up matters.
 
 <!-- nav -->
-← [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+← [Session 5 (2026-10-03)](DSM-104-5_2026-10-03_Varun-Rijhwani.md) · [All lectures](./) · [Session 7 (2026-10-17)](DSM-104-7_2026-10-17_Varun-Rijhwani.md) →
 <!-- /nav -->

@@ -7,7 +7,7 @@ faculty: Pritee Sharma
 ---
 
 <!-- nav -->
-← [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) · [All lectures](./) · [Session 25 (2026-10-16)](DSM-101-25_2026-10-16_Pritee-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 · Session 24: Types of Data and Levels of Measurement
@@ -183,5 +183,5 @@ No explicit exam announcements were made. Likely-testable points and follow-ups:
 - **Next class:** the four measurement scales and where each type of data is used in research and statistical analysis.
 
 <!-- nav -->
-← [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 23 (2026-10-07)](DSM-101-23_2026-10-07_Pritee-Sharma.md) · [All lectures](./) · [Session 25 (2026-10-16)](DSM-101-25_2026-10-16_Pritee-Sharma.md) →
 <!-- /nav -->
