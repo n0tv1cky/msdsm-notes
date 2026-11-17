@@ -7,7 +7,7 @@ faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 18 (2026-11-13)](DSM-102-18_2026-11-13_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+← [Session 17 (2026-11-02)](DSM-102-17_2026-11-02_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
 <!-- /nav -->
 
 # DSM-102 · Session 19: Linear Regression with scikit-learn
@@ -533,5 +533,5 @@ mse = mean_squared_error(y_test, y_pred); rmse = np.sqrt(mse); r2 = r2_score(y_t
   - the least-squares objective.
 
 <!-- nav -->
-← [Session 18 (2026-11-13)](DSM-102-18_2026-11-13_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+← [Session 17 (2026-11-02)](DSM-102-17_2026-11-02_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
 <!-- /nav -->
