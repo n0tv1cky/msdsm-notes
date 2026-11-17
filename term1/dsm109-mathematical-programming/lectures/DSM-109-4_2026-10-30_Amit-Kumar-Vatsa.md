@@ -169,9 +169,9 @@ The instructor said the graphical method is needed to understand these properly.
 |---|---|---|---|
 | A | origin | $(0, 0)$ | 0 |
 | B | $x_1 = 0$ and 102 assembly | $(0, 1500)$ | \$7.5M |
-| C | 102 assembly ∩ Engine: $x_2 = 1500$, so $x_1 = 4000 - 3000 = 1000$ | $(1000, 1500)$ | $3\text{M} + 7.5\text{M} = $ \$10.5M |
-| **D** | Engine ∩ Stamping: $x_1 + 2x_2 = 4000$ and $x_1 + x_2 = 3000$ give $x_2 = 1000$, $x_1 = 2000$ | **$(2000, 1000)$** | $6\text{M} + 5\text{M} = $ **\$11M** |
-| E | Stamping ∩ 101 assembly: $x_1 = 2500$, so $2x_2 = 6000 - 5000$, $x_2 = 500$ | $(2500, 500)$ | $7.5\text{M} + 2.5\text{M} = $ \$10M |
+| C | 102 assembly ∩ Engine: $x_2 = 1500$, so $x_1 = 4000 - 3000 = 1000$ | $(1000, 1500)$ | $3\text{M} + 7.5\text{M} =$ \$10.5M |
+| **D** | Engine ∩ Stamping: $x_1 + 2x_2 = 4000$ and $x_1 + x_2 = 3000$ give $x_2 = 1000$, $x_1 = 2000$ | **$(2000, 1000)$** | $6\text{M} + 5\text{M} =$ **\$11M** |
+| E | Stamping ∩ 101 assembly: $x_1 = 2500$, so $2x_2 = 6000 - 5000$, $x_2 = 500$ | $(2500, 500)$ | $7.5\text{M} + 2.5\text{M} =$ \$10M |
 | F | 101 assembly and $x_2 = 0$ | $(2500, 0)$ | \$7.5M |
 
 **Optimum: corner D, $(2000, 1000)$, $Z^* = \$11$M.** This agrees with Solver.

@@ -32,6 +32,7 @@ import urllib.request
 from pathlib import Path
 
 from nav_links import update_lectures_dir
+from notion_body import check as check_math
 from sessions import load as load_sessions, lookup, name_of, with_front_matter
 
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
@@ -212,6 +213,7 @@ def main():
     targets = sys.argv[2:] if len(sys.argv) > 2 else [p.name for p in txt_files]
 
     sessions = load_sessions()
+    flagged = []  # math issues found in notes saved this run
     for fname in targets:
         p = transcripts_dir / fname
         entry, why = lookup(course_code, p.stem, sessions)
@@ -245,9 +247,21 @@ def main():
             continue
         out_path.write_text(with_front_matter(text, entry), encoding="utf-8")
         print(f"  saved {out_path.name} ({len(text.split())} words, stop_reason={stop_reason})")
+        # Verify math delimiters: a malformed $ renders as raw LaTeX on GitHub
+        # and "Invalid equation" in Notion. Fix the note before syncing it.
+        for issue in check_math(out_path.read_text(encoding="utf-8")):
+            print(f"  VERIFY: {issue}")
+            flagged.append(f"{out_path.name}: {issue}")
 
     # Link the new notes into the previous/next chain.
     update_lectures_dir(notes_dir)
+
+    if flagged:
+        print(f"\nVERIFY FAILED: {len(flagged)} math issue(s) -- fix these notes before "
+              "syncing (python3 scripts/notion_body.py --check <note.md>):")
+        for f in flagged:
+            print("  " + f)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
