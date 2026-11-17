@@ -301,7 +301,7 @@ No specific exam item was announced. The instructor stressed these as the key sk
   - whether to accept an offer (check it is within the **allowable increase**),
   - marketing budget ceilings.
 - **Explaining a shadow price that exceeds every product's unit contribution** through the product-mix shift (+150 whole, −50 juice).
-- **Reduced cost** of a zero variable in a max problem is $\le 0`; it is how much its coefficient must improve before the variable enters the solution.
+- **Reduced cost** of a zero variable in a max problem is $\le 0$; it is how much its coefficient must improve before the variable enters the solution.
 - **Shadow price sign rules for maximization:** $\le$ gives $\ge 0$; $\ge$ gives $\le 0$; $=$ gives unrestricted.
 
 **Upcoming agenda (about three sessions):**
