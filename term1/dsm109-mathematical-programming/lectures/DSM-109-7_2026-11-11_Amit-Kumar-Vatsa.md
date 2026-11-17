@@ -10,210 +10,363 @@ faculty: Amit Kumar Vatsa
 ← [Session 6 (2026-11-09)](DSM-109-6_2026-11-09_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 8 (2026-11-13)](DSM-109-8_2026-11-13_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->
 
-# DSM-109 · Session 7 · Red Brand Canners (Part 1): Tomato Quality Blending, Cooper vs. Myers Costing, and Sunk Costs
+# DSM-109 Session 7: Objective-Coefficient Ranging (Merton Truck) and the Red Brand Canners Case
 
-*Lecture: Amit Kumar Vatsa, 11 Nov 2026. The source is an ASR transcript. I corrected obvious mis-transcriptions ("Jews" → juice, "hold tomatoes" → whole tomatoes, "Koopa" → Cooper, "allegation" → alligation, "sum cost" → sunk cost, "food cost" → fruit cost). Any number I had to infer is marked ⚠️.*
+**Session file:** DSM-109-7_2026-11-11_Amit-Kumar-Vatsa
+**Course:** Mathematical Programming / Operations Research (graduate)
 
 ---
 
 ## 1. Overview
 
-This session continued the **Red Brand Canners** case. The company has already contracted to buy 3 million lb of tomatoes at 18¢/lb. The tomatoes are split into Grade A (quality rating 9) and Grade B (rating 5). They must be turned into three products, each with a minimum average quality rating:
+The session finishes the **Merton Truck** sensitivity-analysis discussion. Earlier classes covered the optimal solution, shadow prices and reduced costs. The remaining piece was the **allowable increase and allowable decrease of objective-function coefficients**. The instructor first shows in Excel Solver that pushing the Model 101 profit coefficient past its allowable increase moves the optimum to a different corner point. He then explains the result graphically: the objective line's slope must stay between the slopes of the binding constraints. Using this, he derives the ranges algebraically, $2500 \le c_1 \le 5000$ and $3000 \le c_2 \le 6000$. Next he gives the origin of the term **"reduced cost"** through Dantzig's **diet problem** and recaps **shadow price**. The second half opens the **Red Brand Canners** case. The class covers:
 
-- canned whole tomatoes,
-- tomato juice,
-- tomato paste.
+- the tomato supply and its quality grades;
+- blending (mixture) constraints for each product;
+- two competing cost calculations, Cooper's (Exhibit 2) and Myers's (Exhibit 3).
 
-The lecture first derived the **minimum blending proportions** of Grade A needed for each product, using both mixtures-and-alligation and a weighted-average inequality. It then compared two managers' costings:
-
-- **Cooper (Exhibit 2):** charges fruit at a flat 18¢/lb.
-- **Myers (Exhibit 3):** splits the 18¢ average into a higher Grade A cost and a lower Grade B cost, in proportion to quality rating.
-
-Under Myers' numbers, whole tomatoes appear to lose money. The class discussed why both approaches are flawed. The key insight is that **the tomato purchase is a sunk cost**, so apportioning it across grades or products is meaningless for the decision. This was illustrated with an "expensive expert sitting on the bench" analogy and with the fixed-overhead issue from an earlier case.
-
-The **correct value of Grade A** should come from the **shadow price** of the Grade A supply constraint in an LP (sensitivity analysis). That value then decides whether to buy an extra 80,000 lb of Grade A at 25.5¢/lb. The LP formulation and solution are deferred to the next class.
+The main conclusion is that **both approaches are flawed**. The tomato purchase is a **sunk cost** and should not drive the product-mix decision. The real economic value of grade A tomatoes should come from the **shadow price** of the grade A supply constraint in an LP. Formulating and solving the LP is deferred to the next class.
 
 ---
 
-## 2. Topics Covered (in order taught)
+## 2. Topics Covered (in teaching order)
 
-### 2.1 Case data used in this session
+### 2.1 Recap from the previous class
 
-| Item | Value |
-|---|---|
-| Total tomatoes contracted | 3,000,000 lb |
-| Contract price (average delivered) | 18¢/lb ($0.18/lb), signed in May with growers |
-| Grade A : Grade B split | 20 : 80, i.e. 600,000 lb A and 2,400,000 lb B |
-| Quality rating, Grade A | 9 |
-| Quality rating, Grade B | 5 |
-| Minimum average rating, whole tomatoes | 8 |
-| Minimum average rating, juice | 6 |
-| Minimum average rating, paste | 5 (never binding) |
-| Weight per case: whole / juice / paste | 18 lb / 20 lb / 25 lb |
-| Extra Grade A on offer | 80,000 lb at 25.5¢/lb |
+- **Shadow price:** the change in the optimal objective value per unit increase in a constraint's right-hand side (RHS). It is the marginal worth of one more unit of a resource. It tells you how much it is worth paying to relieve or add capacity to a constraint (useful in negotiations, e.g., with workers).
+- **Reduced cost:** for a variable at zero in the optimal solution, the change in the optimal objective if that variable is forced to take one unit.
+  - Equivalently, it is how much that variable's objective coefficient must improve before it enters the optimal solution.
+  - In Merton Truck, **Model 103** had a reduced cost of $-350$. Forcing production of one unit of Model 103 lowers total profit by 350, so Model 103 is loss-making at the margin.
+  - Models 101 and 102 ($x_1, x_2$) are both positive in the optimum, so their reduced cost is $0$.
+  - Adding a constraint such as $x_1 \ge 1$ would be **redundant** (already satisfied), which is consistent with a reduced cost of $0$.
 
-**Why paste is "not a concern":** paste can be made entirely from Grade B (rating 5 ≥ 5). Even the worst raw material meets its requirement.
+### 2.2 Allowable increase/decrease of objective coefficients: Merton Truck
 
-### 2.2 Blending requirement: whole tomatoes (rating ≥ 8)
+#### The model (two-variable version used for the graph)
 
-**Method 1: Mixtures and alligation**
+> **Flag:** The objective coefficients (3000, 5000) and the constraint coefficient ratios (engine assembly $1:2$, metal stamping $2:2$) were stated in class. The RHS values and the two department-capacity constraints are **inferred from the standard Merton Truck case**. They reproduce every corner point quoted in class, $(2000, 1000)$ and $(2500, 500)$. Model 103 ($x_3$) was in the Excel model but is $0$ at the optimum, so the graph uses only $x_1, x_2$.
 
-- The target rating 8 is 1 away from A's rating 9 and 3 away from B's rating 5.
-- The blend must sit closer to A, so the quantities are in inverse ratio to these distances: $A : B = 3 : 1$ at the boundary.
-- Because the requirement is "8 or above":
-$$\frac{A}{B} \ge \frac{3}{1} \quad\Longleftrightarrow\quad A \ge 75\%, \; B \le 25\% .$$
-- (The transcript says "28%"; this is an ASR error for 25%.)
+**Decision variables**
+- $x_1$ = number of Model 101 trucks produced per month (trucks)
+- $x_2$ = number of Model 102 trucks produced per month (trucks)
 
-**Method 2: Rigorous weighted average**
-
-- Let $A : B = \lambda : 1$.
-- Require the weighted-average rating to be at least 8:
-$$\frac{9\lambda + 5(1)}{\lambda + 1} \ge 8 \;\Longrightarrow\; 9\lambda + 5 \ge 8\lambda + 8 \;\Longrightarrow\; \lambda \ge 3 .$$
-- Therefore $A : B \ge 3 : 1$, i.e. at least 75% Grade A in whole tomatoes.
-
-### 2.3 Blending requirement: juice (rating ≥ 6)
-
-- Target 6 is 3 away from A (9) and 1 away from B (5).
-- So:
-$$\frac{A}{B} \ge \frac{1}{3} \quad\Longleftrightarrow\quad A \ge 25\%,\; B \le 75\% .$$
-- Weighted-average check:
-$$\frac{9\lambda+5}{\lambda+1}\ge 6 \;\Rightarrow\; 3\lambda \ge 1 \;\Rightarrow\; \lambda \ge \tfrac{1}{3}.$$
-
-### 2.4 Cooper's fruit cost (Exhibit 2): quantity only
-
-Fruit cost per case = (lb per case) × \$0.18/lb:
-
-- Whole: $18 \text{ lb/case} \times \$0.18/\text{lb} = \$3.24$/case
-- Juice: $20 \times 0.18 = \$3.60$/case
-- Paste: $25 \times 0.18 = \$4.50$/case
-
-The pounds cancel, giving dollars per case. Quality plays no role.
-
-### 2.5 Myers' fruit cost (Exhibit 3): quality-weighted
-
-Myers' argument is that Grade A is premium, so it should carry a higher cost. Let $Z$ = cost per lb of Grade A and $Y$ = cost per lb of Grade B. He uses two equations in two unknowns.
-
-1. **The total spend must be recovered:**
-$$600{,}000\,Z + 2{,}400{,}000\,Y = 3{,}000{,}000 \times 0.18 = \$540{,}000$$
-2. **Cost is proportional to quality rating:**
-$$\frac{Z}{9} = \frac{Y}{5}$$
-
-**Solving:**
-
-- Substitute $Z = \tfrac{9}{5}Y$ into the first equation: $1{,}080{,}000\,Y + 2{,}400{,}000\,Y = 540{,}000$.
-- This gives $Y \approx \$0.1552$/lb and $Z \approx \$0.2793$/lb.
-- The lecturer quoted $Z = \$0.2796$ and $Y = \$0.1554$.
-  - ⚠️ My exact solution gives 27.93¢ and 15.52¢. The difference is rounding or ASR.
-  - Either pair gives the same case costs below.
-- The weighted average still equals 18¢: A is above it, B below it.
-
-**Myers' fruit cost per case**, using the minimum-A blends:
-
-- **Whole** (75% A, 25% B):
-$$18\,[\,0.75(0.2796) + 0.25(0.1554)\,] \approx \$4.47/\text{case}$$
-  This is up from \$3.24, because whole tomatoes use mostly premium A.
-- **Juice** (25% A, 75% B):
-$$20\,[\,0.25(0.2793)+0.75(0.1552)\,] \approx \$3.72/\text{case}$$
-  This is only slightly up from \$3.60. The 25:75 blend is close to the 20:80 availability ratio.
-- **Paste** (100% B):
-$$25 \times 0.1552 \approx \$3.88/\text{case}$$
-  The lecturer said "≈ 3.9". This is a large drop from \$4.50.
-
-**Myers' conclusion:**
-
-- For whole tomatoes, (selling price − variable cost excluding fruit) ≈ \$4.44. ⚠️ The transcript says "4.4"; I inferred 4.44 from the stated result.
-- Subtracting fruit cost gives $4.44 - 4.47 = -\$0.03$/case, a loss of 3 cents per case. (The transcript's "0.3 dollars" should read \$0.03.)
-- So Myers says: don't produce whole tomatoes; use Grade A for juice and paste.
-
-### 2.6 Class discussion: who is right?
-
-**Student views:**
-
-- **Nehaal:** Myers is better because he considers quality as well as quantity.
-- **A second student:** agreed premium grade should carry more value, but was uncomfortable with the made-up "cost ∝ rating" ratio.
-- **Another student:** Cooper ignores that **Grade A is scarce**. Myers ignores that the **18¢/lb is already committed** and so shouldn't drive decisions. Hence **both approaches are incorrect**, not merely "non-optimal."
-
-**Instructor's critique of Myers (the domino effect):**
-
-1. Inflating A's cost makes whole tomatoes look unprofitable, so you drop them.
-2. All Grade A then flows into juice, which pushes juice above the 25:75 mix. Juice's fruit cost rises and it may also look unprofitable.
-3. If you drop juice too, Grade A has no use. You would "throw it down the drain," even though it was already paid for.
-4. The root error is **artificially apportioning a sunk/fixed cost** across raw materials.
-
-**Analogy: the expensive expert on the bench.** (The lecturer referred to his former software company; the employer's name is garbled in the transcript.)
-
-- A VP hires a costly expert to contribute across many products.
-- Each product manager refuses to have the expert's hours billed to their product, because it would push their P&L into the red.
-- Result: the expert sits idle, but the salary is paid anyway. For the organisation the salary is a **sunk cost**, so the resource should be used.
-
-**Rahul's example:** his previous company allocated "practice area leads" across projects as an overhead charge (e.g. 0.25 of project cost).
-
-**Instructor's response and link to the previous case:**
-
-- This mirrors the **fixed overhead in the earlier ("Modern Truck"?) case**.
-- Allocating fixed overhead to a product makes that product look unprofitable.
-- Spreading it may be fine for **long-term strategic** pricing, but it is wrong for **short-term tactical or operational** decisions.
-
-### 2.7 The key principle: sunk costs and the value of a resource
-
-- **What is sunk is sunk.** The 3M lb at 18¢ is a contractual, already-incurred cost.
-  - Do not decide how to "distribute" it between Grade A and Grade B.
-  - If Grade A is in hand, use it where it is most valuable. Its best use is whole tomatoes.
-- **Accounting tricks are only possible with fixed costs.**
-  - Variable costs are genuinely incremental: each extra unit costs that much more. You cannot reallocate them arbitrarily.
-- **The right question:** what is the *value* of Grade A to the business?
-  - Answer it with **sensitivity analysis** on an LP containing the supply constraints:
-$$\text{Grade A used} \le 600{,}000 \text{ lb}, \qquad \text{Grade B used} \le 2{,}400{,}000 \text{ lb}$$
-  - The **shadow price** of the Grade A constraint is the increase in optimal profit per extra lb of Grade A.
-- **Decision rule for the 80,000 lb offer at 25.5¢/lb:**
-  - Buy if the shadow price exceeds \$0.255/lb (within its allowable increase range).
-  - Do not buy if it is lower, e.g. 23¢.
-  - The lecturer noted the shadow price "may be similar to Myers' numbers, or may be different. We'll see."
-
-### 2.8 Preview: LP formulation
-
-⚠️ **This model was *not* written in class.** It is the standard formulation implied by the discussion, included so you have the full model. The next class will formulate and solve it.
-
-**Decision variables** (lb of fruit), with $i \in \{A, B\}$ and $j \in \{W, J, P\}$ (whole, juice, paste):
-
-- $x_{ij}$ = pounds of Grade $i$ tomatoes used in product $j$, with $x_{ij} \ge 0$.
-
-**Parameters** (⚠️ not stated in this session apart from case weights and whole-tomato margin):
-
-- $w_W = 18,\ w_J = 20,\ w_P = 25$ lb/case.
-- $c_j$ = contribution per case **excluding fruit cost**, in \$/case. Fruit cost is excluded because it is sunk. For whole tomatoes, $c_W \approx 4.44$ ⚠️; others are from the case exhibits.
-- $D_j$ = demand forecast for product $j$, in cases, from the case exhibits.
-
-**Model:**
+**Model**
 
 $$
 \begin{aligned}
-\max \quad & \sum_{j\in\{W,J,P\}} \frac{c_j}{w_j}\,(x_{Aj}+x_{Bj}) && \text{(total contribution, \$)}\\[4pt]
-\text{s.t.}\quad & x_{AW}+x_{AJ}+x_{AP} \le 600{,}000 && \text{(Grade A supply, lb)}\\
-& x_{BW}+x_{BJ}+x_{BP} \le 2{,}400{,}000 && \text{(Grade B supply, lb)}\\
-& 9x_{AW}+5x_{BW} \ge 8\,(x_{AW}+x_{BW}) \;\Leftrightarrow\; x_{AW} - 3x_{BW} \ge 0 && \text{(whole quality} \ge 8)\\
-& 9x_{AJ}+5x_{BJ} \ge 6\,(x_{AJ}+x_{BJ}) \;\Leftrightarrow\; 3x_{AJ} - x_{BJ} \ge 0 && \text{(juice quality} \ge 6)\\
-& 9x_{AP}+5x_{BP} \ge 5\,(x_{AP}+x_{BP}) && \text{(paste quality} \ge 5\text{, always satisfied)}\\
-& \frac{x_{Aj}+x_{Bj}}{w_j} \le D_j \quad \forall j && \text{(demand, cases)}\\
-& x_{ij} \ge 0 \quad \forall i,j && \text{(non-negativity)}
+\max\quad & Z = 3000\,x_1 + 5000\,x_2 && \text{(total contribution, in dollars per month)}\\
+\text{s.t.}\quad & x_1 + 2x_2 \le 4000 && \text{(engine assembly hours)}\\
+& 2x_1 + 2x_2 \le 6000 && \text{(metal stamping hours)}\\
+& 2x_1 \le 5000 && \text{(Model 101 assembly hours)}\\
+& 3x_2 \le 4500 && \text{(Model 102 assembly hours)}\\
+& x_1,\ x_2 \ge 0
 \end{aligned}
 $$
 
-The **shadow price of the Grade A supply constraint** is what gets compared with \$0.255/lb.
+#### Feasible region and corner points (graphical solution)
+
+The feasible region is a convex polygon in the first quadrant. It is bounded by:
+- the axes;
+- the line $x_2 = 1500$ (Model 102 assembly);
+- the engine assembly line $x_1 + 2x_2 = 4000$;
+- the metal stamping line $x_1 + x_2 = 3000$;
+- the line $x_1 = 2500$ (Model 101 assembly).
+
+Corner-point labels C, D, E are as used in class; A, B, F are inferred.
+
+| Corner | $(x_1, x_2)$ | Binding constraints | $Z = 3000x_1 + 5000x_2$ |
+|---|---|---|---|
+| A | $(0, 0)$ | non-negativity | $0$ |
+| B | $(0, 1500)$ | $x_1 \ge 0$, Model 102 assembly | $7{,}500{,}000$ |
+| C | $(1000, 1500)$ | Model 102 assembly, engine assembly | $10{,}500{,}000$ |
+| **D** | **$(2000, 1000)$** | **engine assembly, metal stamping** | **$11{,}000{,}000$ (optimal)** |
+| E | $(2500, 500)$ | metal stamping, Model 101 assembly | $10{,}000{,}000$ |
+| F | $(2500, 0)$ | Model 101 assembly, $x_2 \ge 0$ | $7{,}500{,}000$ |
+
+**Optimum:** corner D, $x_1 = 2000$, $x_2 = 1000$, $Z = 11{,}000{,}000$.
+
+#### Excel/Solver demonstration (numbers used)
+
+- The Solver sensitivity report shows the coefficient of $x_1$ = 3000 with **allowable increase = 2000**.
+- Change the coefficient of $x_1$ to **4999**. Re-solving still gives D = $(2000, 1000)$ as optimal.
+- Change it to **5001**. The optimum moves to **E = $(2500, 500)$**.
+  - Check at $c_1 = 5001$: $Z_E = 2500(5001) + 500(5000) = 15{,}002{,}500$.
+  - This exceeds $Z_D = 2000(5001) + 1000(5000) = 15{,}002{,}000$.
+- **Definition:** the allowable increase/decrease of an objective coefficient is how far that single coefficient can change, **one at a time, others held fixed**, while the current corner point stays optimal.
+  - The optimal *solution* (the corner point) stays the same within this range.
+  - The optimal *objective value* does change.
+
+#### Graphical intuition
+
+- Raising $c_1$ (Model 101 more profitable) makes the iso-profit line **steeper**.
+  - D stays optimal for a while, which shows the solution has some robustness.
+  - When the objective line becomes parallel to segment DE (the metal stamping line), D and E are **both** optimal.
+  - Any steeper, and E alone is optimal.
+- Making the line **flatter**:
+  - D stays optimal until the line is parallel to CD (the engine assembly line), where C and D are both optimal.
+  - Any flatter, and C becomes optimal.
+- **Rule:** the current corner point stays optimal as long as the slope of the objective-function line lies **between the slopes of the binding constraints** at that corner. Here the binding constraints are engine assembly and metal stamping.
+
+#### Algebraic derivation using coefficient ratios
+
+Use coefficient ratios (coefficient of $x_1$ : coefficient of $x_2$) instead of slopes:
+- Engine assembly: $1:2 = \tfrac{1}{2}$ (slope $-\tfrac12$)
+- Metal stamping: $2:2 = 1$ (slope $-1$)
+- Objective: $3000:5000 = 0.6$, which lies between $0.5$ and $1$, confirming D is optimal.
+
+**Range for $c_1$** (replace 3000 by $k$):
+
+$$\frac{1}{2} \le \frac{k}{5000} \le \frac{2}{2} \;\;\Longrightarrow\;\; 2500 \le k \le 5000$$
+
+- Allowable increase $= 5000 - 3000 = 2000$. This is why 4999 kept D optimal and 5001 did not.
+- Allowable decrease $= 3000 - 2500 = 500$.
+
+**Range for $c_2$** (replace 5000 by $k'$):
+
+$$\frac{1}{2} \le \frac{3000}{k'} \le \frac{2}{2}$$
+
+Taking reciprocals reverses the inequalities:
+
+$$2 \ge \frac{k'}{3000} \ge 1 \;\;\Longrightarrow\;\; 6000 \ge k' \ge 3000$$
+
+- Allowable increase $= 6000 - 5000 = 1000$.
+- Allowable decrease $= 5000 - 3000 = 2000$.
+
+#### Summary of Merton Truck lessons
+
+- The optimal solution is not the only output that matters. Sensitivity analysis (shadow prices, reduced costs, ranges) supports:
+  - negotiation over constraint capacities;
+  - judging which alternative products are loss-making.
+- Fixed costs should be kept separate and not allocated to products when making the product-mix decision.
+
+### 2.3 Where the term "reduced cost" comes from: the diet problem
+
+- **George Dantzig** (ASR: "Tansik", "Josh Nansik") worked for the US Air Force at the Pentagon. One early problem was how to feed soldiers at minimum cost.
+- **Generic diet model**
+
+  Decision variables: $x_j$ = number of servings of food item $j$ (eggs, milk, maize, ...), in servings per person.
+
+  Data:
+  - $c_j$ = cost per serving of food $j$;
+  - $a_{ij}$ = amount of nutrient $i$ per serving of food $j$;
+  - $L_i, U_i$ = minimum and maximum requirement of nutrient $i$ (calories, protein, minerals, vitamins, ...).
+
+$$
+\begin{aligned}
+\min\quad & \sum_j c_j x_j && \text{(cost of one person's diet)}\\
+\text{s.t.}\quad & \sum_j a_{ij} x_j \ge L_i \quad \forall i && \text{(minimum nutrient requirement)}\\
+& \sum_j a_{ij} x_j \le U_i \quad \forall i && \text{(maximum nutrient requirement)}\\
+& x_j \ge 0 \quad \forall j
+\end{aligned}
+$$
+
+- **Interpretation:** suppose milk has $0$ servings in the optimal diet. Milk is not a cheap enough source of its nutrients, because other foods supply them more cheaply.
+  - The **reduced cost** of milk is how much milk's cost per serving must **reduce** before milk enters the optimal diet. Hence the name.
+  - Equivalently, it is the change in the optimal objective if one serving of milk is forced into the diet.
+
+### 2.4 Red Brand Canners (RBC) case
+
+ASR rendered the name as "red brand canvas". The case was opened by student Raj: RBC must choose a product mix and resource allocation, and its executives disagree on how to do it.
+
+#### Business problem and data
+
+- **Products of interest (tomato products only):** canned whole tomatoes, tomato juice, tomato paste. Peach and apple products in the exhibits are ignored.
+- **Raw material:**
+  - 3,000,000 lb of tomatoes, contracted with growers at an average delivered price of **18 cents/lb**.
+  - Total spend: $3{,}000{,}000 \times 0.18 = 540{,}000$ dollars.
+- **Quality mix:**
+
+| Grade | Share | Quantity (lb) | Quality rating (0–10 scale) |
+|---|---|---|---|
+| A (premium) | 20% | 600,000 | 9 |
+| B | 80% | 2,400,000 | 5 |
+
+- **Product requirements (from Exhibit 2):**
+
+| Product | Minimum average rating | lb per case | Demand forecast* | Cooper fruit cost per case |
+|---|---|---|---|---|
+| Whole tomatoes | 8 | 18 | 800,000 | $18 \times 0.18 = 3.24$ |
+| Juice | 6 | 20 | 50,000 | $20 \times 0.18 = 3.60$ |
+| Paste | 5 (no real restriction) | 25 | 80,000 | $25 \times 0.18 = 4.50$ |
+
+\*The instructor read the demand figures as "pounds". In the RBC case the demand forecasts are in **cases**: 800,000, 50,000 and 80,000 cases. Verify against your exhibit.
+
+- **Additional offer:** RBC can buy another **80,000 lb of grade A** at **25.5 cents/lb**. Whether to accept will be decided later via the shadow price.
+
+#### Blending (quality) constraints: mixtures and alligation
+
+Assume ratings blend linearly (weighted average).
+
+**Whole tomatoes (need rating $\ge 8$):**
+- Alligation view: A (9) is 1 unit from 8, and B (5) is 3 units from 8. So $A : B \ge 3 : 1$.
+- Rigorous view: let $A : B = \lambda : 1$. Then
+
+$$\frac{9\lambda + 5(1)}{\lambda + 1} \ge 8 \;\Longrightarrow\; 9\lambda + 5 \ge 8\lambda + 8 \;\Longrightarrow\; \lambda \ge 3$$
+
+- So grade A must be at least 75% and grade B at most 25% of the mix.
+
+**Juice (need rating $\ge 6$):** distances are 3 (from A) and 1 (from B), so
+
+$$\frac{9\lambda+5}{\lambda+1} \ge 6 \;\Longrightarrow\; 9\lambda + 5 \ge 6\lambda + 6 \;\Longrightarrow\; \lambda \ge \tfrac{1}{3}$$
+
+- So grade A must be at least 25% and grade B at most 75%.
+
+**Paste (need rating $\ge 5$):** it can be made entirely from grade B, so no quality constraint is needed.
+
+#### Cooper's calculation (Exhibit 2): quantity only
+
+- Fruit cost = 18 cents/lb × lb per case, regardless of grade.
+- Example, whole tomatoes: $0.18 \ \tfrac{\text{dollars}}{\text{lb}} \times 18 \ \tfrac{\text{lb}}{\text{case}} = 3.24$ dollars per case.
+- Whole-tomato contribution per case:
+  - Selling price is 12.00.
+  - Variable costs are direct labour (about 3.54; ASR said "3.4"), variable overhead, variable selling (e.g., sales commissions), packaging material, and fruit (3.24).
+  - Total variable cost is **10.80**, so contribution is $12 - 10.80 = 1.20$.
+- Allocated fixed overhead is shown below this line but should be ignored, as in Merton Truck.
+- Direct labour can be variable if labour is contractual or paid hourly. Variable selling and packaging rise with each additional case.
+- Implied margin before fruit cost: $12.00 - (10.80 - 3.24) = 4.44$ (the instructor said "4.4").
+
+#### Myers's calculation (Exhibit 3): quality-weighted fruit cost
+
+Myers argues that grade A is premium and should carry a higher cost per lb. Let $Z$ = cost per lb of grade A and $Y$ = cost per lb of grade B (dollars). He uses two equations.
+
+1. **Total spend is preserved:**
+$$600{,}000\,Z + 2{,}400{,}000\,Y = 3{,}000{,}000 \times 0.18 = 540{,}000$$
+
+2. **Cost proportional to quality rating:**
+$$\frac{Z}{9} = \frac{Y}{5}$$
+
+**Solution:** set $Z = 9t$ and $Y = 5t$. Then $5{,}400{,}000t + 12{,}000{,}000t = 540{,}000$, so $t \approx 0.031034$. This gives:
+- $Z \approx 0.2793$ dollars/lb (about 27.93 cents);
+- $Y \approx 0.1552$ dollars/lb (about 15.52 cents).
+
+They average 18 cents over the whole crop.
+
+> **Flag:** The instructor wrote $0.2796$ and $0.1554$. The exact solution of these equations is $0.2793$ and $0.1552$. Both round to the same per-case costs.
+
+**Myers fruit costs per case:**
+- Whole tomatoes (75% A, 25% B): $18\,[0.75(0.2793) + 0.25(0.1552)] \approx 4.47$ (vs Cooper 3.24).
+- Juice (25% A, 75% B): $20\,[0.25(0.2793) + 0.75(0.1552)] \approx 3.72$ (vs Cooper 3.60).
+  - The change is small because the 25:75 recipe is close to the crop's 20:80 availability.
+- Paste (100% B): $25 \times 0.1552 \approx 3.88$, shown as about 3.9 (vs Cooper 4.50).
+  - This is a big drop because paste uses only cheap grade B.
+
+**Myers's conclusion:** whole tomatoes now earn $4.44 - 4.47 = -0.03$ dollars per case, a 3-cent loss. Since revenue no longer covers variable cost, he says: don't produce canned whole tomatoes. Use grade A for juice, and make paste.
+
+#### Class discussion: who is right?
+
+- **Neha (Singasami):** Myers is more logical because he considers quality as well as quantity.
+- **Another student:** the premium concept is fine, but dividing cost in proportion to the rating ratio is a made-up allocation rule.
+- **Instructor's critique of Myers (a self-defeating spiral):**
+  1. If whole tomatoes are dropped, all grade A goes into juice.
+  2. Juice's recipe then shifts above 25% A, so its fruit cost inflates too, and juice may look unprofitable.
+  3. If juice is also dropped, grade A, the best raw material, has no use and gets "thrown down the drain".
+  4. The artificially inflated grade A cost makes every product that uses grade A look unprofitable.
+- **Student diagnosis (accepted):**
+  - **Cooper** ignored that grade A is **scarce** (only 600,000 lb).
+  - **Myers** ignored that the 18 cents/lb is **already committed (sunk)** and should not drive the decision.
+  - Both approaches are **incorrect**. The question is not whether one is "optimal" but whether the reasoning is right.
+
+#### Analogies used
+
+- **Expensive expert in a software product company** (instructor's example):
+  - A VP hires a costly expert to contribute across products.
+  - Each product manager refuses the expert's hours because charging that salary makes their product's P&L look red.
+  - The expert ends up "on the bench" while the company still pays the salary.
+  - The error: the salary is **sunk/fixed** for the organisation, irrespective of which product uses the person. Allocating it in short-term tactical or operational decisions leads to wasting the resource.
+- **Rahul's experience:** "practice area leads" were charged to projects as a fractional overhead (e.g., 0.25). The instructor relates this to Merton Truck's fixed overhead:
+  - Loading it onto one product makes that product look unprofitable.
+  - Spreading it may be acceptable for long-term strategic accounting, but not for short-term tactical decisions.
+
+#### Correct way to think about it
+
+- RBC contracted in May to buy the growers' crop at 18 cents/lb, and grading happened afterwards. **That money is sunk.** How to split it between grades A and B is a meaningless question for the product-mix decision.
+- What matters is the **economic value of grade A to the business**. The best use of grade A is whole tomatoes, which need at least 75% A.
+- **Use sensitivity analysis.** Put supply constraints in the LP (grade A $\le 600{,}000$ lb, grade B $\le 2{,}400{,}000$ lb). The **shadow price** of the grade A constraint gives the profit gain per extra lb of grade A.
+  - If the shadow price is **> 25.5 cents/lb**, buy the extra 80,000 lb.
+  - If it is lower (e.g., 23 cents), don't buy.
+- **General principle:**
+  - Variable costs don't allow "accounting tricks", since each extra unit genuinely incurs them.
+  - Apportioning fixed or sunk costs across products or raw materials distorts decisions.
+
+#### Preview: likely LP formulation (to be done next class)
+
+> **Flag:** This model was **not written in class**. It is a sketch consistent with the data discussed, to help you prepare. The per-lb margins $m_W, m_J, m_P$ = (selling price − non-fruit variable cost) / (lb per case). Only $m_W = 4.44/18 \approx 0.2467$ dollars/lb is implied by lecture numbers. Take $m_J$ and $m_P$ from Exhibit 2. Fruit cost is excluded because it is sunk.
+
+**Decision variables** (lb of tomatoes used):
+- $x_{WA}, x_{WB}$: grade A and B used in whole tomatoes
+- $x_{JA}, x_{JB}$: grade A and B used in juice
+- $x_{PA}, x_{PB}$: grade A and B used in paste
+
+$$
+\begin{aligned}
+\max\quad & m_W(x_{WA}+x_{WB}) + m_J(x_{JA}+x_{JB}) + m_P(x_{PA}+x_{PB})\\
+\text{s.t.}\quad & x_{WA}+x_{JA}+x_{PA} \le 600{,}000 && \text{(grade A supply)}\\
+& x_{WB}+x_{JB}+x_{PB} \le 2{,}400{,}000 && \text{(grade B supply)}\\
+& x_{WA} - 3x_{WB} \ge 0 && \text{(whole tomatoes: avg rating } \ge 8)\\
+& 3x_{JA} - x_{JB} \ge 0 && \text{(juice: avg rating } \ge 6)\\
+& x_{WA}+x_{WB} \le 800{,}000 \times 18 && \text{(whole-tomato demand, lb)}\\
+& x_{JA}+x_{JB} \le 50{,}000 \times 20 && \text{(juice demand, lb)}\\
+& x_{PA}+x_{PB} \le 80{,}000 \times 25 && \text{(paste demand, lb)}\\
+& x_{WA},x_{WB},x_{JA},x_{JB},x_{PA},x_{PB} \ge 0
+\end{aligned}
+$$
+
+The rating constraints are linearised versions of $\dfrac{9x_{WA}+5x_{WB}}{x_{WA}+x_{WB}} \ge 8$ and $\dfrac{9x_{JA}+5x_{JB}}{x_{JA}+x_{JB}} \ge 6$.
 
 ---
 
-## 3. Exam / Assignment Flags
+## 3. Formula Sheet
 
-No explicit "this will be on the exam" statement was made. The following were emphasised:
+- **Optimality range (two variables):** a corner point stays optimal while
+$$\text{(ratio of the flatter binding constraint)} \le \frac{c_1}{c_2} \le \text{(ratio of the steeper binding constraint)}$$
+  - Merton Truck: $\dfrac{1}{2} \le \dfrac{c_1}{c_2} \le 1$.
+- **Merton Truck ranges:**
+  - $2500 \le c_1 \le 5000$ (allowable increase 2000, decrease 500).
+  - $3000 \le c_2 \le 6000$ (allowable increase 1000, decrease 2000).
+- **Blending rule:** with $A:B = \lambda:1$,
+$$\frac{9\lambda + 5}{\lambda + 1} \ge r$$
+  - $r = 8$ gives $\lambda \ge 3$ (A at least 75%).
+  - $r = 6$ gives $\lambda \ge \tfrac13$ (A at least 25%).
+- **Myers's cost split:**
+$$600{,}000Z + 2{,}400{,}000Y = 540{,}000, \qquad \frac{Z}{9} = \frac{Y}{5}$$
+  This gives $Z \approx 0.2793$ and $Y \approx 0.1552$ dollars/lb.
+- **Buy-extra-grade-A rule:** buy if $\text{shadow price}_{A} > 0.255$ dollars/lb.
 
-- **Sunk vs. relevant costs.** Know why both Cooper's and Myers' costings are incorrect for decision-making:
-  - Cooper ignores the scarcity of Grade A.
-  - Myers apportions a sunk cost by an arbitrary rule.
-- **Blending constraints.** Be able to derive "≥ 75% A for whole" and "≥ 25% A for juice" using both alligation and the weighted-average inequality, and write them as linear constraints.
-- **Shadow prices as the value of a resource.** Use them to evaluate buying extra Grade A at 25.5¢/lb.
-- **Fixed-cost allocation.** Allocation is only for long-term strategic purposes, not short-term tactical or operational decisions. This connects to the earlier case's fixed overhead.
-- **Next class:** formulate Red Brand Canners as a mathematical program, solve it, and draw the insights. Re-read the case exhibits (selling prices, variable costs, demand forecasts) beforehand.
+---
+
+## 4. Flagged for Exams, Assignments and Next Class
+
+- **Come prepared:** read cases before class. The instructor stressed that case sessions depend on participation, and few students had read RBC.
+- **Know how to compute allowable increase/decrease by hand** (ratio-of-coefficients method) and how to read it from the Solver sensitivity report. Remember that it applies one coefficient at a time.
+- **Know the meanings and interpretations** of reduced cost (including the diet-problem story) and shadow price.
+- **Key conceptual takeaway for RBC:** sunk or fixed costs must not be allocated in tactical product-mix decisions. Explain why both Cooper and Myers are wrong.
+- **Next class:** formulate RBC as an LP, solve it, and use shadow prices to decide whether to buy 80,000 lb of extra grade A at 25.5 cents/lb.
+
+---
+
+## 5. ASR Corrections and Inferences
+
+**ASR corrections**
+- "Murtantrak / Martin Troy / Merton truck" → **Merton Truck** case
+- "red brand canvas" → **Red Brand Canners**
+- "Tansik / Josh Nansik", "Pentagan" → **George Dantzig**, **Pentagon**
+- "Koopa" → **Cooper**
+- "Jews / jums / pace" → **juice / paste**
+- "allow vapor increase" → **allowable increase**
+- "4 trip a line" → **4999**
+- "5000 1" → **5001**
+- "sum cost" → **sunk cost**
+- "gradient grade B" → **grade A and grade B**
+- "$1.18 per pound" → **0.18 dollars per pound**
+- "28%" → **25%** (grade B share for whole tomatoes)
+
+**Inferred values**
+- Merton Truck RHS values and department-assembly constraints.
+- Corner labels A, B, F.
+- Exact Myers costs (27.93 / 15.52 cents vs. the stated 27.96 / 15.54).
+- Demand units (cases).
+- Direct labour value (3.54).
+- The preview LP.
 
 <!-- nav -->
 ← [Session 6 (2026-11-09)](DSM-109-6_2026-11-09_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 8 (2026-11-13)](DSM-109-8_2026-11-13_Amit-Kumar-Vatsa.md) →
