@@ -7,7 +7,7 @@ faculty: Jagannathan Srinath
 ---
 
 <!-- nav -->
-← [Session 5 (2026-10-12)](DSM-106-5_2026-10-12_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+← [Session 5 (2026-10-12)](DSM-106-5_2026-10-12_Jagannathan-Srinath.md) · [All lectures](./) · [Session 7 (2026-10-19)](DSM-106-7_2026-10-19_Jagannathan-Srinath.md) →
 <!-- /nav -->
 
 # DSM-106 Business Research, Session 6 (16 Oct 2026): Causal Mapping, Cognitive Distance and MDS
@@ -290,5 +290,5 @@ Four different emphases explain the four different positions in the MDS plot.
 - describe the case methodology (causal maps, cognitive distance, MDS) and the before-and-after findings.
 
 <!-- nav -->
-← [Session 5 (2026-10-12)](DSM-106-5_2026-10-12_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+← [Session 5 (2026-10-12)](DSM-106-5_2026-10-12_Jagannathan-Srinath.md) · [All lectures](./) · [Session 7 (2026-10-19)](DSM-106-7_2026-10-19_Jagannathan-Srinath.md) →
 <!-- /nav -->

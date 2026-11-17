@@ -7,7 +7,7 @@ faculty: Varun Rijhwani
 ---
 
 <!-- nav -->
-← [Session 6 (2026-10-10)](DSM-104-6_2026-10-10_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+← [Session 6 (2026-10-10)](DSM-104-6_2026-10-10_Varun-Rijhwani.md) · [All lectures](./) · [Session 8 (2026-10-24)](DSM-104-8_2026-10-24_Varun-Rijhwani.md) →
 <!-- /nav -->
 
 # DSM-104 Managerial Communication: Session 7 Study Notes
@@ -229,5 +229,5 @@ Do not end with just "thank you for your time". Finish with a **clear direction*
 - The instructor's closing advice: treat this as a safe space to experiment, because learning matters more than marks.
 
 <!-- nav -->
-← [Session 6 (2026-10-10)](DSM-104-6_2026-10-10_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+← [Session 6 (2026-10-10)](DSM-104-6_2026-10-10_Varun-Rijhwani.md) · [All lectures](./) · [Session 8 (2026-10-24)](DSM-104-8_2026-10-24_Varun-Rijhwani.md) →
 <!-- /nav -->

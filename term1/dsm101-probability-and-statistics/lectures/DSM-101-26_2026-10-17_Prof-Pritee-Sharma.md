@@ -7,7 +7,7 @@ faculty: Pritee Sharma
 ---
 
 <!-- nav -->
-← [Session 25 (2026-10-16)](DSM-101-25_2026-10-16_Pritee-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 25 (2026-10-16)](DSM-101-25_2026-10-16_Pritee-Sharma.md) · [All lectures](./) · [Session 27 (2026-10-19)](DSM-101-27_2026-10-19_Pritee-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 Probability & Statistics: Session 26 Study Notes
@@ -291,5 +291,5 @@ No explicit exam announcements were made. These points were stressed:
 | Sample SD | $s = \sqrt{\dfrac{\sum (x_i - \bar{x})^2}{n-1}}$ |
 
 <!-- nav -->
-← [Session 25 (2026-10-16)](DSM-101-25_2026-10-16_Pritee-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 25 (2026-10-16)](DSM-101-25_2026-10-16_Pritee-Sharma.md) · [All lectures](./) · [Session 27 (2026-10-19)](DSM-101-27_2026-10-19_Pritee-Sharma.md) →
 <!-- /nav -->

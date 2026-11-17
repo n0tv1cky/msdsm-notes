@@ -38,7 +38,7 @@ ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
 NOTES_REPO_DIR = Path(__file__).resolve().parent.parent
 TERM = "term1"
 MODEL = "claude-opus-5-5"
-MAX_TOKENS = 16000
+MAX_TOKENS = 32000
 
 COURSE_GUIDANCE = {
     "101": (
@@ -117,6 +117,21 @@ COURSE_GUIDANCE = {
         "settings, Goal Seek, Data Tables, scenario manager, pivot tables, "
         "charts) with the actual numbers used.",
     ),
+    "109": (
+        "DSM-109 (Mathematical Programming / Operations Research)",
+        "Write every optimisation model in full standard form in LaTeX: "
+        "decision variables with their meaning and units, the objective "
+        "(max/min), each constraint with what it represents, and "
+        "non-negativity/integrality. Correct ASR errors on OR terms (e.g. "
+        "'simplex', 'slack', 'surplus', 'basic feasible solution', 'dual', "
+        "'shadow price', 'reduced cost', 'sensitivity analysis'). For "
+        "graphical solutions, describe the feasible region, corner points "
+        "and the optimum in words with coordinates and objective values. "
+        "For simplex or Solver work, give the steps/tableaus or Solver "
+        "settings with the actual numbers. For case discussions (e.g. a "
+        "company case), capture the business problem, data and how it was "
+        "turned into a model, flagging any numbers you had to infer.",
+    ),
 }
 
 
@@ -179,7 +194,7 @@ def call_api(api_key, prompt):
         },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=300) as resp:
+    with urllib.request.urlopen(req, timeout=900) as resp:
         return json.loads(resp.read())
 
 

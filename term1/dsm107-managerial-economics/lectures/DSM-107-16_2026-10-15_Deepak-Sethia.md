@@ -7,7 +7,7 @@ faculty: Deepak Sethia
 ---
 
 <!-- nav -->
-← [Session 15 (2026-10-14)](DSM-107-15_2026-10-14_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+← [Session 15 (2026-10-14)](DSM-107-15_2026-10-14_Deepak-Sethia.md) · [All lectures](./) · [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) →
 <!-- /nav -->
 
 # DSM-107 Managerial Economics, Session 16 (15 Oct 2026, Deepak Sethia)
@@ -486,5 +486,5 @@ $$100\% - 22\% = 78\%$$
 - Later: international economics and why some currencies (e.g., the dollar) are "powerful".
 
 <!-- nav -->
-← [Session 15 (2026-10-14)](DSM-107-15_2026-10-14_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+← [Session 15 (2026-10-14)](DSM-107-15_2026-10-14_Deepak-Sethia.md) · [All lectures](./) · [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) →
 <!-- /nav -->
