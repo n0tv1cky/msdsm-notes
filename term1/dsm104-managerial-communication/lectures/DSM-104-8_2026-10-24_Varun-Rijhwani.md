@@ -7,7 +7,7 @@ faculty: Varun Rijhwani
 ---
 
 <!-- nav -->
-← [Session 7 (2026-10-17)](DSM-104-7_2026-10-17_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+← [Session 7 (2026-10-17)](DSM-104-7_2026-10-17_Varun-Rijhwani.md) · [All lectures](./) · [Session 9-10 (2026-10-31)](DSM-104-9-10_2026-10-31_Varun-Rijhwani.md) →
 <!-- /nav -->
 
 # DSM-104 Managerial Communication, Session 8 (24 Oct 2026, Varun Rijhwani)
@@ -277,5 +277,5 @@ Effective persuasion **combines all three**. These three types together are call
 - **Titan clip:** Logos (market gap) → Pathos ("change their time") → Ethos ("we are the best candidates").
 
 <!-- nav -->
-← [Session 7 (2026-10-17)](DSM-104-7_2026-10-17_Varun-Rijhwani.md) · [All lectures](./) · (latest lecture) →
+← [Session 7 (2026-10-17)](DSM-104-7_2026-10-17_Varun-Rijhwani.md) · [All lectures](./) · [Session 9-10 (2026-10-31)](DSM-104-9-10_2026-10-31_Varun-Rijhwani.md) →
 <!-- /nav -->

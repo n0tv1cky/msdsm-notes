@@ -7,7 +7,7 @@ faculty: Amit Kumar Vatsa
 ---
 
 <!-- nav -->
-← [Session 2 (2026-10-23)](DSM-109-2_2026-10-23_Amit-Kumar-Vatsa.md) · [All lectures](./) · (latest lecture) →
+← [Session 2 (2026-10-23)](DSM-109-2_2026-10-23_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 4 (2026-10-30)](DSM-109-4_2026-10-30_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->
 
 # DSM-109 (Session 3): The Merton Truck Case: Contribution vs. Apportioned Profit, and LP Formulation
@@ -287,5 +287,5 @@ The optimum is $x_1 = 2000$, $x_2 = 1000$ with $Z = 11$ million, so profit is $2
 **Admin:** lecture notes will be uploaded as PDFs to the shared Google Drive folder.
 
 <!-- nav -->
-← [Session 2 (2026-10-23)](DSM-109-2_2026-10-23_Amit-Kumar-Vatsa.md) · [All lectures](./) · (latest lecture) →
+← [Session 2 (2026-10-23)](DSM-109-2_2026-10-23_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 4 (2026-10-30)](DSM-109-4_2026-10-30_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->

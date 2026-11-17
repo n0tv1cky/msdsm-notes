@@ -7,7 +7,7 @@ faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · [Session 16 (2026-10-30)](DSM-102-16_2026-10-30_Abhirup-Datta.md) →
 <!-- /nav -->
 
 # DSM-102 · Session 15 (2026-10-26, Abhirup Datta)
@@ -512,5 +512,5 @@ Likely also examinable: the $n-p$ reasoning, SE formula, omitted-variable bias, 
 - **Basics:** the instructor will add background material (scikit-learn, overfitting, $\chi^2$, degrees of freedom, etc.) to the course notebook for students who need it.
 
 <!-- nav -->
-← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · [Session 16 (2026-10-30)](DSM-102-16_2026-10-30_Abhirup-Datta.md) →
 <!-- /nav -->

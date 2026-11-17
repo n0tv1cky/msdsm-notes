@@ -7,7 +7,7 @@ faculty: Suman Majumdar, Prof. Arshad, Prof. Ruchi Sharma, Prof. Pritee Sharma
 ---
 
 <!-- nav -->
-← [Session 31 (2026-10-27)](DSM-101-31_2026-10-27_Ruchi-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 31 (2026-10-27)](DSM-101-31_2026-10-27_Ruchi-Sharma.md) · [All lectures](./) · [Session 33 (2026-11-03)](DSM-101-33_2026-11-03_Ruchi-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 Session 32: Binomial Distribution (Mean, Variance, Mode) and Introduction to the Poisson Distribution
@@ -260,5 +260,5 @@ $$P(X \ge 1) = 1 - P(X=0) = 1 - \frac{e^{-1/2}\left(\tfrac12\right)^0}{0!} = 1 -
 - After that, the course moves to continuous distributions. More time will be spent there because the **normal distribution** is used heavily in later analysis.
 
 <!-- nav -->
-← [Session 31 (2026-10-27)](DSM-101-31_2026-10-27_Ruchi-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 31 (2026-10-27)](DSM-101-31_2026-10-27_Ruchi-Sharma.md) · [All lectures](./) · [Session 33 (2026-11-03)](DSM-101-33_2026-11-03_Ruchi-Sharma.md) →
 <!-- /nav -->

@@ -7,7 +7,7 @@ faculty: Deepak Sethia
 ---
 
 <!-- nav -->
-← [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+← [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) · [All lectures](./) · [Session 19 (2026-11-03)](DSM-107-19_2026-11-03_Deepak-Sethia.md) →
 <!-- /nav -->
 
 # DSM-107 Managerial Economics, Session 18: Forex Markets, Real Exchange Rates, PPP, and Open-Economy Savings–Investment
@@ -298,5 +298,5 @@ $$\text{BOP} = \text{Current Account} + \text{Capital Account}; \quad \text{BOP 
 $$\text{Open economy with free capital flows: } i_d \to i_f$$
 
 <!-- nav -->
-← [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) · [All lectures](./) · (latest lecture) →
+← [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) · [All lectures](./) · [Session 19 (2026-11-03)](DSM-107-19_2026-11-03_Deepak-Sethia.md) →
 <!-- /nav -->
