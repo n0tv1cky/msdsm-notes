@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSM-104 Full Course Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+    --rust:#C1594A; --maxw:680px; --wide:960px;
+    --ease:cubic-bezier(.45,0,.2,1); --dur:.55s;
+  }
+  *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber-dim); color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .wrap-wide{max-width:var(--wide); margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.92em; overflow-wrap:anywhere;}
+  code.t{color:var(--teal);}
+  .katex{position:relative;}
+  .katex .katex-mathml{width:1px; height:1px; overflow:hidden; left:0; top:0;}
+
+  /* ---------- page chrome ---------- */
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); z-index:50; transition:width .1s linear;}
+  section{scroll-margin-top:54px;}
+  nav.jumpnav{position:sticky; top:3px; z-index:40; background:rgba(20,23,28,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:10px 24px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none;}
+  nav.jumpnav::-webkit-scrollbar{display:none;}
+  nav.jumpnav a{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); text-decoration:none; white-space:nowrap; padding:6px 11px; border-radius:20px; border:1px solid var(--line); flex:none; transition:color .15s,border-color .15s;}
+  nav.jumpnav a:hover, nav.jumpnav a:focus-visible{color:var(--ink); border-color:var(--amber);}
+  header.hero{padding:40px 0 28px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0;}
+  .legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0 0; font-size:14px; color:var(--ink-dim);}
+  .legend span{display:inline-flex; align-items:center; gap:8px;}
+  .swatch{width:12px; height:12px; border-radius:3px; flex:none;}
+
+  .module{padding:52px 0 8px;}
+  .module-head{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px;}
+  .module-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 8px;}
+  .module h2{font-size:1.55rem; margin:0 0 10px;}
+  .module .lede{color:var(--ink-dim); max-width:64ch; margin:0;}
+  h3.sub{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); letter-spacing:.06em; margin:36px 0 14px;}
+
+  /* ---------- cheat cards ---------- */
+  .cheat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:32px;}
+  .cheat-grid.two{grid-template-columns:repeat(2,1fr);}
+  .cheat-card{background:var(--panel); padding:18px 20px; min-width:0;}
+  .cheat-card h3{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:0 0 12px;}
+  .cheat-card dl{margin:0;}
+  .cheat-card dt{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); margin:0 0 2px; overflow-wrap:anywhere;}
+  .cheat-card dt.t{color:var(--teal);}
+  .cheat-card dd{margin:0 0 12px; font-size:14px; color:var(--ink-dim); line-height:1.5;}
+  .cheat-card dd:last-child{margin-bottom:0;}
+  .cheat-card ul, .note ul{margin:0; padding:0; list-style:none;}
+  .cheat-card li{font-size:14px; color:var(--ink-dim); margin:0 0 9px; padding-left:14px; position:relative; line-height:1.5;}
+  .cheat-card li:last-child, .note li:last-child{margin-bottom:0;}
+  .cheat-card li::before, .note li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+  .cheat-card strong{color:var(--ink); font-weight:600;}
+  .cheat-card .katex-display{margin:6px 0; overflow-x:auto; overflow-y:hidden;}
+  @media (max-width:760px){.cheat-grid,.cheat-grid.two{grid-template-columns:1fr;}}
+
+  /* ---------- tables ---------- */
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:8px; margin:0 0 24px;}
+  table.dt{border-collapse:collapse; width:100%; font-size:13.5px; min-width:600px;}
+  table.dt th, table.dt td{padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; color:var(--ink-dim);}
+  table.dt th{font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:500; color:var(--ink-faint); background:var(--panel);}
+  table.dt td:first-child{color:var(--ink); font-weight:600;}
+  table.dt tr:last-child td{border-bottom:none;}
+  table.dt td.o1{color:var(--teal); font-family:'IBM Plex Mono',monospace;}
+  table.dt td.on{color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  table.dt td.mono{font-family:'IBM Plex Mono',monospace; font-size:12.5px;}
+  .table-key{font-size:0.86rem; color:var(--ink-faint); max-width:78ch; margin:-12px 0 24px;}
+  .xtag{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; color:var(--ink-faint); border:1px solid var(--line); border-radius:10px; padding:0 7px; margin-left:4px; vertical-align:1px;}
+
+  /* ---------- intuition callout ---------- */
+  .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:0 0 28px;}
+  .note p{margin:0 0 8px;} .note p:last-child{margin-bottom:0;}
+  .note li{margin:0 0 7px; padding-left:14px; position:relative;}
+  .note strong{color:var(--ink-dim);}
+
+  /* ---------- panels ---------- */
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:22px 22px 18px; margin:0 0 40px;}
+  .panel-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px 16px; margin-bottom:4px; flex-wrap:wrap;}
+  .panel-title{font-family:'Fraunces',serif; font-size:1.05rem; color:var(--ink);}
+  .panel-sub{font-size:14px; color:var(--ink-faint); margin:0 0 12px; max-width:70ch;}
+  .readout{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); text-align:right;}
+  svg.chart{width:100%; height:auto; display:block; margin:14px 0 8px; overflow:visible;}
+  .tick{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink-faint);}
+  .axislabel{font-family:'IBM Plex Mono',monospace; font-size:12px; fill:var(--ink-faint);}
+  svg.chart.narrow .tick{font-size:15px;} svg.chart.narrow .axislabel{font-size:15px;}
+  .gridline{stroke:var(--line); stroke-width:1;}
+  .axis{stroke:var(--ink-faint); stroke-width:1;}
+  .controls{display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center; margin-top:10px;}
+  .controls[hidden]{display:none;}
+  .slider-group{display:flex; flex-direction:column; gap:6px; flex:1; min-width:180px;}
+  .slider-label{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between;}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:var(--line); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:18px; height:18px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:18px; height:18px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  .verdict{font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 12px; border-radius:5px; margin-top:12px; display:inline-block;}
+  .verdict.good{background:rgba(79,168,160,.14); color:var(--teal);}
+  .verdict.warn{background:rgba(232,163,61,.14); color:var(--amber);}
+  .verdict.eq{background:rgba(237,234,226,.08); color:var(--ink);}
+  .verdict.bad{background:rgba(193,89,74,.16); color:var(--rust);}
+  .btn{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:6px 12px; cursor:pointer; line-height:1.3;}
+  .btn:hover:not(:disabled){border-color:var(--amber); color:var(--ink);}
+  .btn:disabled{opacity:.35; cursor:default;}
+  .btn.on{border-color:var(--amber); color:var(--amber);}
+  .presets{display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 12px;}
+  .field{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:inline-flex; align-items:center; gap:6px;}
+  .field input[type=text], .field input[type=number], .field select{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:5px; padding:5px 8px;}
+  .field input[type=number]{width:62px;}
+  .field input[type=text]{width:190px;}
+  .field input:focus, .field select:focus{outline:none; border-color:var(--amber);}
+
+  /* ---------- animated visualizers ---------- */
+  .viz-body{display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:16px; align-items:start;}
+  .viz-body > *{min-width:0;}
+  .viz-body.wide-side{grid-template-columns:minmax(0,1fr) 340px;}
+  @media (max-width:820px){.viz-body,.viz-body.wide-side{grid-template-columns:1fr;}}
+  .viz-body.stacked{grid-template-columns:1fr;}
+  .viz-body.stacked .side{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,280px); gap:10px; align-items:start;}
+  @media (max-width:700px){.viz-body.stacked .side{grid-template-columns:1fr;}}
+  .stage-scroll{scrollbar-color:#3A414D transparent; scrollbar-width:thin; overflow-x:auto; overflow-y:hidden; border-radius:6px; background:var(--bg); border:1px solid var(--line);}
+  .stage{position:relative; margin:0 auto;}
+  .side{display:flex; flex-direction:column; gap:10px; min-width:0;}
+  pre.pcode{scrollbar-color:#3A414D transparent; scrollbar-width:thin; margin:0; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:10px 0; font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1.6; color:var(--ink-faint); overflow-x:auto;}
+  pre.pcode .ln{display:block; padding:0 12px 0 10px; border-left:3px solid transparent; white-space:pre; transition:background .25s,color .25s,border-color .25s;}
+  pre.pcode .ln.on{background:rgba(232,163,61,.13); border-left-color:var(--amber); color:var(--ink);}
+  pre.pcode .ln.bad{background:rgba(193,89,74,.16); border-left-color:var(--rust); color:var(--ink);}
+  .vars{display:flex; flex-wrap:wrap; gap:6px;}
+  .vars span{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:4px; padding:3px 8px;}
+  .vars span b{color:var(--ink); font-weight:500;}
+  .vars span.chg{animation:varflash 1s var(--ease);}
+  @keyframes varflash{0%{border-color:var(--amber); background:rgba(232,163,61,.25);} 100%{border-color:var(--line); background:var(--bg);}}
+  .caption{font-size:15px; color:var(--ink-dim); min-height:3.2em; margin:12px 0 4px; line-height:1.5;}
+  .caption b{color:var(--ink); font-weight:600;}
+  .caption .a{color:var(--amber);} .caption .t{color:var(--teal);} .caption .r{color:var(--rust);}
+  .caption code{font-size:.88em;}
+  .transport{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:8px;}
+  .transport .btn{min-width:44px; padding:7px 12px;}
+  .transport .btn.play{min-width:84px; color:var(--ink); border-color:var(--amber-dim);}
+  .transport .ctr{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin-left:6px;}
+  .transport .bar{flex:1; min-width:80px; height:3px; background:var(--line); border-radius:2px; overflow:hidden; margin-left:6px;}
+  .transport .bar i{display:block; height:100%; width:0; background:var(--amber); transition:width .3s var(--ease);}
+  .hint{font-size:12px; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; margin:6px 0 0;}
+
+  /* moving pieces: everything that moves uses left/top/opacity transitions,
+     so the resting DOM is always the correct frame (print, thumbnails, hidden panes) */
+  .mv{position:absolute; transition:left var(--dur) var(--ease), top var(--dur) var(--ease), opacity .4s var(--ease), transform var(--dur) var(--ease), background-color .3s, border-color .3s, color .3s;}
+  .cell{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--ink); background:#20252E; border:1.5px solid #3A414D; border-radius:6px;}
+  .cell.cmp{border-color:var(--amber); color:var(--amber); background:rgba(232,163,61,.12);}
+  .cell.swap{border-color:var(--amber); color:var(--bg); background:var(--amber);}
+  .cell.done{border-color:var(--teal-dim); color:var(--teal); background:rgba(79,168,160,.10);}
+  .cell.hit{border-color:var(--teal); color:var(--bg); background:var(--teal);}
+  .cell.ghost{opacity:0;}
+  .cell.bad{border-color:var(--rust); color:var(--rust); background:rgba(193,89,74,.14);}
+  .slotlbl{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center;}
+  .ptr{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; white-space:nowrap; text-align:center; transition:left var(--dur) var(--ease), top var(--dur) var(--ease), opacity .3s;}
+  .ptr.a{color:var(--amber);} .ptr.t{color:var(--teal);} .ptr.i{color:var(--ink);} .ptr.r{color:var(--rust);}
+  .ptr .arw{display:block; font-size:13px; line-height:1;}
+  .band{position:absolute; border-radius:8px; transition:left var(--dur) var(--ease), width var(--dur) var(--ease), opacity .3s;}
+  .band.sorted{background:rgba(79,168,160,.08); border:1px dashed var(--teal-dim);}
+  .band.win{border:2px solid var(--amber); background:transparent;}
+  .flash-bad{animation:shake .45s;}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+  @keyframes drawin{from{stroke-dashoffset:var(--len);} to{stroke-dashoffset:0;}}
+  @media (prefers-reduced-motion:reduce){
+    .mv,.ptr,.band,pre.pcode .ln,.transport .bar i{transition:none !important;}
+    .vars span.chg,.flash-bad,path.new{animation:none !important;}
+  }
+
+  /* linked-list nodes */
+  .node{display:flex; height:40px; font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--ink); border:1.5px solid #3A414D; border-radius:6px; background:#20252E; overflow:hidden;}
+  .node > span{display:flex; align-items:center; justify-content:center;}
+  .node .d{flex:1; min-width:0;}
+  .node .l{width:18px; background:rgba(255,255,255,.04); border-left:1px solid #3A414D;}
+  .node .l.left{border-left:none; border-right:1px solid #3A414D;}
+  .node .l::after{content:''; width:5px; height:5px; border-radius:50%; background:var(--ink-faint);}
+  .node.header{border-style:dashed; color:var(--ink-faint);}
+  .node.header .d{font-size:12px;}
+  .node.new{border-color:var(--teal); color:var(--teal);}
+  .node.hl{border-color:var(--amber); color:var(--amber);}
+  .node.lost{opacity:.3; border-style:dashed;}
+  .node.gone{opacity:0;}
+  .node.bad{border-color:var(--rust); color:var(--rust);}
+  .addr{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center;}
+  .tagnote{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust); white-space:nowrap;}
+  svg.links{position:absolute; left:0; top:0; overflow:visible; pointer-events:none;}
+  svg.links > path{fill:none; stroke-width:1.8;}
+  svg.links > path.new{stroke-dasharray:var(--len); animation:drawin .6s var(--ease);}
+  svg.links text{font-family:'IBM Plex Mono',monospace; font-size:11px;}
+
+  /* index calculator */
+  .ixgrid{display:grid; gap:2px; margin:0 auto; width:max-content;}
+  .ixgrid div{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; border-radius:3px; cursor:pointer; position:relative; transition:background-color .2s, color .2s, box-shadow .2s;}
+  .ixgrid div.st{background:#232833; color:var(--ink-faint);}
+  .ixgrid div.z{background:transparent; color:#343a45; border:1px dashed #262b33;}
+  .ixgrid div.cnt{background:rgba(232,163,61,.22); color:var(--ink);}
+  .ixgrid div.tgt{box-shadow:inset 0 0 0 2px var(--amber);}
+  .ixgrid div.tgt.cnt{background:var(--amber); color:var(--bg); font-weight:500;}
+  .ixgrid div.z.tgt{box-shadow:inset 0 0 0 2px var(--rust);}
+  .ixgrid div:hover{box-shadow:inset 0 0 0 1px var(--ink-dim);}
+  .ixstrip{display:flex; flex-wrap:wrap; gap:2px; margin:14px 0 4px;}
+  .ixstrip span{min-width:30px; height:26px; padding:0 3px; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#3b414c; border:1px solid #2a2f38; border-radius:3px; transition:background-color .2s,color .2s;}
+  .ixstrip span.cnt{background:rgba(232,163,61,.22); color:var(--ink);}
+  .ixstrip span.tgt{background:var(--amber); color:var(--bg);}
+  .ixmath{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-dim); line-height:1.8; margin-top:10px;}
+  .ixmath b{color:var(--amber); font-weight:500;} .ixmath i{color:var(--teal); font-style:normal;}
+  .axlbl{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center; margin:0 0 6px;}
+
+  /* queue ring */
+  .ring{position:absolute; border-radius:50%; border:1px dashed #2f3540;}
+  .ringcell{position:absolute; width:40px; height:40px; margin:-20px 0 0 -20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink); background:#20252E; border:1.5px solid #3A414D; transition:background-color .3s,border-color .3s,color .3s;}
+  .ringcell.emp{color:transparent;}
+  .ringcell.waste{border-style:dashed; border-color:var(--rust);}
+  .ringcell .ix{position:absolute; font-size:10px; color:var(--ink-faint); top:-15px;}
+  .ringptr{position:absolute; left:0; top:0; width:0; height:0; transition:transform var(--dur) var(--ease), opacity .3s;}
+  .ringptr span{position:absolute; transform:translate(-50%,-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; white-space:nowrap;}
+  .lanehead{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim);}
+  .lanehead b{font-weight:500;}
+  .badge{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; padding:3px 8px; border-radius:4px; white-space:nowrap; transition:opacity .3s;}
+  .badge.bad{background:rgba(193,89,74,.18); color:var(--rust);}
+  .badge.good{background:rgba(79,168,160,.16); color:var(--teal);}
+  .badge.eq{background:rgba(237,234,226,.08); color:var(--ink-dim);}
+
+  /* worked examples */
+  details.worked{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 20px; margin:0 0 16px;}
+  details.worked summary{cursor:pointer; font-size:15px; color:var(--ink); list-style:none;}
+  details.worked summary::-webkit-details-marker{display:none;}
+  details.worked summary::before{content:'▸ '; color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  details.worked[open] summary::before{content:'▾ ';}
+  details.worked .tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin-left:8px;}
+  details.worked ol{margin:12px 0 0; padding-left:22px; color:var(--ink-dim); font-size:15px;}
+  details.worked ol li{margin:0 0 6px;}
+  details.worked .answer{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal);}
+  details.worked pre.code{margin:10px 0 0;}
+  pre.code{background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:12px 14px; overflow-x:auto; font-family:'IBM Plex Mono',monospace; font-size:12.5px; line-height:1.55; color:var(--ink); margin:10px 0;}
+  pre.code .c{color:var(--ink-faint);} pre.code .k{color:var(--teal);} pre.code .s{color:var(--amber);} pre.code .x{color:var(--rust);}
+
+  footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
+  @media (max-width:600px){ .module{padding:40px 0 4px;} .panel{padding:16px 14px 14px;} .wrap,.wrap-wide{padding:0 16px;} nav.jumpnav{padding:10px 16px;} table.dt{font-size:12.5px;} .field input[type=text]{width:150px;} }
+
+  @media print{
+    @page{ margin:1.3cm; }
+    :root{
+      --bg:#ffffff; --panel:#f7f6f2; --ink:#161616; --ink-dim:#3d3d3d; --ink-faint:#6b6b6b;
+      --line:#cfcbc0; --amber:#a85e0d; --amber-dim:#d9c3a3; --teal:#136b62; --teal-dim:#a9cfc9; --rust:#9a3a2a;
+    }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-size:11pt; }
+    nav.jumpnav, .progress, .btn, .transport, .presets, .hint, .controls{ display:none !important; }
+    section{ scroll-margin-top:0; }
+    header.hero{ padding:0 0 16px; }
+    .module{ padding:28px 0 4px; }
+    .cheat-card, .panel, .note, details.worked, pre.code, .table-wrap{ break-inside:avoid; page-break-inside:avoid; }
+    h2, .panel-head{ break-after:avoid; page-break-after:avoid; }
+    .cell,.node,.ringcell{ background:#fff !important; border-color:#999 !important; color:#161616 !important; }
+    .cell.done{ background:#e8f2f0 !important; } .cell.cmp,.cell.swap{ background:#f6ead9 !important; }
+    .ixgrid div.st{ background:#eee; color:#555; } .ixgrid div.cnt{ background:#f6ead9; color:#161616; }
+    .ixstrip span{ color:#999; } .ixstrip span.cnt{ background:#f6ead9; color:#161616; }
+    .stage-scroll{ overflow:hidden; }
+    a[href]:after{ content:""; }
+    .verdict{ border:1px solid var(--line); }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="jumpnav">
+  <a href="#m1">1 · PAIBOC</a>
+  <a href="#m2">2 · Non-verbal</a>
+  <a href="#m3">3 · Writing reveals leadership</a>
+  <a href="#m4">4 · Routine messages</a>
+  <a href="#m5">5 · Bad news</a>
+  <a href="#m6">6 · Meetings</a>
+  <a href="#m7">7 · Presentation structure</a>
+  <a href="#m8">8 · Persuasion & finals</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap-wide">
+    <p class="kicker">DSM-104 Managerial Communication · full course recap · S1–S10 (Rijhwani)</p>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--amber)"></i>speaker-centred: what I want to say (features, the writer's order, the default AI draft, words alone)</span>
+      <span><i class="swatch" style="background:var(--teal)"></i>audience-centred: how it lands (benefits, the reader's time, the relationship, body and voice, ownership)</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ m1: 1 · PAIBOC ============ -->
+<section class="module" id="m1">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S01 (22 Aug) · S02 recap (29 Aug) — Rijhwani</p>
+      <h2>Audience first: the five prerequisites and PAIBOC</h2>
+      <p class="lede">Before any email, speech or pitch, clear the five prerequisites, then walk PAIBOC in order, because communication is about the audience and not the speaker.</p>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>FIVE PREREQUISITES: CLARIFY BEFORE YOU SPEAK (S01)</h3>
+        <ul>
+          <li><strong>Purpose</strong>: why am I communicating?</li>
+          <li><strong>Audience awareness</strong>: who am I speaking to, or writing this email to? This is <strong>the most important</strong> of the five.</li>
+          <li><strong>Clarity</strong>: a thought that isn't clear in your head can't be articulated, even in writing.</li>
+          <li><strong>Timing</strong>: when you do it.</li>
+          <li><strong>Credibility</strong> = <strong>Competence + Character + Consideration</strong>. It is the slowest of the five to build and the fastest to be spent.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>PAIBOC: SEQUENTIAL, EACH STEP NEEDS THE ONE BEFORE</h3>
+        <dl>
+          <dt class="t">P · Purpose</dt><dd>One aim, crystal clear. Keep the end goal in mind and work backwards ("presenting to senior management for approval" means the deck writes itself toward that goal).</dd>
+          <dt class="t">A · Audience</dt><dd><strong>Demographic</strong>: age, education, occupation, income. <strong>Psychographic</strong>: needs, values, lifestyles, attitudes, fears. S02 adds knowledge level, interests, expectations and language preferences.</dd>
+          <dt class="t">I · Information</dt><dd>The content is set entirely by step A, so personalise it to the receiver. Include market and competitor intelligence too.</dd>
+          <dt class="t">B · Benefits</dt><dd>Turn <code>features</code> into <code class="t">benefits</code>: "let the audience see what is in store for them". The lever to choose here is carrot vs stick.</dd>
+          <dt class="t">O · Objections</dt><dd>Anticipate them in advance by stepping into the audience's shoes. The O is <strong>not</strong> "objectives".</dd>
+          <dt class="t">C · Context</dt><dd>Communication never happens in isolation. Consider the audience's sentiments, timing, the environment (political scenario, organisational climate) and whether it is a crisis or normal communication.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>CARROT VS STICK</h3>
+        <ul>
+          <li><strong>Carrot</strong>: an incentive or reward for the desired behaviour (positive motivation).</li>
+          <li><strong>Stick</strong>: a penalty for the wrong behaviour, e.g. the <strong>₹500</strong> fine.</li>
+          <li>Choose by <strong>situation and time sensitivity</strong>. Panchayat used only the stick and offered no carrot.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>ETHOS · PATHOS · LOGOS (PREVIEW)</h3>
+        <ul>
+          <li><strong>Pathos</strong>: the audience is moved by emotion, so use emotional storytelling (Bittoo on the father).</li>
+          <li><strong>Logos</strong>: the audience is moved by reason, numbers and statistics, so use data and evidence.</li>
+          <li><strong>Ethos</strong>: the speaker's credibility (competence, character, consideration).</li>
+          <li>Diagnose whether the audience is <strong>pathos- or logos-inclined</strong> and tweak the message to match. That diagnosis is itself audience analysis. Full treatment comes in the persuasion session.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>SMALL RULES</h3>
+        <ul>
+          <li><strong>The C's: consideration</strong> of the receiver, their culture and the language used. One company-wide email is read differently across backgrounds, education and regions.</li>
+          <li><strong>Slides</strong>: no more than <strong>6 lines</strong> per slide. Overloaded slides pull attention away from the speaker.</li>
+          <li><strong>No one-size-fits-all</strong>: pitch the content at the audience's level.</li>
+          <li>Surprise test (S04): a Google Form in roughly the first 10 min of any of S05–S08, with MCQs and one-word or one-sentence answers. It covers everything taught so far and has no retest.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">CASE · PANCHAYAT S2 VS BAND BAAJA BAARAAT (S01, RECAPPED S02)</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead>
+          <tr><th>PAIBOC</th><th>Panchayat S2: loudspeaker announcement (failed)</th><th>Band Baaja Baaraat: the wedding pitch (worked)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P · Purpose</td>
+            <td>Merely to <strong>inform</strong>: the open-defecation inspection is the next morning, so the villagers had to be told today.</td>
+            <td>To <strong>win a big client</strong> and grow the business. This purpose drove the research and the hook.</td>
+          </tr>
+          <tr>
+            <td>A · Audience</td>
+            <td>The Sachiv had lived in the village 2+ years and knew its demographics, but he <strong>did not tailor</strong> the message. He visibly hesitated over how to address them ("the initial part is very important").</td>
+            <td><strong>Deep research</strong>: they knew the groom from Facebook and college, knew he had organised his college festival, and knew the family history.</td>
+          </tr>
+          <tr>
+            <td>I · Information</td>
+            <td>He code-switched: <code>"Good evening"</code> in English, then Hindi, then <code>"open defecation"</code>. This ignored the villagers' education level and caused visible confusion. It was a standard template.</td>
+            <td>The pitch was personalised to the clients' interests and identity. They <strong>knew the competitor</strong> (Chandan Narang) and positioned themselves against him.</td>
+          </tr>
+          <tr>
+            <td>B · Benefits</td>
+            <td><span style="color:var(--rust)">None.</span> There was only a stick (the <strong>₹500</strong> fine), and the villagers didn't see open defecation as their problem. The class's fix was <code class="t">"the fields are like your home; keep your home clean"</code>.</td>
+            <td>Features became benefits: <code class="t">"one client for 6 months, start to finish, 100% total dedication, no compromise"</code>. They added <code class="t">"This is not a deal for us, this is a shaadi for us."</code></td>
+          </tr>
+          <tr>
+            <td>O · Objections</td>
+            <td>No objections were anticipated. It was an <strong>imposition, not persuasion</strong>, on a topic the villagers weren't comfortable discussing openly.</td>
+            <td>They persisted under resistance ("already in talks with Chandan Narang", "we'll call you"), offered to <strong>walk and talk</strong>, and walked the clients to the car. The family raised <strong>4 objections</strong>, all answered with the father's own story.</td>
+          </tr>
+          <tr>
+            <td>C · Context</td>
+            <td>It was <strong>evening</strong>, and the villagers were settling in with mosquito nets. A taboo topic was broadcast loudly in public, and the matter was time-sensitive.</td>
+            <td>A wealthy South Delhi family, an elite name where a botched wedding invites gossip, and a pair who had done only small-budget weddings so far.</td>
+          </tr>
+          <tr>
+            <td>Verdict</td>
+            <td style="color:var(--amber)">Speaker-centred: about what <em>he</em> wanted to say</td>
+            <td style="color:var(--teal)">Audience-centred: framed in the clients' own frame of reference</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Lesson (S01): even a speaker who knows the demographics and psychographics fails if he doesn't <strong>tailor</strong> the message to them.</p>
+
+    <div class="note">
+      <p>The lines to carry out of S01:</p>
+      <ul>
+        <li><strong>"From now on, think of communication through frameworks."</strong> This was the single takeaway of the session "if nothing else".</li>
+        <li><strong>"Communication is not about the speaker. It is about the audience always."</strong> It is what separates a good leader from a poor communicator.</li>
+        <li><strong>"The message changes when the purpose, audience and context change."</strong></li>
+        <li>Start every presentation, speech or email with PAIBOC "and you will <strong>never be at fault</strong>". He also said: "make sure you have taken a note of it", because it recurs in every module and in the group presentation.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>On knowing your audience (S01):</p>
+      <ul>
+        <li><strong>"Privacy is a myth… always have your ear to the ground."</strong> LinkedIn, Instagram and social media tell you whom you are dealing with before a negotiation or a deal.</li>
+        <li><strong>No one-size-fits-all</strong>: you would explain quantum physics differently to a high-schooler and to a postgraduate.</li>
+        <li><strong>Credibility</strong> is "the slowest of the five to build and the fastest to be spent".</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Corrections and nuances:</p>
+      <ul>
+        <li><strong>O = Objections, NOT objectives</strong> (S02): "objective" would just duplicate Purpose.</li>
+        <li>The S02 recap wrote B as "Business/Benefits". S01 taught it as <strong>Benefits</strong>, so use that.</li>
+        <li><strong>The stick in Panchayat</strong> (S01): a student argued that, with the inspection the next morning, the stick was the right call. The instructor agreed. The <em>framing</em> still needed language suited to the audience.</li>
+        <li><strong>"Aren't they first-timers?"</strong> (S01): not entirely. They have a track record of small-budget weddings and are scaling up.</li>
+        <li><strong>"Wouldn't their appearance have sunk the pitch?"</strong> (S01): a valid point. Appearance, clothing and accessories shape first impressions, which is S02's topic. Allow some slack because it's a film.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Map the Panchayat announcement onto PAIBOC. Which letters are missing?<span class="tag">S01 22 Aug</span></summary>
+      <ol>
+        <li><strong>P</strong>: present but thin. It only <em>informs</em> about the inspection the next morning.</li>
+        <li><strong>A</strong>: the knowledge is there (2+ years in the village), but there is <strong>no tailoring</strong>. The opening falters over how to address the villagers.</li>
+        <li><strong>I</strong>: a template message in a register the villagers don't follow (<code>"Good evening"</code>, <code>"open defecation"</code>).</li>
+        <li><strong>B</strong>: <span style="color:var(--rust)">absent</span>. There is only the ₹500 stick, and the problem being solved isn't the villagers' problem. A benefit like "the fields are like your home; keep your home clean" builds belonging instead of imposing.</li>
+        <li><strong>O, C</strong>: no reluctance was anticipated on a taboo topic, and the timing was wrong (bedtime, mosquito nets).</li>
+      </ol>
+      <p class="answer">missing: Benefits (only a stick) and Audience tailoring → speaker-centred</p>
+    </details>
+    <details class="worked">
+      <summary>List the family's objections in Band Baaja Baaraat and how Bittoo answered them.<span class="tag">S01 22 Aug</span></summary>
+      <ol>
+        <li>The four objections were <strong>inexperience</strong> (first-timers at this scale), <strong>trust</strong> (can they be relied on?), <strong>money</strong> (a large investment) and <strong>reputation</strong> (an elite family, and a botched wedding invites gossip).</li>
+        <li>The answer was the father's own story: he was a first-timer <strong>44 years</strong> ago and was <em>given</em> a chance. "I deserve the same chance and I deserve to build my reputation."</li>
+        <li>This is a <strong>pathos</strong> appeal, and only the audience research made it possible.</li>
+        <li>On inexperience, the instructor added that they already have a track record of small weddings and are scaling up.</li>
+      </ol>
+      <p class="answer">4 objections → answered with the father's own first chance 44 years earlier (pathos via research)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m2: 2 · Non-verbal ============ -->
+<section class="module" id="m2">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S2 (29 Aug) — Rijhwani</p>
+      <h2>Non-verbal communication: the body and the voice</h2>
+      <p class="lede">You start communicating before you open your mouth. This module covers the 7–38–55 split, kinesics, proxemics and paralanguage, all decoded from one boardroom scene.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>7–38–55 (ORAL COMMUNICATION)</h3>
+        <dl>
+          <dt>7% · words</dt><dd>the verbal content: what you actually say</dd>
+          <dt class="t">38% · vocal / paralanguage</dt><dd><strong>how</strong> you say it: pitch, volume, pace, pause, stress</dd>
+          <dt class="t">55% · body language</dt><dd>posture, gestures, eye contact, facial expression</dd>
+          <dt class="t">sync rule</dt><dd>7 + 38 + 55 = 100. Body and voice must be <strong>in sync</strong> with the words and never work against them. Strong content with poor delivery does not land.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>KINESICS: POSTURE, GESTURES, FACE</h3>
+        <dl>
+          <dt class="t">posture</dt><dd>upright and straight signals confidence. Posture also covers <strong>where</strong> you stand: podium vs centre stage. Appearance goes with it.</dd>
+          <dt>hands limp / clasped behind back</dt><dd>the words are left carrying only the 7%</dd>
+          <dt class="t">zone of influence</dt><dd>belly button → <strong>chin</strong> (instructor); the video said belly button → eyes. Think of an invisible box in front of you. Control two things: gestures stay <strong>in the zone</strong>, and they keep a <strong>reasonable amplitude</strong>.</dd>
+          <dt class="t">leveler</dt><dd>palms <strong>down</strong>, hands cross and open downward / outward. Use it to decline, say no, or make a firm point.</dd>
+          <dt class="t">placator</dt><dd>palms <strong>open and up</strong>, arms open. Use it to welcome ("Good morning, everyone").</dd>
+          <dt class="t">facial expression</dt><dd>must be <strong>congruent</strong> with the content: fierce for the vision, soft for a loss</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>PARALANGUAGE = EVERYTHING ABOUT THE VOICE EXCEPT THE WORDS</h3>
+        <dl>
+          <dt class="t">pace</dt><dd>if you rush, nothing is absorbed. Go fast over what the audience already knows and slow down on what is new.</dd>
+          <dt class="t">pitch</dt><dd>vary it; a monotone kills the message. Pitch rises for a challenge and drops for grief.</dd>
+          <dt class="t">pause</dt><dd>pause after a strong, impactful or emotional point. The routine: slow the pace, make the point, then pause.</dd>
+          <dt class="t">volume</dt><dd>match it to the size of the room</dd>
+          <dt class="t">word stress</dt><dd>stress one word and the sentence means something else (try the widget below)</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>EYE CONTACT: PERIODIC + DISTRIBUTIVE</h3>
+        <svg class="chart" viewBox="0 0 280 200" role="img" aria-label="Room split into left, centre and right; hold 3 seconds on one person per section, sweeping left to centre to right">
+          <text x="50" y="14" class="tick" text-anchor="middle">LEFT</text>
+          <text x="140" y="14" class="tick" text-anchor="middle">CENTRE</text>
+          <text x="230" y="14" class="tick" text-anchor="middle">RIGHT</text>
+          <rect x="8" y="22" width="84" height="88" rx="6" style="fill:none;stroke:var(--ink-faint);stroke-dasharray:4 3"/>
+          <rect x="98" y="22" width="84" height="88" rx="6" style="fill:none;stroke:var(--ink-faint);stroke-dasharray:4 3"/>
+          <rect x="188" y="22" width="84" height="88" rx="6" style="fill:none;stroke:var(--ink-faint);stroke-dasharray:4 3"/>
+          <g style="fill:var(--ink-faint)">
+            <circle cx="26" cy="40" r="4"/><circle cx="50" cy="40" r="4"/><circle cx="74" cy="40" r="4"/>
+            <circle cx="26" cy="64" r="4"/><circle cx="74" cy="64" r="4"/>
+            <circle cx="26" cy="88" r="4"/><circle cx="50" cy="88" r="4"/><circle cx="74" cy="88" r="4"/>
+            <circle cx="116" cy="40" r="4"/><circle cx="140" cy="40" r="4"/><circle cx="164" cy="40" r="4"/>
+            <circle cx="116" cy="64" r="4"/><circle cx="164" cy="64" r="4"/>
+            <circle cx="116" cy="88" r="4"/><circle cx="140" cy="88" r="4"/><circle cx="164" cy="88" r="4"/>
+            <circle cx="206" cy="40" r="4"/><circle cx="230" cy="40" r="4"/><circle cx="254" cy="40" r="4"/>
+            <circle cx="206" cy="64" r="4"/><circle cx="254" cy="64" r="4"/>
+            <circle cx="206" cy="88" r="4"/><circle cx="230" cy="88" r="4"/><circle cx="254" cy="88" r="4"/>
+          </g>
+          <g style="fill:var(--teal)">
+            <circle cx="50" cy="64" r="6"/><circle cx="140" cy="64" r="6"/><circle cx="230" cy="64" r="6"/>
+          </g>
+          <text x="50" y="105" class="tick" text-anchor="middle" style="fill:var(--teal)">1 · 3 s</text>
+          <text x="140" y="105" class="tick" text-anchor="middle" style="fill:var(--teal)">2 · 3 s</text>
+          <text x="230" y="105" class="tick" text-anchor="middle" style="fill:var(--teal)">3 · 3 s</text>
+          <line x1="30" y1="126" x2="242" y2="126" stroke-width="2" style="stroke:var(--teal)"/>
+          <polygon points="252,126 242,121 242,131" style="fill:var(--teal)"/>
+          <text x="140" y="144" class="tick" text-anchor="middle">sweep left → centre → right</text>
+          <text x="140" y="162" class="tick" text-anchor="middle" style="fill:var(--rust)">&gt; 3 s on one person = staring</text>
+          <circle cx="140" cy="182" r="8" stroke-width="1.5" style="fill:none;stroke:var(--ink)"/>
+          <text x="156" y="186" class="tick">you</text>
+        </svg>
+        <ul>
+          <li>Split the room into <strong>left / centre / right</strong>.</li>
+          <li>Hold <strong>3 s</strong> on one person, then on another in the same section. Shift gradually to the centre, then to the right.</li>
+          <li><strong>Never more than 3 s</strong> on one person: longer reads as staring and intimidates.</li>
+          <li>The aim is to give every section equal importance. It has to be a conscious, effortful act. If you stare at notes, the floor or blank space, engagement drops.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>CONGRUENCE PRINCIPLE</h3>
+        <dl>
+          <dt class="t">congruent</dt><dd>words, voice and body agree, so the message lands</dd>
+          <dt>conflict</dt><dd>receivers turn to the non-verbal cues to read your <strong>true</strong> attitude. Your words will not be trusted; your body will be.</dd>
+          <dt class="t">"the body leaks the message"</dt><dd>it reveals intentions even when you are trying to say nothing</dd>
+          <dt class="t">context</dt><dd>no single body-language act has one fixed meaning; it depends on the situation</dd>
+          <dt class="t">course goal</dt><dd>turn subconscious body language into conscious, practised effort</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>ONLINE / ZOOM: GO THE EXTRA MILE</h3>
+        <ul>
+          <li>Keep the <strong>camera on</strong> throughout.</li>
+          <li>Look <strong>into the lens</strong>. On a call, that is your eye contact.</li>
+          <li><strong>Framing</strong>: the audience must see you clearly.</li>
+          <li>Let your hands move naturally <strong>within the frame</strong>.</li>
+          <li><strong>Upright</strong> posture, no slouching.</li>
+          <li>While others speak, hold a <strong>listening posture</strong> (hands in a set position) and <strong>nod</strong>.</li>
+          <li>Use facial expression and vocal variety on purpose.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">PROXEMICS: THE SPACE BETWEEN SPEAKER AND AUDIENCE</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Zone</th><th>Distance</th><th>Who / when</th></tr></thead>
+        <tbody>
+          <tr><td>Intimate</td><td class="mono">0 – 1.5 ft</td><td>Highly personal: close friends and immediate family only</td></tr>
+          <tr><td>Personal</td><td class="mono">≈1.5 – 4 ft <span class="xtag">inferred</span></td><td>Acquaintances, extended family</td></tr>
+          <tr><td>Social</td><td class="mono">4 – 12 ft</td><td>Workplace setting, colleagues</td></tr>
+          <tr><td>Public</td><td class="mono">beyond 12 ft <span class="xtag">inferred</span></td><td>Public speaking. The boardroom clip was a public setting, and he deliberately <strong>shrank</strong> it by leaving the podium for centre stage.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Zones vary with the situation, so choose one against the <strong>objective</strong> of the communication. Memorise the two stated figures: intimate 0–1.5 ft and social 4–12 ft. "Inferred" marks distances that appear only in parentheses in the notes.</p>
+
+    <div class="note">
+      <p>"You start communicating before you even open your mouth" (S2):</p>
+      <ul>
+        <li><strong>The double greeting.</strong> The instructor said good morning twice. The first time was flat and monotone, with his gaze on the walls. The second was energetic, smiling, with eye contact into the camera. The class felt the first was "forced" and the second "welcoming". Powerful words fail if body, tone and energy don't back them.</li>
+        <li><strong>A smile makes you approachable.</strong> The audience should feel you are "one among us", not an alien. A grave posture creates distance.</li>
+        <li><strong>Dress appropriately, not fancily.</strong> Turn up casually dressed to a business meeting and the audience's mind "blocks" before you begin.</li>
+        <li><strong>Punctuality is non-verbal.</strong> Arriving 5 minutes late, especially as a <em>pattern</em>, says "this meeting isn't a priority": disinterest and no discipline. Genuine, uncontrollable reasons are the exception.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p><em>Jab We Met</em> boardroom, watched 3 times: mute, then audio, then micro-detail (S2):</p>
+      <ul>
+        <li><strong>The rule: name the BEHAVIOUR, not the CONCLUSION.</strong> Write "he maintained eye contact", not "he was confident". Students who hadn't seen the film decoded <em>better</em>, because they came to it fresh and unbiased.</li>
+        <li><strong>He declined the podium with a leveler and took centre stage.</strong> A podium hides the 55%, symbolises hierarchy, and after he had walked out on the company it would have signalled <strong>guilt</strong>. Centre stage gave him a two-way connection, "among them".</li>
+        <li><strong>He unbuttoned his blazer</strong> while walking up, a signal of openness.</li>
+        <li><strong>He opened by admitting the rumours were true, in a light tone.</strong> This is PAIBOC <strong>O = Objections</strong> (not "objectives") built into the talk. It earned trust and got the rumours out of the way. Opening arrogantly with company figures would have looked self-serving.</li>
+        <li><strong>Pace and pitch did the work.</strong> He went fast over the company history the room already knew, then slowed and paused on each new point. His pitch, volume and vocal variety dropped, with a long pause, for his late father.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The influence-zone video and the Q&amp;A (S2):</p>
+      <ul>
+        <li><strong>"Who's in charge?"</strong> Two men stand side by side with dead hands, and nobody can tell. Move one man's hands into the zone and the room picks him. Swap the hands and the authority swaps too.</li>
+        <li>Hands work <strong>"like PowerPoint"</strong>: you draw pictures with them. Without gestures, comprehension drops significantly.</li>
+        <li><strong>"The body leaks the message."</strong> When words and body conflict, "the body has betrayed you".</li>
+        <li><strong>"Hiding behind the podium is not always a bad thing… it depends on the situation."</strong> There is no single fixed meaning for any one body-language act.</li>
+        <li>"It's a communication <em>skills</em> course; a skill requires practice."</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m2Stress" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Stress one word</span><span class="readout" id="m2Read"></span></div>
+      <p class="panel-sub">Click a word to stress it. The seven words never change; only the voice does. Find all seven meanings from the S2 table.</p>
+      <div class="presets" id="m2Chips" role="group" aria-label="words of the sentence"></div>
+      <p class="caption" id="m2Cap"></p>
+      <div class="vars" id="m2Found"></div>
+      <div id="m2Verdict" class="verdict warn"></div>
+      <p class="hint">← → move the stress (click the panel first)</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Rewrite three conclusions about the boardroom speaker as observable behaviours.<span class="tag">S2 Jab We Met</span></summary>
+      <ol>
+        <li>"He was confident" becomes: he made eye contact with the room before stepping up, smiled, then began. He walked upright past the audience.</li>
+        <li>"He was in charge" becomes: he declined the podium with a leveler and took centre stage. His hands rose when he pressed an important idea.</li>
+        <li>"He was sad about his father" becomes: his expression softened, his pitch and volume dropped, and he took a long pause.</li>
+        <li>A conclusion is your inference. A behaviour is what you could point at on the mute viewing.</li>
+      </ol>
+      <p class="answer">describe the action; leave the inference to the reader</p>
+    </details>
+    <details class="worked">
+      <summary>Leveler or placator? (a) Opening with "Good morning, everyone". (b) Declining the offered mic and podium.<span class="tag">S2</span></summary>
+      <ol>
+        <li>(a) A greeting welcomes, so use the <strong>placator</strong>: palms open and up, arms open.</li>
+        <li>(b) Saying no or making a firm point calls for the <strong>leveler</strong>: palms down, hands crossing and opening downward and outward. This is exactly what he did when offered the podium.</li>
+        <li>Either way, keep the hands inside the zone of influence.</li>
+      </ol>
+      <p class="answer">(a) placator · (b) leveler</p>
+    </details>
+    <details class="worked">
+      <summary>The forum forces you behind a podium that hides most of your body. What do you do?<span class="tag">S2 Q&amp;A</span></summary>
+      <ol>
+        <li>The podium blocks much of the 55% channel, so lean on what is still visible and audible.</li>
+        <li>Use full <strong>vocal variety</strong>: pace, pitch, pause, volume, stress.</li>
+        <li>Your <strong>upper body</strong> still shows, so gesture to show you have a stake in the presentation.</li>
+        <li>Keep up <strong>eye contact</strong> with the 3-second sweep.</li>
+        <li>Hiding behind a podium is not automatically bad; it depends on context.</li>
+      </ol>
+      <p class="answer">voice + upper-body gestures + eye contact</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m3: 3 · Writing reveals leadership ============ -->
+<section class="module" id="m3">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S03 (12 Sep) — Rijhwani</p>
+      <h2>Managerial writing: 7 C's, AI, and Level 5 leadership</h2>
+      <p class="lede">A grammatically perfect email can still make you sound evasive. The 7 C's catch the drafting faults, and ownership on the page is what makes readers trust you.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>WRITING REVEALS LEADERSHIP</h3>
+        <dl>
+          <dt>correct ≠ good</dt><dd>A grammatically correct email can still sound <strong>defensive, vague or evasive</strong>.</dd>
+          <dt class="t">what writing signals</dt><dd>Beyond informing or persuading, it signals <strong>judgement · emotional maturity · accountability · credibility</strong>.</dd>
+          <dt class="t">internal = external</dt><dd>Internal communication matters <strong>as much as</strong> external.</dd>
+          <dt>why learn it when AI exists</dt><dd>Someone must review AI output, and writing yourself builds the <strong>rubric in your head</strong> for that review. Confidential material pasted into AI tools can feed model training, so write sensitive documents yourself.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>7 C'S: A DRAFTING CHECKLIST, NOT A DEFINITION</h3>
+        <dl>
+          <dt class="t">Clear</dt><dd>Understood on the <strong>first reading</strong>. Attention spans are dropping, so nobody re-reads to decode you.</dd>
+          <dt class="t">Concrete</dt><dd>Named actions, named owners, actual numbers, timelines.</dd>
+          <dt class="t">Coherent</dt><dd><strong>context → what happened → call to action</strong></dd>
+          <dt class="t">Courteous</dt><dd>Respectful and <strong>humane</strong>: a person, not a "tag of employees who will do the work". This applies <strong>even downwards</strong>.</dd>
+          <dt class="t">Concise</dt><dd>No needless detail. Use <strong>short sentences</strong>, because a long one loses the reader by its end.</dd>
+          <dt class="t">Correct</dt><dd>Grammar and facts right, and <strong>appropriate to the recipient</strong>.</dd>
+          <dt class="t">Complete</dt><dd>Gives the reader <strong>enough to act</strong>. Gaps cause costly back-and-forth.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>MINDFUL AI USE</h3>
+        <ul>
+          <li><strong>Never outsource the whole task.</strong> Don't say "write an email for me". Draft it yourself or feed it your own points, then let AI <em>polish</em>. You hold the context.</li>
+          <li><strong>Hallucination</strong>: fabricated facts destroy credibility. Feeding your own points reduces it.</li>
+          <li><strong>Watermarks</strong> (Claude cited): heavy unacknowledged use is detectable and signals you didn't even proofread.</li>
+          <li><strong>Machine-heuristic bias</strong>: assuming machine output must be correct. Few grammar errors ≠ accurate or appropriate.</li>
+          <li><strong>Critical-thinking erosion.</strong></li>
+          <li><strong>AI slop</strong>: every email has the same structure and sentences, so none of them land. Distinctive writing differentiates you.</li>
+          <li><strong>Always proofread</strong>. Low-risk uses are fine, e.g. a grammar check on a leave email.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>COURTESY, CONTEXT, CULTURE</h3>
+        <dl>
+          <dt class="t">"Hope you're doing well"</dt><dd>This is <strong>Courtesy</strong>. Use it for clients, external stakeholders, or after a long gap. Drop it in routine internal mail.</dd>
+          <dt>semantics</dt><dd>Word choice can still shift meaning, hence <strong>appropriate to the recipient</strong> under Correct.</dd>
+          <dt class="t">high- vs low-context</dt><dd>India is <strong>high-context</strong>: things are not said directly. Leaders switch between the two registers. The two layoff emails were written for different cultural audiences. This returns with negative messages.</dd>
+          <dt class="t">PAIBOC's C = context</dt><dd>S03 pointed back to the S1 model: audience and context are always factored in.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>ELEVATOR-PITCH VIDEO (INDIVIDUAL, 40%, RELEASED S03)</h3>
+        <ul>
+          <li><strong>Scenario</strong>: an airport, where you meet a C-suite executive of your dream company (e.g. Sundar Pichai, Google). The answer to "Tell me something about yourself". It echoes the S1 <em>Band Baaja Baaraat</em> clip.</li>
+          <li><strong>1 minute ± 5 s</strong> → 55–65 s. Recorded in a <strong>single take</strong>, with no edits or cuts. Script it, but it must sound natural, so expect many takes.</li>
+          <li><strong>Six parts</strong>: ① intro and achievements ② name the executive and the company ③ target role / area ④ connection to the company's mission ⑤ value proposition ⑥ call to action (email, LinkedIn), pitched at C-suite level.</li>
+          <li><strong>Shot</strong>: medium / waist shot, so body language and gestures show. Plain wall, clear audio, face lit with no shadows or glare. Dress is <strong>business casual</strong> (it's an airport, so keep it professional).</li>
+          <li><strong>Submit</strong> to the Drive link as <code>Program – Full Name – Roll Number</code>. Assigned 12 Sep, due 3 Oct 2026 (extended to 7 Oct in S4). Non-compliance means negative marking, and plagiarism is not tolerated.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">VAGUE → CONCRETE (S03)</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Vague (writer-centred)</th><th>Concrete (reader can act)</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td class="on">"Some issues were noticed in the report."</td><td class="o1">"I noticed three missing figures in the report."</td><td>Named agent (<em>I</em>), exact count, specific defect.</td></tr>
+          <tr><td class="on">"Please send it soon."</td><td class="o1">a real date and time</td><td><strong>"Soon"</strong> is relative: 2 days to you, today to someone else. It is the most overused, least specific word.</td></tr>
+          <tr><td class="on">"There was confusion around ownership."</td><td class="o1">name who owns what</td><td>Process language hides the human.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Pattern: <span style="color:var(--amber)">vague process language</span> → <span style="color:var(--teal)">specific human agency + action + time</span>. That shift is what removes the back-and-forth.</p>
+
+    <h3 class="sub">LEVEL 5 LEADERSHIP: THE FRAME TO MEMORISE (S03)</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Situation</th><th>Look</th><th>Writing must</th><th>Don't</th><th>S03 example</th></tr></thead>
+        <tbody>
+          <tr><td>Things go wrong</td><td class="o1">in the MIRROR</td><td style="color:var(--teal)">Take accountability in the first person: "I am responsible".</td><td style="color:var(--amber)">Hide behind company policy, macro conditions or "AI made us do it". Don't blame the team or the market.</td><td>Dorsey layoff email</td></tr>
+          <tr><td>Things go well</td><td class="o1">OUT OF THE WINDOW</td><td style="color:var(--teal)">Credit the people, teams and contributors.</td><td style="color:var(--amber)">Blow your own trumpet.</td><td>Tim Cook, Apple 50th</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">The conditions may be true. Just don't make them the <em>primary</em> reason: people see through it and read it as an absence of remorse and empathy. Carry this frame and the 7 C's into every later writing session.</p>
+
+    <h3 class="sub">CASE: TWO LAYOFF EMAILS, SAME REASON (AI), PLUS ONE CELEBRATION</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th></th><th>Email 1 · formal / corporate</th><th>Email 2 · Jack Dorsey, Feb 2026</th><th>Tim Cook · Apple 50th anniversary</th></tr></thead>
+        <tbody>
+          <tr><td>Set-up</td><td colspan="2">A major workforce reduction at roughly the same time, for the same stated reason (AI). The company is not in immediate financial trouble. Both CEOs write directly to employees.</td><td>A short celebratory email. Cook stepped down as CEO on 1 Sep (as stated in class).</td></tr>
+          <tr><td>Register</td><td>Formal, bulleted, systematic, well structured.</td><td>Informal: ellipses instead of full stops, loose punctuation. Deliberately not AI-polished.</td><td>Clear subject line. Warm and positive from the opening.</td></tr>
+          <tr><td>Flow</td><td>what → why → how you'll be supported</td><td>Two options explained: one-by-one vs all at once. "I chose the latter."</td><td>where we were → where we are → where we want to go, possible only "with this team"</td></tr>
+          <tr><td>Responsibility / credit</td><td>Warm "you are part of us". Extended support and help finding new jobs. Detailed on growth and operations.</td><td><strong>"I am responsible."</strong> Heavy first-person ownership.</td><td>Credits everyone from Steve Jobs to every employee. Never about himself.</td></tr>
+          <tr><td>Reaching people</td><td>Staggered: India today, the US, others "will get an email eventually". This causes prolonged inbox anxiety. The closing meeting section shows little genuine connection.</td><td>A single session to say goodbye. He makes himself accessible instead of delegating.</td><td>Specific and genuinely appreciative, not generic.</td></tr>
+          <tr><td>Criticised for</td><td style="color:var(--rust)">Reads as AI-polished and impersonal.</td><td style="color:var(--rust)">An awkward shift from grateful and sorry to future AI strategy.</td><td>—</td></tr>
+          <tr><td>Verdict</td><td>Correct at its level, with real merits.</td><td>Correct at its level. Wins on <strong>ownership</strong>, because the situation demanded it.<span class="xtag">mirror</span></td><td>Success, so credit goes outward.<span class="xtag">window</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Judge only <strong>how responsibility shows in the writing</strong>. Don't judge whether layoffs are right or wrong, or which CEO is the better leader (S03).</p>
+
+    <div class="note">
+      <p>AI has no mind of its own (S03):</p>
+      <ul>
+        <li><strong>The SAP client</strong>: in a client-facing SAP implementation, a client kept quoting ChatGPT "solutions" that were technically impossible. It derailed the work until it had to be escalated to seniors. AI scrapes the web: wrong input gives wrong output, and <strong>"AI has no mind of its own to verify it."</strong></li>
+        <li>AI is fine for a plain letter to a friend. It fails where nuance, emotional register and technical expertise are needed.</li>
+        <li>The professor's push-back: for trivial tasks you can outsource, but <strong>do it often and you outsource thinking itself</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The bad 3-line email, diagnosed and <strong>not</strong> rewritten (S03): <em>"several teams did not escalate concerns in time… some requirements were not met… please review what went wrong in your respective areas and ensure it does not happen again."</em></p>
+      <ul>
+        <li><strong>No owner, no action, no deadline</strong>, so nobody can act on it.</li>
+        <li>The <strong>sender takes no responsibility</strong>. It is accusatory, puts the burden of finding the fault on the reader, and goes to everyone instead of the responsible team.</li>
+        <li>It could have been constructive: "this happened, here's how we fix it".</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Can an email pass all 7 C's and still fail? <strong>Yes</strong> (S03):</p>
+      <ul>
+        <li><strong>Word choice</strong> still sets the tone. Clarity and concision only preserve meaning.</li>
+        <li><strong>Over-concision</strong> fails a client who needs the cause explained from the basics, because big words leave them lost.</li>
+        <li>The <strong>emotional connect</strong> may not come through.</li>
+        <li>Above all, <strong>missing ownership</strong>. Public CEO layoff memos (e.g. Microsoft's) explain the conditions in detail, but nobody takes the blame. And when things go well, do you blow your own trumpet?</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Dorsey and the empathy question (S03):</p>
+      <ul>
+        <li><strong>"I'd rather feel awkward and human than efficient and cold."</strong></li>
+        <li>Empathy or ownership, must you choose? No: <strong>"you can have the best of both worlds."</strong> Add a line of empathy and still take Dorsey-style responsibility. Good writing on sensitive issues does both.</li>
+        <li>Coming later: persuasion (ethos, logos, pathos) and how much emotion vs logic an email needs.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Run the bad 3-line email ("several teams… some requirements… please review…") through each C.<span class="tag">S03 exercise 1</span></summary>
+      <ol>
+        <li><strong>Clear</strong> — readable once, but it never says <em>what actually went wrong</em>.</li>
+        <li><strong>Concrete</strong> — <span style="color:var(--rust)">fails</span>: "several teams", "some requirements" and "please review" name no team, no requirement, no number, no date.</li>
+        <li><strong>Coherent</strong> — passes. The class noted it was coherent but not concrete.</li>
+        <li><strong>Courteous</strong> — <span style="color:var(--rust)">fails</span>: assertive and accusatory, with blame and escalation language aimed at a team.</li>
+        <li><strong>Concise</strong> — it is short. Length is not its problem.</li>
+        <li><strong>Correct</strong> — grammatical, but not appropriate to the recipient: it goes to everyone instead of the responsible team.</li>
+        <li><strong>Complete</strong> — <span style="color:var(--rust)">fails</span>: no call to action, no owner, no deadline.</li>
+        <li><strong>Beyond the checklist</strong> — the sender takes no responsibility. This is the ownership gap that the 7 C's alone don't catch.</li>
+      </ol>
+      <p class="answer">fails Concrete · Courteous · Complete; the deeper miss is ownership</p>
+    </details>
+    <details class="worked">
+      <summary>Rewrite "Please send it soon." Then fix "Some issues were noticed in the report."<span class="tag">S03 before/after</span></summary>
+      <ol>
+        <li>"Soon" is relative: 2 days to you, today to someone else. Replace it with an actual deadline: <em>"Please send it by [day, date], [time]."</em></li>
+        <li>"Some issues were noticed" is process language with no agent. Put the human, the count and the defect back in.</li>
+        <li>Both fixes apply the same move: vague process → human agency + action + time.</li>
+      </ol>
+      <p class="answer">"by [date], [time]" · "I noticed three missing figures in the report."</p>
+    </details>
+    <details class="worked">
+      <summary>Mirror or window? Label each piece of writing, and say whether it gets the direction right.<span class="tag">S03 Level 5</span></summary>
+      <ol>
+        <li><em>"I am responsible… I chose the latter."</em> (layoffs) → <strong>mirror</strong>. Correct: things went wrong, so he owns it in the first person.</li>
+        <li>A 50th-anniversary email crediting everyone from Steve Jobs to every employee, with the future possible "with this team" → <strong>window</strong>. Correct.</li>
+        <li>A layoff memo that explains macro conditions and AI in detail, where nobody takes the blame → should be <strong>mirror</strong>, but it hides behind conditions. <span style="color:var(--rust)">Fails.</span></li>
+        <li>A milestone email in which the leader describes how their own decisions delivered the result → should be <strong>window</strong>, but it blows its own trumpet. <span style="color:var(--rust)">Fails.</span></li>
+      </ol>
+      <p class="answer">wrong → mirror (own it) · well → window (credit others)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m4: 4 · Routine messages ============ -->
+<section class="module" id="m4">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S4 (19 Sep) — Rijhwani</p>
+      <h2>Routine, positive and neutral messages: direct approach and the inverted pyramid</h2>
+      <p class="lede">When the news is routine, the reader needs no preparation and has no time, so the main point goes first and everything else is ranked below it by importance.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>PREMISE</h3>
+        <dl>
+          <dt class="t">the reader</dt><dd>needs <strong>no preparation</strong> (nothing unpleasant is coming) and has <strong>no time</strong>: multitasking, back-to-back meetings</dd>
+          <dt>scope</dt><dd>mostly internal email; routine, positive or neutral information passed from one level to another</dd>
+          <dt class="t">PAIBOC</dt><dd>build the message around the audience, not the writer</dd>
+          <dt class="t">first-paragraph test</dt><dd>the first <strong>2–3 lines</strong> must tell the reader what the email is about. If they fail, the structure is wrong.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>DIRECT vs INDIRECT</h3>
+        <dl>
+          <dt class="t">direct (routine / positive / neutral)</dt><dd><strong>main point</strong> → details / explanation → CTA or positive close</dd>
+          <dt>indirect (S5 preview: bad news)</dt><dd>context → explanation → main point. Right for sensitive news. In a routine message it turns into the <strong>writer's chronology</strong>, as in the reschedule email.</dd>
+          <dt class="t">directness ≠ bluntness</dt><dd>directness is respect for the reader's time</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>INVERTED PYRAMID</h3>
+        <ul>
+          <li><strong>Top:</strong> most important, the announcement ("the meeting has shifted from Friday to Wednesday")</li>
+          <li><strong>Middle:</strong> key details: where, when, what you must do</li>
+          <li><strong>Bottom:</strong> less important info, CTA, background ("where this originated")</li>
+          <li>Background goes <strong>last</strong> and may be <strong>omitted</strong>. Keep it only if readers need the why ("Why suddenly a health insurance plan?").</li>
+          <li><strong>Prioritise, don't sequence.</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>SUBJECT LINE: WHY IT MATTERS, AND THE EXTRAS</h3>
+        <ul>
+          <li>Decides <strong>whether the email is opened</strong>. Answers "What is this email about?"</li>
+          <li><strong>No subject line</strong>: looks unimportant or not urgent, likely ends up in spam, looks unprofessional (like a random person, not an organisation)</li>
+          <li>A good one gives the reader a reason to reply</li>
+          <li>A <strong>deadline</strong> in the subject creates urgency (the Oct 30 example)</li>
+          <li>Internal mail: <strong>don't name your own company</strong> ("Fair department head meeting" → "Department head meeting")</li>
+          <li><strong>Abbreviate</strong> to stay short: Oct, Nov</li>
+          <li>Tone also depends on context and workplace culture</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>AI AND FRAMEWORKS</h3>
+        <ul>
+          <li>Unprompted, ChatGPT/Claude "writes a whole story": <code>writer's perspective</code>, slow to the point, not concise. It reproduces the flawed reschedule email.</li>
+          <li>It is fine for a first draft <strong>if you name the framework</strong>: <code class="t">"compose this email using an inverted pyramid structure"</code></li>
+          <li>Don't ship the first draft, or you settle for a "run-of-the-mill message"</li>
+          <li><strong>"Only when you know the frameworks can you leverage AI properly."</strong></li>
+          <li>Your name goes under the message, so the accountability is yours</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>rule</th><th>bad</th><th>good</th></tr></thead>
+        <tbody>
+          <tr><td>1 · Short and specific: a phrase, not a sentence</td><td class="on">To find out employee career options</td><td class="o1">Employee career options</td></tr>
+          <tr><td>2 · Positive or neutral, never threatening</td><td class="on">Warnings about abuse of company phones</td><td class="o1">Our company phone policy</td></tr>
+          <tr><td>3 · Related to the reader</td><td class="on">Career options (for whom?)</td><td class="o1">Employee career options</td></tr>
+          <tr><td>4 · Professional, not casual</td><td class="on">Smile, we see you</td><td class="o1">Security equipment installation</td></tr>
+          <tr><td>5 · May carry a request or action</td><td class="on">—</td><td class="o1">Urgent: problem needs your input · Review agenda before 3 p.m. meeting</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">The five subject-line rules (S4). Amber = written from the writer's side; teal = written for the reader.</p>
+
+    <div class="note">
+      <p>Lines Prof. Rijhwani kept coming back to (S4):</p>
+      <ul>
+        <li><strong>"Directness is not bluntness; it is respect for the reader's time."</strong></li>
+        <li><strong>"Start with the conclusion, then give the reasoning."</strong></li>
+        <li>"The idea is not to have a sequence of information but to <strong>prioritise</strong> which information is the most important."</li>
+        <li>The routine-message test: read only the first 2–3 lines. If they say what the email is about, then "if I ignore the rest, I should still be fine."</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The meeting-reschedule email (S4), the session's opening exhibit:</p>
+      <ul>
+        <li>It ran to three paragraphs: <code>the origin of the problem</code>, then an explanation. Only <strong>paragraph 3</strong> gave the news: Friday 4 p.m. → Wednesday 3 p.m.</li>
+        <li>Its subject was vague, it made the same point repeatedly, and it could have been one paragraph. It was written from the writer's perspective, which made it the indirect approach used on the wrong message type.</li>
+        <li>The fix: subject <code class="t">Team meeting moved to Wednesday 3 p.m.</code>, the announcement in line one, then the CTA "update your calendar before Monday".</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p><strong>"Isn't the CTA normally at the end?"</strong> (a student, S4). In this message type the <strong>hierarchy of importance overrides the convention</strong>. "Please meet me in the first-floor conference room" is a key detail, so it stays high in the pyramid. You may <em>reiterate</em> the sign-up at the end.</p>
+    </div>
+
+    <div class="note">
+      <p>Feedback on the Maxi-Mart department-head email (S4):</p>
+      <ul>
+        <li>Drop the company name "Fair" from the subject and the opening. It is internal mail, so the name is redundant.</li>
+        <li><strong>Include the venue</strong> (conference room / Zoom). Without it the message is incomplete, which breaks the "Complete" C.</li>
+        <li>Don't elaborate the agenda bullets. You are only telling people which areas to come prepared on.</li>
+        <li>Keep the subject short. One submission was flagged as too long.</li>
+        <li>The closing CTA should be <strong>motivational, not instructional</strong>. <code>"Please attend our upcoming meeting…"</code> reads as an order. <code class="t">"Your ideas and input will be valuable as we consider how the company can strengthen its position."</code> reads as an invitation.</li>
+        <li>Model opening: <code class="t">"We will be holding a meeting on Monday to discuss how we can compete with the new Maxi-Mart."</code> It is short, neutral and contains no instruction.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m4Panel">
+      <div class="panel-head"><span class="panel-title">Build the pyramid</span><span class="readout" id="m4Read"></span></div>
+      <p class="panel-sub">Click the chunks in order of importance; your first click fills the top tier. Click a filled tier to take its chunk back. A tier turns teal when it holds the right chunk and amber when it doesn't, and shows the reason Prof. Rijhwani gave for that chunk.</p>
+      <div class="presets" id="m4Scen"><button class="btn on" data-p="ins">Vision &amp; dental email · S4</button><button class="btn" data-p="leave">Leave-system email · S4</button></div>
+      <div class="presets" id="m4Pre"></div>
+      <div id="m4Tray"></div>
+      <div id="m4Subj"></div>
+      <div id="m4Pyr"></div>
+      <div id="m4Verdict" class="verdict eq"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Rewrite the meeting-reschedule email: 3 paragraphs, with the move from Friday 4 p.m. to Wednesday 3 p.m. only in paragraph 3.<span class="tag">S4 19 Sep</span></summary>
+      <ol>
+        <li>Diagnose: it uses the indirect approach (background → explanation → main point → action), which is the wrong framework for routine news. It is written from the writer's side.</li>
+        <li>Subject: say the news itself. <code class="t">Team meeting moved to Wednesday 3 p.m.</code></li>
+        <li>Line one: the announcement. The Friday 4 p.m. team meeting has moved to Wednesday 3 p.m. This passes the first-paragraph test.</li>
+        <li>Details only if the reader needs them, in one paragraph, not three. The origin story goes last or is dropped.</li>
+        <li>Close with the CTA: update your calendar before Monday.</li>
+      </ol>
+      <p class="answer">subject = the news · announcement first · CTA "update your calendar before Monday"</p>
+    </details>
+    <details class="worked">
+      <summary>Write the department-head email from this outline: <em>most important</em>, a meeting at 9:00 a.m. Monday on competing with the new Maxi-Mart; <em>less important</em>, areas to consider (customer service, stock availability, community outreach, other areas); <em>close</em>, a motivational CTA. (5–6 minutes in class)<span class="tag">S4 19 Sep</span></summary>
+      <ol>
+        <li>Subject: short, and without the company name. "Department head meeting" is enough, with the day and time if they fit.</li>
+        <li>Opening (the model line): "We will be holding a meeting on Monday to discuss how we can compete with the new Maxi-Mart." Add 9:00 a.m. and the <strong>venue</strong>, or the email is incomplete.</li>
+        <li>Agenda: list the four areas as bare bullets so people come prepared. Don't elaborate them.</li>
+        <li>Close: invite, don't instruct. "Your ideas and input will be valuable as we consider how the company can strengthen its position."</li>
+      </ol>
+      <p class="answer">announcement + time + venue → bare agenda list → motivational close</p>
+    </details>
+    <details class="worked">
+      <summary>Leave system: live from 1 November, accounts must be activated by 30 October, Zoom demo (link to follow), benefits, HR's reason. Write the subject line. (5 minutes in class)<span class="tag">S4 19 Sep</span></summary>
+      <ol>
+        <li>Rule 5: the subject may carry the action. Here the action is to activate the account.</li>
+        <li>Put the deadline in. That creates urgency, so the email is opened promptly. The instructor singled this out for praise.</li>
+        <li>Abbreviate the months (Oct, Nov) and use phrases, not a sentence.</li>
+        <li>The body then follows the pyramid in the widget above: announcement → bold CTA → demo → benefits + background → positive close.</li>
+      </ol>
+      <p class="answer">Action required: activate leave account by Oct 30 — new system from Nov 1</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m5: 5 · Bad news ============ -->
+<section class="module" id="m5">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S05 (3 Oct) — Rijhwani</p>
+      <h2>Bad-news messages: tact, buffer, direct vs indirect</h2>
+      <p class="lede">The decision is already made and will not change, so the skill is in how you deliver it. The reader should understand it clearly and still trust you afterwards.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>THE TWO JOBS</h3>
+        <ul>
+          <li><strong>1 · Communicate the decision.</strong> It is already taken and can't change. Deliver it with clarity, accuracy and understanding.</li>
+          <li><strong>2 · Preserve the relationship</strong> with employees and customers. This usually needs tactful language.</li>
+          <li>The central challenge: state an unfavourable decision clearly without <em>unnecessarily</em> damaging the relationship.</li>
+          <li>You can't just rip off the band-aid. You need a <strong>structure</strong>.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>TWO STRUCTURES (S05 SLIDE — SCREENSHOT IT)</h3>
+        <dl>
+          <dt class="t">indirect · 5 parts · most cases</dt><dd>Buffer → Reason / Explanation → Bad-news statement → Alternatives / Next steps (if any) → Positive close</dd>
+          <dt style="color:var(--ink)">direct · 4 parts</dt><dd>Bad news (first line) → Reason → Next steps / Alternatives → Close</dd>
+          <dt style="color:var(--ink)">S06 recap, short form</dt><dd>Indirect: Buffer → Explanation → Bad news → Exit. Direct: Bad news → Explanation → Exit.</dd>
+        </dl>
+        <ul style="margin-top:10px">
+          <li><strong>Neither starts with the explanation.</strong></li>
+          <li>"Neither approach is automatically better. Context determines the strategy."</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>TYPES OF BAD NEWS (NON-EXHAUSTIVE)</h3>
+        <ul>
+          <li>Rejecting a request (e.g. leave)</li>
+          <li>Declining a proposal</li>
+          <li>Denying a promotion</li>
+          <li>Policy change (in some cases)</li>
+          <li>Refusing a refund</li>
+          <li>Cancelling a project</li>
+          <li>Poor performance / feedback</li>
+          <li>Selecting another vendor</li>
+          <li><strong>Bigger than saying no:</strong> people have emotions, and their wages are their livelihood.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>TACT AND THE BUFFER</h3>
+        <dl>
+          <dt class="t">tact</dt><dd>Negative news in <strong>professional, positive language</strong>. "A negative decision does not automatically require a negative tone." This is the hardest part.</dd>
+          <dd>Class definitions: the news shouldn't come as a shock but must still land; the reader shouldn't be offended; know how your audience is likely to respond and frame the message for that.</dd>
+          <dt class="t">good buffer</dt><dd><strong>Related</strong> to the situation · <strong>neutral or positive</strong> · establishes context ("what is this email about?")</dd>
+          <dt style="color:var(--rust)">bad buffer</dt><dd>One that lists what the reader is about to lose. It "adds salt to the injury."</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>THE CLOSE AND THE FIRST DRAFT</h3>
+        <dl>
+          <dt class="t">concrete CTA</dt><dd>A specific action every reader must take. Example: a <strong>declaration signed by all employees</strong>, which confirms the message reached everyone and records their agreement.</dd>
+          <dt>courtesy close</dt><dd>"Should you have any questions or require further clarification…" This is <strong>conditional</strong>, so it is not a CTA.</dd>
+          <dt class="t">write the first draft yourself</dt><dd>It doesn't need to be perfect. Writing it yourself keeps the context and the necessary information in the message.</dd>
+          <dt>machine heuristic bias</dt><dd>The tendency to treat AI output as perfect. AI drafts miss context-specific details such as the CTA. That matters little for routine messages and a lot when people's personal lives are involved.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>message type</th><th>priority</th><th>default structure</th></tr>
+        <tr><td>Routine / positive / neutral</td><td>The <strong>task</strong>: pass on information and prioritise the details</td><td>Direct and inverted pyramid. The reader is assumed to be extremely busy (S04).</td></tr>
+        <tr><td>Negative / bad news</td><td>The <strong>relationship</strong>: the decision can't change, so the work is in how it is presented</td><td>Indirect in <strong>most, not all,</strong> cases</td></tr>
+      </table>
+    </div>
+
+    <h3 class="sub">CASE 1 · DECLINING A WEEK-LONG EXECUTIVE LEADERSHIP PROGRAM</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th></th><th>MESSAGE A · direct</th><th>MESSAGE B · indirect</th></tr>
+        <tr><td>Bad news sits in</td><td>Sentence 1: "not approved"</td><td>After the thanks and the reason, once the reader is comfortable</td></tr>
+        <tr><td>Opening</td><td>The refusal</td><td>"Thank you for your interest in the week-long executive leadership program."</td></tr>
+        <tr><td>Reason wording</td><td>Budget "has already been <code>allocated</code> to employees whose roles require the program this year"</td><td>Budget "has been <code class="t">prioritized</code> for employees whose current roles require the program this year"</td></tr>
+        <tr><td>Close</td><td>—</td><td>Positive and forward-looking: not this cycle, but possibly in future</td></tr>
+        <tr><td>Reader effect</td><td>"Maybe I wasn't qualified." The reader may not finish reading. A psychological blockage sets in: lower acceptance, more resistance, possible long-term effects.</td><td>The application looks reviewed with due diligence, not rejected ad hoc. It gives hope for next year, so the employee, who showed initiative by upskilling, keeps applying.</td></tr>
+        <tr><td>Class verdict</td><td>—</td><td><strong>Unanimous: B</strong></td></tr>
+        <tr><td colspan="3" style="color:var(--ink-faint); font-weight:500; background:var(--panel)">Variant: same request, but the employee must decide <strong>today</strong> whether to pay the registration fee personally before registration closes. They have had to follow up because no reply came, and they still need to book travel.</td></tr>
+        <tr><td>Verdict</td><td style="color:var(--teal)"><strong>A-style direct is right.</strong> The employee wants the answer up front, and the time factor changes the approach.</td><td>The buffer and reason hold back the one fact they need today.</td></tr>
+        <tr><td>Other direct cases?</td><td colspan="2">Left open in class, which only gave time sensitivity. Candidates <em>(not from class)</em>: a reader who has asked for bluntness, or minor, routine bad news.</td></tr>
+      </table>
+    </div>
+    <p class="table-key">Both messages give essentially the same reason. What changes the reception is the <strong>wording</strong> ("allocated" vs "prioritized") and the <strong>placement</strong>. The instructor's counter, "Isn't direct better for a busy reader?", gets the answer: not here, because the relationship takes priority.</p>
+
+    <h3 class="sub">CASE 2 · HUMAN OR AI? THE EXPANDED EMPLOYEE-MONITORING EMAIL</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>clue raised</th><th>class call</th><th>instructor's correction / what it shows</th></tr>
+        <tr><td>Precise, specific information; Email 2 basic and generic</td><td>Email 1 human</td><td>A student added that the AI result depends on the prompt. Correction: even with rich context in the prompt, AI may not produce the needed tact and sensitivity.</td></tr>
+        <tr><td>Details not in the scenario: new clients onboarded, a successful first phase, data deleted within 24 hours</td><td>Email 1 AI ("AI adds information")</td><td>Devil's advocate: are these too specific for AI to invent? In fact they were insider knowledge.</td></tr>
+        <tr><td>Clearly defined action (sign the policy)</td><td>Email 1 AI</td><td>It was the human's context-specific CTA. Email 2 left the action unstated.</td></tr>
+        <tr><td>Natural phrasing: "technology has an opportune way of racing ahead of you". Email 2 extremely smooth.</td><td>Email 1 human</td><td>Correct read.</td></tr>
+        <tr><td>"We value the trust you place in our IT systems" in Email 2</td><td>Email 2 human</td><td style="color:var(--rust)">AI is fully capable of such lines and can hallucinate or fabricate content.</td></tr>
+        <tr><td>A typo in Email 1</td><td>Email 1 human</td><td>AI is unlikely to make one.</td></tr>
+        <tr><td>Em dash in "high-profile"</td><td>raised as a clue</td><td>A telltale AI sign, which people now often remove.</td></tr>
+        <tr><td>Offer to contact the writer personally</td><td>Email 1 human</td><td>A student linked this to "mirror" accountability.</td></tr>
+        <tr><td>Answer</td><td colspan="2" style="color:var(--teal)"><strong>Email 1 = human (the instructor) · Email 2 = AI</strong></td></tr>
+      </table>
+    </div>
+    <p class="table-key">Scenario (reconstructed): the company is expanding employee monitoring of IT systems, which touches employees' personal information. This is a sensitive policy announcement.</p>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <tr><th>part</th><th>EMAIL 1 · human</th><th>EMAIL 2 · AI</th></tr>
+        <tr><td>Buffer</td><td>"I'm very pleased to inform you that data breaches and phishing attacks have decreased after the implementation of the monitoring program last year." Monitoring already works, and the new step is a continuation.</td><td>None; it simply announces the policy</td></tr>
+        <tr><td>Explanation</td><td>High-profile clients recently added; the company is taking every step to prevent incidents. Only an insider would know this.</td><td>Cites company policy with no specific reason</td></tr>
+        <tr><td>Bad news</td><td>Expanded monitoring, stated <strong>after</strong> the explanation</td><td>The policy announcement itself</td></tr>
+        <tr><td>Grievance channel</td><td>A proper channel for raising concerns</td><td>—</td></tr>
+        <tr><td>CTA</td><td style="color:var(--teal)">A declaration signed by all employees</td><td><code>"Should you have any questions…"</code>: a courtesy close only, so there is no check that everyone is aware or has agreed</td></tr>
+        <tr><td>Close / tone</td><td>Positive, professional</td><td>Dry, hollow, wordy. It "looks fine on paper" but has no sensitivity, tact or empathy.</td></tr>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>Stories and lines from S05:</p>
+      <ul>
+        <li><strong>"You can't just rip off the band-aid"</strong>, especially by email. That is why the indirect structure opens with a buffer.</li>
+        <li><strong>Appraisal conversation</strong> (a student's example): a good manager doesn't open with "your appraisal went badly, no increment". They build confidence ("you've done good work"), explain the relative rating, then give the outcome. The instructor named that opening a <strong>buffer</strong>.</li>
+        <li><strong>PIP</strong>, which the instructor said summed up tact: in parts of IT a fixed share (~1%, a student's claim) must go on a PIP whatever their performance. The first reaction is resistance. Tactful delivery shows confidence ("we're not isolating you") and frames a 3-month rigorous training period as a chance to grow, not "you're down and out."</li>
+        <li><strong>"Adds salt to the injury"</strong>: listing a program's benefits in the buffer of an email that takes them away.</li>
+        <li><strong>"When we are back on track and have sufficient profits again, the program will come back"</strong> was called brilliant because it addresses low morale and offers hope.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Outline an email to all employees: the company's education-funding program is being discontinued.<span class="tag">S05 practice</span></summary>
+      <ol>
+        <li>Facts to sift out (reconstructed): around 20 employees benefit; a lost client contract caused revenue loss; some participants, possibly those currently in undergraduate study, may keep their support.</li>
+        <li>Choose the structure. A lost client is routine business news, but cutting education funding is sensitive: people had hopes, were enrolled, and had planned their futures. Relationship preservation dominates, so use <strong>indirect</strong>.</li>
+        <li><strong>Buffer:</strong> how the program has been progressing and what it has been doing. Don't list the benefits being withdrawn.</li>
+        <li><strong>Explanation:</strong> the lost contract and the revenue losses it caused.</li>
+        <li><strong>Bad news:</strong> the program is discontinued, with details of who will continue to receive support.</li>
+        <li><strong>Exit:</strong> the company is looking at other ways to support employees, and this is temporary: "When we are back on track and have sufficient profits again, the program will come back."</li>
+      </ol>
+      <p class="answer">Buffer (progress) → Explanation (lost contract) → Bad news (+ who keeps support) → Exit (temporary, hope)</p>
+    </details>
+    <details class="worked">
+      <summary>Q&amp;A drill: (1) Can the email open with "the company is facing losses"? (2) Can the buffer list the program's past benefits?<span class="tag">S05 Q&amp;A</span></summary>
+      <ol>
+        <li>(1) No. <strong>Neither approach starts with the explanation</strong>: direct opens with the bad news, indirect opens with the buffer. Opening with losses feels abrupt, because the reader doesn't yet know what the email is about.</li>
+        <li>(2) Not in this case. You are taking the benefits away, so listing them "adds salt to the injury." The buffer should be relevant and neutral or positive, without highlighting what the reader is about to lose.</li>
+      </ol>
+      <p class="answer">(1) No — start with the buffer · (2) Not here — salt to the injury</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m6: 6 · Meetings ============ -->
+<section class="module" id="m6">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S6 (10 Oct) — Rijhwani</p>
+      <h2>Meetings: participating, Six Thinking Hats, and the Abilene paradox</h2>
+      <p class="lede">A meeting is for the people in the room: don't waste their time, say your point so they can act on it, and voice the hat or the disagreement that nobody else is voicing.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>WHAT WASTES A MEETING (CLASS LIST)</h3>
+        <dl>
+          <dt>no agenda / topic</dt><dd>Nobody knows what the meeting is for.</dd>
+          <dt>context-giving</dt><dd>Can take up to <strong>"90% of the time"</strong> (a student's estimate). Most of it could go by text or email.</dd>
+          <dt>unprepared people</dt><dd>They arrive and only then form opinions. Points should be circulated beforehand.</dd>
+          <dt>unnecessary attendees</dt><dd>Whole teams are invited when most have no role in the item.</dd>
+          <dt>repeating to look involved</dt><dd>Example: a manager repeats the same remark just to show participation.</dd>
+          <dt>digressing</dt><dd>The discussion drifts off the agenda.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>FIXES FROM THE CLASS DISCUSSION</h3>
+        <dl>
+          <dt class="t">scrum stand-up</dt><dd>Strictly <strong>~15 min</strong>. Team: Product Owner, Scrum Master, Developers. The Scrum Master facilitates, notes points and moves things on. Technical detail goes to a <strong>separate meeting</strong>.</dd>
+          <dt class="t">host decides first</dt><dd>The host sets the topic and the decision to be made before the meeting, so attendees come prepared.</dd>
+          <dt class="t">equal participation</dt><dd>Don't let one person dominate.</dd>
+          <dt class="t">timeboxed agenda</dt><dd>Split the time across subtopics. Teams can notify a speaker who runs over.</dd>
+          <dt class="t">24-hour pre-meeting message</dt><dd>Sent 24 hours ahead with 3 items: <strong>what</strong> decision, <strong>why</strong> it's needed, any <strong>other context</strong>.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>FIVE ELEMENTS OF EFFECTIVE PARTICIPATION</h3>
+        <dl>
+          <dt class="t">1 · Prepare</dt><dd>Know the agenda and what information or questions to bring. A 15-min scrum needs very specific inputs.</dd>
+          <dt class="t">2 · Contribute</dt><dd>Make a relevant point and give your reasoning (Point → Reason → Next step).</dd>
+          <dt class="t">3 · Listen</dt><dd>"Paramount." <strong>Build, don't repeat.</strong> Rephrasing checks understanding; repeating just parrots and drags the meeting on.</dd>
+          <dt class="t">4 · Tone</dt><dd>Raise concerns respectfully. There is a professional way to disagree.</dd>
+          <dt class="t">5 · Follow through</dt><dd>Close with a quick review: <strong>who does what, by when</strong>.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>POINT → REASON → NEXT STEP (SLIDE EXAMPLE)</h3>
+        <dl>
+          <dt class="t">Point: suggestion first</dt><dd>"I suggest a smaller pilot."</dd>
+          <dt class="t">Reason: why</dt><dd>"We can identify problems before committing to the full budget."</dd>
+          <dt class="t">Next step: ask for buy-in or action</dt><dd>"Could we agree on the pilot scope today?"</dd>
+        </dl>
+        <ul style="margin-top:12px"><li>Following the structure keeps the meeting moving and clears blockages.</li></ul>
+      </div>
+      <div class="cheat-card">
+        <h3>GROUPTHINK</h3>
+        <dl>
+          <dt>groupthink</dt><dd>You hold a different view but <strong>stay silent</strong> because the others seem to agree. You assume everyone else must be right.</dd>
+          <dt>agreement ≠ consent</dt><dd>"Everyone agreed, nobody objected" doesn't mean everyone wanted it. Majority and consensus carry dissenters along.</dd>
+          <dt class="t">minimum fix</dt><dd>At least get valid disagreements recorded in the minutes of meeting (MOM).</dd>
+          <dt class="t">Abilene paradox</dt><dd>The extreme case: a whole group takes a trip that <strong>none</strong> of them wanted (story below).</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 class="sub">SIX THINKING HATS</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Hat</th><th>Thinking mode</th><th>What you do</th><th>Instructor's note</th></tr></thead>
+        <tbody>
+          <tr><td>White</td><td>Data / information</td><td>Study the available facts and figures and see what they tell you.</td><td>Establishes the need for the decision and whether its advantages outweigh its cost.</td></tr>
+          <tr><td>Red</td><td>Gut / intuition / emotion</td><td>Give knee-jerk reactions. Consider how people will feel about the decision.</td><td>Skip it and feelings were never considered. You needn't act on them, but you should have weighed them.</td></tr>
+          <tr><td>Black</td><td>Caution / risk ("devil's advocate")</td><td>Find weak points, risks and logistical problems.</td><td><strong>Reasoned</strong> caution, not negativity: question the assumptions, the source and where the idea is heading. Skip it and execution may "go south".</td></tr>
+          <tr><td>Yellow</td><td>Optimism / benefits</td><td>Focus on the value and the benefits.</td><td>Useful when everything looks gloomy.</td></tr>
+          <tr><td>Green</td><td>Creativity</td><td>Generate ideas, alternatives and solutions.</td><td>Switch to it when ideas run dry.</td></tr>
+          <tr><td>Blue</td><td>Process control</td><td>Manage the thinking. Decide which hat suits each stage.</td><td>Decides what fits the agenda. The order of the other hats follows the objective.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Edward de Bono, <em>Six Thinking Hats</em>, 1985 (the video called him a Maltese physician). Works in a meeting or alone. All six together give a "360-degree view" and a well-informed decision.</p>
+
+    <h3 class="sub">CASE · ADOPT AN AI MEETING-SUMMARY ASSISTANT FOR ALL PROJECT MEETINGS? (S6 ROLE-PLAY)</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Hat</th><th>What the class raised</th></tr></thead>
+        <tbody>
+          <tr><td>Given</td><td>Concerns on the table: accuracy, confidential information, cost, over-reliance (people read only the summary and skip the discussion).</td></tr>
+          <tr><td>Blue</td><td>Where to start? A student said red, then corrected to <strong>white</strong>. The class started with white.</td></tr>
+          <tr><td>White</td><td>Does it align with data-security rules (many companies restrict AI tools)? What is its error rate, judged by comparing outputs? Exact price? Current documentation spend, for a cost comparison? Time saved, and does it give evidence of what was discussed? Do we need it for <strong>all</strong> meetings or only important ones? Data is missing, so <strong>pilot with one team</strong> first. The instructor tied this to the "smaller pilot" example.</td></tr>
+          <tr><td>Red</td><td>"I'll be very happy. It saves time and gives crisp information." The instructor called this the <strong>genuine knee-jerk</strong>; he asked whether the privacy worry was a first reaction or second-order thinking. Also: discomfort at being recorded all day (off-topic talk captured, misuse, data used to train the model).</td></tr>
+          <tr><td>Yellow</td><td>Note-taking eats meeting time, and points get missed in fast meetings. Automatic minutes of meeting mean nothing said is skipped.</td></tr>
+          <tr><td>Black</td><td>Which meetings, day-to-day or only important ones (useful for vendor and client calls)? How expensive is it? How much confidential data is exposed? How is it implemented, and would it really cover all meetings?</td></tr>
+          <tr><td>Green</td><td style="color:var(--ink-faint)">No alternatives were recorded beyond the pilot, and the instructor filed the pilot under white.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>Rules for wearing the hats (S6):</p>
+      <ul>
+        <li><strong>Modes, not personalities.</strong> Everyone switches hats within the same meeting.</li>
+        <li><strong>No fixed sequence</strong>, and hats can repeat: white → red → white is fine, because your feelings may change once you see the data.</li>
+        <li><strong>Wear the hat that is missing.</strong> If everyone is positive and nobody asks about cost or logistics, put on black. If everyone dwells on negatives, bring yellow.</li>
+        <li>You <strong>don't have to announce</strong> that you are using the framework.</li>
+        <li>Use it for <strong>brainstorming, creative solutions and getting unstuck</strong>, not for routine meetings. Picking the right framework is itself a skill.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>"You don't need a position to lead" (S6):</p>
+      <ul>
+        <li>Responsibility ultimately sits with the host or whoever holds power, but <strong>any participant</strong> can spot a missing perspective and wear that hat. Knowing the framework is a source of power.</li>
+        <li>A student read the instructor's own handling of the test-scheduling discussion back as hats. <strong>White</strong>: what students said. <strong>Red</strong>: their emotions. <strong>Black/yellow</strong>: weighing the loss of surprise. <strong>Green</strong>: a test the next Saturday for everyone. <strong>Blue</strong>: keeping every student in the process. The instructor called it "a great example".</li>
+        <li>Another student's point: hats <strong>reduce conflict</strong>. Everyone looks in the same direction at the same time, so viewpoints clash less, debates aren't repeated, and meetings get shorter.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The Abilene paradox video (S6), narrated by the son-in-law, Jerry:</p>
+      <ul>
+        <li>A <strong>104-degree July Sunday</strong> in Coleman, Texas. The family of 4 is playing dominoes. The father-in-law suggests driving to Abilene for supper at a cafeteria. Abilene is far, and the <strong>Buick's air-conditioning doesn't work</strong>.</li>
+        <li>Everyone agrees: "sounds good to me", "only if Mom wants to go", "of course I want to go".</li>
+        <li>The result is about <strong>4 hours and 106 miles</strong> round trip in a "furnace", with a bad meal.</li>
+        <li>Afterwards nobody had wanted to go. One went to satisfy the others, one went "to be sociable", and the father who proposed it was <strong>"just making conversation"</strong>. Organisations take "trips to Abilene" all the time.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Lessons drawn in class (S6):</p>
+      <ul>
+        <li><strong>Cost</strong>: unvoiced disagreement wastes money, resources, infrastructure and manpower. Afterwards <strong>nobody owns</strong> the decision ("it wasn't my idea").</li>
+        <li><strong>Power and seniority silence people.</strong> The idea came from the head of the family. At work, when a senior speaks, people stop raising logistical questions. Speak up <strong>regardless of who proposed it</strong>.</li>
+        <li><strong>Nuance</strong> (a student's appraisal example): in appraisal or promotion meetings, with your own senior in the room, your say may genuinely be limited. Brainstorming, policy-change and cross-department problem-solving meetings are where speaking up and the hats fit. "It depends on the situation."</li>
+        <li><strong>Waterfall clients</strong> (a student's addition): when the full product is delivered and payment is at stake, clients may say "we never asked for this". Recorded minutes are the proof, so AI recording cuts both ways.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Rewrite as Point → Reason → Next step: "So there are so many AI tools now, and budgets are tight, and honestly we don't know how accurate this one is, and confidentiality is a thing, so maybe we could try it somewhere first? I'm not sure."<span class="tag">S6 · AI-assistant case</span></summary>
+      <ol>
+        <li>The real suggestion is buried at the end: try it somewhere first. Move it to the front as the <strong>Point</strong>: "I suggest we pilot the assistant with one team."</li>
+        <li>Keep only the reason that supports it as the <strong>Reason</strong>: "We have no data on accuracy, cost or confidentiality yet. A pilot gives us that before we commit to all project meetings."</li>
+        <li>End with an ask so the meeting can act on it, the <strong>Next step</strong>: "Could we agree today which team runs the pilot?"</li>
+        <li>The hedge ("I'm not sure") and the scene-setting are dropped. That is the "context eats the meeting" problem in miniature.</li>
+      </ol>
+      <p class="answer">Point: pilot with one team · Reason: data before full commitment · Next step: agree the pilot team today</p>
+    </details>
+    <details class="worked">
+      <summary>Which hat is missing? A: "It'll save us hours of note-taking." B: "And we'd get the minutes automatically, nothing skipped." C: "Great, let's roll it out to every project meeting."<span class="tag">S6 · AI-assistant case</span></summary>
+      <ol>
+        <li>A and B are yellow (benefits). C pushes for a decision without the facts.</li>
+        <li>Nobody has asked about price, confidential data exposure, which meetings, or implementation. That is the <strong>black</strong> hat: reasoned caution, not negativity.</li>
+        <li>White is thin too (error rate, cost versus current documentation spend). A participant without any title can add either. "You don't need a position to lead."</li>
+      </ol>
+      <p class="answer">Black hat (then white); skip black and execution may "go south"</p>
+    </details>
+    <details class="worked">
+      <summary>Read the Abilene trip as hats. Which hats did the family skip?<span class="tag">S6 · video</span></summary>
+      <ol>
+        <li><strong>Red</strong> was never voiced honestly. Real feelings ("I don't want to go") came out only afterwards. "Only if Mom wants to go" defers to someone else's feelings instead of stating one's own.</li>
+        <li><strong>Black</strong> was skipped. A 104-degree day, a long drive and a Buick with no working air-conditioning were all known risks.</li>
+        <li><strong>White</strong> was available but unused: the distance and the broken AC were plain facts.</li>
+        <li>Nobody played <strong>blue</strong>, and the father's seniority silenced the rest. That is groupthink: agreement without consent.</li>
+      </ol>
+      <p class="answer">Red and black (white facts ignored); the outcome was a ~4-hour, 106-mile trip nobody wanted</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m7: 7 · Presentation structure ============ -->
+<section class="module" id="m7">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S7 (17 Oct) — Rijhwani</p>
+      <h2>Structuring a planned presentation: Preview → View → Review</h2>
+      <p class="lede">Three sections, each with named parts, built around a few takeaways the audience can act on, with slides that keep the focus on the speaker.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>THREE PILLARS OF A MEMORABLE TALK</h3>
+        <ul>
+          <li><strong>Well-developed key takeaway messages.</strong> The audience is never confused about the point. Aim for 1–3 and design the whole talk around them.</li>
+          <li><strong>Supporting evidence for every claim.</strong> Sources should be relevant, and recent where the topic needs it. This feeds S8: ethos, pathos, logos.</li>
+          <li><strong>Clear structure:</strong> Preview → View → Review.</li>
+          <li><strong>"Content is king."</strong> Content comes first and delivery second. Only then decide who says what, and how.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>FINDING THE TAKEAWAYS: THREE QUESTIONS</h3>
+        <ul>
+          <li>What should they <strong>remember</strong>?</li>
+          <li><strong>Why does it matter</strong> <span style="color:var(--teal)">to them</span>?</li>
+          <li>What should <strong>everything else support</strong>?</li>
+          <li>Busy audiences (senior management giving you 10–15 minutes) need the takeaways <strong>stated early</strong> and <strong>re-emphasised</strong> throughout.</li>
+          <li>Scope: <strong>planned</strong> talks only. Impromptu speaking uses other techniques.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>PRIMACY AND RECENCY</h3>
+        <ul>
+          <li>Audiences remember the <strong>opening (primacy)</strong> and the <strong>close (recency)</strong> best, so both must be powerful.</li>
+          <li>In group work, know your members' strengths in advance. Put the <strong>strongest speakers first and last</strong>.</li>
+          <li>In the first two minutes the audience decides three things: keep listening? Will this benefit me? Is it worth taking away or acting on?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>PREVIEW · ATTENTION GETTER</h3>
+        <dl>
+          <dt>opening with a joke</dt><dd>A "double-edged sword" in an age of cancel culture and sensitivity. Use one only if you know the audience (S1 audience analysis) and it is relevant to the topic.</dd>
+          <dt>data dumping</dt><dd>Many statistics up front cause information overload, and the audience switches off. Use <strong>at most one</strong> striking statistic.</dd>
+          <dt class="t">pick what fits the topic</dt><dd>Statistic, rhetorical question, image contrast, celebrity, origin story, "Imagine…". See the table below.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>PREVIEW · POSITIONING + OVERVIEW</h3>
+        <dl>
+          <dt class="t">positioning statement</dt><dd><strong>Plants</strong> the topic in the audience's minds: what the talk will do and what to look out for. China case: "…how small businesses like yours can easily move some or all of your manufacturing to China… a manufacturing presence in China in as little as 1 month."</dd>
+          <dt class="t">overview</dt><dd>Breaks the positioning statement into its <strong>segments</strong>, which previews the takeaways. Keep it to 1–3 sentences in conversational language, with plenty of <strong>"you"</strong>: you cut production cost by 40–60%, you maintain or increase quality, you cut time to market by another 1–3 months.</dd>
+          <dt>generic, no "you"</dt><dd>Without "you" language there is no direct connection, and the talk could be for anyone.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>VIEW · MESSAGES, EVIDENCE, PREP</h3>
+        <ul>
+          <li><strong>2–4 key messages</strong>, max 4. Assume a <strong>skeptical</strong> audience: every position needs support.</li>
+          <li>Evidence types: cases, examples, stories, illustrations, analogies, statistics, facts, quotations, personal experience.</li>
+          <li>Use evidence <strong>in moderation</strong>: "The problem today is not information, it's information overload." Choose strong and relevant over plentiful.</li>
+          <li><strong>PREP</strong> = <code class="t">Point → Reason → Example → Point</code>. Repeat it for each message. After the restated point, bring in your <strong>USP</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>REVIEW · RECAP, REINFORCE, CTA</h3>
+        <dl>
+          <dt class="t">recap</dt><dd>Summarise the key messages in a few sentences.</dd>
+          <dt class="t">reinforce</dt><dd>Return to the <strong>single most important</strong> takeaway. The group decides which one.</dd>
+          <dt class="t">call to action</dt><dd>Ask for a decision, a commitment or a next step, and make it <strong>highly specific and concrete</strong>. When you seek senior management's approval, the <strong>permission itself is the CTA</strong>, and how you articulate it matters most.</dd>
+          <dt>"thank you for your time"</dt><dd>Not an ending on its own.</dd>
+          <dt>"feel free to reach out to us"</dt><dd>"Building castles in the air." <span style="color:var(--rust)">Without a CTA, the presentation is incomplete.</span></dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>SLIDES · AVOID DEATH BY POWERPOINT</h3>
+        <ul>
+          <li><strong>"Contrast controls your focus."</strong> Only point #4 of the talk was shown in class, so watch the rest yourself.</li>
+          <li><strong>Lists:</strong> reveal one item at a time and dim the rest, so eyes follow "like a kitten chasing a laser pointer". <strong>Tables:</strong> highlight only the relevant row or cell.</li>
+          <li>A white background makes the screen the brightest, biggest object, so it competes with you. Prefer <strong>dark backgrounds</strong>.</li>
+          <li><strong>"The speaker is the presentation; the slides are only a visual aid."</strong> Never memorise word for word.</li>
+          <li><strong>T-shirt rule:</strong> ≤ 6 lines per slide. Keep slides clean and minimal, not a manuscript.</li>
+          <li>Put overflow detail on <strong>cue cards</strong>, small index cards with pointers. The deck is not a cue card.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>GROUP DELIVERY ETIQUETTE</h3>
+        <ul>
+          <li><strong>Signposted transitions</strong>, never abrupt: "To understand the financial implications of this business decision, [name] will walk us through the details." Rehearse them together.</li>
+          <li><strong>Close:</strong> thank the audience, then open the floor to questions.</li>
+          <li><strong>Q&amp;A:</strong> say "I'll be happy to answer that question." Agree who answers; online, only that person unmutes. Start with "Thank you for that question. That's a very interesting observation."</li>
+          <li><strong>Can't answer?</strong> Say honestly that it was outside the presentation's scope, offer to look into it, and <strong>take it offline</strong> (one-to-one afterwards).</li>
+          <li><strong>Online:</strong> modulate your voice, keep gestures within the frame, look into the camera, and converse instead of reading.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>SECTION</th><th>PURPOSE</th><th>COMPONENTS</th><th>SHARE OF TIME (AS STATED)</th></tr></thead>
+        <tbody>
+          <tr><td>Preview</td><td>Set expectations and flow; create interest and enthusiasm; show relevance</td><td>Attention getter · positioning statement · overview</td><td class="o1">10%–15%</td></tr>
+          <tr><td>View</td><td>The "meat": develop and support the key messages</td><td>2–4 key messages (max 4), each built with PREP</td><td class="o1">85%–90%</td></tr>
+          <tr><td>Review</td><td>Recap, reinforce, drive action</td><td>Recap · reinforce · call to action</td><td class="o1">remainder</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">The proportions are approximate, but the principle is not: every planned talk has all three sections. The stated shares overlap: 15% + 85% already makes 100% before the Review gets any time. So read the View as "the large majority" and leave the Review a short final slice. Illustration (not from class): in a 15-minute talk the Preview is 1.5–2.25 minutes.</p>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>OPENER</th><th>EXAMPLE OR NOTE FROM CLASS</th></tr></thead>
+        <tbody>
+          <tr><td>Shocking statistic (just one)</td><td>"35% of people are switching to vegan products right now." (class example, unsourced)</td></tr>
+          <tr><td>Rhetorical question</td><td>A question that needs no answer. Rhetoric ≠ a rhetorical question. A student's example: "Would you rather have a million dollars or…?"</td></tr>
+          <tr><td>Image or contrasting pictures</td><td>A Great Depression lecture opened with a 1930s family photo, then a food queue (see the stories below). The contrast conveys the intensity of the topic.</td></tr>
+          <tr><td>Celebrity reference</td><td>Tie diabetes, health or sportsmanship to a cricketer or actress. Celebrities have mass appeal.</td></tr>
+          <tr><td>Origin story</td><td>The story of the product or of yourself, driven toward the objective. Keep it relevant and brief, not a "saga".</td></tr>
+          <tr><td>"Imagine…"</td><td>A hypothetical scenario draws the audience into the situation.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>Stories and asides (S7):</p>
+      <ul>
+        <li>The instructor's own opening, "today we'll talk about structure; next class, content", was <strong>itself a positioning statement</strong>.</li>
+        <li>A student described an <strong>economics professor</strong> who opened a lecture on the Great Depression without a word. He showed a photo of a fun-loving 1930s American family, then switched to people queuing at a food stall. The contrast did the talking.</li>
+        <li>His own teaching slides are text-heavy <strong>because their purpose is teaching</strong>. A business presentation has a different aim, so its design must differ.</li>
+        <li>No model script was given for the self-pitch: <strong>"Communication has no one-size-fits-all."</strong> Pitching yourself to Sundar Pichai would need a completely different script. The course teaches frameworks and mindsets, not templates.</li>
+        <li><strong>"Treat this as a safe space to experiment"</strong>: learning matters more than marks.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Where the audience shows up in the structure (the S1 refrain, applied in S7):</p>
+      <ul>
+        <li>Takeaways start from <strong>why it matters to them</strong>, not what you want to say.</li>
+        <li>The overview speaks in <strong>"you"</strong>. The close hands them <strong>one concrete next step</strong>, not "feel free to reach out".</li>
+        <li>Slides lead their eyes through contrast and keep them on the speaker.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m7Panel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Build the China seminar</span><span class="readout" id="m7Read"></span></div>
+      <p class="panel-sub">Step through the S7 example one component at a time. The outline lights up only the current line and dims the rest: the contrast principle at work. Strip segments are components, not time.</p>
+      <div class="presets" id="m7Pre">
+        <button class="btn on" data-p="ok">S7 script · specific CTA</button>
+        <button class="btn" data-p="bad">same talk · vague ending</button>
+      </div>
+      <div class="viz-body">
+        <div>
+          <svg class="chart" id="m7Strip" viewBox="0 0 760 92" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Preview, View and Review components of the China seminar, current step highlighted"></svg>
+          <p class="panel-sub" id="m7Lab"></p>
+          <div class="note" id="m7Text" style="color:var(--ink); border-left-color:var(--teal);"></div>
+          <p class="caption"></p>
+          <div id="m7Verdict" class="verdict warn"></div>
+        </div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <p class="hint">← → step · space play/pause (click the panel first)</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Label each sentence of the China seminar's Review.<span class="tag">S7 17 Oct</span></summary>
+      <ol>
+        <li>"Thank you for attending this seminar." → <strong>gratitude</strong>.</li>
+        <li>"I want to quickly mention how you can get a more specific understanding of the savings you can achieve by producing in China." → <strong>recap</strong> (understanding the savings).</li>
+        <li>"In your packets, I have enclosed a free estimate form. If you can provide some basic information about one of your products, we can have cost estimates and shipping details back to you within a week. The estimate is free; there's no obligation." → <strong>reinforce + CTA</strong> combined.</li>
+        <li>The form also reinforces the message <em>later</em>, because the savings come back as real numbers within a week.</li>
+      </ol>
+      <p class="answer">gratitude · recap · reinforce + CTA (the free estimate form)</p>
+    </details>
+    <details class="worked">
+      <summary>Write a PREP for one key message of your own topic.<span class="tag">S7 17 Oct · model from class</span></summary>
+      <ol>
+        <li><strong>P, point:</strong> state the conclusion first. Model: "It's challenging for most small businesses to set up manufacturing in China."</li>
+        <li><strong>R, reason:</strong> say why. Model: three barriers to entry, which are finding and building relationships with Chinese suppliers, having engineers on the ground, and dealing with a different business culture.</li>
+        <li><strong>E, example:</strong> give a case with <strong>real</strong> numbers. Model: clients from the past year whose initial efforts were costly and disappointing, with what they faced and what they spent. Never fabricate the statistics.</li>
+        <li><strong>P, point again:</strong> "Without access to relationships with Chinese manufacturers and suppliers, and an on-the-ground presence to monitor operations, small businesses can find it very challenging and costly to set up production in China."</li>
+        <li>Then the <strong>USP</strong>: you have the contacts and presence to solve exactly this. Repeat PREP for each of your 2–4 messages.</li>
+      </ol>
+      <p class="answer">Point → Reason → Example → Point, then USP · one PREP per key message</p>
+    </details>
+    <details class="worked">
+      <summary>A talk ends: "Thank you for your time. Feel free to reach out to us." Fix it.<span class="tag">S7 17 Oct</span></summary>
+      <ol>
+        <li>Diagnose it: gratitude only, with no recap and no reinforcement. "Feel free to reach out" is <span style="color:var(--rust)">"building castles in the air"</span>, so the presentation is incomplete.</li>
+        <li>Keep the thanks, then <strong>recap</strong> the key messages in a sentence.</li>
+        <li><strong>Reinforce</strong> the one takeaway the group agreed matters most.</li>
+        <li>Ask for <strong>one concrete action</strong>: what they do, what they get, and by when. The China model is to fill in the form for one product and get estimates within a week, free, with no obligation. In an approval pitch, ask for the permission itself.</li>
+      </ol>
+      <p class="answer">thanks → recap → reinforce → specific CTA (what · by when)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m8: 8 · Persuasion & finals ============ -->
+<section class="module" id="m8">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S8 (24 Oct) · S9–10 (31 Oct) — Rijhwani</p>
+      <h2>Persuasion (ethos, pathos, logos) and what the final presentations rewarded</h2>
+      <p class="lede">Rhetoric uses three appeals, balanced and ordered for the audience in front of you. The finals rewarded pitches with a 360-degree view and evidence put on the slide.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>RHETORIC = THE ART OF PERSUASION</h3>
+        <dl>
+          <dt>rhetoric</dt><dd>The art of persuasion, carried out through three appeals. <strong>Not</strong> the same as a "rhetorical question" (exam note).</dd>
+          <dt class="t">ethos: why you?</dt><dd>Why you are the right person to speak: experience, qualifications, background. Gives the audience a reason to listen. Can be <strong>organisational</strong>: a long-established company already has credibility.</dd>
+          <dt class="t">pathos: why care?</dt><dd>Why the audience should care and what is at stake. It is <strong>not</strong> about making them sad or making them cry. Exploitative pathos becomes manipulation.</dd>
+          <dt class="t">logos: where's the proof?</dt><dd>Reasoning, reports, statistics. <strong>Not only numbers</strong>: spotting a market gap also counts. <strong>Cite your data.</strong></dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>THE TWO Rs OF EVIDENCE (LOGOS)</h3>
+        <dl>
+          <dt class="t">Recency</dt><dd>Data should be recent. Citing a <strong>1996 study</strong> looks dated and raises questions about the quality of your argument.</dd>
+          <dt class="t">Relevance</dt><dd>Evidence must relate directly to your topic. Irrelevant evidence looks like digression or poor preparation, so the evidence weakens and <strong>the whole argument falls apart</strong>.</dd>
+          <dt>skeptics / cynics</dt><dd>Doubt the information or its credibility. A pathos-only pitch draws "the story is convincing, but where are the numbers? Where are the returns?" Only logos answers them.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>BALANCE BY AUDIENCE</h3>
+        <dl>
+          <dt class="t">finance / data manager</dt><dd>Lean on <strong>logos</strong>, but still use some pathos.</dd>
+          <dt class="t">storyteller / marketer</dt><dd>Lean on <strong>pathos</strong>: why should they care?</dd>
+          <dt class="t">you are new to the area</dt><dd>Establish <strong>ethos early</strong>, so they have a reason to listen.</dd>
+          <dt class="t">mixed / mass audience</dt><dd>You can't analyse each member, so <strong>balance all three and overdo none</strong>.</dd>
+          <dt>order is flexible</dt><dd>You can open with a story, bring in ethos in the middle and end with logos. Ethos can emerge naturally as you describe what happened.</dd>
+          <dt>introspect</dt><dd>Which appeal is your <strong>default</strong>? Deliberately add the ones you ignore, and rise above your "default self".</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>FINAL PRESENTATION: RULES AND THE FEEDBACK PATTERN (S8 BRIEF, S9–10)</h3>
+        <ul>
+          <li><strong>Preview → View → Review</strong>, with PREP for each key message. The instructor praised the groups for using this structure.</li>
+          <li><strong>CTA</strong> = senior management's approval, the <strong>green signal</strong>.</li>
+          <li><strong>Checked:</strong> primacy (how you open) and recency (how you close), the two parts the audience remembers. Transitions are also checked: close your part and signpost what comes next and who presents it. Don't go silent, and don't re-introduce yourself.</li>
+          <li><strong>Time:</strong> 2 min minimum, 2.5 min maximum per speaker. A group of 5 got 14 min (5 × 2.5 = 12.5, +1.5); a group of 6 got 16.5 min (6 × 2.5 = 15, +1.5). A warning came at 2 min left, and overrun was not evaluated. Group dynamics were marked /10. Absence = automatic F.</li>
+          <li><strong>Feedback pattern:</strong> give a <strong>360-degree view</strong>, meaning benefits to employees, benefits to the company <em>and</em> the challenges. This matters most when pitching to senior management. Put <strong>concrete company case studies visibly on the slides</strong>.</li>
+          <li>"Everything is not about marks… it's more about learning."</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>REUSABLE TECHNIQUES THE GROUPS DEMONSTRATED (S9–10)</h3>
+        <ul>
+          <li><strong>CEO-seat scenario hook:</strong> "Starting Monday, we work 70 hours a week." The deadline is met. A month later, do you repeat it?</li>
+          <li><strong>9:47 PM message hook + callback ending:</strong> the closing returns to the same message. Routine work waits until tomorrow, and genuine emergencies follow a plan.</li>
+          <li><strong>Quote hook:</strong> Coolidge, "Nothing in the world can take the place of persistence…", then tested: "Coolidge was half right." (He was stated as the 38th president; he was the 30th.)</li>
+          <li><strong>Acronym frameworks</strong> for memorability: CREST, RAG, Switch OFF, the four AI moves.</li>
+          <li><strong>Balanced thesis:</strong> "We're not against hard work. We're against normalizing overwork."</li>
+          <li><strong>Correlation-not-causation caveats</strong> on survey evidence. Admitting the limits builds ethos.</li>
+          <li>Other engagement devices that worked: chat polls, personal avatars, role-play personas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th></th><th style="color:var(--teal)">PERSUASION</th><th style="color:var(--rust)">MANIPULATION</th></tr></thead>
+        <tbody>
+          <tr><td>Facts</td><td>Laid open; transparent process</td><td>Concealed or hidden; dishonest, deceptive process</td></tr>
+          <tr><td>Information</td><td>Supported by information and data</td><td>Information withheld from the other person</td></tr>
+          <tr><td>Reasons</td><td>Honest reasons and arguments</td><td>Deceptive reasons and arguments</td></tr>
+          <tr><td>Choice</td><td>The other person keeps <strong>free will</strong></td><td>Free will taken away; led or coerced into an action</td></tr>
+          <tr><td>Basis</td><td><strong>Sound argument</strong></td><td>Exploits <strong>vulnerabilities</strong>: insecurity, fear, greed</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">S8 definition: persuasion means convincing and influencing, i.e. getting the audience to see something your way. There is a subtle line, and crossing it turns persuasion into manipulation.</p>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>APPEAL</th><th>TRAP</th><th>FIX</th></tr></thead>
+        <tbody>
+          <tr><td>Ethos</td><td style="color:var(--amber)">Talking about title, position and tenure instead of earning trust in the room; "I, me, myself" with no substance</td><td style="color:var(--teal)">Establish credibility briefly, then move on and let the work speak</td></tr>
+          <tr><td>Pathos</td><td style="color:var(--amber)">Leading with emotion before the audience is ready; it comes across as manipulative</td><td style="color:var(--teal)">Build <strong>rapport</strong> first, then bring in story or emotional appeal</td></tr>
+          <tr><td>Logos</td><td style="color:var(--amber)">Information overload; assuming the numbers will "sell themselves"</td><td style="color:var(--teal)">Stagger the information and tell the story behind the numbers</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">General rule (S8): don't begin with too much of any one appeal; take a <strong>progressive</strong> approach. On the pathos trap: there is a thin line between making the audience care for good reasons and making them emotional with arguments that don't hold up.</p>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>GROUP · TOPIC</th><th>THE GROUP'S FRAMEWORK</th><th>INSTRUCTOR'S QUESTION / POINT</th></tr></thead>
+        <tbody>
+          <tr><td>G3 · 70-hour work week: sustainable growth or leadership failure?</td><td>Hook → pro side → nuance → micro → macro → conclusion; recommends efficient systems, measuring outcomes, sustainable performance</td><td>Future of the <strong>four-day week in India</strong>? Also: show companies that succeed <em>without</em> 70-hour weeks on the slide</td></tr>
+          <tr><td>G5 · Hybrid &amp; remote: productivity gain or cultural loss?</td><td>Hybrid operating system (alignment, coordination, collaboration); Connect → Coordinate → Decide → Deliver</td><td><strong>C-suite challenges of 3 days office + 2 home</strong>? The pitch was one-sided, so give a 360-degree view</td></tr>
+          <tr><td>G1 · AI &amp; automation: reskill or restructure?</td><td>Automate / augment / reorganize; 2×2 of AI reliability × human judgment; four moves: map tasks, redesign roles, reskill into a named role, protect rung one</td><td>Which <strong>other industries</strong> besides software are being hit, and how are they responding?</td></tr>
+          <tr><td>G4 · Gen Z vs organisational expectations (role-play board briefing)</td><td>"Modernize the means, preserve the mission"; "Flex the how, fix the what": outcome KPIs, agile feedback, reverse mentoring</td><td>Wellbeing for <strong>all generations</strong> beyond KPIs/SLAs? Informal activities such as sports were endorsed: "Absolutely. Great."</td></tr>
+          <tr><td>G2 · The right to disconnect</td><td>CREST (legal) + RAG urgency rule + Switch OFF (from tomorrow)</td><td>India's <strong>obedience culture</strong>: can employees afford not to respond? Policies exist; what must change is the <strong>mindset</strong></td></tr>
+          <tr><td>G6 · Talent vs experience: who gets the job?</td><td>Stack predictors (GMA + work sample or structured interview); weight experience or talent by role type</td><td>What <strong>evidence</strong> should an organisation use for a high-potential, low-experience candidate?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Groups were called in random order: 3, 5, 1, 4, 2, 6. The surveys, percentages and validity figures on the groups' slides are their own claims and have not been verified, so don't revise them as facts.</p>
+
+    <div class="note">
+      <p>The catch (S8):</p>
+      <ul>
+        <li>The class voted <strong>unanimously for Pitch C</strong>. Reasons given: clear, concise, factual; the "figures speak for themselves"; committee members already have a top-level view of losses, so A and B felt generic.</li>
+        <li>Then the catch: <strong>no single pitch works on its own</strong>. A has credibility but gives no reason to care. B gives a reason to care but no proof. C gives numbers without credibility or a reason to care.</li>
+        <li>All three together are <strong>rhetoric</strong>. The structure from S7 is the skeleton; the appeals make it meaningful and impactful.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The Titan clip, <em>Made in India: A Titan Story</em> (S8):</p>
+      <ul>
+        <li>Nokia is pivoting to cell phones, and <strong>Xerxes Desai</strong> wants to pivot away from Tata Press. "<strong>Press is yesterday.</strong>" JRD Tata replies that watchmaking is "<strong>a very difficult, very delicate business</strong>." (The notes say Desai gets about 60 seconds, but in the clip he asks for "2 minutes".)</li>
+        <li><strong>Logos:</strong> Lakmé changed the way women look at themselves, but there is nothing for men. That market gap is logos, a reasoned observation even without numbers.</li>
+        <li><strong>Pathos:</strong> watches are not just for those whose time is good, but for those who want to <strong>change their time</strong>.</li>
+        <li><strong>Ethos:</strong> "We are the best candidates to do this." This is organisational ethos, borrowed from Tata's brand trust; a new company would not have it.</li>
+        <li>Sequence <strong>Logos → Pathos → Ethos</strong>. Desai could choose it because he knew his audience, which is audience analysis (PAIBOC). Logos can build into pathos, and vice versa.</li>
+        <li>Watch his <strong>unself-conscious confidence</strong>: he is speaking to a legend and still argues for what he believes is right.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m8Panel">
+      <div class="panel-head"><span class="panel-title">Pitch mixer: the ₹5 crore CISO request</span><span class="readout" id="m8Read"></span></div>
+      <p class="panel-sub">Switch the three appeals on and off. Each one answers one question the executive committee has, and rhetoric answers all three. Choose an audience to see which appeal to lean on, or load the Titan pitch to see Desai's order.</p>
+      <div class="presets" id="m8Pre"><span class="field">pitch</span><button class="btn on" data-p="vote">C only · S8 class vote</button><button class="btn" data-p="all">A + B + C</button><button class="btn" data-p="titan">Titan: Logos → Pathos → Ethos</button></div>
+      <div class="presets" id="m8Aud"><span class="field">audience</span><button class="btn" data-p="fin">finance manager</button><button class="btn" data-p="mkt">marketer</button><button class="btn" data-p="nw">you are new</button><button class="btn" data-p="mass">mass audience</button></div>
+      <div class="presets" id="m8Tog"><span class="field">appeals</span><button class="btn" data-k="E" aria-pressed="false">ethos</button><button class="btn" data-k="P" aria-pressed="false">pathos</button><button class="btn" data-k="L" aria-pressed="true">logos</button></div>
+      <div class="cheat-grid" id="m8Cards"></div>
+      <div class="vars" id="m8Checks"></div>
+      <div class="verdict bad" id="m8Verdict"></div>
+      <p class="caption" id="m8Lean"></p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>The CISO wants ₹5 crore. Classify Pitches A, B and C, and say what each one lacks.<span class="tag">S8 24 Oct</span></summary>
+      <ol>
+        <li><strong>A</strong>: "18 years managing cybersecurity across banking and technology organisations… my team and I". This is <strong>ethos</strong>. It gives no reason to care and no proof.</li>
+        <li><strong>B</strong>: what happened to a comparable company could happen to us, and customer information is at stake. This is <strong>pathos</strong>. It gives no proof, and some students found it exaggerated.</li>
+        <li><strong>C</strong>: invest ₹5 crore, and exposure falls by ₹8 crore. This is <strong>logos</strong>; a student read it as 8 − 5 = ₹3 crore beyond the cost. It lacks credibility and a reason to care.</li>
+        <li>The whole class picked C. The catch: none of the three persuades alone, and combining them is rhetoric.</li>
+      </ol>
+      <p class="answer">A ethos · B pathos · C logos. None works alone, so combine all three.</p>
+    </details>
+    <details class="worked">
+      <summary>Titan clip: label each of Desai's lines with its appeal, then give his sequence.<span class="tag">S8 24 Oct</span></summary>
+      <ol>
+        <li>"Lakmé changed the way women look at themselves… nothing for men." This is <strong>logos</strong>, a market gap drawn from history and the market. He frames it emotionally, so the logos builds into pathos.</li>
+        <li>"No one is making premium watches in India"; the only options are a pivot or an IPO that isn't viable now. This is <strong>logos</strong>.</li>
+        <li>"For those who want to change their time," plus the status imagery of film stars, doctors and lawyers. This is <strong>pathos</strong>.</li>
+        <li>"We are the best candidates to do this." This is <strong>ethos</strong>, and it is organisational: Tata's brand trust. Some students said there was no ethos, pointing to "Your Hindi has definitely improved" as proof of a long relationship. The instructor's view: the ethos is there, at the end.</li>
+      </ol>
+      <p class="answer">Logos → Pathos → Ethos, chosen because Desai knew JRD (PAIBOC)</p>
+    </details>
+    <details class="worked">
+      <summary>Some students felt Pitch B was exaggerated. When does an emotional appeal like it stay persuasion, and when does it become manipulation?<span class="tag">S8 24 Oct</span></summary>
+      <ol>
+        <li>Apply the persuasion test: transparent facts, information and data, honest reasons, free will kept, sound argument.</li>
+        <li>Pitch B stays persuasion if the comparable company's incident is real and stated openly, the risk to customer data is honest, and the committee still decides freely.</li>
+        <li>It becomes manipulation if it hides or inflates facts, or plays on <strong>fear</strong> to take the choice away. That is exploiting a vulnerability.</li>
+        <li>This is also the pathos trap: stirring emotion (making the audience cry or feel bad) instead of making them care. The fix is to build rapport first and then pair the story with logos.</li>
+      </ol>
+      <p class="answer">Persuasion while it is honest and the choice is kept. Manipulation once fear replaces sound argument.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide"><p>Full-course recap for DSM-104 Managerial Communication, S1–S10 (Prof. Varun Rijhwani, IIM Indore). Built from the lecture notes in <code>lectures/</code>. Frameworks are presented as they were taught in class. The widgets replay the lecture's own examples: the 'I didn't say he stole my money' stress drill (S2), the vision-and-dental re-sequencing exercise and the leave-system email (S4), the China-manufacturing seminar (S7), and the ₹5 crore cybersecurity pitch with the Titan clip (S8). Figures quoted from the S9–S10 group presentations are the groups' own claims, several ASR-garbled, and are flagged where they appear.</p></div>
+</footer>
+<script>
+(function(){
+  "use strict";
+  const COLORS = { amber:'#E8A33D', teal:'#4FA8A0', ink:'#EDEAE2', dim:'#9BA3AF', faint:'#5B6270', line:'#2A2F38', rust:'#C1594A' };
+  const NS = 'http://www.w3.org/2000/svg';
+  const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function el(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function h(tag, cls, txt){ const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function clear(node){ while(node.firstChild) node.removeChild(node.firstChild); }
+  function esc(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+  const ns = s => String(s).replace(/-/g,'−');
+  function frame(opts){ const {x0=70,y0=20,w=640,h=250} = opts; return {x0,y0,w,h,x1:x0+w,y1:y0+h}; }
+  function ticks(min,max,step){ const a=[]; for(let v=min; v<=max+1e-9; v+=step) a.push({val:Math.round(v*100)/100, frac:(v-min)/(max-min)}); return a; }
+  function drawAxes(svg,f,xTicks,yTicks,xLabel,yLabel,xFmt,yFmt){
+    xTicks.forEach(t=>{ const gx=f.x0+t.frac*f.w;
+      svg.appendChild(el('line',{x1:gx,y1:f.y0,x2:gx,y2:f.y1,class:'gridline'}));
+      svg.appendChild(el('text',{x:gx,y:f.y1+18,class:'tick','text-anchor':'middle'})).textContent = xFmt?xFmt(t.val):t.val;
+    });
+    yTicks.forEach(t=>{ const gy=f.y1-t.frac*f.h;
+      svg.appendChild(el('line',{x1:f.x0,y1:gy,x2:f.x1,y2:gy,class:'gridline'}));
+      const lbl=el('text',{x:f.x0-10,y:gy+4,class:'tick','text-anchor':'end'}); lbl.textContent=yFmt?yFmt(t.val):t.val; svg.appendChild(lbl);
+    });
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y1,x2:f.x1,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y0,x2:f.x0,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('text',{x:(f.x0+f.x1)/2,y:f.y1+40,class:'axislabel','text-anchor':'middle'})).textContent = xLabel;
+    const yl=el('text',{x:16,y:(f.y0+f.y1)/2,class:'axislabel','text-anchor':'middle'});
+    yl.setAttribute('transform',`rotate(-90 16 ${(f.y0+f.y1)/2})`); yl.textContent=yLabel; svg.appendChild(yl);
+  }
+  window.__ds = {}; window.__recap = {};   // debug hook: each widget exposes its pure step generator for verification
+
+  // Keyed element pool: reuse the same DOM element for the same logical item across
+  // steps, so a CSS transition carries it from its old spot to its new one.
+  function Pool(parent){
+    const map = new Map();
+    return {
+      get(key, make){
+        let e = map.get(key), fresh = false;
+        if (!e){ e = make(); parent.appendChild(e); map.set(key, e); fresh = true; }
+        e.__seen = true; return [e, fresh];
+      },
+      begin(){ map.forEach(e => e.__seen = false); },
+      end(){ map.forEach((e,k) => { if (!e.__seen){ e.remove(); map.delete(k); } }); },
+      clear(){ map.forEach(e => e.remove()); map.clear(); }
+    };
+  }
+  // Place an element; a brand-new element can start from `from` and glide in.
+  function place(e, x, y, fresh, from, anim){
+    if (fresh && from && anim && !REDUCED){
+      e.style.transition = 'none'; e.style.left = from[0]+'px'; e.style.top = from[1]+'px';
+      if (from[2] != null) e.style.opacity = from[2];
+      void e.offsetWidth; e.style.transition = ''; e.style.opacity = '';
+    }
+    if (!anim){ e.style.transition = 'none'; }
+    e.style.left = x+'px'; e.style.top = y+'px';
+    if (!anim){ void e.offsetWidth; e.style.transition = ''; }
+  }
+
+  // Fit a stage into its scroller: shrink a wide drawing (never below minK, so text stays
+  // legible) and let the rest scroll sideways; follow() keeps the action in view.
+  function fit(stage, w, h, minK){
+    const sc = stage.parentNode, avail = sc.clientWidth || w;
+    w = Math.max(w, avail);
+    const k = Math.max(minK || 0.72, Math.min(1, avail / w));
+    stage.style.width = w + 'px'; stage.style.height = h + 'px';
+    stage.style.transformOrigin = '0 0'; stage.style.transform = k < 1 ? `scale(${k})` : '';
+    stage.style.marginRight = (k < 1 ? -(1-k)*w : 0) + 'px'; stage.style.marginBottom = (k < 1 ? -(1-k)*h : 0) + 'px';
+    stage.__k = k; return k;
+  }
+  function follow(stage, x, anim){
+    const sc = stage.parentNode, k = stage.__k || 1;
+    if (x == null || sc.scrollWidth <= sc.clientWidth + 2) return;
+    const left = Math.max(0, x*k - sc.clientWidth/2);
+    if (Math.abs(sc.scrollLeft - left) < 30) return;
+    try { sc.scrollTo({ left, behavior: anim && !REDUCED ? 'smooth' : 'auto' }); } catch(e){ sc.scrollLeft = left; }
+  }
+
+  // ---------- the shared player: precomputed states, render(state i) from scratch ----------
+  function Player(panel, render, opts){
+    opts = opts || {};
+    const q = s => panel.querySelector(s);
+    const codeEl = q('pre.pcode'), varsEl = q('.vars'), cap = q('.caption');
+    const bReset = q('[data-act=reset]'), bBack = q('[data-act=back]'), bPlay = q('[data-act=play]'), bNext = q('[data-act=next]');
+    const ctr = q('.ctr'), bar = q('.bar i');
+    let states = [], code = [], i = 0, timer = null, prevVars = {};
+    function setCode(lines){
+      code = lines; clear(codeEl);
+      lines.forEach((l,k) => { const s = h('span','ln'); s.textContent = l || ' '; s.dataset.k = k; codeEl.appendChild(s); });
+    }
+    function paint(anim){
+      const s = states[i];
+      codeEl.querySelectorAll('.ln').forEach(ln => {
+        const k = +ln.dataset.k, on = [].concat(s.line == null ? [] : s.line);
+        ln.classList.toggle('on', on.includes(k) && !(s.bad && s.bad.includes(k)));
+        ln.classList.toggle('bad', !!(s.bad && s.bad.includes(k)));
+      });
+      clear(varsEl);
+      (s.vars || []).forEach(([k,v]) => {
+        const sp = h('span'); sp.innerHTML = esc(k)+' = <b>'+esc(v)+'</b>';
+        if (anim && prevVars[k] !== undefined && prevVars[k] !== String(v)) sp.classList.add('chg');
+        varsEl.appendChild(sp);
+      });
+      prevVars = {}; (s.vars || []).forEach(([k,v]) => prevVars[k] = String(v));
+      cap.innerHTML = s.cap || '';
+      ctr.textContent = 'step ' + i + ' / ' + (states.length-1);
+      bar.style.width = (states.length > 1 ? i/(states.length-1)*100 : 0) + '%';
+      bBack.disabled = bReset.disabled = i === 0; bNext.disabled = i === states.length-1;
+      render(s, anim, i);
+    }
+    function go(k, anim){ i = Math.max(0, Math.min(states.length-1, k)); paint(anim); }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } bPlay.textContent = '▶ Play'; }
+    function play(){
+      if (timer){ stop(); return; }
+      if (i >= states.length-1) go(0, false);
+      bPlay.textContent = '❚❚ Pause';
+      timer = setInterval(() => { if (i >= states.length-1) stop(); else go(i+1, true); }, opts.delay || 1150);
+    }
+    bNext.addEventListener('click', () => { stop(); go(i+1, true); });
+    bBack.addEventListener('click', () => { stop(); go(i-1, true); });
+    bReset.addEventListener('click', () => { stop(); go(0, true); });
+    bPlay.addEventListener('click', play);
+    panel.addEventListener('keydown', e => {
+      if (e.target.matches('input,select,textarea')) return;
+      if (e.key === 'ArrowRight'){ e.preventDefault(); stop(); go(i+1, true); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); stop(); go(i-1, true); }
+      if (e.key === ' '){ e.preventDefault(); play(); }
+    });
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => states.length && paint(false), 120); });
+    return {
+      load(st, lines, at){ stop(); states = st; if (lines) setCode(lines); prevVars = {}; go(at == null ? 0 : at, false); },
+      goto(k){ stop(); go(k, true); },
+      get index(){ return i; }, get length(){ return states.length; }
+    };
+  }
+  // Wire a preset button row: data-p attributes → callback, with the active one highlighted.
+  function presets(row, cb){
+    row.querySelectorAll('[data-p]').forEach(b => b.addEventListener('click', () => {
+      row.querySelectorAll('[data-p]').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.p);
+    }));
+  }
+
+  // ================= m2: 2 · Non-verbal =================
+// ================= m2 widget: Stress one word (S2, 29 Aug) =================
+  (function(){
+    const panel = document.getElementById('m2Stress'); if (!panel) return;
+    const chips = document.getElementById('m2Chips'), cap = document.getElementById('m2Cap'),
+          readout = document.getElementById('m2Read'), verdict = document.getElementById('m2Verdict'),
+          slots = document.getElementById('m2Found');
+    const WORDS = ['I', 'didn’t', 'say', 'he', 'stole', 'my', 'money'];
+    // exactly as in the S2 table
+    const MEANINGS = [
+      'someone else said it',
+      'I never said it (denial)',
+      'I hinted or implied it',
+      'someone else stole it',
+      'he borrowed or was given it',
+      'he stole someone else’s money',
+      'he stole something else'
+    ];
+    function sentence(k){ return WORDS.map((w, i) => i === k ? w.toUpperCase() : w).join(' '); }
+    const found = new Set();
+    let cur = 0;
+    window.__recap = window.__recap || {};
+    window.__recap.m2 = {
+      words: () => WORDS.slice(),
+      meanings: () => MEANINGS.slice(),
+      meaning: k => MEANINGS[k],
+      sentence,
+      foundCount: () => found.size,
+      allFound: () => found.size === WORDS.length
+    };
+
+    const btns = WORDS.map((w, k) => {
+      const b = h('button', 'btn', w);
+      b.type = 'button';
+      b.addEventListener('click', () => select(k));
+      chips.appendChild(b);
+      return b;
+    });
+
+    function render(){
+      btns.forEach((b, k) => {
+        const on = k === cur;
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        b.style.fontSize = on ? '19px' : '15px';
+        b.style.fontWeight = on ? '600' : '';
+        b.style.color = on ? 'var(--teal)' : (found.has(k) ? 'var(--ink-dim)' : 'var(--ink-faint)');
+        b.style.borderColor = on ? 'var(--teal)' : '';
+        b.style.opacity = on ? '1' : '.6';
+      });
+      const html = WORDS.map((w, i) => i === cur ? '<span class="t">' + esc(w.toUpperCase()) + '</span>' : esc(w)).join(' ');
+      cap.innerHTML = '“' + html + '” → <b>' + esc(MEANINGS[cur]) + '</b>. Stress on <code class="t">' + esc(WORDS[cur]) + '</code> moves the denial onto that word alone; the other six words are unchanged.';
+      clear(slots);
+      WORDS.forEach((w, k) => {
+        const sp = h('span');
+        sp.innerHTML = found.has(k) ? '<b>' + esc(w) + '</b>' : '?';
+        slots.appendChild(sp);
+      });
+      const n = found.size;
+      readout.textContent = 'meanings found ' + n + '/7';
+      if (n === WORDS.length){
+        verdict.className = 'verdict good';
+        verdict.textContent = 'same 7 words, 7 meanings: the 38% channel carries meaning, not decoration.';
+      } else {
+        verdict.className = 'verdict warn';
+        verdict.textContent = n + '/7 found. The words never change; stress another one to hear a new meaning.';
+      }
+    }
+    function select(k){
+      cur = (k + WORDS.length) % WORDS.length;
+      found.add(cur);
+      render();
+    }
+    panel.addEventListener('keydown', e => {
+      if (e.target.matches('input,select,textarea')) return;
+      if (e.key === 'ArrowRight'){ e.preventDefault(); select(cur + 1); btns[cur].focus(); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); select(cur - 1); btns[cur].focus(); }
+    });
+    select(0);   // resting state: stress on "I" → someone else said it
+  })();
+
+  // ================= m4: 4 · Routine messages =================
+// ================= m4 widget: Build the pyramid (S4, 19 Sep) =================
+  (function(){
+    const panel = document.getElementById('m4Panel'); if (!panel) return;
+    const tray = document.getElementById('m4Tray'), pyr = document.getElementById('m4Pyr'), subj = document.getElementById('m4Subj'),
+          preRow = document.getElementById('m4Pre'), scenRow = document.getElementById('m4Scen'),
+          readout = document.getElementById('m4Read'), verdict = document.getElementById('m4Verdict');
+    const MONO = '"IBM Plex Mono",monospace';
+
+    const S = {
+      ins: {
+        name:'vision & dental',
+        tray:['1','2','3','4'],
+        correct:['3','1','4','2'],
+        tiers:['most important','key details','less important','background · may drop'],
+        correctStr:'3 → 1 → 4 → 2',
+        good:'correct: 3 → 1 → 4 → 2. Announcement, meeting details, who may come, background last. (In class, 1 of the 6 proposed orders got here.)',
+        subject:null, close:null,
+        chunks:{
+          '1':{tag:'1', text:'“Please meet me in the first-floor conference room.” (+ sign-up sheet instruction)',
+               why:'Key details: where to go and what to do (sign up). It looks like a CTA, but the hierarchy of importance overrides the “CTA at the end” habit.',
+               short:'the meeting details come right after the announcement'},
+          '2':{tag:'2', text:'“A number of employees have asked about obtaining vision and dental insurance. Our company is happy to make this information available to you.”',
+               why:'Background / origin (“employees have asked…”). In the direct approach it goes last and could even be dropped.',
+               short:'background goes last, or is dropped'},
+          '3':{tag:'3', text:'“I have scheduled short presentations…”',
+               why:'The announcement: presentations have been scheduled. That is what the email is, so it goes first.',
+               short:'the announcement goes first'},
+          '4':{tag:'4', text:'“These meetings are open to all employees.”',
+               why:'It says which meetings are open, so it must follow the meeting details. Less important.',
+               short:'“open to all” must follow the meeting details it refers to'}
+        }
+      },
+      leave: {
+        name:'leave system',
+        tray:['a','b','c','d','e'],
+        correct:['e','c','d','b','a'],
+        tiers:['most important','key detail / action','supporting','less important','background · may drop'],
+        correctStr:'E → C → D → B → A (announcement → CTA → demo → benefits → background)',
+        good:'correct: announcement → bold CTA (activate by 30 Oct) → Zoom demo → benefits → background, then a positive close.',
+        subject:'Action required: activate leave account by Oct 30 — new system from Nov 1',
+        close:'+ close on a positive, encouraging note; invite questions',
+        chunks:{
+          a:{tag:'A', text:'HR expects the system to reduce delays.',
+             why:'Background: why the change was made. It goes last and could even be dropped.',
+             short:'background goes last'},
+          b:{tag:'B', text:'You can check your leave balance and track approval status.',
+             why:'Benefits: useful, but less important than what the reader must do. They share paragraph 4 with the background.',
+             short:'benefits are less important than the action and the demo'},
+          c:{tag:'C', text:'<b>Activate your account by 30 October.</b>',
+             why:'The action with a deadline. It is time-sensitive, so it sits right under the announcement, bolded so it isn’t missed (and it also goes in the subject).',
+             short:'the activate-by-30-Oct action comes right after the announcement'},
+          d:{tag:'D', text:'A Zoom demo / training session will be held; the link follows in a separate email.',
+             why:'Supporting help for the transition. It follows the action.',
+             short:'the demo is supporting help, after the action'},
+          e:{tag:'E', text:'From 1 November, all leave requests go through the new online leave-management system.',
+             why:'The announcement. It passes the first-paragraph test: the reader knows what the email is about.',
+             short:'the announcement goes first'}
+        }
+      }
+    };
+    const CLASS = ['3-1-4-2','3-2-4-1','3-1-2-4','2-3-4-1','2-3-1-4','3-4-1-2'];
+
+    // Pure scorer: order = array (length = tiers) of chunk ids or null.
+    function score(key, order){
+      const sc = S[key], n = sc.correct.length;
+      const tiers = sc.correct.map((want, i) => {
+        const id = order[i] == null ? null : String(order[i]);
+        return { pos:i+1, id, want, ok: id === want, belongs: id == null ? null : sc.correct.indexOf(id) + 1 };
+      });
+      const placed = tiers.filter(t => t.id != null).length, right = tiers.filter(t => t.ok).length;
+      return { tiers, placed, right, n, complete: placed === n, correct: placed === n && right === n,
+               misplaced: tiers.filter(t => t.id != null && !t.ok).map(t => ({ id:t.id, at:t.pos, belongs:t.belongs })) };
+    }
+    window.__recap = window.__recap || {};
+    window.__recap.m4 = {
+      score,
+      correct: k => S[k].correct.slice(),
+      classAnswers: CLASS.slice(),
+      classCorrect: () => CLASS.filter(a => score('ins', a.split('-')).correct)   // expected: ['3-1-4-2']
+    };
+
+    let key = 'ins', order = '3-2-4-1'.split('-');
+
+    function setOn(p){ preRow.querySelectorAll('[data-p]').forEach(b => b.classList.toggle('on', b.dataset.p === p)); }
+    function buildPre(){
+      clear(preRow);
+      const list = key === 'ins' ? CLASS.map(a => [a, 'class: ' + a]) : [['e-c-d-b-a', 'endorsed: E-C-D-B-A']];
+      list.forEach(([p, lbl]) => { const b = h('button', 'btn', lbl); b.dataset.p = p; preRow.appendChild(b); });
+      const c = h('button', 'btn', 'clear'); c.dataset.p = 'clear'; preRow.appendChild(c);
+      presets(preRow, p => { order = p === 'clear' ? new Array(S[key].correct.length).fill(null) : p.split('-'); render(); });
+    }
+
+    function render(){
+      const sc = S[key], r = score(key, order), narrow = (panel.clientWidth || 700) < 520;
+      const step = narrow ? 5 : 8;
+
+      // tray of unplaced chunks
+      clear(tray);
+      tray.style.cssText = 'display:flex;flex-direction:column;gap:6px;margin:4px 0 14px;';
+      const left = sc.tray.filter(id => !order.includes(id));
+      left.forEach(id => {
+        const c = sc.chunks[id], b = h('button', 'btn');
+        b.style.cssText = 'text-align:left;border-radius:6px;white-space:normal;font-family:inherit;font-size:14px;line-height:1.45;padding:8px 12px;';
+        b.innerHTML = '<b style="color:var(--ink);font-family:' + MONO + '">' + c.tag + '</b> · ' + c.text;
+        b.addEventListener('click', () => {
+          const k = order.indexOf(null); if (k < 0) return;
+          order[k] = id; setOn(null); render();
+        });
+        tray.appendChild(b);
+      });
+      if (!left.length){ const p = h('p', 'hint', 'All chunks placed. Click a tier to take one back.'); p.style.margin = '0'; tray.appendChild(p); }
+
+      // endorsed subject line (leave system only)
+      subj.hidden = !sc.subject;
+      if (sc.subject){
+        subj.style.cssText = 'font-family:' + MONO + ';font-size:13px;color:var(--teal);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:0 0 10px;background:var(--bg);overflow-wrap:anywhere;';
+        subj.innerHTML = '<span style="color:var(--ink-faint)">Subject:</span> ' + esc(sc.subject) +
+          '<br><span style="color:var(--ink-faint);font-size:11px">endorsed in class: action + deadline up front, months abbreviated</span>';
+      }
+
+      // the pyramid, widest tier on top
+      clear(pyr);
+      r.tiers.forEach((t, i) => {
+        const c = t.id ? sc.chunks[t.id] : null;
+        const col = !c ? 'var(--line)' : (t.ok ? 'var(--teal)' : 'var(--amber)');
+        const d = h('div');
+        d.style.cssText = 'width:' + (100 - i*step) + '%;margin:0 auto 6px;border:1.5px ' + (c ? 'solid' : 'dashed') + ' ' + col +
+          ';border-radius:6px;padding:8px 12px;background:var(--bg);cursor:' + (c ? 'pointer' : 'default') + ';';
+        const lab = h('div');
+        lab.style.cssText = 'font-family:' + MONO + ';font-size:11px;color:' + (c ? col : 'var(--ink-faint)') + ';margin-bottom:3px;';
+        lab.textContent = 'tier ' + (i+1) + ' · ' + sc.tiers[i] + (!c ? '' : t.ok ? '  ✓' : '  ✗ chunk ' + c.tag + ' belongs in tier ' + t.belongs);
+        const tx = h('div');
+        tx.style.cssText = 'font-size:14.5px;line-height:1.45;color:' + (c ? 'var(--ink)' : 'var(--ink-faint)') + ';';
+        tx.innerHTML = c ? '<b style="color:' + col + ';font-family:' + MONO + '">' + c.tag + '</b> · ' + c.text : 'empty: click a chunk above';
+        d.appendChild(lab); d.appendChild(tx);
+        if (c){
+          const why = h('div', null, c.why);
+          why.style.cssText = 'font-size:13px;line-height:1.45;margin-top:4px;color:' + col + ';';
+          d.appendChild(why);
+          d.setAttribute('role', 'button'); d.tabIndex = 0;
+          d.setAttribute('aria-label', 'remove chunk ' + c.tag + ' from tier ' + (i+1));
+          const take = () => { order[i] = null; setOn(null); render(); };
+          d.addEventListener('click', take);
+          d.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); take(); } });
+        }
+        pyr.appendChild(d);
+      });
+      if (sc.close){
+        const cl = h('div', null, sc.close);
+        cl.style.cssText = 'width:' + (100 - r.n*step) + '%;margin:0 auto;border:1px dashed var(--line);border-radius:6px;padding:6px 12px;font-size:13px;color:var(--ink-faint);text-align:center;';
+        pyr.appendChild(cl);
+      }
+
+      // readout + verdict
+      const str = order.join('-'), cls = key === 'ins' && r.complete && CLASS.includes(str) ? ' · class answer ' + str : '';
+      readout.textContent = sc.name + ' · ' + r.right + '/' + r.n + ' tiers right' + cls;
+      if (!r.complete){
+        verdict.className = 'verdict eq';
+        verdict.textContent = r.placed + ' of ' + r.n + ' chunks placed · ' + r.right + ' right so far. Next click fills tier ' + (order.indexOf(null) + 1) + '.';
+      } else if (r.correct){
+        verdict.className = 'verdict good';
+        verdict.textContent = sc.good;
+      } else {
+        verdict.className = 'verdict bad';
+        verdict.textContent = 'Not yet. ' + r.misplaced.map(m => 'chunk ' + sc.chunks[m.id].tag + ': tier ' + m.at + ' → tier ' + m.belongs + ' (' + sc.chunks[m.id].short + ')').join(' · ') +
+          '. Correct: ' + sc.correctStr + '.';
+      }
+    }
+
+    presets(scenRow, p => {
+      key = p; buildPre();
+      const def = key === 'ins' ? '3-2-4-1' : 'e-c-d-b-a';
+      order = def.split('-'); setOn(def); render();
+    });
+    buildPre(); setOn('3-2-4-1'); render();
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+  })();
+
+  // ================= m7: 7 · Presentation structure =================
+// ================= Widget m7: Build the China seminar (S7, 17 Oct) =================
+  (function(){ const panel = document.getElementById('m7Panel'); if (!panel) return;
+    const svg = document.getElementById('m7Strip'), box = document.getElementById('m7Text'), lab = document.getElementById('m7Lab');
+    const readout = document.getElementById('m7Read'), verdict = document.getElementById('m7Verdict');
+    const CODE = [
+      'PREVIEW',
+      '  1  attention getter',
+      '  2  positioning statement',
+      '  3  overview',
+      'VIEW   key message 1',
+      '  P  point',
+      '  R  reason',
+      '  E  example',
+      '  P  point, restated',
+      '  →  USP',
+      '  … repeat PREP: 2–4 messages',
+      'REVIEW',
+      '  thanks + recap',
+      '  reinforce + CTA'];
+    const T = s => '<span style="color:var(--teal)">' + s + '</span>';
+    const A = s => '<span style="color:var(--amber)">' + s + '</span>';
+    const Y = T('you');
+    const STEPS = [
+      { sec:'Preview', comp:'attention getter', role:'hook', line:1, w:'hook', n:'AG',
+        text:'<p><i>Not scripted in class.</i> The options named for this topic:</p><ul><li>an anecdote about overseas manufacturing</li><li>a statistic about it (one only, no data dump)</li><li>a related rhetorical question</li></ul>',
+        cap:'<b>Attention getter.</b> In the first two minutes the audience decides whether to keep listening. Avoid a joke unless you know the room. This is the <span class="t">primacy</span> slot, so give it to your strongest speaker.' },
+      { sec:'Preview', comp:'positioning statement', role:'position', line:2, w:'position', n:'PS',
+        text:'“Today I’m going to discuss how small businesses like ' + T('yours') + ' can easily move some or all of ' + T('your') + ' manufacturing to China to lower production costs and meet other manufacturing goals. In fact, I’m going to explain how ' + Y + ' could have a manufacturing presence in China in as little as <b>1 month</b>.”',
+        cap:'<b>Positioning statement</b> plants the topic: what the talk will do and what to look out for. The “1 month” promise is a hook that the View must now earn.' },
+      { sec:'Preview', comp:'overview', role:'overview', line:3, w:'overview', n:'OV',
+        text:'“I’m going to focus on three primary benefits of sourcing and manufacturing in China. The first and most compelling reason is that ' + Y + ' can reduce production cost by <b>40–60%</b>. The second reason is that ' + Y + ' can maintain and even increase the quality of ' + T('your') + ' products. The final reason is that ' + Y + ' can cut time to market by another <b>1–3 months</b>.”',
+        cap:'<b>Overview</b> breaks the positioning statement into segments (three benefits), which previews the takeaways. It is conversational and stays within three sentences. Count the <span class="t">“you”</span>s.' },
+      { sec:'View', comp:'P · point', role:'P1', line:5, w:'P', n:'P',
+        text:'“It’s challenging for most small businesses to set up manufacturing in China.”',
+        cap:'The View begins. <b>P, point:</b> lead with the conclusion. Assume a <b>skeptical</b> audience; the next three steps have to earn it.' },
+      { sec:'View', comp:'R · reason', role:'R', line:6, w:'R', n:'R',
+        text:'<p>Major barriers to entry:</p><ul><li>finding and building relationships with Chinese suppliers</li><li>having engineers on the ground</li><li>learning to deal with a different business culture</li></ul>',
+        cap:'<b>R, reason:</b> why you hold the position. Three concrete barriers make the point believable.' },
+      { sec:'View', comp:'E · example', role:'E', line:7, w:'E', n:'E',
+        text:'“Let me give you a quick example of clients we’ve worked with to successfully set up manufacturing in the past year. Their initial efforts were costly and disappointing.”<p style="color:var(--ink-dim)">→ then their specific challenges and how much they spent, with <b>real statistics</b>. Never fabricate them.</p>',
+        cap:'<b>E, example:</b> evidence the skeptic can check. One strong, relevant case beats a pile of figures, because the problem today is information overload.' },
+      { sec:'View', comp:'P · point restated', role:'P2', line:8, w:'P', n:'P',
+        text:'“Without access to relationships with Chinese manufacturers and suppliers, and an on-the-ground presence to monitor operations, small businesses can find it very challenging and costly to set up production in China.”',
+        cap:'<b>P again:</b> the same point, now backed by the reason and the example. The audience hears it first as a claim and then as a conclusion.' },
+      { sec:'View', comp:'USP', role:'usp', line:9, w:'USP', n:'USP',
+        text:'<p><i>Lecture’s description:</i> you have the contacts and the on-the-ground presence to solve exactly these problems.</p><p style="color:var(--ink-dim)">The evidence showed the difficulty; the offer resolves it.</p>',
+        cap:'<b>USP:</b> the restated problem sets up the offer. Then repeat PREP for the next key message, with 2–4 messages in total and 4 at most.' },
+      { sec:'Review', comp:'thanks + recap', role:'recap', line:12, w:'recap', n:'RC',
+        text:'“Thank you for attending this seminar. I want to quickly mention how ' + Y + ' can get a more specific understanding of the savings ' + Y + ' can achieve by producing in China.”',
+        cap:'The Review begins with <b>gratitude</b>, then a one-sentence <b>recap</b>: understanding the savings.' },
+      { sec:'Review', comp:'reinforce + CTA', role:'cta', line:13, w:'CTA', n:'CTA',
+        text:'“In ' + T('your') + ' packets, I have enclosed a <b>free estimate form</b>. If ' + Y + ' can provide some basic information about one of ' + T('your') + ' products, we can have cost estimates and shipping details back to ' + Y + ' <b>within a week</b>. The estimate is free; there’s no obligation.”',
+        cap:'The form does two jobs. It <b>reinforces</b> the savings message later with real numbers, and it is a <span class="t">specific CTA</span>: one form, one product, one week, free. This is the <span class="t">recency</span> slot.' }
+    ];
+    const BAD = {
+      8: { comp:'thanks only', ok:false, text:A('“Thank you for your time.”'), why:'“Thank you for your time” alone: gratitude, but no recap',
+           cap:'<span class="r">Gratitude only.</span> The lecture says not to end with just “thank you for your time”: the key messages never come back.' },
+      9: { comp:'vague “reach out”', ok:false, text:A('“Feel free to reach out to us.”'), why:'“Feel free to reach out”: castles in the air, not a CTA',
+           cap:'<span class="r">“Building castles in the air.”</span> Nothing specific to do, and it lands in the <b>recency</b> slot, the part they remember best.' }
+    };
+
+    // Pure check: which sections exist, is there a recap, is the CTA specific?
+    function check(parts){
+      const SECS = ['Preview','View','Review'];
+      const present = SECS.filter(x => parts.some(p => p.sec === x));
+      const missing = SECS.filter(x => !present.includes(x));
+      const recap = parts.some(p => p.role === 'recap' && p.ok !== false);
+      const cta = parts.some(p => p.role === 'cta' && p.ok !== false);
+      return { present, missing, recap, ctaSpecific: cta, complete: missing.length === 0 && cta };
+    }
+    // Pure step generator: variant 'ok' (S7 script) or 'bad' (vague ending)
+    function gen(variant){
+      const steps = STEPS.map((s, k) => Object.assign({}, s, variant === 'bad' && BAD[k] ? BAD[k] : {}));
+      const flags = steps.map(x => x.ok !== false), last = steps.length - 1, S = [];
+      steps.forEach((st, k) => {
+        const effect = k === 0 ? 'primacy' : k === last ? 'recency' : '–';
+        S.push({ idx:k, line:st.line, bad: st.ok === false ? [st.line] : null, sec:st.sec, comp:st.comp, text:st.text, cap:st.cap,
+          okNow: st.ok !== false, why: st.why, flags, chk: check(steps.slice(0, k + 1)), effect,
+          vars:[['section', st.sec], ['component', st.comp], ['memory', effect]] });
+      });
+      const c = check(steps);
+      S.push({ idx:steps.length, final:true, line:[0,4,11], bad: c.complete ? null : steps.filter(x => x.ok === false).map(x => x.line),
+        sec:'all', comp:'structure check', flags, chk:c, effect:'primacy + recency',
+        text: c.complete
+          ? '<ul><li>Preview: attention getter · positioning (1 month) · overview (40–60%, quality, 1–3 months)</li><li>View: PREP on “it’s challenging” → USP · repeat for messages 2–4</li><li>Review: thanks + recap · free estimate form, back within a week</li></ul>'
+          : '<ul><li>Preview ✓ · View ✓</li><li>Review: ' + A('“Thank you for your time.” “Feel free to reach out to us.”') + ' Gratitude only: no recap and no specific next step.</li></ul>',
+        cap: c.complete
+          ? 'Check: <span class="t">Preview, View and Review are all present</span>, and the close asks for one concrete thing. The two best-remembered slots carry the hook (primacy) and the CTA (recency).'
+          : '<span class="r">Without a CTA, the presentation is incomplete.</span> The talk built interest and then gave the audience nothing to do. Switch back to the S7 script to see the fix.',
+        vars:[['section','all three'], ['CTA', c.ctaSpecific ? 'specific' : 'missing'], ['memory','primacy + recency']] });
+      return S;
+    }
+    window.__recap = window.__recap || {};
+    window.__recap.m7 = { gen, check, previewMinutes: t => [+(0.10 * t).toFixed(2), +(0.15 * t).toFixed(2)] };
+
+    function strip(s){
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      const W = narrow ? 420 : 760, H = narrow ? 112 : 92;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.classList.toggle('narrow', narrow);
+      clear(svg);
+      const pad = 10, gap = narrow ? 12 : 18, inn = 3, counts = [3,5,2], secs = ['Preview','View','Review'];
+      const segW = (W - 2*pad - 2*gap - 7*inn) / 10;
+      const yL = narrow ? 20 : 16, yB = narrow ? 30 : 26, bh = narrow ? 30 : 26, yBadge = yB + bh + (narrow ? 26 : 22);
+      let x = pad; const xs = [];
+      counts.forEach((cnt, si) => {
+        const t = el('text', {x, y:yL, class:'tick'}); t.textContent = secs[si].toUpperCase();
+        t.style.fill = (s.final || s.sec === secs[si]) ? COLORS.teal : COLORS.dim; svg.appendChild(t);
+        for (let j = 0; j < cnt; j++){ xs.push(x); x += segW + (j < cnt - 1 ? inn : 0); }
+        x += gap;
+      });
+      for (let m = 0; m < 10; m++){
+        const cur = m === s.idx, done = s.final || m < s.idx, bad = !s.flags[m] && (done || cur);
+        const fill = bad ? 'rgba(193,89,74,.25)' : cur ? COLORS.teal : done ? '#2F5C57' : '#20252E';
+        const stroke = bad ? COLORS.rust : cur ? COLORS.teal : done ? '#2F5C57' : '#3A414D';
+        svg.appendChild(el('rect', {x:xs[m], y:yB, width:segW, height:bh, rx:4, fill, stroke, 'stroke-width':1.5}));
+        const t = el('text', {x:xs[m] + segW/2, y:yB + bh/2 + (narrow ? 5 : 4), class:'tick', 'text-anchor':'middle'});
+        t.textContent = narrow ? STEPS[m].n : STEPS[m].w;
+        t.style.fill = cur && !bad ? '#14171C' : bad ? COLORS.rust : done ? COLORS.ink : COLORS.faint;
+        svg.appendChild(t);
+      }
+      if (s.idx === 0 || s.final){
+        const t = el('text', {x:xs[0], y:yBadge, class:'tick', 'text-anchor':'start'});
+        t.textContent = narrow ? '▲ primacy' : '▲ primacy · remembered most'; t.style.fill = COLORS.teal; svg.appendChild(t);
+      }
+      if (s.idx === 9 || s.final){
+        const rc = s.flags[9] ? COLORS.teal : COLORS.rust;
+        const t = el('text', {x:xs[9] + segW, y:yBadge, class:'tick', 'text-anchor':'end'});
+        t.textContent = narrow ? 'recency ▲' : 'remembered most · recency ▲'; t.style.fill = rc; svg.appendChild(t);
+      }
+    }
+
+    function render(s){
+      // contrast principle: current line teal, everything else dimmed
+      panel.querySelectorAll('pre.pcode .ln').forEach(ln => {
+        const on = ln.classList.contains('on'), bad = ln.classList.contains('bad');
+        ln.style.borderLeftColor = on ? 'var(--teal)' : '';
+        ln.style.background = on ? 'rgba(79,168,160,.15)' : '';
+        ln.style.opacity = (on || bad) ? '1' : '.7';
+      });
+      strip(s);
+      lab.textContent = s.final ? 'STRUCTURE CHECK' : s.sec.toUpperCase() + ' · ' + s.comp + ' — lecture text (S7)';
+      box.innerHTML = s.text;
+      box.style.borderLeftColor = (s.final ? s.chk.complete : s.okNow) ? 'var(--teal)' : 'var(--rust)';
+      const c = s.chk;
+      if (s.final){
+        readout.textContent = 'Preview ✓ · View ✓ · Review ' + (c.complete ? '✓' : '✗');
+        verdict.className = 'verdict ' + (c.complete ? 'good' : 'bad');
+        verdict.textContent = c.complete ? 'all three sections present, CTA specific: structure complete'
+          : 'Review has ' + (c.recap ? '' : 'no recap and ') + 'no specific CTA: presentation incomplete';
+      } else {
+        readout.textContent = s.sec + ' · ' + s.comp;
+        if (!s.okNow){ verdict.className = 'verdict bad'; verdict.textContent = s.why; }
+        else if (c.complete){ verdict.className = 'verdict good'; verdict.textContent = 'all three sections present, CTA specific'; }
+        else { verdict.className = 'verdict warn'; verdict.textContent = 'built: ' + c.present.join(' → ') + (c.missing.length ? ' · still to come: ' + c.missing.join(', ') : '') + ' · no CTA yet'; }
+      }
+    }
+    const player = Player(panel, render, { delay:1700 });
+    presets(document.getElementById('m7Pre'), p => player.load(gen(p), CODE, 0));
+    player.load(gen('ok'), CODE, 0);
+  })();
+
+  // ================= m8: 8 · Persuasion & finals =================
+// ================= m8 widget: Pitch mixer (S8, 24 Oct) =================
+  (function(){ const panel = document.getElementById('m8Panel'); if (!panel) return;
+    const cardsEl = document.getElementById('m8Cards'), readout = document.getElementById('m8Read'),
+          checksEl = document.getElementById('m8Checks'), verdictEl = document.getElementById('m8Verdict'),
+          leanEl = document.getElementById('m8Lean'), togRow = document.getElementById('m8Tog'),
+          preRow = document.getElementById('m8Pre'), audRow = document.getElementById('m8Aud');
+    const AP = {
+      E:{ name:'Ethos', q:'Why you?' },
+      P:{ name:'Pathos', q:'Why care?' },
+      L:{ name:'Logos', q:'Where’s the proof?' }
+    };
+    const SCEN = {
+      ciso:{ order:['E','P','L'], letter:{E:'A', P:'B', L:'C'}, lines:{
+        E:[['Pitch A', '“18 years managing cybersecurity across banking and technology organisations.” Recommends the upgrade based on what “my team and I” are observing in the current system.']],
+        P:[['Pitch B', 'What happened to a comparable company could happen to us. Customer information is at stake.']],
+        L:[['Pitch C', 'Current exposure; invest ₹5 crore; exposure down ₹8 crore after the upgrade. Net 8 − 5 = ₹3 crore beyond the cost (a student’s reasoning).']]
+      }},
+      titan:{ order:['L','P','E'], letter:null, lines:{
+        L:[['market gap', 'Lakmé “changed the way women look at themselves”, but there is nothing for men.'], ['the options', 'No one makes premium watches in India. Pivot, or an IPO that is not viable right now.']],
+        P:[['change their time', 'Not just for those whose time is good, but for those who want to change their time.'], ['status', 'A symbol of achievement for film stars, doctors, lawyers.']],
+        E:[['“We are the best candidates to do this.”', 'Organisational ethos: Tata’s established brand trust and quality reputation.']]
+      }}
+    };
+    const VERDICT = {
+      '':    ['bad',  'No appeal switched on: nothing to persuade with.'],
+      'E':   ['bad',  'Ethos alone: credibility, no reason to care.'],
+      'P':   ['bad',  'Pathos alone: a reason to care, no proof; risks sounding exaggerated.'],
+      'L':   ['bad',  'Logos alone: numbers without credibility or a reason to care.'],
+      'EP':  ['warn', 'Credibility and a reason to care, but no proof. The skeptics will ask “where are the numbers? Where are the returns?”'],
+      'EL':  ['warn', 'Credibility and numbers, but no reason to care: nothing says what is at stake.'],
+      'PL':  ['warn', 'A reason to care and proof, but no answer to “why you?” Establish ethos, and do it early if you are new.'],
+      'EPL': ['good', 'Rhetoric: persuasive. All three questions are answered; now balance them for the audience.']
+    };
+    const AUD = {
+      fin: { tags:{L:'lean here', P:'some'}, txt:'Finance- or data-oriented manager: lean on logos, but still use some pathos.' },
+      mkt: { tags:{P:'lean here'}, txt:'Storyteller or marketer manager: lean on pathos, i.e. why the audience should care.' },
+      nw:  { tags:{E:'establish early'}, txt:'You are new or have little experience in the area: establish ethos early, so they have a reason to listen.' },
+      mass:{ tags:{E:'balance', P:'balance', L:'balance'}, txt:'Mixed or mass audience (you cannot analyse each member): balance all three and overdo none.' }
+    };
+    // ---- pure functions ----
+    function keyOf(on){ return ['E','P','L'].filter(k => on[k]).join(''); }
+    function verdict(on, scen){
+      const k = keyOf(on), v = VERDICT[k];
+      let txt = v[1];
+      if (scen === 'titan' && k === 'EPL') txt = 'Logos → Pathos → Ethos: rhetoric, ordered for JRD because Desai knew his audience (PAIBOC).';
+      if (scen === 'ciso' && k === 'L') txt += ' The whole class picked this one, and that was the catch.';
+      const pre = (scen === 'ciso' && k) ? (k.length === 1 ? 'Pitch ' : 'Pitches ') + k.split('').map(x => SCEN.ciso.letter[x]).join(' + ') + ' · ' : '';
+      return { cls:v[0], text:pre + txt };
+    }
+    function checks(on){ return ['E','P','L'].map(k => ({ q:AP[k].q, appeal:AP[k].name, answered:!!on[k] })); }
+    const B = o => ({E:!!o.E, P:!!o.P, L:!!o.L});
+    window.__recap = window.__recap || {};
+    window.__recap.m8 = {
+      verdict:(e,p,l,scen) => verdict(B({E:e,P:p,L:l}), scen || 'ciso'),
+      checks:(e,p,l) => checks(B({E:e,P:p,L:l})),
+      order:s => SCEN[s].order.slice(),
+      audience:a => Object.assign({}, AUD[a].tags),
+      net:() => 8 - 5
+    };
+    // ---- state + render ----
+    let scen = 'ciso', on = {E:false, P:false, L:true}, aud = null;
+    function render(){
+      const S = SCEN[scen], k = keyOf(on);
+      clear(cardsEl);
+      S.order.forEach((a, i) => {
+        const c = h('div', 'cheat-card');
+        if (!on[a]) c.style.opacity = '.38';
+        const h3 = h('h3', null, (i+1) + ' · ' + AP[a].name.toUpperCase() + (S.letter ? ' · PITCH ' + S.letter[a] : '') + ' — ' + AP[a].q + (on[a] ? '' : ' (off)'));
+        const tag = aud && AUD[aud].tags[a];
+        if (tag){ const x = h('span', 'xtag', tag); x.style.color = 'var(--teal)'; x.style.borderColor = 'var(--teal-dim)'; h3.appendChild(x); }
+        c.appendChild(h3);
+        const dl = h('dl');
+        S.lines[a].forEach(([t, d]) => {
+          const dt = h('dt', on[a] ? 't' : null, t);
+          if (!on[a]) dt.style.color = 'var(--ink-faint)';
+          dl.appendChild(dt); dl.appendChild(h('dd', null, d));
+        });
+        c.appendChild(dl); cardsEl.appendChild(c);
+      });
+      togRow.querySelectorAll('[data-k]').forEach(b => {
+        const a = b.dataset.k;
+        b.classList.toggle('on', on[a]); b.setAttribute('aria-pressed', on[a] ? 'true' : 'false');
+        b.textContent = (S.letter ? S.letter[a] + ' · ' : '') + AP[a].name.toLowerCase();
+      });
+      clear(checksEl);
+      checks(on).forEach(c => {
+        const sp = h('span', null, (c.answered ? '✓ ' : '✗ ') + c.q + (c.answered ? ' (' + c.appeal.toLowerCase() + ')' : ''));
+        sp.style.color = c.answered ? 'var(--teal)' : 'var(--ink-faint)';
+        if (c.answered) sp.style.borderColor = 'var(--teal-dim)';
+        checksEl.appendChild(sp);
+      });
+      readout.textContent = k.length + '/3 appeals · ' + (k ? S.order.filter(a => on[a]).map(a => AP[a].name).join(' → ') : 'none');
+      const v = verdict(on, scen);
+      verdictEl.className = 'verdict ' + v.cls; verdictEl.textContent = v.text;
+      let cap;
+      if (aud){
+        cap = AUD[aud].txt;
+        const off = Object.keys(AUD[aud].tags).filter(a => !on[a]).map(a => AP[a].name.toLowerCase());
+        if (off.length) cap += ' Right now ' + off.join(' and ') + (off.length > 1 ? ' are' : ' is') + ' switched off.';
+      } else if (scen === 'titan'){
+        cap = 'Desai opens with the market gap, turns it into a reason to care, and closes with Tata’s credibility. Logos can build into pathos, and vice versa.';
+      } else {
+        cap = 'Pick an audience to see which appeal to lean on. Order is flexible: open with a story, bring in ethos in the middle, end with logos.';
+      }
+      leanEl.textContent = cap;
+    }
+    togRow.querySelectorAll('[data-k]').forEach(b => b.addEventListener('click', () => {
+      on[b.dataset.k] = !on[b.dataset.k];
+      preRow.querySelectorAll('[data-p]').forEach(x => x.classList.remove('on'));
+      render();
+    }));
+    presets(preRow, p => {
+      if (p === 'vote'){ scen = 'ciso'; on = {E:false, P:false, L:true}; }
+      else if (p === 'all'){ scen = 'ciso'; on = {E:true, P:true, L:true}; }
+      else { scen = 'titan'; on = {E:true, P:true, L:true}; }
+      render();
+    });
+    presets(audRow, p => { aud = p; render(); });
+    render();
+  })();
+
+  // ---------- page chrome ----------
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    progress.style.width = (d.scrollTop/(d.scrollHeight-d.clientHeight)*100) + '%';
+  });
+  // Jump-nav via JS, not native #anchors: the preview pane loads pages as data: URIs where anchor jumps fail
+  document.querySelectorAll('nav.jumpnav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      const navH = document.querySelector('nav.jumpnav').offsetHeight + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior:'smooth' });
+    });
+  });
+  let closedForPrint = [];
+  window.addEventListener('beforeprint', () => {
+    closedForPrint = [...document.querySelectorAll('details:not([open])')];
+    closedForPrint.forEach(d => d.open = true);
+  });
+  window.addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
+})();
+
+</script>
+</body>
+</html>
