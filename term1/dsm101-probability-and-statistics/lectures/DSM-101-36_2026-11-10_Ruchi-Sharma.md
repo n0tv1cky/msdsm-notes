@@ -7,7 +7,7 @@ faculty: Ruchi Sharma
 ---
 
 <!-- nav -->
-← [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Prof-Ruchi-Sharma.md) · [All lectures](./) · [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) →
+← [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Ruchi-Sharma.md) · [All lectures](./) · [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 Probability & Statistics: Session 36 Study Notes
@@ -230,5 +230,5 @@ $$P(X < 650) = \Phi(-0.375) = 1 - \Phi(0.375) \approx 0.354$$
   - Converting a probability into an expected count, e.g. multiplying by 1000 for a batch of 1000 plots.
 
 <!-- nav -->
-← [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Prof-Ruchi-Sharma.md) · [All lectures](./) · [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) →
+← [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Ruchi-Sharma.md) · [All lectures](./) · [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) →
 <!-- /nav -->

@@ -7,7 +7,7 @@ faculty: Pritee Sharma
 ---
 
 <!-- nav -->
-← [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Prof-Pritee-Sharma.md) · [All lectures](./) · [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) →
+← [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Pritee-Sharma.md) · [All lectures](./) · [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 (Probability & Statistics): Lecture 27 Study Notes
@@ -311,5 +311,5 @@ $$P(-1.96 \le Z \le 1.96) \approx 0.95, \quad P(-3 \le Z \le 3) \approx 0.997, \
 $$\text{Chebyshev: } P(|z| \le k) \ge 1 - \frac{1}{k^2}, \quad k = 2 \Rightarrow \ge 75\%$$
 
 <!-- nav -->
-← [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Prof-Pritee-Sharma.md) · [All lectures](./) · [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) →
+← [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Pritee-Sharma.md) · [All lectures](./) · [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) →
 <!-- /nav -->

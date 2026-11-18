@@ -7,7 +7,7 @@ faculty: Ruchi Sharma
 ---
 
 <!-- nav -->
-← [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Suman-Majumdar-Prof-Arshad-Prof-Ruchi-Sharma-Prof-Pritee-Sharma.md) · [All lectures](./) · [Session 34 (2026-11-04)](DSM-101-34_2026-11-04_Ruchi-Sharma.md) →
+← [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Ruchi-Sharma.md) · [All lectures](./) · [Session 34 (2026-11-04)](DSM-101-34_2026-11-04_Ruchi-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 (Probability & Statistics), Session 33: Poisson Distribution (Limit, Mean, Variance) and the Geometric Distribution
@@ -233,5 +233,5 @@ $$P(X=7) = \left(\frac{19}{20}\right)^6\left(\frac{1}{20}\right) \approx 0.0368$
 - The instructor will share the answers to the in-class questions and the proofs of the means and variances in the notes.
 
 <!-- nav -->
-← [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Suman-Majumdar-Prof-Arshad-Prof-Ruchi-Sharma-Prof-Pritee-Sharma.md) · [All lectures](./) · [Session 34 (2026-11-04)](DSM-101-34_2026-11-04_Ruchi-Sharma.md) →
+← [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Ruchi-Sharma.md) · [All lectures](./) · [Session 34 (2026-11-04)](DSM-101-34_2026-11-04_Ruchi-Sharma.md) →
 <!-- /nav -->

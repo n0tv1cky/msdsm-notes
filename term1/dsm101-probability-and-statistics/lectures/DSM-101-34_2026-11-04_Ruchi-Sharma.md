@@ -7,7 +7,7 @@ faculty: Ruchi Sharma
 ---
 
 <!-- nav -->
-← [Session 33 (2026-11-03)](DSM-101-33_2026-11-03_Ruchi-Sharma.md) · [All lectures](./) · [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Prof-Ruchi-Sharma.md) →
+← [Session 33 (2026-11-03)](DSM-101-33_2026-11-03_Ruchi-Sharma.md) · [All lectures](./) · [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Ruchi-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 Probability & Statistics: Session 34 Study Notes
@@ -253,5 +253,5 @@ The instructor briefly said "$\binom{7}{2}$" and then corrected it to $\binom{10
 - **Schedule:** no class Saturday (Diwali). The next class is **Monday**, and there are three classes next week (9th, 10th, 11th).
 
 <!-- nav -->
-← [Session 33 (2026-11-03)](DSM-101-33_2026-11-03_Ruchi-Sharma.md) · [All lectures](./) · [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Prof-Ruchi-Sharma.md) →
+← [Session 33 (2026-11-03)](DSM-101-33_2026-11-03_Ruchi-Sharma.md) · [All lectures](./) · [Session 35 (2026-11-09)](DSM-101-35_2026-11-09_Ruchi-Sharma.md) →
 <!-- /nav -->

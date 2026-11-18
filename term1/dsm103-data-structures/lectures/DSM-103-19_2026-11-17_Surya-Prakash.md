@@ -7,7 +7,7 @@ faculty: Surya Prakash
 ---
 
 <!-- nav -->
-← [Session 17-18 (2026-11-12)](DSM-103-17-18_2026-11-12_somnath-Dey.md) · [All lectures](./) · (latest lecture) →
+← [Session 17-18 (2026-11-12)](DSM-103-17-18_2026-11-12_Somnath-Dey.md) · [All lectures](./) · (latest lecture) →
 <!-- /nav -->
 
 # DSM-103 · Session 19: Merge Sort, Divide & Conquer, and Recurrence Relations
@@ -280,5 +280,5 @@ $$T(n) = O(n \log n)$$
 - **Next session:** the remaining topic, likely searching.
 
 <!-- nav -->
-← [Session 17-18 (2026-11-12)](DSM-103-17-18_2026-11-12_somnath-Dey.md) · [All lectures](./) · (latest lecture) →
+← [Session 17-18 (2026-11-12)](DSM-103-17-18_2026-11-12_Somnath-Dey.md) · [All lectures](./) · (latest lecture) →
 <!-- /nav -->

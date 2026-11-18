@@ -3,7 +3,7 @@ course: DSM 101
 date: 2026-10-31
 start: 2:45 pm
 session: "32"
-faculty: Suman Majumdar, Prof. Arshad, Prof. Ruchi Sharma, Prof. Pritee Sharma
+faculty: Ruchi Sharma
 ---
 
 <!-- nav -->

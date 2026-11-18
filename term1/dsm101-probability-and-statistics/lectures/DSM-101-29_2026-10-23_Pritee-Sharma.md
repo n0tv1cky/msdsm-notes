@@ -7,7 +7,7 @@ faculty: Pritee Sharma
 ---
 
 <!-- nav -->
-← [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) · [All lectures](./) · [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Prof-Pritee-Sharma.md) →
+← [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) · [All lectures](./) · [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Pritee-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 Lecture 29: Kurtosis, Sampling Distributions & the Central Limit Theorem
@@ -192,5 +192,5 @@ $$P(\bar{X} < 98{,}000) = 0.5 - 0.4772 = 0.0228$$
   - **Half-table technique:** Know how to use the area-from-the-mean table, including the $0.5$ subtraction for tail probabilities.
 
 <!-- nav -->
-← [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) · [All lectures](./) · [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Prof-Pritee-Sharma.md) →
+← [Session 28 (2026-10-21)](DSM-101-28_2026-10-21_Pritee-Sharma.md) · [All lectures](./) · [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Pritee-Sharma.md) →
 <!-- /nav -->

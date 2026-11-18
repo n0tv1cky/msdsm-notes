@@ -7,7 +7,7 @@ faculty: Ruchi Sharma
 ---
 
 <!-- nav -->
-← [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Prof-Pritee-Sharma.md) · [All lectures](./) · [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Suman-Majumdar-Prof-Arshad-Prof-Ruchi-Sharma-Prof-Pritee-Sharma.md) →
+← [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Pritee-Sharma.md) · [All lectures](./) · [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Ruchi-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 · Lecture 31 · Bernoulli and Binomial Distributions
@@ -248,5 +248,5 @@ $$P(X=2) = \frac{\binom{10}{2}\binom{40}{5}}{\binom{50}{7}} \approx 0.296$$
 **Next class (Saturday):** finish the binomial distribution, then the Poisson distribution.
 
 <!-- nav -->
-← [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Prof-Pritee-Sharma.md) · [All lectures](./) · [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Suman-Majumdar-Prof-Arshad-Prof-Ruchi-Sharma-Prof-Pritee-Sharma.md) →
+← [Session 30 (2026-10-24)](DSM-101-30_2026-10-24_Pritee-Sharma.md) · [All lectures](./) · [Session 32 (2026-10-31)](DSM-101-32_2026-10-31_Ruchi-Sharma.md) →
 <!-- /nav -->

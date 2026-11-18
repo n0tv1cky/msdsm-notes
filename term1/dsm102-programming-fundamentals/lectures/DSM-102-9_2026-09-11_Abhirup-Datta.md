@@ -7,7 +7,7 @@ faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 6 (2026-09-01)](DSM-102-6_2026-09-01_Saurabh-Das.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) →
+← [Session 7 (2026-09-04)](DSM-102-7_2026-09-04_Saurabh-Das.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) →
 <!-- /nav -->
 
 # DSM-102 — Programming Fundamentals for Data Science
@@ -390,5 +390,5 @@ df
 - Notes/slides will be uploaded to the **LMS**.
 
 <!-- nav -->
-← [Session 6 (2026-09-01)](DSM-102-6_2026-09-01_Saurabh-Das.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) →
+← [Session 7 (2026-09-04)](DSM-102-7_2026-09-04_Saurabh-Das.md) · [All lectures](./) · [Session 10 (2026-09-19)](DSM-102-10_2026-09-19_Abhirup-Datta.md) →
 <!-- /nav -->

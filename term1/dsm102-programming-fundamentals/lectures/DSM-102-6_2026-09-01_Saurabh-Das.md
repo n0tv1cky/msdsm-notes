@@ -7,7 +7,7 @@ faculty: Saurabh Das
 ---
 
 <!-- nav -->
-← [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) · [All lectures](./) · [Session 9 (2026-09-11)](DSM-102-9_2026-09-11_Abhirup-Datta.md) →
+← [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) · [All lectures](./) · [Session 7 (2026-09-04)](DSM-102-7_2026-09-04_Saurabh-Das.md) →
 <!-- /nav -->
 
 # DSM-102 — Session 6 (2026-09-01, Saurabh Das)
@@ -426,5 +426,5 @@ Most commonly used, as ranked by the instructor:
 - Topics still to come later in the course: **pandas** (DataFrames), and more depth in NumPy/Matplotlib — today was "just scratching the surface".
 
 <!-- nav -->
-← [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) · [All lectures](./) · [Session 9 (2026-09-11)](DSM-102-9_2026-09-11_Abhirup-Datta.md) →
+← [Session 5 (2026-08-29)](DSM-102-5_2026-08-29_Saurabh-Das.md) · [All lectures](./) · [Session 7 (2026-09-04)](DSM-102-7_2026-09-04_Saurabh-Das.md) →
 <!-- /nav -->

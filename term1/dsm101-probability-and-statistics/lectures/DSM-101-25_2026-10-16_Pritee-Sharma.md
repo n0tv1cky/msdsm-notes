@@ -7,7 +7,7 @@ faculty: Pritee Sharma
 ---
 
 <!-- nav -->
-← [Session 24 (2026-10-12)](DSM-101-24_2026-10-12_Pritee-Sharma.md) · [All lectures](./) · [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Prof-Pritee-Sharma.md) →
+← [Session 24 (2026-10-12)](DSM-101-24_2026-10-12_Pritee-Sharma.md) · [All lectures](./) · [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Pritee-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 (Probability & Statistics), Session 25: Study Notes
@@ -251,5 +251,5 @@ The lecturer will share slides with more quantile examples to practise. Quintile
   - then dispersion measures and the five-number summary / box plot.
 
 <!-- nav -->
-← [Session 24 (2026-10-12)](DSM-101-24_2026-10-12_Pritee-Sharma.md) · [All lectures](./) · [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Prof-Pritee-Sharma.md) →
+← [Session 24 (2026-10-12)](DSM-101-24_2026-10-12_Pritee-Sharma.md) · [All lectures](./) · [Session 26 (2026-10-17)](DSM-101-26_2026-10-17_Pritee-Sharma.md) →
 <!-- /nav -->
