@@ -2,15 +2,15 @@
 course: DSM 102
 date: 2026-11-02
 start: 7:00pm
-session: "17"
+session: "18"
 faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 16 (2026-10-30)](DSM-102-16_2026-10-30_Abhirup-Datta.md) · [All lectures](./) · [Session 19 (2026-11-14)](DSM-102-19_2026-11-14_Abhirup-Datta.md) →
+← [Session 17 (2026-10-30)](DSM-102-17_2026-10-30_Abhirup-Datta.md) · [All lectures](./) · [Session 19 (2026-11-13)](DSM-102-19_2026-11-13_Abhirup-Datta.md) →
 <!-- /nav -->
 
-# DSM-102 Lecture 17: Continuous Distributions and Their Summary Statistics
+# DSM-102 Lecture 18: Continuous Distributions and Their Summary Statistics
 
 **Instructor:** Abhirup Datta · **Date:** 2026-11-02
 
@@ -632,5 +632,5 @@ No explicit "this will be on the exam" statement was captured. The following wer
   - the $\chi^2$ goodness-of-fit formula and degrees of freedom.
 
 <!-- nav -->
-← [Session 16 (2026-10-30)](DSM-102-16_2026-10-30_Abhirup-Datta.md) · [All lectures](./) · [Session 19 (2026-11-14)](DSM-102-19_2026-11-14_Abhirup-Datta.md) →
+← [Session 17 (2026-10-30)](DSM-102-17_2026-10-30_Abhirup-Datta.md) · [All lectures](./) · [Session 19 (2026-11-13)](DSM-102-19_2026-11-13_Abhirup-Datta.md) →
 <!-- /nav -->

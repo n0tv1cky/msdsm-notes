@@ -7,316 +7,295 @@ faculty: Amit Kumar Vatsa
 ---
 
 <!-- nav -->
-← [Session 7 (2026-11-11)](DSM-109-7_2026-11-11_Amit-Kumar-Vatsa.md) · [All lectures](./) · (latest lecture) →
+← [Session 7 (2026-11-11)](DSM-109-7_2026-11-11_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 9 (2026-11-16)](DSM-109-9_2026-11-16_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->
 
-# DSM-109 Session 8: Red Brand Canners (Solution and Sensitivity) and an Introduction to Shadow-Price Signs
+# DSM-109 Session 8: Red Brand Canners (Formulation, Solver and Sensitivity) and the Signs of Shadow Prices
 
-*Session file: DSM-109-8_2026-11-13_Amit-Kumar-Vatsa*
+**Instructor:** Amit Kumar Vatsa  **Session file:** DSM-109-8_2026-11-13
 
 ---
 
 ## 1. Overview
 
-This session completes the **Red Brand Canners** case started in the previous class. It first settles the cost debate: the tomatoes were already bought in bulk at 18¢/lb, so they are a **sunk (fixed) cost**, not a variable cost. The tomato cost is therefore left out of the per-case contributions. The instructor then:
+This session finishes the **Red Brand Canners** case. The previous class showed that the dispute between managers was about how to cost tomatoes. The 3 million pounds were already bought at 18 cents/lb, so that cost is **fixed and sunk** and does not belong in the contribution per case. The class then:
 
-- formulates a 6-variable linear program (pounds of grade A and grade B tomatoes going to each of three products),
-- solves it in Excel Solver (Simplex LP),
-- interprets the sensitivity report: shadow prices of the supply, demand and quality constraints, allowable increase, and reduced cost.
+- computed the contribution per case for whole tomatoes, juice and paste,
+- built a 6-variable linear programme (LP) with supply, demand and quality (ratio) constraints, including how to linearise the ratio constraints,
+- solved it in Excel Solver with Simplex LP and interpreted the Sensitivity Report:
+  - shadow prices of grade A and grade B supply (the maximum price worth paying for extra tomatoes),
+  - the shadow price of paste demand (a ceiling on the marketing budget),
+  - the reduced cost of the unused variable.
 
-This leads to concrete business decisions:
-
-- whether to buy an extra 80,000 lb of grade A at 25.5¢/lb,
-- how to cap a marketing budget for paste,
-- why Myers' "implied cost" accounting split is meaningless.
-
-The session ends with a small two-variable graphical example. It shows why, in a **maximization** problem:
-
-- a $\le$ constraint's shadow price can never be negative,
-- an equality constraint's shadow price can be negative.
-
-This sets up the next class on duality and dual variables.
+The session closed with a small two-variable graphical example. It shows why a $\le$ constraint in a maximisation problem can never have a negative shadow price, while an equality constraint can. This leads into formal duality theory next class, followed by two classes on integer programming.
 
 ---
 
 ## 2. Topics Covered (in order taught)
 
-### 2.1 Sunk cost vs. variable cost (recap and resolution)
+### 2.1 Sunk cost vs. variable cost
 
-- 3,000,000 lb of tomatoes had already been procured at 18¢/lb, so the total spend is $3{,}000{,}000 \times \$0.18 = \$540{,}000$.
-- **Test for a variable cost:** *"If I don't produce a single unit of any product, does this cost disappear?"*
-  - For the tomatoes, no. They are already paid for.
-  - So the tomato cost is a **fixed / sunk cost** and must **not** be subtracted when computing contribution.
-- **Definition.** Contribution per case is the selling price minus all *variable* costs:
-  $$\text{Contribution per case} = \text{Selling price per case} - \text{Variable costs per case}$$
-- Contributions per case, excluding tomato cost (Exhibits 2 and 3 agree on these):
+- **Test for a variable cost:** "If I don't produce a single unit, does this cost disappear?"
+  - The tomato cost is $3{,}000{,}000 \text{ lb} \times 0.18 \text{ dollars/lb} = 540{,}000$ dollars. It was paid as a bulk purchase.
+  - It does **not** disappear if nothing is produced. It is therefore a **fixed / sunk cost** and must **not** be subtracted when computing contribution.
+- **Contribution** = selling price − all *variable* costs. Tomato cost is excluded.
 
-| Product | Contribution (\$/case) | lb per case | Contribution (\$/lb) |
+### 2.2 Contribution per case (from the case exhibits; Exhibits 2 and 3 agree once tomato cost is excluded)
+
+| Product | Contribution (dollars/case) | lb per case | Contribution (dollars/lb) |
 |---|---|---|---|
-| Whole tomatoes (product 1) | 4.44 | 18 | $4.44/18 \approx 0.2467$ |
-| Juice (product 2) | 3.96 | 20 | $3.96/20 = 0.198$ |
-| Paste (product 3) | 5.55 | 25 | $5.55/25 = 0.222$ |
+| Whole tomatoes (product 1) | $4.44$ | $18$ | $4.44/18 \approx 0.2467$ |
+| Juice (product 2) | $3.96$ | $20$ | $3.96/20 = 0.198$ |
+| Paste (product 3) | $5.55$ | $25$ | $5.55/25 = 0.222$ |
 
-### 2.2 Case data used in the model
+### 2.3 Case data used in the model
 
-| Item | Value |
-|---|---|
-| Grade A available | 600,000 lb |
-| Grade B available | 2,400,000 lb |
-| Demand: whole tomatoes | 800,000 cases ($= 14{,}400{,}000$ lb) |
-| Demand: juice | 50,000 cases ($= 1{,}000{,}000$ lb) |
-| Demand: paste | 80,000 cases ($= 2{,}000{,}000$ lb) |
-| Quality rule: whole tomatoes | $A : B \ge 3 : 1$ (derived in the previous class by alligation) |
-| Quality rule: juice | $A : B \ge 1 : 3$ |
-| Quality rule: paste | No minimum; all grade B is acceptable |
-| Extra grade A on market | 80,000 lb at 25.5¢/lb |
+- **Supply** (total 3,000,000 lb):
+  - grade A: $600{,}000$ lb
+  - grade B: $2{,}400{,}000$ lb
+- **Demand forecasts:**
+  - whole tomatoes: $800{,}000$ cases
+  - juice: $50{,}000$ cases
+  - paste: $80{,}000$ cases
+- **Quality requirements** (derived in the previous class by the alligation / weighted-average principle):
+  - whole tomatoes: grade A to grade B ratio at least $3:1$
+  - juice: grade A to grade B ratio at least $1:3$
+  - paste: no quality restriction, so it can be made entirely from grade B
+- **Extra purchase option:** $80{,}000$ lb of extra grade A is available in the market at $25.5$ cents/lb.
 
-### 2.3 LP formulation (full standard form)
+### 2.4 LP formulation
+
+**Choosing decision variables.**
+- A student suggested omitting $x_{A3}$, since paste can be made entirely from grade B.
+- The instructor kept $x_{A3}$ deliberately: using grade A in paste is not prohibited, so "let Solver decide."
+- Solver later set $x_{A3}=0$ on its own.
 
 **Decision variables** (all in **pounds**):
 
-- $x_{A1}$, $x_{B1}$: lb of grade A / grade B used for **whole tomatoes**
-- $x_{A2}$, $x_{B2}$: lb of grade A / grade B used for **juice**
-- $x_{A3}$, $x_{B3}$: lb of grade A / grade B used for **paste**
+- $x_{A1}$ = lb of grade A tomatoes used for whole tomatoes
+- $x_{B1}$ = lb of grade B tomatoes used for whole tomatoes
+- $x_{A2}$ = lb of grade A tomatoes used for juice
+- $x_{B2}$ = lb of grade B tomatoes used for juice
+- $x_{A3}$ = lb of grade A tomatoes used for paste
+- $x_{B3}$ = lb of grade B tomatoes used for paste
 
-A student suggested dropping $x_{A3}$, because paste can be made entirely from grade B. The instructor kept it deliberately: using grade A in paste is *not prohibited*, so "let Solver decide." Solver did set it to 0.
+**Objective.** In words, maximise total contribution. This is equivalent to maximising profit, because the fixed cost cannot be changed.
 
-**Objective.** Maximize total contribution in dollars, excluding the sunk tomato cost. Units cancel as \$/case $\times$ case/lb $\times$ lb = \$.
+The units work out as (dollars/case) ÷ (lb/case) × lb = dollars:
 
-$$\max\; Z = \frac{4.44}{18}\,(x_{A1}+x_{B1}) + \frac{3.96}{20}\,(x_{A2}+x_{B2}) + \frac{5.55}{25}\,(x_{A3}+x_{B3})$$
+$$\max Z = \frac{4.44}{18}(x_{A1}+x_{B1}) + \frac{3.96}{20}(x_{A2}+x_{B2}) + \frac{5.55}{25}(x_{A3}+x_{B3}) \quad \text{(dollars)}$$
 
-**Supply constraints** (lb):
+**Subject to:**
 
+*Supply constraints (lb):*
 $$x_{A1}+x_{A2}+x_{A3} \le 600{,}000 \quad \text{(grade A available)}$$
 $$x_{B1}+x_{B2}+x_{B3} \le 2{,}400{,}000 \quad \text{(grade B available)}$$
 
-**Demand constraints.** Cases are converted to lb so both sides have the same units.
+*Demand constraints.* Cases are converted to lb so both sides are in pounds:
+$$x_{A1}+x_{B1} \le 800{,}000 \times 18 = 14{,}400{,}000 \quad \text{(whole tomatoes)}$$
+$$x_{A2}+x_{B2} \le 50{,}000 \times 20 = 1{,}000{,}000 \quad \text{(juice)}$$
+$$x_{A3}+x_{B3} \le 80{,}000 \times 25 = 2{,}000{,}000 \quad \text{(paste)}$$
 
-$$x_{A1}+x_{B1} \le 800{,}000 \times 18 \quad \text{(whole tomatoes)}$$
-$$x_{A2}+x_{B2} \le 50{,}000 \times 20 \quad \text{(juice)}$$
-$$x_{A3}+x_{B3} \le 80{,}000 \times 25 \quad \text{(paste)}$$
+- Using $\le$ for demand is fine in a profit-maximisation problem: if a product is profitable, the model will try to meet as much demand as possible.
+- In a cost-minimisation problem, $\le$ demand constraints would give the trivial answer "produce nothing."
 
-- Using $\le$ is safe here because this is *profit maximization*: the model will meet as much demand as is profitable.
-- In a cost-minimization problem, $\le$ demand constraints would give the trivial answer "produce nothing."
+*Quality (ratio) constraints, linearised:*
 
-**Quality (ratio) constraints, linearized.** The ratio form is non-linear. Moving every variable to the left-hand side makes it linear:
+- Whole tomatoes: $\dfrac{x_{A1}}{x_{B1}} \ge 3$ is non-linear. Multiply through and move everything to the left:
+$$x_{A1} - 3x_{B1} \ge 0$$
+- Juice: $\dfrac{x_{A2}}{x_{B2}} \ge \dfrac{1}{3}$ is linearised the same way:
+$$3x_{A2} - x_{B2} \ge 0$$
 
-$$\frac{x_{A1}}{x_{B1}} \ge 3 \;\Rightarrow\; x_{A1} - 3x_{B1} \ge 0 \quad \text{(whole tomatoes)}$$
-$$\frac{x_{A2}}{x_{B2}} \ge \frac{1}{3} \;\Rightarrow\; 3x_{A2} - x_{B2} \ge 0 \quad \text{(juice)}$$
+*Non-negativity:*
+$$x_{A1},x_{B1},x_{A2},x_{B2},x_{A3},x_{B3} \ge 0$$
 
-**Non-negativity:**
+The model has 7 constraints: 2 supply, 3 demand and 2 quality.
 
-$$x_{A1}, x_{B1}, x_{A2}, x_{B2}, x_{A3}, x_{B3} \ge 0$$
+### 2.5 Excel Solver setup
 
-This gives 7 constraints in total (2 supply + 3 demand + 2 quality) plus non-negativity. No integrality is needed, because pounds are continuous.
-
-### 2.4 Excel Solver set-up
-
-1. **Variable cells:** six cells, coloured yellow, for $x_{A1},\dots,x_{B3}$.
-2. **Objective coefficients:** entered as $4.44/18$, $4.44/18$, $3.96/20$, $3.96/20$, $5.55/25$, $5.55/25$.
-3. **Objective cell** (coloured blue): `SUMPRODUCT(coefficients, variable cells)`, with `$` absolute references so the formula can be copied to the constraint rows.
-4. **Constraint rows:** each left-hand side is a SUMPRODUCT of its coefficient row with the variable cells.
-5. **Solver settings:**
-   - Set Objective: the total contribution cell, set to **Max**.
+1. **Data and variable cells.**
+   - Yellow cells hold the 6 decision variables.
+   - The objective coefficients are entered as formulas: $=4.44/18$, $=3.96/20$, $=5.55/25$.
+2. **Formulas.**
+   - Objective cell (coloured blue): `SUMPRODUCT` of the coefficients and the variable cells, using `$` absolute references so the formula can be copied.
+   - Each constraint gets a LHS cell (a `SUMPRODUCT` of its coefficients) next to its RHS.
+3. **Solver dialog.**
+   - Set Objective: the total-contribution cell. Choose **Max**.
    - By Changing Variable Cells: the yellow cells.
-   - Constraints: all five $\le$ constraints added in one block; both $\ge$ quality constraints added in another block (right-hand side 0).
-   - Make unconstrained variables non-negative (inferred, standard setting).
+   - Constraints:
+     - all five $\le$ constraints entered together as one block (LHS range $\le$ RHS range),
+     - the two quality constraints entered together as $\ge$ RHS (= 0).
+   - Make unconstrained variables non-negative: checked.
    - Solving method: **Simplex LP**.
-6. Generate the **Sensitivity Report**.
+   - Request the **Sensitivity Report**.
 
-### 2.5 Optimal solution
+### 2.6 Optimal solution
 
-As stated in class: about 700,000 lb goes to whole tomatoes, 300,000 lb to juice, 2,000,000 lb to paste, and $x_{A3}=0$.
+The pounds per product were stated in class. The split by grade and the dollar totals below were computed from the model and **were not read out in class**.
 
-The split by grade below was not read out in class. It is my reconstruction: both supplies, paste demand and both ratio constraints are binding. It is consistent with all the numbers shown.
+| Product | Total lb | Grade A | Grade B |
+|---|---|---|---|
+| Whole tomatoes | $700{,}000$ | $x_{A1}=525{,}000$ | $x_{B1}=175{,}000$ |
+| Juice | $300{,}000$ | $x_{A2}=75{,}000$ | $x_{B2}=225{,}000$ |
+| Paste | $2{,}000{,}000$ | $x_{A3}=0$ | $x_{B3}=2{,}000{,}000$ |
 
-| Variable | Value (lb) |
-|---|---|
-| $x_{A1}$ | 525,000 |
-| $x_{B1}$ | 175,000 |
-| $x_{A2}$ | 75,000 |
-| $x_{B2}$ | 225,000 |
-| $x_{A3}$ | 0 |
-| $x_{B3}$ | 2,000,000 |
+- All 600,000 lb of grade A and all 2,400,000 lb of grade B are used.
+- Paste demand is fully met. Whole-tomato and juice demand are **not** binding.
+- Solver set $x_{A3}=0$: grade A should not go into paste.
+- **Total contribution** (computed): $700{,}000(0.2467)+300{,}000(0.198)+2{,}000{,}000(0.222) \approx 676{,}067$ dollars.
+- **Profit after tomato cost** (computed): $676{,}067 - 0.18\times 3{,}000{,}000 \approx 136{,}067$ dollars. The instructor noted that the plan "is profit-making even after subtracting tomato cost."
 
-Objective value (my calculation; the figure was shown on screen, not read out):
+### 2.7 Sensitivity report: shadow prices
 
-$$Z^* = 700{,}000(0.24667) + 300{,}000(0.198) + 2{,}000{,}000(0.222) \approx \$676{,}067$$
+**Grade A supply: shadow price $\approx 0.271$ dollars/lb (27.1 cents).** All 600,000 lb are used.
 
-Profit after the sunk tomato cost:
-
-$$\$676{,}067 - \$540{,}000 \approx \$136{,}067 \;(>0)$$
-
-So the plan is still profitable after the sunk cost.
-
-### 2.6 Sensitivity analysis: shadow prices
-
-**Definition.** The **shadow price** of a constraint is the change in the optimal objective value per one-unit increase in that constraint's right-hand side. It is valid within the allowable increase/decrease range.
-
-**Grade A supply: shadow price \$0.271/lb (binding: all 600,000 lb used).**
-
-- Meaning: one extra pound of grade A, received free, raises contribution by 27.1¢.
-- **Experiment:** the right-hand side was raised by 100 lb and the model re-optimized. Contribution rose by exactly \$27.10.
-- **Puzzle:** no product earns 27.1¢/lb. The best is whole tomatoes at about 24.67¢/lb. So why is the shadow price higher?
-- **Explanation: the product mix shifts.**
-  - Whole tomatoes went from 700,000 to 700,150 (+150 lb).
-  - Juice went from 300,000 to 299,950 (−50 lb).
+- **Meaning:** one more pound of grade A, obtained free, raises total contribution by 27.1 cents.
+- **Verification in class:**
+  - The RHS was raised by 100 lb to 600,100 and the model re-optimised.
+  - Contribution rose by exactly $100 \times 0.271 = 27.1$ dollars.
+- **Puzzle:** the 27.1 cents exceeds every product's per-lb contribution (the highest is $0.2467$). Why?
+  - With +100 lb of A, whole tomatoes went from $700{,}000$ to $700{,}150$ lb, an increase of **150**, not 100.
+  - Juice went from $300{,}000$ to $299{,}950$ lb, a decrease of **50**.
   - Paste was unchanged.
-  - Net effect: $150(0.24667) - 50(0.198) = 37.00 - 9.90 = \$27.10$.
-  - The extra grade A lets some grade B move from juice into whole tomatoes while still meeting both ratio rules.
+  - The extra grade A lets grade B be **shifted** from juice into whole tomatoes, keeping the 3:1 ratio. So the gain comes from a change in product mix:
+$$150 \times 0.2467 - 50 \times 0.198 = 37.0 - 9.9 = 27.1 \text{ dollars}$$
 
-**Grade B supply: shadow price about \$0.173/lb.**
+**Grade B supply: shadow price $\approx 0.173$ dollars/lb (17.3 cents).** Grade A is more valuable to the business than grade B.
 
-- Grade A is more valuable to the business than grade B.
+**Willingness to pay.**
+- Because tomato cost is not in the contribution, these shadow prices are the value of a **free** extra pound.
+- Pay **less than 27.1 cents/lb** for extra grade A and **less than 17.3 cents/lb** for extra grade B. Paying less still increases profit.
+- This is also the rule for setting the variable price paid to farmers for extra supply.
 
-**Willingness to pay.** Shadow prices exclude the tomato cost. So the most you should pay for an extra pound of each grade is:
+**Decision on the market offer of 80,000 lb of grade A at 25.5 cents/lb.**
+- The allowable increase for grade A supply is 600,000 lb. (The figure was garbled in the transcript; it is consistent with the model, because juice would drop to zero after 600,000 extra lb.)
+- 80,000 lb is within the allowable increase, so the shadow price stays valid over that range.
+- $25.5 < 27.1$, so **buy it**.
+- Net gain (computed) $\approx 80{,}000 \times (0.271-0.255) \approx 1{,}280$ dollars.
 
-- grade A: less than 27.1¢/lb,
-- grade B: less than 17.3¢/lb.
-
-These are the ceiling rates for paying farmers for extra supply.
-
-**Business decision: extra grade A offer.**
-
-- The offer is 80,000 lb of grade A at 25.5¢/lb.
-- Allowable increase for grade A supply is 600,000 lb, and $80{,}000 < 600{,}000$, so the shadow price stays valid.
-- Since $25.5 < 27.1$¢, **buy it**.
-- Net gain (my calculation): $80{,}000 \times (0.271 - 0.255) \approx \$1{,}280$.
+**Comparison with Myers' implied costs.**
+- Myers (in the case) allocated the sunk cost by quality points and got about **27.96 cents** for grade A and **15.54 cents** for grade B, as quoted in class.
+- Recomputing gives approximately: $9Z(600{,}000)+5Z(2{,}400{,}000)=540{,}000 \Rightarrow Z\approx 0.0310$, so A $\approx 27.9$ cents and B $\approx 15.5$ cents.
+- The instructor's point:
+  - The near-match for grade A is essentially a coincidence.
+  - Myers' numbers are **accounting allocations of a sunk cost**. Shadow prices are the true **marginal value to the business**.
+  - Grade B is actually worth more (17.3 cents) than Myers calculated.
 
 **Demand constraints.**
 
-- **Whole tomatoes and juice:** shadow price 0. These constraints are not binding.
-  - Do **not** spend on advertising to raise their demand. You cannot even meet current demand.
-- **Paste:** shadow price \$0.0483/lb. Paste demand is binding: all 2,000,000 lb is produced.
-  - One extra lb of paste demand adds about 4.83¢.
-  - Marketing question: if \$0.05 of marketing raises paste demand by 1 lb, should you do it? **No**, because $5¢ > 4.83¢$.
-  - So the marketing spend per extra pound of paste demand must stay below about 4.83¢. This is how the shadow price guides a marketing budget.
+- **Whole tomatoes and juice: shadow price = 0.**
+  - These constraints are not binding.
+  - Spending on advertising to raise their demand is pointless.
+- **Paste: shadow price $\approx 0.0483$ dollars per lb of demand** (about 4.8 cents/lb).
+  - Each extra pound of paste demand raises contribution by about 4.83 cents.
+- **Marketing example from class:**
+  - Suppose marketing promises +1 lb of paste demand for every 5 cents spent.
+  - Reject this, because $5 > 4.83$.
+  - Marketing spend per extra pound of paste demand must stay **below 4.83 cents**. The shadow price is a guide for designing the marketing budget.
 
 **Quality (ratio) constraints.**
+- These have **negative** shadow prices: about $-0.0243$ each (computed; not read out in class).
+- Interpreting them is convoluted ("one more pound of A beyond the 1:3 ratio"), so they were not discussed in depth.
+- **Observation stated in class:**
+  - In a maximisation problem, $\le$ constraints never have negative shadow prices.
+  - $\ge$ constraints can have negative shadow prices.
+  - This will be formalised next class.
 
-- Their shadow prices are negative. The values were not read out; my calculation gives about $-0.024$ each.
-- They are hard to interpret in management terms (one unit of right-hand side means "one more pound of A beyond the 3:1 ratio"), so the instructor did not pursue them.
-- **Observation (to be formalized next class):** in a max problem, $\le$ constraints never have negative shadow prices, but $\ge$ constraints can.
+### 2.8 Sensitivity report: reduced costs
 
-### 2.7 Sensitivity analysis: reduced cost
+- All reduced costs are 0 except for $x_{A3}$. The basic variables (those with positive values) have zero reduced cost.
+- **$x_{A3}$ has reduced cost $\approx -0.097$.**
+  - For a maximisation problem, a variable at value zero has a reduced cost that is $\le 0$.
+  - **Meaning 1:** forcing one lb into $x_{A3}$ lowers the objective by about 0.097 dollars.
+  - **Meaning 2:** the objective coefficient of $x_{A3}$ would have to rise by more than 0.097 for $x_{A3}$ to enter the optimal solution.
+- **Demonstration in class:**
+  - The instructor added $0.098$ to the $x_{A3}$ coefficient and re-solved.
+  - $x_{A3}$ became positive: much of grade A went into paste.
+  - In that re-solved run, whole-tomato production went to zero.
 
-All reduced costs are 0 except for $x_{A3}$, which is the only variable at zero.
+### 2.9 Case takeaway
 
-**Rule.** In a maximization problem, a non-basic variable (value 0) has a reduced cost that is $\le 0$.
+- The core mistake in the case was arguing over how to split a **sunk** tomato cost between grade A and grade B. Such accounting allocation is meaningless for decisions.
+- Use contribution that **excludes** sunk costs, solve the LP, and use **shadow prices** to value resources and make purchasing and marketing decisions.
 
-$x_{A3}$ has reduced cost $\approx -0.097$. This has two meanings:
+### 2.10 Student Q&A
 
-1. Forcing 1 lb of grade A into paste would *lower* contribution by about 9.7¢.
-2. Its objective coefficient would have to rise by about 0.097 before $x_{A3}$ enters the optimal solution.
+**Question:** Juice demand is 1,000,000 lb but only 300,000 lb are produced. Should we buy grade B to meet market demand?
 
-**Demonstration:**
+**Answer:**
+- Juice demand is **not the bottleneck**. The bottlenecks are the two supply constraints and paste demand.
+- If supply bottlenecks were relieved, juice demand might eventually become binding.
+- A shadow price, such as 17.3 cents for grade B, holds only within the **allowable increase**. Beyond that, a different constraint becomes binding and the shadow price changes. You do not keep gaining 17.3 cents per extra pound indefinitely.
 
-- The instructor added 0.098 to $x_{A3}$'s coefficient and re-solved. $x_{A3}$ became positive.
-- The solution then sent much grade A into paste, and whole-tomato production dropped to zero.
-- The change was then reverted.
+### 2.11 Graphical example: can a shadow price be negative in a maximisation problem?
 
-### 2.8 Case takeaways
+**Version 1: inequality constraints**
 
-- The real issue in the case was the tomato cost, which is **sunk**.
-- Allocating it across grade A and grade B (Myers' "implied cost" approach) is a meaningless accounting exercise.
-- Myers' implied costs were about 27.96¢ (A) and about 15.5¢ (B). The B figure is unclear in the audio: it was heard as both "15.54" and "15.90."
-- These were close to the shadow prices of 27.1¢ and 17.3¢, but the instructor called the similarity "an accident."
-- The **shadow price is the meaningful measure**: it gives the value of each grade to the business and the maximum rate worth paying for more of it.
-- Grade B is worth more than Myers calculated.
-
-### 2.9 Mini-example: when can shadow prices be negative?
-
-**Problem (version 1):**
-
-$$\max\; z = 20x_1 + x_2$$
-$$\text{s.t.}\quad x_1 + x_2 \le 10 \quad \text{(constraint 1, shadow price } u_1)$$
-$$\phantom{\text{s.t.}\quad} x_2 \le 4 \quad \text{(constraint 2, shadow price } u_2)$$
+$$\max Z = 20x_1 + x_2$$
+$$\text{s.t.} \quad x_1 + x_2 \le 10 \quad \text{(constraint 1, shadow price } u_1\text{)}$$
+$$x_2 \le 4 \quad \text{(constraint 2, shadow price } u_2\text{)}$$
 $$x_1, x_2 \ge 0$$
 
-Here $x_1$ is the highly profitable product.
+Here $x_1$ is a highly profitable product and $x_2$ is barely profitable.
 
-**Graphical solution:**
+- **Feasible region:** a quadrilateral bounded by the two axes, the line $x_2=4$, and the line $x_1+x_2=10$.
+- **Corner points** (labelling inferred from the sketch):
 
-- The feasible region is bounded by the axes, the line $x_1+x_2=10$, and the horizontal line $x_2=4$.
-- Corner points and objective values:
-
-| Corner | $(x_1, x_2)$ | $z$ |
+| Point | $(x_1,x_2)$ | $Z$ |
 |---|---|---|
-| A | (0, 0) | 0 |
-| B | (0, 4) | 4 |
-| C | (6, 4) | 124 |
-| D | (10, 0) | **200** |
+| $A$ | $(0,0)$ | $0$ |
+| $B$ | $(0,4)$ | $4$ |
+| $C$ | $(6,4)$ | $124$ |
+| $D$ | $(10,0)$ | $200$ |
 
-- The objective line is very steep (it heavily favours $x_1$), so the optimum is **D**: $x_1^*=10$, $x_2^*=0$, $z^*=200$.
+- The objective line is very steep and improves toward larger $x_1$.
+- **Optimum:** $D$, with $x_1^*=10$, $x_2^*=0$, $Z^*=200$. This is the primal solution.
+- **Shadow prices (dual variables):**
+  - $u_1 = 20$. Raising RHS 1 to 11 moves the optimum to $D'=(11,0)$, and $Z$ rises by 20.
+  - $u_2 = 0$. Moving the line $x_2=4$ does not affect corner $D$.
 
-**Shadow prices for version 1:**
+**Version 2: constraint 2 becomes an equality, $x_2 = 4$**
 
-- $u_1 = 20$. Raising the right-hand side to 11 moves the optimum to $(11, 0)$, so $z$ rises by 20.
-- $u_2 = 0$. Moving $x_2 \le 4$ does not affect corner D.
-- More of resource 2 does not help, but it does not hurt either.
+You are now **forced** to consume this resource completely.
 
-**Problem (version 2): constraint 2 changed to an equality, $x_2 = 4$.**
+- **Feasible region:** the line segment $BC$, from $(0,4)$ to $(6,4)$.
+- **Optimum:** $C$, with $x_1^*=6$, $x_2^*=4$, $Z^*=124$.
+- **$u_1 = 20$.** RHS 11 gives $(7,4)$, so $Z=144$.
+- **$u_2 = -19$.** RHS 5 forces $x_2=5$, so $x_1=5$, $Z=20(5)+5=105$, and $105-124=-19$.
 
-- The resource must now be fully consumed.
-- The feasible region shrinks to the **line segment BC**.
-- The optimum is **C**: $x_1^*=6$, $x_2^*=4$, $z^*=124$.
+**Interpretation.**
+- Think of resource 2 as something obnoxious, smelly or chemically reactive that cannot be left unused, and that only $x_2$ can consume.
+- More of it forces more of the low-profit $x_2$. Since $x_1+x_2\le 10$, this crowds out the high-profit $x_1$, so profit falls.
 
-**Shadow prices for version 2:**
-
-- $u_1 = 20$. With $x_2$ fixed at 4, $x_1$ rises to 7 and $z = 144$.
-- $u_2 = -19$. With $x_2 = 5$, $x_1 = 5$ and $z = 100 + 5 = 105$. That is a change of $105 - 124 = -19$.
-  - The audio says "shadow price is 19," but the sign is **negative**.
-
-**Intuition.** Think of resource 2 as something undesirable (obnoxious, smelly, reactive) that *must* be used up. Only the low-profit product $x_2$ consumes it. More of it forces more $x_2$, which pushes out the profitable $x_1$, so profit falls.
-
-**Bottom line (maximization problem):**
-
-- **$\le$ constraint:** you may leave extra resource unused, so you never "complain."
-  $$u_i \ge 0$$
-- **$=$ constraint:** you are forced to use the resource, so the shadow price can be **positive or negative** (unrestricted in sign).
-- **$\ge$ constraint:** the shadow price is $\le 0$. This was seen in the Red Brand Canners ratio constraints and will be formalized next class.
-
-### 2.10 Student Q&A (end of class)
-
-**Q:** Juice market demand is 1,000,000 lb, but only 300,000 lb is made. To meet it, should we buy extra grade B?
-
-**A:**
-
-- Juice demand is **not the bottleneck**; its shadow price is 0.
-- The bottlenecks are the two supply constraints and paste demand.
-- Relieve those first. Juice demand might become binding only later.
-- Shadow prices hold only within the **allowable increase**. Beyond it, another constraint becomes binding and the shadow price changes. So you will not keep gaining about 17.3¢ for every extra pound of grade B indefinitely.
+**Rules:**
+- **Maximisation with a $\le$ constraint:** shadow price $\ge 0$. Extra resource can always be left unused, so it can never hurt.
+- **Equality constraint:** the shadow price can be **positive or negative**.
+- **$\ge$ constraint (in a maximisation problem):** the shadow price can be negative, as seen with the quality constraints in Red Brand.
 
 ---
 
-## 3. Exam / Assignment Pointers
+## 3. Exam / Assignment Pointers and What's Next
 
-No specific exam item was announced. The instructor stressed these as the key skills:
+No explicit exam announcement was made. The instructor emphasised these points:
 
-- **Sunk vs. variable cost test:** "If I produce nothing, does the cost disappear?" Exclude sunk costs from contribution.
-- **Unit consistency:** convert cases to pounds and keep \$/case $\times$ case/lb $\times$ lb consistent in both the objective and the constraints.
-- **Linearizing ratio constraints:** turn $x_A/x_B \ge k$ into $x_A - kx_B \ge 0$.
-- **Interpreting shadow prices with units**, and using them for decisions:
-  - maximum price to pay for extra raw material,
-  - whether to accept an offer (check it is within the **allowable increase**),
-  - marketing budget ceilings.
-- **Explaining a shadow price that exceeds every product's unit contribution** through the product-mix shift (+150 whole, −50 juice).
-- **Reduced cost** of a zero variable in a max problem is $\le 0$; it is how much its coefficient must improve before the variable enters the solution.
-- **Shadow price sign rules for maximization:** $\le$ gives $\ge 0$; $\ge$ gives $\le 0$; $=$ gives unrestricted.
+- **Exclude sunk costs** from contribution. Use the test: "does the cost disappear if nothing is produced?"
+- **Keep units consistent.**
+  - Convert dollars/case to dollars/lb by dividing by lb/case.
+  - Convert demand in cases to lb by multiplying by lb/case.
+- **Linearise ratio constraints.** For example, $x_{A1}/x_{B1}\ge 3$ becomes $x_{A1}-3x_{B1}\ge 0$.
+- **Interpreting shadow prices:**
+  - the maximum price worth paying for extra resource (compare with the market price, e.g. 25.5 vs 27.1 cents),
+  - the maximum marketing spend per unit of extra demand,
+  - valid only within the allowable increase/decrease.
+- **Interpreting reduced costs:** how much an objective coefficient must improve before a zero variable enters the solution.
+- **Sign rules for shadow prices:**
+  - $\le$ in a maximisation problem: never negative.
+  - $\ge$ or $=$: can be negative.
 
-**Upcoming agenda (about three sessions):**
-
-- Next class: formalize shadow prices as **dual variables** and better understand reduced cost.
-- Following sessions: **integer programming**.
-
----
-
-**Flags on inferred or computed numbers:**
-
-- The grade-by-grade split of the solution, $Z^*$, the after-tomato profit, the \$1,280 gain, and the ratio-constraint shadow prices were computed by me, not read out in class.
-- Myers' grade B figure is unclear in the audio (heard as both "15.54" and "15.90").
-- In the audio, "0.246" was garbled as "24.246," "1/3 shadow price" reads as "19" without its negative sign, and "27.1" was misheard once as "20.2."
+**Next sessions:**
+1. Formal dual / shadow price theory: when shadow prices are positive or negative, and a better understanding of reduced cost, continuing the example above.
+2. Integer programming, over the following two sessions.
 
 <!-- nav -->
-← [Session 7 (2026-11-11)](DSM-109-7_2026-11-11_Amit-Kumar-Vatsa.md) · [All lectures](./) · (latest lecture) →
+← [Session 7 (2026-11-11)](DSM-109-7_2026-11-11_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 9 (2026-11-16)](DSM-109-9_2026-11-16_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->

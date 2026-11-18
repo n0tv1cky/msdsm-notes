@@ -7,7 +7,7 @@ faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) · [All lectures](./) · [Session 15 (2026-10-26)](DSM-102-15_2026-10-26_Abhirup-Datta.md) →
+← [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) · [All lectures](./) · [Session 16 (2026-10-26)](DSM-102-16_2026-10-26_Abhirup-Datta.md) →
 <!-- /nav -->
 
 # DSM-102 Lecture 14: Linear Algebra with NumPy (Vectors, Matrices, Transformations, Least Squares)
@@ -498,5 +498,5 @@ plt.show()
 - **Admin:** a student asked for slides and PDFs for this and previous sessions. The instructor said recordings and materials will be on the **LMS portal**. The student reported they were not yet visible, and the instructor said they would follow up.
 
 <!-- nav -->
-← [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) · [All lectures](./) · [Session 15 (2026-10-26)](DSM-102-15_2026-10-26_Abhirup-Datta.md) →
+← [Session 12-13 (2026-10-10)](DSM-102-12-13_2026-10-10_Abhirup-Datta.md) · [All lectures](./) · [Session 16 (2026-10-26)](DSM-102-16_2026-10-26_Abhirup-Datta.md) →
 <!-- /nav -->

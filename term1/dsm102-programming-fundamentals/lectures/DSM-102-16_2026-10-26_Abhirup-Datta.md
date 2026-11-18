@@ -2,15 +2,15 @@
 course: DSM 102
 date: 2026-10-26
 start: 7:00pm
-session: "15"
+session: "16"
 faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · [Session 16 (2026-10-30)](DSM-102-16_2026-10-30_Abhirup-Datta.md) →
+← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · [Session 17 (2026-10-30)](DSM-102-17_2026-10-30_Abhirup-Datta.md) →
 <!-- /nav -->
 
-# DSM-102 · Session 15 (2026-10-26, Abhirup Datta)
+# DSM-102 · Session 16 (2026-10-26, Abhirup Datta)
 ## Regression in Practice: Uncertainty, Physics Constraints, Weights, Generalization, and Traps (Astronomy Case Studies)
 
 > **Note on the source:** This was reconstructed from a noisy speech-to-text transcript. Numbers that were garbled are flagged **[unclear]**. All code blocks are **best-effort reconstructions** from the spoken walkthrough. The instructor described the code but did not dictate it line by line, so exact function names, variable names and arguments are inferred.
@@ -512,5 +512,5 @@ Likely also examinable: the $n-p$ reasoning, SE formula, omitted-variable bias, 
 - **Basics:** the instructor will add background material (scikit-learn, overfitting, $\chi^2$, degrees of freedom, etc.) to the course notebook for students who need it.
 
 <!-- nav -->
-← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · [Session 16 (2026-10-30)](DSM-102-16_2026-10-30_Abhirup-Datta.md) →
+← [Session 14 (2026-10-13)](DSM-102-14_2026-10-13_Abhirup-Datta.md) · [All lectures](./) · [Session 17 (2026-10-30)](DSM-102-17_2026-10-30_Abhirup-Datta.md) →
 <!-- /nav -->

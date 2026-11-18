@@ -2,15 +2,15 @@
 course: DSM 102
 date: 2026-10-30
 start: 7:00pm
-session: "16"
+session: "17"
 faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 15 (2026-10-26)](DSM-102-15_2026-10-26_Abhirup-Datta.md) · [All lectures](./) · [Session 17 (2026-11-02)](DSM-102-17_2026-11-02_Abhirup-Datta.md) →
+← [Session 16 (2026-10-26)](DSM-102-16_2026-10-26_Abhirup-Datta.md) · [All lectures](./) · [Session 18 (2026-11-02)](DSM-102-18_2026-11-02_Abhirup-Datta.md) →
 <!-- /nav -->
 
-# DSM-102 Lecture 16: Probability Distributions in Data Science
+# DSM-102 Lecture 17: Probability Distributions in Data Science
 
 *Session: DSM-102-16, 2026-10-30, Abhirup Datta. Jupyter/Python demo using NumPy, SciPy, Matplotlib, Seaborn and ipywidgets, with astronomy examples throughout.*
 
@@ -538,5 +538,5 @@ plt.show()
 - **Next class:** the geometric distribution and the remaining (continuous) distributions.
 
 <!-- nav -->
-← [Session 15 (2026-10-26)](DSM-102-15_2026-10-26_Abhirup-Datta.md) · [All lectures](./) · [Session 17 (2026-11-02)](DSM-102-17_2026-11-02_Abhirup-Datta.md) →
+← [Session 16 (2026-10-26)](DSM-102-16_2026-10-26_Abhirup-Datta.md) · [All lectures](./) · [Session 18 (2026-11-02)](DSM-102-18_2026-11-02_Abhirup-Datta.md) →
 <!-- /nav -->

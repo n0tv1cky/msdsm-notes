@@ -2,15 +2,15 @@
 course: DSM 102
 date: 2026-11-14
 start: 12:00pm
-session: "19"
+session: "20"
 faculty: Abhirup Datta
 ---
 
 <!-- nav -->
-← [Session 17 (2026-11-02)](DSM-102-17_2026-11-02_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+← [Session 19 (2026-11-13)](DSM-102-19_2026-11-13_Abhirup-Datta.md) · [All lectures](./) · [Session 21 (2026-11-16)](DSM-102-21_2026-11-16_Abhirup-Datta.md) →
 <!-- /nav -->
 
-# DSM-102 · Session 19: Linear Regression with scikit-learn
+# DSM-102 · Session 20: Linear Regression with scikit-learn
 
 *Lecturer: Abhirup Datta · Session file: DSM-102-19_2026-11-14*
 
@@ -533,5 +533,5 @@ mse = mean_squared_error(y_test, y_pred); rmse = np.sqrt(mse); r2 = r2_score(y_t
   - the least-squares objective.
 
 <!-- nav -->
-← [Session 17 (2026-11-02)](DSM-102-17_2026-11-02_Abhirup-Datta.md) · [All lectures](./) · (latest lecture) →
+← [Session 19 (2026-11-13)](DSM-102-19_2026-11-13_Abhirup-Datta.md) · [All lectures](./) · [Session 21 (2026-11-16)](DSM-102-21_2026-11-16_Abhirup-Datta.md) →
 <!-- /nav -->
