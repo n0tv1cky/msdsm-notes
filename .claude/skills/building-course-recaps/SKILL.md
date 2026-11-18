@@ -55,6 +55,23 @@ Reference implementation: `term1/dsm107-managerial-economics/recap/course-recap.
 Re-profile. Put the new sessions into existing modules or a new module
 (show the user a plan diff first). Then do steps 4–6 for the changed parts only.
 
+## API-drafted builds (optional)
+
+`scripts/build_recap.py` drafts the plan and each module with the Anthropic
+API (key in `masters/.env`), using the shared kit in `kit/` (CSS tokens,
+chart core, page chrome, example module and widgets):
+
+- `plan <course-dir> <example-plan.json>` → `recap/plan.json`; `plan-extend` → `recap/plan-ext.json`
+- `draft <plan.json> [m1 m3 …]` → `.recap-build/<course>/` (check the log for `stop_reason=max_tokens` and redraft those modules)
+- `assemble <plan.json>` → new page; `extend <plan-ext.json> ["kicker"] [before-id]` → merges into an existing page
+
+Drafts are not verified. Still do step 5 in full: each widget exposes pure
+functions on `window.__recap.<moduleId>` to compare against Python, and
+`kit/sweep.js` drives every slider, preset, select and stepper and reports
+errors, empty readouts, off-chart marks and overflow (run it at 375px too).
+When extending an old page, check that its own scripts don't bind page-wide
+selectors (e.g. `.presets button`) that now also catch the new modules' buttons.
+
 ## Common mistakes
 
 | Mistake | Fix |
