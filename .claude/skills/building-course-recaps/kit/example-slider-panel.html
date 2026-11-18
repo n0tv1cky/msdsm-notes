@@ -1,0 +1,26 @@
+    <div class="note">
+      <p>The intuition (S06 primer, S11):</p>
+      <ul>
+        <li><strong>Two machines</strong> add vectors at 1 s and 2 s per step: $T_1 = c_1 n$ and $T_2 = c_2 n$. Different slopes, but both grow linearly, so they count as the <em>same</em> performance.</li>
+        <li>Doubling a <strong>sorted</strong> array doesn't change how you find its min or max: O(1). An <strong>unsorted</strong> max needs every element, because the biggest might be last: O(n).</li>
+        <li>A random-number generator takes <strong>zero inputs</strong> and still counts as an algorithm. An even/odd checker that only works up to 100 lacks <strong>generality</strong>.</li>
+        <li>Dr. Dey kept the formal definition for later: "those mathematical formulations will be taught by Professor Surya."</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath">
+      <div class="panel-head"><span class="panel-title">Find c and n₀</span><span class="readout" id="boRead"></span></div>
+      <p class="panel-sub">Slide <b>c</b> until the teal bound c·g(n) stays above the amber f(n) from some point on. That point is n₀. Dots are f at whole numbers of n: teal where the bound holds, red where it fails.</p>
+      <div class="presets" id="boPre"><button class="btn on" data-p="q">n² + 3n + 1 vs c·n² (S11 proof)</button><button class="btn" data-p="l">2n + 4 vs c·n (S11 exercise)</button></div>
+      <svg class="chart" id="boChart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span>c</span><span id="boCVal"></span></span><input type="range" id="boC" min="0.5" max="8" step="0.1" value="5"></div>
+      </div>
+      <div id="boVerdict" class="verdict good"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Prove $n^2 + 3n + 1 = O(n^2)$.<span class="tag">S11</span></summary>
+      <ol><li>We need $c, n_0$ with $n^2 + 3n + 1 \le c\,n^2$ for all $n \ge n_0$.</li><li>Take $c = 5$, $n_0 = 1$. At $n = 1$: $5 \le 5$. At $n = 2$: $11 \le 20$.</li><li>In general, for $n \ge 1$: $3n \le 3n^2$ and $1 \le n^2$, so the left side is at most $5n^2$.</li></ol>
+      <p class="answer">c = 5, n₀ = 1</p>

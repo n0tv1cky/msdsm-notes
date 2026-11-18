@@ -1,0 +1,129 @@
+<section class="module" id="m1">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S01 (18 Aug) · S02 (20 Aug) — Dey</p>
+      <h2>Foundations and the 1-D array</h2>
+      <p class="lede">The vocabulary, the address formula, and the first three array operations — all written with <code>L</code> and <code>U</code>, never a language's own indexing.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>VOCABULARY</h3>
+        <dl>
+          <dt>data vs information</dt><dd><strong>34</strong> is data; "age = 34" is information. A value only means something once it is tied to an attribute of an entity.</dd>
+          <dt>ADT</dt><dd>Logical description: a collection of data <strong>plus the operations</strong> on it, with no word about implementation. E.g. {5, 12, 16, 7, 10} with <code>max()</code>.</dd>
+          <dt>data structure</dt><dd>The <strong>implementation</strong> of an ADT: its physical form, built from primitives (<code>int float char double</code>).</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>THREE WAYS TO CLASSIFY</h3>
+        <dl>
+          <dt>linear | non-linear</dt><dd>array, linked list, stack, queue | tree, graph, heap, trie (jump through links; e.g. a family tree)</dd>
+          <dt>homogeneous | non-homogeneous</dt><dd>array: one type only | struct / record: name (string) + age (int) + salary (float). Types are laid out differently in memory: int 5 → <code>101</code> with a sign bit; float 5.5 = 55×10⁻¹ → sign | exponent | mantissa; char → an unsigned code. So a slot built for one type can't hold another. (Python's mixed lists hide this in library code.)</dd>
+          <dt class="t">static | dynamic</dt><dd>array: fixed block <code>L…U</code>, contiguous; free space elsewhere is useless to it | linked list: grabs scattered free blocks and links them</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>1-D ARRAY FORMULAS</h3>
+        <dl>
+          <dt>array</dt><dd>a <strong>finite, ordered</strong> collection of <strong>homogeneous</strong> elements in contiguous memory</dd>
+          <dt>size</dt><dd>$\text{Size} = U - L + 1$</dd>
+          <dt>address (mapping function)</dt><dd>$\text{Addr}(A[I]) = M + (I - L)\times W$<br>M = base address, W = bytes per element. Special case L = 1, W = 1: $M + (I-1)$.</dd>
+          <dt>I-th element</dt><dd>sits at index $L + I - 1$</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>THE THREE OPERATIONS (20 AUG) — state input, output, data structure first</h3>
+        <ul>
+          <li><strong>Traverse</strong> — <code>I ← L; while I ≤ U: process A[I]; I ← I+1</code>. O(n) time, O(1) space.</li>
+          <li><strong>Bubble sort</strong> — compare only <em>neighbours</em>, swap when out of order; each pass parks the largest at <code>I</code>, then <code>I ← I−1</code>. Inner loop is <code>J &lt; I</code>, not <code>≤</code>, or <code>A[J+1]</code> doesn't exist. O(n²) time, O(1) space. Flip the test for descending.</li>
+          <li><strong>Linear search</strong> — <code>FOUND</code> flag + <code>LOCATION</code> (start at 0, or a negative number if 0 is a valid index). Loop ends for two reasons, so test <code>FOUND</code> after it. Best O(1), worst O(n).</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>LOOPS AND INDEXING</h3>
+        <ul>
+          <li><code>while</code> / <code>for</code> check the condition <strong>first</strong>; <code>do-while</code> runs the body <strong>once</strong> before checking. With I = 5 and condition <code>5 &lt; 4</code>: while → 0 runs, do-while → 1 run.</li>
+          <li>0-based: C, Python, Java. 1-based: R vectors, SQL <code>SUBSTRING</code>. So write algorithms with <code>L</code>/<code>U</code> and let the formula absorb the difference.</li>
+          <li>Selection sort (mentioned): compare one element with <em>all</em> the others. Bubble sort only ever compares adjacent pairs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Why a data scientist needs this (S01):</p>
+      <ul>
+        <li><strong>Store, manipulate, answer queries fast</strong>: a self-driving car's decision that arrives after a minute is useless.</li>
+        <li><strong>Stock ticker</strong>: the highest-value stock must already be sitting at the front. If you had to scan for it, another stock would have overtaken it by the time you got there. That's why heaps and priority structures exist.</li>
+        <li><strong>Printer</strong>: 10 jobs come out in firing order (a queue). Add authority levels and the boss's job jumps ahead (a priority queue).</li>
+        <li><strong>Follow / follower</strong> relationships are a graph. A <strong>TF-IDF</strong> matrix is symmetric, so storing both triangles is redundant (hence module 2).</li>
+        <li>"No single storage structure is good for all applications": judge every choice on <strong>time and space</strong>, and expect to trade one for the other.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="bsPanel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Bubble sort, one comparison at a time</span><span class="readout" id="bsRead"></span></div>
+      <p class="panel-sub">The amber frame is the pair being compared (J, J+1). The teal zone is the settled part to the right of I. Watch the largest value ride to the end of each pass.</p>
+      <div class="presets" id="bsPre">
+        <button class="btn on" data-p="b">5 9 7 6 · S02 full trace</button>
+        <button class="btn" data-p="a">7 9 5 4 10 8 · S02 pass-1 example</button>
+        <span class="field"><input type="text" id="bsIn" value="5 9 7 6" aria-label="your numbers"><button class="btn" id="bsGo">sort mine</button><span id="bsErr" style="color:var(--rust)"></span></span>
+      </div>
+      <div class="viz-body">
+        <div><div class="stage-scroll"><div class="stage" id="bsStage"></div></div><p class="caption"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <p class="hint">← → step · space play/pause (click the panel first)</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>M = 1000, L = 1, U = 100, one element = 1 byte. Address of the 4th element?<span class="tag">S01 18 Aug</span></summary>
+      <ol><li>$\text{Addr}(A[4]) = 1000 + (4-1)\times 1$</li><li>Check by layout: A[1]→1000, A[2]→1001, A[3]→1002, A[4]→1003.</li></ol>
+      <p class="answer">1003</p>
+    </details>
+    <details class="worked">
+      <summary>Same base 1000, but each element takes 2 bytes. Where does A[2] start?<span class="tag">S01 18 Aug</span></summary>
+      <ol><li>A[1] occupies 1000–1001, so the next free byte is 1002.</li><li>Formula: $1000 + (2-1)\times 2 = 1002$.</li><li>Same idea on 20 Aug: first element at 453 with 2-byte elements → the second is at 455.</li></ol>
+      <p class="answer">1002</p>
+    </details>
+    <details class="worked">
+      <summary>Homework: make linear search return the <em>last</em> occurrence of KEY, then <em>all</em> occurrences.<span class="tag">S02 20 Aug assignment</span></summary>
+      <ol>
+        <li><strong>Route 1: scan backwards.</strong> Start <code>I ← U</code>, decrement, and stop at the first match. That first match from the right is the last occurrence.</li>
+        <li><strong>Route 2: drop the early exit.</strong> Remove <code>FOUND = 0</code> from the loop test and overwrite <code>LOCATION ← I</code> on every match. You always scan all n elements.</li>
+        <li>Worst case is the same for both: a single match at the very end still costs a full scan.</li>
+        <li><strong>All occurrences:</strong> keep an auxiliary flag array the same size as A and set a 1 at every matching index. That costs <strong>O(n) extra space</strong>, which is the trade-off the class discussed. A counter gives the frequency.</li>
+      </ol>
+      <p class="answer">last: I ← U, decrement · all: flag array, O(n) space</p>
+    </details>
+    <details class="worked">
+      <summary>Why must the bubble-sort inner loop be <code>J &lt; I</code> and not <code>J ≤ I</code>?<span class="tag">S02 20 Aug</span></summary>
+      <ol><li>J names the <em>pair</em> (A[J], A[J+1]).</li><li>If J reached I = U, the step would read A[U+1], an element that doesn't exist.</li><li>The outer I also stops the inner loop from re-touching the settled tail.</li></ol>
+      <p class="answer">so that A[J+1] always exists</p>
+    </details>
+
+    <h3 class="sub">PRACTICE</h3>
+    <details class="worked">
+      <summary>An array is indexed 5…24, base M = 2000, W = 4 bytes. Find its size and the address of A[12].<span class="tag">practice</span></summary>
+      <ol><li>$\text{Size} = 24 - 5 + 1 = 20$</li><li>$\text{Addr} = 2000 + (12-5)\times 4 = 2028$</li></ol>
+      <p class="answer">20 elements · 2028</p>
+    </details>
+    <details class="worked">
+      <summary>Bubble sort on <code>4 3 2 1</code>: how many comparisons and swaps? (Type it into the widget to watch.)<span class="tag">practice</span></summary>
+      <ol><li>Passes compare 3, 2 and 1 pairs: 6 comparisons in total.</li><li>The input is in reverse order, so every comparison fails and swaps. This is the worst case.</li><li>In general that's $\frac{n(n-1)}{2}$ comparisons, which is O(n²).</li></ol>
+      <p class="answer">6 comparisons, 6 swaps</p>
+    </details>
+    <details class="worked">
+      <summary><code>I = 5; do { print I; I = I + 1 } while (I &lt; 4)</code> — what prints?<span class="tag">practice</span></summary>
+      <ol><li>do-while runs the body before it checks anything, so it prints 5.</li><li>Then it checks 6 &lt; 4, which is false, and stops. A <code>while</code> loop would have printed nothing.</li></ol>
+      <p class="answer">5 (once)</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ MODULE 2: 2-D arrays + sparse matrices ============ -->

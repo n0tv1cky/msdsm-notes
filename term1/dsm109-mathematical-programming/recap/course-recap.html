@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSM-109 Full Course Recap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],ignoredClasses:['nomath'],throwOnError:false})"></script>
+<style>
+  :root{
+    --bg:#14171C; --panel:#1B1F26; --ink:#EDEAE2; --ink-dim:#9BA3AF; --ink-faint:#5B6270;
+    --line:#2A2F38; --amber:#E8A33D; --amber-dim:#7A5B2C; --teal:#4FA8A0; --teal-dim:#2F5C57;
+    --rust:#C1594A; --maxw:680px; --wide:960px;
+    --ease:cubic-bezier(.45,0,.2,1); --dur:.55s;
+  }
+  *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Source Sans 3',sans-serif; font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber-dim); color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .wrap-wide{max-width:var(--wide); margin:0 auto; padding:0 24px;}
+  code{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.92em;}
+  code.t{color:var(--teal);}
+  .katex{position:relative;}
+  .katex .katex-mathml{width:1px; height:1px; overflow:hidden; left:0; top:0;}
+
+  /* ---------- page chrome ---------- */
+  .progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--teal),var(--amber)); z-index:50; transition:width .1s linear;}
+  section{scroll-margin-top:54px;}
+  nav.jumpnav{position:sticky; top:3px; z-index:40; background:rgba(20,23,28,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:10px 24px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none;}
+  nav.jumpnav::-webkit-scrollbar{display:none;}
+  nav.jumpnav a{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); text-decoration:none; white-space:nowrap; padding:6px 11px; border-radius:20px; border:1px solid var(--line); flex:none; transition:color .15s,border-color .15s;}
+  nav.jumpnav a:hover, nav.jumpnav a:focus-visible{color:var(--ink); border-color:var(--amber);}
+  header.hero{padding:40px 0 28px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-faint); margin:0;}
+  .legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0 0; font-size:14px; color:var(--ink-dim);}
+  .legend span{display:inline-flex; align-items:center; gap:8px;}
+  .swatch{width:12px; height:12px; border-radius:3px; flex:none;}
+
+  .module{padding:52px 0 8px;}
+  .module-head{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:28px;}
+  .module-tag{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 8px;}
+  .module h2{font-size:1.55rem; margin:0 0 10px;}
+  .module .lede{color:var(--ink-dim); max-width:64ch; margin:0;}
+  h3.sub{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); letter-spacing:.06em; margin:36px 0 14px;}
+
+  /* ---------- cheat cards ---------- */
+  .cheat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:32px;}
+  .cheat-grid.two{grid-template-columns:repeat(2,1fr);}
+  .cheat-card{background:var(--panel); padding:18px 20px; min-width:0;}
+  .cheat-card h3{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--ink-faint); margin:0 0 12px;}
+  .cheat-card dl{margin:0;}
+  .cheat-card dt{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); margin:0 0 2px; overflow-wrap:anywhere;}
+  .cheat-card dt.t{color:var(--teal);}
+  .cheat-card dd{margin:0 0 12px; font-size:14px; color:var(--ink-dim); line-height:1.5;}
+  .cheat-card dd:last-child{margin-bottom:0;}
+  .cheat-card ul, .note ul{margin:0; padding:0; list-style:none;}
+  .cheat-card li{font-size:14px; color:var(--ink-dim); margin:0 0 9px; padding-left:14px; position:relative; line-height:1.5;}
+  .cheat-card li:last-child, .note li:last-child{margin-bottom:0;}
+  .cheat-card li::before, .note li::before{content:'—'; position:absolute; left:0; color:var(--ink-faint);}
+  .cheat-card strong{color:var(--ink); font-weight:600;}
+  .cheat-card .katex-display{margin:6px 0; overflow-x:auto; overflow-y:hidden;}
+  @media (max-width:760px){.cheat-grid,.cheat-grid.two{grid-template-columns:1fr;}}
+
+  /* ---------- tables ---------- */
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:8px; margin:0 0 24px;}
+  table.dt{border-collapse:collapse; width:100%; font-size:13.5px; min-width:600px;}
+  table.dt th, table.dt td{padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; color:var(--ink-dim);}
+  table.dt th{font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:500; color:var(--ink-faint); background:var(--panel);}
+  table.dt td:first-child{color:var(--ink); font-weight:600;}
+  table.dt tr:last-child td{border-bottom:none;}
+  table.dt td.o1{color:var(--teal); font-family:'IBM Plex Mono',monospace;}
+  table.dt td.on{color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  table.dt td.mono{font-family:'IBM Plex Mono',monospace; font-size:12.5px;}
+  .table-key{font-size:0.86rem; color:var(--ink-faint); max-width:78ch; margin:-12px 0 24px;}
+  .xtag{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; color:var(--ink-faint); border:1px solid var(--line); border-radius:10px; padding:0 7px; margin-left:4px; vertical-align:1px;}
+
+  /* ---------- intuition callout ---------- */
+  .note{font-size:0.9rem; color:var(--ink-faint); max-width:64ch; border-left:2px solid var(--line); padding-left:14px; margin:0 0 28px;}
+  .note p{margin:0 0 8px;} .note p:last-child{margin-bottom:0;}
+  .note li{margin:0 0 7px; padding-left:14px; position:relative;}
+  .note strong{color:var(--ink-dim);}
+
+  /* ---------- panels ---------- */
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:22px 22px 18px; margin:0 0 40px;}
+  .panel-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px 16px; margin-bottom:4px; flex-wrap:wrap;}
+  .panel-title{font-family:'Fraunces',serif; font-size:1.05rem; color:var(--ink);}
+  .panel-sub{font-size:14px; color:var(--ink-faint); margin:0 0 12px; max-width:70ch;}
+  .readout{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--amber); text-align:right;}
+  svg.chart{width:100%; height:auto; display:block; margin:14px 0 8px; overflow:visible;}
+  .tick{font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink-faint);}
+  .axislabel{font-family:'IBM Plex Mono',monospace; font-size:12px; fill:var(--ink-faint);}
+  svg.chart.narrow .tick{font-size:15px;} svg.chart.narrow .axislabel{font-size:15px;}
+  .gridline{stroke:var(--line); stroke-width:1;}
+  .axis{stroke:var(--ink-faint); stroke-width:1;}
+  .controls{display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center; margin-top:10px;}
+  .controls[hidden]{display:none;}
+  .slider-group{display:flex; flex-direction:column; gap:6px; flex:1; min-width:180px;}
+  .slider-label{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:flex; justify-content:space-between;}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:var(--line); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:18px; height:18px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:18px; height:18px; border-radius:50%; background:var(--ink); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--amber); cursor:pointer;}
+  .verdict{font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 12px; border-radius:5px; margin-top:12px; display:inline-block;}
+  .verdict.good{background:rgba(79,168,160,.14); color:var(--teal);}
+  .verdict.warn{background:rgba(232,163,61,.14); color:var(--amber);}
+  .verdict.eq{background:rgba(237,234,226,.08); color:var(--ink);}
+  .verdict.bad{background:rgba(193,89,74,.16); color:var(--rust);}
+  .btn{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:6px 12px; cursor:pointer; line-height:1.3;}
+  .btn:hover:not(:disabled){border-color:var(--amber); color:var(--ink);}
+  .btn:disabled{opacity:.35; cursor:default;}
+  .btn.on{border-color:var(--amber); color:var(--amber);}
+  .presets{display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 12px;}
+  .field{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); display:inline-flex; align-items:center; gap:6px;}
+  .field input[type=text], .field input[type=number], .field select{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:5px; padding:5px 8px;}
+  .field input[type=number]{width:62px;}
+  .field input[type=text]{width:190px;}
+  .field input:focus, .field select:focus{outline:none; border-color:var(--amber);}
+
+  /* ---------- animated visualizers ---------- */
+  .viz-body{display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:16px; align-items:start;}
+  .viz-body > *{min-width:0;}
+  .viz-body.wide-side{grid-template-columns:minmax(0,1fr) 340px;}
+  @media (max-width:820px){.viz-body,.viz-body.wide-side{grid-template-columns:1fr;}}
+  .viz-body.stacked{grid-template-columns:1fr;}
+  .viz-body.stacked .side{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,280px); gap:10px; align-items:start;}
+  @media (max-width:700px){.viz-body.stacked .side{grid-template-columns:1fr;}}
+  .stage-scroll{scrollbar-color:#3A414D transparent; scrollbar-width:thin; overflow-x:auto; overflow-y:hidden; border-radius:6px; background:var(--bg); border:1px solid var(--line);}
+  .stage{position:relative; margin:0 auto;}
+  .side{display:flex; flex-direction:column; gap:10px; min-width:0;}
+  pre.pcode{scrollbar-color:#3A414D transparent; scrollbar-width:thin; margin:0; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:10px 0; font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1.6; color:var(--ink-faint); overflow-x:auto;}
+  pre.pcode .ln{display:block; padding:0 12px 0 10px; border-left:3px solid transparent; white-space:pre; transition:background .25s,color .25s,border-color .25s;}
+  pre.pcode .ln.on{background:rgba(232,163,61,.13); border-left-color:var(--amber); color:var(--ink);}
+  pre.pcode .ln.bad{background:rgba(193,89,74,.16); border-left-color:var(--rust); color:var(--ink);}
+  .vars{display:flex; flex-wrap:wrap; gap:6px;}
+  .vars span{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim); background:var(--bg); border:1px solid var(--line); border-radius:4px; padding:3px 8px;}
+  .vars span b{color:var(--ink); font-weight:500;}
+  .vars span.chg{animation:varflash 1s var(--ease);}
+  @keyframes varflash{0%{border-color:var(--amber); background:rgba(232,163,61,.25);} 100%{border-color:var(--line); background:var(--bg);}}
+  .caption{font-size:15px; color:var(--ink-dim); min-height:3.2em; margin:12px 0 4px; line-height:1.5;}
+  .caption b{color:var(--ink); font-weight:600;}
+  .caption .a{color:var(--amber);} .caption .t{color:var(--teal);} .caption .r{color:var(--rust);}
+  .caption code{font-size:.88em;}
+  .transport{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:8px;}
+  .transport .btn{min-width:44px; padding:7px 12px;}
+  .transport .btn.play{min-width:84px; color:var(--ink); border-color:var(--amber-dim);}
+  .transport .ctr{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin-left:6px;}
+  .transport .bar{flex:1; min-width:80px; height:3px; background:var(--line); border-radius:2px; overflow:hidden; margin-left:6px;}
+  .transport .bar i{display:block; height:100%; width:0; background:var(--amber); transition:width .3s var(--ease);}
+  .hint{font-size:12px; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; margin:6px 0 0;}
+
+  /* moving pieces: everything that moves uses left/top/opacity transitions,
+     so the resting DOM is always the correct frame (print, thumbnails, hidden panes) */
+  .mv{position:absolute; transition:left var(--dur) var(--ease), top var(--dur) var(--ease), opacity .4s var(--ease), transform var(--dur) var(--ease), background-color .3s, border-color .3s, color .3s;}
+  .cell{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--ink); background:#20252E; border:1.5px solid #3A414D; border-radius:6px;}
+  .cell.cmp{border-color:var(--amber); color:var(--amber); background:rgba(232,163,61,.12);}
+  .cell.swap{border-color:var(--amber); color:var(--bg); background:var(--amber);}
+  .cell.done{border-color:var(--teal-dim); color:var(--teal); background:rgba(79,168,160,.10);}
+  .cell.hit{border-color:var(--teal); color:var(--bg); background:var(--teal);}
+  .cell.ghost{opacity:0;}
+  .cell.bad{border-color:var(--rust); color:var(--rust); background:rgba(193,89,74,.14);}
+  .slotlbl{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center;}
+  .ptr{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; white-space:nowrap; text-align:center; transition:left var(--dur) var(--ease), top var(--dur) var(--ease), opacity .3s;}
+  .ptr.a{color:var(--amber);} .ptr.t{color:var(--teal);} .ptr.i{color:var(--ink);} .ptr.r{color:var(--rust);}
+  .ptr .arw{display:block; font-size:13px; line-height:1;}
+  .band{position:absolute; border-radius:8px; transition:left var(--dur) var(--ease), width var(--dur) var(--ease), opacity .3s;}
+  .band.sorted{background:rgba(79,168,160,.08); border:1px dashed var(--teal-dim);}
+  .band.win{border:2px solid var(--amber); background:transparent;}
+  .flash-bad{animation:shake .45s;}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+  @keyframes drawin{from{stroke-dashoffset:var(--len);} to{stroke-dashoffset:0;}}
+  @media (prefers-reduced-motion:reduce){
+    .mv,.ptr,.band,pre.pcode .ln,.transport .bar i{transition:none !important;}
+    .vars span.chg,.flash-bad,path.new{animation:none !important;}
+  }
+
+  /* linked-list nodes */
+  .node{display:flex; height:40px; font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--ink); border:1.5px solid #3A414D; border-radius:6px; background:#20252E; overflow:hidden;}
+  .node > span{display:flex; align-items:center; justify-content:center;}
+  .node .d{flex:1; min-width:0;}
+  .node .l{width:18px; background:rgba(255,255,255,.04); border-left:1px solid #3A414D;}
+  .node .l.left{border-left:none; border-right:1px solid #3A414D;}
+  .node .l::after{content:''; width:5px; height:5px; border-radius:50%; background:var(--ink-faint);}
+  .node.header{border-style:dashed; color:var(--ink-faint);}
+  .node.header .d{font-size:12px;}
+  .node.new{border-color:var(--teal); color:var(--teal);}
+  .node.hl{border-color:var(--amber); color:var(--amber);}
+  .node.lost{opacity:.3; border-style:dashed;}
+  .node.gone{opacity:0;}
+  .node.bad{border-color:var(--rust); color:var(--rust);}
+  .addr{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center;}
+  .tagnote{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rust); white-space:nowrap;}
+  svg.links{position:absolute; left:0; top:0; overflow:visible; pointer-events:none;}
+  svg.links > path{fill:none; stroke-width:1.8;}
+  svg.links > path.new{stroke-dasharray:var(--len); animation:drawin .6s var(--ease);}
+  svg.links text{font-family:'IBM Plex Mono',monospace; font-size:11px;}
+
+  /* index calculator */
+  .ixgrid{display:grid; gap:2px; margin:0 auto; width:max-content;}
+  .ixgrid div{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; border-radius:3px; cursor:pointer; position:relative; transition:background-color .2s, color .2s, box-shadow .2s;}
+  .ixgrid div.st{background:#232833; color:var(--ink-faint);}
+  .ixgrid div.z{background:transparent; color:#343a45; border:1px dashed #262b33;}
+  .ixgrid div.cnt{background:rgba(232,163,61,.22); color:var(--ink);}
+  .ixgrid div.tgt{box-shadow:inset 0 0 0 2px var(--amber);}
+  .ixgrid div.tgt.cnt{background:var(--amber); color:var(--bg); font-weight:500;}
+  .ixgrid div.z.tgt{box-shadow:inset 0 0 0 2px var(--rust);}
+  .ixgrid div:hover{box-shadow:inset 0 0 0 1px var(--ink-dim);}
+  .ixstrip{display:flex; flex-wrap:wrap; gap:2px; margin:14px 0 4px;}
+  .ixstrip span{min-width:30px; height:26px; padding:0 3px; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#3b414c; border:1px solid #2a2f38; border-radius:3px; transition:background-color .2s,color .2s;}
+  .ixstrip span.cnt{background:rgba(232,163,61,.22); color:var(--ink);}
+  .ixstrip span.tgt{background:var(--amber); color:var(--bg);}
+  .ixmath{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-dim); line-height:1.8; margin-top:10px;}
+  .ixmath b{color:var(--amber); font-weight:500;} .ixmath i{color:var(--teal); font-style:normal;}
+  .axlbl{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); text-align:center; margin:0 0 6px;}
+
+  /* queue ring */
+  .ring{position:absolute; border-radius:50%; border:1px dashed #2f3540;}
+  .ringcell{position:absolute; width:40px; height:40px; margin:-20px 0 0 -20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink); background:#20252E; border:1.5px solid #3A414D; transition:background-color .3s,border-color .3s,color .3s;}
+  .ringcell.emp{color:transparent;}
+  .ringcell.waste{border-style:dashed; border-color:var(--rust);}
+  .ringcell .ix{position:absolute; font-size:10px; color:var(--ink-faint); top:-15px;}
+  .ringptr{position:absolute; left:0; top:0; width:0; height:0; transition:transform var(--dur) var(--ease), opacity .3s;}
+  .ringptr span{position:absolute; transform:translate(-50%,-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; white-space:nowrap;}
+  .lanehead{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-dim);}
+  .lanehead b{font-weight:500;}
+  .badge{position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; padding:3px 8px; border-radius:4px; white-space:nowrap; transition:opacity .3s;}
+  .badge.bad{background:rgba(193,89,74,.18); color:var(--rust);}
+  .badge.good{background:rgba(79,168,160,.16); color:var(--teal);}
+  .badge.eq{background:rgba(237,234,226,.08); color:var(--ink-dim);}
+
+  /* worked examples */
+  details.worked{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 20px; margin:0 0 16px;}
+  details.worked summary{cursor:pointer; font-size:15px; color:var(--ink); list-style:none;}
+  details.worked summary::-webkit-details-marker{display:none;}
+  details.worked summary::before{content:'▸ '; color:var(--amber); font-family:'IBM Plex Mono',monospace;}
+  details.worked[open] summary::before{content:'▾ ';}
+  details.worked .tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin-left:8px;}
+  details.worked ol{margin:12px 0 0; padding-left:22px; color:var(--ink-dim); font-size:15px;}
+  details.worked ol li{margin:0 0 6px;}
+  details.worked .answer{margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal);}
+  details.worked pre.code{margin:10px 0 0;}
+  pre.code{background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:12px 14px; overflow-x:auto; font-family:'IBM Plex Mono',monospace; font-size:12.5px; line-height:1.55; color:var(--ink); margin:10px 0;}
+  pre.code .c{color:var(--ink-faint);} pre.code .k{color:var(--teal);} pre.code .s{color:var(--amber);} pre.code .x{color:var(--rust);}
+
+  footer{border-top:1px solid var(--line); padding:44px 0 80px; color:var(--ink-faint); font-size:0.86rem;}
+  @media (max-width:600px){ .module{padding:40px 0 4px;} .panel{padding:16px 14px 14px;} .wrap,.wrap-wide{padding:0 16px;} nav.jumpnav{padding:10px 16px;} table.dt{font-size:12.5px;} .field input[type=text]{width:150px;} }
+
+  @media print{
+    @page{ margin:1.3cm; }
+    :root{
+      --bg:#ffffff; --panel:#f7f6f2; --ink:#161616; --ink-dim:#3d3d3d; --ink-faint:#6b6b6b;
+      --line:#cfcbc0; --amber:#a85e0d; --amber-dim:#d9c3a3; --teal:#136b62; --teal-dim:#a9cfc9; --rust:#9a3a2a;
+    }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body{ font-size:11pt; }
+    nav.jumpnav, .progress, .btn, .transport, .presets, .hint, .controls{ display:none !important; }
+    section{ scroll-margin-top:0; }
+    header.hero{ padding:0 0 16px; }
+    .module{ padding:28px 0 4px; }
+    .cheat-card, .panel, .note, details.worked, pre.code, .table-wrap{ break-inside:avoid; page-break-inside:avoid; }
+    h2, .panel-head{ break-after:avoid; page-break-after:avoid; }
+    .cell,.node,.ringcell{ background:#fff !important; border-color:#999 !important; color:#161616 !important; }
+    .cell.done{ background:#e8f2f0 !important; } .cell.cmp,.cell.swap{ background:#f6ead9 !important; }
+    .ixgrid div.st{ background:#eee; color:#555; } .ixgrid div.cnt{ background:#f6ead9; color:#161616; }
+    .ixstrip span{ color:#999; } .ixstrip span.cnt{ background:#f6ead9; color:#161616; }
+    .stage-scroll{ overflow:hidden; }
+    a[href]:after{ content:""; }
+    .verdict{ border:1px solid var(--line); }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="jumpnav">
+  <a href="#m1">1 · Why OR</a>
+  <a href="#m2">2 · Formulating</a>
+  <a href="#m3">3 · Graphical method</a>
+  <a href="#m4">4 · Sensitivity</a>
+  <a href="#m5">5 · Red Brand Canners</a>
+  <a href="#m6">6 · Signs, duality, IP</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap-wide">
+    <p class="kicker">DSM-109 Mathematical Programming · full course recap · S1–S9 (Vatsa)</p>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--amber)"></i>the model: formulation, corner points, the primal</span>
+      <span><i class="swatch" style="background:var(--teal)"></i>the insight: shadow prices, ranges, reduced costs, the dual</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ m1: 1 · Why OR ============ -->
+<section class="module" id="m1">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S1 (22 Oct) · S2 (23 Oct) — Vatsa</p>
+      <h2>Why OR, and why not brute force</h2>
+      <p class="lede">Enumerating every option stops working long before problems get realistic, so we need systematic methods that also <em>guarantee</em> they found the best answer.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>WHAT OR IS</h3>
+        <dl>
+          <dt>OR / management science</dt><dd>Applying advanced analytical methods to make <strong>better decisions</strong>. OR is the more mathematical side, MS the applied side. They are essentially one field.</dd>
+          <dt>why "operations"</dt><dd>From WWII <strong>military</strong> operations, not operations management (a student's guess, corrected). Teams of mathematicians, logicians, statisticians and code-breakers.</dd>
+          <dt>the pattern</dt><dd>Max/min an objective s.t. constraints. Military: min travel time under limited ammunition and manpower. Business: max profit or min cost under limited hours, budget and resources.</dd>
+          <dt>Dantzig → simplex</dt><dd>Worked for the US Air Force and invented the simplex method for LP. It is exponential in the worst case on paper but very fast in practice.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>CONVEX VS NON-CONVEX</h3>
+        <dl>
+          <dt>single airline price</dt><dd>Demand $D(p) = a - bp$, so revenue is $R(p) = ap - bp^2$ on $0 \le p \le a/b$.<br>$R' = a - 2bp = 0 \Rightarrow p^* = \frac{a}{2b}$, and $R'' = -2b &lt; 0$ confirms a max.<br>$Q^* = a/2$, $R^* = a^2/(4b)$.</dd>
+          <dt>three routes to p*</dt><dd>Calculus (closed form), plotting (the parabola peaks midway between its roots 0 and a/b), or step search. A price ±1–2% off p* barely changes revenue, because p* is a stationary point.</dd>
+          <dt>convex</dt><dd>One peak (maximising a concave function). Search can't get trapped: <strong>every local optimum is global</strong>.</dd>
+          <dt>non-convex</dt><dd>Many peaks. Search can stop at a wrong local max: a local optimum <strong>may not</strong> be global.</dd>
+          <dt>course scope</dt><dd>LPs generally have no closed form, so calculus isn't the tool here.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>GROWTH: WHY BRUTE FORCE FAILS</h3>
+        <dl>
+          <dt>n! — assignment, TSP</dt><dd>n dozers to n sites gives $n!$ matchings; a TSP over n cities gives $n!$ orders.<br>n = 4 → 24 (≈5 min by hand) · 5 → 120 (1–2 h) · 10 → 3,628,800 · 50 → ≈3.04×10⁶⁴ · 200 → Excel can't display it.</dd>
+          <dt>2ⁿ — subset-sum (truck)</dt><dd>Each item is either in or out. A "yes" can stop at the first hit; a <strong>"no"</strong> must check every non-empty subset: $$\sum_{k=1}^{n}\binom{n}{k} = 2^n - 1$$</dd>
+          <dt>polynomial vs not</dt><dd>log n, n and n² scale as the organisation grows; 2ⁿ and n! don't. Exponential grows slower than factorial but is still overwhelming.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>class</th><th>where it showed up</th><th>computing power doubles (×2 steps)</th><th>new solvable n′, from n = 100</th></tr></thead>
+        <tbody>
+          <tr><td>$O(\log n)$</td><td>—</td><td class="mono">$\log n' = 2\log 100$</td><td class="mono">10,000</td></tr>
+          <tr><td>$O(n)$</td><td>linear scan</td><td class="mono">$k\,n' = 2k\cdot 100$</td><td class="mono">200</td></tr>
+          <tr><td>$O(n^2)$</td><td>basic sorting</td><td class="mono">$k\,n'^2 = 2k\cdot 100^2$</td><td class="mono">141 ($100\sqrt2 = 141.4$)</td></tr>
+          <tr><td>$O(2^n)$</td><td>subset-sum, routing</td><td class="mono">$k\,2^{n'} = 2k\cdot 2^{100} = k\,2^{101}$</td><td class="mono">101: one more city</td></tr>
+          <tr><td>$O(n!)$</td><td>assignment / TSP by brute force</td><td class="mono">$101! = 101 \times 100!$</td><td class="mono">stays 100 <span class="xtag">not in S2 table</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">One doubling ≈ 4 years of hardware (S2). After d doublings: log → $100^{2^d}$, linear → $100\cdot 2^d$, quadratic → $100\cdot 2^{d/2}$, exponential → $100 + d$, factorial → the largest n with $n!/100! \le 2^d$.</p>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>ASSIGNMENT LOOKS HARDER, IS EASIER (S2)</h3>
+        <dl>
+          <dt>assignment as an LP</dt><dd>$\min \sum_i\sum_j d_{ij}x_{ij}$ s.t. row sums = 1 (each dozer to one site), column sums = 1 (each site gets one dozer), $x_{ij} \ge 0$. Solve with <strong>Simplex LP</strong>. An arbitrary 1A 2B 3C 4D gives 255; Solver finds 150.</dd>
+          <dt>integrality property</dt><dd>The constraint structure makes the LP optimum 0/1 <strong>without declaring binary</strong>. Simplex never enumerates n! options, yet still guarantees optimality. Polynomial, so 1,000×1,000 or even 10,000×10,000 instances solve in milliseconds.</dd>
+          <dt>subset-sum as a binary IP</dt><dd>$\sum_i w_i y_i = 40$, $y_i \in \{0,1\}$, with the objective left empty.<br>If you forget binary, you get ≈5.7 copies of one item (5.71×7 ≈ 40).<br>With binary: 7+10+3+14+6 = 40 (5 items). Minimising the item count gives 14+17+9 = 40 (3 items).<br>The binary requirement is what makes it <strong>NP-hard</strong>.</dd>
+          <dt>branch and bound</dt><dd>Solve the <strong>LP relaxation first</strong> (that is where the 5.7 came from), track upper and lower bounds, then branch on a fractional variable (0.4 → "= 0" | "= 1").<br>Solver returns one solution and is deterministic. Gurobi and CPLEX may randomise which variable they branch on.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>WHY LP IS SO POPULAR (S2)</h3>
+        <dl>
+          <dt>1 · applicable</dt><dd>Even nonlinear problems can be approximated linearly, e.g. with tangents.</dd>
+          <dt>2 · efficient</dt><dd>Karmarkar (1984) gave a polynomial-time interior-point method, and LPs with millions of variables solve fast. Khachiyan's ellipsoid method (1979) was the first polynomial algorithm; Karmarkar's was the first practical one.</dd>
+          <dt class="t">3 · insights</dt><dd><strong>Shadow price</strong> (what to pay for an overtime hour), <strong>reduced cost</strong> (which product mixes are viable) and <strong>allowable increase/decrease</strong> (does a price swing change the mix?). "The optimal solution is not the most interesting part; the insights are."</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>Where OR comes from (S1):</p>
+      <ul>
+        <li><strong>Enigma</strong>: simplify the password to 10 letters and there are $26^{10} \approx 1.41\times10^{14}$ settings, reset every midnight. Turing's early computer could not brute-force that.</li>
+        <li>What cracked it was <strong>structure</strong>: the 6 a.m. weather report always contained known words ("weather", "Heil Hitler"), which cut the search space drastically. Recommended film: <em>The Imitation Game</em>.</li>
+        <li>OR scientists also went in with the troops at Normandy.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>"Don't get absorbed in the math and miss the bigger picture" (S1, repeated S2):</p>
+      <ul>
+        <li><strong>Single price</strong>: revenue is the largest rectangle p × Q under the demand line, and nothing beats p* with one price. But the whole area under the curve is money on the table.</li>
+        <li><strong>Price discrimination</strong>: airlines add priority boarding and snacks, which cost little but are valued. HUL sells Surf Excel variants (hand wash, top-loader, front-loader); the front-loader one costs ≈₹10–20/kg more for marginal differences. Hotels do the same.</li>
+        <li><strong>JIT vs EOQ</strong>: US firms computed EOQ ($Q^* = \sqrt{2DS/H}$, not derived) to balance holding cost against ordering cost. Toyota asked "why not order <em>one</em> unit?" and that question led to lean / just-in-time.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Why you need a guarantee of optimality (S1):</p>
+      <ul>
+        <li><strong>Flight puzzle</strong>: trial and error stalls at ₹34,000 with no sign that ₹30,000 exists. That is embarrassing if a boss or client finds it in 2 minutes. "<strong>A guarantee of optimality is priceless.</strong>" (Worked below.)</li>
+        <li><strong>Dozers</strong>: picking the closest free dozer site by site gives 5+45+55+85 = 190 km. A student's reassignment, 45+35+55+15 = 150 km, saves (190−150)/190 ≈ 21%: "about 20%, a huge number". Greedy can be badly off.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Growth stories (S1, S2):</p>
+      <ul>
+        <li><strong>50! on an exaflop machine</strong> (S1): 3.04×10⁶⁴ ÷ 10¹⁸ per second ≈ 3.04×10⁴⁶ s ≈ <strong>9.6×10³⁸ years</strong>. The universe is ≈1.4×10¹⁰ years old, so a machine running since the Big Bang would have checked a vanishing fraction (~10⁻²⁹) of the options.</li>
+        <li><strong>Chessboard and wheat</strong> (S2): Sissa asked for 1 grain on square 1, then 2, 4, 8, … doubling. Square k holds $2^{k-1}$ grains, for a total of $2^{64}-1 \approx 1.8\times10^{19}$. The king underestimated compounding: "think about the <strong>last</strong> square."</li>
+        <li><strong>Doubling hardware</strong> (S2): four years of progress buys an exponential algorithm exactly one more city.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m1DbPanel">
+      <div class="panel-head"><span class="panel-title">Computing power doubles: how much bigger a problem can you solve?</span><span class="readout" id="m1DbRead"></span></div>
+      <p class="panel-sub">Today a fixed time budget solves n = 100 in every class. Each doubling of hardware (≈ 4 years) lets twice as many steps fit in that budget. Bars show the new solvable size on a log scale; pick a class to highlight it.</p>
+      <div class="presets" id="m1DbPre">
+        <button class="btn" data-p="log">log n</button>
+        <button class="btn" data-p="lin">n</button>
+        <button class="btn" data-p="quad">n² · basic sorting</button>
+        <button class="btn on" data-p="exp">2ⁿ · subset-sum (S2)</button>
+        <button class="btn" data-p="fact">n! · assignment, TSP</button>
+      </div>
+      <svg class="chart" id="m1DbChart" viewBox="0 0 760 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="new solvable problem size for five growth classes"></svg>
+      <p class="caption" id="m1DbCap"></p>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span>doublings of computing power</span><span id="m1DbDVal"></span></span><input type="range" id="m1DbD" min="0" max="10" step="1" value="1" aria-label="number of doublings"></div>
+      </div>
+      <div id="m1DbVerdict" class="verdict bad"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Five weeks in Delhi: fly Indore→Delhi Monday and Delhi→Indore Wednesday each week. One-way ₹5,000; same-week round trip ₹8,000; round trip spanning a weekend ₹6,000. What is the cheapest plan, and how do you <em>know</em>?<span class="tag">S1 22 Oct</span></summary>
+      <ol>
+        <li>There are 10 legs: outbound $O_1,\dots,O_5$ and return $R_1,\dots,R_5$.</li>
+        <li>(a) Five same-week round trips $(O_k, R_k)$: $5 \times 8{,}000 = ₹40{,}000$.</li>
+        <li>(b) Pair $(R_k, O_{k+1})$ for k = 1..4 as Delhi→Indore→Delhi weekend round trips, plus one-ways $O_1$ and $R_5$: $4\times 6{,}000 + 2\times 5{,}000 = ₹34{,}000$.</li>
+        <li>(c) Club $O_1$ and $R_5$ into an Indore→Delhi→Indore round trip, which also spans weekends: $5 \times 6{,}000 = ₹30{,}000$.</li>
+        <li><strong>Lower bound:</strong> a ticket covers at most 2 legs, and the cheapest way to cover 2 legs is ₹6,000 (vs ₹8,000 or 2×₹5,000). So $\text{Cost} \ge \frac{10}{2}\times 6{,}000 = ₹30{,}000$. Plan (c) meets the bound, so it is optimal.</li>
+        <li><strong>Alternate optimum:</strong> pair $(O_k, R_{k+1})$ for k = 1..4 and club $R_1$ with $O_5$. This also costs ₹30,000, so the optimum is not unique.</li>
+      </ol>
+      <p class="answer">₹30,000, proved optimal by the lower bound (multiple optimal plans exist)</p>
+    </details>
+    <details class="worked">
+      <summary>Truck loading with n = 10 items: to answer "no subset sums to exactly 40 t" by enumeration, how many subsets must you check in the worst case?<span class="tag">S2 23 Oct</span></summary>
+      <ol>
+        <li>Count by size: singles $\binom{10}{1} = 10$, pairs $\binom{10}{2} = 45$, triples 120, then 210, 252, 210, 120, 45, 10, 1.</li>
+        <li>Sum: $10+45+120+210+252+210+120+45+10+1 = 1023$.</li>
+        <li>Shortcut: $\sum_{k=0}^{n}\binom{n}{k} = 2^n$; drop the empty set to get $2^{10}-1 = 1023$.</li>
+        <li>A "yes" can stop early (e.g. 17+14+9 = 40). Only a "no" forces the full count. At n = 100 the count is $2^{100}-1$.</li>
+      </ol>
+      <p class="answer">2¹⁰ − 1 = 1023 subsets</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m2: 2 · Formulating ============ -->
+<section class="module" id="m2">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S2 (23 Oct) · S3 (28 Oct) — Vatsa</p>
+      <h2>Formulating correctly</h2>
+      <p class="lede">Variables, objective and constraints, each with units. Then the Merton Truck lesson: a wrong profit expression gives a confidently wrong optimum.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>ANATOMY OF A FORMULATION</h3>
+        <dl>
+          <dt>decision variable</dt><dd>What management decides, or what Solver should find. The objective and <strong>every</strong> constraint must be writable in them. E.g. $x_1$ = tables per week (units).</dd>
+          <dt>parameter</dt><dd>Known data: coefficients 4, 3, 2, 1, 7, 5 and capacities 240, 100.</dd>
+          <dt>three parts, with units</dt><dd><strong>variables</strong> (units/week) · <strong>objective</strong> (profit/week) · <strong>constraints</strong> (hours used ≤ hours available)</dd>
+          <dt>linear</dt><dd>Every variable appears to power 1 in the objective and the constraints, so use Simplex LP.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>SIGN RESTRICTIONS: DECIDE FROM THE USE CASE</h3>
+        <ul>
+          <li>$x_1 = -10$ would mean <strong>buying</strong> tables from the market.</li>
+          <li>Resources are <strong>hours</strong>. Dismantling a bought table gives no hours back, so $x_1, x_2 \ge 0$.</li>
+          <li>If the resources were <strong>materials</strong> (240 kg iron, 100 kg aluminium), dismantling would return material, so negatives might make sense.</li>
+          <li><strong>Portfolio:</strong> +10 lakh = invest, −10 lakh = short. Negatives allowed.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>EXCEL SOLVER RECIPE (S2)</h3>
+        <ul>
+          <li>Coefficient rows (objective, each resource) plus a RHS column.</li>
+          <li><strong>Yellow</strong> decision cells. Trial values are only for testing formulas: (1, 2) → profit 17, woodwork 10.</li>
+          <li>Objective: <code>=SUMPRODUCT(coeffs, decision cells)</code></li>
+          <li>LHS: <code>=SUMPRODUCT(row, $B$3:$C$3)</code>. The <code>$</code> refs let you copy it down.</li>
+          <li>Max · By Changing = yellow cells · LHS ≤ RHS (all rows at once) · tick <code>Make Unconstrained Variables Non-Negative</code> · <code>Simplex LP</code></li>
+          <li>Then ask for the <code class="t">Sensitivity Report</code>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>FURNITURE LP: TABLES &amp; CHAIRS (S2)</h3>
+        <dl>
+          <dt>model</dt><dd>$$\begin{aligned}\max\ & Z = 7x_1 + 5x_2\\ \text{s.t. } & 4x_1 + 3x_2 \le 240 \quad\text{(woodwork h)}\\ & 2x_1 + x_2 \le 100 \quad\text{(painting h)}\\ & x_1, x_2 \ge 0\end{aligned}$$</dd>
+          <dt>optimum</dt><dd>$(30, 40)$, $Z = 410$. <strong>Both</strong> constraints binding.</dd>
+          <dt class="t">shadow prices (supplementary)</dt><dd>1.5 per woodwork hour, 0.5 per painting hour. Check: $240(1.5) + 100(0.5) = 410$. This answers "what should I pay for an overtime hour?"</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>MERTON TRUCK LP (S3)</h3>
+        <dl>
+          <dt>variables</dt><dd>$x_1, x_2$ = Model 101, Model 102 trucks per month</dd>
+          <dt>objective: contribution (USD/month)</dt><dd>$$\max\ Z = 3000x_1 + 5000x_2$$ Profit = $Z - 8.6$M. The fixed cost is a constant, so maximising $Z$ also maximises profit.</dd>
+          <dt>constraints (machine-hours/month)</dt><dd>$$\begin{aligned} x_1 + 2x_2 &\le 4{,}000 \quad\text{EA}\\ 2x_1 + 2x_2 &\le 6{,}000 \quad\text{MS}\\ 2x_1 &\le 5{,}000 \quad\text{A101}\\ 3x_2 &\le 4{,}500 \quad\text{A102}\\ x_1, x_2 &\ge 0\end{aligned}$$</dd>
+          <dt>optimum</dt><dd>$(2000, 1000)$: $Z = 11$M, profit 2.4M</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>per truck (USD)</th><th>Model 101</th><th>Model 102</th></tr></thead>
+        <tbody>
+          <tr><td>Selling price</td><td class="mono">39,000</td><td class="mono">38,000</td></tr>
+          <tr><td>Direct material</td><td class="mono">24,000</td><td class="mono">20,000</td></tr>
+          <tr><td>Direct labour (assumed hourly → variable)</td><td class="mono">4,000</td><td class="mono">4,500</td></tr>
+          <tr><td>Variable overhead</td><td class="mono">8,000</td><td class="mono">8,500</td></tr>
+          <tr><td>Contribution = price − variable cost → Profit B</td><td class="on">3,000</td><td class="on">5,000</td></tr>
+          <tr><td>Reported full cost (incl. apportioned fixed)</td><td class="mono">40,205</td><td class="mono">35,930</td></tr>
+          <tr><td>"Profit" per truck → Profit A</td><td class="mono" style="color:var(--rust)">−1,205</td><td class="mono">2,070</td></tr>
+          <tr><td>of which EA fixed overhead apportioned</td><td class="mono">425</td><td class="mono">850</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Fixed overhead: USD 8.6M per month in total, of which 1.7M is in Engine Assembly. The figures 4,500, 40,205 and 35,930 are reconstructed from the stated −1,205, 2,070 and 5,000, because the recording garbled them.</p>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>dept</th><th>101 h/truck</th><th>102 h/truck</th><th>available</th><th>used at (1000, 1500)</th><th>used at (2000, 1000)</th><th>per swap</th></tr></thead>
+        <tbody>
+          <tr><td>EA · engine assembly</td><td class="mono">1</td><td class="mono">2</td><td class="mono">4,000</td><td class="mono">4,000 · full</td><td class="on">4,000 · full</td><td class="mono">0</td></tr>
+          <tr><td>MS · metal stamping</td><td class="mono">2</td><td class="mono">2</td><td class="mono">6,000</td><td class="mono">5,000 · 83.3%</td><td class="on">6,000 · full</td><td class="mono">+2</td></tr>
+          <tr><td>A101 · 101 assembly</td><td class="mono">2</td><td class="mono">0</td><td class="mono">5,000</td><td class="mono">2,000 · 40%</td><td class="mono">4,000</td><td class="mono">+4</td></tr>
+          <tr><td>A102 · 102 assembly</td><td class="mono">0</td><td class="mono">3</td><td class="mono">4,500</td><td class="mono">4,500 · full</td><td class="mono">3,000</td><td class="mono">−3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Same data, different bottleneck. At the current plan EA and A102 are full. At the optimum EA and MS bind. A swap is −1 Model 102, +2 Model 101.</p>
+
+    <div class="note">
+      <p>Profit A vs Profit B: the conflict at Merton (S3):</p>
+      <ul>
+        <li>The <strong>sales manager</strong> said "we are losing 1,205 dollars on each Model 101 we sell", so drop it. The <strong>controller</strong> said make more Model 101s so the fixed cost spreads thinner. Both argued from apportioned costs.</li>
+        <li><strong>Profit A</strong> (apportioned) $= -1205x_1 + 2070x_2$. <strong>Profit B</strong> (contribution) $= 3000x_1 + 5000x_2 - 8{,}600{,}000$.</li>
+        <li><strong>Test any profit expression at zero output: the fixed cost doesn't vanish.</strong> A gives 0 and B gives −8.6M, so B is correct.</li>
+        <li>A and B agree <strong>only at the apportioning point</strong> (1000, 1500), where both equal 1.9M. The whole analysis is about <em>changing</em> $x$, so A is useless.</li>
+        <li><strong>Delhi–Indore flight:</strong> 100 seats, Rs 4,00,000 fixed cost, Rs 200 per passenger. Apportioned: $4{,}200x$. Correct: $200x + 4{,}00{,}000$. They agree only at $x = 100$ (Rs 4,20,000).</li>
+        <li>Apportioning is "made-up logic". EA's 1.7M was split 25% / 75% by hours, giving 425 and 850 per truck. Fixed cost should not be apportioned at all.</li>
+        <li>"<strong>Garbage in, garbage out</strong>": fix the expression before you optimise. "Once you resolve the conflict, about <strong>80–90% of the job</strong> is done; the rest is analysis." This error is common in industry.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Method 1, the swap argument, and why it isn't enough (S3):</p>
+      <ul>
+        <li>EA is full, so to make more Model 101s you must free EA hours. One <strong>swap</strong> = −1 Model 102, +2 Model 101. EA net 0, MS +2 h, A101 +4 h, A102 −3 h.</li>
+        <li>Each swap earns $2(3000) - 5000 = +1000$. MS has 1,000 spare hours, so 500 swaps are possible. That adds <strong>+0.5M</strong> and moves the plan to (2000, 1000).</li>
+        <li>Three drawbacks: <strong>tedious</strong> (start afresh whenever the data change), <strong>impractical for large problems</strong> (exponentially many trade-offs), and it <strong>can't be automated</strong> or easily taught. That is why we use an LP plus a solver.</li>
+        <li><strong>Don't add capacity before solving optimally.</strong> The apparent bottlenecks (EA, A102) are not the binding ones at the optimum (EA, MS).</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>S2: "The optimal solution is not the most interesting part; <span style="color:var(--teal)">the insights are</span>." Solver's report adds <span style="color:var(--teal)">shadow prices</span> (what an overtime hour is worth), <span style="color:var(--teal)">reduced costs</span> (which product mixes are viable) and <span style="color:var(--teal)">allowable increase/decrease</span> (whether a price change alters the optimal mix).</p>
+    </div>
+
+    <div class="panel nomath" id="m2Panel">
+      <div class="panel-head"><span class="panel-title">Apportioned (A) vs contribution (B): where do they agree?</span><span class="readout" id="m2Read"></span></div>
+      <p class="panel-sub">The rust line is the apportioned expression A; the amber line is the correct expression B. Slide the output level: the lines meet at exactly one point (ringed), the output used to spread the fixed cost. Zero output is the professor's test.</p>
+      <div class="presets" id="m2Pre"><button class="btn on" data-p="f">Delhi–Indore flight · cost (S3)</button><button class="btn" data-p="m">Merton · profit along t·(1000, 1500) (S3)</button></div>
+      <svg class="chart" id="m2Chart" viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Two linear expressions plotted against output; they cross at one point"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span id="m2SLab">passengers x</span><span id="m2SVal"></span></span><input type="range" id="m2Slider" min="0" max="100" step="1" value="0" aria-label="output level"></div>
+      </div>
+      <div id="m2Verdict" class="verdict bad"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Furniture shop: a table earns 7 and a chair 5. Woodwork takes 4 h and 3 h (240 h/week); painting takes 2 h and 1 h (100 h/week). Formulate, solve, and check which constraints bind.<span class="tag">S2 23 Oct</span></summary>
+      <ol>
+        <li>Variables: $x_1$ = tables/week, $x_2$ = chairs/week. Everything else is a parameter.</li>
+        <li>$\max Z = 7x_1 + 5x_2$ s.t. $4x_1 + 3x_2 \le 240$, $2x_1 + x_2 \le 100$, $x_1, x_2 \ge 0$ (hours can't be recovered).</li>
+        <li>Solver (Simplex LP): $x_1^* = 30$, $x_2^* = 40$, so $Z^* = 7(30) + 5(40) = 210 + 200 = 410$.</li>
+        <li>Binding check: woodwork $4(30) + 3(40) = 240$ and painting $2(30) + 40 = 100$. Both are fully used.</li>
+        <li>Corner check: (0, 0) → 0, (50, 0) → 350, <strong>(30, 40) → 410</strong>, (0, 80) → 400.</li>
+      </ol>
+      <p class="answer">30 tables, 40 chairs · Z = 410 · both constraints binding</p>
+    </details>
+    <details class="worked">
+      <summary>Merton runs at (1000, 1500). Improve the plan by reasoning alone.<span class="tag">S3 28 Oct</span></summary>
+      <ol>
+        <li>Utilisation: EA 4,000/4,000, MS 5,000/6,000, A101 2,000/5,000, A102 4,500/4,500.</li>
+        <li>EA is full, so swap −1 Model 102 for +2 Model 101. EA: $-2 + 2 = 0$. MS: $+4 - 2 = +2$ h. A101: +4 h. A102: −3 h.</li>
+        <li>Profit per swap uses the Profit B coefficients: $2(3000) - 1(5000) = +1000$.</li>
+        <li>MS has 1,000 spare hours, giving $1000 / 2 = 500$ swaps. A101's 3,000 spare hours would allow 750, so MS is the limit.</li>
+        <li>Gain: $500 \times 1000 = 500{,}000$. New plan: $x_1 = 1000 + 2(500) = 2000$, $x_2 = 1500 - 500 = 1000$. Profit: $11{,}000{,}000 - 8{,}600{,}000 = 2{,}400{,}000$ (up from 1.9M). EA and MS now bind.</li>
+      </ol>
+      <p class="answer">+USD 0.5M → (2000, 1000), profit 2.4M</p>
+    </details>
+    <details class="worked">
+      <summary>A student asked where the 3,000 and 5,000 in the objective come from.<span class="tag">S3 28 Oct</span></summary>
+      <ol>
+        <li>Contribution = price − variable costs (direct material + direct labour + variable overhead).</li>
+        <li>Model 101: $39{,}000 - 24{,}000 - 4{,}000 - 8{,}000 = 3{,}000$.</li>
+        <li>Model 102: $38{,}000 - 20{,}000 - 4{,}500 - 8{,}500 = 5{,}000$.</li>
+        <li>The reported cost of 40,205 adds apportioned fixed overhead, which is how $39{,}000 - 40{,}205 = -1{,}205$ appears. The gap $3{,}000 - (-1{,}205) = 4{,}205$ is fixed cost spread per truck; EA's 425 is part of it.</li>
+        <li>The 8.6M fixed cost is subtracted once, as a constant, outside the brackets.</li>
+      </ol>
+      <p class="answer">Model 101: 3,000 · Model 102: 5,000 USD per truck</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m3: 3 · Graphical method ============ -->
+<section class="module" id="m3">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S4 (30 Oct) · S5 (6 Nov) — Vatsa</p>
+      <h2>Graphical method and why corners</h2>
+      <p class="lede">Draw the region, list its corners and slide the iso-profit line, then learn the three theorems that explain why the best plan always sits at a corner and why convex problems are easy.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>GRAPHICAL RECIPE (2 VARIABLES ONLY)</h3>
+        <ul>
+          <li>Each $\le$ constraint = a <strong>line</strong> (the equality) plus <strong>one feasible side</strong> (half-plane).</li>
+          <li><strong>Intercepts</strong>: set the other variable to 0, then join the two points. Engine assembly <code>x₁ + 2x₂ = 4000</code> → (4000, 0), (0, 2000).</li>
+          <li><strong>Test the origin</strong>: $0 + 0 \le 4000$ is true → the origin's side is feasible. Shade what satisfies every constraint, including $x_1, x_2 \ge 0$.</li>
+          <li><strong>Corners</strong>: solve pairs of lines and keep only the points that satisfy all the other constraints.</li>
+          <li><strong>Evaluate Z</strong> at each corner (Method 1), or slide the iso-line (Method 2).</li>
+          <li>3 variables needs a 3-D plot; 4 or more can't be drawn. The method is for <strong>intuition</strong>.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>THREE METHODS + ALTERNATE OPTIMA</h3>
+        <dl>
+          <dt>Method 1 · corner enumeration</dt><dd>List all corners, evaluate Z, pick the best. Needs a <strong>bounded</strong> region (the "qualification").</dd>
+          <dt>Method 2 · iso-objective line</dt><dd>Every point on it has the same Z ("iso" = same). Slide it <strong>parallel</strong> in the improving direction until it is about to leave the region. A line leaving a polygon always exits at a <strong>corner</strong>.</dd>
+          <dt>alternate optima</dt><dd>Objective parallel to an edge → the line exits through two corners at once → <strong>the whole edge is optimal</strong>. Solver reports only one corner.</dd>
+          <dt class="t">Method 3 · local search</dt><dd>Stop at a corner that beats all its <strong>adjacent</strong> corners. Merton: D (11M) beats C (10.5M) and E (10M), so D is optimal without looking at A, B or F.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>DEFINITIONS (S4)</h3>
+        <dl>
+          <dt>solution</dt><dd>any point in the $(x_1, x_2)$ plane, feasible or not</dd>
+          <dt>feasible solution</dt><dd>satisfies all constraints, including non-negativity. Example: (1000, 1000). There are infinitely many.</dd>
+          <dt>optimal solution</dt><dd>a feasible solution with the best Z</dd>
+          <dt>convex set</dt><dd>for any $P, Q \in S$, the <strong>whole segment</strong> $PQ$ lies in $S$. A notch or dent breaks this.</dd>
+          <dt>convex combination</dt><dd>$\lambda x_P + (1-\lambda)x_Q$ with $0 \le \lambda \le 1$ (a weighted average)</dd>
+          <dt>extreme (corner) point</dt><dd><strong>Cannot</strong> be written as a weighted average of two other distinct points of the region. An edge midpoint = 0.5·one end + 0.5·the other, so it is not a corner.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>THE THREE THEOREMS (S4)</h3>
+        <dl>
+          <dt>Theorem 1 · the LP region is convex</dt><dd>Each linear constraint keeps <strong>one side</strong> of a fully extended line. A dent would need both sides of some line to be feasible. Proof: $Ax_P \le b$ and $Ax_Q \le b$; multiply by $\lambda$ and $1-\lambda$ (both $\ge 0$, so the direction is kept) and add:
+            $$A\big(\lambda x_P + (1-\lambda)x_Q\big) \le \lambda b + (1-\lambda)b = b$$</dd>
+          <dt>Theorem 2 · if an optimum exists, a corner is optimal</dt><dd>Z is linear:
+            $$Z(\lambda x_B + (1-\lambda)x_C) = \lambda Z(x_B) + (1-\lambda)Z(x_C)$$
+            Every point is a convex combination of corners, so its Z is a <strong>weighted average</strong> of corner Z's and can't beat the best corner. Midpoint of BC: 9M = average of 7.5M and 10.5M.</dd>
+          <dt class="t">Theorem 3 · convex problem: local = global</dt><dd>Any local optimum is the global optimum. This gives <strong>Method 3</strong>, which is the simplex idea.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>CONVEX OPTIMISATION (S5)</h3>
+        <dl>
+          <dt>convex function</dt><dd>$f(\lambda x_a + (1-\lambda)x_b) \le \lambda f(x_a) + (1-\lambda)f(x_b)$. Every chord lies on or above the curve (a bowl). Concave = reversed ($-f$ convex). <strong>Linear is both.</strong></dd>
+          <dt>convex problem</dt><dd>$\min f(x)$ s.t. $g_i(x) \le 0$, with $f$ and all $g_i$ convex. "Convex ≤ constant" gives a convex region, e.g. the disc $x^2 + y^2 \le 5$ (RHS reconstructed). Max of a concave $f$ = min of $-f$, so it is convex too.</dd>
+          <dt>every LP is convex</dt><dd>whether you max or min</dd>
+          <dt>local vs global</dt><dd>local: at least as good as every feasible point in a small ball · global: at least as good as every feasible point</dd>
+          <dt>infeasible · unbounded</dt><dd>no feasible point · no finite optimum. Otherwise at least one corner is optimal.</dd>
+          <dt class="t">the takeaway</dt><dd><strong>Non-convexity, not non-linearity, makes problems hard.</strong></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>#</th><th>problem on $x_L \le x \le x_U$</th><th>picture</th><th>verdict</th><th>why (S5)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>min a bowl (convex $f$)</td><td>U-shape</td><td class="o1">easy</td><td>Moving downhill from any start reaches the bottom, which is both the local and the global min.</td></tr>
+          <tr><td>2</td><td>max the same bowl</td><td>U-shape</td><td class="mono" style="color:var(--rust)">hard</td><td>Start left of the bottom and you climb to the left end; start right and you reach the right end. Both are local maxima, so you must compare every such candidate.</td></tr>
+          <tr><td>3</td><td>max a concave $f$</td><td>hill (∩)</td><td class="o1">easy</td><td>This is convex optimisation in disguise: the local max is the global max.</td></tr>
+          <tr><td>4</td><td>max a wavy $f$</td><td>several peaks</td><td class="mono" style="color:var(--rust)">hard</td><td>Every peak is a local max but only one is global. At a peak that beats its neighbours you can't know whether to stop.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Remedy for 4: split the domain into "boxes" where each sub-problem is convex, solve each one, then compare the results. It works, but it is far more work.</p>
+
+    <div class="note">
+      <p>Why the pictures matter (S4):</p>
+      <ul>
+        <li><strong>"The optimal solution is not the most interesting part; the insights are"</strong>: bottlenecks, <code class="t">shadow prices</code> and <code class="t">allowable ranges</code>, which can be used to negotiate. Vatsa said you need the graphical method to read Solver's Sensitivity Report properly.</li>
+        <li>A student asked <strong>why only corners</strong> need checking. The answer is Method 2 (the line always leaves at a corner) and Theorem 2.</li>
+        <li><strong>Generic polygon a, b, c, d…</strong>: he said "improvement", not max/min. Change the improving direction and d, a or c becomes optimal. Push past the last corner and nothing on the line is feasible.</li>
+        <li><strong>Solver does not brute-force</strong> the corners. It walks between adjacent corners and stops at a local (= global) optimum: the Simplex LP engine. The link to simplex is inferred from the Solver setting.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Easy vs hard, drawn in S5:</p>
+      <ul>
+        <li><strong>Dented polygon A–E</strong>: corner C beats D and everything in a small ball around it, so C is a local optimum. E is strictly better. A local search stopping at C is wrong, and this can't happen in a convex problem.</li>
+        <li>$e^{-x}$ is <strong>convex but has no minimiser</strong>: it keeps decreasing, and its "minimum" is only approached as $x \to \infty$. A student proposed "$f(a) \le f(a^-)$ and $f(a) \le f(a^+)$" as a definition; that defines a local min at a point, not convexity.</li>
+        <li><strong>Convex NLP</strong> (curved convex region, linear objective): the tangency point is both local and global, and convex NLPs are today about as easy as LPs. Dent the region and a tangency point can be only local.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p><strong>Quiz (S9):</strong> pen-and-paper, MCQ plus small numericals, and it <strong>will</strong> ask the graphical method. Practise the recipe by hand, then check yourself in the lab.</p>
+    </div>
+
+    <div class="panel nomath" id="m3Panel">
+      <div class="panel-head"><span class="panel-title">Graphical LP lab: slide the iso-profit line</span><span class="readout" id="m3Read"></span></div>
+      <p class="panel-sub">The amber area is the feasible region and the dots are its corners. Drag <b>Z</b>: the dashed line is every plan earning exactly Z, and its solid amber part is the feasible plans on it. Sliding Z up pushes the line up and to the right. Watch where it last touches the region.</p>
+      <div class="presets" id="m3Pre">
+        <button class="btn on" data-p="merton">Merton Truck (S4)</button>
+        <button class="btn" data-p="furn">Furniture (woodwork + painting)</button>
+      </div>
+      <p class="panel-sub" id="m3Model"></p>
+      <svg class="chart" id="m3Chart" viewBox="0 0 760 420" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span>iso-profit level Z</span><span id="m3ZVal"></span></span><input type="range" id="m3Z" min="0" max="13000000" step="100000" value="7500000" aria-label="iso-profit level Z"></div>
+      </div>
+      <div class="presets" id="m3Jump"></div>
+      <div id="m3Verdict" class="verdict eq"></div>
+      <h3 class="sub">CORNER TABLE</h3>
+      <div class="table-wrap">
+        <table class="dt">
+          <thead><tr><th>corner</th><th>defined by</th><th>(x₁, x₂)</th><th id="m3ZHead">Z (USD)</th></tr></thead>
+          <tbody id="m3Tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Merton Truck: draw the region and build the full corner table by hand.<span class="tag">S4 30 Oct</span></summary>
+      <ol>
+        <li>Intercepts. Engine assembly (EA) $x_1 + 2x_2 = 4000$ → (4000, 0), (0, 2000). Metal stamping (MS) $2x_1 + 2x_2 = 6000$ → (3000, 0), (0, 3000). A101: $2x_1 \le 5000$ is the vertical line $x_1 = 2500$. A102: $3x_2 \le 4500$ is the horizontal line $x_2 = 1500$.</li>
+        <li>Origin test: $0 \le 4000$, $0 \le 6000$, and so on, are all true. So every feasible side faces the origin. With $x_1, x_2 \ge 0$ this leaves the polygon ABCDEF.</li>
+        <li>B: $x_1 = 0$ on A102 → (0, 1500). C: put $x_2 = 1500$ into EA → $x_1 = 4000 - 3000 = 1000$.</li>
+        <li>D = EA ∩ MS. Halve MS to get $x_1 + x_2 = 3000$. Subtract this from EA: $x_2 = 1000$, so $x_1 = 2000$.</li>
+        <li>E: put $x_1 = 2500$ into MS → $2x_2 = 6000 - 5000$, so $x_2 = 500$. F = (2500, 0).</li>
+        <li>Discard crossings that break another constraint. EA ∩ A101 = (2500, 750) uses 5000 + 1500 = 6500 &gt; 6000 stamping hours, so it is not a corner.</li>
+        <li>Evaluate $Z = 3000x_1 + 5000x_2$: A = 0 · B = 7.5M · C = 3M + 7.5M = 10.5M · D = 6M + 5M = 11M · E = 7.5M + 2.5M = 10M · F = 7.5M.</li>
+      </ol>
+      <p class="answer">D (2000, 1000), Z* = USD 11M at EA ∩ MS (both binding). Solver agrees.</p>
+    </details>
+    <details class="worked">
+      <summary>Midpoint P of edge BC has Z = 9M. Coincidence?<span class="tag">S4 30 Oct</span></summary>
+      <ol>
+        <li>$P = \tfrac12(0, 1500) + \tfrac12(1000, 1500) = (500, 1500)$.</li>
+        <li>$Z(P) = 3000(500) + 5000(1500) = 1.5\text{M} + 7.5\text{M} = 9\text{M}$.</li>
+        <li>The average of Z(B) = 7.5M and Z(C) = 10.5M is also 9M. This is by design: Z is linear, so $Z(\lambda x_B + (1-\lambda)x_C) = \lambda Z(x_B) + (1-\lambda)Z(x_C)$.</li>
+        <li>A point that is 90% C and 10% B has $Z = 0.9\,Z(C) + 0.1\,Z(B) = 10.2\text{M}$. That lies in between, never above 10.5M.</li>
+        <li>An interior point such as $0.33A + 0.33B + 0.34C$ gets the same weighted average of $Z(A), Z(B), Z(C)$. So no point beats the best corner.</li>
+      </ol>
+      <p class="answer">No: 9M = ½(7.5M + 10.5M). This is Theorem 2.</p>
+    </details>
+    <details class="worked">
+      <summary>Why is maximising a bowl-shaped f on $[x_L, x_U]$ hard when minimising it is easy?<span class="tag">S5 6 Nov</span></summary>
+      <ol>
+        <li>Minimise: from any start, move downhill until you reach the bottom. It is both the local and the global min.</li>
+        <li>Maximise: start left of the bottom and you climb to $x_L$; start right and you reach $x_U$. Each endpoint beats everything in a small ball around it, so both are local maxima.</li>
+        <li>A local search stops at whichever endpoint it reaches. To be sure, you must compare every such candidate, and in large problems there can be very many.</li>
+        <li>Maximising a convex $f$ is not of the form "min convex s.t. convex ≤ 0". Flip it to a concave hill (picture 3) and the problem is easy again.</li>
+      </ol>
+      <p class="answer">two local maxima (both endpoints) → must compare them; not a convex problem</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m4: 4 · Sensitivity ============ -->
+<section class="module" id="m4">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S5 (6 Nov) · S6 (9 Nov) · S7 (11 Nov) — Vatsa</p>
+      <h2>Sensitivity analysis</h2>
+      <p class="lede">One solve of the Merton Truck LP and its sensitivity report tell you what an extra hour is worth, how far that value holds, and how far a contribution can move before the optimal plan changes.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>BINDING · SHADOW PRICE (S5)</h3>
+        <dl>
+          <dt>Merton Truck (recap)</dt><dd>$\max Z = 3000x_1 + 5000x_2$ (USD).<br>EA (engine assembly): $x_1 + 2x_2 \le 4000$<br>MS (metal stamping): $2x_1 + 2x_2 \le 6000$<br>A101 line: $2x_1 \le 5000$<br>A102 line: $3x_2 \le 4500$<br>Optimum <strong>D = (2000, 1000)</strong>, Z = 11,000,000. Neighbouring corners: C (1000, 1500) and E (2500, 500).</dd>
+          <dt>binding</dt><dd>Slack = 0, so the resource is a bottleneck used 100%. Here that is <strong>EA and MS</strong>. D is where they cross, so moving either line moves D.</dd>
+          <dt>non-binding</dt><dd>Slack &gt; 0: A101 has $s_3 = 1000$, A102 has $s_4 = 1500$. Hours already go unused, so one more hour changes nothing: <strong>shadow price 0</strong>.</dd>
+          <dt class="t">shadow price</dt><dd>The change in optimal Z per +1 unit of a constraint's RHS. It can be +, 0 or −. Values (USD/h): EA <strong>2000</strong>, MS <strong>500</strong>, A101 0, A102 0.<br>Excel check: EA 4001 → Z = 11,002,000, mix (1999, 1001).</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>THE δ-METHOD (S5)</h3>
+        <dl>
+          <dt>0 · prerequisite</dt><dd>Know the optimal corner first. That tells you which constraints are binding.</dd>
+          <dt>1 · binding constraints → equations</dt><dd>$x_1 + 2x_2 = 4000 + \delta_1$<br>$2x_1 + 2x_2 = 6000 + \delta_2$</dd>
+          <dt>2 · solve</dt><dd>$x_1 = 2000 - \delta_1 + \delta_2$<br>$x_2 = 1000 + \delta_1 - \tfrac12\delta_2$</dd>
+          <dt class="t">3 · substitute into Z</dt><dd>$$Z = 11{,}000{,}000 + 2000\,\delta_1 + 500\,\delta_2$$ The coefficients of the δs are the shadow prices.</dd>
+          <dt class="t">additivity</dt><dd>With δ₁ = 1 and δ₂ = 2: 2000 + 2·500 = <strong>+3000</strong>. Excel re-solve confirmed it.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>RHS RANGING (S5–S6)</h3>
+        <dl>
+          <dt class="t">allowable increase / decrease</dt><dd>How far one RHS can move while <strong>the same constraints stay binding</strong>. Inside that range the shadow price stays unchanged.</dd>
+          <dt>graphically</dt><dd>Slide the EA line. D′ runs along MS until it hits a neighbouring corner:<br>at 4500 it reaches (1500, 1500), where A102 joins;<br>at 3500 it reaches E (2500, 500), where A101 joins.</dd>
+          <dt>algebraically</dt><dd>Write the binding pair with +Δ and put slacks on the others. Require every $x_j \ge 0$ and $s_i \ge 0$, then keep the tightest bounds.</dd>
+          <dt class="t">results</dt><dd>EA ±500 → valid 3500–4500.<br>MS +500 / −1000 → valid 5000–6500.<br>Non-binding constraints: increase ∞, decrease = slack (1000 for A101, 1500 for A102).</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>OBJECTIVE-COEFFICIENT RANGING (S7)</h3>
+        <dl>
+          <dt class="t">allowable increase / decrease</dt><dd>Change one coefficient at a time. Within the range the <strong>current corner stays optimal</strong>: the variable values stay the same and only Z changes.</dd>
+          <dt>slope rule</dt><dd>The iso-profit slope must lie between the slopes of the binding lines.<br>Parallel to MS → D and E tie.<br>Parallel to EA → C and D tie.</dd>
+          <dt>ratio rule</dt><dd>$\frac12 \le \frac{c_1}{c_2} \le \frac22$, where EA has ratio 1 : 2 and MS has 2 : 2.</dd>
+          <dt class="t">c₁ (c₂ = 5000)</dt><dd>$\frac12 \le \frac{k}{5000} \le 1 \Rightarrow 2500 \le k \le 5000$, so −500 / +2000. Excel: 4999 keeps D; 5001 jumps to E.</dd>
+          <dt class="t">c₂ (c₁ = 3000)</dt><dd>$\frac12 \le \frac{3000}{k'} \le 1$. Taking reciprocals flips the inequalities: $3000 \le k' \le 6000$, so −2000 / +1000.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>REDUCED COST (S6–S7)</h3>
+        <dl>
+          <dt class="t">definition</dt><dd>$\bar c_j = c_j - \sum_i a_{ij}\,y_i$: the contribution minus the resources it uses, valued at shadow prices $y_i$ ("pricing out").</dd>
+          <dt>basic variables</dt><dd>$x_1, x_2 &gt; 0$ at D, so their reduced cost is <strong>0</strong>. Forcing $x_1 \ge 1$ is redundant and Z doesn't move.</dd>
+          <dt class="t">non-basic: two readings</dt><dd>1. The change in Z per unit you force into the plan.<br>2. How much the coefficient must improve before the variable enters.</dd>
+          <dt>Model 103</dt><dd>2000 − 2350 = <strong>−350</strong>. Each truck forced in costs 350 of profit.</dd>
+          <dt>rule</dt><dd>Make a new product only if its contribution ≥ the opportunity cost of the resources it uses.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 class="sub">THE SOLVER SENSITIVITY REPORT</h3>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Constraint</th><th>Final value (h used)</th><th>RHS</th><th>Shadow price</th><th>Allowable increase</th><th>Allowable decrease</th><th>Valid RHS range</th></tr></thead>
+        <tbody>
+          <tr><td>Engine assembly (EA)</td><td class="on">4000</td><td class="mono">4000</td><td class="o1">2000</td><td class="o1">500</td><td class="o1">500</td><td class="o1">3500 – 4500</td></tr>
+          <tr><td>Metal stamping (MS)</td><td class="on">6000</td><td class="mono">6000</td><td class="o1">500</td><td class="o1">500</td><td class="o1">1000</td><td class="o1">5000 – 6500</td></tr>
+          <tr><td>Model 101 line (A101)</td><td class="on">4000</td><td class="mono">5000</td><td class="o1">0</td><td class="o1">∞</td><td class="o1">1000</td><td class="o1">≥ 4000</td></tr>
+          <tr><td>Model 102 line (A102)</td><td class="on">3000</td><td class="mono">4500</td><td class="o1">0</td><td class="o1">∞</td><td class="o1">1500</td><td class="o1">≥ 3000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>Variable cell</th><th>Final value</th><th>Reduced cost</th><th>Objective coef.</th><th>Allowable increase</th><th>Allowable decrease</th><th>Coefficient range</th></tr></thead>
+        <tbody>
+          <tr><td>x₁ · Model 101</td><td class="on">2000</td><td class="o1">0</td><td class="mono">3000</td><td class="o1">2000</td><td class="o1">500</td><td class="o1">2500 – 5000</td></tr>
+          <tr><td>x₂ · Model 102</td><td class="on">1000</td><td class="o1">0</td><td class="mono">5000</td><td class="o1">1000</td><td class="o1">2000</td><td class="o1">3000 – 6000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Amber = the plan; teal = the insights. In the S6 extended model, Model 103's row reads final value 0 and reduced cost −350. Its contribution (2000) must rise by 350, to 2350, before it enters.</p>
+
+    <div class="note">
+      <p>Shadow prices at the negotiating table (S5, S6):</p>
+      <ul>
+        <li><strong>Overtime offer (S5).</strong> The regular wage is already inside the contribution figures. So the firm can pay a <strong>premium of up to USD 2,000/hour above the regular wage</strong>, for at most 500 hours.</li>
+        <li>At exactly 2000 the firm is indifferent (a student's point). In practice, negotiate to share less than that.</li>
+        <li>Beyond the allowable increase the extra hours just go unused, and the 2000/h gain stops.</li>
+        <li><strong>Renting engine assembly from an outside supplier (S6).</strong> Yes, because EA is the bottleneck. Reimburse the costs the company avoids (direct labour, variable overhead) and share part of the 2000/h gain. Rent at most 500 hours. "It is like paying your own workers for overtime."</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Pricing out and the overtime decision (S6):</p>
+      <ul>
+        <li><strong>Model 103</strong> needs 0.8 h EA, 1.5 h MS and 1 h on the A101 line. Priced at shadow prices that is 0.8·2000 + 1.5·500 + 1·0 = <strong>2350</strong>, against a contribution of 2000. Reduced cost: −350.</li>
+        <li>In Solver, forcing x₃ = 1 lowered Z by 350. Launch only if the contribution is ≥ 2350.</li>
+        <li><strong>Overtime</strong>: (2000 − 600) × 500 h = 0.7M &lt; 0.75M extra fixed overhead, so <strong>no overtime</strong>. On the fixed cost: "AC and all the bills will have to keep running."</li>
+        <li><strong>Formulation 1</strong> (a student's suggestion) uses overtime hours y: $\max 3000x_1 + 5000x_2 - 600y$ with $x_1 + 2x_2 \le 4000 + y$ and $y \le 2000$. Result: (1500, 1500), y = 500, Z = 11.7M.</li>
+        <li><strong>Formulation 2</strong> splits production into regular and overtime units, with overtime contributions 2400 and 3800 and overtime EA $\le 2000$. Same Z = 11.7M; the regular/overtime split is not unique.</li>
+        <li>The 0.75M is compared outside the LP. Putting it inside would need a binary variable.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>Where "reduced cost" comes from (S7):</p>
+      <ul>
+        <li>George Dantzig, working for the US Air Force (Pentagon), had to feed soldiers at minimum cost. This is the <strong>diet problem</strong>: $\min \sum_j c_j x_j$ s.t. $L_i \le \sum_j a_{ij}x_j \le U_i$, $x \ge 0$, where $x_j$ = servings of food j.</li>
+        <li>If <strong>milk</strong> is 0 in the optimal diet, other foods supply its nutrients more cheaply. Its reduced cost is how much milk's price per serving must be <strong>reduced</strong> before it enters the diet. Hence the name.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The point repeated across S5–S7:</p>
+      <ul>
+        <li><strong>"The optimal solution is not the most interesting part; the insights are."</strong></li>
+        <li>One LP solve plus its sensitivity report answers many what-ifs <strong>without re-optimising</strong>: an extra hour, renting capacity, a new model, overtime.</li>
+        <li>Sensitivity analysis supports <strong>negotiation</strong> with workers, suppliers, or over any constraint (S7).</li>
+        <li>Small price moves (Model 101 at 3100, 3200, 3300) need no replanning (S6).</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">LABS</h3>
+    <div class="panel nomath" id="m4RhsPanel">
+      <div class="panel-head"><span class="panel-title">Move a constraint</span><span class="readout" id="m4RhsRead"></span></div>
+      <p class="panel-sub">Slide one right-hand side and re-solve the LP exactly.
+        <br>Amber: the feasible region and the optimal corner D′. Solid lines are binding, dashed lines have slack, and the dotted line is the moved constraint at its original RHS.
+        <br>Inside the allowable range D′ stays where EA and MS cross, and Z changes by the shadow price per hour.</p>
+      <div class="presets" id="m4RhsPre">
+        <button class="btn on" data-p="EA:4001">EA 4001 · case Q (b)</button>
+        <button class="btn" data-p="EA:4500">EA 4500</button>
+        <button class="btn" data-p="EA:3500">EA 3500</button>
+        <button class="btn" data-p="MS:6000">MS 6000 · base</button>
+        <button class="btn" data-p="MS:6500">MS 6500</button>
+        <button class="btn" data-p="MS:5000">MS 5000</button>
+      </div>
+      <svg class="chart" id="m4RhsChart" viewBox="0 0 760 340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Merton Truck feasible region with one constraint moved"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span id="m4RhsLbl">EA right-hand side (engine-assembly hours)</span><span id="m4RhsVal"></span></span><input type="range" id="m4Rhs" min="3000" max="5000" step="1" value="4001" aria-label="right-hand side"></div>
+      </div>
+      <div class="ixmath" id="m4RhsMath"></div>
+      <div id="m4RhsVerdict" class="verdict good"></div>
+    </div>
+
+    <div class="panel nomath" id="m4ObjPanel">
+      <div class="panel-head"><span class="panel-title">Rotate the objective</span><span class="readout" id="m4ObjRead"></span></div>
+      <p class="panel-sub">Change one contribution while the other stays fixed. The dashed line is the iso-profit line through the optimum, tilted by c₁ : c₂.
+        <br>D stays optimal while that tilt sits between the EA line (ratio 1/2) and the MS line (ratio 2/2). A teal edge means two corners tie.</p>
+      <div class="presets" id="m4ObjPre">
+        <button class="btn on" data-p="c1:3000">c₁ 3000 · base</button>
+        <button class="btn" data-p="c1:4999">c₁ 4999 · S7 Excel</button>
+        <button class="btn" data-p="c1:5001">c₁ 5001 · S7 Excel</button>
+        <button class="btn" data-p="c2:5000">c₂ 5000 · rotate c₂</button>
+        <button class="btn" data-p="c2:6000">c₂ 6000</button>
+      </div>
+      <svg class="chart" id="m4ObjChart" viewBox="0 0 760 340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Merton Truck iso-profit line rotating"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span id="m4ObjLbl">c₁, contribution per Model 101 (c₂ = 5000)</span><span id="m4ObjVal"></span></span><input type="range" id="m4Obj" min="1500" max="6500" step="1" value="3000" aria-label="objective coefficient"></div>
+      </div>
+      <div class="ixmath" id="m4ObjMath"></div>
+      <div id="m4ObjVerdict" class="verdict good"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Derive the shadow prices of engine assembly and metal stamping with the δ-method.<span class="tag">S5 6 Nov</span></summary>
+      <ol>
+        <li>D is optimal, and EA and MS bind there. Keep them as equations and perturb their right-hand sides: $x_1 + 2x_2 = 4000 + \delta_1$ (1) and $2x_1 + 2x_2 = 6000 + \delta_2$ (2).</li>
+        <li>Subtract (1) from (2): $x_1 = 2000 - \delta_1 + \delta_2$.</li>
+        <li>Substitute into (1): $2x_2 = 2000 + 2\delta_1 - \delta_2$, so $x_2 = 1000 + \delta_1 - \tfrac12\delta_2$. With δ = 0 you get D back.</li>
+        <li>Substitute into Z: $3000(2000 - \delta_1 + \delta_2) + 5000(1000 + \delta_1 - \tfrac12\delta_2) = 11{,}000{,}000 + (-3000 + 5000)\delta_1 + (3000 - 2500)\delta_2$.</li>
+        <li>What it means: one more EA hour moves the plan from one Model 101 to one Model 102, so the net gain is −3000 + 5000 = +2000.</li>
+      </ol>
+      <p class="answer">Z = 11,000,000 + 2000δ₁ + 500δ₂ → EA 2000 USD/h, MS 500 USD/h</p>
+    </details>
+    <details class="worked">
+      <summary>Find the allowable increase and decrease of the metal-stamping RHS algebraically.<span class="tag">S6 9 Nov</span></summary>
+      <ol>
+        <li>Write the binding constraints as equations and add slacks to the others: $x_1 + 2x_2 = 4000$, $2x_1 + 2x_2 = 6000 + \Delta_2$, $2x_1 + s_3 = 5000$, $3x_2 + s_4 = 4500$.</li>
+        <li>Solve the binding pair: $x_1 = 2000 + \Delta_2$ and $x_2 = 1000 - \tfrac12\Delta_2$.</li>
+        <li>Require every variable and slack to be ≥ 0 (table below), then keep the tightest bounds: the $s_3$ and $s_4$ rows.</li>
+        <li>EA works the same way: $x_1 = 2000 - \Delta_1$ and $x_2 = 1000 + \Delta_1$. Then $s_3 \ge 0$ gives $\Delta_1 \ge -500$ and $s_4 \ge 0$ gives $\Delta_1 \le 500$.</li>
+      </ol>
+      <div class="table-wrap">
+        <table class="dt">
+          <thead><tr><th>Condition</th><th>Expression</th><th>Gives</th></tr></thead>
+          <tbody>
+            <tr><td>$x_1 \ge 0$</td><td>$2000 + \Delta_2 \ge 0$</td><td>$\Delta_2 \ge -2000$</td></tr>
+            <tr><td>$x_2 \ge 0$</td><td>$1000 - \tfrac12\Delta_2 \ge 0$</td><td>$\Delta_2 \le 2000$</td></tr>
+            <tr><td>$s_3 \ge 0$</td><td>$5000 - 2(2000 + \Delta_2) = 1000 - 2\Delta_2 \ge 0$</td><td class="o1">$\Delta_2 \le 500$</td></tr>
+            <tr><td>$s_4 \ge 0$</td><td>$4500 - 3(1000 - \tfrac12\Delta_2) = 1500 + \tfrac32\Delta_2 \ge 0$</td><td class="o1">$\Delta_2 \ge -1000$</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="answer">−1000 ≤ Δ₂ ≤ 500 → MS shadow price 500 holds for 5000–6500</p>
+    </details>
+    <details class="worked">
+      <summary>Should Merton launch Model 103 (contribution 2000 per truck)?<span class="tag">S6 9 Nov</span></summary>
+      <ol>
+        <li>Hours per unit, from the case:
+          <ul>
+            <li>EA: 4000 h would make 5000 units → 0.8 h each.</li>
+            <li>MS: 6000 h would make 4000 units → 1.5 h each.</li>
+            <li>It uses the Model 101 line at half a Model 101's 2 h → 1 h each.</li>
+          </ul></li>
+        <li>Price it out at shadow prices: $0.8(2000) + 1.5(500) + 1(0) = 1600 + 750 + 0 = 2350$.</li>
+        <li>Reduced cost: $\bar c_3 = 2000 - 2350 = -350$.</li>
+        <li>Check by re-solving with $x_3$ added: Solver keeps $x_3 = 0$. Forcing $x_3 = 1$ lowers Z by 350.</li>
+      </ol>
+      <p class="answer">No: reduced cost −350. Launch only if contribution ≥ 2350.</p>
+    </details>
+    <details class="worked">
+      <summary>Overtime: 2000 EA hours available, direct labour 50% dearer, fixed overhead +0.75M if used. Worth it?<span class="tag">S6 9 Nov</span></summary>
+      <ol>
+        <li>EA direct labour is 1200 for a Model 101 (1 h) and 2400 for a Model 102 (2 h), so 1200/h. The 50% premium adds <strong>600/h</strong>.</li>
+        <li>Each overtime hour earns the shadow price minus the premium: 2000 − 600 = 1400.</li>
+        <li>Only 500 hours are useful, the allowable increase of EA. Beyond that the EA shadow price drops to 0.</li>
+        <li>Benefit: 1400 × 500 = 700,000 = 0.7M. That is less than the 0.75M extra fixed overhead.</li>
+        <li>Both LP formulations agree. Formulation 1 gives (1500, 1500) with y = 500 and Z = 11.7M, which is +0.7M before the fixed cost. Formulation 2 also gives Z = 11.7M.</li>
+      </ol>
+      <p class="answer">No overtime: 0.7M gain &lt; 0.75M fixed cost</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m5: 5 · Red Brand Canners ============ -->
+<section class="module" id="m5">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S07 (11 Nov) · S08 (13 Nov) — Vatsa</p>
+      <h2>Red Brand Canners</h2>
+      <p class="lede">Two managers argue over how to split a sunk tomato bill. The LP shows that the real question is what one more pound of grade A is worth.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>CASE FACTS (S07)</h3>
+        <dl>
+          <dt>supply</dt><dd><strong>3,000,000 lb</strong> already contracted at 18¢/lb = USD 540,000. 20% grade A = <strong>600,000 lb</strong>, rating 9. 80% grade B = <strong>2,400,000 lb</strong>, rating 5. Ratings are on a 1–10 scale.</dd>
+          <dt>minimum rating</dt><dd>whole tomatoes 8 · juice 6 · paste 5</dd>
+          <dt>lb per case</dt><dd>whole 18 · juice 20 · paste 25</dd>
+          <dt>demand (cases)</dt><dd>800,000 / 50,000 / 80,000, which is 14,400,000 / 1,000,000 / 2,000,000 lb</dd>
+          <dt>the offer</dt><dd>an extra <strong>80,000 lb of grade A at 25.5¢/lb</strong>. Buy or not?</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>SUNK COST → CONTRIBUTION (S07–S08)</h3>
+        <dl>
+          <dt>the test</dt><dd>"If I produce nothing, does this cost disappear?" For the tomato bill the answer is no, so it is fixed / sunk. <strong>Leave it out of contribution.</strong></dd>
+          <dt>contribution</dt><dd>price − <em>variable</em> costs: direct labour, variable overhead, variable selling, packaging. Ignore allocated fixed overhead (the same lesson as Merton Truck).</dd>
+          <dt>per lb</dt><dd>Units: USD/case ÷ lb/case = USD/lb.<br>whole 4.44/18 = <strong>0.2467</strong> · juice 3.96/20 = <strong>0.198</strong> · paste 5.55/25 = <strong>0.222</strong></dd>
+          <dt class="t">true value of grade A</dt><dd>the shadow price of the grade A supply constraint, not an allocated purchase cost</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>BLENDING (S07)</h3>
+        <dl>
+          <dt>weighted average</dt><dd>$r(p) = 9p + 5(1-p)$, where $p$ = share of grade A</dd>
+          <dt>whole ≥ 8</dt><dd>A:B ≥ <strong>3:1</strong>, i.e. ≥ 75% A</dd>
+          <dt>juice ≥ 6</dt><dd>A:B ≥ <strong>1:3</strong>, i.e. ≥ 25% A</dd>
+          <dt>paste ≥ 5</dt><dd>pure B already gives 5, so no constraint is needed</dd>
+          <dt>alligation</dt><dd>8 is 3 away from B (5) and 1 away from A (9). Each distance goes to the <em>opposite</em> grade, so A:B = 3:1.</dd>
+          <dt>linearise</dt><dd>$x_{A1}/x_{B1} \ge 3 \to x_{A1} - 3x_{B1} \ge 0$<br>$x_{A2}/x_{B2} \ge \tfrac13 \to 3x_{A2} - x_{B2} \ge 0$</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cheat-grid two">
+      <div class="cheat-card">
+        <h3>THE LP (S08): 6 VARIABLES, 7 CONSTRAINTS</h3>
+        <dl>
+          <dt>variables (lb)</dt><dd>$x_{Ai}, x_{Bi}$ = lb of grade A / B used in product $i$ (1 whole, 2 juice, 3 paste)</dd>
+          <dt>objective</dt><dd>$$\max Z = \tfrac{4.44}{18}(x_{A1}+x_{B1}) + \tfrac{3.96}{20}(x_{A2}+x_{B2}) + \tfrac{5.55}{25}(x_{A3}+x_{B3})$$</dd>
+        </dl>
+        <ul>
+          <li><strong>Supply (2):</strong> $x_{A1}+x_{A2}+x_{A3} \le 600{,}000$ · $x_{B1}+x_{B2}+x_{B3} \le 2{,}400{,}000$</li>
+          <li><strong>Demand (3), cases × lb/case:</strong> $x_{A1}+x_{B1} \le 14{,}400{,}000$ · $x_{A2}+x_{B2} \le 1{,}000{,}000$ · $x_{A3}+x_{B3} \le 2{,}000{,}000$</li>
+          <li><strong>Quality (2):</strong> $x_{A1} - 3x_{B1} \ge 0$ · $3x_{A2} - x_{B2} \ge 0$</li>
+          <li><strong>≤ demand is fine in a max problem</strong>: the model fills profitable demand by itself. In a <em>min</em> problem the same constraint gives "produce nothing".</li>
+          <li>A student suggested dropping $x_{A3}$. Vatsa kept it ("let Solver decide"), and Solver set it to 0.</li>
+          <li>Solver settings: Simplex LP, Sensitivity Report on.</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h3>OPTIMUM AND SENSITIVITY (S08)</h3>
+        <dl>
+          <dt>optimal plan (lb)</dt><dd>whole 700,000 (A 525,000 · B 175,000) · juice 300,000 (A 75,000 · B 225,000) · paste 2,000,000 (all B). All A and all B are used, and both blends sit exactly on 3:1 and 1:3.</dd>
+          <dt>value</dt><dd>contribution ≈ <strong>USD 676,067</strong>. After the sunk 540,000 that leaves ≈ <strong>USD 136,067</strong>: "profit-making even after subtracting tomato cost".</dd>
+          <dt class="t">shadow price, grade A</dt><dd><strong>27.1¢/lb</strong> (0.271). Allowable increase 600,000 lb, so it holds up to 1,200,000 lb.</dd>
+          <dt class="t">shadow price, grade B</dt><dd><strong>17.3¢/lb</strong></dd>
+          <dt class="t">demand shadow prices</dt><dd>whole 0 and juice 0: not binding, so advertising them is pointless. Paste <strong>4.83¢</strong> per lb of demand.</dd>
+          <dt class="t">reduced cost of x<sub>A3</sub></dt><dd>≈ −0.097. Forcing 1 lb of A into paste costs 0.097. Adding 0.098 to its coefficient makes it enter, and whole-tomato production drops to 0.</dd>
+          <dt class="t">quality (≥) constraints</dt><dd>≈ −0.0243 each (computed, not discussed in class). In a max problem a ≥ constraint can have a negative shadow price; a ≤ constraint never can.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th></th><th>COOPER · EXHIBIT 2</th><th>MYERS · EXHIBIT 3</th><th>LP VIEW (S08)</th></tr></thead>
+        <tbody>
+          <tr><td>1 lb of grade A</td><td class="mono">18¢ (average)</td><td class="mono">27.93¢ (∝ rating 9)</td><td class="o1">27.1¢ shadow price</td></tr>
+          <tr><td>1 lb of grade B</td><td class="mono">18¢ (average)</td><td class="mono">15.52¢ (∝ rating 5)</td><td class="o1">17.3¢ shadow price</td></tr>
+          <tr><td>Fruit cost, whole (USD/case)</td><td class="mono">3.24</td><td class="mono">4.47</td><td class="o1">excluded (sunk)</td></tr>
+          <tr><td>Fruit cost, juice (USD/case)</td><td class="mono">3.60</td><td class="mono">3.72</td><td class="o1">excluded (sunk)</td></tr>
+          <tr><td>Fruit cost, paste (USD/case)</td><td class="mono">4.50</td><td class="mono">3.88</td><td class="o1">excluded (sunk)</td></tr>
+          <tr><td>Whole tomatoes, contribution (USD/case)</td><td class="mono">12.00 − 10.80 = 1.20</td><td class="mono" style="color:var(--rust)">4.44 − 4.47 = −0.03 → "drop it"</td><td class="o1">4.44 before fruit; gets 700,000 lb</td></tr>
+          <tr><td>Flaw</td><td>ignores that grade A is <strong>scarce</strong></td><td>apportions a <strong>sunk</strong> cost; the logic spirals</td><td>marginal value to the business, valid within the allowable range</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Myers solves $600{,}000\,a + 2{,}400{,}000\,b = 540{,}000$ with $a = 1.8\,b$, giving $b = 0.1552$ and $a = 0.2793$ USD/lb. Cooper and Myers are two ways of slicing the same sunk 540,000. Only the LP column says what one more pound is worth.</p>
+
+    <div class="note">
+      <p>Cooper vs Myers: "both are wrong" (S07).</p>
+      <ul>
+        <li><strong>Cooper</strong> charges 18¢ for every pound, A or B, so he ignores that grade A is scarce.</li>
+        <li><strong>Myers</strong> makes cost proportional to quality points. Whole tomatoes then show −0.03 per case, so he says to stop making them.</li>
+        <li><strong>The spiral:</strong> drop whole tomatoes → all grade A goes into juice → juice's fruit cost rises and juice looks unprofitable too → nothing uses grade A, and it is effectively thrown away.</li>
+        <li>The 3M lb were bought at 18¢ <em>before</em> grading, so the cost is sunk. Grade A's best use is whole tomatoes: use what you already hold.</li>
+        <li>Accounting "tricks" only work on fixed costs. A variable cost is the incremental cost of one more unit, so it cannot be apportioned at will.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The expensive expert on the bench (S07).</p>
+      <ul>
+        <li>A company hires a costly expert to work across several software products. Every product manager refuses the expert's hours, because being billed for them makes their product look loss-making. The expert sits idle while the salary is paid anyway. For the organisation that salary is sunk, so the resource should not go to waste.</li>
+        <li>A student described practice-area leads charged as 0.25 of overhead across projects. Vatsa's reply: apportioning fixed overhead may be fine for <strong>long-term strategy</strong>, but it must never drive <strong>short-term operational decisions</strong>. It is the same trap as allocating fixed overhead in Merton Truck.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>The answer is the plan; the insight is in the shadow prices (S08). As the course keeps saying: the optimal solution is not the most interesting part; the insights are.</p>
+      <ul>
+        <li><strong>The +100 lb puzzle:</strong> grade A is worth 27.1¢, yet no product earns more than 24.67¢/lb. How? Re-solving with 600,100 lb gives whole tomatoes <strong>+150 lb</strong>, juice <strong>−50 lb</strong> and paste unchanged. The extra A lets grade B move from juice into whole tomatoes while keeping 3:1. The gain is 150 × 0.2467 − 50 × 0.198 = 37.0 − 9.9 = <strong>27.1</strong>.</li>
+        <li><strong>Myers' grade A figure (≈27.9¢) lands near 27.1¢ by coincidence.</strong> His number is an allocation of a sunk cost; the shadow price is a marginal value. Grade B is worth <strong>more</strong> (17.3¢) than Myers thought (15.5¢).</li>
+        <li><strong>Shadow price = what to pay farmers:</strong> any price below 27.1¢ (A) or 17.3¢ (B) for extra supply still raises profit.</li>
+        <li>A student asked: juice demand is 1,000,000 lb but only 300,000 lb are made, so should we buy grade B to meet it? No. Juice demand is <strong>not the bottleneck</strong>; the two supplies and paste demand are. A shadow price also holds only within its allowable increase. Past that, another constraint binds and you stop gaining 17.3¢ per pound.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m5Panel">
+      <div class="panel-head"><span class="panel-title">Blend slider: how much grade A does a pound need?</span><span class="readout" id="m5Read"></span></div>
+      <p class="panel-sub">Set the share of grade A (rating 9) in one pound of product; the rest is grade B (rating 5). The amber bar is the weighted-average rating on the 1–10 scale. Each dashed line is a product's minimum: teal when the blend clears it, red when it does not.</p>
+      <div class="presets" id="m5Pre">
+        <button class="btn on" data-p="75">75% A · whole-tomato minimum (3:1)</button>
+        <button class="btn" data-p="25">25% A · juice minimum (1:3)</button>
+        <button class="btn" data-p="20">20% A · the raw supply mix</button>
+        <button class="btn" data-p="0">0% A · pure B (paste)</button>
+      </div>
+      <svg class="chart" id="m5Chart" viewBox="0 0 760 206" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Blend mix bar and weighted-average quality rating against the product minimums 5, 6 and 8"></svg>
+      <div class="controls">
+        <div class="slider-group"><span class="slider-label"><span>share of grade A</span><span id="m5PVal"></span></span><input type="range" id="m5P" min="0" max="100" step="1" value="75" aria-label="share of grade A in percent"></div>
+      </div>
+      <div class="legend"><span class="verdict good" id="m5BW"></span><span class="verdict good" id="m5BJ"></span><span class="verdict good" id="m5BP"></span></div>
+      <div class="verdict eq" id="m5Verdict"></div>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>Whole tomatoes need a rating of at least 8 from grade A (9) and grade B (5). Derive the minimum A:B ratio by algebra and by alligation, then do juice.<span class="tag">S07 11 Nov</span></summary>
+      <ol>
+        <li>Algebra: let A:B = $\lambda : 1$. Then $\dfrac{9\lambda + 5}{\lambda + 1} \ge 8 \Rightarrow 9\lambda + 5 \ge 8\lambda + 8 \Rightarrow \lambda \ge 3$.</li>
+        <li>Alligation: $8 - 5 = 3$ goes to A, and $9 - 8 = 1$ goes to B, so A:B = 3:1. That is 75% A and at most 25% B.</li>
+        <li>Juice (≥ 6): $9\lambda + 5 \ge 6\lambda + 6 \Rightarrow \lambda \ge \tfrac13$. By alligation, $6-5 = 1$ goes to A and $9-6 = 3$ to B, so 1:3, i.e. 25% A.</li>
+        <li>Paste (≥ 5): pure B already rates 5, so no constraint is needed.</li>
+        <li>Linearise for the LP: $x_{A1} - 3x_{B1} \ge 0$ and $3x_{A2} - x_{B2} \ge 0$.</li>
+      </ol>
+      <div class="answer">whole ≥ 3:1 (≥ 75% A) · juice ≥ 1:3 (≥ 25% A) · paste: no constraint</div>
+    </details>
+    <details class="worked">
+      <summary>The market offers 80,000 lb of extra grade A at 25.5¢/lb. Buy it?<span class="tag">asked S07 · solved S08</span></summary>
+      <ol>
+        <li>Tomato cost is not in the objective, so the grade A shadow price, <strong>0.271 USD/lb</strong>, is the value of one <em>free</em> extra pound.</li>
+        <li>Check the range: the allowable increase is 600,000 lb and 80,000 ≤ 600,000, so 27.1¢ holds over the whole offer.</li>
+        <li>Value: 80,000 × 0.271 = 21,680. Cost: 80,000 × 0.255 = 20,400.</li>
+        <li>25.5¢ &lt; 27.1¢, so buy. Had the shadow price been below 25.5¢ (e.g. 23¢), the answer would be "don't buy" (S07).</li>
+      </ol>
+      <div class="answer">buy · net gain ≈ USD 1,280</div>
+    </details>
+    <details class="worked">
+      <summary>Marketing promises +1 lb of paste demand for every 5¢ spent. Accept?<span class="tag">S08 13 Nov</span></summary>
+      <ol>
+        <li>Paste demand binds: the plan makes the full 2,000,000 lb.</li>
+        <li>Its shadow price is 0.0483 USD per lb of demand, i.e. <strong>4.83¢</strong>.</li>
+        <li>Spending 5¢ to earn 4.83¢ loses 0.17¢ on every extra pound, so reject.</li>
+        <li>Whole and juice demand have shadow price 0, so any spend to raise them is wasted.</li>
+      </ol>
+      <div class="answer">reject (5 &gt; 4.83) · paste marketing must cost under 4.83¢ per extra lb</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ m6: 6 · Signs, duality, IP ============ -->
+<section class="module" id="m6">
+  <div class="wrap-wide">
+    <div class="module-head">
+      <p class="module-tag">S08 (13 Nov) · S09 (16 Nov) — Vatsa</p>
+      <h2>Shadow-price signs, duality, and an introduction to IP</h2>
+      <p class="lede">This module covers why each <span style="color:var(--teal)">shadow price</span> has the sign it does, how every LP carries a <span style="color:var(--teal)">dual</span> whose variables are those shadow prices, and what changes when the answer must be a whole number.</p>
+    </div>
+
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h3>REGION → SIGN (S09)</h3>
+        <dl>
+          <dt>the principle</dt><dd>Region <strong>expands</strong> → the optimum can't worsen, because the old corner is still available. Region <strong>shrinks</strong> → the optimum can't improve, because you may lose the old corner.</dd>
+          <dt>RHS +1 (that constraint alone)</dt><dd><code>≤</code> <strong>expands</strong>: $3x_1+2x_2\le 8 \to \le 9$; also $-3x_1-8x_2\le -16 \to \le -15$, so the coefficient signs don't matter.<br><code>≥</code> <strong>shrinks</strong>: $3x_1+5x_2\ge 25 \to \ge 26$.<br><code>=</code> <strong>shifts</strong>: $x_2=4 \to x_2=5$, a different line.</dd>
+          <dt>better / worse</dt><dd>max: worse = lower profit · min: worse = higher cost</dd>
+          <dt class="t">standard constraints</dt><dd>$\le$ for max (profit is limited by resources) and $\ge$ for min → shadow price <strong>$\ge 0$</strong>. Non-standard → $\le 0$. Equality → unrestricted.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>PRIMAL ↔ DUAL (S09)</h3>
+        <dl>
+          <dt class="t">dual variables</dt><dd>= the primal's <strong>shadow prices</strong>. Each primal constraint gives one dual variable; each primal variable gives one dual constraint.</dd>
+          <dt>conversion</dt><dd>max ↔ min · primal RHS → dual objective · primal objective → dual RHS · transpose: primal <strong>column</strong> $j$ → dual <strong>row</strong> $j$. The dual of the dual is the primal.</dd>
+          <dt>sign matching</dt><dd>standard variable ($\ge 0$) ↔ standard constraint · non-standard ↔ non-standard · unrestricted variable ↔ equality. Shortcut: read the dual-variable signs off the shadow-price table.</dd>
+          <dt>which to solve</dt><dd><strong>Graphical</strong>: the 2-variable one; read the other off it. <strong>Simplex</strong>: the one with <strong>fewer constraints</strong>. A primal with 2 vars and 30 constraints → 32 vars / 30 equations. Its dual → 32 vars / 2 equations.</dd>
+          <dt class="t">optimality test</dt><dd>At a point where <strong>both primal and dual are feasible</strong>, the solution is optimal. Transportation and network algorithms stop on this test.</dd>
+        </dl>
+      </div>
+      <div class="cheat-card">
+        <h3>INTEGER PROGRAMMING (S09)</h3>
+        <dl>
+          <dt>ILP / MILP</dt><dd>The objective and constraints are still linear, but <strong>all</strong> variables (pure ILP) or <strong>some</strong> (MILP) must be integers. In Solver this is an extra <code>int</code> or <code>bin</code> constraint.</dd>
+          <dt>counts</dt><dd>3.5 cars or 4.5 trucks makes no sense. Kg of milk, curd or yogurt can be fractional.</dd>
+          <dt>binary 0–1</dt><dd>knapsack / truck loading · capital budgeting · facility location (you can't put 0.35 of a warehouse here and 0.65 there)</dd>
+          <dt>logic via binaries</dt><dd>either–or · if–then · bin packing (fewest trucks). Logic that looks non-linear becomes linear constraints.</dd>
+          <dt>LP vs IP picture</dt><dd>The IP-feasible points are the <strong>lattice points</strong> inside the LP polygon. The LP optimum is a corner and is often not an integer point, so the IP optimum lies inside. The two match only if the LP corner happens to be integer.</dd>
+          <dt>bounds</dt><dd>Integrality is an extra constraint, so the region shrinks. Max: $Z_{LP} \ge Z_{IP}$. Min: $Z_{LP} \le Z_{IP}$.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>objective</th><th>constraint</th><th>RHS +1</th><th>objective can't…</th><th>shadow price</th><th>standard?</th></tr></thead>
+        <tbody>
+          <tr><td>Max</td><td class="mono">≤</td><td>expands</td><td>decrease</td><td class="o1">≥ 0</td><td>standard</td></tr>
+          <tr><td>Max</td><td class="mono">≥</td><td>shrinks</td><td>increase</td><td class="o1">≤ 0</td><td>—</td></tr>
+          <tr><td>Max</td><td class="mono">=</td><td>shifts</td><td>—</td><td class="o1">unrestricted</td><td>—</td></tr>
+          <tr><td>Min</td><td class="mono">≤</td><td>expands</td><td>increase (cost can't go up)</td><td class="o1">≤ 0</td><td>—</td></tr>
+          <tr><td>Min</td><td class="mono">≥</td><td>shrinks</td><td>decrease (cost can't go down)</td><td class="o1">≥ 0</td><td>standard</td></tr>
+          <tr><td>Min</td><td class="mono">=</td><td>shifts</td><td>—</td><td class="o1">unrestricted</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">Shadow price = change in the optimal objective per unit increase in the RHS. The same table gives the signs of the dual variables.</p>
+
+    <div class="table-wrap">
+      <table class="dt">
+        <thead><tr><th>primal (min)</th><th>dual (max)</th></tr></thead>
+        <tbody>
+          <tr><td class="on">constraint ≥ (standard)</td><td class="o1">variable uᵢ ≥ 0</td></tr>
+          <tr><td class="on">constraint ≤ (non-standard)</td><td class="o1">variable uᵢ ≤ 0</td></tr>
+          <tr><td class="on">constraint =</td><td class="o1">variable uᵢ unrestricted</td></tr>
+          <tr><td class="on">variable xⱼ ≥ 0 (standard)</td><td class="o1">constraint ≤ cⱼ (standard for max)</td></tr>
+          <tr><td class="on">variable xⱼ ≤ 0 (non-standard)</td><td class="o1">constraint ≥ cⱼ</td></tr>
+          <tr><td class="on">variable xⱼ unrestricted</td><td class="o1">constraint = cⱼ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-key">If the primal is a Max, read the table right to left.</p>
+
+    <div class="note">
+      <p>The smelly resource: can more of a resource <em>hurt</em> profit? (S08)</p>
+      <ul>
+        <li>Problem: $\max 20x_1 + x_2$ with $x_1+x_2\le 10$ and $x_2\le 4$. Here $x_1$ is very profitable and $x_2$ is barely profitable. The optimum is $(10,0)$, $Z=200$, with $u_1=20$ and $u_2=0$.</li>
+        <li>Now make it $x_2 = 4$. Picture the resource as <strong>obnoxious, smelly or chemically reactive</strong>: you are forced to use all of it, and only $x_2$ can consume it. The region collapses to the segment from (0,4) to (6,4). The optimum moves to (6,4), $Z=124$.</li>
+        <li>One more unit of it forces more of the weak $x_2$. Through $x_1+x_2\le 10$, that crowds out the strong $x_1$. $Z$ falls to 105, so <strong>$u_2=-19$</strong>.</li>
+        <li>The rule: a $\le$ constraint in a max problem is never negative, because extra resource can always be left unused. An $=$ constraint can go either way. A $\ge$ constraint can be negative, like the quality constraints in Red Brand Canners.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p>"Buy my resources": where the dual comes from (S09):</p>
+      <ul>
+        <li>You offer to take over my 18 h of resource 1 and 11 h of resource 2, at prices $u_1, u_2$ per hour. You pay $18u_1+11u_2$, and naturally you want to <strong>minimise</strong> that.</li>
+        <li>The offer must make producing pointless for me. Product 1 earns 8 and uses 3 h + 2 h, so I give it up only if $3u_1+2u_2\ge 8$. The same test applies to products 2 and 3.</li>
+        <li>That is the dual: "two sides of the same coin". Solving an LP gives the plan <em>and</em> the worth of every unit of each resource.</li>
+        <li>In Excel's Sensitivity Report, the primal shows $u_1,u_2$ under Constraints. In the dual's report the roles swap: $x_1,x_2,x_3$ become the shadow prices.</li>
+      </ul>
+    </div>
+
+    <div class="panel nomath" id="m6Panel" tabindex="-1">
+      <div class="panel-head"><span class="panel-title">Primal → dual, one piece at a time</span><span class="readout" id="m6Read"></span></div>
+      <p class="panel-sub">Amber marks the primal row or column being read. Teal marks the dual piece being written. Each constraint gives one dual variable, with its sign taken from the shadow-price table. Each variable's column gives one dual constraint. The panel opens on the finished dual of the S09 messy example; press ▶ Play to build it.</p>
+      <div class="presets" id="m6Pre">
+        <button class="btn on" data-p="messy">messy min → max · S09</button>
+        <button class="btn" data-p="mix">product mix max → min · S09 (buy my resources)</button>
+      </div>
+      <div class="viz-body">
+        <div><div class="stage-scroll"><div class="stage" id="m6Stage"></div></div><p class="caption"></p></div>
+        <div class="side"><pre class="pcode"></pre><div class="vars"></div></div>
+      </div>
+      <div class="transport"><button class="btn" data-act="reset" aria-label="reset">⏮</button><button class="btn" data-act="back" aria-label="back">◀</button><button class="btn play" data-act="play">▶ Play</button><button class="btn" data-act="next" aria-label="next">▶</button><span class="ctr"></span><span class="bar"><i></i></span></div>
+      <div id="m6Verdict" class="verdict eq"></div>
+      <p class="hint">← → step · space play/pause (click the panel first)</p>
+    </div>
+
+    <h3 class="sub">WORKED EXAMPLES</h3>
+    <details class="worked">
+      <summary>$\max 20x_1 + x_2$ s.t. $x_1 + x_2 \le 10$, $x_2 = 4$, $x \ge 0$. Find the optimum and both shadow prices.<span class="tag">S08 13 Nov</span></summary>
+      <ol>
+        <li>First the version with $x_2 \le 4$. Corners: (0,0) → 0, (0,4) → 4, (6,4) → 124, (10,0) → 200. The objective is steep, so the optimum is (10,0) with $Z=200$. $u_1=20$, since RHS 11 moves the optimum to (11,0). $u_2=0$, since moving $x_2=4$ doesn't touch (10,0).</li>
+        <li>With $x_2 = 4$ the feasible region is only the segment from (0,4) to (6,4). Its ends give $Z=4$ and $Z=124$, so the optimum is (6,4).</li>
+        <li>$u_1$: raising RHS 1 from 10 to 11 gives (7,4) and $Z=144$, an increase of 20.</li>
+        <li>$u_2$: setting $x_2 = 5$ forces $x_1 = 5$, so $Z = 20(5)+5 = 105$. Then $105-124=-19$.</li>
+        <li>A negative value is allowed here: an equality <em>shifts</em> the region rather than expanding it.</li>
+      </ol>
+      <p class="answer">optimum (6, 4), Z = 124 · u₁ = 20 · u₂ = −19</p>
+    </details>
+    <details class="worked">
+      <summary>Write the dual of $\max 8x_1+4x_2+5x_3$ s.t. $3x_1+5x_2+2x_3\le 18$, $2x_1+3x_2+x_3\le 11$, $x\ge 0$.<span class="tag">S09 16 Nov</span></summary>
+      <ol>
+        <li>Max becomes min. Both constraints are $\le$ in a max problem, which is standard, so $u_1, u_2 \ge 0$.</li>
+        <li>The primal RHS becomes the dual objective: $\min W = 18u_1 + 11u_2$.</li>
+        <li>Transpose. The $x_1$ column (3, 2) with profit 8 gives $3u_1+2u_2\ge 8$. The $x_2$ column (5, 3) with profit 4 gives $5u_1+3u_2\ge 4$. The $x_3$ column (2, 1) with profit 5 gives $2u_1+u_2\ge 5$. Each $x_j\ge 0$ is standard, so each row is $\ge$, the standard form for a min.</li>
+        <li>Watch out: the transcript says $2u_1+2u_2\ge 5$. Product 3 uses only 1 h of resource 2, so the correct row is $2u_1+u_2\ge 5$.</li>
+        <li>Check (solved after class): $u=(2,1)$ gives $W=18(2)+11(1)=47$, and $x=(4,0,3)$ gives $Z=8(4)+5(3)=47$. Both are feasible and the values are equal, so both are optimal. The shadow prices are $(2,1)$.</li>
+      </ol>
+      <p class="answer">min 18u₁ + 11u₂ s.t. 3u₁ + 2u₂ ≥ 8, 5u₁ + 3u₂ ≥ 4, 2u₁ + u₂ ≥ 5, u ≥ 0 · W* = Z* = 47</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide"><p>Full-course recap for DSM-109 Mathematical Programming, S1–S9 (Prof. Amit Kumar Vatsa). Built from the lecture notes in <code>lectures/</code>. Every corner point, shadow price, allowable range and reduced cost on this page was recomputed with <code>scipy.optimize.linprog</code> and matches the lecture and Excel Solver figures. The widgets replay the lecture's own models: the furniture LP, Merton Truck (Models 101/102/103 and overtime), Red Brand Canners, and the S8–S9 shadow-price and duality examples.</p></div>
+</footer>
+<script>
+(function(){
+  "use strict";
+  const COLORS = { amber:'#E8A33D', teal:'#4FA8A0', ink:'#EDEAE2', dim:'#9BA3AF', faint:'#5B6270', line:'#2A2F38', rust:'#C1594A' };
+  const NS = 'http://www.w3.org/2000/svg';
+  const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function el(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function h(tag, cls, txt){ const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function clear(node){ while(node.firstChild) node.removeChild(node.firstChild); }
+  function esc(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+  const ns = s => String(s).replace(/-/g,'−');
+  function frame(opts){ const {x0=70,y0=20,w=640,h=250} = opts; return {x0,y0,w,h,x1:x0+w,y1:y0+h}; }
+  function ticks(min,max,step){ const a=[]; for(let v=min; v<=max+1e-9; v+=step) a.push({val:Math.round(v*100)/100, frac:(v-min)/(max-min)}); return a; }
+  function drawAxes(svg,f,xTicks,yTicks,xLabel,yLabel,xFmt,yFmt){
+    xTicks.forEach(t=>{ const gx=f.x0+t.frac*f.w;
+      svg.appendChild(el('line',{x1:gx,y1:f.y0,x2:gx,y2:f.y1,class:'gridline'}));
+      svg.appendChild(el('text',{x:gx,y:f.y1+18,class:'tick','text-anchor':'middle'})).textContent = xFmt?xFmt(t.val):t.val;
+    });
+    yTicks.forEach(t=>{ const gy=f.y1-t.frac*f.h;
+      svg.appendChild(el('line',{x1:f.x0,y1:gy,x2:f.x1,y2:gy,class:'gridline'}));
+      const lbl=el('text',{x:f.x0-10,y:gy+4,class:'tick','text-anchor':'end'}); lbl.textContent=yFmt?yFmt(t.val):t.val; svg.appendChild(lbl);
+    });
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y1,x2:f.x1,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('line',{x1:f.x0,y1:f.y0,x2:f.x0,y2:f.y1,class:'axis'}));
+    svg.appendChild(el('text',{x:(f.x0+f.x1)/2,y:f.y1+40,class:'axislabel','text-anchor':'middle'})).textContent = xLabel;
+    const yl=el('text',{x:16,y:(f.y0+f.y1)/2,class:'axislabel','text-anchor':'middle'});
+    yl.setAttribute('transform',`rotate(-90 16 ${(f.y0+f.y1)/2})`); yl.textContent=yLabel; svg.appendChild(yl);
+  }
+  window.__ds = {}; window.__recap = {};   // debug hook: each widget exposes its pure step generator for verification
+
+  // Keyed element pool: reuse the same DOM element for the same logical item across
+  // steps, so a CSS transition carries it from its old spot to its new one.
+  function Pool(parent){
+    const map = new Map();
+    return {
+      get(key, make){
+        let e = map.get(key), fresh = false;
+        if (!e){ e = make(); parent.appendChild(e); map.set(key, e); fresh = true; }
+        e.__seen = true; return [e, fresh];
+      },
+      begin(){ map.forEach(e => e.__seen = false); },
+      end(){ map.forEach((e,k) => { if (!e.__seen){ e.remove(); map.delete(k); } }); },
+      clear(){ map.forEach(e => e.remove()); map.clear(); }
+    };
+  }
+  // Place an element; a brand-new element can start from `from` and glide in.
+  function place(e, x, y, fresh, from, anim){
+    if (fresh && from && anim && !REDUCED){
+      e.style.transition = 'none'; e.style.left = from[0]+'px'; e.style.top = from[1]+'px';
+      if (from[2] != null) e.style.opacity = from[2];
+      void e.offsetWidth; e.style.transition = ''; e.style.opacity = '';
+    }
+    if (!anim){ e.style.transition = 'none'; }
+    e.style.left = x+'px'; e.style.top = y+'px';
+    if (!anim){ void e.offsetWidth; e.style.transition = ''; }
+  }
+
+  // Fit a stage into its scroller: shrink a wide drawing (never below minK, so text stays
+  // legible) and let the rest scroll sideways; follow() keeps the action in view.
+  function fit(stage, w, h, minK){
+    const sc = stage.parentNode, avail = sc.clientWidth || w;
+    w = Math.max(w, avail);
+    const k = Math.max(minK || 0.72, Math.min(1, avail / w));
+    stage.style.width = w + 'px'; stage.style.height = h + 'px';
+    stage.style.transformOrigin = '0 0'; stage.style.transform = k < 1 ? `scale(${k})` : '';
+    stage.style.marginRight = (k < 1 ? -(1-k)*w : 0) + 'px'; stage.style.marginBottom = (k < 1 ? -(1-k)*h : 0) + 'px';
+    stage.__k = k; return k;
+  }
+  function follow(stage, x, anim){
+    const sc = stage.parentNode, k = stage.__k || 1;
+    if (x == null || sc.scrollWidth <= sc.clientWidth + 2) return;
+    const left = Math.max(0, x*k - sc.clientWidth/2);
+    if (Math.abs(sc.scrollLeft - left) < 30) return;
+    try { sc.scrollTo({ left, behavior: anim && !REDUCED ? 'smooth' : 'auto' }); } catch(e){ sc.scrollLeft = left; }
+  }
+
+  // ---------- the shared player: precomputed states, render(state i) from scratch ----------
+  function Player(panel, render, opts){
+    opts = opts || {};
+    const q = s => panel.querySelector(s);
+    const codeEl = q('pre.pcode'), varsEl = q('.vars'), cap = q('.caption');
+    const bReset = q('[data-act=reset]'), bBack = q('[data-act=back]'), bPlay = q('[data-act=play]'), bNext = q('[data-act=next]');
+    const ctr = q('.ctr'), bar = q('.bar i');
+    let states = [], code = [], i = 0, timer = null, prevVars = {};
+    function setCode(lines){
+      code = lines; clear(codeEl);
+      lines.forEach((l,k) => { const s = h('span','ln'); s.textContent = l || ' '; s.dataset.k = k; codeEl.appendChild(s); });
+    }
+    function paint(anim){
+      const s = states[i];
+      codeEl.querySelectorAll('.ln').forEach(ln => {
+        const k = +ln.dataset.k, on = [].concat(s.line == null ? [] : s.line);
+        ln.classList.toggle('on', on.includes(k) && !(s.bad && s.bad.includes(k)));
+        ln.classList.toggle('bad', !!(s.bad && s.bad.includes(k)));
+      });
+      clear(varsEl);
+      (s.vars || []).forEach(([k,v]) => {
+        const sp = h('span'); sp.innerHTML = esc(k)+' = <b>'+esc(v)+'</b>';
+        if (anim && prevVars[k] !== undefined && prevVars[k] !== String(v)) sp.classList.add('chg');
+        varsEl.appendChild(sp);
+      });
+      prevVars = {}; (s.vars || []).forEach(([k,v]) => prevVars[k] = String(v));
+      cap.innerHTML = s.cap || '';
+      ctr.textContent = 'step ' + i + ' / ' + (states.length-1);
+      bar.style.width = (states.length > 1 ? i/(states.length-1)*100 : 0) + '%';
+      bBack.disabled = bReset.disabled = i === 0; bNext.disabled = i === states.length-1;
+      render(s, anim, i);
+    }
+    function go(k, anim){ i = Math.max(0, Math.min(states.length-1, k)); paint(anim); }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } bPlay.textContent = '▶ Play'; }
+    function play(){
+      if (timer){ stop(); return; }
+      if (i >= states.length-1) go(0, false);
+      bPlay.textContent = '❚❚ Pause';
+      timer = setInterval(() => { if (i >= states.length-1) stop(); else go(i+1, true); }, opts.delay || 1150);
+    }
+    bNext.addEventListener('click', () => { stop(); go(i+1, true); });
+    bBack.addEventListener('click', () => { stop(); go(i-1, true); });
+    bReset.addEventListener('click', () => { stop(); go(0, true); });
+    bPlay.addEventListener('click', play);
+    panel.addEventListener('keydown', e => {
+      if (e.target.matches('input,select,textarea')) return;
+      if (e.key === 'ArrowRight'){ e.preventDefault(); stop(); go(i+1, true); }
+      if (e.key === 'ArrowLeft'){ e.preventDefault(); stop(); go(i-1, true); }
+      if (e.key === ' '){ e.preventDefault(); play(); }
+    });
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => states.length && paint(false), 120); });
+    return {
+      load(st, lines, at){ stop(); states = st; if (lines) setCode(lines); prevVars = {}; go(at == null ? 0 : at, false); },
+      goto(k){ stop(); go(k, true); },
+      get index(){ return i; }, get length(){ return states.length; }
+    };
+  }
+  // Wire a preset button row: data-p attributes → callback, with the active one highlighted.
+  function presets(row, cb){
+    row.querySelectorAll('[data-p]').forEach(b => b.addEventListener('click', () => {
+      row.querySelectorAll('[data-p]').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.p);
+    }));
+  }
+
+  // ================= m1: 1 · Why OR =================
+// ================= m1 widget: computing power doubles (S2, 23 Oct) =================
+  (function(){
+    const panel = document.getElementById('m1DbPanel'); if (!panel) return;
+    const svg = document.getElementById('m1DbChart'), slider = document.getElementById('m1DbD'), dVal = document.getElementById('m1DbDVal'),
+          readout = document.getElementById('m1DbRead'), verdict = document.getElementById('m1DbVerdict'), cap = document.getElementById('m1DbCap');
+    const N0 = 100;
+    const CLS = [
+      { k:'log',  lbl:'log n', name:'O(log n)' },
+      { k:'lin',  lbl:'n',     name:'O(n)' },
+      { k:'quad', lbl:'n²',    name:'O(n²)' },
+      { k:'exp',  lbl:'2ⁿ',    name:'O(2ⁿ)' },
+      { k:'fact', lbl:'n!',    name:'O(n!)' }
+    ];
+    // Pure: new solvable size after d doublings, starting from n = 100.
+    // Returns {n, log10}; n is null when it is too large for a JS number (log class, d ≥ 3).
+    function newSize(k, d){
+      const B = Math.pow(2, d);
+      if (k === 'log'){ const e = 2*B; return { n: e <= 15 ? Math.pow(10, e) : null, log10: e }; }   // 100^(2^d) = 10^(2·2^d)
+      if (k === 'lin'){ const n = N0*B; return { n, log10: Math.log10(n) }; }
+      if (k === 'quad'){ const n = Math.floor(N0*Math.sqrt(B) + 1e-9); return { n, log10: Math.log10(n) }; }
+      if (k === 'exp'){ const n = N0 + d; return { n, log10: Math.log10(n) }; }
+      // factorial: largest n with n!/100! <= 2^d
+      let n = N0, r = 1; while (r*(n+1) <= B + 1e-9){ r *= (n+1); n++; }
+      return { n, log10: Math.log10(n) };
+    }
+    window.__recap = window.__recap || {};
+    window.__recap.m1 = { newSize, all: d => CLS.map(c => [c.k, newSize(c.k, d)]) };
+
+    const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+    const sup = v => String(v).split('').map(c => SUP[+c]).join('');
+    const fmt = r => (r.n != null && r.n < 1e7) ? r.n.toLocaleString('en-US') : '10' + sup(Math.round(r.log10));
+    const LMIN = 2, LMAX = 6;
+    let sel = 'exp';
+
+    function render(){
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      svg.setAttribute('viewBox', narrow ? '0 0 420 330' : '0 0 760 300');
+      svg.classList.toggle('narrow', narrow);
+      const f = narrow ? frame({ x0:58, y0:12, w:340, h:250 }) : frame({ x0:84, y0:14, w:640, h:226 });
+      const d = +slider.value, B = Math.pow(2, d);
+      const X = lg => f.x0 + (Math.min(Math.max(lg, LMIN), LMAX) - LMIN)/(LMAX - LMIN)*f.w;
+      clear(svg);
+      const defs = el('defs', {}), cp = el('clipPath', { id:'m1DbClip' });
+      cp.appendChild(el('rect', { x:f.x0, y:f.y0, width:f.w, height:f.h })); defs.appendChild(cp); svg.appendChild(defs);
+      drawAxes(svg, f, ticks(LMIN, LMAX, 1), [], narrow ? 'solvable n (log scale)' : 'largest n solvable in the same time (log scale)', '',
+        v => ({2:'100', 3:'1k', 4:'10k', 5:'100k', 6:'1M'})[Math.round(v)]);
+      const g = el('g', { 'clip-path':'url(#m1DbClip)' }); svg.appendChild(g);
+      const rowH = f.h/CLS.length, barH = rowH*0.52, charW = narrow ? 9.2 : 6.9;
+      CLS.forEach((c, i) => {
+        const r = newSize(c.k, d), on = c.k === sel, cy = f.y0 + rowH*(i + 0.5);
+        const lab = el('text', { x:f.x0 - 10, y:cy + 4, class:'tick', 'text-anchor':'end' });
+        lab.textContent = c.lbl; lab.style.fill = on ? COLORS.amber : COLORS.dim; svg.appendChild(lab);
+        const xe = X(r.log10), off = r.log10 > LMAX + 1e-9;
+        g.appendChild(el('rect', { x:f.x0, y:cy - barH/2, width:Math.max(3, xe - f.x0), height:barH, rx:3,
+          fill: on ? COLORS.amber : COLORS.dim, 'fill-opacity': on ? 1 : 0.35 }));
+        let txt = fmt(r); if (r.n != null && r.n < 1e4) txt += ' (+' + (r.n - N0) + ')';
+        let tx, anchor, fill;
+        if (!off && xe + 8 + txt.length*charW <= f.x1){ tx = Math.max(xe, f.x0 + 3) + 8; anchor = 'start'; fill = on ? COLORS.amber : COLORS.dim; }
+        else { if (off) txt += ' → off scale'; tx = Math.min(xe, f.x1) - 8; anchor = 'end'; fill = on ? '#14171C' : COLORS.ink; }
+        const t = el('text', { x:tx, y:cy + 4, class:'tick', 'text-anchor':anchor }); t.textContent = txt; t.style.fill = fill; svg.appendChild(t);
+      });
+
+      const C = CLS.find(c => c.k === sel), r = newSize(sel, d), yrs = 4*d;
+      dVal.textContent = d + (d ? ' (≈ ' + yrs + ' yrs)' : ' (today)');
+      readout.textContent = C.name + ' · ' + d + ' doubling' + (d === 1 ? '' : 's') + ' · n′ = ' + fmt(r);
+
+      const lin = newSize('lin', d).n.toLocaleString('en-US'), quad = newSize('quad', d).n.toLocaleString('en-US'), fact = newSize('fact', d).n;
+      cap.innerHTML = d === 0
+        ? 'Today the time budget solves <b>n = 100</b> in every class. Slide right to double computing power (≈ every 4 years).'
+        : `<b>${B.toLocaleString('en-US')}×</b> the steps now fit in the same time (${d} doubling${d === 1 ? '' : 's'}, ≈ ${yrs} years). Polynomial classes turn that into a bigger problem: n reaches ${lin}, n² reaches ${quad}. <span class="r">2ⁿ only reaches ${N0 + d}</span>: four years of hardware buys exponential exactly one more city. n! ${fact === N0 ? 'is still stuck at 100' : 'has crept to ' + fact}.`;
+
+      let cls = 'good', msg;
+      if (d === 0){ cls = 'eq'; msg = 'No new hardware yet: every class still solves n = 100. Slide right.'; }
+      else if (sel === 'log') msg = `log n′ = 2^${d} · log 100, so n′ = ${fmt(r)}. Each doubling squares the solvable size.`;
+      else if (sel === 'lin') msg = `n′ = 100 × 2^${d} = ${fmt(r)}. The size grows in step with the hardware.`;
+      else if (sel === 'quad') msg = `n′ = 100 × √(2^${d}) ≈ ${fmt(r)}. Each doubling buys ×1.41: slower, but still polynomial, so it scales.`;
+      else if (sel === 'exp'){ cls = 'bad'; msg = `n′ = 100 + ${d} = ${r.n}. ${yrs} years of hardware buys ${d} more cit${d === 1 ? 'y' : 'ies'}. Exponential does not scale.`; }
+      else { cls = 'bad'; msg = r.n === N0
+        ? `n′ stays 100: 101! = 101 × 100! needs 101× the compute, and 2^${d} = ${B} < 101.`
+        : `n′ = ${r.n}: it took 2^${d} = ${B} ≥ 101× the compute (≥ 28 years) to afford one extra item, since 101! = 101 × 100!.`; }
+      verdict.className = 'verdict ' + cls; verdict.textContent = msg;
+    }
+
+    presets(document.getElementById('m1DbPre'), p => { sel = p; render(); });
+    slider.addEventListener('input', render);
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+    render();
+  })();
+
+  // ================= m2: 2 · Formulating =================
+// ================= m2: apportioned (A) vs contribution (B) expressions (S3, 28 Oct) =================
+  (function(){
+    const panel = document.getElementById('m2Panel'); if (!panel) return;
+    const svg = document.getElementById('m2Chart'), slider = document.getElementById('m2Slider');
+    const sVal = document.getElementById('m2SVal'), sLab = document.getElementById('m2SLab');
+    const readout = document.getElementById('m2Read'), verdict = document.getElementById('m2Verdict');
+
+    // ---- pure expressions (S3) ----
+    const flightA = x => 4200*x;                 // apportioned: (4,00,000 / 100 seats + 200) per passenger
+    const flightB = x => 200*x + 400000;         // correct: variable + fixed
+    const mertonA = (x1, x2) => -1205*x1 + 2070*x2;
+    const mertonB = (x1, x2) => 3000*x1 + 5000*x2 - 8600000;
+    const mertonAt = t => { const x1 = 1000*t, x2 = 1500*t; return { x1, x2, A:mertonA(x1, x2), B:mertonB(x1, x2) }; };
+    const hours = (x1, x2) => ({ EA:x1 + 2*x2, MS:2*x1 + 2*x2, A101:2*x1, A102:3*x2 });
+    const CAP = { EA:4000, MS:6000, A101:5000, A102:4500 };
+    // swap = -1 Model 102, +2 Model 101 from (1000,1500): EA 0, MS +2, A101 +4, A102 -3 hours per swap
+    function swaps(){
+      const h0 = hours(1000, 1500);
+      const n = Math.min(Math.floor((CAP.MS - h0.MS)/2), Math.floor((CAP.A101 - h0.A101)/4));
+      const x1 = 1000 + 2*n, x2 = 1500 - n;
+      return { n, x1, x2, gain:(2*3000 - 5000)*n, profit:mertonB(x1, x2), hours:hours(x1, x2) };
+    }
+    window.__recap = window.__recap || {};
+    window.__recap.m2 = { flightA, flightB, mertonA, mertonB, mertonAt, hours, swaps,
+      flightCross: () => 400000/(4200 - 200), mertonCross: () => 8600000/(10500000 - 1900000) };
+
+    const inr = v => 'Rs ' + ns(Math.round(v).toLocaleString('en-IN'));
+    const usd = v => 'USD ' + ns((v/1e6).toFixed(2)) + 'M';
+    const P = {
+      f:{ min:0, max:100, step:1, def:0, xMax:100, xs:10, xsN:20, yMin:0, yMax:500000, ys:100000,
+          A:flightA, B:flightB, cross:100, lab:'passengers x',
+          xLab:'x = passengers on the 100-seat flight', xLabN:'passengers x', yLab:'cost (Rs)',
+          xFmt:null, yFmt:v => v === 0 ? '0' : (v/1000) + 'k',
+          la:'A = 4200x', lb:'B = 200x + 400000', crossW:'agree only at x = 100', crossN:'agree: x = 100' },
+      m:{ min:0, max:2, step:0.05, def:1, xMax:2, xs:0.25, xsN:0.5, yMin:-10, yMax:15, ys:5,
+          A:t => mertonAt(t).A/1e6, B:t => mertonAt(t).B/1e6, cross:1, lab:'scale t of the plan',
+          xLab:'t   (plan = t × (1000, 1500) trucks)', xLabN:'t  (plan = t·(1000, 1500))', yLab:'profit (USD M)',
+          xFmt:v => v, yFmt:v => ns(v) + 'M',
+          la:'A = 1.9M·t', lb:'B = 10.5M·t − 8.6M', crossW:'agree only at t = 1', crossN:'agree: t = 1' }
+    };
+    let key = 'f';
+
+    function say(v){
+      let cls, msg;
+      if (key === 'f'){
+        const a = flightA(v), b = flightB(v), gap = b - a;
+        sVal.textContent = 'x = ' + v;
+        readout.textContent = `x = ${v} · A = ${inr(a)} · B = ${inr(b)} · gap ${inr(Math.abs(gap))}`;
+        if (v === 100){ cls = 'eq'; msg = 'x = 100: both say Rs 4,20,000. 100 seats is the number used to spread the 4 lakh fixed cost, so this is the one point where A happens to be right.'; }
+        else if (v === 0){ cls = 'bad'; msg = 'Zero test: A says an empty flight costs Rs 0, B says Rs 4,00,000. The fixed cost is paid whether or not anyone flies, so B is the correct expression.'; }
+        else { cls = 'bad'; msg = `A understates the cost by ${inr(gap)} at x = ${v}. B is correct (test x = 0: the 4 lakh doesn't vanish). The two agree only at x = 100.`; }
+      } else {
+        const m = mertonAt(v), gap = m.B - m.A, plan = `(${Math.round(m.x1)}, ${Math.round(m.x2)})`;
+        sVal.textContent = 't = ' + v.toFixed(2);
+        readout.textContent = `t = ${v.toFixed(2)} → ${plan} · A = ${usd(m.A)} · B = ${usd(m.B)} · gap ${usd(Math.abs(gap))}`;
+        if (Math.abs(v - 1) < 1e-9){ cls = 'eq'; msg = 't = 1, the current plan (1000, 1500): both say USD 1.90M. This is the production level used to apportion the fixed overhead, and the only point where A matches B.'; }
+        else if (v < 1e-9){ cls = 'bad'; msg = 'Zero test: A says profit 0, B says USD −8.60M. Fixed overhead is paid even with zero trucks, so B is correct, and Model 101 contributes +3,000 per truck, not −1,205.'; }
+        else if (v < 1){ cls = 'bad'; msg = `A overstates profit by ${usd(-gap)} at ${plan}. B is correct (test at zero output). The two agree only at t = 1.`; }
+        else { cls = 'bad'; msg = `A understates profit by ${usd(gap)} at ${plan}. B is correct; they agree only at t = 1. (Past t = 1 the plan also breaks EA capacity: this chart compares formulas, not plans.)`; }
+      }
+      verdict.className = 'verdict ' + cls; verdict.textContent = msg;
+    }
+
+    function render(){
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      svg.setAttribute('viewBox', narrow ? '0 0 420 340' : '0 0 760 320');
+      svg.classList.toggle('narrow', narrow);
+      const f = narrow ? frame({ x0:58, y0:16, w:346, h:250 }) : frame({ x0:70, y0:16, w:660, h:250 });
+      const C = P[key], v = +slider.value;
+      const X = u => f.x0 + u/C.xMax*f.w, Y = y => f.y1 - (y - C.yMin)/(C.yMax - C.yMin)*f.h;
+      clear(svg);
+      const defs = el('defs', {}), cp = el('clipPath', { id:'m2Clip' });
+      cp.appendChild(el('rect', { x:f.x0, y:f.y0, width:f.w, height:f.h })); defs.appendChild(cp); svg.appendChild(defs);
+      const txt = (x, y, s, col, anchor) => { const t = el('text', { x, y, class:'tick', 'text-anchor':anchor || 'start' }); t.textContent = s; t.style.fill = col; svg.appendChild(t); return t; };
+      if (key === 'm') svg.appendChild(el('rect', { x:X(1), y:f.y0, width:f.x1 - X(1), height:f.h, fill:'rgba(193,89,74,.06)' }));
+      drawAxes(svg, f, ticks(0, C.xMax, narrow ? C.xsN : C.xs), ticks(C.yMin, C.yMax, C.ys), narrow ? C.xLabN : C.xLab, narrow ? '' : C.yLab, C.xFmt, C.yFmt);
+      if (C.yMin < 0) svg.appendChild(el('line', { x1:f.x0, y1:Y(0), x2:f.x1, y2:Y(0), class:'axis' }));
+      if (key === 'm') txt(X(1) + 6, f.y0 + 14, narrow ? 'EA over capacity' : 't > 1: EA hours exceed 4,000', COLORS.rust);
+      // the two expressions (straight lines), clipped to the frame
+      const g = el('g', { 'clip-path':'url(#m2Clip)' }); svg.appendChild(g);
+      const line = (fn, col) => g.appendChild(el('path', { d:`M${X(0).toFixed(1)},${Y(fn(0)).toFixed(1)}L${X(C.xMax).toFixed(1)},${Y(fn(C.xMax)).toFixed(1)}`, fill:'none', stroke:col, 'stroke-width':2.4 }));
+      line(C.A, COLORS.rust); line(C.B, COLORS.amber);
+      // the single crossing = apportioning point
+      const cx = X(C.cross), cy = Y(C.A(C.cross));
+      svg.appendChild(el('circle', { cx, cy, r:7, fill:'none', stroke:COLORS.ink, 'stroke-width':1.5 }));
+      if (key === 'f') txt(cx - 10, cy - 12, narrow ? C.crossN : C.crossW, COLORS.ink, 'end');
+      else txt(cx + 10, cy + 24, narrow ? C.crossN : C.crossW, COLORS.ink);
+      // slider marker: both values and the gap between them
+      const a = C.A(v), b = C.B(v), mx = X(v);
+      svg.appendChild(el('line', { x1:mx, y1:f.y0, x2:mx, y2:f.y1, stroke:COLORS.faint, 'stroke-dasharray':'3 4', 'stroke-width':1 }));
+      svg.appendChild(el('line', { x1:mx, y1:Y(a), x2:mx, y2:Y(b), stroke:COLORS.ink, 'stroke-width':2 }));
+      [[a, COLORS.rust], [b, COLORS.amber]].forEach(([val, col]) => svg.appendChild(el('circle', { cx:mx, cy:Y(val), r:5, fill:col, stroke:'#14171C', 'stroke-width':1.5 })));
+      // legend, bottom-right (empty for both presets)
+      const lx = f.x1 - (narrow ? 200 : 270);
+      [[C.la + (narrow ? '' : '  (apportioned)'), COLORS.rust], [C.lb + (narrow ? '' : '  (contribution)'), COLORS.amber]].forEach(([s, col], i) => {
+        const y = f.y1 - (narrow ? 36 : 32) + i*(narrow ? 22 : 18);
+        svg.appendChild(el('line', { x1:lx, y1:y - 4, x2:lx + 18, y2:y - 4, stroke:col, 'stroke-width':2.4 }));
+        txt(lx + 24, y, s, COLORS.dim);
+      });
+      say(v);
+    }
+
+    function setup(k){
+      key = k; const C = P[k];
+      slider.min = C.min; slider.max = C.max; slider.step = C.step; slider.value = C.def;
+      sLab.textContent = C.lab; render();
+    }
+    presets(document.getElementById('m2Pre'), setup);
+    slider.addEventListener('input', render);
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+    setup('f');
+  })();
+
+  // ================= m3: 3 · Graphical method =================
+// ================= m3: Graphical LP lab (S4, 30 Oct) =================
+  (function(){ const panel = document.getElementById('m3Panel'); if (!panel) return;
+    const svg = document.getElementById('m3Chart'), slider = document.getElementById('m3Z'), zVal = document.getElementById('m3ZVal');
+    const readout = document.getElementById('m3Read'), verdict = document.getElementById('m3Verdict'), tbody = document.getElementById('m3Tbody');
+    const modelEl = document.getElementById('m3Model'), jumpRow = document.getElementById('m3Jump'), zHead = document.getElementById('m3ZHead');
+
+    const P = {
+      merton:{ c:[3000,5000], xMax:3000, yMax:2000, xStep:[500,1000], yStep:[500,500], zMax:13e6, zStep:1e5, zDef:7.5e6,
+        fmtZ: v => Math.abs(v) < 1e-9 ? '0' : (Math.round(v/1e4)/100) + 'M', zHead:'Z (USD)',
+        xLabel:'x₁ (Model 101 trucks)', yLabel:'x₂ (Model 102 trucks)', obj:'max Z = 3000x₁ + 5000x₂ (USD contribution)',
+        cons:[
+          {a:[1,2], b:4000, name:'EA',   eq:'x₁ + 2x₂ ≤ 4000 (engine assembly)', lab:[150,1925], anchor:'start', dx:4, dy:-8},
+          {a:[2,2], b:6000, name:'MS',   eq:'2x₁ + 2x₂ ≤ 6000 (metal stamping)', lab:[1100,1900], anchor:'start', dx:8, dy:4},
+          {a:[2,0], b:5000, name:'A101', eq:'2x₁ ≤ 5000, i.e. x₁ ≤ 2500', lab:[2500,1900], anchor:'start', dx:6, dy:0},
+          {a:[0,3], b:4500, name:'A102', eq:'3x₂ ≤ 4500, i.e. x₂ ≤ 1500', lab:[2980,1500], anchor:'end', dx:0, dy:-7}
+        ] },
+      furn:{ c:[7,5], xMax:70, yMax:90, xStep:[10,20], yStep:[10,30], zMax:480, zStep:1, zDef:350,
+        fmtZ: v => String(Math.round(v*100)/100), zHead:'Z',
+        xLabel:'x₁', yLabel:'x₂', obj:'max Z = 7x₁ + 5x₂',
+        cons:[
+          {a:[4,3], b:240, name:'woodwork', eq:'4x₁ + 3x₂ ≤ 240', lab:[45,20], anchor:'start', dx:8, dy:-2},
+          {a:[2,1], b:100, name:'painting', eq:'2x₁ + x₂ ≤ 100', lab:[10,80], anchor:'start', dx:8, dy:4}
+        ] }
+    };
+
+    // ---------- pure calculations ----------
+    const dot = (a,x) => a[0]*x[0] + a[1]*x[1];
+    const slackTol = b => 1e-7*Math.max(1, Math.abs(b));
+    const lines = k => P[k].cons.map(c => ({a:c.a, b:c.b, name:c.name}))
+      .concat([{a:[-1,0], b:0, name:'x₁ = 0'}, {a:[0,-1], b:0, name:'x₂ = 0'}]);
+    function Z(k, pt){ const x = Array.isArray(pt) ? pt : [pt.x1, pt.x2]; return dot(P[k].c, x); }
+    function feasible(k, x){ return lines(k).every(L => dot(L.a, x) <= L.b + slackTol(L.b)); }
+    // corners: intersect every pair of boundary lines, keep the feasible ones, order clockwise from the origin (S4 labels A..F)
+    function corners(k){
+      const L = lines(k), pts = [], sc = Math.max(P[k].xMax, P[k].yMax);
+      for (let i = 0; i < L.length; i++) for (let j = i+1; j < L.length; j++){
+        const a = L[i].a, b = L[j].a, det = a[0]*b[1] - a[1]*b[0];
+        if (Math.abs(det) < 1e-12) continue;
+        let x = (L[i].b*b[1] - a[1]*L[j].b)/det, y = (a[0]*L[j].b - L[i].b*b[0])/det;
+        x = Math.round(x*1e6)/1e6; y = Math.round(y*1e6)/1e6;
+        if (Math.abs(x) < 1e-9) x = 0; if (Math.abs(y) < 1e-9) y = 0;
+        if (!feasible(k, [x,y])) continue;
+        if (pts.some(p => Math.abs(p[0]-x) + Math.abs(p[1]-y) < 1e-6*sc)) continue;
+        pts.push([x,y]);
+      }
+      const cx = pts.reduce((s,p) => s + p[0], 0)/pts.length, cy = pts.reduce((s,p) => s + p[1], 0)/pts.length;
+      pts.sort((p,q) => Math.atan2(q[1]-cy, q[0]-cx) - Math.atan2(p[1]-cy, p[0]-cx));
+      let s = 0; pts.forEach((p,i) => { if (p[0]+p[1] < pts[s][0]+pts[s][1]) s = i; });
+      const ord = pts.slice(s).concat(pts.slice(0, s));
+      return ord.map((p,i) => ({ label:'ABCDEFGHIJ'[i], x1:p[0], x2:p[1], Z:Z(k,p),
+        on:L.filter(l => Math.abs(dot(l.a,p) - l.b) <= slackTol(l.b)).map(l => l.name) }));
+    }
+    function optimum(k){ return corners(k).reduce((best,c) => c.Z > best.Z ? c : best); }
+    // part of the iso line c·x = Zv inside the region: n = 0 (none), 1 (single point), 2 (segment)
+    function isoSegment(k, Zv){
+      const p = P[k], c = p.c, n2 = dot(c,c), nl = Math.sqrt(n2);
+      const p0 = [Zv*c[0]/n2, Zv*c[1]/n2], d = [c[1]/nl, -c[0]/nl];
+      let lo = -Infinity, hi = Infinity;
+      for (const L of lines(k)){
+        const ad = dot(L.a, d), r = L.b - dot(L.a, p0);
+        if (Math.abs(ad) < 1e-12){ if (r < -slackTol(L.b)) return {n:0, pts:[]}; continue; }
+        const t = r/ad; if (ad > 0) hi = Math.min(hi, t); else lo = Math.max(lo, t);
+      }
+      const eps = 1e-6*Math.max(p.xMax, p.yMax), at = t => [p0[0] + t*d[0], p0[1] + t*d[1]];
+      if (hi < lo - eps) return {n:0, pts:[]};
+      if (hi - lo <= eps) return {n:1, pts:[at((lo+hi)/2)]};
+      return {n:2, pts:[at(lo), at(hi)]};
+    }
+    window.__recap = window.__recap || {};
+    window.__recap.m3 = {
+      corners: k => corners(k).map(c => ({label:c.label, x1:c.x1, x2:c.x2, Z:c.Z, on:c.on.slice()})),
+      Z, isoSegment, optimum: k => { const o = optimum(k); return {label:o.label, x1:o.x1, x2:o.x2, Z:o.Z}; }, presets:Object.keys(P)
+    };
+
+    // ---------- drawing ----------
+    const fc = v => { const r = Math.round(v*100)/100; return String(Object.is(r, -0) ? 0 : r); };
+    let key = 'merton';
+    function setup(){
+      const p = P[key];
+      slider.min = 0; slider.max = p.zMax; slider.step = p.zStep; slider.value = p.zDef;
+      modelEl.textContent = p.obj + ' · ' + p.cons.map(c => c.name + ': ' + c.eq).join(' · ') + ' · x₁, x₂ ≥ 0';
+      zHead.textContent = p.zHead;
+      clear(jumpRow); jumpRow.appendChild(h('span', 'field', 'jump to the line through:'));
+      const cs = corners(key).slice().sort((a,b) => a.Z - b.Z), zEps = 1e-9*p.zMax, groups = [];
+      cs.forEach(c => { const g = groups.find(g => Math.abs(g.z - c.Z) <= zEps); if (g) g.l.push(c.label); else groups.push({z:c.Z, l:[c.label]}); });
+      groups.forEach(g => {
+        const b = h('button', 'btn', g.l.join(', ') + ' · Z = ' + p.fmtZ(g.z)); b.dataset.z = g.z;
+        b.addEventListener('click', () => { slider.value = g.z; render(); });
+        jumpRow.appendChild(b);
+      });
+    }
+    function txt(svgP, x, y, s, anchor, col, cls){
+      const t = el('text', {x, y, class:cls || 'tick', 'text-anchor':anchor || 'middle'}); t.textContent = s; t.style.fill = col; svgP.appendChild(t); return t;
+    }
+    function render(){
+      const p = P[key], Zl = +slider.value, zEps = 1e-9*p.zMax;
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      svg.setAttribute('viewBox', narrow ? '0 0 420 440' : '0 0 760 420');
+      svg.classList.toggle('narrow', narrow);
+      const f = narrow ? frame({x0:70, y0:16, w:334, h:370}) : frame({x0:72, y0:18, w:650, h:340});
+      const X = v => f.x0 + v/p.xMax*f.w, Y = v => f.y1 - v/p.yMax*f.h;
+      clear(svg);
+      const defs = el('defs', {}), cp = el('clipPath', {id:'m3Clip'});
+      cp.appendChild(el('rect', {x:f.x0, y:f.y0, width:f.w, height:f.h})); defs.appendChild(cp); svg.appendChild(defs);
+      drawAxes(svg, f, ticks(0, p.xMax, p.xStep[narrow ? 1 : 0]), ticks(0, p.yMax, p.yStep[narrow ? 1 : 0]), p.xLabel, p.yLabel, null, null);
+
+      const cs = corners(key), opt = optimum(key);
+      // feasible polygon
+      svg.appendChild(el('polygon', {points:cs.map(c => X(c.x1).toFixed(1) + ',' + Y(c.x2).toFixed(1)).join(' '),
+        fill:'rgba(232,163,61,.13)', stroke:COLORS.amber, 'stroke-width':1.6, 'stroke-linejoin':'round'}));
+      const g = el('g', {'clip-path':'url(#m3Clip)'}); svg.appendChild(g);
+      // constraint lines, extended past the frame and clipped
+      p.cons.forEach(c => {
+        let a, b;
+        if (Math.abs(c.a[1]) > 1e-12){ const yy = x => (c.b - c.a[0]*x)/c.a[1]; a = [-p.xMax, yy(-p.xMax)]; b = [2*p.xMax, yy(2*p.xMax)]; }
+        else { const xx = c.b/c.a[0]; a = [xx, -p.yMax]; b = [xx, 2*p.yMax]; }
+        g.appendChild(el('line', {x1:X(a[0]), y1:Y(a[1]), x2:X(b[0]), y2:Y(b[1]), stroke:COLORS.dim, 'stroke-width':1.4}));
+      });
+      // iso-profit line
+      const seg = isoSegment(key, Zl), c = p.c, n2 = dot(c,c), nl = Math.sqrt(n2);
+      const p0 = [Zl*c[0]/n2, Zl*c[1]/n2], d = [c[1]/nl, -c[0]/nl], BIG = 3*Math.max(p.xMax, p.yMax);
+      g.appendChild(el('line', {x1:X(p0[0] - BIG*d[0]), y1:Y(p0[1] - BIG*d[1]), x2:X(p0[0] + BIG*d[0]), y2:Y(p0[1] + BIG*d[1]),
+        stroke: seg.n === 0 ? COLORS.rust : COLORS.ink, 'stroke-width':1.6, 'stroke-dasharray':'6 5', opacity: seg.n === 0 ? 1 : 0.7}));
+      if (seg.n === 2){
+        const A = seg.pts[0], B = seg.pts[1];
+        g.appendChild(el('line', {x1:X(A[0]), y1:Y(A[1]), x2:X(B[0]), y2:Y(B[1]), stroke:COLORS.amber, 'stroke-width':3.6, 'stroke-linecap':'round'}));
+        // arrow towards improving Z, perpendicular to the line in screen space
+        const mx = (X(A[0]) + X(B[0]))/2, my = (Y(A[1]) + Y(B[1]))/2;
+        let dx = X(B[0]) - X(A[0]), dy = Y(B[1]) - Y(A[1]); const dl = Math.hypot(dx, dy) || 1; dx /= dl; dy /= dl;
+        let nx = -dy, ny = dx; const gx = c[0]*f.w/p.xMax, gy = -c[1]*f.h/p.yMax;
+        if (nx*gx + ny*gy < 0){ nx = -nx; ny = -ny; }
+        const tx = mx + 26*nx, ty = my + 26*ny;
+        svg.appendChild(el('line', {x1:mx, y1:my, x2:tx - 6*nx, y2:ty - 6*ny, stroke:COLORS.ink, 'stroke-width':1.6}));
+        svg.appendChild(el('polygon', {points:[[tx, ty], [tx - 9*nx + 5*dx, ty - 9*ny + 5*dy], [tx - 9*nx - 5*dx, ty - 9*ny - 5*dy]].map(q => q[0].toFixed(1) + ',' + q[1].toFixed(1)).join(' '), fill:COLORS.ink}));
+      }
+      // corners and their labels (placed inward, towards the centroid, so they never sit on the axis ticks)
+      const pcx = cs.reduce((s,q) => s + X(q.x1), 0)/cs.length, pcy = cs.reduce((s,q) => s + Y(q.x2), 0)/cs.length;
+      let single = null;
+      if (seg.n === 1){ const q = seg.pts[0]; single = cs.reduce((b,k) => Math.hypot(k.x1-q[0], k.x2-q[1]) < Math.hypot(b.x1-q[0], b.x2-q[1]) ? k : b); }
+      cs.forEach(k => {
+        const px = X(k.x1), py = Y(k.x2), onL = Math.abs(k.Z - Zl) <= zEps, isOpt = k.label === opt.label;
+        if (single && single.label === k.label) svg.appendChild(el('circle', {cx:px, cy:py, r:11, fill:'none', stroke:COLORS.ink, 'stroke-width':2}));
+        svg.appendChild(el('circle', {cx:px, cy:py, r:isOpt ? 6.5 : 5, fill:COLORS.amber, stroke:onL ? COLORS.ink : '#14171C', 'stroke-width':onL ? 2 : 1.5}));
+        let ux = pcx - px, uy = pcy - py; const ul = Math.hypot(ux, uy) || 1; ux /= ul; uy /= ul;
+        const t = txt(svg, px + 19*ux, py + 19*uy + 4, k.label, 'middle', isOpt ? COLORS.amber : COLORS.ink);
+        if (isOpt) t.setAttribute('font-weight', '600');
+      });
+      // constraint labels
+      p.cons.forEach(k => txt(svg, X(k.lab[0]) + k.dx, Y(k.lab[1]) + k.dy, k.name, k.anchor, COLORS.dim));
+
+      // readout, verdict
+      const fz = p.fmtZ(Zl), cxy = k => '(' + fc(k.x1) + ', ' + fc(k.x2) + ')';
+      zVal.textContent = fz;
+      const onLine = cs.filter(k => Math.abs(k.Z - Zl) <= zEps).map(k => k.label);
+      if (seg.n === 2){
+        readout.textContent = 'Z = ' + fz + ' · ∞ feasible points on the line';
+        verdict.className = 'verdict eq';
+        const thru = onLine.length ? ' (it passes through corner' + (onLine.length > 1 ? 's ' : ' ') + onLine.join(' and ') + ')' : '';
+        verdict.textContent = 'Z = ' + fz + ': the line crosses the region along a whole segment, so infinitely many feasible plans earn exactly this' + thru + '. Slide right: Z can still improve.';
+      } else if (seg.n === 1){
+        readout.textContent = 'Z = ' + fz + ' · 1 feasible point (' + single.label + ')';
+        if (single.label === opt.label){
+          verdict.className = 'verdict good';
+          verdict.textContent = 'last feasible point: corner ' + single.label + ' ' + cxy(single) + ', Z = ' + fz + '. One step further and the line has left the region, and it left at a corner.';
+        } else {
+          verdict.className = 'verdict eq';
+          verdict.textContent = 'Z = ' + fz + ': only corner ' + single.label + ' ' + cxy(single) + ' is on this line. Slide right: every step up and to the right improves Z.';
+        }
+      } else {
+        readout.textContent = 'Z = ' + fz + ' · 0 feasible points';
+        verdict.className = 'verdict bad';
+        verdict.textContent = 'Z = ' + fz + ': no feasible point on this line. Every plan earning this much breaks a constraint. The last feasible point was corner ' + opt.label + ' ' + cxy(opt) + ', Z = ' + p.fmtZ(opt.Z) + '.';
+      }
+      jumpRow.querySelectorAll('[data-z]').forEach(b => b.classList.toggle('on', Math.abs(+b.dataset.z - Zl) <= zEps));
+
+      // corner table
+      clear(tbody);
+      cs.forEach(k => {
+        const tr = h('tr'), isOpt = k.label === opt.label, onL = Math.abs(k.Z - Zl) <= zEps;
+        const td0 = h('td', null, k.label);
+        if (isOpt) td0.appendChild(h('span', 'xtag', 'optimal'));
+        if (onL) td0.appendChild(h('span', 'xtag', 'on line'));
+        const td1 = h('td', 'mono', k.on.join(' ∩ ')), td2 = h('td', 'mono', cxy(k)), td3 = h('td', isOpt ? 'on' : 'mono', p.fmtZ(k.Z));
+        if (isOpt) [td0, td1, td2].forEach(t => t.style.color = 'var(--amber)');
+        [td0, td1, td2, td3].forEach(t => tr.appendChild(t)); tbody.appendChild(tr);
+      });
+    }
+    presets(document.getElementById('m3Pre'), k => { key = k; setup(); render(); });
+    slider.addEventListener('input', render);
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+    setup(); render();
+  })();
+
+  // ================= m4: 4 · Sensitivity =================
+// ================= Module 4: sensitivity labs (S5–S7, Merton Truck) =================
+  (function(){
+    const panel = document.getElementById('m4RhsPanel'); if (!panel) return;
+    const panelB = document.getElementById('m4ObjPanel');
+
+    // ---------- pure model: exact 2-D corner enumeration ----------
+    const BASE = { EA:4000, MS:6000, c1:3000, c2:5000 };
+    const Y_SP = [2000, 500, 0, 0];   // shadow prices at D: EA, MS, A101, A102
+    const CORNERS = [['A',0,0],['B',0,1500],['C',1000,1500],['D',2000,1000],['E',2500,500],['F',2500,0]];
+    function lines(bEA, bMS){
+      return [
+        { k:'EA',   a:[1,2],  b:bEA },
+        { k:'MS',   a:[2,2],  b:bMS },
+        { k:'A101', a:[2,0],  b:5000 },
+        { k:'A102', a:[0,3],  b:4500 },
+        { k:'x1',   a:[-1,0], b:0 },
+        { k:'x2',   a:[0,-1], b:0 }
+      ];
+    }
+    function corners(bEA, bMS){
+      const L = lines(bEA, bMS), P = [];
+      for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++){
+        const A = L[i], B = L[j], det = A.a[0]*B.a[1] - A.a[1]*B.a[0];
+        if (Math.abs(det) < 1e-12) continue;
+        const x = (A.b*B.a[1] - A.a[1]*B.b) / det + 0, y = (A.a[0]*B.b - A.b*B.a[0]) / det + 0;
+        if (!L.every(C => C.a[0]*x + C.a[1]*y <= C.b + 1e-6)) continue;
+        if (P.some(p => Math.abs(p[0] - x) < 1e-6 && Math.abs(p[1] - y) < 1e-6)) continue;
+        P.push([x, y]);
+      }
+      return P;
+    }
+    // optimum by enumeration; ties are listed, the one nearest D is reported first
+    function solve(bEA, bMS, c1, c2){
+      bEA = bEA == null ? BASE.EA : +bEA; bMS = bMS == null ? BASE.MS : +bMS;
+      c1 = c1 == null ? BASE.c1 : +c1; c2 = c2 == null ? BASE.c2 : +c2;
+      const P = corners(bEA, bMS);
+      let best = -Infinity;
+      P.forEach(p => { const z = c1*p[0] + c2*p[1]; if (z > best) best = z; });
+      const tol = 1e-9 * Math.max(1, Math.abs(best));
+      const ties = P.filter(p => c1*p[0] + c2*p[1] >= best - tol);
+      ties.sort((p, q) => Math.hypot(p[0]-2000, p[1]-1000) - Math.hypot(q[0]-2000, q[1]-1000));
+      const x1 = ties[0][0], x2 = ties[0][1];
+      const slack = { EA: bEA - (x1 + 2*x2), MS: bMS - (2*x1 + 2*x2), A101: 5000 - 2*x1, A102: 4500 - 3*x2 };
+      Object.keys(slack).forEach(k => { if (Math.abs(slack[k]) < 1e-6) slack[k] = 0; });
+      const binding = Object.keys(slack).filter(k => slack[k] === 0);
+      return { x1, x2, Z: c1*x1 + c2*x2, slack, binding, ties, corners: P };
+    }
+    // one-sided shadow prices of EA or MS by exact re-solve (±1 hour)
+    function shadow(k, bEA, bMS){
+      bEA = bEA == null ? BASE.EA : +bEA; bMS = bMS == null ? BASE.MS : +bMS;
+      const z = (e, m) => solve(e, m, 3000, 5000).Z, d = k === 'EA' ? [1,0] : [0,1], Z0 = z(bEA, bMS);
+      const r = v => Math.round(v*1000)/1000;
+      return { below: r(Z0 - z(bEA - d[0], bMS - d[1])), above: r(z(bEA + d[0], bMS + d[1]) - Z0) };
+    }
+    // RHS ranging around D (δ-method): x(Δ) = x_D + Δ·column of inverse of the binding pair
+    function rhsRange(k){
+      const D = solve();
+      if (k === 'A101' || k === 'A102'){ const s = D.slack[k], rhs = k === 'A101' ? 5000 : 4500; return { inc:Infinity, dec:s, lo:rhs - s, hi:Infinity, rows:[] }; }
+      const a = 1, b = 2, c = 2, d = 2, det = a*d - b*c, INV = [[d/det, -b/det], [-c/det, a/det]];
+      const col = k === 'EA' ? 0 : 1, dx = [INV[0][col], INV[1][col]];
+      const rows = [
+        { name:'x1 >= 0', v0:D.x1, dv:dx[0] },
+        { name:'x2 >= 0', v0:D.x2, dv:dx[1] },
+        { name:'s3 >= 0', v0:D.slack.A101, dv:-2*dx[0] },
+        { name:'s4 >= 0', v0:D.slack.A102, dv:-3*dx[1] }
+      ];
+      let lo = -Infinity, hi = Infinity;
+      rows.forEach(r => {
+        if (r.dv > 0){ r.bound = -r.v0/r.dv + 0; r.side = '>='; lo = Math.max(lo, r.bound); }
+        else if (r.dv < 0){ r.bound = -r.v0/r.dv + 0; r.side = '<='; hi = Math.min(hi, r.bound); }
+      });
+      return { dx, rows, inc:hi, dec:-lo, lo:BASE[k] + lo, hi:BASE[k] + hi };
+    }
+    // objective ranging: c1/c2 must lie between the binding ratios EA 1/2 and MS 2/2
+    function objRange(which, other){
+      const rLo = 1/2, rHi = 2/2;
+      if (which === 'c1'){ const c2 = other == null ? BASE.c2 : +other; return { lo:rLo*c2, hi:rHi*c2, dec:BASE.c1 - rLo*c2, inc:rHi*c2 - BASE.c1 }; }
+      const c1 = other == null ? BASE.c1 : +other; return { lo:c1/rHi, hi:c1/rLo, dec:BASE.c2 - c1/rHi, inc:c1/rLo - BASE.c2 };
+    }
+    function reducedCost(c, a){ return Math.round((c - a.reduce((s, v, i) => s + v*(Y_SP[i] || 0), 0))*1e6)/1e6; }
+    function overtimeGain(sp, premium, hours){ return (sp - premium)*hours; }
+    window.__recap = window.__recap || {};
+    window.__recap.m4 = { solve, corners, shadow, rhsRange, objRange, reducedCost, overtimeGain };
+
+    // ---------- formatting ----------
+    const num = v => { if (!isFinite(v)) return '∞'; const r = Math.round(v*100)/100 + 0; return ns(String(r)); };
+    const money = v => { const r = Math.round(v) + 0; return ns(r.toLocaleString('en-US')); };
+    const sgn = v => (v > 0 ? '+' : v < 0 ? '−' : '±') + num(Math.abs(v));
+    const nameOf = p => { const c = CORNERS.find(c => Math.abs(c[1]-p[0]) < 1e-6 && Math.abs(c[2]-p[1]) < 1e-6); return c ? c[0] : null; };
+
+    // ---------- shared drawing ----------
+    const XMAX = 3500, YMAX = 2500, LT = { EA:.1, MS:.88, A101:.04, A102:.95 };
+    function clipSeg(a, b){
+      const P = [];
+      const add = (x, y) => {
+        if (!isFinite(x) || !isFinite(y)) return;
+        if (x < -1e-9 || x > XMAX + 1e-9 || y < -1e-9 || y > YMAX + 1e-9) return;
+        if (P.some(p => Math.abs(p[0]-x) < 1e-6 && Math.abs(p[1]-y) < 1e-6)) return;
+        P.push([x, y]);
+      };
+      if (a[1] !== 0){ add(0, b/a[1]); add(XMAX, (b - a[0]*XMAX)/a[1]); }
+      if (a[0] !== 0){ add(b/a[0], 0); add((b - a[1]*YMAX)/a[0], YMAX); }
+      if (P.length < 2) return null;
+      P.sort((p, q) => p[0] - q[0] || q[1] - p[1]);
+      return [P[0], P[P.length-1]];
+    }
+    function txt(svg, x, y, s, col, anchor){
+      const t = el('text', { x:x.toFixed(1), y:y.toFixed(1), class:'tick', 'text-anchor':anchor || 'start' });
+      t.textContent = s; t.style.fill = col; svg.appendChild(t); return t;
+    }
+    function drawLP(svg, clipId, o){
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      svg.setAttribute('viewBox', narrow ? '0 0 420 360' : '0 0 760 340');
+      svg.classList.toggle('narrow', narrow);
+      const f = narrow ? frame({ x0:52, y0:16, w:350, h:270 }) : frame({ x0:66, y0:16, w:660, h:262 });
+      const X = v => f.x0 + v/XMAX*f.w, Y = v => f.y1 - v/YMAX*f.h;
+      const seg = (g, s, attrs) => g.appendChild(el('line', Object.assign({ x1:X(s[0][0]).toFixed(1), y1:Y(s[0][1]).toFixed(1), x2:X(s[1][0]).toFixed(1), y2:Y(s[1][1]).toFixed(1) }, attrs)));
+      clear(svg);
+      const defs = el('defs', {}), cp = el('clipPath', { id:clipId });
+      cp.appendChild(el('rect', { x:f.x0, y:f.y0, width:f.w, height:f.h })); defs.appendChild(cp); svg.appendChild(defs);
+      drawAxes(svg, f, ticks(0, XMAX, narrow ? 1000 : 500), ticks(0, YMAX, 500), 'x₁ · Model 101 trucks', narrow ? '' : 'x₂ · Model 102 trucks', null, null);
+      const g = el('g', { 'clip-path':`url(#${clipId})` }); svg.appendChild(g);
+      // feasible region
+      const P = o.sol.corners.slice(), cx = P.reduce((s, p) => s + p[0], 0)/P.length, cy = P.reduce((s, p) => s + p[1], 0)/P.length;
+      P.sort((p, q) => Math.atan2(p[1]-cy, p[0]-cx) - Math.atan2(q[1]-cy, q[0]-cx));
+      g.appendChild(el('polygon', { points:P.map(p => X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1)).join(' '), fill:'rgba(232,163,61,.12)', stroke:COLORS.amber, 'stroke-width':1.6, 'stroke-linejoin':'round' }));
+      // the moved line at its original RHS
+      if (o.ghost){ const s = clipSeg(o.ghost.a, o.ghost.b); if (s) seg(g, s, { stroke:COLORS.faint, 'stroke-width':1.4, 'stroke-dasharray':'2 5' }); }
+      // constraint lines: binding solid, slack dashed, moved line bright
+      const lbl = [];
+      lines(o.bEA, o.bMS).slice(0, 4).forEach(L => {
+        const s = clipSeg(L.a, L.b); if (!s) return;
+        const bind = o.sol.binding.includes(L.k), mv = o.moved === L.k;
+        const col = mv ? COLORS.ink : bind ? COLORS.dim : COLORS.faint;
+        const at = { stroke:col, 'stroke-width': mv ? 2.2 : bind ? 1.8 : 1.2 };
+        if (!bind && !mv) at['stroke-dasharray'] = '6 5';
+        seg(g, s, at);
+        const t = LT[L.k], px = s[0][0] + t*(s[1][0]-s[0][0]), py = s[0][1] + t*(s[1][1]-s[0][1]);
+        lbl.push([L.k, Math.min(X(px) + 6, f.x1 - (narrow ? 50 : 40)), Math.max(Y(py) - 6, f.y0 + 14), col]);
+      });
+      // iso-profit line through the optimum
+      if (o.iso){ const s = clipSeg([o.c1, o.c2], o.sol.Z); if (s) seg(g, s, { stroke:COLORS.ink, 'stroke-width':1.6, 'stroke-dasharray':'8 5' }); }
+      // a tie: the whole edge between the tied corners is optimal
+      if (o.sol.ties.length > 1) seg(g, [o.sol.ties[0], o.sol.ties[1]], { stroke:COLORS.teal, 'stroke-width':5, 'stroke-linecap':'round', opacity:.85 });
+      lbl.forEach(([k, x, y, col]) => txt(svg, x, y, k, col));
+      if (o.cornerDots) CORNERS.forEach(([n, x, y]) => {
+        if (n === 'A') return;
+        svg.appendChild(el('circle', { cx:X(x), cy:Y(y), r:3.5, fill:COLORS.faint }));
+        if (!o.sol.ties.some(p => nameOf(p) === n)) txt(svg, X(x) + 7, Math.max(Y(y) - 7, f.y0 + 14), n, COLORS.dim);
+      });
+      if (o.ghostD){
+        svg.appendChild(el('circle', { cx:X(2000), cy:Y(1000), r:5, fill:'none', stroke:COLORS.faint, 'stroke-width':1.5 }));
+        txt(svg, X(2000) + 8, Y(1000) + 17, 'D', COLORS.faint);
+      }
+      o.sol.ties.forEach(p => {
+        svg.appendChild(el('circle', { cx:X(p[0]), cy:Y(p[1]), r:6.5, fill:COLORS.amber, stroke:'#14171C', 'stroke-width':2 }));
+        const right = X(p[0]) > f.x0 + 0.6*f.w, name = o.optName ? o.optName(p) : (nameOf(p) || '');
+        txt(svg, X(p[0]) + (right ? -11 : 11), Math.max(Y(p[1]) - 11, f.y0 + 14), `${name} (${num(p[0])}, ${num(p[1])})`, COLORS.amber, right ? 'end' : 'start');
+      });
+    }
+
+    // ---------- lab (a): move a constraint ----------
+    const svgA = document.getElementById('m4RhsChart'), sA = document.getElementById('m4Rhs'), lblA = document.getElementById('m4RhsLbl'),
+          valA = document.getElementById('m4RhsVal'), readA = document.getElementById('m4RhsRead'), mathA = document.getElementById('m4RhsMath'),
+          verA = document.getElementById('m4RhsVerdict'), preA = document.getElementById('m4RhsPre');
+    const RM = { EA:{ min:3000, max:5000, lbl:'EA right-hand side (engine-assembly hours)' }, MS:{ min:4500, max:7500, lbl:'MS right-hand side (metal-stamping hours)' } };
+    let key = 'EA';
+    function setA(k, v){ key = k; sA.min = RM[k].min; sA.max = RM[k].max; sA.value = v; lblA.textContent = RM[k].lbl; }
+    function renderA(){
+      const b = +sA.value, bEA = key === 'EA' ? b : BASE.EA, bMS = key === 'MS' ? b : BASE.MS;
+      const sol = solve(bEA, bMS, 3000, 5000), sp = shadow(key, bEA, bMS), R = rhsRange(key);
+      const base = BASE[key], d = b - base, spBase = key === 'EA' ? 2000 : 500;
+      const atD = Math.abs(sol.x1 - 2000) < 1e-6 && Math.abs(sol.x2 - 1000) < 1e-6;
+      drawLP(svgA, 'm4ClipA', { bEA, bMS, c1:3000, c2:5000, sol, moved:key,
+        ghost: d !== 0 ? { a: key === 'EA' ? [1,2] : [2,2], b: base } : null,
+        ghostD: !atD, optName: () => atD ? 'D' : 'D′' });
+      valA.textContent = num(b) + ' h (' + (d ? sgn(d) : 'base') + ')';
+      readA.textContent = `(${num(sol.x1)}, ${num(sol.x2)}) · Z = ${money(sol.Z)}`;
+      const inside = sol.binding.includes('EA') && sol.binding.includes('MS');
+      const edge = inside && sp.below !== sp.above;
+      const spTxt = sp.below === sp.above ? money(sp.above) : `${money(sp.below)} per hour removed · ${money(sp.above)} per hour added`;
+      const pred = 11000000 + spBase*d, match = Math.abs(pred - sol.Z) < 1e-6;
+      mathA.innerHTML =
+        `optimal plan <b>x₁ = ${num(sol.x1)}, x₂ = ${num(sol.x2)}</b> · Z = <b>${money(sol.Z)}</b><br>` +
+        `binding: <b>${sol.binding.join(' + ')}</b> · slacks s₁…s₄ = ${['EA','MS','A101','A102'].map(k => num(sol.slack[k])).join(', ')}<br>` +
+        `shadow price of ${key} here: <i>${spTxt}</i> · allowable range <i>${num(R.lo)} – ${num(R.hi)}</i> (${ns('-' + num(R.dec))} / +${num(R.inc)})<br>` +
+        `δ-method: 11,000,000 ${d < 0 ? '−' : '+'} ${spBase} × ${num(Math.abs(d))} = <i>${money(pred)}</i> · LP re-solve <b>${money(sol.Z)}</b>` +
+        (match ? ' ✓ same' : ` <span style="color:var(--rust)">δ-formula off by ${money(pred - sol.Z)}</span>`);
+      if (inside && !edge){
+        verA.className = 'verdict good';
+        verA.textContent = `Same binding pair (EA + MS): shadow price ${spBase} holds across ${num(R.lo)}–${num(R.hi)}. D′ slides along the ${key === 'EA' ? 'MS' : 'EA'} line, and Z moves ${spBase} per hour.`;
+      } else if (edge){
+        verA.className = 'verdict good';
+        verA.textContent = `Edge of the allowable range (${num(R.lo)}–${num(R.hi)}): EA and MS still bind here (now with ${sol.binding.filter(k => k !== 'EA' && k !== 'MS').join(' + ')}), so ${spBase} holds up to this point. One step further, ${key} is worth ${money(d > 0 ? sp.above : sp.below)} per hour.`;
+      } else {
+        verA.className = 'verdict warn';
+        verA.textContent = `Outside ${num(R.lo)}–${num(R.hi)}: the binding pair is now ${sol.binding.join(' + ')}, so the shadow price of ${key} is ${spTxt}, not ${spBase}. The δ-formula no longer applies.`;
+      }
+    }
+    presets(preA, p => { const [k, v] = p.split(':'); setA(k, +v); renderA(); });
+    sA.addEventListener('input', () => { preA.querySelectorAll('[data-p]').forEach(x => x.classList.remove('on')); renderA(); });
+    setA('EA', 4001);
+    renderA();
+
+    // ---------- lab (b): rotate the objective ----------
+    let renderB = null;
+    if (panelB){
+      const svgB = document.getElementById('m4ObjChart'), sB = document.getElementById('m4Obj'), lblB = document.getElementById('m4ObjLbl'),
+            valB = document.getElementById('m4ObjVal'), readB = document.getElementById('m4ObjRead'), mathB = document.getElementById('m4ObjMath'),
+            verB = document.getElementById('m4ObjVerdict'), preB = document.getElementById('m4ObjPre');
+      const CM = { c1:{ min:1500, max:6500, lbl:'c₁, contribution per Model 101 (c₂ = 5000)' }, c2:{ min:2000, max:7000, lbl:'c₂, contribution per Model 102 (c₁ = 3000)' } };
+      let which = 'c1';
+      const setB = (k, v) => { which = k; sB.min = CM[k].min; sB.max = CM[k].max; sB.value = v; lblB.textContent = CM[k].lbl; };
+      renderB = function(){
+        const v = +sB.value, c1 = which === 'c1' ? v : BASE.c1, c2 = which === 'c2' ? v : BASE.c2;
+        const sol = solve(BASE.EA, BASE.MS, c1, c2), R = objRange(which), names = sol.ties.map(p => nameOf(p) || '?');
+        drawLP(svgB, 'm4ClipB', { bEA:BASE.EA, bMS:BASE.MS, c1, c2, sol, iso:true, cornerDots:true });
+        const r = c1/c2, d = v - BASE[which], cn = which === 'c1' ? 'c₁' : 'c₂';
+        valB.textContent = num(v) + (d ? ' (' + sgn(d) + ')' : ' (base)');
+        readB.textContent = `optimum ${names.join(' & ')} · Z = ${money(sol.Z)}`;
+        mathB.innerHTML =
+          (which === 'c1'
+            ? `ratio rule: EA <i>1/2</i> ≤ c₁/c₂ = ${num(c1)}/5000 = <b>${r.toFixed(3)}</b> ≤ MS <i>2/2</i> ⇔ <i>${num(R.lo)} ≤ c₁ ≤ ${num(R.hi)}</i>`
+            : `ratio rule: EA <i>1/2</i> ≤ 3000/c₂ = 3000/${num(c2)} = <b>${r.toFixed(3)}</b> ≤ MS <i>2/2</i> ⇔ <i>${num(R.lo)} ≤ c₂ ≤ ${num(R.hi)}</i> (reciprocals flip ≤)`) +
+          `<br>optimal plan <b>${names[0]} = (${num(sol.x1)}, ${num(sol.x2)})</b> · Z = <b>${money(sol.Z)}</b>` +
+          `<br>allowable increase <i>${num(R.inc)}</i> · allowable decrease <i>${num(R.dec)}</i>`;
+        const isD = names.includes('D'), tie = sol.ties.length > 1;
+        if (isD && !tie){
+          verB.className = 'verdict good';
+          verB.textContent = `${cn} = ${num(v)} is inside ${num(R.lo)}–${num(R.hi)}: D (2000, 1000) stays optimal. Same mix; only Z moves (${money(sol.Z)}).`;
+        } else if (isD && tie){
+          const other = names.find(n => n !== 'D'), par = other === 'E' ? 'MS' : 'EA', edgeName = other === 'E' ? 'DE' : 'CD';
+          verB.className = 'verdict good';
+          verB.textContent = `Edge of the range: the iso-profit line is parallel to the ${par} line, so D and ${other} tie (all of edge ${edgeName} is optimal). One unit further and ${other} takes over.`;
+        } else {
+          verB.className = 'verdict warn';
+          verB.textContent = `${cn} = ${num(v)} is outside ${num(R.lo)}–${num(R.hi)}: the iso-profit line is ${r > 1 ? 'steeper than the MS line' : 'flatter than the EA line'}, so the optimum jumps to ${names[0]} (${num(sol.x1)}, ${num(sol.x2)}). The product mix changes.`;
+        }
+      };
+      presets(preB, p => { const [k, v] = p.split(':'); setB(k, +v); renderB(); });
+      sB.addEventListener('input', () => { preB.querySelectorAll('[data-p]').forEach(x => x.classList.remove('on')); renderB(); });
+      setB('c1', 3000);
+      renderB();
+    }
+
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { renderA(); if (renderB) renderB(); }, 150); });
+  })();
+
+  // ================= m5: 5 · Red Brand Canners =================
+// ================= m5 widget: blend slider (S07, 11 Nov) =================
+  (function(){
+    const panel = document.getElementById('m5Panel'); if (!panel) return;
+    const svg = document.getElementById('m5Chart'), slider = document.getElementById('m5P'), valEl = document.getElementById('m5PVal');
+    const readout = document.getElementById('m5Read'), verdict = document.getElementById('m5Verdict'), preRow = document.getElementById('m5Pre');
+    const RA = 9, RB = 5;
+    const PRODUCTS = [
+      { key:'whole', name:'whole tomatoes', short:'whole', min:8, id:'m5BW', row:1, anchor:'middle' },
+      { key:'juice', name:'juice', short:'juice', min:6, id:'m5BJ', row:2, anchor:'start' },
+      { key:'paste', name:'paste', short:'paste', min:5, id:'m5BP', row:2, anchor:'end' }
+    ];
+    // pure functions (checkable in Python): p = share of grade A in [0,1]
+    function rating(p){ return RA*p + RB*(1-p); }
+    function minShareA(r){ return Math.min(1, Math.max(0, (r - RB)/(RA - RB))); }
+    function ratioAB(p){ return p >= 1 ? Infinity : p/(1-p); }
+    function meets(p){ const r = rating(p), o = {}; PRODUCTS.forEach(q => { o[q.key] = r >= q.min - 1e-9; }); return o; }
+    window.__recap = window.__recap || {};
+    window.__recap.m5 = { rating, minShareA, ratioAB, meets };
+
+    const trim = v => String(Math.round(v*100)/100);
+    function ratioText(p){
+      if (p >= 1) return 'all A';
+      if (p <= 0) return 'all B';
+      return p >= 0.5 ? trim(p/(1-p)) + ' : 1' : '1 : ' + trim((1-p)/p);
+    }
+    function txt(x, y, s, col, anchor){
+      const t = el('text', { x, y, class:'tick', 'text-anchor':anchor || 'start' });
+      t.textContent = s; t.style.fill = col; svg.appendChild(t); return t;
+    }
+    function render(){
+      const narrow = (svg.parentNode.clientWidth || 760) < 560;
+      const W = narrow ? 420 : 760;
+      const L = narrow
+        ? { H:222, mixY:6, mixH:28, row1:62, row2:86, barY:96, barH:28, axis:132, tickY:154, gradeY:176, alY:206 }
+        : { H:206, mixY:6, mixH:24, row1:58, row2:78, barY:88, barH:24, axis:120, tickY:138, gradeY:156, alY:186 };
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + L.H);
+      svg.classList.toggle('narrow', narrow);
+      const x0 = narrow ? 22 : 40, x1 = W - x0, wd = x1 - x0;
+      const pct = +slider.value, p = pct/100, r = rating(p), ok = meets(p);
+      const X = v => x0 + (v - 1)/9*wd;          // one scale: rating 1..10
+      clear(svg);
+
+      // mix bar: one pound of product split by weight
+      const wa = p*wd, ty = L.mixY + L.mixH/2 + (narrow ? 5 : 4), minLbl = narrow ? 74 : 62;
+      svg.appendChild(el('rect', { x:x0, y:L.mixY, width:wd, height:L.mixH, rx:4, fill:'#262B33' }));
+      if (wa > 0) svg.appendChild(el('rect', { x:x0, y:L.mixY, width:wa, height:L.mixH, rx:4, fill:COLORS.amber }));
+      if (wa >= minLbl) txt(x0 + 8, ty, 'A ' + pct + '%', '#14171C');
+      if (wd - wa >= minLbl) txt(x1 - 8, ty, 'B ' + (100 - pct) + '%', COLORS.ink, 'end');
+
+      // reachable range of any A/B blend: 5..9
+      svg.appendChild(el('rect', { x:X(RB), y:L.barY, width:X(RA) - X(RB), height:L.barH, fill:'none', stroke:COLORS.faint, 'stroke-dasharray':'3 3' }));
+      // weighted-average rating bar
+      svg.appendChild(el('rect', { x:x0, y:L.barY, width:X(r) - x0, height:L.barH, fill:COLORS.amber, opacity:0.9 }));
+      txt(X(r) - 6, L.barY + L.barH/2 + (narrow ? 5 : 4), r.toFixed(2), '#14171C', 'end');
+
+      // axis 1..10
+      svg.appendChild(el('line', { x1:x0, y1:L.axis, x2:x1, y2:L.axis, class:'axis' }));
+      for (let v = 1; v <= 10; v++){
+        svg.appendChild(el('line', { x1:X(v), y1:L.axis, x2:X(v), y2:L.axis + 5, class:'axis' }));
+        txt(X(v), L.tickY, String(v), COLORS.faint, 'middle');
+      }
+      // the two grades
+      [[RB, 'grade B = 5'], [RA, 'grade A = 9']].forEach(([v, s]) => {
+        svg.appendChild(el('circle', { cx:X(v), cy:L.axis, r:4, fill:COLORS.ink, stroke:'#14171C', 'stroke-width':1.5 }));
+        txt(X(v), L.gradeY, s, COLORS.dim, 'middle');
+      });
+      // product minimums
+      PRODUCTS.forEach(q => {
+        const col = ok[q.key] ? COLORS.teal : COLORS.rust, gx = X(q.min), ly = q.row === 1 ? L.row1 : L.row2;
+        svg.appendChild(el('line', { x1:gx, y1:ly + 6, x2:gx, y2:L.axis, stroke:col, 'stroke-width':1.6, 'stroke-dasharray':'4 3' }));
+        const ox = q.anchor === 'start' ? 4 : q.anchor === 'end' ? -4 : 0;
+        txt(gx + ox, ly, q.short + ' ≥ ' + q.min, col, q.anchor);
+      });
+      // alligation line
+      const dA = r - RB, dB = RA - r;
+      txt(x0, L.alY, (narrow ? 'A:B = (r−5):(9−r) = ' : 'alligation   A : B = (r − 5) : (9 − r) = ') + dA.toFixed(2) + (narrow ? ':' : ' : ') + dB.toFixed(2) + (narrow ? '' : '  →  ' + ratioText(p)), COLORS.dim);
+
+      // badges
+      PRODUCTS.forEach(q => {
+        const b = document.getElementById(q.id), need = Math.round(minShareA(q.min)*100);
+        b.className = 'verdict ' + (ok[q.key] ? 'good' : 'bad');
+        b.textContent = (ok[q.key] ? '✓ ' : '✗ ') + q.name + ' ≥ ' + q.min + (need > 0 ? ' · needs ≥ ' + need + '% A' : ' · pure B is enough');
+      });
+
+      valEl.textContent = pct + '%';
+      readout.textContent = 'A ' + pct + '% · B ' + (100 - pct) + '% · A:B ' + ratioText(p) + ' · rating ' + r.toFixed(2);
+      let s = 'Rating = 9 × ' + trim(p) + ' + 5 × ' + trim(1 - p) + ' = ' + r.toFixed(2) + '. ';
+      if (pct === 75) s += "Exactly 3 : 1, the whole-tomato minimum. The optimal plan's whole tomatoes sit right here: 525,000 lb A with 175,000 lb B.";
+      else if (pct === 25) s += "Exactly 1 : 3, the juice minimum. The optimal plan's juice is this mix: 75,000 lb A with 225,000 lb B.";
+      else if (pct === 20) s += "This is the raw supply mix (600,000 : 2,400,000 lb). It rates 5.80, below juice's 6, so grade A is the scarce input.";
+      else if (ok.whole) s += 'Good enough for all three products.';
+      else if (ok.juice) s += 'Juice and paste only. Whole tomatoes need at least 75% A.';
+      else s += 'Paste only. Juice needs at least 25% A.';
+      verdict.className = 'verdict eq';
+      verdict.textContent = s;
+      preRow.querySelectorAll('[data-p]').forEach(b => b.classList.toggle('on', +b.dataset.p === pct));
+    }
+    presets(preRow, v => { slider.value = v; render(); });
+    slider.addEventListener('input', render);
+    let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+    render();
+  })();
+
+  // ================= m6: 6 · Signs, duality, IP =================
+// ================= Widget m6: primal → dual stepper (S09, 16 Nov) =================
+  (function(){ const panel = document.getElementById('m6Panel'); if (!panel) return;
+    const stage = document.getElementById('m6Stage'), scroller = stage.parentNode;
+    const readout = document.getElementById('m6Read'), verdict = document.getElementById('m6Verdict');
+    const SUBS = '₀₁₂₃₄₅₆₇₈₉';
+    const sub = k => String(k).split('').map(d => SUBS[+d]).join('');
+    const SYM = { '<=':'≤', '>=':'≥', '=':'=' };
+    const VSL = { '>=0':'≥ 0', '<=0':'≤ 0', 'free':'unrestricted' };   // long form (captions)
+    const VSD = { '>=0':'≥ 0', '<=0':'≤ 0', 'free':'free' };           // short form (dual sign line, vars)
+    const VSS = { '>=0':'≥0', '<=0':'≤0', 'free':'free' };             // grid cells
+    const num = v => ns(String(v));
+    function expr(a, v){
+      let s = '';
+      a.forEach((x,k) => {
+        if (x === 0) return;
+        const m = Math.abs(x), t = (m === 1 ? '' : m) + v + sub(k+1);
+        s = s ? s + (x < 0 ? ' − ' : ' + ') + t : (x < 0 ? '−' : '') + t;
+      });
+      return s || '0';
+    }
+    const flip = s => s === 'max' ? 'min' : 'max';
+    // sign of a shadow price / dual variable for a constraint of `type` in a problem of `sense`
+    function uSign(sense, type){
+      if (type === '=') return 'free';
+      const std = (sense === 'max' && type === '<=') || (sense === 'min' && type === '>=');
+      return std ? '>=0' : '<=0';
+    }
+    // dual constraint type from the primal variable's sign; standard ↔ standard
+    function rowType(dualSense, vs){
+      if (vs === 'free') return '=';
+      const std = dualSense === 'max' ? '<=' : '>=';
+      return vs === '>=0' ? std : (std === '<=' ? '>=' : '<=');
+    }
+    function dualOf(P){
+      const d = flip(P.sense), n = P.c.length;
+      return { sense:d, obj:P.b.slice(), signs:P.type.map(t => uSign(P.sense, t)),
+        rows:Array.from({length:n}, (_,j) => ({ coef:P.A.map(r => r[j]), type:rowType(d, P.vs[j]), rhs:P.c[j] })) };
+    }
+    const dot = (a,b) => a.reduce((s,x,k) => s + x*b[k], 0);
+    function holds(lhs, type, rhs){ const e = 1e-9; return type === '<=' ? lhs <= rhs + e : type === '>=' ? lhs >= rhs - e : Math.abs(lhs - rhs) <= e; }
+    function signOK(v, code){ return code === 'free' ? true : code === '>=0' ? v >= -1e-9 : v <= 1e-9; }
+    function checkPair(P, x, u){
+      const D = dualOf(P);
+      const primalOK = P.A.every((r,i) => holds(dot(r,x), P.type[i], P.b[i])) && x.every((v,j) => signOK(v, P.vs[j]));
+      const dualOK = D.rows.every(r => holds(dot(r.coef,u), r.type, r.rhs)) && u.every((v,i) => signOK(v, D.signs[i]));
+      return { Z:dot(P.c,x), W:dot(D.obj,u), primalOK, dualOK };
+    }
+
+    const PRE = {
+      messy:{ sense:'min', c:[-4,8,-5,1], A:[[3,-2,6,-1],[2,3,-5,2],[3,-5,1,2]], type:['>=','<=','='], b:[40,80,50], vs:['>=0','<=0','free','>=0'], story:false,
+        intro:'A deliberately <b>messy min</b> problem that covers every case: one ≥, one ≤ and one = constraint, and variables that are ≥ 0, ≤ 0 and unrestricted. Feasibility doesn\'t matter, because every primal has a dual. The dual will be a <b>max</b> with 3 variables (one per constraint) and 4 constraints (one per variable). (RHS 40, 80, 50 and rows C₂–C₃ are reconstructed from the dual written in class.)',
+        colNote:[null,null,null,' (The transcript said ≤ −1, but x₄\'s cost is +1, so the RHS is +1.)'] },
+      mix:{ sense:'max', c:[8,4,5], A:[[3,5,2],[2,3,1]], type:['<=','<='], b:[18,11], vs:['>=0','>=0','>=0'], story:true, x:[4,0,3], u:[2,1],
+        intro:'The S09 product mix: products earn 8, 4 and 5 per unit; resource 1 has 18 h and resource 2 has 11 h. Now flip the view: <b>you offer to buy my resources</b> at u₁ and u₂ per hour. The dual is a <b>min</b> with one price per resource and one "not worth producing" condition per product.' }
+    };
+
+    function rowCap(P, D, i){
+      const t = P.type[i], ui = 'u' + sub(i+1), ci = 'C' + sub(i+1), what = P.sense === 'max' ? 'profit' : 'cost';
+      let txt;
+      if (t === '=') txt = `<span class="a">${ci} is an equality</span>. RHS +1 neither expands nor shrinks the region; it <b>shifts</b> it to a different line. No old point survives, so the ${what} can move either way → <span class="t">${ui} unrestricted</span>.`;
+      else {
+        const std = (P.sense === 'max' && t === '<=') || (P.sense === 'min' && t === '>=');
+        const grow = t === '<=';
+        const cant = grow ? (P.sense === 'max' ? 'fall' : 'rise') : (P.sense === 'max' ? 'rise' : 'fall');
+        txt = `<span class="a">${ci} is <code>${SYM[t]}</code> in a ${P.sense} problem</span>, which is <b>${std ? 'standard' : 'non-standard'}</b>. RHS +1 ${grow ? 'expands' : 'shrinks'} the region, so the ${what} can't ${cant} → <span class="t">${ui} ${VSD[D.signs[i]]}</span>.`;
+      }
+      return txt + (P.story ? ` In the story, ${ui} is your price per hour of resource ${i+1}.` : '');
+    }
+    function objCap(P, D){
+      return `<b>${P.sense}</b> becomes <b>${D.sense}</b>. The <span class="a">primal RHS ${P.b.map(num).join(', ')}</span> become the dual objective coefficients → <span class="t">${D.sense} W = ${expr(D.obj,'u')}</span>.`
+        + (P.story ? ' That is what you pay for all my hours, and naturally you want to pay as little as possible.' : '');
+    }
+    function colCap(P, D, j){
+      const col = P.A.map(r => r[j]), row = D.rows[j], vs = P.vs[j], xj = 'x' + sub(j+1);
+      const rowTxt = `${expr(row.coef,'u')} ${SYM[row.type]} ${num(row.rhs)}`;
+      const g = uSign(D.sense, row.type);
+      const check = vs === 'free'
+        ? `Check: an equality has an unrestricted shadow price, which matches ${xj} unrestricted.`
+        : `Check: <code>${SYM[row.type]}</code> in a ${D.sense} problem has a shadow price ${VSL[g]}, which matches ${xj} ${VSL[vs]}.`;
+      const kind = vs === 'free' ? `${xj} is unrestricted, so the row is an <b>equality</b>`
+        : `${xj} ${VSL[vs]} is ${vs === '>=0' ? 'standard' : 'non-standard'}, so the row is ${vs === '>=0' ? 'standard' : 'non-standard'} for a ${D.sense}: <b>${SYM[row.type]}</b>`;
+      if (P.story){
+        return `<span class="a">Product ${j+1}</span> earns ${P.c[j]} per unit and uses ${col[0]} h of resource 1 and ${col[1]} h of resource 2. I give it up only if your offer for those hours is at least ${P.c[j]} → <span class="t">${rowTxt}</span>. (${kind}.)`;
+      }
+      return `Transpose: <span class="a">${xj}'s column (${col.map(num).join(', ')})</span> becomes dual row ${j+1}, and its objective coefficient ${num(P.c[j])} becomes the RHS. ${kind} → <span class="t">${rowTxt}</span>. ${check}` + ((P.colNote && P.colNote[j]) || '');
+    }
+    function doneCap(P, D){
+      if (P.story){
+        const r = checkPair(P, P.x, P.u);
+        return `<b>Two sides of the same coin.</b> The primal optimum <span class="a">x = (${P.x.join(', ')})</span> earns <span class="a">Z = ${r.Z}</span>. The dual optimum <span class="t">u = (${P.u.join(', ')})</span> costs <span class="t">W = ${r.W}</span>, and u is exactly the primal's shadow prices. Both are feasible with equal values, so both are optimal. (The dual was solved after class.)`;
+      }
+      return `Finished: a <b>${D.sense}</b> problem with ${P.b.length} variables and ${P.c.length} constraints. Each primal variable is now the shadow price of its dual row, and converting this dual back gives the primal again. Press <b>▶ Play</b> to build it step by step.`;
+    }
+
+    function gen(P){
+      const D = dualOf(P), m = P.b.length, n = P.c.length, S = [], sl = m + 2;
+      const V = (u, o, c) => [['dual', D.sense]].concat(D.signs.map((g,i) => ['u' + sub(i+1), i < u ? VSD[g] : '?']), [['objective', o ? 'set' : '?'], ['rows', c + '/' + n]]);
+      const push = o => S.push(Object.assign({ vars:V(o.uDone, o.objDone, o.colDone) }, o));
+      push({ mode:'intro', uDone:0, objDone:false, colDone:0, line:0, cap:P.intro });
+      for (let i = 0; i < m; i++) push({ mode:'row', i, uDone:i+1, objDone:false, colDone:0, line:2+i, cap:rowCap(P, D, i) });
+      push({ mode:'obj', uDone:m, objDone:true, colDone:0, line:Array.from({length:m}, (_,i) => 2+i), cap:objCap(P, D) });
+      for (let j = 0; j < n; j++) push({ mode:'col', j, uDone:m, objDone:true, colDone:j+1, line:[1, sl], cap:colCap(P, D, j) });
+      push({ mode:'done', uDone:m, objDone:true, colDone:n, line:null, cap:doneCap(P, D) });
+      return S;
+    }
+    function code(P){
+      const L = ['PRIMAL (' + P.sense + ')', P.sense + ' Z = ' + expr(P.c,'x')];
+      P.A.forEach((r,i) => L.push('C' + sub(i+1) + ':  ' + expr(r,'x') + ' ' + SYM[P.type[i]] + ' ' + num(P.b[i])));
+      L.push(P.vs.map((v,j) => 'x' + sub(j+1) + ' ' + VSD[v]).join(', '));
+      return L;
+    }
+    window.__recap = window.__recap || {};
+    window.__recap.m6 = { uSign, rowType, dualOf, checkPair, gen, expr, presets:PRE };
+
+    const svg = el('svg', { class:'chart', preserveAspectRatio:'xMidYMid meet', role:'img', 'aria-label':'Primal coefficient grid and the dual being written' });
+    stage.appendChild(svg);
+    const FONT = "'IBM Plex Mono',monospace";
+    const C = { ink:'var(--ink)', dim:'var(--ink-dim)', faint:'var(--ink-faint)', amber:'var(--amber)', teal:'var(--teal)', line:'var(--line)' };
+    let cur = null;
+
+    function render(s){
+      const P = cur.P, D = cur.D, m = P.b.length, n = P.c.length;
+      const narrow = (scroller.clientWidth || 600) < 520;
+      const W = narrow ? 380 : 580, fs = narrow ? 15 : 14, rh = narrow ? 31 : 28;
+      const Lw = narrow ? 46 : 64, cw = narrow ? 46 : 62, sw = narrow ? 26 : 34, rw = narrow ? 46 : 56;
+      const gw = Lw + n*cw + sw + rw, gx = Math.round((W - gw)/2);
+      svg.classList.toggle('narrow', narrow);
+      clear(svg);
+      const T = (x, y, txt, fill, anchor, size) => {
+        const t = el('text', { x, y, 'font-family':FONT, 'font-size':size || fs, 'text-anchor':anchor || 'middle' });
+        t.style.fill = fill || C.ink; t.textContent = txt; svg.appendChild(t); return t;
+      };
+      const box = (x, y, w, hh, col, fillA) => { const r = el('rect', { x, y, width:w, height:hh, rx:5, 'stroke-width':1.5 }); r.style.fill = fillA; r.style.stroke = col; svg.appendChild(r); };
+      const hl = (x1, y, x2) => { const l = el('line', { x1, y1:y, x2, y2:y, 'stroke-width':1 }); l.style.stroke = C.line; svg.appendChild(l); };
+      const AM = 'rgba(232,163,61,.12)', TE = 'rgba(79,168,160,.14)';
+      const top = 30, rowY = r => top + r*rh, base = r => rowY(r) + rh*0.66;
+      const colX = j => gx + Lw + j*cw + cw/2, senseX = gx + Lw + n*cw + sw/2, rhsX = gx + Lw + n*cw + sw + rw/2;
+
+      // ---- primal grid ----
+      T(gx, 18, 'PRIMAL · ' + P.sense + ' · column j → dual row j', C.faint, 'start', fs - 3);
+      if (s.mode === 'row') box(gx - 4, rowY(2 + s.i) + 2, gw + 8, rh - 4, C.amber, AM);
+      if (s.mode === 'obj') box(gx + Lw + n*cw + sw - 2, rowY(2) + 2, rw + 4, m*rh - 4, C.amber, AM);
+      if (s.mode === 'col') box(gx + Lw + s.j*cw + 3, rowY(1) + 2, cw - 6, (m + 2)*rh - 4, C.amber, AM);
+      hl(gx, rowY(1), gx + gw); hl(gx, rowY(2), gx + gw); hl(gx, rowY(m + 2), gx + gw);
+      const colHot = j => s.mode === 'col' && s.j === j;
+      for (let j = 0; j < n; j++) T(colX(j), base(0), 'x' + sub(j+1), colHot(j) ? C.amber : C.dim);
+      T(rhsX, base(0), 'RHS', s.mode === 'obj' ? C.amber : C.dim, 'middle', fs - 2);
+      T(gx + 4, base(1), P.sense, C.faint, 'start');
+      P.c.forEach((v,j) => T(colX(j), base(1), num(v), colHot(j) ? C.amber : C.ink));
+      P.A.forEach((r,i) => {
+        const rowHot = s.mode === 'row' && s.i === i;
+        T(gx + 4, base(2+i), 'C' + sub(i+1), rowHot ? C.amber : C.faint, 'start');
+        r.forEach((v,j) => T(colX(j), base(2+i), num(v), (rowHot || colHot(j)) ? C.amber : C.ink));
+        T(senseX, base(2+i), SYM[P.type[i]], rowHot ? C.amber : C.dim);
+        T(rhsX, base(2+i), num(P.b[i]), (rowHot || s.mode === 'obj') ? C.amber : C.ink);
+      });
+      T(gx + 4, base(m+2), 'sign', C.faint, 'start');
+      P.vs.forEach((v,j) => T(colX(j), base(m+2), VSS[v], colHot(j) ? C.amber : C.dim, 'middle', fs - 1));
+
+      // ---- dual, written line by line ----
+      const y0 = rowY(m + 3) + 24, dx = narrow ? 16 : gx, ax = narrow ? W - 16 : gx + gw;
+      T(dx, y0 - 6, 'DUAL · ' + D.sense + ' · written line by line', C.teal, 'start', fs - 3);
+      const ly = k => y0 + 6 + k*rh, lb = k => ly(k) + rh*0.66;
+      const curLine = s.mode === 'obj' ? 0 : s.mode === 'col' ? 1 + s.j : s.mode === 'row' ? n + 1 : -1;
+      if (curLine >= 0) box(dx - 8, ly(curLine) + 2, (ax - dx) + 16, rh - 4, C.teal, TE);
+      T(dx, lb(0), D.sense + ' W = ' + (s.objDone ? expr(D.obj,'u') : '…'), curLine === 0 ? C.teal : (s.objDone ? C.ink : C.faint), 'start');
+      T(ax, lb(0), 'from RHS', curLine === 0 ? C.amber : C.faint, 'end', fs - 3);
+      D.rows.forEach((r,j) => {
+        const done = j < s.colDone, k = 1 + j;
+        T(dx, lb(k), done ? expr(r.coef,'u') + ' ' + SYM[r.type] + ' ' + num(r.rhs) : '…', curLine === k ? C.teal : (done ? C.ink : C.faint), 'start');
+        T(ax, lb(k), 'from x' + sub(j+1), curLine === k ? C.amber : C.faint, 'end', fs - 3);
+      });
+      const st = el('text', { x:dx, y:lb(n+1), 'font-family':FONT, 'font-size':fs, 'text-anchor':'start' });
+      D.signs.forEach((g,i) => {
+        const sp = el('tspan', { dx: i ? fs*1.3 : 0 });
+        sp.style.fill = (s.mode === 'row' && s.i === i) ? C.teal : (i < s.uDone ? C.ink : C.faint);
+        sp.textContent = 'u' + sub(i+1) + ' ' + (i < s.uDone ? VSD[g] : '?');
+        st.appendChild(sp);
+      });
+      svg.appendChild(st);
+      T(ax, lb(n+1), 'sign table', s.mode === 'row' ? C.amber : C.faint, 'end', fs - 3);
+      svg.setAttribute('viewBox', `0 0 ${W} ${Math.ceil(ly(n + 2) + 8)}`);
+
+      // ---- readout + verdict ----
+      readout.textContent = `u-signs ${s.uDone}/${m} · objective ${s.objDone ? '✓' : '–'} · rows ${s.colDone}/${n}`;
+      if (s.mode === 'done'){
+        if (P.story){
+          const r = checkPair(P, P.x, P.u), ok = r.primalOK && r.dualOK && Math.abs(r.Z - r.W) < 1e-9;
+          verdict.className = 'verdict ' + (ok ? 'good' : 'bad');
+          verdict.textContent = `Primal Z = ${r.Z} at x = (${P.x.join(', ')}) · dual W = ${r.W} at u = (${P.u.join(', ')}) · ` + (ok ? 'both feasible and equal → both optimal' : 'mismatch');
+        } else {
+          verdict.className = 'verdict good';
+          verdict.textContent = `Dual: ${D.sense} W = ${expr(D.obj,'u')} · rows ${D.rows.map(r => SYM[r.type]).join(', ')} · ` + D.signs.map((g,i) => 'u' + sub(i+1) + ' ' + VSD[g]).join(', ');
+        }
+      } else if (s.mode === 'intro'){
+        verdict.className = 'verdict eq';
+        verdict.textContent = `${m} constraints → ${m} dual variables · ${n} variables → ${n} dual constraints`;
+      } else {
+        verdict.className = 'verdict warn';
+        verdict.textContent = s.mode === 'row' ? 'Constraint type + objective sense → sign of the dual variable'
+          : s.mode === 'obj' ? 'Primal RHS → dual objective coefficients'
+          : 'Primal column → dual row; the variable\'s sign → the row\'s type';
+      }
+    }
+
+    const player = Player(panel, render, { delay:1800 });
+    function load(key, atEnd){
+      const P = PRE[key]; cur = { P, D:dualOf(P) };
+      const st = gen(P); player.load(st, code(P), atEnd ? st.length - 1 : 0);
+    }
+    presets(document.getElementById('m6Pre'), k => load(k, false));
+    load('messy', true);
+  })();
+
+  // ---------- page chrome ----------
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    progress.style.width = (d.scrollTop/(d.scrollHeight-d.clientHeight)*100) + '%';
+  });
+  // Jump-nav via JS, not native #anchors: the preview pane loads pages as data: URIs where anchor jumps fail
+  document.querySelectorAll('nav.jumpnav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      const navH = document.querySelector('nav.jumpnav').offsetHeight + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior:'smooth' });
+    });
+  });
+  let closedForPrint = [];
+  window.addEventListener('beforeprint', () => {
+    closedForPrint = [...document.querySelectorAll('details:not([open])')];
+    closedForPrint.forEach(d => d.open = true);
+  });
+  window.addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
+})();
+
+</script>
+</body>
+</html>

@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 # course material is not ours to redistribute; keep it under masters/subjects/
 *.pdf
+.recap-build/
