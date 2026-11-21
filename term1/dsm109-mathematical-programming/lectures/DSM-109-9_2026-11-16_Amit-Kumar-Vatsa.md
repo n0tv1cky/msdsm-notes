@@ -7,7 +7,7 @@ faculty: Amit Kumar Vatsa
 ---
 
 <!-- nav -->
-← [Session 8 (2026-11-13)](DSM-109-8_2026-11-13_Amit-Kumar-Vatsa.md) · [All lectures](./) · (latest lecture) →
+← [Session 8 (2026-11-13)](DSM-109-8_2026-11-13_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 10 (2026-11-18)](DSM-109-10_2026-11-18_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->
 
 # DSM-109 · Session 9 (16 Nov 2026) · Amit Kumar Vatsa
@@ -366,5 +366,5 @@ Here $`Z`$ is the optimal objective value. For a max problem the IP is no better
 - Min: $`Z_{LP} \le Z_{IP}`$.
 
 <!-- nav -->
-← [Session 8 (2026-11-13)](DSM-109-8_2026-11-13_Amit-Kumar-Vatsa.md) · [All lectures](./) · (latest lecture) →
+← [Session 8 (2026-11-13)](DSM-109-8_2026-11-13_Amit-Kumar-Vatsa.md) · [All lectures](./) · [Session 10 (2026-11-18)](DSM-109-10_2026-11-18_Amit-Kumar-Vatsa.md) →
 <!-- /nav -->
