@@ -151,14 +151,12 @@ Fixed costs do not disappear when nothing is produced, so **Expression B is corr
 - Flight with 100 seats. Fixed cost of flying is Rs. 4,00,000 (4 lakh). Variable cost is Rs. 200 per passenger. Let $x$ = number of passengers.
 - **Expression A (apportioned):** spread the fixed cost over 100 seats, giving $400{,}000/100 = 4{,}000$ per seat. Then
 
-  ```math
-  C_A = (4{,}000 + 200)\,x = 4{,}200\,x
-  ```
+  $$C_A = (4{,}000 + 200)\ x = 4{,}200\ x$$
+
 - **Expression B (correct):**
 
-  ```math
-  C_B = 200\,x + 400{,}000
-  ```
+  $$C_B = 200\ x + 400{,}000$$
+
 - **B is correct.** At $x = 0$, A says cost is 0, but the 4 lakh fixed cost does not vanish.
 - The two expressions agree **only at $x = 100$**: $4{,}200 \times 100 = 420{,}000 = 200 \times 100 + 400{,}000$. They differ at every other value.
 
@@ -171,14 +169,12 @@ This was shown for understanding only. It is not needed for the analysis, becaus
   - Model 102: $2 \times 1500 = 3{,}000$ hrs, which is **75%**.
 - Fixed overhead per Model 101 truck:
 
-  ```math
-  \frac{0.25 \times 1{,}700{,}000}{1000} = 425 \text{ USD/truck}
-  ```
+  $$\frac{0.25 \times 1{,}700{,}000}{1000} = 425 \text{ USD/truck}$$
+
 - Fixed overhead per Model 102 truck:
 
-  ```math
-  \frac{0.75 \times 1{,}700{,}000}{1500} = 850 \text{ USD/truck}
-  ```
+  $$\frac{0.75 \times 1{,}700{,}000}{1500} = 850 \text{ USD/truck}$$
+
 - Hence the Model 101 Engine Assembly overhead is $2{,}100 + 425 = 2{,}525$.
 
 Any such allocation rule is "made-up logic" and leads to incorrect decisions. This is where Merton went wrong.
