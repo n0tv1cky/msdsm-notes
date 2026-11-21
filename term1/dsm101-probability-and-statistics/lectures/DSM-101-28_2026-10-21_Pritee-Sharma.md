@@ -38,13 +38,13 @@ z = \frac{x - \mu}{\sigma}
 ```
 * If the data are **normally distributed**, the share of standardized data within each range is:
 
-| Range of $z$ | Approx. % of data |
+| Range of $`z`$ | Approx. % of data |
 |---|---|
-| $-1.96 \le z \le 1.96$ | 95% (often rounded to "within $\pm 2$ SD") |
-| $-3 \le z \le 3$ | 99.7% |
-| $-4 \le z \le 4$ | ~99.99% (precisely $\approx 99.994\text{%}$) |
+| $`-1.96 \le z \le 1.96`$ | 95% (often rounded to "within $`\pm 2`$ SD") |
+| $`-3 \le z \le 3`$ | 99.7% |
+| $`-4 \le z \le 4`$ | ~99.99% (precisely $`\approx 99.994\%`$) |
 
-* **Why this matters:** if the standardized scores fall within the expected range, the data are consistent with a normal distribution. Values far outside it (e.g., $|z| > 3$) point to **outliers or measurement errors** that need attention.
+* **Why this matters:** if the standardized scores fall within the expected range, the data are consistent with a normal distribution. Values far outside it (e.g., $`|z| > 3`$) point to **outliers or measurement errors** that need attention.
 
 ### 2.2 Five-Number Summary
 
@@ -53,24 +53,24 @@ z = \frac{x - \mu}{\sigma}
   1. Sort the data in **ascending order**.
   2. Record the five numbers:
 
-     $$X_{\text{smallest}},\quad Q_1,\quad Q_2\ (\text{median}),\quad Q_3,\quad X_{\text{largest}}$$
+     $`\displaystyle X_{\text{smallest}},\quad Q_1,\quad Q_2\ (\text{median}),\quad Q_3,\quad X_{\text{largest}}`$
 
-* $X_{\text{largest}} - X_{\text{smallest}}$ gives the **range**.
+* $`X_{\text{largest}} - X_{\text{smallest}}`$ gives the **range**.
 
 **Worked example (from slide):**
 
-| $X_{\text{smallest}}$ | $Q_1$ | Median ($Q_2$) | $Q_3$ | $X_{\text{largest}}$ |
+| $`X_{\text{smallest}}`$ | $`Q_1`$ | Median ($`Q_2`$) | $`Q_3`$ | $`X_{\text{largest}}`$ |
 |---|---|---|---|---|
 | 2 | 8 | 10 | 15 | 63 |
 
 * **Conclusion: the data are right-skewed (positively skewed).**
-* **Reasoning:** in a right-skewed distribution, the distance from $Q_3$ to $X_{\text{largest}}$ is much greater than the distance from $X_{\text{smallest}}$ to $Q_1$:
+* **Reasoning:** in a right-skewed distribution, the distance from $`Q_3`$ to $`X_{\text{largest}}`$ is much greater than the distance from $`X_{\text{smallest}}`$ to $`Q_1`$:
 
-  $$X_{\text{largest}} - Q_3 = 63 - 15 = 48 \quad\gg\quad Q_1 - X_{\text{smallest}} = 8 - 2 = 6$$
+  $`\displaystyle X_{\text{largest}} - Q_3 = 63 - 15 = 48 \quad\gg\quad Q_1 - X_{\text{smallest}} = 8 - 2 = 6`$
 
-* *(The audio once says "16.5 to 63", but the slide value of $Q_3$ is 15. Use 15.)*
+* *(The audio once says "16.5 to 63", but the slide value of $`Q_3`$ is 15. Use 15.)*
 * **General rule for reading shape from the five numbers:**
-  * **Symmetric:** $Q_1 - X_{\text{smallest}} \approx X_{\text{largest}} - Q_3$ and $Q_2 - Q_1 \approx Q_3 - Q_2$
+  * **Symmetric:** $`Q_1 - X_{\text{smallest}} \approx X_{\text{largest}} - Q_3`$ and $`Q_2 - Q_1 \approx Q_3 - Q_2`$
   * **Right-skewed:** the right side distances are larger
   * **Left-skewed:** the left side distances are larger
 
@@ -79,9 +79,9 @@ z = \frac{x - \mu}{\sigma}
 * A box plot is a graph of the five-number summary. It can be drawn **horizontally** (the convention used in class) or **vertically**.
 * **Construction (horizontal):**
   1. Draw a horizontal axis with the observed values.
-  2. Draw a line from $X_{\text{smallest}}$ (here 2) to $X_{\text{largest}}$ (here 63). This line shows the range.
-  3. Mark $Q_1 = 8$, $Q_2 = 10$, and $Q_3 = 15$.
-  4. Draw a **box from $Q_1$ to $Q_3$**, with a line at the median. Shade the $Q_1$–$Q_2$ and $Q_2$–$Q_3$ parts differently.
+  2. Draw a line from $`X_{\text{smallest}}`$ (here 2) to $`X_{\text{largest}}`$ (here 63). This line shows the range.
+  3. Mark $`Q_1 = 8`$, $`Q_2 = 10`$, and $`Q_3 = 15`$.
+  4. Draw a **box from $`Q_1`$ to $`Q_3`$**, with a line at the median. Shade the $`Q_1`$–$`Q_2`$ and $`Q_2`$–$`Q_3`$ parts differently.
 * **Use for comparing many samples:** draw several box plots side by side, stacked horizontally or arranged vertically on a common axis. This shows at once which samples behave similarly and which lie far apart.
 * **Box plot of normally distributed data:** symmetric. The median sits in the centre of the box, and the two whiskers have about equal length.
 
@@ -110,24 +110,24 @@ Students computed the five-number summary from a data set on the slide.
 | Statistic | Value |
 |---|---|
 | Minimum | 59 |
-| $Q_1$ | 64.5 (one student said 64; the lecturer used **64.5**) |
-| Median $Q_2$ | 66 |
-| $Q_3$ | 70 |
+| $`Q_1`$ | 64.5 (one student said 64; the lecturer used **64.5**) |
+| Median $`Q_2`$ | 66 |
+| $`Q_3`$ | 70 |
 | Maximum | 77 |
 
 * **Range:**
 
-  $$\text{Range} = X_{\max} - X_{\min} = 77 - 59 = 18$$
+  $`\displaystyle \text{Range} = X_{\max} - X_{\min} = 77 - 59 = 18`$
 
 * **Interquartile range (IQR):** this is the spread of the middle 50% of the data.
 
-  $$\text{IQR} = Q_3 - Q_1 = 70 - 64.5 = 5.5$$
+  $`\displaystyle \text{IQR} = Q_3 - Q_1 = 70 - 64.5 = 5.5`$
 
 * **Width of each quarter:**
-  * $59 \to 64.5$: width 5.5
-  * $64.5 \to 66$: width 1.5 (**smallest spread**)
-  * $66 \to 70$: width 4
-  * $70 \to 77$: width 7 (**largest spread**)
+  * $`59 \to 64.5`$: width 5.5
+  * $`64.5 \to 66`$: width 1.5 (**smallest spread**)
+  * $`66 \to 70`$: width 4
+  * $`70 \to 77`$: width 7 (**largest spread**)
 * **How to interpret this:**
   * By definition, each quarter holds about **25% of the data**.
   * The quarters have very different widths, so the data are spread unevenly. In an ideal symmetric distribution, the corresponding widths would match.
@@ -148,23 +148,23 @@ A frequency or percentage distribution can be used in three situations:
 * The goal is to group the data into **7 equal classes**.
 * Class width:
 
-  $$\text{Width of interval} = \frac{\text{Range}}{\text{Number of classes}} = \frac{X_{\text{largest}} - X_{\text{smallest}}}{k} = \frac{590 - 520}{7} = \frac{70}{7} = 10$$
+  $`\displaystyle \text{Width of interval} = \frac{\text{Range}}{\text{Number of classes}} = \frac{X_{\text{largest}} - X_{\text{smallest}}}{k} = \frac{590 - 520}{7} = \frac{70}{7} = 10`$
 
 * The classes are 520–530, 530–540, …, 580–590.
 * **Frequency column:** number of people in each class. The first class has 6, followed by 30, 38, and so on. *(The audio says "60" but means 6, as the percentage below shows.)*
 * **Percentage column:**
 
-  $$\text{Percentage} = \frac{\text{class frequency}}{n} \times 100$$
+  $`\displaystyle \text{Percentage} = \frac{\text{class frequency}}{n} \times 100`$
 
-  For example, $\frac{6}{200} \times 100 = 3\text{%}$.
+  For example, $`\frac{6}{200} \times 100 = 3\%`$.
 
 **Cumulative distribution**
 
 * This shows the number or percentage of cases **below (or above) a specified value**, rather than within an interval.
 * It is built by adding up the frequencies:
-  * $< 520$: 0
-  * $< 530$: 6
-  * $< 540$: $6 + 30 = 36$
+  * $`< 520`$: 0
+  * $`< 530`$: 6
+  * $`< 540`$: $`6 + 30 = 36`$
   * … and so on, each time adding the next class.
 * A **cumulative percentage** column is calculated the same way.
 
@@ -267,7 +267,7 @@ A frequency or percentage distribution can be used in three situations:
 * Likely practice material based on emphasis:
   * Computing a **five-number summary, range, and IQR**, and **drawing a box plot**. This was the in-class exercise: 59, 64.5, 66, 70, 77, giving range 18 and IQR 5.5.
   * **Reading skewness** from the five-number summary or box plot.
-  * The **class-width formula**, $\frac{\text{Range}}{\text{Number of classes}}$, and building frequency, percentage, and cumulative tables.
+  * The **class-width formula**, $`\frac{\text{Range}}{\text{Number of classes}}`$, and building frequency, percentage, and cumulative tables.
   * The **three principles of experimental design**: replication, randomization, and local control.
 * **Next class:** sampling, and how to decide an appropriate **sample size**.
 
@@ -304,9 +304,9 @@ z = \frac{x - \mu}{\sigma}
 ```
 
 **Normal coverage:**
-* $\pm 1.96\sigma \to 95\text{%}$
-* $\pm 3\sigma \to 99.7\text{%}$
-* $\pm 4\sigma \to \approx 99.99\text{%}$
+* $`\pm 1.96\sigma \to 95\%`$
+* $`\pm 3\sigma \to 99.7\%`$
+* $`\pm 4\sigma \to \approx 99.99\%`$
 
 <!-- nav -->
 ← [Session 27 (2026-10-19)](DSM-101-27_2026-10-19_Pritee-Sharma.md) · [All lectures](./) · [Session 29 (2026-10-23)](DSM-101-29_2026-10-23_Pritee-Sharma.md) →

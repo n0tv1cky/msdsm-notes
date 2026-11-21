@@ -21,7 +21,7 @@ faculty: Pritee Sharma
 
 ## 1. Overview
 
-This session opens the descriptive statistics part of the course. It first revisits key vocabulary: population ($N$) versus sample ($n$), and parameter ($\mu$, $\sigma$) versus statistic ($\bar{x}$, $s$). It then explains how statistical inference uses sample statistics to estimate population parameters. The lecturer contrasts this with descriptive statistics, which summarises only the sample and draws no conclusions about the population. The second half covers where data come from:
+This session opens the descriptive statistics part of the course. It first revisits key vocabulary: population ($`N`$) versus sample ($`n`$), and parameter ($`\mu`$, $`\sigma`$) versus statistic ($`\bar{x}`$, $`s`$). It then explains how statistical inference uses sample statistics to estimate population parameters. The lecturer contrasts this with descriptive statistics, which summarises only the sample and draws no conclusions about the population. The second half covers where data come from:
 
 - **Primary data:** surveys, experiments, in-depth interviews, observation and focus groups.
 - **Survey modes:** mail, personal, telephone and web, each with its own trade-offs.
@@ -37,7 +37,7 @@ The session ends with a class discussion. Its key point is that whether data cou
 
 - **Definition:** The universe, meaning the entire set of elements under consideration that we want to study, characterise, or draw conclusions about.
   - It includes data we have not fully examined but want to draw conclusions about.
-- **Notation:** Population size is written as capital $N$.
+- **Notation:** Population size is written as capital $`N`$.
 - **Examples given:**
   - Every lawyer in the country.
   - All Tamil-speaking women in India.
@@ -49,28 +49,28 @@ The session ends with a class discussion. Its key point is that whether data cou
 - **Representativeness:** A good sample should be representative of the population.
   - Later in this part of the course, the class will study sampling techniques, both **probability** and **non-probability** sampling.
   - They will also study how sampling affects the third part of the course (inferential statistics).
-- **Notation:** Sample size is written as small $n$.
+- **Notation:** Sample size is written as small $`n`$.
 - **Worked example (laptops):**
   - A company manufactures 1 million laptops and cannot test every one.
   - It tests a sample of 500 for quality.
-  - So $N = 1{,}000{,}000$ and $n = 500$.
+  - So $`N = 1{,}000{,}000`$ and $`n = 500`$.
 
 ### 2.3 Parameter
 
 - **Definition:** A characteristic or feature of the **population**.
 - **Examples:**
-  - Population mean: $\mu$
-  - Population standard deviation: $\sigma$
+  - Population mean: $`\mu`$
+  - Population standard deviation: $`\sigma`$
 - **How to obtain one:** You need a **census**, meaning you measure the feature for every member of the population.
-  - Example: measuring the height of all engineering graduates in Madhya Pradesh, then computing $\mu$ and $\sigma$.
+  - Example: measuring the height of all engineering graduates in Madhya Pradesh, then computing $`\mu`$ and $`\sigma`$.
 - **Drawback:** A census is very costly in both time and money. That is why statisticians usually work with samples instead.
 
 ### 2.4 Statistic
 
 - **Definition:** A measure derived from **sample** data, not from the population.
 - **Examples:**
-  - Sample mean: $\bar{x}$
-  - Sample standard deviation: $s$
+  - Sample mean: $`\bar{x}`$
+  - Sample standard deviation: $`s`$
 - **Purpose:** Statistics are used to **estimate population parameters**. Hence the phrase "estimated population parameters."
 - **Workflow:**
 
@@ -80,31 +80,31 @@ The session ends with a class discussion. Its key point is that whether data cou
 
 | | Population | Sample |
 |---|---|---|
-| Size | $N$ | $n$ |
-| Mean | $\mu$ (parameter) | $\bar{x}$ (statistic) |
-| Standard deviation | $\sigma$ (parameter) | $s$ (statistic) |
+| Size | $`N`$ | $`n`$ |
+| Mean | $`\mu`$ (parameter) | $`\bar{x}`$ (statistic) |
+| Standard deviation | $`\sigma`$ (parameter) | $`s`$ (statistic) |
 | How obtained | Census (costly) | Sampling |
 
 ### 2.5 Statistical Inference
 
 - **Definition:** The process of using sample statistics to draw conclusions about population parameters. It is a measure of performance in which a sample measurement is used to estimate a population parameter.
 - **Example (generic):**
-  - Draw a sample of $n = 1{,}000$ and compute $\bar{x}$ for a feature such as height or weight.
-  - Use it to draw conclusions about $\mu$ for a population of about 300 million.
+  - Draw a sample of $`n = 1{,}000`$ and compute $`\bar{x}`$ for a feature such as height or weight.
+  - Use it to draw conclusions about $`\mu`$ for a population of about 300 million.
 - **Example (election polling):**
   - Pollsters do not ask every voter, because that is too time-consuming and expensive.
   - Instead they survey a representative sample of about **1,000 people** and use those responses to predict the likely winner.
   - The lecturer said: "Why 1,000? That also we will see." This will come in a later session.
 - **Worked example (LED bulb quality control):**
-  - A manufacturer (rendered as "G" in the transcript) makes $N = 1{,}000{,}000$ LED bulbs per year.
-  - It samples $n = 500$ bulbs, and **5** of them are defective.
+  - A manufacturer (rendered as "G" in the transcript) makes $`N = 1{,}000{,}000`$ LED bulbs per year.
+  - It samples $`n = 500`$ bulbs, and **5** of them are defective.
   - The sample proportion of defectives is:
 
-    $$\hat{p} = \frac{5}{500} = 0.01 = 1\text{%}$$
+    $`\displaystyle \hat{p} = \frac{5}{500} = 0.01 = 1\%`$
 
   - This statistic is used to estimate the true population proportion of defectives. About 1% of the 1 million bulbs may be defective:
 
-    $$0.01 \times 1{,}000{,}000 = 10{,}000 \text{ bulbs}$$
+    $`\displaystyle 0.01 \times 1{,}000{,}000 = 10{,}000 \text{ bulbs}`$
 
   - The lecturer said "1% of 1 million"; the figure of 10,000 is that arithmetic carried out.
 - **Course placement:** Inferential statistics is taught in a **later part** of the course, not this one.
@@ -286,9 +286,9 @@ When stating any research problem, be as specific as possible about:
 
 No specific exam or assignment items were announced. The points the lecturer stressed most were:
 
-- **Notation:** $N$ vs $n$, $\mu$ and $\sigma$ (parameters) vs $\bar{x}$ and $s$ (statistics). Parameters require a census; statistics are used to estimate parameters.
+- **Notation:** $`N`$ vs $`n`$, $`\mu`$ and $`\sigma`$ (parameters) vs $`\bar{x}`$ and $`s`$ (statistics). Parameters require a census; statistics are used to estimate parameters.
 - **"Please remember":** Descriptive statistics in this part of the course is only about the sample. No inference to population parameters is drawn.
-- **Statistical inference:** Know the definition and the examples (election polling with $n \approx 1{,}000$; LED bulbs with $\hat{p} = 5/500 = 1\text{%}$).
+- **Statistical inference:** Know the definition and the examples (election polling with $`n \approx 1{,}000`$; LED bulbs with $`\hat{p} = 5/500 = 1\%`$).
 - **Primary vs secondary data:** Know the definitions, the advantages and disadvantages of each, and that the classification depends on who collected the data.
 - **Survey modes:** Know the trade-offs of each, including the **interviewer effect**.
 - **Coming later:**
@@ -301,9 +301,9 @@ No specific exam or assignment items were announced. The points the lecturer str
 
 **Taught in class**
 
-- Population size: $N$; sample size: $n$
-- Population mean: $\mu$; population standard deviation: $\sigma$
-- Sample mean: $\bar{x}$; sample standard deviation: $s$
+- Population size: $`N`$; sample size: $`n`$
+- Population mean: $`\mu`$; population standard deviation: $`\sigma`$
+- Sample mean: $`\bar{x}`$; sample standard deviation: $`s`$
 - Sample proportion (LED example):
 
 ```math
@@ -318,10 +318,10 @@ No specific exam or assignment items were announced. The points the lecturer str
 
 **For reference only (standard definitions, not written out in this lecture)**
 
-- Population mean: $\mu = \dfrac{1}{N}\sum_{i=1}^{N} x_i$
-- Sample mean: $\bar{x} = \dfrac{1}{n}\sum_{i=1}^{n} x_i$
-- Population standard deviation: $\sigma = \sqrt{\dfrac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$
-- Sample standard deviation: $s = \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$
+- Population mean: $`\mu = \dfrac{1}{N}\sum_{i=1}^{N} x_i`$
+- Sample mean: $`\bar{x} = \dfrac{1}{n}\sum_{i=1}^{n} x_i`$
+- Population standard deviation: $`\sigma = \sqrt{\dfrac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}`$
+- Sample standard deviation: $`s = \sqrt{\dfrac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}`$
 
 <!-- nav -->
 ← [Session 20 (2026-09-24)](DSM-101-20_2026-09-24_Arshad.md) · [All lectures](./) · [Session 22 (2026-10-05)](DSM-101-22_2026-10-05_Pritee-Sharma.md) →

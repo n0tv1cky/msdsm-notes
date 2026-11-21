@@ -16,7 +16,7 @@ faculty: Pritee Sharma
 **Topic:** Types of sampling, part 2: non-probability sampling methods
 **Next session:** Data and types of data
 
-> **Transcript fixes applied:** "non-robability" = **non-probability**; "Kota sample" = **quota sample**; "Hn / Hnot" = $H_0$ (null hypothesis); "desiles" = **deciles**; "Anderman Nikopars" = Andaman & Nicobar Islands; "Marauti" = Maruti.
+> **Transcript fixes applied:** "non-robability" = **non-probability**; "Kota sample" = **quota sample**; "Hn / Hnot" = $`H_0`$ (null hypothesis); "desiles" = **deciles**; "Anderman Nikopars" = Andaman & Nicobar Islands; "Marauti" = Maruti.
 
 ---
 
@@ -75,15 +75,15 @@ The convenience-sampling discussion led into a short introduction to **hypothesi
 #### Mini-topic: Hypotheses (preview of inferential statistics)
 
 - **Hypothesis:** a statement the researcher wants to prove true.
-- **Alternative hypothesis:** the researcher's own claim, written $H_a$ or $H_1$.
-  - Example: $H_a$: the Andaman community *has been* exposed to mainstream society.
-- **Null hypothesis:** the negation of the researcher's claim, written $H_0$.
-  - Example: $H_0$: the community *has not* been exposed.
-  - The lecturer misspoke here ("what would be the alternate hypothesis?") while describing $H_0$; the negation is the null.
+- **Alternative hypothesis:** the researcher's own claim, written $`H_a`$ or $`H_1`$.
+  - Example: $`H_a`$: the Andaman community *has been* exposed to mainstream society.
+- **Null hypothesis:** the negation of the researcher's claim, written $`H_0`$.
+  - Example: $`H_0`$: the community *has not* been exposed.
+  - The lecturer misspoke here ("what would be the alternate hypothesis?") while describing $`H_0`$; the negation is the null.
 - **Rule of thumb:** whatever negates your proposal is the null hypothesis.
 - **Hypothesis testing** uses sample statistics to infer whether your hypothesis holds for the population.
 - If the evidence supports your claim, you conclude **"the null hypothesis is rejected"**, meaning the alternative is supported.
-- **Researcher's goal:** use literature review, exploratory study, and purposive sampling to form a hypothesis, then aim to reject $H_0$.
+- **Researcher's goal:** use literature review, exploratory study, and purposive sampling to form a hypothesis, then aim to reject $`H_0`$.
 - The entire second part of the course (inferential statistics) is built on hypothesis testing.
 
 **Other convenience-sampling examples**
@@ -129,7 +129,7 @@ The lecturer clarified that a **wholesaler is different**: a wholesaler stocks a
 - Satisfaction in economic terms is called **utility**.
 - The **first unit** consumed gives the highest satisfaction.
 - With each extra unit (e.g., a second Royal Delicious apple), **total utility still rises, but at a diminishing rate**. This is the law of diminishing marginal utility.
-  - A standard formalization (not written in lecture): marginal utility $MU_n = TU_n - TU_{n-1}$. Here $TU$ increases with $n$ while $MU_n$ decreases as $n$ increases.
+  - A standard formalization (not written in lecture): marginal utility $`MU_n = TU_n - TU_{n-1}`$. Here $`TU`$ increases with $`n`$ while $`MU_n`$ decreases as $`n`$ increases.
 - Consumers pay the most for their *first* unit. So sellers want to sell a first unit to as many people and places as possible, which means *distributing* widely. Hence the name "distributors."
 - This also explains why companies keep adding new features: it lets them tell buyers they are the "first" to own a car with those features.
 
@@ -143,12 +143,12 @@ The lecturer clarified that a **wholesaler is different**: a wholesaler stocks a
 
 | Stratum | Population size | Sample at 10% |
 |---|---|---|
-| High-income group (HIG) | 200 | $0.10 \times 200 = 20$ |
-| Middle-income group (MIG) | 500 | $0.10 \times 500 = 50$ |
-| Low-income group (LIG) | 100 | $0.10 \times 100 = 10$ |
-| **Total** | $800$ | $80$ |
+| High-income group (HIG) | 200 | $`0.10 \times 200 = 20`$ |
+| Middle-income group (MIG) | 500 | $`0.10 \times 500 = 50`$ |
+| Low-income group (LIG) | 100 | $`0.10 \times 100 = 10`$ |
+| **Total** | $`800`$ | $`80`$ |
 
-General form: $n_h = f \times N_h$, where $N_h$ is the size of stratum $h$ and $f$ is the sampling fraction (here $f = 0.10$).
+General form: $`n_h = f \times N_h`$, where $`N_h`$ is the size of stratum $`h`$ and $`f`$ is the sampling fraction (here $`f = 0.10`$).
 
 **Comparison with stratified sampling (its probability counterpart):**
 - **Similarities:**
@@ -239,9 +239,9 @@ The lecturer recommended thinking in terms of a **specific common feature** tied
 **Definition:** A complex design in which the **sample size is not fixed in advance**. You start surveying and continue until, based on your experience and judgment, you decide enough units are covered.
 
 **Contrast with systematic sampling (probability):**
-- In systematic sampling you know population size $N$ and sample size $n$.
-- You randomly select a start and then take every $k$-th unit, with $k = N/n$.
-- In sequential sampling, $n$ (and sometimes $N$) is not known or fixed in advance.
+- In systematic sampling you know population size $`N`$ and sample size $`n`$.
+- You randomly select a start and then take every $`k`$-th unit, with $`k = N/n`$.
+- In sequential sampling, $`n`$ (and sometimes $`N`$) is not known or fixed in advance.
 
 **Rules of thumb mentioned:**
 - Large survey: stop at around **1,000** respondents.
@@ -293,8 +293,8 @@ No explicit exam or assignment instructions were given. The following were empha
   - Stratified uses simple random sampling within strata; quota does not.
   - Know the 200/500/100 → 20/50/10 calculation.
 - **Hypothesis notation and logic:**
-  - $H_a$ (or $H_1$) is the researcher's claim.
-  - $H_0$ is its negation.
+  - $`H_a`$ (or $`H_1`$) is the researcher's claim.
+  - $`H_0`$ is its negation.
   - Supporting your claim means "the null hypothesis is rejected."
   - This underpins the upcoming **inferential statistics / hypothesis testing** part of the course.
 - **Cluster sampling:** select an entire group by a common feature (or impact) related to the research purpose, and survey all its units.

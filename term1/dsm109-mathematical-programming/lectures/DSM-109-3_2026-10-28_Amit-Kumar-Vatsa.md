@@ -151,11 +151,11 @@ Fixed costs do not disappear when nothing is produced, so **Expression B is corr
 - Flight with 100 seats. Fixed cost of flying is Rs. 4,00,000 (4 lakh). Variable cost is Rs. 200 per passenger. Let $`x`$ = number of passengers.
 - **Expression A (apportioned):** spread the fixed cost over 100 seats, giving $`400{,}000/100 = 4{,}000`$ per seat. Then
 
-  $`\displaystyle C_A = (4{,}000 + 200)\ x = 4{,}200\ x`$
+  $`\displaystyle C_A = (4{,}000 + 200)\,x = 4{,}200\,x`$
 
 - **Expression B (correct):**
 
-  $`\displaystyle C_B = 200\ x + 400{,}000`$
+  $`\displaystyle C_B = 200\,x + 400{,}000`$
 
 - **B is correct.** At $`x = 0`$, A says cost is 0, but the 4 lakh fixed cost does not vanish.
 - The two expressions agree **only at $`x = 100`$**: $`4{,}200 \times 100 = 420{,}000 = 200 \times 100 + 400{,}000`$. They differ at every other value.
@@ -247,7 +247,7 @@ These drawbacks are why we use a **systematic LP formulation plus a solver**.
 ```math
 \max \; Z = 3{,}000\,x_1 + 5{,}000\,x_2
 ```
-Equivalently, maximise profit $`= 3{,}000\ x_1 + 5{,}000\ x_2 - 8{,}600{,}000`$.
+Equivalently, maximise profit $`= 3{,}000\,x_1 + 5{,}000\,x_2 - 8{,}600{,}000`$.
 
 **Constraints.** In each department, hours used must not exceed hours available (machine-hours/month).
 

@@ -26,7 +26,7 @@ The lecture then outlines the course and begins **national income accounting**:
 - a detailed **circular flow diagram** with households, firms, government, financial markets and the rest of the world;
 - a simple apple-economy example.
 
-It closes with a farmer–baker example worked in three variants. These teach the **expenditure (final output) approach** and the **value-added (production) approach**, how to avoid double counting, the formula $\text{GVA} = \text{GVO} - \text{IC}$, imputing self-consumption, the exclusion of household services, and inventory valuation. A cliff-hanger question about perishable unsold bread is left for the next session.
+It closes with a farmer–baker example worked in three variants. These teach the **expenditure (final output) approach** and the **value-added (production) approach**, how to avoid double counting, the formula $`\text{GVA} = \text{GVO} - \text{IC}`$, imputing self-consumption, the exclusion of household services, and inventory valuation. A cliff-hanger question about perishable unsold bread is left for the next session.
 
 ---
 
@@ -158,16 +158,16 @@ It closes with a farmer–baker example worked in three variants. These teach th
 ```math
 \text{GDP} = C + I + G + NX
 ```
-  where $C$ = consumption, $I$ = investment, $G$ = government purchases, and $NX$ = net exports $= X - M$.
+  where $`C`$ = consumption, $`I`$ = investment, $`G`$ = government purchases, and $`NX`$ = net exports $`= X - M`$.
 - **Add up all blue payments**, the factor incomes paid by firms and government (wages, rent, interest, profit).
 - Both give the **same GDP**. Output, when sold, becomes income for those who produced it.
 
 ### 2.8 Worked Example 1: The Apple Economy
 
 **Production and income:**
-- Output: **100 apples** at **Rs 1 each**, so output $= \text{Rs } 100$.
+- Output: **100 apples** at **Rs 1 each**, so output $`= \text{Rs } 100`$.
 - Firms pay **wages = Rs 70** and **profit = Rs 30**. Both go to households, since firm owners are also households.
-- Total household income $= 70 + 30 = \text{Rs } 100$.
+- Total household income $`= 70 + 30 = \text{Rs } 100`$.
 
 **Uses of the 100 apples:**
 - **Consumption:** households spend Rs 60 and eat 60 apples, leaving 40.
@@ -184,10 +184,10 @@ C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}
 ### 2.9 Worked Example 2: Farmer and Baker (Value Added and Avoiding Double Counting)
 
 **Setup:** The economy has only two producers.
-- **Farmer:** produces **50 kg wheat** at **Rs 15/kg** and sells all of it to the baker. Value $= 50 \times 15 = \text{Rs } 750$.
-- **Baker:** converts it into **50 units of bread** sold at **Rs 20** each. Value $= 50 \times 20 = \text{Rs } 1{,}000$.
+- **Farmer:** produces **50 kg wheat** at **Rs 15/kg** and sells all of it to the baker. Value $`= 50 \times 15 = \text{Rs } 750`$.
+- **Baker:** converts it into **50 units of bread** sold at **Rs 20** each. Value $`= 50 \times 20 = \text{Rs } 1{,}000`$.
 
-**Common mistake:** adding $750 + 1{,}000 = 1{,}750$. This is **double counting**.
+**Common mistake:** adding $`750 + 1{,}000 = 1{,}750`$. This is **double counting**.
 - Once bread is produced, **no wheat is left** in the economy. The wheat is embedded in the bread.
 - **GDP = Rs 1,000.**
 
@@ -205,7 +205,7 @@ C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}
 \text{GVA} = \text{GVO} - \text{IC}
 ```
   where GVA = gross value added, GVO = gross value of output, and IC = intermediate consumption.
-- **Sector shares:** agriculture contributes $750/1000 = 75\text{%}$ of GDP and manufacturing $250/1000 = 25\text{%}$.
+- **Sector shares:** agriculture contributes $`750/1000 = 75\%`$ of GDP and manufacturing $`250/1000 = 25\%`$.
 
 **Value added per unit, the "price" of the process:**
 - On the slide the bakery's "price" is **Rs 5**. This is the price of the *conversion process*, **not** of the bread itself:
@@ -231,16 +231,16 @@ C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}
 - **A student's wrong answer:** Rs 600, on the reasoning that retained output isn't counted.
 
 **Correct answer: Rs 900, by the expenditure approach:**
-- Bread: $30 \times 20 = 600$.
-- Self-consumed wheat, imputed at the market price: $20 \times 15 = 300$. A relevant market price exists because the farmer *could* have sold it at Rs 15/kg.
+- Bread: $`30 \times 20 = 600`$.
+- Self-consumed wheat, imputed at the market price: $`20 \times 15 = 300`$. A relevant market price exists because the farmer *could* have sold it at Rs 15/kg.
 
 ```math
 \text{GDP} = 600 + 300 = 900
 ```
 
 **The same answer by the production approach:**
-- Wheat: $50 \times 15 = 750$, whether sold or self-consumed, since the market price applies to both.
-- Bakery value added: $30 \times 5 = 150$.
+- Wheat: $`50 \times 15 = 750`$, whether sold or self-consumed, since the market price applies to both.
+- Bakery value added: $`30 \times 5 = 150`$.
 
 ```math
 \text{GDP} = 750 + 150 = 900
@@ -275,9 +275,9 @@ C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}
 
 | Final product | Calculation | Value |
 |---|---|---|
-| Self-consumed wheat | $20 \times 15$ | 300 |
-| Bread sold to consumers | $20 \times 20$ | 400 |
-| Unsold bread → **inventory** | $10 \times (15 + 3) = 10 \times 18$ | 180 |
+| Self-consumed wheat | $`20 \times 15`$ | 300 |
+| Bread sold to consumers | $`20 \times 20`$ | 400 |
+| Unsold bread → **inventory** | $`10 \times (15 + 3) = 10 \times 18`$ | 180 |
 | **GDP** | | **880** |
 
 **Why value inventory at Rs 18 and not Rs 20?**
@@ -304,10 +304,10 @@ C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}
 No explicit "this will be on the exam" statements were made. The following were emphasised repeatedly and are likely testable:
 
 - **GDP definition** and its highlighted terms: market value, final goods and services, factors of production, within national borders.
-- **Output ≡ income ≡ expenditure.** Know why $C + I + G + NX$ equals the sum of factor incomes.
+- **Output ≡ income ≡ expenditure.** Know why $`C + I + G + NX`$ equals the sum of factor incomes.
 - **Circular flow diagram:** know the colour and line-style conventions (dashed/solid, blue/red/black) and be able to reproduce the diagram. The instructor told students to write the labels on their sheets so they could map them onto the diagram.
 - **Transfer payments vs. factor payments vs. final-demand payments:** taxes, savings and Kisan/Ladli Behna transfers have no one-to-one production counterpart.
-- **Value-added calculation,** $\text{GVA} = \text{GVO} - \text{IC}$, and **avoiding double counting.** Practise the farmer–baker variants:
+- **Value-added calculation,** $`\text{GVA} = \text{GVO} - \text{IC}`$, and **avoiding double counting.** Practise the farmer–baker variants:
   - Rs 1,000 (all wheat sold to baker)
   - Rs 900 (self-consumption)
   - Rs 880 (non-perishable inventory)

@@ -294,10 +294,10 @@ The forecast holds only if the EBITDA margin forecast holds. With more competiti
 
 | Parameter | Value | Source / meaning |
 |---|---|---|
-| Tax rate $t$ | 39% | Case |
-| Risk-free rate $r_f$ | 3.4% | 30-year US Treasury bond, treated as risk-free |
+| Tax rate $`t`$ | 39% | Case |
+| Risk-free rate $`r_f`$ | 3.4% | 30-year US Treasury bond, treated as risk-free |
 | Market risk premium (MRP) | 5% | Market return carries risk (could be +5% or −5%) |
-| WFM cost of debt $K_d$ | 4.29% | AA credit rating, 30-year maturity |
+| WFM cost of debt $`K_d`$ | 4.29% | AA credit rating, 30-year maturity |
 
 **Why WFM's cost of debt is 4.29%**
 - WFM has **zero debt**, so it gets the highest (AA) rating.
@@ -312,10 +312,10 @@ The forecast holds only if the EBITDA margin forecast holds. With more competiti
 - Cost of debt: **6.83%**.
 - Reason: about USD 304 million of existing debt against only about USD 2,400–2,500 million in annual sales. (The debt figure was transcribed as "34 million" but read as "304".)
 
-**Beta ($\beta$)**
+**Beta ($`\beta`$)**
 - Measures how a company moves relative to the market. It is a risk measure.
-- $\beta = 0.7$ (WFM): if the market rises or falls 1%, WFM rises or falls 0.7%. This is less risky than the market.
-- $\beta = 1.3$: higher return when the market rises, but larger losses when it falls. Higher risk goes with higher return.
+- $`\beta = 0.7`$ (WFM): if the market rises or falls 1%, WFM rises or falls 0.7%. This is less risky than the market.
+- $`\beta = 1.3`$: higher return when the market rises, but larger losses when it falls. Higher risk goes with higher return.
 - Beta is readily published by financial institutions, just as credit ratings are.
 
 **Cost of equity (CAPM)**
@@ -329,8 +329,8 @@ K_e = r_f + \beta \times \text{MRP}
 ```math
 \text{WACC} = \frac{D}{V}\,K_d\,(1 - t) + \frac{E}{V}\,K_e, \qquad V = D + E
 ```
-- $E$ is the market capitalisation of equity and $D$ is debt.
-- Debt is multiplied by $(1-t)$ because interest payments are tax-deductible.
+- $`E`$ is the market capitalisation of equity and $`D`$ is debt.
+- Debt is multiplied by $`(1-t)`$ because interest payments are tax-deductible.
 
 **Worked example 1: Whole Foods**
 
@@ -338,17 +338,17 @@ K_e = r_f + \beta \times \text{MRP}
 K_e = 3.4\% + 0.7 \times 5\% = 6.9\%
 ```
 
-- $V = 14{,}481$ (USD million), all equity.
-- $D/V = 0$.
+- $`V = 14{,}481`$ (USD million), all equity.
+- $`D/V = 0`$.
 
 ```math
 \text{WACC} = K_e = 6.9\%
 ```
 
 **Worked example 2: Walmart**
-- Debt $D = 55{,}245$ and market cap $E = 251{,}747$ (USD million).
+- Debt $`D = 55{,}245`$ and market cap $`E = 251{,}747`$ (USD million).
 - Walmart still holds an AA rating because it is large and trusted.
-- $\beta = 0.6$ and $K_d = 4.29\text{%}$.
+- $`\beta = 0.6`$ and $`K_d = 4.29\%`$.
 
 ```math
 K_e = 3.4\% + 0.6 \times 5\% = 6.4\%
@@ -362,12 +362,12 @@ K_e = 3.4\% + 0.6 \times 5\% = 6.4\%
 \text{WACC} \approx 0.18 \times 4.29\% \times (1 - 0.39) + 0.82 \times 6.4\% \approx 0.47\% + 5.25\% \approx 5.72\%
 ```
 
-> **Transcript errors in this example.** The instructor said "72% multiplied by 6.4"; the equity weight is $1 - 0.18 = 0.82$. A "3.72%" was also mentioned, but the computed result is **5.72%**.
+> **Transcript errors in this example.** The instructor said "72% multiplied by 6.4"; the equity weight is $`1 - 0.18 = 0.82`$. A "3.72%" was also mentioned, but the computed result is **5.72%**.
 
 Walmart can raise capital more cheaply than WFM.
 
 **Worked example 3: SuperValu (mid-level conventional grocer)**
-- $\beta = 1$, so it carries the same risk as the market.
+- $`\beta = 1`$, so it carries the same risk as the market.
 
 ```math
 K_e = 3.4\% + 1 \times 5\% = 8.4\%
@@ -398,22 +398,22 @@ K_e = 3.4\% + 1 \times 5\% = 8.4\%
 **How is beta calculated? (Siddharth)**
 - Look at the company's historical performance versus the market, including the correlation and the relative volatility of its growth.
 - Volatility is measured by standard deviation. If the company's standard deviation is below the market's, the company is less risky and has a lower beta.
-- Intuition given: roughly $\sigma_{\text{company}} / \sigma_{\text{market}}$. The instructor stressed this is **not the exact formula**.
+- Intuition given: roughly $`\sigma_{\text{company}} / \sigma_{\text{market}}`$. The instructor stressed this is **not the exact formula**.
 
 > **Supplementary note:** the standard formula is
-> $\displaystyle \beta = \frac{\operatorname{Cov}(R_i, R_m)}{\operatorname{Var}(R_m)}$
+> $`\displaystyle \beta = \frac{\operatorname{Cov}(R_i, R_m)}{\operatorname{Var}(R_m)}`$
 
 **Zero debt: discount at the cost of equity or a target-structure WACC? (Nihal)**
-- With zero debt, WACC is essentially $K_e$.
-- WFM has room to take debt. Because $K_d$ (4.29%) is below its WACC (6.9%), adding debt would lower its cost of capital and raise firm value. This is **leverage**.
+- With zero debt, WACC is essentially $`K_e`$.
+- WFM has room to take debt. Because $`K_d`$ (4.29%) is below its WACC (6.9%), adding debt would lower its cost of capital and raise firm value. This is **leverage**.
 
 | Company | Room to lever up |
 |---|---|
 | WFM, Fresh Market, Walmart | Lots of room |
 | Sprouts | Little room (6.83% cost of debt vs 6.92%) |
 | Safeway | Cannot |
-| SuperValu | None; negative leverage, with $D/V = 0.57$ (57% of value is debt), which is unsustainable |
-| Walmart | $D/V = 0.18$ is manageable and prudent; its $K_d$ is still below its cost of capital, so it can borrow easily in a crisis |
+| SuperValu | None; negative leverage, with $`D/V = 0.57`$ (57% of value is debt), which is unsustainable |
+| Walmart | $`D/V = 0.18`$ is manageable and prudent; its $`K_d`$ is still below its cost of capital, so it can borrow easily in a crisis |
 
 - **Indian examples:**
   - Adani Enterprises carries about ₹2 lakh crore of debt, which gives it little room for leverage.
@@ -449,7 +449,7 @@ No explicit "this will be on the exam" statement was made. These points were rep
   - CAPM
   - WACC, including the tax shield on debt
 - Understand how **credit rating** drives cost of debt, and how **beta** drives cost of equity.
-- Understand the **leverage** concept: when $K_d$ is below WACC, there is room to add debt.
+- Understand the **leverage** concept: when $`K_d`$ is below WACC, there is room to add debt.
 - **Assumptions and sensitivity analysis:** forecasts (e.g., a 9.4% margin) are only as good as their assumptions, so stress-test them.
 - **Next session:** continue the WFM case with the **EBITDA multiple** valuation, then reach a buy/sell recommendation. Come having read the case exhibits, especially Exhibit 7 and the final exhibits on ratings, betas and debt.
 

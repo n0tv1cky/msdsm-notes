@@ -23,7 +23,7 @@ This session finished the national-income measurement topic and started the theo
 - **Who gains and loses from inflation.** It discussed indexation (DA), regressive redistribution through food inflation, and lender vs. borrower when actual inflation differs from expected inflation, using a nominal/real interest rate example.
 - **India's data.** It looked briefly at India's long-run per capita GDP and discussed base-year selection and revision. Student questions covered how the CPI basket is built and single vs. double deflation.
 - **Business cycles.** The second half introduced potential output, frictional unemployment, and the Keynesian reasons why output (not prices) falls in a recession: sticky wages and prices, and a flat short-run aggregate supply curve.
-- **Consumption.** It introduced the consumption function $C = \bar{C} + cY$, which sets up the multiplier model for the next session.
+- **Consumption.** It introduced the consumption function $`C = \bar{C} + cY`$, which sets up the multiplier model for the next session.
 
 ---
 
@@ -38,7 +38,7 @@ GDP can rise because **prices rise**, because **output rises**, or both. We care
 | Nominal GDP | GDP at **current prices** | Each year's own prices |
 | Real GDP | GDP at **constant prices** | Prices of a fixed **base year** |
 
-**Formulas** (for $n$ commodities, $i = 1,\dots,n$; $t$ = current year, $b$ = base year):
+**Formulas** (for $`n`$ commodities, $`i = 1,\dots,n`$; $`t`$ = current year, $`b`$ = base year):
 
 ```math
 \text{Nominal GDP}_t = \sum_{i=1}^{n} P_{i,t}\,Q_{i,t}
@@ -52,7 +52,7 @@ Prices are used as weights because physical quantities of different goods cannot
 
 #### Worked example: two goods, base year 2010
 
-| Year | Wheat $Q$ | Wheat $P$ | Potato $Q$ | Potato $P$ |
+| Year | Wheat $`Q`$ | Wheat $`P`$ | Potato $`Q`$ | Potato $`P`$ |
 |---|---|---|---|---|
 | 2010 | 10 | 10 | 5 | 20 |
 | 2011 | 10 | 20 | 5 | 40 |
@@ -62,23 +62,23 @@ The 2011 prices are inferred from "prices doubled." 2012 values were not read ou
 
 **Nominal GDP**
 
-- 2010: $10 \times 10 + 5 \times 20 = 100 + 100 = 200$
-- 2011: $10 \times 20 + 5 \times 40 = 200 + 200 = 400$, so nominal GDP doubled.
-- 2013: $40 \times 40 + 20 \times 80 = 1600 + 1600 = 3200$
+- 2010: $`10 \times 10 + 5 \times 20 = 100 + 100 = 200`$
+- 2011: $`10 \times 20 + 5 \times 40 = 200 + 200 = 400`$, so nominal GDP doubled.
+- 2013: $`40 \times 40 + 20 \times 80 = 1600 + 1600 = 3200`$
 
 Nominal GDP therefore rises from ₹200 to ₹3200, a **16-fold** jump.
 
 **Decomposing the jump**
 
-- Wheat quantity rose $10 \to 40$ ($4\times$) and potato quantity rose $5 \to 20$ ($4\times$). Volume rose 4 times.
-- Wheat price rose $10 \to 40$ ($4\times$) and potato price rose $20 \to 80$ ($4\times$). Prices rose 4 times.
-- So $16 = 4 \text{ (volume)} \times 4 \text{ (price)}$.
+- Wheat quantity rose $`10 \to 40`$ ($`4\times`$) and potato quantity rose $`5 \to 20`$ ($`4\times`$). Volume rose 4 times.
+- Wheat price rose $`10 \to 40`$ ($`4\times`$) and potato price rose $`20 \to 80`$ ($`4\times`$). Prices rose 4 times.
+- So $`16 = 4 \text{ (volume)} \times 4 \text{ (price)}`$.
 
 **Real GDP (at 2010 prices)**
 
-- 2010: $200$
-- 2011: $10 \times 10 + 5 \times 20 = 200$. Output did not change, so real GDP did not change even though nominal GDP doubled.
-- 2013: $40 \times 10 + 20 \times 20 = 400 + 400 = 800$. This is exactly a $4\times$ rise over 2010, i.e., the pure volume change.
+- 2010: $`200`$
+- 2011: $`10 \times 10 + 5 \times 20 = 200`$. Output did not change, so real GDP did not change even though nominal GDP doubled.
+- 2013: $`40 \times 10 + 20 \times 20 = 400 + 400 = 800`$. This is exactly a $`4\times`$ rise over 2010, i.e., the pure volume change.
 
 **Key points**
 
@@ -87,7 +87,7 @@ Nominal GDP therefore rises from ₹200 to ₹3200, a **16-fold** jump.
 - Rough relation: nominal growth ≈ real growth + inflation.
   - Lecture example: real growth about 7–7.5% plus inflation about 4–5%.
   - The lecturer said both "nominal ~14–15%" and "taken together ~12%". The sum of the stated components gives roughly 11–12.5%.
-  - Approximation: $g_{\text{nominal}} \approx g_{\text{real}} + \pi$.
+  - Approximation: $`g_{\text{nominal}} \approx g_{\text{real}} + \pi`$.
 - The base year is "very crucial." Valuing every year's output at the same prices tells us whether people in later years are actually better off (have more goods).
 
 ---
@@ -104,9 +104,9 @@ Nominal GDP therefore rises from ₹200 to ₹3200, a **16-fold** jump.
 \text{CPI}_t = \sum_{i=1}^{n} s_{i,b}\,\frac{P_{i,t}}{P_{i,b}}, \qquad s_{i,b} = \frac{P_{i,b}\,Q_{i,b}}{\sum_{j=1}^{n} P_{j,b}\,Q_{j,b}}
 ```
 
-- $\dfrac{P_{i,t}}{P_{i,b}}$ is the proportionate price change of item $i$.
-- $s_{i,b}$ is item $i$'s share in base-year spending, so $0 < s_{i,b} < 1$ and $\sum_i s_{i,b} = 1$.
-- The denominator of $s_{i,b}$ is **total spending in the base year**.
+- $`\dfrac{P_{i,t}}{P_{i,b}}`$ is the proportionate price change of item $`i`$.
+- $`s_{i,b}`$ is item $`i`$'s share in base-year spending, so $`0 < s_{i,b} < 1`$ and $`\sum_i s_{i,b} = 1`$.
+- The denominator of $`s_{i,b}`$ is **total spending in the base year**.
 
 Illustration of shares: out of each ₹1 spent, perhaps 25 paise on health, 25 paise on education, 20 paise on food, and 10 paise on rent.
 
@@ -119,15 +119,15 @@ Illustration of shares: out of each ₹1 spent, perhaps 25 paise on health, 25 p
 Interpretation:
 
 - The **denominator** is what I spent on the base-year basket at base-year prices.
-- The **numerator** is what I would need to spend today to buy the same base-year basket, at current prices $P_{i,t}$.
+- The **numerator** is what I would need to spend today to buy the same base-year basket, at current prices $`P_{i,t}`$.
 
-Inflation between $t-1$ and $t$:
+Inflation between $`t-1`$ and $`t`$:
 
 ```math
 \pi_t = \frac{\text{CPI}_t - \text{CPI}_{t-1}}{\text{CPI}_{t-1}} \times 100
 ```
 
-**RBI target:** CPI inflation of 4% with a band of $\pm 2\text{%}$, i.e., 2% to 6%. The 4% midpoint is the anchor.
+**RBI target:** CPI inflation of 4% with a band of $`\pm 2\%`$, i.e., 2% to 6%. The 4% midpoint is the anchor.
 
 ---
 
@@ -184,20 +184,20 @@ The method is the same (fixed-basket weighted index). The coverage differs:
 
 - Income is ₹100. Consume ₹70 and lend ₹30 (saving means deferring consumption to tomorrow).
 - You lend because you want the money back, and more than you gave, as compensation for waiting.
-- In the example: lend ₹100 today and get ₹110 next year, so the **nominal interest rate** is $i = 10\text{%}$.
+- In the example: lend ₹100 today and get ₹110 next year, so the **nominal interest rate** is $`i = 10\%`$.
 
 **Case 1: expected inflation 6%**
 
 - What ₹100 buys today costs ₹106 next year. An item priced ₹1 today costs ₹1.06.
 - With ₹110 you buy more than today, with ₹4 extra.
-- Real return: $\dfrac{110}{106} - 1 \approx 3.8\text{%}$, which the lecturer described as "close to 4%" or "three point something."
-- Approximation (Fisher relation): $r \approx i - \pi^e = 10\text{%} - 6\text{%} = 4\text{%}$.
-- Exact form: $1 + r = \dfrac{1+i}{1+\pi}$.
+- Real return: $`\dfrac{110}{106} - 1 \approx 3.8\%`$, which the lecturer described as "close to 4%" or "three point something."
+- Approximation (Fisher relation): $`r \approx i - \pi^e = 10\% - 6\% = 4\%`$.
+- Exact form: $`1 + r = \dfrac{1+i}{1+\pi}`$.
 
 **Case 2: actual inflation turns out to be 12%**
 
 - The same basket now costs ₹112, but the lender receives only ₹110.
-- Real return: $\dfrac{110}{112} - 1 \approx -1.8\text{%}$ (approximately $10\text{%} - 12\text{%} = -2\text{%}$). The lender buys fewer than 100 "chocolates."
+- Real return: $`\dfrac{110}{112} - 1 \approx -1.8\%`$ (approximately $`10\% - 12\% = -2\%`$). The lender buys fewer than 100 "chocolates."
 - The borrower (e.g., someone building a toffee factory) expected to sell 100 chocolates for ₹106 but actually gets ₹112, so they gain.
 
 **Conclusions**
@@ -215,8 +215,8 @@ The method is the same (fixed-basket weighted index). The coverage differs:
   - about **₹285** at current (1950) prices;
   - about **₹13,000** at constant **2011–12 prices**.
 - Only the constant-price comparison is meaningful. By 2021–22, the average Indian earns roughly **8–9 times** the 1950–51 level in real terms.
-- Composition: India was largely a **closed economy**. Exports and imports were a small share of GDP until the **1991 economic reforms**. After that, $X$ and $M$ rose as shares of GDP.
-- This connects to $Y = C + I + G + X - M$ from earlier sessions.
+- Composition: India was largely a **closed economy**. Exports and imports were a small share of GDP until the **1991 economic reforms**. After that, $`X`$ and $`M`$ rose as shares of GDP.
+- This connects to $`Y = C + I + G + X - M`$ from earlier sessions.
 - **Per capita** GDP, not absolute GDP, is the relevant welfare measure.
 - **Flow vs. stock:**
   - **Income** is a flow, earned each year.
@@ -276,7 +276,7 @@ The method is the same (fixed-basket weighted index). The coverage differs:
 
 ### 2.9 Potential Output and Full Employment
 
-**Potential output ($Y^\ast $):** the output producible using labour and capital at **full employment**, in the usual or normal fashion.
+**Potential output ($`Y^*`$):** the output producible using labour and capital at **full employment**, in the usual or normal fashion.
 
 - Full employment does **not** mean 100% of workers working three 8-hour shifts.
 - Analogy: just before exams your absorption ability peaks, but you cannot sustain that all 365 days. Potential is the **average sustainable** level over time.
@@ -307,10 +307,10 @@ None of this means the economy is below full employment. The real problem is whe
 
 **Graph**
 
-- **Horizontal axis:** output, income, or spending $Y$. Income = expenditure, since someone's income is someone else's spending.
-- **Vertical axis:** price level $P$.
-- **Vertical (green) line at $Y^\ast $:** potential output (long-run supply). It does not shift with demand.
-- In a recession, firms produce $Y_1 < Y^\ast $ because they believe they cannot sell $Y^\ast $ at prevailing prices.
+- **Horizontal axis:** output, income, or spending $`Y`$. Income = expenditure, since someone's income is someone else's spending.
+- **Vertical axis:** price level $`P`$.
+- **Vertical (green) line at $`Y^*`$:** potential output (long-run supply). It does not shift with demand.
+- In a recession, firms produce $`Y_1 < Y^*`$ because they believe they cannot sell $`Y^*`$ at prevailing prices.
 - Simple micro logic says firms could cut prices and sell everything. In practice, firms **cut production first**.
 
 **Why firms cut production rather than prices**
@@ -331,13 +331,13 @@ None of this means the economy is below full employment. The real problem is whe
 
 - In the Great Depression, firms fired workers rather than cut prices because wages are rigid.
 - Since wages are part of costs, **prices are sticky in the short run**.
-- **Business cycles are driven by shifts in aggregate demand (AD).** $Y^\ast $ does not change.
+- **Business cycles are driven by shifts in aggregate demand (AD).** $`Y^*`$ does not change.
 
 **Policy implication:** boost AD, for example through government spending.
 
 - Example: the government builds a highway, which raises demand for cement and steel.
 - Factories recall laid-off workers at prevailing wages.
-- Output expands **without higher costs** (movement along the flat SRAS toward $Y^\ast $).
+- Output expands **without higher costs** (movement along the flat SRAS toward $`Y^*`$).
 
 ---
 
@@ -376,8 +376,8 @@ None of this means the economy is below full employment. The real problem is whe
 C = \bar{C} + c\,Y
 ```
 
-- $\bar{C}$ is **autonomous (baseline) consumption**, consumed even with zero income for survival.
-- $c$ is the **marginal propensity to consume (MPC)**: the extra consumption out of each additional ₹1 of income, typically $0 < c < 1$:
+- $`\bar{C}`$ is **autonomous (baseline) consumption**, consumed even with zero income for survival.
+- $`c`$ is the **marginal propensity to consume (MPC)**: the extra consumption out of each additional ₹1 of income, typically $`0 < c < 1`$:
 
 ```math
 c = \frac{\Delta C}{\Delta Y}
@@ -414,10 +414,10 @@ No specific exam or assignment was mentioned. The lecturer emphasised these poin
 
 - **The food-inflation and DA redistribution argument** was explicitly called *"a subtle point but a very important point."* Be able to explain why indexed, higher-income earners can gain from food-led inflation while the poor lose.
 - **The base year is "very crucial."** Know why real GDP uses base-year prices, the criteria for choosing a base year (normal, recent), and why it is revised.
-- **Real vs. nominal GDP calculation.** Be able to reproduce the wheat/potato example (200 to 3200 nominal; 200 to 800 real; $16 = 4 \times 4$).
+- **Real vs. nominal GDP calculation.** Be able to reproduce the wheat/potato example (200 to 3200 nominal; 200 to 800 real; $`16 = 4 \times 4`$).
 - **The CPI formula** in both forms (weighted average of price relatives with base-year expenditure shares, and the Laspeyres ratio), and the CPI vs. WPI distinction.
-- **Unexpected inflation redistributes from lenders to borrowers.** Know the $i = 10\text{%}$, $\pi^e = 6\text{%}$ vs. $\pi = 12\text{%}$ example.
-- **The Keynesian logic** of sticky wages, sticky prices, flat SRAS, and AD-driven cycles, plus the consumption function $C = \bar{C} + cY$. This is the foundation for **the multiplier model next session**.
+- **Unexpected inflation redistributes from lenders to borrowers.** Know the $`i = 10\%`$, $`\pi^e = 6\%`$ vs. $`\pi = 12\%`$ example.
+- **The Keynesian logic** of sticky wages, sticky prices, flat SRAS, and AD-driven cycles, plus the consumption function $`C = \bar{C} + cY`$. This is the foundation for **the multiplier model next session**.
 - Monetary policy and inflation uncertainty will be covered in a later (fifth or sixth) session of the macro module.
 
 ---

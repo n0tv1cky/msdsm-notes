@@ -14,7 +14,7 @@ faculty: Jagannathan Srinath
 
 ## Overview
 
-This session finished the **causal mapping** method from the previous class. In this method, respondents pick a subset of issues from a list and draw signed, weighted connections between them. Each map becomes a matrix, and two people's matrices are compared with a **cognitive distance (distance ratio)** formula. The instructor worked an Excel example comparing two former students, **Aditya** and **Ion**. The numerator was $18$, the denominator $48$, and the cognitive distance $0.375$, which falls in the "functional" band. He then explained how to interpret cognitive distance in groups: groupthink, functional, threshold and dysfunctional bands.
+This session finished the **causal mapping** method from the previous class. In this method, respondents pick a subset of issues from a list and draw signed, weighted connections between them. Each map becomes a matrix, and two people's matrices are compared with a **cognitive distance (distance ratio)** formula. The instructor worked an Excel example comparing two former students, **Aditya** and **Ion**. The numerator was $`18`$, the denominator $`48`$, and the cognitive distance $`0.375`$, which falls in the "functional" band. He then explained how to interpret cognitive distance in groups: groupthink, functional, threshold and dysfunctional bands.
 
 He applied this to a **case study from the reading**: a UK voluntary-sector healthcare organisation that contracts for the NHS and had to adapt to price-based competitive tendering after 2010. Cognitive distances among its top managers, trustees and middle managers were plotted with **multi-dimensional scaling (MDS)**. The plot showed factions and incoherent strategy. The class then looked at how an 18-month consultant intervention produced convergence among the top managers. The session ended with a data-collection task: a laptop preference spreadsheet to be analysed on Monday.
 
@@ -35,14 +35,14 @@ He applied this to a **case study from the reading**: a UK voluntary-sector heal
 
 | Relationship | Code |
 |---|---|
-| High positive | $+3$ |
-| Moderate positive | $+2$ |
-| Low positive | $+1$ |
-| No connection indicated | $0$ |
-| Low negative | $-1$ |
-| Moderate negative | $-2$ |
-| High negative | $-3$ |
-| Issue **not chosen** by the respondent | $100$ (an arbitrary high placeholder; could equally be "NA") |
+| High positive | $`+3`$ |
+| Moderate positive | $`+2`$ |
+| Low positive | $`+1`$ |
+| No connection indicated | $`0`$ |
+| Low negative | $`-1`$ |
+| Moderate negative | $`-2`$ |
+| High negative | $`-3`$ |
+| Issue **not chosen** by the respondent | $`100`$ (an arbitrary high placeholder; could equally be "NA") |
 
 ### 2. Worked classroom example: the Excel causal map data
 
@@ -61,54 +61,54 @@ This was a classroom version with a smaller list: **15 issues**, and each person
 | 12 | Fear of failure |
 | 13 | Family support |
 
-**Aditya (Person A)** chose issues $7, 9, 10, 11, 12$: empowerment, autonomy, self-confidence, micromanagement and fear of failure. The class interpreted four of Aditya's relationships:
+**Aditya (Person A)** chose issues $`7, 9, 10, 11, 12`$: empowerment, autonomy, self-confidence, micromanagement and fear of failure. The class interpreted four of Aditya's relationships:
 
-- **$9 \to 11 = -2$** (autonomy to micromanagement):
+- **$`9 \to 11 = -2`$** (autonomy to micromanagement):
   - As autonomy increases, micromanagement decreases **moderately**.
   - Micromanagement means excessive control.
-- **$11 \to 7 = -1$** (micromanagement to empowerment):
+- **$`11 \to 7 = -1`$** (micromanagement to empowerment):
   - As micromanagement increases, empowerment decreases, but only to a **small extent**.
-  - This is weaker than $-2$ or $-3$.
-- **$11 \to 9 = -3$** (micromanagement to autonomy):
+  - This is weaker than $`-2`$ or $`-3`$.
+- **$`11 \to 9 = -3`$** (micromanagement to autonomy):
   - As micromanagement decreases, autonomy increases to a **high extent**.
-- **$11 \to 10 = +1$** (micromanagement to self-confidence):
+- **$`11 \to 10 = +1`$** (micromanagement to self-confidence):
   - Aditya believes micromanagement increases self-confidence to a **low extent**.
 
-**Key point: maps are directional and asymmetric.** $9 \to 11 = -2$ but $11 \to 9 = -3$. Two variables can affect each other, but not in the same proportion. The cell $a_{ij}$ (row $i$, column $j$) is the impact of issue $i$ on issue $j$.
+**Key point: maps are directional and asymmetric.** $`9 \to 11 = -2`$ but $`11 \to 9 = -3`$. Two variables can affect each other, but not in the same proportion. The cell $`a_{ij}`$ (row $`i`$, column $`j`$) is the impact of issue $`i`$ on issue $`j`$.
 
-**Ion (Person B)** chose issues $5, 8, 10, 12, 13$: shame, hope, self-confidence, fear of failure and family support.
+**Ion (Person B)** chose issues $`5, 8, 10, 12, 13`$: shame, hope, self-confidence, fear of failure and family support.
 
 **Counting the issues:**
 
-- **Common issues:** $10$ and $12$, so $p_c = 2$.
-- **Unique to Aditya:** $7, 9, 11$, so $p_{uA} = 3$.
-- **Unique to Ion:** $5, 8, 13$, so $p_{uB} = 3$.
+- **Common issues:** $`10`$ and $`12`$, so $`p_c = 2`$.
+- **Unique to Aditya:** $`7, 9, 11`$, so $`p_{uA} = 3`$.
+- **Unique to Ion:** $`5, 8, 13`$, so $`p_{uB} = 3`$.
 
 ### 3. Computing the cognitive distance (distance ratio): step by step
 
 **Step 1: Absolute difference matrix.**
-- Subtract cell by cell: $|a_{ij} - b_{ij}|$.
+- Subtract cell by cell: $`|a_{ij} - b_{ij}|`$.
 - Only the magnitude matters, not the sign.
 
-**Step 2: Recode cells involving 100 that should be $0$.**
-- Some cells show $100$. This happens when an issue was not chosen by one person, and the other either also did not choose it or chose it but assigned no relationship ($0$).
-- Example: the impact of $5$ on $8$ appeared as $100$. One person had not chosen the issue; the other had chosen it but marked no value.
-- All such $100$s are recoded as **$0$**.
+**Step 2: Recode cells involving 100 that should be $`0`$.**
+- Some cells show $`100`$. This happens when an issue was not chosen by one person, and the other either also did not choose it or chose it but assigned no relationship ($`0`$).
+- Example: the impact of $`5`$ on $`8`$ appeared as $`100`$. One person had not chosen the issue; the other had chosen it but marked no value.
+- All such $`100`$s are recoded as **$`0`$**.
 
-**Step 3: Recode large residual values as $1$.**
-- Values such as $97, 98, 99, 101, 102, 103$ remain. They arise when one person did not choose the issue (code $100$) and the other assigned a non-zero value.
+**Step 3: Recode large residual values as $`1`$.**
+- Values such as $`97, 98, 99, 101, 102, 103`$ remain. They arise when one person did not choose the issue (code $`100`$) and the other assigned a non-zero value.
 - Examples:
-  - $|100 - 3| = 97$
-  - $|100 - (-3)| = 103$
-- The rule from the reading: such a difference counts as at most **$1$**, so all of these are recoded as **$1$**.
+  - $`|100 - 3| = 97`$
+  - $`|100 - (-3)| = 103`$
+- The rule from the reading: such a difference counts as at most **$`1`$**, so all of these are recoded as **$`1`$**.
 
 **Step 4: Actual differences stay as they are.**
 - Where both people rated the relationship, the true difference is kept.
-- Example: cell $10 \to 12$ (self-confidence to fear of failure).
-  - Aditya gave $0$ and Ion gave $-3$.
-  - The difference is $|0 - (-3)| = 3$.
+- Example: cell $`10 \to 12`$ (self-confidence to fear of failure).
+  - Aditya gave $`0`$ and Ion gave $`-3`$.
+  - The difference is $`|0 - (-3)| = 3`$.
 
-**Step 5: Sum all cells to get the numerator.** In this example the numerator is $18$.
+**Step 5: Sum all cells to get the numerator.** In this example the numerator is $`18`$.
 
 **Formula (from the reading):**
 
@@ -116,13 +116,13 @@ This was a classroom version with a smaller list: **15 issues**, and each person
 D(A,B) = \frac{\displaystyle\sum_{i=1}^{p}\sum_{j=1}^{p} \left| a^{*}_{ij} - b^{*}_{ij} \right|}{6p_c^{2} + 2p_c\,(p_{uA} + p_{uB}) + p_{uA}^{2} + p_{uB}^{2} - (6p_c + p_{uA} + p_{uB})}
 ```
 
-- $a^{\ast }_{ij}, b^{\ast }_{ij}$ are the (recoded) cell values for persons A and B.
-- $p$ is the total number of issues, so $i, j$ run from $1$ to $p$.
-- $p_c$ is the number of common issues.
-- $p_{uA}$ and $p_{uB}$ are the numbers of issues unique to A and to B.
-- The difference rule: $|a^{\ast }_{ij} - b^{\ast }_{ij}| = 1$ if one person did not choose the issue while the other chose it and gave it a value. Otherwise use the actual difference.
+- $`a^{*}_{ij}, b^{*}_{ij}`$ are the (recoded) cell values for persons A and B.
+- $`p`$ is the total number of issues, so $`i, j`$ run from $`1`$ to $`p`$.
+- $`p_c`$ is the number of common issues.
+- $`p_{uA}`$ and $`p_{uB}`$ are the numbers of issues unique to A and to B.
+- The difference rule: $`|a^{*}_{ij} - b^{*}_{ij}| = 1`$ if one person did not choose the issue while the other chose it and gave it a value. Otherwise use the actual difference.
 
-**Denominator with $p_c = 2$, $p_{uA} = 3$, $p_{uB} = 3$:**
+**Denominator with $`p_c = 2`$, $`p_{uA} = 3`$, $`p_{uB} = 3`$:**
 
 ```math
 6(2)^2 + 2(2)(3+3) + 3^2 + 3^2 - (6\cdot 2 + 3 + 3) = 24 + 24 + 9 + 9 - 18 = 48
@@ -136,18 +136,18 @@ D = \frac{18}{48} = 0.375
 
 Notes on this calculation:
 
-- The instructor said "0.0375" once; that was a slip, and the correct value is $0.375$.
-- He also said "PC square" once in place of "PUA square" while reading out the formula. The calculation above follows the version that produces $48$.
-- He corrected a mistake in the Excel sheet emailed to the class while lecturing. The corrected denominator is $48$, so update your copy.
+- The instructor said "0.0375" once; that was a slip, and the correct value is $`0.375`$.
+- He also said "PC square" once in place of "PUA square" while reading out the formula. The calculation above follows the version that produces $`48`$.
+- He corrected a mistake in the Excel sheet emailed to the class while lecturing. The corrected denominator is $`48`$, so update your copy.
 
-**Interpretation:** $0.375$ lies in the **functional** band (see below). Aditya and Ion would work well together in the same team.
+**Interpretation:** $`0.375`$ lies in the **functional** band (see below). Aditya and Ion would work well together in the same team.
 
 ### 4. Interpreting cognitive distance
 
 The cognitive distance ranges from **0 to 1**:
 
-- **$0$** means two people think exactly alike and share beliefs to a very great extent.
-- **$1$** means they think diametrically opposite and share no beliefs.
+- **$`0`$** means two people think exactly alike and share beliefs to a very great extent.
+- **$`1`$** means they think diametrically opposite and share no beliefs.
 
 **Group context:**
 - Compute the pairwise distances between all members, for example 8–10 people.
@@ -156,12 +156,12 @@ The cognitive distance ranges from **0 to 1**:
 
 | Average cognitive distance | Group type | Meaning |
 |---|---|---|
-| $0$ – $0.15$ | **Groupthink** | One person dominates and others comply. Diverse perspectives are not mobilised, hidden problems go unrecognised, and decision-making suffers. **Bad.** |
-| $0.16$ – $0.40$ | **Functional** | Healthy debate and frank disagreement. A variety of perspectives is considered and decisions are good. **Ideal band.** |
-| $0.41$ – $0.70$ | **Threshold** | Diverse views are still considered and decisions can still be good, but the group carries higher risk. It is on the threshold of becoming dysfunctional and could make a wrong decision. **Acceptable but risky.** |
-| $0.71$ – $1.0$ | **Dysfunctional** | Too many differences and no agreement on key issues. Politics and infighting rise and people do not respect each other. **Bad.** |
+| $`0`$ – $`0.15`$ | **Groupthink** | One person dominates and others comply. Diverse perspectives are not mobilised, hidden problems go unrecognised, and decision-making suffers. **Bad.** |
+| $`0.16`$ – $`0.40`$ | **Functional** | Healthy debate and frank disagreement. A variety of perspectives is considered and decisions are good. **Ideal band.** |
+| $`0.41`$ – $`0.70`$ | **Threshold** | Diverse views are still considered and decisions can still be good, but the group carries higher risk. It is on the threshold of becoming dysfunctional and could make a wrong decision. **Acceptable but risky.** |
+| $`0.71`$ – $`1.0`$ | **Dysfunctional** | Too many differences and no agreement on key issues. Politics and infighting rise and people do not respect each other. **Bad.** |
 
-In answer to Rahul's question: **both extremes are bad.** Near $0$ means groupthink and near $1$ means dysfunction. The ideal is $0.16$–$0.40$.
+In answer to Rahul's question: **both extremes are bad.** Near $`0`$ means groupthink and near $`1`$ means dysfunction. The ideal is $`0.16`$–$`0.40`$.
 
 ### 5. Case study (from the reading): a UK voluntary-sector healthcare organisation
 
@@ -187,9 +187,9 @@ In answer to Rahul's question: **both extremes are bad.** Near $0$ means groupth
 **Results before the intervention:**
 
 - **Top managers:**
-  - Average cognitive distance was about $0.856$, as read out by a student.
+  - Average cognitive distance was about $`0.856`$, as read out by a student.
   - This is **dysfunctional**: they cannot agree and there is no strategic coherence.
-  - An individual pairwise value of about $0.675$ was also mentioned from the matrix.
+  - An individual pairwise value of about $`0.675`$ was also mentioned from the matrix.
 - **Trustees:** dysfunctional, and the **highest** distance of the three groups. The two trustees are diametrically opposed.
 - **Middle managers:** also dysfunctional.
 
@@ -247,12 +247,12 @@ Four different emphases explain the four different positions in the MDS plot.
 
 1. Paste Aditya's matrix, built from her causal map.
 2. Paste Ion's matrix.
-3. Take the absolute cell-wise difference. Actual differences, such as the $3$ for cell $10 \to 12$, appear at this step.
-4. Recode $100$ to $0$.
-5. Recode the large residuals ($97, 99, 102, 103$, …) to $1$.
-6. Sum the cells to get $18$.
-7. Compute the denominator with $p_{uA} = 3$, $p_{uB} = 3$, $p_c = 2$ to get $48$.
-8. Divide: $18 / 48 = 0.375$, which is **functional**.
+3. Take the absolute cell-wise difference. Actual differences, such as the $`3`$ for cell $`10 \to 12`$, appear at this step.
+4. Recode $`100`$ to $`0`$.
+5. Recode the large residuals ($`97, 99, 102, 103`$, …) to $`1`$.
+6. Sum the cells to get $`18`$.
+7. Compute the denominator with $`p_{uA} = 3`$, $`p_{uB} = 3`$, $`p_c = 2`$ to get $`48`$.
+8. Divide: $`18 / 48 = 0.375`$, which is **functional**.
 
 ---
 
@@ -273,17 +273,17 @@ Four different emphases explain the four different positions in the MDS plot.
   - touchscreen (yes or no).
 - **What to do:**
   - Add your name to a column, as the instructor did with his own.
-  - Rate your preference for each of the 18 combinations from $1$ (least preferred) to $10$ (most preferred).
+  - Rate your preference for each of the 18 combinations from $`1`$ (least preferred) to $`10`$ (most preferred).
 - The analysis method will be taught on Monday. The method was not named, but this set-up is typical of conjoint analysis.
 - Dakshish volunteered to help classmates with the task.
 
 **Housekeeping:**
-- Use the corrected Excel calculation, where the denominator is $48$. The emailed sheet contained an error.
+- Use the corrected Excel calculation, where the denominator is $`48`$. The emailed sheet contained an error.
 - Read the assigned reading. It contains the distance-ratio formula, the case study and the MDS figure with the blue, red and green squares.
 
 **No explicit exam statements were made.** Based on emphasis, be able to:
 - code causal maps;
-- apply the recoding rules ($100 \to 0$, and large residuals $\to 1$);
+- apply the recoding rules ($`100 \to 0`$, and large residuals $`\to 1`$);
 - compute the distance ratio, including the denominator formula;
 - interpret the four cognitive-distance bands;
 - explain why both groupthink and dysfunction are bad;

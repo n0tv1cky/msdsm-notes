@@ -20,7 +20,7 @@ faculty: Deepak Sethia
 
 This session continues open-economy macroeconomics. It treats the foreign exchange market as an ordinary demand–supply market for dollars. Importers demand dollars and exporters supply them. The session then shows what the RBI must do to hold the rupee at an **overvalued** or **undervalued** official rate, and how this links to **balance of payments (BOP) surplus or deficit**. It explains why India runs a **current account deficit** and still accumulates reserves. It traces India's exchange rate history from fixed rates, through step devaluations, to today's **managed float**.
 
-Several shocks are analysed under a flexible rate: China+1, an oil discovery, an RBI rate hike, and a crop failure. The lecture distinguishes **devaluation/revaluation** (fixed regime) from **depreciation/appreciation** (flexible regime). It introduces the **real exchange rate** $\varepsilon = \dfrac{E \cdot P_f}{P_d}$ with worked numerical examples. A key example shows that a nominal depreciation can coexist with a real *appreciation* when domestic inflation is higher.
+Several shocks are analysed under a flexible rate: China+1, an oil discovery, an RBI rate hike, and a crop failure. The lecture distinguishes **devaluation/revaluation** (fixed regime) from **depreciation/appreciation** (flexible regime). It introduces the **real exchange rate** $`\varepsilon = \dfrac{E \cdot P_f}{P_d}`$ with worked numerical examples. A key example shows that a nominal depreciation can coexist with a real *appreciation* when domestic inflation is higher.
 
 Next, the lecture explains **purchasing power parity (PPP)** and why PPP rates differ from market rates, mainly because of tradables versus non-tradables. It moves to the **savings–investment (loanable funds) model**: crowding out in a closed economy, then capital flows, exchange rates and the current account in an open economy. It ends with the **impossible trinity**, showing why a fixed exchange rate is incompatible with independent monetary policy under free capital mobility. The flexible-rate case is left for the next session.
 
@@ -31,32 +31,32 @@ Next, the lecture explains **purchasing power parity (PPP)** and why PPP rates d
 ### 2.1 The Forex Market as a Demand–Supply Graph
 
 **Graph setup**
-- **Vertical axis:** exchange rate $E$, in rupees per dollar (₹/\$).
+- **Vertical axis:** exchange rate $`E`$, in rupees per dollar (₹/\$).
 - **Horizontal axis:** quantity of dollars.
-- **Demand for dollars ($D$):** comes from **importers**, who need dollars to buy goods from abroad, such as laptops, iPads and oil. The curve is **downward sloping**.
-  - When the rupee **appreciates** ($E$ falls, e.g. from 100 to 70), imports become cheaper, so the quantity of dollars demanded rises.
-- **Supply of dollars ($S$):** comes from **exporters**. The example is Infosys, which exports IT services, earns dollars and converts them to rupees to pay salaries. The curve is **upward sloping**.
-  - When the rupee **depreciates** ($E$ rises, e.g. from 96 to 110), each dollar earned fetches more rupees, so exporters export more and supply more dollars.
-- **Equilibrium** in the lecture's example is $E^\ast  = 96$ ₹/\$.
+- **Demand for dollars ($`D`$):** comes from **importers**, who need dollars to buy goods from abroad, such as laptops, iPads and oil. The curve is **downward sloping**.
+  - When the rupee **appreciates** ($`E`$ falls, e.g. from 100 to 70), imports become cheaper, so the quantity of dollars demanded rises.
+- **Supply of dollars ($`S`$):** comes from **exporters**. The example is Infosys, which exports IT services, earns dollars and converts them to rupees to pay salaries. The curve is **upward sloping**.
+  - When the rupee **depreciates** ($`E`$ rises, e.g. from 96 to 110), each dollar earned fetches more rupees, so exporters export more and supply more dollars.
+- **Equilibrium** in the lecture's example is $`E^* = 96`$ ₹/\$.
 
 **Definitions of appreciation and depreciation**
-- **Rupee depreciation:** each rupee buys fewer dollars, so $E$ (₹/\$) rises, e.g. 96 → 110.
-- **Rupee appreciation:** each rupee buys more dollars, so $E$ falls, e.g. 100 → 70 or 60.
+- **Rupee depreciation:** each rupee buys fewer dollars, so $`E`$ (₹/\$) rises, e.g. 96 → 110.
+- **Rupee appreciation:** each rupee buys more dollars, so $`E`$ falls, e.g. 100 → 70 or 60.
 - These are mirror images. If the dollar buys more rupees, the dollar is appreciating and the rupee is depreciating. *"The one that can buy more of the other is appreciating."*
 
 ### 2.2 RBI Intervention at a Fixed (Official) Rate
 
 **Case A: Overvalued rupee (official rate below equilibrium)**
-- The RBI fixes $E = 80$ while equilibrium is 96, so the rupee is "too strong".
-- At 80, quantity demanded is $Q_D$ (O to $Q_D$) and quantity supplied is only $Q_S$ (O to $Q_S$).
-- The result is **excess demand for dollars** equal to $Q_D - Q_S$.
+- The RBI fixes $`E = 80`$ while equilibrium is 96, so the rupee is "too strong".
+- At 80, quantity demanded is $`Q_D`$ (O to $`Q_D`$) and quantity supplied is only $`Q_S`$ (O to $`Q_S`$).
+- The result is **excess demand for dollars** equal to $`Q_D - Q_S`$.
 - Because the RBI promised this rate, it must **sell dollars** from its reserves to fill the gap.
 
 **Case B: Undervalued rupee (official rate above equilibrium)**
-- The RBI fixes $E = 110$ while equilibrium is 96.
+- The RBI fixes $`E = 110`$ while equilibrium is 96.
 - Importers find iPhones and iPads too expensive, so they **move up along the demand curve** and demand fewer dollars.
 - Exporters who were not viable at 96 now find exporting profitable, so they **move up along the supply curve** and supply more dollars.
-- The result is **excess supply of dollars**. Without intervention, $E$ would fall back to 96.
+- The result is **excess supply of dollars**. Without intervention, $`E`$ would fall back to 96.
 - To hold the rate at 110, the RBI must **buy** the excess dollars.
 
 **Link to the balance of payments**
@@ -101,14 +101,14 @@ Next, the lecture explains **purchasing power parity (PPP)** and why PPP rates d
 
 Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP is exactly zero**. The market-clearing rate is the exchange rate.
 
-| Shock | Curve affected | Shift | Effect on $E$ (₹/\$) | Rupee |
+| Shock | Curve affected | Shift | Effect on $`E`$ (₹/\$) | Rupee |
 |---|---|---|---|---|
 | **US China+1 strategy**: the US diversifies imports away from China toward India, even at higher prices, for diversification or national security | Supply of \$ (exporters earn more \$) | Right (lecturer said "downward", the same shift) | Falls (e.g. toward 50 and below) | **Appreciates** |
 | **India discovers oil** (Thar desert example) | Demand for \$ (less oil imported, and oil is paid in \$) | Left | Falls (e.g. ₹50 → ₹40 per \$) | **Appreciates** |
 | **RBI raises interest rates** | Supply of \$ (foreigners invest for higher yields, so capital inflow) | Right | Falls | **Appreciates** |
 | **Crop failure / bad monsoon** (1960s-style grain imports) | Demand for \$ | Right | Rises | **Depreciates** |
 
-**Note on China+1:** if the RBI wanted to hold $E = 50$ after the supply shift, it would have to **buy** the excess dollars. Under a flexible rate it does not, so the rupee appreciates.
+**Note on China+1:** if the RBI wanted to hold $`E = 50`$ after the supply shift, it would have to **buy** the excess dollars. Under a flexible rate it does not, so the rupee appreciates.
 
 **Lecturer's advice:** *"Look at the forex market just like your plain microeconomics graphs."*
 
@@ -127,26 +127,26 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 ### 2.7 Nominal vs Real Exchange Rate
 
 **Definitions**
-- **Nominal exchange rate ($E$):** the relative price of two **currencies**, e.g. \$1 = ₹50. This is the rate quoted daily in the news.
-- **Real exchange rate ($\varepsilon$):** the relative price of **goods** in the two countries.
+- **Nominal exchange rate ($`E`$):** the relative price of two **currencies**, e.g. \$1 = ₹50. This is the rate quoted daily in the news.
+- **Real exchange rate ($`\varepsilon`$):** the relative price of **goods** in the two countries.
 
 **Formula ("keep this formula in mind")**
 
 ```math
 \varepsilon = \frac{E \times P_f}{P_d}
 ```
-- $E$ = nominal exchange rate (₹ per \$).
-- $P_f$ = foreign price of the good (in \$).
-- $P_d$ = domestic price of the good (in ₹).
-- The numerator, $E \cdot P_f$, is the foreign good's price converted into rupees.
+- $`E`$ = nominal exchange rate (₹ per \$).
+- $`P_f`$ = foreign price of the good (in \$).
+- $`P_d`$ = domestic price of the good (in ₹).
+- The numerator, $`E \cdot P_f`$, is the foreign good's price converted into rupees.
 
 **Interpretation**
-- $\varepsilon = 1$: goods cost the same in both countries, i.e. the currencies are **at PPP**.
-- $\varepsilon < 1$: the rupee is **appreciated in real terms**. Foreign goods are cheaper, so India **imports more**.
-- $\varepsilon > 1$: the rupee is **depreciated in real terms**. Domestic goods are cheaper, so India **exports more**.
+- $`\varepsilon = 1`$: goods cost the same in both countries, i.e. the currencies are **at PPP**.
+- $`\varepsilon < 1`$: the rupee is **appreciated in real terms**. Foreign goods are cheaper, so India **imports more**.
+- $`\varepsilon > 1`$: the rupee is **depreciated in real terms**. Domestic goods are cheaper, so India **exports more**.
 
 **Worked Example 1: iPhone** (numbers halved for simplicity)
-- US price $P_f = \text{USD }500$, Indian price $P_d = ₹26{,}000$, $E = 50$.
+- US price $`P_f = \$500`$, Indian price $`P_d = ₹26{,}000`$, $`E = 50`$.
 
 ```math
 \varepsilon = \frac{50 \times 500}{26{,}000} = \frac{25{,}000}{26{,}000} \approx 0.96 < 1
@@ -155,19 +155,19 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 
 **Worked Example 2: Furniture export**
 - The good costs ₹50,000 in India. The transcript says "₹1,000", but the later steps make clear the Indian price is ₹50,000.
-- With $E = 50$ and no transport, trade or tax costs, it sells for \$1,000 in the US.
+- With $`E = 50`$ and no transport, trade or tax costs, it sells for \$1,000 in the US.
 
 ```math
 \varepsilon = \frac{50 \times 1{,}000}{50{,}000} = 1
 ```
 
 **Worked Example 3: Inflation differential, the key example**
-- Indian inflation is $15\text{%}$; US inflation is $1\text{%}$.
-- Next year the rupee **depreciates nominally by 10%**, so $E$ goes from 50 to 55.
+- Indian inflation is $`15\%`$; US inflation is $`1\%`$.
+- Next year the rupee **depreciates nominally by 10%**, so $`E`$ goes from 50 to 55.
 - **Question:** Does India now export more?
 - **Answer: No.**
-  - New Indian price: $50{,}000 \times 1.15 = ₹57{,}500$.
-  - New US price: $1{,}000 \times 1.01 = \text{USD }1{,}010$. In rupees: $1{,}010 \times 55 = ₹55{,}550$.
+  - New Indian price: $`50{,}000 \times 1.15 = ₹57{,}500`$.
+  - New US price: $`1{,}000 \times 1.01 = \$1{,}010`$. In rupees: $`1{,}010 \times 55 = ₹55{,}550`$.
   - The US good is now **cheaper** than the Indian one, so India will **import** despite the nominal depreciation.
 
 ```math
@@ -180,7 +180,7 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 - The **nominal rate depreciated, but the real rate appreciated.**
 
 **Why currencies must depreciate nominally**
-- To keep $\varepsilon$ stable, if $\dfrac{P_f}{P_d}$ falls (domestic inflation higher than foreign), then $E$ must rise.
+- To keep $`\varepsilon`$ stable, if $`\dfrac{P_f}{P_d}`$ falls (domestic inflation higher than foreign), then $`E`$ must rise.
 - **Rule:** higher domestic inflation than abroad means the currency **must depreciate** in nominal terms. *"You cannot avoid it."*
 - An approximate version (relative PPP) follows from this:
 
@@ -223,28 +223,28 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 ### 2.9 Savings–Investment (Loanable Funds) Model
 
 **Closed economy graph**
-- **Vertical axis:** interest rate $i$.
+- **Vertical axis:** interest rate $`i`$.
 - **Horizontal axis:** savings / investment (quantity of loanable funds).
-- **Investment demand ($I$):** downward sloping.
-- **Supply of savings ($S$):** upward sloping, since higher rates induce more saving. The lecturer mentioned a possible backward-bending section but did not cover it.
+- **Investment demand ($`I`$):** downward sloping.
+- **Supply of savings ($`S`$):** upward sloping, since higher rates induce more saving. The lecturer mentioned a possible backward-bending section but did not cover it.
 - **Total saving** = household saving + government saving (from the previous session).
 
 **Fiscal expansion in a closed economy (crowding out)**
-1. The government raises spending $G$, so the fiscal deficit rises.
+1. The government raises spending $`G`$, so the fiscal deficit rises.
 2. Government saving falls, so the savings supply curve shifts **left**.
 3. The interest rate **rises**.
-4. Projects viable at the lower rate are dropped, so investment falls (a movement up along $I$).
+4. Projects viable at the lower rate are dropped, so investment falls (a movement up along $`I`$).
 5. This is **crowding out**: government spending displaces private investment.
 
 **Open economy (free capital flows)**
 - Borrowers can borrow wherever rates are lowest (the US, Europe, Canada, Japan), so the domestic rate is tied to the **world rate**.
-- Notation: $i_d$ = domestic interest rate, $i_f$ = global/foreign interest rate. With free capital flows, $i_d \to i_f$.
+- Notation: $`i_d`$ = domestic interest rate, $`i_f`$ = global/foreign interest rate. With free capital flows, $`i_d \to i_f`$.
 
 **Case 1: Fiscal expansion in an open economy**
 
 | Step | Effect |
 |---|---|
-| 1 | Government spending rises, domestic savings supply falls, upward pressure on $i_d$. |
+| 1 | Government spending rises, domestic savings supply falls, upward pressure on $`i_d`$. |
 | 2 | Even a slight differential triggers a **capital inflow**: investors borrow from abroad, or foreigners lend in. |
 | 3 | In the forex market, **dollar supply rises**, so the **rupee appreciates**. This is the *financial side*. |
 | 4 | Appreciation means **more imports**, giving a **current account deficit**. This is the *real side*: total spending (government plus consumers) exceeds domestic production, so the gap is bought from abroad. |
@@ -255,17 +255,17 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 
 | Step | Effect |
 |---|---|
-| 1 | The savings supply shifts **right**, so $i_d$ tends to fall. |
-| 2 | Savers will not lend domestically at rates below $i_f$, so they lend abroad. |
-| 3 | At $i_d = i_f$, domestic investors absorb only part of the savings (the "blue" portion on the slide). The **excess** (the "red" portion) is lent abroad as a **capital outflow**. |
+| 1 | The savings supply shifts **right**, so $`i_d`$ tends to fall. |
+| 2 | Savers will not lend domestically at rates below $`i_f`$, so they lend abroad. |
+| 3 | At $`i_d = i_f`$, domestic investors absorb only part of the savings (the "blue" portion on the slide). The **excess** (the "red" portion) is lent abroad as a **capital outflow**. |
 | 4 | Savers give rupees to the RBI in exchange for dollars, so **dollar demand rises** and the **rupee depreciates**. |
 | 5 | Depreciation means **more exports**, giving a **current account surplus**, alongside a **capital account deficit** from lending abroad. |
 
 - These steps happen as a cycle, not a strict sequence. *"Don't ask which happens first."*
 
 **General rule**
-- Upward pressure on $i$ leads to capital inflow, rupee appreciation and a current account deficit.
-- Downward pressure on $i$ leads to capital outflow, rupee depreciation and higher exports.
+- Upward pressure on $`i`$ leads to capital inflow, rupee appreciation and a current account deficit.
+- Downward pressure on $`i`$ leads to capital outflow, rupee depreciation and higher exports.
 
 ### 2.10 Impossible Trinity (Monetary Trilemma)
 
@@ -277,11 +277,11 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 **Worked logic: fixed rate plus free capital flows means no independent monetary policy**
 1. The RBI wants to raise rates, so it reduces money supply by **selling government bonds** and taking rupees out of the system.
 2. Bond supply rises, so bond prices fall and the **interest rate rises**.
-3. Higher $i_d$ attracts foreigners, causing a **capital inflow**.
+3. Higher $`i_d`$ attracts foreigners, causing a **capital inflow**.
 4. In the forex market, dollar supply shifts right, putting **pressure on the rupee to appreciate**.
 5. To hold the fixed rate, the RBI must **buy the excess dollars**, paying with **rupees**.
 6. Money supply **expands again**, so the interest rate is pushed back down.
-7. **Net result:** the domestic rate must equal the foreign rate. Under a fixed rate, investors would bring money in, earn the higher rate and convert back without exchange risk, so the flows continue until $i_d = i_f$.
+7. **Net result:** the domestic rate must equal the foreign rate. Under a fixed rate, investors would bring money in, earn the higher rate and convert back without exchange risk, so the flows continue until $`i_d = i_f`$.
 
 **Conclusion:** *Fixed exchange rate does not work with independent monetary policy* when capital is mobile.
 
@@ -296,7 +296,7 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 ```math
 \varepsilon = \frac{E \cdot P_f}{P_d}
 ```
-  Know how to interpret $\varepsilon$ relative to 1, and be able to work through the 15% vs 1% inflation example.
+  Know how to interpret $`\varepsilon`$ relative to 1, and be able to work through the 15% vs 1% inflation example.
 - **"Read the last line carefully":** long-run exchange rates are determined by **inflation differentials**. The right question is why inflation is high, not why the rupee is falling.
 - **Terminology:** devaluation/revaluation apply to fixed regimes; depreciation/appreciation apply to flexible regimes.
 - **BOP sign convention:**

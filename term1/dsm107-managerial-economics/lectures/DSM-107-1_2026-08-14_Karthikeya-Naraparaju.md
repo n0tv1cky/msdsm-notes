@@ -136,7 +136,7 @@ This first session sets up the microeconomics half of the course (sessions 1–1
 - Subjective benefit of the concert = **$50**
 - Net benefit = 50 − 25 = **$25**
 
-**Step 1 — how to measure a subjective *benefit*:** ask yourself *"what is the maximum price I would pay for this ticket?"* Keep raising the price ($25, $30, $35, $40 …); the point at which you say "no, I will not pay that much" reveals your maximum valuation.
+**Step 1 — how to measure a subjective *benefit*:** ask yourself *"what is the maximum price I would pay for this ticket?"* Keep raising the price ($`25,`$30, $`35,`$40 …); the point at which you say "no, I will not pay that much" reveals your maximum valuation.
 
 **Step 2 — the numbers used for the full example:**
 - Benefit from concert (this person's maximum willingness to pay) = **$55**
@@ -155,7 +155,7 @@ This first session sets up the microeconomics half of the course (sessions 1–1
 - Net benefit of concert **$30** > Opportunity cost **$22** → **Go to the concert.**
 
 **Step 6 — decision, method 2 (economic cost)**
-- **Economic cost of concert = direct cost $25 + opportunity cost $22 = $47**
+- **Economic cost of concert = direct cost $`25 + opportunity cost`$22 = $47**
 - Benefit of concert **$55** > Economic cost **$47** → **Go to the concert.**
 - Note: the "gap" is **$8** under both methods (55 − 47 = 8; 30 − 22 = 8) → the methods are identical.
 

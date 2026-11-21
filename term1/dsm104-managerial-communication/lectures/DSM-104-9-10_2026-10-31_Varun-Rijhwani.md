@@ -49,8 +49,8 @@ The instructor first explained the logistics and evaluation rules: timing, camer
 
 | Group size | Raw speaking maximum | Allotted total |
 |---|---|---|
-| 5 members | $5 \times 2.5 = 12.5$ min | **14 min** |
-| 6 members | $6 \times 2.5 = 15$ min | **16.5 min** |
+| 5 members | $`5 \times 2.5 = 12.5`$ min | **14 min** |
+| 6 members | $`6 \times 2.5 = 15`$ min | **16.5 min** |
 
   The allotment is about 1.5 min more than the raw speaking maximum, which appears to be a buffer.
 - A TA (Keisha) **announces when 2 minutes remain**.
@@ -96,12 +96,12 @@ The instructor first explained the logistics and evaluation rules: timing, camer
 \text{pathways} = \frac{n(n-1)}{2}
 ```
 
-  - $n=5$ gives $10$.
-  - $n=15$ gives $105$.
+  - $`n=5`$ gives $`10`$.
+  - $`n=15`$ gives $`105`$.
   - So tripling the team does not triple output; it adds bureaucratic friction.
 - **Experience compounding over 5 years** (implicitly about 50 working weeks per year):
-  - $40 \times 50 \times 5 = 10{,}000$ hours
-  - $70 \times 50 \times 5 = 17{,}500 \approx 18{,}000$ hours
+  - $`40 \times 50 \times 5 = 10{,}000`$ hours
+  - $`70 \times 50 \times 5 = 17{,}500 \approx 18{,}000`$ hours
   - Claim: you compress a decade of growth into half the time. "Not a life sentence, a season of sprinting."
 
 **Nuance: personal agency**
@@ -193,7 +193,7 @@ The instructor first explained the logistics and evaluation rules: timing, camer
 
 **Commute economics**
 - Average urban one-way commute is about **27 min**, at about **₹1,044/month**.
-- Remote work 2 days/week saves $27 \times 2 \times 2 = 108 \approx 2$ hours/week.
+- Remote work 2 days/week saves $`27 \times 2 \times 2 = 108 \approx 2`$ hours/week.
 - The saved time goes to rest and family; fuel and travel costs fall.
 
 **Well-being and challenges**
@@ -246,7 +246,7 @@ Closing message: "Plan, measure, listen, keep improving." Focus less on *where* 
 | What happened | Went too far and started **rehiring humans** | **Redeployed** people to other departments; total headcount **rose** |
 
 **Data: World Economic Forum projection to 2030**
-- **92 million** jobs displaced and **170 million** created, a net gain of $170 - 92 = 78$ million.
+- **92 million** jobs displaced and **170 million** created, a net gain of $`170 - 92 = 78`$ million.
 - **39% of core skills** will change (engineering, analysis, diagnosis).
 - Thesis: **"AI replaces tasks, not jobs."** Decide task by task.
 
@@ -303,7 +303,7 @@ Closing quote (Andrej Karpathy): *"Build Iron Man suits, not Iron Man robots."* 
 **Format:** the group **role-played a board briefing**. Each member took a persona: Chief HR Officer, Gen Z associate, senior manager, data/analytics lead, external consultant, and welfare officer. This was a strong use of audience framing.
 
 **CHRO opening**
-- Hook: a stat on the multiplier by which **workplace culture outweighs salary in predicting voluntary turnover**. The figure is not clearly audible (*likely the MIT Sloan finding of about $10.4\times$*).
+- Hook: a stat on the multiplier by which **workplace culture outweighs salary in predicting voluntary turnover**. The figure is not clearly audible (*likely the MIT Sloan finding of about $`10.4\times`$*).
 - Claim: no high performer left for pay; they left due to a breakdown in operational infrastructure.
 - Thesis: **"Modernize the means, preserve the mission."**
 - The friction is neither a Gen Z work-ethic crisis nor a leadership failure. It is an **infrastructural mismatch**: industrial-era management systems applied to a digital-native workforce.
@@ -458,7 +458,7 @@ Context cited:
 - **O:** leaders model the behaviour.
   - Example: leaders who arrive early and stay late set a "presence" norm that teams copy, even though presence says nothing about outcomes.
 - **F – Firewall:** e.g., **Volkswagen** stops email delivery to employees from 30 minutes after their shift ends.
-- **F – Fine:** firms compensate off-hours work at $2\times$ to $3\times$.
+- **F – Fine:** firms compensate off-hours work at $`2\times`$ to $`3\times`$.
 - Visual on the slide: a toggle. When work switches OFF, "life switches ON."
 
 **Conclusion**
@@ -507,8 +507,8 @@ Context cited:
 - "5–7 years required" is the **most common** screening method.
 - But researchers have studied it far less than general mental ability (GMA). It is used because it is cheap, easy to count, and easy to defend to an executive committee.
 - **Meta-analysis** (*Van Iddekinge et al.; stated as 2018*): **74 studies, about 24,000 people**.
-  - Corrected correlation between prior experience and job performance: $r = 0.07$.
-  - Variance explained: $r^2 = 0.07^2 = 0.0049$, i.e. **less than 1%**.
+  - Corrected correlation between prior experience and job performance: $`r = 0.07`$.
+  - Variance explained: $`r^2 = 0.07^2 = 0.0049`$, i.e. **less than 1%**.
   - Experience also does not predict commitment, satisfaction, or retention.
 - Taglines:
   - "Years of experience is the participation trophy of hiring."
@@ -522,22 +522,22 @@ Context cited:
 - Takeaway: *"Tenure gives you a head start in the sprint, but cognitive capability wins the marathon."*
 
 **But talent alone was also "marked down"**
-- **Schmidt & Hunter (1998):** GMA validity of about $0.51$, the gold standard for about 20 years.
+- **Schmidt & Hunter (1998):** GMA validity of about $`0.51`$, the gold standard for about 20 years.
 - **Sackett et al. (2022)** corrected over-adjustments in the older methods:
-  - GMA fell to about $0.31$; some recent samples show around $0.03$ *(as stated)*.
-  - The new top predictor is the **structured interview at about $0.42$**.
+  - GMA fell to about $`0.31`$; some recent samples show around $`0.03`$ *(as stated)*.
+  - The new top predictor is the **structured interview at about $`0.42`$**.
 - "Even the research had to be re-interviewed." Neither pure experience nor pure talent is safe.
 
 **Persistence / grit (Coolidge's favourite)**
 - Popularized by Angela Duckworth.
 - **Credé, Tynan & Harms (2017)** meta-analysis (sample counts garbled in the transcript; the published study used about 88 samples and about 66,000 people):
   - Grit has only a **modest** correlation with workplace performance and retention.
-  - Grit overlaps heavily with **conscientiousness**: $\rho \approx 0.84$. So grit is "largely conscientiousness repackaged," or as the slide put it, **"Grit is conscientiousness in a hoodie."**
+  - Grit overlaps heavily with **conscientiousness**: $`\rho \approx 0.84`$. So grit is "largely conscientiousness repackaged," or as the slide put it, **"Grit is conscientiousness in a hoodie."**
   - The **perseverance of effort** facet predicts reasonably well; the **consistency of interest** (passion) facet adds almost nothing.
 - Verdict: persistence matters but is **not omnipotent**. Without ability, strategy, and fit, it becomes "stubbornness."
 
 **The answer: stack predictors (multivariate validity)**
-- GMA plus a **work sample** or **structured interview** gives a combined validity of about $0.60$–$0.65$. Adding **integrity tests** helps further.
+- GMA plus a **work sample** or **structured interview** gives a combined validity of about $`0.60`$–$`0.65`$. Adding **integrity tests** helps further.
 - This holds for both entry-level and experienced hiring.
 - "Stacking predictors beats picking camps": test how people **think** *and* how they **perform**.
 
@@ -575,7 +575,7 @@ Context cited:
 - **Question:** For a high-potential, low-experience candidate, what evidence should the organization rely on?
 - Answer:
   - It depends on the work. Experience matters where muscle memory and field familiarity matter; innate agility matters in fast-changing tech roles.
-  - The presenter cited extra research: founders and executives producing top 0.1% returns averaged about **49.57 years** of age, and executives over 50 with a solid track record were about $1.8\times$ more likely to transform a company.
+  - The presenter cited extra research: founders and executives producing top 0.1% returns averaged about **49.57 years** of age, and executives over 50 with a solid track record were about $`1.8\times`$ more likely to transform a company.
   - "It's never black or white; it's always in the grey."
 
 ---

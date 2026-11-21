@@ -20,7 +20,7 @@ faculty: Deepak Sethia
 
 The session begins by wrapping up monetary policy. It recaps the RBI's tools: CRR, open market operations and SLR. It then explains the **policy rate corridor** (repo and reverse repo) and how it bounds the **interbank call rate**. Next it shows why all of this matters: lower interest rates raise **investment demand**, which shifts aggregate demand up in the **Keynesian cross** and pulls the economy out of recession. A worked project-viability example illustrates this.
 
-The lecture then turns to the **open economy**. It covers India's growing trade openness after 1991 and the national income identity with net exports. It defines **balance of payments, current account, trade balance and capital account**, along with the credit/debit rules. It shows why the **current account and capital account sum to zero** and derives the **open-economy saving–investment identity** $S - I = CA$. It discusses whether a current account deficit is "good or bad" (it depends). Finally, it introduces **exchange rates** (fixed vs. flexible) and the **supply and demand for dollars** in the Indian forex market. Exchange rates continue next session.
+The lecture then turns to the **open economy**. It covers India's growing trade openness after 1991 and the national income identity with net exports. It defines **balance of payments, current account, trade balance and capital account**, along with the credit/debit rules. It shows why the **current account and capital account sum to zero** and derives the **open-economy saving–investment identity** $`S - I = CA`$. It discusses whether a current account deficit is "good or bad" (it depends). Finally, it introduces **exchange rates** (fixed vs. flexible) and the **supply and demand for dollars** in the Indian forex market. Exchange rates continue next session.
 
 ---
 
@@ -53,13 +53,13 @@ The lecture then turns to the **open economy**. It covers India's growing trade 
 
 ### 2.2 The Policy Rate Corridor (Repo / Reverse Repo)
 
-**Basis point:** $1 \text{ bp} = \frac{1}{100} \text{ of } 1\text{%} = 0.01\text{%}$
+**Basis point:** $`1 \text{ bp} = \frac{1}{100} \text{ of } 1\% = 0.01\%`$
 
 **Rates as of October 2026, as stated in class:**
-- Policy rate $= 5.5\text{%}$.
-- **Repo rate** (rate at which the RBI *lends* to banks) $= 5.5\text{%} + 25\text{ bp} = 5.75\text{%}$.
-- **Reverse repo rate** (rate at which the RBI *accepts deposits* from banks) $= 5.5\text{%} - 25\text{ bp} = 5.25\text{%}$.
-- CRR $= 3\text{%}$ and SLR $= 18\text{%}$.
+- Policy rate $`= 5.5\%`$.
+- **Repo rate** (rate at which the RBI *lends* to banks) $`= 5.5\% + 25\text{ bp} = 5.75\%`$.
+- **Reverse repo rate** (rate at which the RBI *accepts deposits* from banks) $`= 5.5\% - 25\text{ bp} = 5.25\%`$.
+- CRR $`= 3\%`$ and SLR $`= 18\%`$.
 
 The reverse repo must be below the repo:
 
@@ -73,7 +73,7 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 - A customer writes a cheque for ₹1,000 from HDFC to SBI.
 - **HDFC:**
   - Deposits fall by ₹1,000 and reserves fall by ₹1,000.
-  - It had held only $4\text{%} \times 1000 = ₹40$ as required reserves against that deposit.
+  - It had held only $`4\% \times 1000 = ₹40`$ as required reserves against that deposit.
   - So its **reserve shortfall = ₹960**.
 - **SBI:**
   - Deposits rise by ₹1,000 and reserves rise by ₹1,000.
@@ -106,7 +106,7 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 - **Fiscal:** raise government spending (new projects) or give transfer payments.
 - **Monetary:** lower interest rates.
 
-**Aggregate demand components:** $C + I + G + (X - M)$.
+**Aggregate demand components:** $`C + I + G + (X - M)`$.
 
 **Mechanism for lowering rates:**
 1. The RBI buys bonds through OMO.
@@ -116,22 +116,22 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 
 **Two-panel graph described:**
 - **Bottom panel: investment demand.**
-  - Vertical axis: interest rate $i$. Horizontal axis: investment $I$.
+  - Vertical axis: interest rate $`i`$. Horizontal axis: investment $`I`$.
   - The **investment demand curve slopes downward**. Interest is a cost to firms, so a lower rate raises profitability and investment.
-  - Moving from $i_1$ to $i_2$ (with $i_2 < i_1$) increases investment.
+  - Moving from $`i_1`$ to $`i_2`$ (with $`i_2 < i_1`$) increases investment.
 - **Top panel: Keynesian cross.**
-  - Vertical axis: aggregate demand. Horizontal axis: output $Y$.
-  - The **45° line** shows where $AD = Y$.
-  - The AD line slopes upward (consumption rises with income) and has intercept $\bar{A}$.
-  - Initial equilibrium is at $Y_1$, below **potential output $Y^\ast $**, so the economy is in recession.
-  - Lower $i$ raises $I$, which raises the intercept $\bar{A}$. The AD line **shifts up** and the equilibrium moves right toward $Y^\ast $.
-- **Link to earlier sessions:** in Sessions 4–5, $\bar{A}$ included $G$, so fiscal policy shifted the intercept. Here the intercept shifts via investment instead.
+  - Vertical axis: aggregate demand. Horizontal axis: output $`Y`$.
+  - The **45° line** shows where $`AD = Y`$.
+  - The AD line slopes upward (consumption rises with income) and has intercept $`\bar{A}`$.
+  - Initial equilibrium is at $`Y_1`$, below **potential output $`Y^*`$**, so the economy is in recession.
+  - Lower $`i`$ raises $`I`$, which raises the intercept $`\bar{A}`$. The AD line **shifts up** and the equilibrium moves right toward $`Y^*`$.
+- **Link to earlier sessions:** in Sessions 4–5, $`\bar{A}`$ included $`G`$, so fiscal policy shifted the intercept. Here the intercept shifts via investment instead.
   - The multiplier process "starts from Mumbai (RBI), not Delhi (government)."
   - Firms deploy idle resources, newly employed workers consume, and the multiplier kicks in.
 
 **Key concept: equilibrium vs. potential output**
 - Macro equilibrium means the economy *produces as much as it can sell*.
-- It does **not** mean full capacity. There can be unutilized capacity, which is the gap $Y^\ast  - Y_1$.
+- It does **not** mean full capacity. There can be unutilized capacity, which is the gap $`Y^* - Y_1`$.
 
 **Student Q&A (savings and interest rates):**
 - The main channel is **firm investment demand**, not households saving less.
@@ -139,13 +139,13 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 - Firms won't produce if they fear they can't sell. Rate cuts raise profit pools and make projects viable.
 
 **Worked example: project viability**
-- Investment: ₹1,000 borrowed. The project yields ₹70 per year, so $IRR = 7\text{%}$.
+- Investment: ₹1,000 borrowed. The project yields ₹70 per year, so $`IRR = 7\%`$.
 - At an interest rate of **8%**:
-  - Interest $= 0.08 \times 1000 = ₹80$.
-  - Net $= 70 - 80 = -₹10$, a loss, so the project is **not viable**.
+  - Interest $`= 0.08 \times 1000 = ₹80`$.
+  - Net $`= 70 - 80 = -₹10`$, a loss, so the project is **not viable**.
 - At an interest rate of **6%**:
-  - Interest $= 0.06 \times 1000 = ₹60$.
-  - Net $= 70 - 60 = +₹10$, so the project is **viable**.
+  - Interest $`= 0.06 \times 1000 = ₹60`$.
+  - Net $`= 70 - 60 = +₹10`$, so the project is **viable**.
 - **Crux:** many unviable projects become viable at lower interest rates.
 
 **Housing loan intuition:**
@@ -167,8 +167,8 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 ```math
 Y = C + I + G + NX, \qquad NX = X - M
 ```
-- **Exports** are not part of $C$, $I$ or $G$, but domestic producers earn from them, so they are added as $+X$.
-- **Imports** are already included inside $C$ and $I$ (e.g., an imported iPad bought by a household or a firm). They are not domestic output, so they are subtracted as $-M$.
+- **Exports** are not part of $`C`$, $`I`$ or $`G`$, but domestic producers earn from them, so they are added as $`+X`$.
+- **Imports** are already included inside $`C`$ and $`I`$ (e.g., an imported iPad bought by a household or a firm). They are not domestic output, so they are subtracted as $`-M`$.
 
 **Financial linkages:** countries are also linked through investment flows. Examples:
 - FIIs/FPIs investing in or withdrawing from India.
@@ -230,7 +230,7 @@ CA + KA = 0 \quad\Longleftrightarrow\quad CA = -KA
 ```math
 S_{pvt} = (Y + NFI + NUT - T + TR) - C
 ```
-where $T$ is taxes and $TR$ is government transfers.
+where $`T`$ is taxes and $`TR`$ is government transfers.
 
 **Government saving:**
 
@@ -244,7 +244,7 @@ S_{gov} = T - TR - G
 S = S_{pvt} + S_{gov} = Y + NFI + NUT - C - G
 ```
 
-**Substitute $Y = C + I + G + X - M$:** $C$, $G$, $T$ and $TR$ cancel, leaving
+**Substitute $`Y = C + I + G + X - M`$:** $`C`$, $`G`$, $`T`$ and $`TR`$ cancel, leaving
 
 ```math
 S = I + \underbrace{(X - M + NFI + NUT)}_{CA}
@@ -261,7 +261,7 @@ S = I + CA \qquad\Longrightarrow\qquad S - I = CA
 ### 2.8 Is a Current Account Deficit Good or Bad?
 
 **Answer: it depends on how the borrowed funds are *used*.**
-- From $S - I = CA$: if $I > S$, then $CA < 0$.
+- From $`S - I = CA`$: if $`I > S`$, then $`CA < 0`$.
 - A deficit driven by **rising investment** is less worrying.
 - A deficit driven by **falling savings** is more worrying.
 
@@ -277,7 +277,7 @@ S = I + CA \qquad\Longrightarrow\qquad S - I = CA
 - An Amul chocolate costs ₹50–60 and is paid in rupees directly.
 - A Hershey's chocolate (US-made) must be paid for in dollars.
 - With an exchange rate of ₹50/$, you convert **₹75 into \$1.50** to buy it.
-- ⚠️ The transcript says "\$15"; the arithmetic ($1.50 \times 50 = 75$) shows the price is **\$1.50**.
+- ⚠️ The transcript says "\$15"; the arithmetic ($`1.50 \times 50 = 75`$) shows the price is **\$1.50**.
 - The lecturer uses ₹50/$ for simplicity instead of the actual ≈₹96. He will switch to ₹100 once the rupee crosses 100, which he expects; reasons come next session.
 
 **Two regimes**, with hybrids in between:
@@ -310,10 +310,10 @@ S = I + CA \qquad\Longrightarrow\qquad S - I = CA
 No explicit exam announcement was made, but the lecturer emphasized:
 - **BoP, current account, trade balance and capital account are four different concepts.** Don't treat them as synonyms.
 - **Credit vs. debit is separate from current vs. capital** (the 2×2 matrix). Expect classification questions like the in-class examples (FDI into India, Tata–Jaguar, Microsoft–Jio, FCNR deposits, remittances, oil imports).
-- **$CA + KA = 0$** and **$S - I = CA$**: know the derivation.
+- **$`CA + KA = 0`$** and **$`S - I = CA`$**: know the derivation.
 - **"Don't put good or bad with deficit."** Judge a current account deficit by whether it comes from rising investment or falling saving, and by how the funds are used.
 - **The interbank rate lies within the repo/reverse-repo corridor.** Know the reasoning and the tight vs. surplus liquidity interpretation.
-- **Monetary transmission:** rate cut → investment up → AD intercept up → output toward $Y^\ast $. Equilibrium is not the same as potential output.
+- **Monetary transmission:** rate cut → investment up → AD intercept up → output toward $`Y^*`$. Equilibrium is not the same as potential output.
 - **Next session:** flexible exchange rates in detail, and why the rupee will likely cross ₹100/$.
 
 <!-- nav -->

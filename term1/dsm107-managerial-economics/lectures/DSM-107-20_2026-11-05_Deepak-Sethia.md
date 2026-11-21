@@ -19,7 +19,7 @@ faculty: Deepak Sethia
 
 This session continues the macroeconomics discussion of unemployment and connects it to inflation and stabilisation policy. It starts by recapping voluntary and involuntary unemployment in the labour market. It then explains why nominal wages are "sticky" (slow to fall): labour contracts, information problems, menu costs, coordination failures, the insider/outsider problem, hiring and firing costs, and efficiency wages. This stickiness explains the shape of the short-run aggregate supply curve: flat below full employment and steep near or above it.
 
-The lecture then introduces the **Phillips curve** (A.W. Phillips, UK data 1861–1913) and its short-run trade-off between unemployment and inflation. It extends this to the **expectations-augmented Phillips curve**, in which inflation can persist even at full employment because wage demands follow expected inflation. This leads to the ideas of **NAIRU**, **inflation inertia**, and the need to "engineer a recession" to lower expectations (the Paul Volcker episode). Three central-bank **credibility** scenarios follow, then the costs of anticipated vs. unanticipated inflation, why **deflation** is worse than inflation, and inflation targeting (RBI: $4\text{%} \pm 2\text{%}$).
+The lecture then introduces the **Phillips curve** (A.W. Phillips, UK data 1861–1913) and its short-run trade-off between unemployment and inflation. It extends this to the **expectations-augmented Phillips curve**, in which inflation can persist even at full employment because wage demands follow expected inflation. This leads to the ideas of **NAIRU**, **inflation inertia**, and the need to "engineer a recession" to lower expectations (the Paul Volcker episode). Three central-bank **credibility** scenarios follow, then the costs of anticipated vs. unanticipated inflation, why **deflation** is worse than inflation, and inflation targeting (RBI: $`4\% \pm 2\%`$).
 
 The session closes with **counter-cyclical vs. pro-cyclical fiscal policy**, the three ways to finance a fiscal deficit, crowding out, and the effect of government borrowing on future generations.
 
@@ -36,18 +36,18 @@ The session closes with **counter-cyclical vs. pro-cyclical fiscal policy**, the
 **Graph described:**
 - Axes: wage rate on the vertical axis; quantity of labour (workers hired) on the horizontal axis.
 - **Labour supply curve:** flat at first, then becomes **steeper**. The steep part arises because, once more workers are needed, firms must compete for the same workers by paying higher wages. The lecturer said "cheaper"; this is an ASR error for "steeper".
-- **Labour demand curve:** downward sloping. The initial equilibrium is at wage $W^\ast $.
+- **Labour demand curve:** downward sloping. The initial equilibrium is at wage $`W^*`$.
 
 **Voluntary unemployment**
-- These are people who would join the workforce only at a wage *higher* than the prevailing $W^\ast $.
+- These are people who would join the workforce only at a wage *higher* than the prevailing $`W^*`$.
 - Examples: someone who left a job because it was too far away; a fresh graduate still searching.
 
 **Recession case**
 - A demand slowdown shifts labour demand **leftward**, so firms want fewer workers.
 - **If workers accepted wage cuts,** the wage would fall and the labour market would clear at a lower wage. Output would still be below potential.
-- **If the wage stays at $W^\ast $** because workers resist nominal wage cuts:
-  - Firms hire only the smaller quantity read off the new demand curve at $W^\ast $.
-  - The gap between the number willing to work at $W^\ast $ and the number hired is **involuntary unemployment**. These workers (shown in red on the slide) are willing to work at the prevailing wage but cannot find jobs.
+- **If the wage stays at $`W^*`$** because workers resist nominal wage cuts:
+  - Firms hire only the smaller quantity read off the new demand curve at $`W^*`$.
+  - The gap between the number willing to work at $`W^*`$ and the number hired is **involuntary unemployment**. These workers (shown in red on the slide) are willing to work at the prevailing wage but cannot find jobs.
 - Firms *would* hire more if wages fell, because lower costs would let them sell more output. Workers, however, resist the cuts.
 - Workers resist cuts to **nominal** wages for morale and motivation reasons. They may also suspect the employer is "bluffing" to raise profits.
 - The typical sequence:
@@ -162,7 +162,7 @@ The session closes with **counter-cyclical vs. pro-cyclical fiscal policy**, the
 - Workers ask for a **3%** raise based on recent experience, so costs rise 3% and **AS shifts up by 3%**.
 - Higher incomes plus monetary accommodation (money supply expanded about 3%) shift **AD up/right by 3%**.
 - The price level rises 3%.
-- After year 1 the price level is $1.03\ P_0$. After year 2 it is:
+- After year 1 the price level is $`1.03\,P_0`$. After year 2 it is:
 
 ```math
 P_2 = (1.03)^2 P_0
@@ -185,7 +185,7 @@ P_2 = (1.03)^2 P_0
 
 **Inflation vs. price level**
 - Inflation is the *rate of change* of the price level.
-- If prices stay where they are, inflation is $0$. Prices do not have to fall for inflation to be zero.
+- If prices stay where they are, inflation is $`0`$. Prices do not have to fall for inflation to be zero.
 
 **Steady state**
 - With 3% every year (wage hike, then costs, then prices), the economy stays at **potential output / full employment** on a Phillips curve whose height reflects 3% expected inflation.
@@ -286,12 +286,12 @@ r_{actual} \approx i - \pi = 6\% - 10\% = -4\%
 - This is a **redistribution from lenders to borrowers**.
 
 **High inflation brings uncertainty**
-- At 25% inflation, an error of $\pm 5$ points (20% or 30%) is very costly. At 3%, an error of 2–4% matters little.
+- At 25% inflation, an error of $`\pm 5`$ points (20% or 30%) is very costly. At 3%, an error of 2–4% matters little.
 - Higher inflation means greater **volatility and uncertainty**, which distorts markets.
 
 **Inflation targeting**
-- RBI's framework targets **$4\text{%} \pm 2\text{%}$**, i.e., a tolerance band of 2% to 6%. Exact precision is impossible, but the band is a commitment.
-- A band like $15\text{%} \pm 5\text{%}$ would make life "interesting" (i.e., bad).
+- RBI's framework targets **$`4\% \pm 2\%`$**, i.e., a tolerance band of 2% to 6%. Exact precision is impossible, but the band is a commitment.
+- A band like $`15\% \pm 5\%`$ would make life "interesting" (i.e., bad).
 
 ### 2.12 Why deflation is more dangerous than inflation
 
@@ -300,7 +300,7 @@ r_{actual} \approx i - \pi = 6\% - 10\% = -4\%
 2. **Postponed spending:** consumers delay purchases, and firms delay building factories ("build it tomorrow"), and tomorrow may never come.
 3. **Zero lower bound:** in deflation, interest rates are already near zero and cannot go meaningfully negative. Monetary policy cannot stimulate investment further.
 
-**Example: a ₹100 loan at 0% interest with $\pi = -2\text{%}$**
+**Example: a ₹100 loan at 0% interest with $`\pi = -2\%`$**
 - ₹100 is repaid, but it buys more than before. The real rate is:
 
 ```math
@@ -317,7 +317,7 @@ r \approx i - \pi = 0 - (-2\%) = +2\%
 
 **Graph described**
 - Axes: **time** on the horizontal axis; **output gap** on the vertical axis.
-- An output gap of $0$ means the economy is at full employment.
+- An output gap of $`0`$ means the economy is at full employment.
 - The blue "business as usual" line oscillates around zero (booms above, recessions below).
 
 **Pro-cyclical policy (wrong)**
@@ -418,8 +418,8 @@ r \approx i - \pi \quad (\text{examples: } 6\% - 10\% = -4\%;\ \ 0 - (-2\%) = +2
 ```math
 FD = G - T
 ```
-- Seigniorage per ₹2,000 note: about $2000 - 10 = 1990$ rupees.
-- RBI target: $\pi^\ast  = 4\text{%} \pm 2\text{%}$.
+- Seigniorage per ₹2,000 note: about $`2000 - 10 = 1990`$ rupees.
+- RBI target: $`\pi^* = 4\% \pm 2\%`$.
 
 ---
 
@@ -428,7 +428,7 @@ FD = G - T
 No explicit exam or assignment instructions were given in this session. Only the PPT was promised.
 
 Concepts the lecturer stressed repeatedly and that are likely examinable:
-- **Voluntary vs. involuntary unemployment**, using the labour-market graph with a sticky wage at $W^\ast $.
+- **Voluntary vs. involuntary unemployment**, using the labour-market graph with a sticky wage at $`W^*`$.
 - The **reasons for wage stickiness** (list and explain).
 - **Why the AS curve is flat below and steep above full employment.**
 - The **Phillips curve** and its trade-off. Know that **the height of the Phillips curve equals expected inflation**, and be able to explain **NAIRU** and **inflation inertia**.

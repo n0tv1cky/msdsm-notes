@@ -201,7 +201,7 @@ So **Q is a function of P** — P and Q are linked, and P cannot be treated as a
 
 **(i) The zero-isoprofit curve**
 - With unit cost $2, the curve for **π = 0** is a **flat horizontal line at P = 2**.
-- Every point on it (10,000 units at $2; 20,000 units at $2; …) yields π = (2 − 2)·Q = **0 for any Q**.
+- Every point on it (10,000 units at $`2; 20,000 units at`$2; …) yields π = (2 − 2)·Q = **0 for any Q**.
 - The **position of the zero-isoprofit line tells you the unit cost** (here, $2).
 
 **(ii) The π = $10,000 isoprofit curve** *(worked numbers, C = $2)*

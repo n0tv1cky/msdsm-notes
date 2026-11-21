@@ -17,7 +17,7 @@ faculty: Abhirup Datta
 
 ## 1. Overview
 
-This session has two technical halves plus course admin. After settling exam-format and class-project logistics (groups of four, an EDA-style class project, and scheduling extra weekend sessions), the instructor moves into **pandas DataFrames**: how a DataFrame differs from a `dict`/`list` (automatic indexing, labelled columns), how to build one from a dictionary of lists, and how to combine several DataFrames with `pd.merge()` — including merging on a column whose row order differs between tables, merging on a *different* key (`group` instead of `employee`), what happens when a key value is missing (the row silently disappears under the default inner join), and the "row explosion" problem you get when one key maps to several values (multiple skills per group). That last point is left as an open exercise: collapse the exploded table back to **one row per employee with the skills stored as a list**, using `groupby`/aggregation. The second half introduces **user-defined functions with default arguments**, simulating noisy data with NumPy (a downward parabola $y=-x^2$ plus random noise of tunable amplitude), plotting raw noisy data as dots versus the underlying "mean curve" as a line — the conceptual basis of regression/curve fitting — and finally **1-D interpolation with `scipy.interpolate.interp1d`** using the four kinds `'nearest'`, `'linear'`, `'quadratic'`, `'cubic'`, comparing how each reconstructs the trend from noisy points.
+This session has two technical halves plus course admin. After settling exam-format and class-project logistics (groups of four, an EDA-style class project, and scheduling extra weekend sessions), the instructor moves into **pandas DataFrames**: how a DataFrame differs from a `dict`/`list` (automatic indexing, labelled columns), how to build one from a dictionary of lists, and how to combine several DataFrames with `pd.merge()` — including merging on a column whose row order differs between tables, merging on a *different* key (`group` instead of `employee`), what happens when a key value is missing (the row silently disappears under the default inner join), and the "row explosion" problem you get when one key maps to several values (multiple skills per group). That last point is left as an open exercise: collapse the exploded table back to **one row per employee with the skills stored as a list**, using `groupby`/aggregation. The second half introduces **user-defined functions with default arguments**, simulating noisy data with NumPy (a downward parabola $`y=-x^2`$ plus random noise of tunable amplitude), plotting raw noisy data as dots versus the underlying "mean curve" as a line — the conceptual basis of regression/curve fitting — and finally **1-D interpolation with `scipy.interpolate.interp1d`** using the four kinds `'nearest'`, `'linear'`, `'quadratic'`, `'cubic'`, comparing how each reconstructs the trend from noisy points.
 
 > **Reconstruction note:** the instructor typed code live and pasted it into chat; the transcript only captures fragments of it. Code blocks below are best-effort reconstructions from the spoken walkthrough. Places where the exact literal values / syntax had to be inferred are explicitly marked `# INFERRED`.
 
@@ -196,7 +196,7 @@ def create_data(n, xmax=10, amp_noise=1.5):
 Points made while walking through it:
 
 - `np.linspace(0, xmax, n)` generates `n` evenly spaced numbers from `0` to `xmax`.
-- The curve is $y = -x^{2}$ — a **downward** parabola (the instructor corrected a student who said $y = x^2$: "It's not an upward parabola, it's a downward parabola").
+- The curve is $`y = -x^{2}`$ — a **downward** parabola (the instructor corrected a student who said $`y = x^2`$: "It's not an upward parabola, it's a downward parabola").
 - **`+=` operator:** `y_data += amp_noise` is *exactly equivalent* to `y_data = y_data + amp_noise`. "Plus-equals expresses that addition — it makes life simpler."
 - **Default arguments vs. hard-coding (important design lesson):**
   - If you write `xmax = 10` *inside* the function body, the value is **hard-coded** and the function can only ever do one thing.
@@ -233,7 +233,7 @@ Experiment run live — **only `amp_noise` was changed**, everything else identi
 Given only the scatter of dots:
 - Is there a **trend**?
 - Can I represent this data by a **straight line**, or do I need a **curved** line?
-- We happen to know the truth here is $-x^2$ (curved), but the point is whether the *data alone* forces that conclusion. **Can I rule out a linear fit?**
+- We happen to know the truth here is $`-x^2`$ (curved), but the point is whether the *data alone* forces that conclusion. **Can I rule out a linear fit?**
 
 ### 3.11 1-D interpolation with SciPy
 
@@ -288,8 +288,8 @@ plt.show()
 | default/keyword argument `xmax=10` | Gives the parameter a fallback value; caller may override or omit it. |
 | `return` | Send value(s) back to the caller; multiple values come back as a tuple. |
 | `np.linspace(start, stop, n)` | `n` evenly spaced values from `start` to `stop` inclusive. |
-| `**` | Exponentiation operator, e.g. `x_data**2` is $x^2$. |
-| `+=` | In-place add: `y += a` $\equiv$ `y = y + a`. |
+| `**` | Exponentiation operator, e.g. `x_data**2` is $`x^2`$. |
+| `+=` | In-place add: `y += a` $`\equiv`$ `y = y + a`. |
 | `np.random.randn(n)` | `n` standard-normal random numbers (used to build the noise vector). *(INFERRED — the exact noise generator wasn't spoken.)* |
 | `plt.plot(x, y, fmt)` | Plot y vs x; `fmt` chooses marker/line style and colour (`'o'`, `'r'`, `'k'`, `'y'`). |
 | `plt.show()` | Render the figure. |
@@ -304,21 +304,21 @@ plt.show()
 
 - Simulated signal (the "mean curve"):
 
-  $$y = -x^{2}$$
+  $`\displaystyle y = -x^{2}`$
 
-  (downward-opening parabola on $x \in [0, x_{\max}]$, default $x_{\max} = 10$)
+  (downward-opening parabola on $`x \in [0, x_{\max}]`$, default $`x_{\max} = 10`$)
 
 - Noisy observed data:
 
-  $$y_{\text{data}} = -x_{\text{data}}^{2} + a_{\text{noise}}\cdot \varepsilon,\qquad \varepsilon \sim \mathcal{N}(0,1)$$
+  $`\displaystyle y_{\text{data}} = -x_{\text{data}}^{2} + a_{\text{noise}}\cdot \varepsilon,\qquad \varepsilon \sim \mathcal{N}(0,1)`$
 
-  with $a_{\text{noise}} \in \lbrace 0.5,\ 1.5,\ 4.5\rbrace $ tried in class (`amp_noise`).
+  with $`a_{\text{noise}} \in \{0.5,\,1.5,\,4.5\}`$ tried in class (`amp_noise`).
 
 - Compound-assignment identity:
 
-  $$\texttt{y\_data += amp\_noise} \ \ \equiv\ \  \texttt{y\_data = y\_data + amp\_noise}$$
+  $`\displaystyle \texttt{y\_data += amp\_noise} \;\;\equiv\;\; \texttt{y\_data = y\_data + amp\_noise}`$
 
-- Grid used for evaluation: $x_{\text{fine}} = \text{linspace}(0,\ x_{\max},\ N_{\text{fine}})$, with $N_{\text{fine}} \gg n$ so the interpolant is drawn smoothly.
+- Grid used for evaluation: $`x_{\text{fine}} = \text{linspace}(0,\,x_{\max},\,N_{\text{fine}})`$, with $`N_{\text{fine}} \gg n`$ so the interpolant is drawn smoothly.
 
 ---
 

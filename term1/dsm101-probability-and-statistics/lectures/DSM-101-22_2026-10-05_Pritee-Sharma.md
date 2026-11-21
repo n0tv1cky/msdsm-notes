@@ -122,22 +122,22 @@ These are errors that arise from the survey responses themselves.
 
 **Worked example: which sample is better?**
 
-| | Sample size $n$ | Response rate | Approx. number of responses |
+| | Sample size $`n`$ | Response rate | Approx. number of responses |
 |---|---|---|---|
-| Sample 1 | $n = 2{,}000$ | 90% | $0.90 \times 2000 = 1800$ |
-| Sample 2 | $n = 1{,}000{,}000$ (10 lakh) | 20% | $0.20 \times 10^{6} = 200{,}000$ |
+| Sample 1 | $`n = 2{,}000`$ | 90% | $`0.90 \times 2000 = 1800`$ |
+| Sample 2 | $`n = 1{,}000{,}000`$ (10 lakh) | 20% | $`0.20 \times 10^{6} = 200{,}000`$ |
 
 (The response counts are derived for clarity; the instructor gave only sizes and rates.)
 
 - **Answer: Sample 1 is better.** A small, representative sample with a high response rate is more useful for inference than a large but probably unrepresentative sample.
-- The intuition that "bigger $n$ is always better," or that $n \to N$ (approaching a census) guarantees accuracy, is **not true**. What matters is **how representative** the respondents are.
+- The intuition that "bigger $`n`$ is always better," or that $`n \to N`$ (approaching a census) guarantees accuracy, is **not true**. What matters is **how representative** the respondents are.
 
-**Illustration of sample size $n$ vs. population size $N$:**
-- $n = 100$, $N = 150$
-- $n = 20$, $N = 25$
-- $n = 20$, $N = 500$
+**Illustration of sample size $`n`$ vs. population size $`N`$:**
+- $`n = 100`$, $`N = 150`$
+- $`n = 20`$, $`N = 25`$
+- $`n = 20`$, $`N = 500`$
 
-When $n$ is close to $N$, the sample covers most of the population. However, the instructor stressed that representativeness, meaning a well-spread sample with high response, matters more than sheer size.
+When $`n`$ is close to $`N`$, the sample covers most of the population. However, the instructor stressed that representativeness, meaning a well-spread sample with high response, matters more than sheer size.
 - *Example:* 50 well-distributed respondents can be better than 250 respondents clustered in one area.
 
 ### 2.5 Probability sampling
@@ -156,7 +156,7 @@ When $n$ is close to $N$, the sample covers most of the population. However, the
 - *Worked example (horses):*
   1. Number the 380 horses from 1 to 380.
   2. Move through the random number table in sequence.
-  3. Accept each number $\le 380$ and **skip any number $> 380$**.
+  3. Accept each number $`\le 380`$ and **skip any number $`> 380`$**.
   4. Continue until 100 horses are selected.
 
 **Student examples of SRS:**
@@ -167,18 +167,18 @@ When $n$ is close to $N$, the sample covers most of the population. However, the
 
 #### (ii) Systematic sampling
 1. Choose the **first element randomly**.
-2. Then select **every $k$-th element**, where
+2. Then select **every $`k`$-th element**, where
 
 ```math
 k = \frac{N}{n}
 ```
 
-Here $N$ is the population (universe) size and $n$ is the desired sample size. Both must be known in advance.
+Here $`N`$ is the population (universe) size and $`n`$ is the desired sample size. Both must be known in advance.
 
 - *Worked example (school attendance):*
   - A village has 5,000 households and 1,000 children enrolled in school.
-  - To study how regularly students attend school, and what affects regularity, draw $n = 100$ from $N = 1000$.
-  - $k = \dfrac{1000}{100} = 10$.
+  - To study how regularly students attend school, and what affects regularity, draw $`n = 100`$ from $`N = 1000`$.
+  - $`k = \dfrac{1000}{100} = 10`$.
   - Pick the first student randomly, then every **10th student**.
 
 #### (iii) Stratified sampling
@@ -190,7 +190,7 @@ Here $N$ is the population (universe) size and $n$ is the desired sample size. B
   - A rural area has 5,000 households, stratified by income group.
   - A 10% sample is drawn from each stratum (proportional allocation). The per-stratum sample sizes are computed from the 10% rule:
 
-| Stratum | Households $N_h$ | Sample at 10% |
+| Stratum | Households $`N_h`$ | Sample at 10% |
 |---|---|---|
 | Low income (LIG) | 1,000 | 100 |
 | Middle income (MIG) | 3,500 | 350 |
@@ -214,11 +214,11 @@ Here $N$ is the population (universe) size and $n$ is the desired sample size. B
 No explicit exam or assignment instructions were given in this session. The following points were emphasised and are likely test material:
 
 - **Population → sampling frame → sample → response**, and the error at each stage: frame error, chance error, response error.
-- $\text{Total error} = \text{Sampling error} + \text{Non-sampling (measurement) error}$. Reduce non-sampling error first through a reliable, valid, well-constructed instrument.
+- $`\text{Total error} = \text{Sampling error} + \text{Non-sampling (measurement) error}`$. Reduce non-sampling error first through a reliable, valid, well-constructed instrument.
 - **Response vs. nonresponse vs. instrument error.** Know how to classify a given scenario. A question misunderstood because of its wording is **instrument error**, not response error.
 - The five response-error types: subject lies, subject mistake, interviewer mistake, interviewer cheating, and interviewer effects.
-- **Sample 1 ($n = 2000$, 90% response) beats Sample 2 ($n = 10^{6}$, 20% response).** Representativeness matters more than size.
-- Systematic sampling interval: $k = N/n$.
+- **Sample 1 ($`n = 2000`$, 90% response) beats Sample 2 ($`n = 10^{6}`$, 20% response).** Representativeness matters more than size.
+- Systematic sampling interval: $`k = N/n`$.
 - **Probability vs. non-probability samples:**
   - Probability sampling gives a known chance of selection; SRS gives an equal chance.
   - Stratified sampling uses non-overlapping homogeneous strata with SRS within each.

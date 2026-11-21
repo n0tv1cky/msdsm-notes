@@ -26,7 +26,7 @@ The session covered:
 - a NumPy `polyfit` refresher and a Seaborn `regplot` visualization;
 - the scikit-learn workflow: train/test split, standardization with `StandardScaler`, then **create → fit → predict → evaluate**;
 - converting standardized coefficients back to original units;
-- evaluating fits with MSE, RMSE, and $R^2$;
+- evaluating fits with MSE, RMSE, and $`R^2`$;
 - extending to multiple linear regression (age, BMI, blood pressure) with a correlation heatmap.
 
 The session ended with Q&A on `fit_transform` vs `transform`.
@@ -75,7 +75,7 @@ The session ended with Q&A on `fit_transform` vs `transform`.
 y = \alpha + \beta x
 ```
 
-**Multiple linear regression** ($n$ features):
+**Multiple linear regression** ($`n`$ features):
 
 ```math
 y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n
@@ -83,29 +83,29 @@ y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n
 
 What each symbol means:
 
-- $y$ is the **dependent variable**, or target. Here it is disease progression after one year.
-- $x_1, \dots, x_n$ are the **independent variables**, or features: BMI, blood pressure, blood sugar, and so on.
-- $\alpha$ is the **intercept**: the predicted $y$ when every feature equals $0$.
-- $\beta_j$ is the **coefficient** of feature $j$: the change in $y$ when $x_j$ rises by one unit and all other features stay unchanged.
+- $`y`$ is the **dependent variable**, or target. Here it is disease progression after one year.
+- $`x_1, \dots, x_n`$ are the **independent variables**, or features: BMI, blood pressure, blood sugar, and so on.
+- $`\alpha`$ is the **intercept**: the predicted $`y`$ when every feature equals $`0`$.
+- $`\beta_j`$ is the **coefficient** of feature $`j`$: the change in $`y`$ when $`x_j`$ rises by one unit and all other features stay unchanged.
 
 How to read the coefficients:
 
-| Value of $\beta_j$ | Meaning |
+| Value of $`\beta_j`$ | Meaning |
 |---|---|
-| $\beta_j > 0$ | as the feature grows, $y$ grows |
-| $\beta_j < 0$ | as the feature grows, $y$ falls |
-| $\beta_j = 0$ | the feature has no effect |
+| $`\beta_j > 0`$ | as the feature grows, $`y`$ grows |
+| $`\beta_j < 0`$ | as the feature grows, $`y`$ falls |
+| $`\beta_j = 0`$ | the feature has no effect |
 
-- A larger $|\beta_j|$ means a stronger effect.
+- A larger $`|\beta_j|`$ means a stronger effect.
 - ⚠️ **You can only compare coefficient sizes when the features are on the same scale.** This is one reason to standardize.
 
-**Least-squares objective.** The model picks $\alpha, \beta$ to make the **sum of squared errors** as small as possible:
+**Least-squares objective.** The model picks $`\alpha, \beta`$ to make the **sum of squared errors** as small as possible:
 
 ```math
 \min_{\alpha,\,\beta} \; \sum_{i=1}^{N} \big(y_i - (\alpha + \beta x_i)\big)^2
 ```
 
-A **residual** is $y_i - \hat{y}_i$, the vertical distance from a data point to the fitted line. Fitting means minimizing the sum of squared residuals.
+A **residual** is $`y_i - \hat{y}_i`$, the vertical distance from a data point to the fitted line. Fitting means minimizing the sum of squared residuals.
 
 ### 2.5 Refresher: least squares with `np.polyfit`
 
@@ -137,9 +137,9 @@ plt.xlabel("BMI"); plt.ylabel("y"); plt.legend(); plt.show()
 - **What does `polyfit` do?**
   - It performs a **least-squares polynomial fit**.
   - The third argument is the **degree**:
-    - `1` gives a first-order fit, $y = \alpha + \beta x$ (a straight line, 2 parameters).
-    - `2` adds a quadratic term, $y = \alpha + \beta x + \gamma x^2$ (3 parameters, a curve).
-    - `3` adds a cubic term $\delta x^3$, and so on.
+    - `1` gives a first-order fit, $`y = \alpha + \beta x`$ (a straight line, 2 parameters).
+    - `2` adds a quadratic term, $`y = \alpha + \beta x + \gamma x^2`$ (3 parameters, a curve).
+    - `3` adds a cubic term $`\delta x^3`$, and so on.
   - It returns coefficients from the **highest power down**. For degree 1 that is `[slope, intercept]`.
 
 **Live demo of degree choice:**
@@ -290,7 +290,7 @@ beta_std  = model.coef_[0]
 
 - `alpha_std` and `beta_std` are the intercept and slope **in standardized BMI units**.
 
-**Converting back to original BMI units.** Since $z = (x-\mu)/\sigma$:
+**Converting back to original BMI units.** Since $`z = (x-\mu)/\sigma`$:
 
 ```math
 \hat{y} = \alpha_{\text{std}} + \beta_{\text{std}}\,\frac{x-\mu}{\sigma}
@@ -311,11 +311,11 @@ Reported results:
   - This equals roughly the mean of `y_train`, which is what you expect after standardizing.
 - **Original units:** the instructor read the equation as
 
-  $$\text{progression} \approx -180 + 10 \times \text{BMI}$$
+  $`\displaystyle \text{progression} \approx -180 + 10 \times \text{BMI}`$
 
 - ⚠️ **Sanity check on the −180:**
-  - A correct intercept should satisfy $\alpha_{\text{raw}} + \beta_{\text{raw}}\ \mu \approx \bar{y}_{\text{train}} \approx 152$.
-  - With $\beta_{\text{raw}} \approx 10$ and $\mu \approx 26$, that implies $\alpha_{\text{raw}} \approx -110$ to $-120$.
+  - A correct intercept should satisfy $`\alpha_{\text{raw}} + \beta_{\text{raw}}\,\mu \approx \bar{y}_{\text{train}} \approx 152`$.
+  - With $`\beta_{\text{raw}} \approx 10`$ and $`\mu \approx 26`$, that implies $`\alpha_{\text{raw}} \approx -110`$ to $`-120`$.
   - The "−180" may be a transcription error. Verify with your own run.
 
 **Step 3: predict.**
@@ -358,7 +358,7 @@ Some red test points sit near the line, but many are far from it.
 \text{MSE} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2
 ```
 
-**Root mean squared error.** This is in the same units as $y$, which makes it easier to interpret:
+**Root mean squared error.** This is in the same units as $`y`$, which makes it easier to interpret:
 
 ```math
 \text{RMSE} = \sqrt{\text{MSE}}
@@ -370,13 +370,13 @@ Some red test points sit near the line, but many are far from it.
 R^2 = 1 - \frac{\sum_i (y_i - \hat{y}_i)^2}{\sum_i (y_i - \bar{y})^2}
 ```
 
-$R^2$ compares your model against a baseline model that **always predicts the average** $\bar{y}$:
+$`R^2`$ compares your model against a baseline model that **always predicts the average** $`\bar{y}`$:
 
-| $R^2$ | Meaning |
+| $`R^2`$ | Meaning |
 |---|---|
-| $R^2 = 0$ | no better than predicting the mean |
-| $R^2 = 1$ | perfect fit |
-| $R^2 < 0$ | worse than predicting the mean (possible on test data) |
+| $`R^2 = 0`$ | no better than predicting the mean |
+| $`R^2 = 1`$ | perfect fit |
+| $`R^2 < 0`$ | worse than predicting the mean (possible on test data) |
 
 He computed the metrics manually and then confirmed them with `sklearn.metrics`:
 
@@ -388,7 +388,7 @@ r2   = r2_score(y_test, y_pred)
 
 **BMI-only result:**
 
-- $R^2 \approx 0.19$, so BMI alone explains only about **19%** of the variance in progression. The audio said "90%"; the correct figure is 19%.
+- $`R^2 \approx 0.19`$, so BMI alone explains only about **19%** of the variance in progression. The audio said "90%"; the correct figure is 19%.
 - **Conclusion: a poor fit.** BMI is related to progression, but many other factors matter too.
 
 ### 2.11 Multiple linear regression (age, BMI, BP)
@@ -437,15 +437,15 @@ y_pred = model.predict(X_test_scaled)
 mse = mean_squared_error(y_test, y_pred); rmse = np.sqrt(mse); r2 = r2_score(y_test, y_pred)
 ```
 
-- The intercept is $\alpha \approx 151$.
+- The intercept is $`\alpha \approx 151`$.
 - The standardized coefficients are shown as a bar plot. Because all features are standardized, their bar heights **can be compared**.
 
 **Reported metrics (the audio is ambiguous here):**
 
-- The instructor read MSE ≈ 4150, RMSE ≈ 64, and an $R^2$ heard as "49" / "point two-something".
-  - The MSE and RMSE are consistent with each other ($\sqrt{4150} \approx 64$).
-  - The exact $R^2$ is unclear; recompute it yourself.
-- The clear message: **$R^2$ improved over BMI alone, but it is still far from 1.**
+- The instructor read MSE ≈ 4150, RMSE ≈ 64, and an $`R^2`$ heard as "49" / "point two-something".
+  - The MSE and RMSE are consistent with each other ($`\sqrt{4150} \approx 64`$).
+  - The exact $`R^2`$ is unclear; recompute it yourself.
+- The clear message: **$`R^2`$ improved over BMI alone, but it is still far from 1.**
 
 **Final plot:** actual vs. predicted progression on the test set, with the original values in blue and the fitted values overlaid.
 
@@ -490,17 +490,17 @@ mse = mean_squared_error(y_test, y_pred); rmse = np.sqrt(mse); r2 = r2_score(y_t
 | `load_diabetes()` | loads the built-in diabetes dataset (442 × 10) |
 | `.data`, `.target`, `.feature_names`, `.DESCR` | the dataset's features, target, feature names, and text description |
 | `train_test_split(X, y, test_size, random_state)` | splits the data into train and test sets |
-| `StandardScaler()` | z-score standardization: $z=(x-\mu)/\sigma$ |
-| `.fit_transform()` | learns $\mu$ and $\sigma$, then scales; use on **train only** |
-| `.transform()` | scales using the stored $\mu$ and $\sigma$; use on test and new data |
+| `StandardScaler()` | z-score standardization: $`z=(x-\mu)/\sigma`$ |
+| `.fit_transform()` | learns $`\mu`$ and $`\sigma`$, then scales; use on **train only** |
+| `.transform()` | scales using the stored $`\mu`$ and $`\sigma`$; use on test and new data |
 | `.mean_`, `.scale_` | the learned mean and standard deviation per feature |
 | `LinearRegression()` | ordinary least-squares linear model |
-| `.fit(X, y)` | learns $\alpha$ and $\beta$ |
-| `.predict(X)` | returns predictions $\hat{y}$ |
-| `.intercept_` | the fitted $\alpha$ |
-| `.coef_` | array of fitted $\beta$ values, one per feature |
+| `.fit(X, y)` | learns $`\alpha`$ and $`\beta`$ |
+| `.predict(X)` | returns predictions $`\hat{y}`$ |
+| `.intercept_` | the fitted $`\alpha`$ |
+| `.coef_` | array of fitted $`\beta`$ values, one per feature |
 | `mean_squared_error(y_true, y_pred)` | computes MSE |
-| `r2_score(y_true, y_pred)` | computes $R^2$ |
+| `r2_score(y_true, y_pred)` | computes $`R^2`$ |
 
 **pandas**
 
@@ -531,12 +531,12 @@ mse = mean_squared_error(y_test, y_pred); rmse = np.sqrt(mse); r2 = r2_score(y_t
 - **`X` must be 2-D** for scikit-learn. Use `df[["bmi"]]` (double brackets), not `df["bmi"]`. A 1-D `X` raises a "Expected 2D array" error.
 - **Never call `fit_transform` on test data or new data.** Use `transform` with the scaler fitted on the training data. Otherwise you get data leakage and inconsistent scaling.
 - **New inputs must be scaled with the same scaler** before calling `.predict()`.
-- **Coefficients from a standardized model are in standardized units.** Convert them with $\beta_{\text{raw}} = \beta_{\text{std}}/\sigma$ and $\alpha_{\text{raw}} = \alpha_{\text{std}} - \beta_{\text{raw}}\mu$ to interpret them in real units.
+- **Coefficients from a standardized model are in standardized units.** Convert them with $`\beta_{\text{raw}} = \beta_{\text{std}}/\sigma`$ and $`\alpha_{\text{raw}} = \alpha_{\text{std}} - \beta_{\text{raw}}\mu`$ to interpret them in real units.
 - **Compare coefficient magnitudes only when features share a scale.** Standardizing makes this valid.
 - **Set `random_state`** so your split, and therefore your metrics, are reproducible.
 - **`np.polyfit` returns coefficients highest power first.** For degree 1 that is `[slope, intercept]`, not `[intercept, slope]`.
 - **Pick the polynomial degree to match the data.** A higher degree is not automatically better.
-- **Check your numbers:** RMSE should equal $\sqrt{\text{MSE}}$, and the line in original units should predict roughly $\bar{y}$ at $x=\mu$.
+- **Check your numbers:** RMSE should equal $`\sqrt{\text{MSE}}`$, and the line in original units should predict roughly $`\bar{y}`$ at $`x=\mu`$.
 - `load_diabetes()` features are **pre-scaled by default**. Use `scaled=False` if you want real BMI values (mean about 26).
 - "Regression" in ML is **not** "regression testing" in software QA.
 
@@ -550,8 +550,8 @@ mse = mean_squared_error(y_test, y_pred); rmse = np.sqrt(mse); r2 = r2_score(y_t
   - the 4-step create → fit → predict → evaluate workflow;
   - the purpose of a train/test split;
   - `fit_transform` vs. `transform`;
-  - formulas and interpretation of MSE, RMSE, and $R^2$, including what $R^2 = 0$ and $R^2 = 1$ mean;
-  - interpreting the sign and magnitude of $\beta$;
+  - formulas and interpretation of MSE, RMSE, and $`R^2`$, including what $`R^2 = 0`$ and $`R^2 = 1`$ mean;
+  - interpreting the sign and magnitude of $`\beta`$;
   - the least-squares objective.
 
 <!-- nav -->

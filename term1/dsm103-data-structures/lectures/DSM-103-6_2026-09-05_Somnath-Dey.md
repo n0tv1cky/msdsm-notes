@@ -18,7 +18,7 @@ faculty: Somnath Dey
 
 ## 1. Overview
 
-This session completes the linked-list block of the course. It opens with a discussion of **real-world applications of linked lists** (playlists, queue implementation, insertion into a sorted sequence, polynomial representation, and free-space/memory management), then introduces the **doubly linked list (DLL)** — its node structure (left link / data / right link), header node, and the **circular doubly linked list**. The class derives, line by line and interactively, the algorithms for **traversal (forward and backward)**, **insertion after the header (front)**, **insertion at the end**, and **insertion at the end of a circular DLL** (showing how the header's left link gives $O(1)$ access to the last node instead of $O(n)$). A concrete address-level example (header at 100, new node at 200, existing node at 300) is used to clear up confusion about what `NEW`, `NEW->RLINK` and `PTR->LLINK` actually store. The second half applies multi-linked lists to the **sparse matrix problem**: why triangular/diagonal array representations fail, the memory comparison between a dense array and a linked representation, the five-field node `(i, j, data, row link, column link)`, row headers / column headers / main header, and the resulting $O(n+n)=O(n)$ element-access cost versus $O(1)$ for an array. The lecture closes with an impromptu **introduction to asymptotic ($O$) notation** for a student new to it, plus detailed **exam format information**.
+This session completes the linked-list block of the course. It opens with a discussion of **real-world applications of linked lists** (playlists, queue implementation, insertion into a sorted sequence, polynomial representation, and free-space/memory management), then introduces the **doubly linked list (DLL)** — its node structure (left link / data / right link), header node, and the **circular doubly linked list**. The class derives, line by line and interactively, the algorithms for **traversal (forward and backward)**, **insertion after the header (front)**, **insertion at the end**, and **insertion at the end of a circular DLL** (showing how the header's left link gives $`O(1)`$ access to the last node instead of $`O(n)`$). A concrete address-level example (header at 100, new node at 200, existing node at 300) is used to clear up confusion about what `NEW`, `NEW->RLINK` and `PTR->LLINK` actually store. The second half applies multi-linked lists to the **sparse matrix problem**: why triangular/diagonal array representations fail, the memory comparison between a dense array and a linked representation, the five-field node `(i, j, data, row link, column link)`, row headers / column headers / main header, and the resulting $`O(n+n)=O(n)`$ element-access cost versus $`O(1)`$ for an array. The lecture closes with an impromptu **introduction to asymptotic ($`O`$) notation** for a student new to it, plus detailed **exam format information**.
 
 ---
 
@@ -31,11 +31,11 @@ This session completes the linked-list block of the course. It opens with a disc
   - "Play in the order entered" behaviour = **queue** (FIFO). Point made: a **queue is an abstract data type (ADT)**; its *internal implementation* can be done with a linked list (doubly linked list was used as the example).
 - **Insertion into a sorted list:**
   - Example given: sorted list `1 2 4 5 6 7 8`, insert `3` between `2` and `4`.
-  - **Array:** you must locate the position, then shift every element after that position one slot to the right to free a space → expensive, $O(n)$ data movement.
+  - **Array:** you must locate the position, then shift every element after that position one slot to the right to free a space → expensive, $`O(n)`$ data movement.
   - **Linked list:** go to the position, create a node, re-link → **no shifting of elements**. This is the key advantage of a linked list over an array for insertion.
 - **Polynomial representation:**
-  - Example polynomials: $f_1(x) = a_5x^5 + a_3x^3 + a_1x + b$ and $f_2(x) = a_4x^4 + a_3x^3 + b_1x + c$.
-  - **Node layout:** `[ coefficient | exponent | link ]` — one field for the coefficient $a_i$, one for the exponent (power), one link to the next term.
+  - Example polynomials: $`f_1(x) = a_5x^5 + a_3x^3 + a_1x + b`$ and $`f_2(x) = a_4x^4 + a_3x^3 + b_1x + c`$.
+  - **Node layout:** `[ coefficient | exponent | link ]` — one field for the coefficient $`a_i`$, one for the exponent (power), one link to the next term.
   - Operations such as **addition and multiplication of two polynomials** create new exponent/coefficient terms, which can simply be inserted as new nodes into a result list.
 - **Memory management (free-list):**
   - A large memory block may have **non-contiguous free spaces**. You keep track of them by **linking each free block to the next free block** — i.e., a linked list of free regions. This is a standard OS/memory-manager use of linked lists.
@@ -99,7 +99,7 @@ The traversal algorithm is **structurally the same as for a singly linked list**
 
 - Only **one pointer** is needed for traversal (a student asked whether two are required — answer: no). The same `PTR` is reused; the direction is chosen by whether you assign `PTR = PTR->RLINK` or `PTR = PTR->LLINK`.
 - **Termination condition:** `PTR != NULL` for a linear list. For a **circular** list the test becomes `PTR != HEADER` instead of `PTR != NULL`.
-- **Complexity:** $O(n)$ time, $O(1)$ extra space.
+- **Complexity:** $`O(n)`$ time, $`O(1)`$ extra space.
 
 ---
 
@@ -122,7 +122,7 @@ Goal: insert a new node between HEADER and the current first node (20).
   but the **order matters** — you must fix the old first node's LLINK *before* overwriting `HEADER->RLINK`.
 - The instructor recommended introducing `PTR = HEADER->RLINK` as an **initialization (step 0/1)** precisely to avoid the confusing double-dereference `(HEADER->RLINK)->LLINK`.
 - **Four links are touched in total:** two outgoing from `NEW`, one in HEADER, one in the old first node.
-- **Complexity:** $O(1)$.
+- **Complexity:** $`O(1)`$.
 
 #### Address-level worked example (clarifying what a pointer stores)
 
@@ -141,10 +141,10 @@ After the insertion:
 
 | Field | Value stored |
 |---|---|
-| `NEW->RLINK` | $300$ (address of node 20 / PTR) |
-| `NEW->LLINK` | $100$ (address of HEADER) |
-| `PTR->LLINK` (node 20's left link) | $200$ (address of NEW) |
-| `HEADER->RLINK` | $200$ (address of NEW) |
+| `NEW->RLINK` | $`300`$ (address of node 20 / PTR) |
+| `NEW->LLINK` | $`100`$ (address of HEADER) |
+| `PTR->LLINK` (node 20's left link) | $`200`$ (address of NEW) |
+| `HEADER->RLINK` | $`200`$ (address of NEW) |
 
 ---
 
@@ -187,11 +187,11 @@ The instructor asked the class to find the line at which the above algorithm **b
 - **Why `PTR = HEADER` and not `PTR = HEADER->RLINK`:** the instructor stressed that if you start at `HEADER->RLINK` and use this loop form, on an empty list the loop breaks with `PTR` sitting on `NULL`, which is not what you want — you want `PTR` to end up on the **last real node**.
 - Student question: *"what about the left link of NULL?"* — **Answer: `NULL` is not a node**; it is a single value with no `LLINK`/`RLINK` structure. You cannot and need not assign anything to it.
 - Order note discussed in class: you may write `NEW->LLINK = PTR` before or after `PTR->RLINK = NEW`, because `PTR` itself is not being modified — it still points at the old last node either way.
-- **Complexity:** $O(n)$ (dominated by the traversal to reach the end), $O(1)$ extra space.
+- **Complexity:** $`O(n)`$ (dominated by the traversal to reach the end), $`O(1)`$ extra space.
 
 ---
 
-### 2.8 Insertion at the end of a **circular** DLL — the $O(1)$ trick
+### 2.8 Insertion at the end of a **circular** DLL — the $`O(1)`$ trick
 
 Key insight: **you do not have to traverse at all.** The header's left link already holds the address of the last node.
 
@@ -204,7 +204,7 @@ Key insight: **you do not have to traverse at all.** The header's left link alre
 6. HEADER->LLINK = NEW
 ```
 
-- Explicitly stated in class: **"instead of $O(n)$ we reduce it to $O(1)$ — that's the advantage of the circular doubly linked list."**
+- Explicitly stated in class: **"instead of $`O(n)`$ we reduce it to $`O(1)`$ — that's the advantage of the circular doubly linked list."**
 - Also noted: in a circular list the traversal **terminating test** changes from `PTR != NULL` to *"has PTR come back to the header?"*, i.e. `PTR != HEADER`.
 - General remark: **deletion, search and insertion at an arbitrary position** in a DLL follow exactly the same logic as in a singly linked list, except that you must additionally maintain the left links. These were **left for self-study** ("you have to study this one").
 
@@ -217,21 +217,21 @@ Key insight: **you do not have to traverse at all.** The header's left link alre
 - **Can the special array representations be reused?** (lower-triangular array, upper-triangular array, diagonal/band array, from an earlier lecture) — **No.** Those work only when the non-zero elements lie entirely on one side of the diagonal or hug the diagonal. A sparse matrix has non-zeros at arbitrary positions.
 
 #### Memory comparison (worked numbers)
-Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, each element occupying **8 bytes**, and each address/pointer also **8 bytes**.
+Assume a $`10{,}000 \times 10{,}000`$ matrix with only **100 non-zero elements**, each element occupying **8 bytes**, and each address/pointer also **8 bytes**.
 
 - **Dense 2-D array:**
 
-  $$10^4 \times 10^4 \times 8 = 10^8 \times 8 = 8\times10^8 \text{ bytes}$$
+  $`\displaystyle 10^4 \times 10^4 \times 8 = 10^8 \times 8 = 8\times10^8 \text{ bytes}`$
 
-- **Actual useful data:** $100 \times 8 = 800$ bytes → almost all of the array is wasted.
+- **Actual useful data:** $`100 \times 8 = 800`$ bytes → almost all of the array is wasted.
 - **Linked representation** (node = data + 2 addresses, as first sketched):
 
-  $$8 \times 3 = 24 \text{ bytes per node}, \qquad 24 \times 100 = 2400 \text{ bytes total}$$
+  $`\displaystyle 8 \times 3 = 24 \text{ bytes per node}, \qquad 24 \times 100 = 2400 \text{ bytes total}`$
 
 - Conclusion: the linked representation is **vastly more memory-efficient** *provided the matrix is genuinely sparse* (large dimensions, few non-zeros).
 
 #### Trade-off (asked by a student)
-- **Array advantage:** you can access element $(i,j)$ **directly by index in $O(1)$**.
+- **Array advantage:** you can access element $`(i,j)`$ **directly by index in $`O(1)`$**.
 - **Linked-list disadvantage:** there is no direct indexing; you must walk **row-wise or column-wise** to reach a given element.
 
 #### The sparse-matrix node (5 fields)
@@ -247,7 +247,7 @@ Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, 
 - **ROW LINK** — address of the **next non-zero element in the same row**
 - **COLUMN LINK** — address of the **next non-zero element in the same column**
 
-**Worked example from the board** (rows and columns indexed from 1, matrix roughly $6\times7$):
+**Worked example from the board** (rows and columns indexed from 1, matrix roughly $`6\times7`$):
 
 | Element | `i` | `j` | ROW LINK | COLUMN LINK |
 |---|---|---|---|---|
@@ -272,7 +272,7 @@ Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, 
 
 **Overall picture (described):** a grid-like mesh. Along the top runs the chain of column headers; down the left runs the chain of row headers; both chains hang off a single main header node. Every non-zero element sits at the intersection of its row chain and its column chain, threaded horizontally by ROW LINK and vertically by COLUMN LINK. If the design is made circular, the last node of a row links back to its row header, and the last node of a column links back to its column header.
 
-#### Insertion of a new element $X$ at position $(i,j)$
+#### Insertion of a new element $`X`$ at position $`(i,j)`$
 1. Walk down the **row-header chain** (via column links) to reach row header `RH_i`.
 2. Walk along the **column-header chain** to reach column header `CH_j`.
 3. From `RH_i`, follow **row links** to find the correct horizontal position (the node whose `j` is just less than the new `j`).
@@ -280,12 +280,12 @@ Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, 
 5. Create the node with `(i, j, data)` and splice it into **both** the row chain and the column chain (four link updates, analogous to a DLL insertion but in two dimensions).
 
 #### Complexity of element access in this representation
-- Worst case: to reach element $(n,n)$ you traverse at most $n$ steps down the headers and $n$ steps along the chain:
+- Worst case: to reach element $`(n,n)`$ you traverse at most $`n`$ steps down the headers and $`n`$ steps along the chain:
 
-  $$T(n) = O(n + n) = O(2n) = O(n)$$
+  $`\displaystyle T(n) = O(n + n) = O(2n) = O(n)`$
 
-- Contrast: an array gives element $(i,j)$ in $O(1)$ / constant time.
-- Motivation stated for this design: **avoid $O(n^2)$** work (scanning all $n \times n$ positions) — the header structure brings it down to $O(n)$.
+- Contrast: an array gives element $`(i,j)`$ in $`O(1)`$ / constant time.
+- Motivation stated for this design: **avoid $`O(n^2)`$** work (scanning all $`n \times n`$ positions) — the header structure brings it down to $`O(n)`$.
 
 #### Student question: a linked list with **four** pointers?
 - Asked: can we have a node with pointers in all four directions (left, right, up, down) so we can traverse backwards along a row and upwards along a column?
@@ -296,35 +296,35 @@ Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, 
 
 ---
 
-### 2.10 Impromptu primer on asymptotic ($O$) notation
+### 2.10 Impromptu primer on asymptotic ($`O`$) notation
 
 Given in response to a student unfamiliar with Big-O.
 
-**Constant time $O(1)$**
-- Example: a **sorted** array $a_1, a_2, \dots, a_n$ (say $n=10$).
-  - Minimum = $a_1$; maximum = $a_n$. Both are found by direct access.
-- Now **double the input** to $2n$ (20 elements), still sorted. Do you need to look at more elements to find min/max? **No.**
-- Therefore the cost **does not depend on $n$** → *constant time*.
-- Notation: strictly this is $O(c)$ for some constant $c$, but **we always write $O(1)$**. Even if the operation performs 4 or 5 fixed steps, it is still $O(1)$ because the count does not grow with $n$.
-- Linked-list example: **inserting at the front of a singly linked list** performs a fixed 4–5 operations regardless of list length → $O(1)$.
+**Constant time $`O(1)`$**
+- Example: a **sorted** array $`a_1, a_2, \dots, a_n`$ (say $`n=10`$).
+  - Minimum = $`a_1`$; maximum = $`a_n`$. Both are found by direct access.
+- Now **double the input** to $`2n`$ (20 elements), still sorted. Do you need to look at more elements to find min/max? **No.**
+- Therefore the cost **does not depend on $`n`$** → *constant time*.
+- Notation: strictly this is $`O(c)`$ for some constant $`c`$, but **we always write $`O(1)`$**. Even if the operation performs 4 or 5 fixed steps, it is still $`O(1)`$ because the count does not grow with $`n`$.
+- Linked-list example: **inserting at the front of a singly linked list** performs a fixed 4–5 operations regardless of list length → $`O(1)`$.
 
-**Linear time $O(n)$**
+**Linear time $`O(n)`$**
 - Example: finding the **maximum in an *unsorted* array**. You must compare every element; the maximum may be the last one, so you cannot stop early.
-  - 10 elements → 10 comparisons; 1000 elements → 1000 comparisons → cost depends directly on input size $n$.
-- If the algorithm actually performs $2n$ comparisons plus a constant, it is **still $O(n)$**: constant multipliers are dropped.
+  - 10 elements → 10 comparisons; 1000 elements → 1000 comparisons → cost depends directly on input size $`n`$.
+- If the algorithm actually performs $`2n`$ comparisons plus a constant, it is **still $`O(n)`$**: constant multipliers are dropped.
 
-  $$2n + c \in O(n)$$
+  $`\displaystyle 2n + c \in O(n)`$
 
 **Dominant-term rule**
-- If an algorithm costs $n^2$ operations for one part, $n$ for another, and some constants:
+- If an algorithm costs $`n^2`$ operations for one part, $`n`$ for another, and some constants:
 
-  $$T(n) = an^2 + bn + c \ \Rightarrow\  T(n) = O(n^2)$$
+  $`\displaystyle T(n) = an^2 + bn + c \;\Rightarrow\; T(n) = O(n^2)`$
 
-- Reason given: **we take the highest-order term** because it dominates; $n^2 \ge n$ (for $n$ greater than some threshold $n_0$).
-- $O$ is described as an **upper bound** — "the maximum number of comparisons that would be required."
-- The **formal mathematical definition** (with constants $c$ and $n_0$) was deliberately deferred: *"those mathematical formulations will be taught by Professor Surya"* — the instructor wanted students habituated to the intuition first.
+- Reason given: **we take the highest-order term** because it dominates; $`n^2 \ge n`$ (for $`n`$ greater than some threshold $`n_0`$).
+- $`O`$ is described as an **upper bound** — "the maximum number of comparisons that would be required."
+- The **formal mathematical definition** (with constants $`c`$ and $`n_0`$) was deliberately deferred: *"those mathematical formulations will be taught by Professor Surya"* — the instructor wanted students habituated to the intuition first.
 
-**Applied back to the sparse matrix:** reaching the last element requires $n$ steps in one direction plus $n$ in the other → $O(n+n) = O(2n) = O(n)$.
+**Applied back to the sparse matrix:** reaching the last element requires $`n`$ steps in one direction plus $`n`$ in the other → $`O(n+n) = O(2n) = O(n)`$.
 
 ---
 
@@ -332,28 +332,28 @@ Given in response to a student unfamiliar with Big-O.
 
 | Operation | Structure | Time | Notes |
 |---|---|---|---|
-| Traversal (forward or backward) | DLL | $O(n)$ | one pointer; `PTR = PTR->RLINK` or `PTR = PTR->LLINK` |
-| Insert after header (front) | DLL | $O(1)$ | 4 link updates |
-| Insert at end | Linear DLL | $O(n)$ | must traverse to last node |
-| Insert at end | **Circular** DLL | $O(1)$ | reach last node via `HEADER->LLINK` |
-| Insert front | Singly linked list | $O(1)$ | fixed number of steps |
-| Find max in sorted array | Array | $O(1)$ | $a_n$ |
-| Find max in unsorted array | Array | $O(n)$ | must scan all |
-| Access element $(i,j)$ | 2-D array | $O(1)$ | direct indexing |
-| Access element $(i,j)$ | Linked sparse matrix | $O(n+n)=O(n)$ | walk headers + chain |
+| Traversal (forward or backward) | DLL | $`O(n)`$ | one pointer; `PTR = PTR->RLINK` or `PTR = PTR->LLINK` |
+| Insert after header (front) | DLL | $`O(1)`$ | 4 link updates |
+| Insert at end | Linear DLL | $`O(n)`$ | must traverse to last node |
+| Insert at end | **Circular** DLL | $`O(1)`$ | reach last node via `HEADER->LLINK` |
+| Insert front | Singly linked list | $`O(1)`$ | fixed number of steps |
+| Find max in sorted array | Array | $`O(1)`$ | $`a_n`$ |
+| Find max in unsorted array | Array | $`O(n)`$ | must scan all |
+| Access element $`(i,j)`$ | 2-D array | $`O(1)`$ | direct indexing |
+| Access element $`(i,j)`$ | Linked sparse matrix | $`O(n+n)=O(n)`$ | walk headers + chain |
 
 **Memory formulas used**
 
-- Dense array storage: $\text{rows} \times \text{cols} \times \text{bytes per element}$; e.g. $10^4 \times 10^4 \times 8 = 8\times 10^8$ bytes.
-- Linked node (data + 2 pointers, 8 bytes each): $8 \times 3 = 24$ bytes; total for $k$ non-zeros $= 24k$; e.g. $24 \times 100 = 2400$ bytes.
-- Useful data only: $100 \times 8 = 800$ bytes.
+- Dense array storage: $`\text{rows} \times \text{cols} \times \text{bytes per element}`$; e.g. $`10^4 \times 10^4 \times 8 = 8\times 10^8`$ bytes.
+- Linked node (data + 2 pointers, 8 bytes each): $`8 \times 3 = 24`$ bytes; total for $`k`$ non-zeros $`= 24k`$; e.g. $`24 \times 100 = 2400`$ bytes.
+- Useful data only: $`100 \times 8 = 800`$ bytes.
 
 **Asymptotic rules stated**
 
-- $O(c) \equiv O(1)$
-- $2n + c \in O(n)$
-- $an^2 + bn + c \in O(n^2)$ (keep the highest-order term, drop constants)
-- $O(\cdot)$ = **upper bound**, valid for $n > n_0$
+- $`O(c) \equiv O(1)`$
+- $`2n + c \in O(n)`$
+- $`an^2 + bn + c \in O(n^2)`$ (keep the highest-order term, drop constants)
+- $`O(\cdot)`$ = **upper bound**, valid for $`n > n_0`$
 
 **Indexing / addressing formulas (referenced, not re-derived this session)**
 The instructor referred back to earlier lectures on **row-major vs column-major addressing** and on **lower-triangular, upper-triangular and diagonal (band) array** representations, and confirmed these formulas **will be examined** ("mathematical calculation questions like indexing calculation — I have shown a lot of formulas, you have to use those formulas to calculate some index value"). Revise those from the earlier slide decks; they were not restated here.

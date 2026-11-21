@@ -14,7 +14,7 @@ faculty: Karthikeya Naraparaju
 
 ## 1. Overview
 
-This session has two halves. The **first half** closes out the previous chapter by formalising what an *economic model* is, why models are deliberately unrealistic simplifications ("that's a feature, not a bug"), and the core modelling vocabulary: **endogenous vs. exogenous variables**, **ceteris paribus**, **equilibrium**, and **comparative statics**, together with criteria for judging whether a model is "good." Examples used throughout are the Malthusian model of stagnant living standards and the relative-prices explanation of the British Industrial Revolution. The **second half** opens the new module on **constrained choice under scarcity**, motivated by the real-world puzzle of **working hours**: why hours worked fell steeply in the late 19th/early 20th century but only slightly as incomes rose fast after 1950, and why countries with similar incomes (France vs. South Korea; US vs. Turkey) work very different amounts. This motivates the **income effect vs. substitution effect** distinction, the **opportunity cost of free time = the hourly wage**, the simple income equation $Y = w \cdot H$ as a "production function" for Karim (a worker earning €30/hour), and finally **preferences and indifference curves**, including the diminishing marginal rate of substitution and the four formal properties of indifference curves (downward sloping, convex, higher = better, cannot cross).
+This session has two halves. The **first half** closes out the previous chapter by formalising what an *economic model* is, why models are deliberately unrealistic simplifications ("that's a feature, not a bug"), and the core modelling vocabulary: **endogenous vs. exogenous variables**, **ceteris paribus**, **equilibrium**, and **comparative statics**, together with criteria for judging whether a model is "good." Examples used throughout are the Malthusian model of stagnant living standards and the relative-prices explanation of the British Industrial Revolution. The **second half** opens the new module on **constrained choice under scarcity**, motivated by the real-world puzzle of **working hours**: why hours worked fell steeply in the late 19th/early 20th century but only slightly as incomes rose fast after 1950, and why countries with similar incomes (France vs. South Korea; US vs. Turkey) work very different amounts. This motivates the **income effect vs. substitution effect** distinction, the **opportunity cost of free time = the hourly wage**, the simple income equation $`Y = w \cdot H`$ as a "production function" for Karim (a worker earning €30/hour), and finally **preferences and indifference curves**, including the diminishing marginal rate of substitution and the four formal properties of indifference curves (downward sloping, convex, higher = better, cannot cross).
 
 ---
 
@@ -24,7 +24,7 @@ This session has two halves. The **first half** closes out the previous chapter 
 
 - The Industrial Revolution explanation given in earlier sessions was a **"broad-brush"** account — deliberately not the whole story. It isolates **one mechanism**.
 - Why models are needed: the economy consists of **millions of individuals and millions of interactions** — a complex system, "like the weather system." Models let us see the **big picture**.
-- Parallel to data science: when you model one variable with another, you are not claiming it is the *only* driver of $Y$; you are isolating **one mechanism through which $X$ influences $Y$**.
+- Parallel to data science: when you model one variable with another, you are not claiming it is the *only* driver of $`Y`$; you are isolating **one mechanism through which $`X`$ influences $`Y`$**.
 - **Models are not meant to be realistic.** Example: do firms really have only two factors (labour and energy)? Obviously not. But by focusing on those two we assert they are the *most important* — and that assertion is based on research.
   - Out of a thousand possible factors, you focus on the 10–50 most important and **tractable** ones. Here we used two: **the price of workers (wages)** and **the price of energy**.
   - Difference in the **relative prices** of these two factors explained the observed technology choice.
@@ -59,9 +59,9 @@ This session has two halves. The **first half** closes out the previous chapter 
   - A pandemic is an exogenous shock — not factored into how we operate, then it changes everything.
 - **Context-dependence:** *what is exogenous in one model need not be exogenous in another.*
   - For Malthus, technology is exogenous.
-  - In the firm's technology-choice model (choosing among five technologies $A$–$E$), technology is **endogenous** — the model explains why $A$ was chosen rather than $B$.
+  - In the firm's technology-choice model (choosing among five technologies $`A`$–$`E`$), technology is **endogenous** — the model explains why $`A`$ was chosen rather than $`B`$.
 - **Rule of thumb (stated explicitly as a "thumb rule"):**
-  - The variables plotted on the **$x$-axis and $y$-axis are typically endogenous** (determined within the model).
+  - The variables plotted on the **$`x`$-axis and $`y`$-axis are typically endogenous** (determined within the model).
   - **Whatever is not on the graph is typically exogenous**; whatever **shifts** the line/curve acts exogenously.
   - The sharpest test: **if you are not modelling something, it is exogenous.**
 
@@ -69,12 +69,12 @@ This session has two halves. The **first half** closes out the previous chapter 
 
 - Latin term meaning **"holding everything else constant."**
 - The whole relative-prices argument is *conditional* on holding everything else constant; the same relative-price change might not work in another context where something else differs.
-- If you are modelling how $X$ affects $Y$, the model isolates that effect by treating **every other influence on $Y$ as constant** (in the background).
+- If you are modelling how $`X`$ affects $`Y`$, the model isolates that effect by treating **every other influence on $`Y`$ as constant** (in the background).
 - Resulting statement of the earlier result: *"Holding everything else constant, a rise in the relative price of labour led firms to choose energy-intensive technologies."*
 
 #### Student Q&A: Are "exogenous" and "ceteris paribus" interchangeable?
 - **Partly.** Ceteris paribus implicitly means **all exogenous variables are held constant**.
-- **But** ceteris paribus can also apply to an **endogenous** variable: if there are two endogenous variables $X$ and $Z$ both affecting $Y$, you can ask "how does $Y$ change if I change $X$ **holding $Z$ constant**?" — that is a ceteris paribus argument holding an *endogenous* variable constant.
+- **But** ceteris paribus can also apply to an **endogenous** variable: if there are two endogenous variables $`X`$ and $`Z`$ both affecting $`Y`$, you can ask "how does $`Y`$ change if I change $`X`$ **holding $`Z`$ constant**?" — that is a ceteris paribus argument holding an *endogenous* variable constant.
 - Exogenous variables, by definition, are held constant because they aren't modelled at all.
 
 ### F. Comparative statics
@@ -105,12 +105,12 @@ This session has two halves. The **first half** closes out the previous chapter 
 
 ### Graph 1 — Annual hours worked vs. GDP per capita (Our World in Data)
 - **Countries:** United States, France, Netherlands. **Period:** 1870 to ~2000 (more recent data and more countries, including India, available on OWID).
-- **Axes:** $x$ = GDP per capita (in **constant** terms, i.e. adjusted for inflation / loss of real value of money); $y$ = **annual hours worked**.
+- **Axes:** $`x`$ = GDP per capita (in **constant** terms, i.e. adjusted for inflation / loss of real value of money); $`y`$ = **annual hours worked**.
 - **Shape / pattern:** downward-sloping scatter paths for each country.
   - Netherlands and France: a visible decline, continuing after ~1973.
   - US: steep decline early; after ~1950 the line is **almost flat** — hours barely fall while GDP per capita rises a lot.
   - **For all three countries the fall in hours is steepest in the late 19th / early 20th century** and much flatter from the mid-20th century onwards.
-- **Key horizontal-spread observation:** from 1870 to mid-20th century, the **increase in GDP per capita was relatively small** (data points closely spaced along $x$); from 1950 to 2000 the horizontal spread is **much greater** — GDP per capita grew much faster after mid-century.
+- **Key horizontal-spread observation:** from 1870 to mid-20th century, the **increase in GDP per capita was relatively small** (data points closely spaced along $`x`$); from 1950 to 2000 the horizontal spread is **much greater** — GDP per capita grew much faster after mid-century.
 - **Two facts to explain:**
   1. As people became richer, on average they worked less — hours fell from close to **3,400 hours a year** dramatically.
   2. The **non-obvious** puzzle: when incomes rose *a little* (pre-1950), hours fell *a lot*; when incomes rose *a lot* (post-1950), hours fell only *a little*.
@@ -125,9 +125,9 @@ This session has two halves. The **first half** closes out the previous chapter 
 - **AI illustration:** will AI make our lives more leisurely or busier? Evidence points to **busier** — because you can now do so much more, the **cost of not doing enough** is high. New technologies that raise living standards do not automatically deliver more leisure.
 
 ### Graph 2 — Free time vs. income across countries
-- **Axes:** $y$ = GDP per capita; $x$ = **average hours of free time per worker**.
+- **Axes:** $`y`$ = GDP per capita; $`x`$ = **average hours of free time per worker**.
 - **Comparisons described:**
-  - **France vs. South Korea:** similar income levels (similar $y$-position) but **drastically different** free time (very different $x$-position) — the French have far more leisure than Koreans.
+  - **France vs. South Korea:** similar income levels (similar $`y`$-position) but **drastically different** free time (very different $`x`$-position) — the French have far more leisure than Koreans.
   - **Turkey vs. US:** free time is **not very different**, but US GDP per capita is **much greater** than Turkey's.
 - **Interpretation:** country-specific factors — **norms about work culture**. East Asia/Asia generally infamous for long working hours; Western Europe known for more leisure. A purely material opportunity-cost story is not enough; sociologists would emphasise culture.
 - **Model-selection lesson:** *the phenomenon you want to explain determines the model you need.* To explain **cross-country differences**, a cultural explanation is more apt. To explain **why hours changed a lot over time earlier and change little now, across all countries together**, you need a different (opportunity-cost) model.
@@ -148,9 +148,9 @@ This session has two halves. The **first half** closes out the previous chapter 
 Y = w \cdot H
 ```
 where
-- $Y$ = daily income,
-- $w$ = **hourly wage**,
-- $H$ = **hours of work per day**.
+- $`Y`$ = daily income,
+- $`w`$ = **hourly wage**,
+- $`H`$ = **hours of work per day**.
 
 ### Worked example — Karim
 - **Karim's wage: €30 per hour.**
@@ -158,20 +158,20 @@ where
 - **Realism caveat raised in class:** we don't literally choose hours daily; we take full-time jobs and hours are set by the organisation. Response: we are not claiming this is literally how people work — it's a **simple modelling technique**. In the **short run** you're locked into a company; in the **long run** you choose between jobs with different **work–life balance** and pay packages ("should my next job also be so hectic, or can I take it easy because I've made money?" vs. "the next job pays much more — should I work longer?"). The choice is **discrete rather than continuous**, but the choice exists.
 
 ### Graph 3 — Karim's income line (the constraint / "production function")
-- **Axes:** $y$ = total income earned; $x$ = hours of work per day.
-- **Shape:** a **straight line through the origin** with **constant slope $= w = 30$**. Every extra hour of work adds €30.
+- **Axes:** $`y`$ = total income earned; $`x`$ = hours of work per day.
+- **Shape:** a **straight line through the origin** with **constant slope $`= w = 30`$**. Every extra hour of work adds €30.
 - Reading it as a trade-off: **increasing work by 1 hour reduces free time by 1 hour**, so the line also shows **the opportunity cost of free time**.
   - Numerical step given: going from 5 hours of work to 4 hours reduces income by **€30**.
 - **This trade-off is given to Karim — he does not choose it.** The market / his employer sets the hourly wage.
-- Therefore **$w = 30$ is an exogenous variable** in this model. What Karim chooses is $H$.
-- This is **Karim's production function**: just as the olive-oil production function converted ingredients and energy into olive oil, this converts **Karim's work hours into income**. Total income increases with hours of work, and the slope is **constant $w$ at every point**.
+- Therefore **$`w = 30`$ is an exogenous variable** in this model. What Karim chooses is $`H`$.
+- This is **Karim's production function**: just as the olive-oil production function converted ingredients and energy into olive oil, this converts **Karim's work hours into income**. Total income increases with hours of work, and the slope is **constant $`w`$ at every point**.
   - Note: production functions need not have constant slope; here it is constant because the employer pays €30 for every hour.
   - You *could* add overtime (employer pays more beyond some point) — but that adds complication without adding insight. **Rule: don't over-complicate the model. If the message is clear in fewer steps, use fewer steps.**
 
 #### Student Q&A: Is the slope endogenous or exogenous?
-- Writing $Y = w H$ in the form $y = mx$, the slope $m = w = 30$.
-- Answer: **income $Y$ is endogenous** (it is a function of $H$, which Karim decides); **$H$ is endogenous**. So **both axes are endogenous**. But **$w$ is exogenous** — it is *given* to Karim as a constraint; he doesn't decide it.
-- $H$ and $Y$ are **simultaneously determined**: fix one and the equation delivers the other.
+- Writing $`Y = w H`$ in the form $`y = mx`$, the slope $`m = w = 30`$.
+- Answer: **income $`Y`$ is endogenous** (it is a function of $`H`$, which Karim decides); **$`H`$ is endogenous**. So **both axes are endogenous**. But **$`w`$ is exogenous** — it is *given* to Karim as a constraint; he doesn't decide it.
+- $`H`$ and $`Y`$ are **simultaneously determined**: fix one and the equation delivers the other.
 - General restatement: variables **plotted on the axes are not exogenous**, but the parameters determining their values — such as the wage here — **are** exogenous. **If you're not modelling it, it's exogenous.** (Contrast: in the previous session's model, technology *was* being chosen, so technology — which determines wages/costs there — was endogenous.)
 
 ### Simplifying assumptions for Karim
@@ -196,7 +196,7 @@ where
 - The **trade-off he is *willing* to make** — set by his preferences: how much consumption he is willing to give up for one extra hour of free time. "Forget about how the market compensates/punishes you; how much do *you* value that extra hour of free time?"
 
 ### Graph 4 — The preference/indifference diagram
-- **Axes:** $x$ = **hours of free time**; $y$ = **consumption spending**.
+- **Axes:** $`x`$ = **hours of free time**; $`y`$ = **consumption spending**.
 - **Basic principle: more is preferred to less.**
   - **A vs. B:** A has the same consumption spending as B but **more free time** → **A is preferred to B**.
   - **D vs. C:** D has **more consumption** with the same free time as C → **D is preferred to C**.
@@ -228,18 +228,18 @@ where
 
 ### The four properties of indifference curves (exam-relevant list)
 1. **Indifference curves slope downward** (first derivative negative). Reason: satisfaction must be **constant along the curve** by definition, so if you take **more of one good** (free time) you must have **less of the other** (consumption spending).
-2. **Indifference curves are convex.** As you move **right** along the $x$-axis the curve becomes **flatter** — you are willing to give up **less and less** of the $y$-axis good for one more unit of the $x$-axis good. Conversely, moving **up and to the left** (e.g. D → A) you give up free time, so you **demand more and more consumption** to compensate.
+2. **Indifference curves are convex.** As you move **right** along the $`x`$-axis the curve becomes **flatter** — you are willing to give up **less and less** of the $`y`$-axis good for one more unit of the $`x`$-axis good. Conversely, moving **up and to the left** (e.g. D → A) you give up free time, so you **demand more and more consumption** to compensate.
 3. **Higher indifference curves are better.** Moving in the **north-easterly** direction to a higher curve gives **more of both goods** → **higher satisfaction**. Along a curve satisfaction is constant; **across** curves satisfaction changes, increasing as you move outward/right.
    - Indifference curves are **smooth**: small changes in the amounts of the goods do not cause big jumps.
 4. **Indifference curves cannot cross.**
 
 ### Worked proof that indifference curves cannot cross
-- Suppose two indifference curves $IC_1$ and $IC_2$ intersect at point $C$, with point $A$ on $IC_1$ and point $B$ on $IC_2$.
-- $A$ and $C$ both lie on $IC_1$ $\Rightarrow$ $A \sim C$ (indifferent). (The symbol $\sim$, "a sleeping S," denotes indifference.)
-- $B$ and $C$ both lie on $IC_2$ $\Rightarrow$ $B \sim C$.
-- By **transitivity** (rationality): $A \sim C$ and $B \sim C$ $\Rightarrow$ $A \sim B$.
-- **Contradiction:** combination $A$ clearly has **more of good $X$ and more of good $Y$** than $B$ (both its $x$- and $y$-coordinates are higher), so $A$ must be strictly preferred to $B$, not indifferent.
-- The contradiction arises purely from the assumed intersection $\Rightarrow$ **indifference curves cannot intersect.**
+- Suppose two indifference curves $`IC_1`$ and $`IC_2`$ intersect at point $`C`$, with point $`A`$ on $`IC_1`$ and point $`B`$ on $`IC_2`$.
+- $`A`$ and $`C`$ both lie on $`IC_1`$ $`\Rightarrow`$ $`A \sim C`$ (indifferent). (The symbol $`\sim`$, "a sleeping S," denotes indifference.)
+- $`B`$ and $`C`$ both lie on $`IC_2`$ $`\Rightarrow`$ $`B \sim C`$.
+- By **transitivity** (rationality): $`A \sim C`$ and $`B \sim C`$ $`\Rightarrow`$ $`A \sim B`$.
+- **Contradiction:** combination $`A`$ clearly has **more of good $`X`$ and more of good $`Y`$** than $`B`$ (both its $`x`$- and $`y`$-coordinates are higher), so $`A`$ must be strictly preferred to $`B`$, not indifferent.
+- The contradiction arises purely from the assumed intersection $`\Rightarrow`$ **indifference curves cannot intersect.**
 
 ---
 
@@ -248,7 +248,7 @@ where
 - **There is a gap week with no sessions.** Recommended work during it:
   - **Solve the quizzes embedded in the readings.**
   - **Work through the examples in the readings step by step.**
-- **"Whenever we have the quiz or the final exam, we will essentially have a lot of numericals."** You must be **comfortable solving simple numerical problems using the concepts covered so far** (opportunity cost, relative prices, isocost/technology choice, $Y = wH$, indifference-curve trade-offs).
+- **"Whenever we have the quiz or the final exam, we will essentially have a lot of numericals."** You must be **comfortable solving simple numerical problems using the concepts covered so far** (opportunity cost, relative prices, isocost/technology choice, $`Y = wH`$, indifference-curve trade-offs).
 - Concepts explicitly introduced as **vocabulary you will keep returning to** (so worth memorising precisely): **endogenous variable, exogenous variable, ceteris paribus, equilibrium, comparative statics**, and the **rule of thumb** that axis variables are endogenous and shifters are exogenous.
 - The **income effect vs. substitution effect** framework is flagged as "a very important framework for modelling consumer demand."
 - Practical/professional relevance flagged: these model-building principles apply to **choosing variables for regression / econometric / statistical models** later in the programme.

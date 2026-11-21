@@ -85,21 +85,21 @@ The focus is now only on **numerical data for a single variable**: the observati
 
 #### (a) Mean (arithmetic / sample mean)
 
-Observations are recorded as $X_1, X_2, \dots, X_n$, where $n$ is the sample size. For example, heights of $165$ cm, $180$ cm and $170$ cm.
+Observations are recorded as $`X_1, X_2, \dots, X_n`$, where $`n`$ is the sample size. For example, heights of $`165`$ cm, $`180`$ cm and $`170`$ cm.
 
 ```math
 \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} = \frac{X_1 + X_2 + \cdots + X_n}{n}
 ```
 
 - Data does **not** need to be ordered to compute the mean.
-- **Example 1:** a small data set (values partly garbled in the recording) whose mean was $4$.
-- **Example 2 (outlier):** data $1, 1, 1, 1, 51$.
+- **Example 1:** a small data set (values partly garbled in the recording) whose mean was $`4`$.
+- **Example 2 (outlier):** data $`1, 1, 1, 1, 51`$.
 
-  $$\bar{X} = \frac{1+1+1+1+51}{5} = \frac{55}{5} = 11$$
+  $`\displaystyle \bar{X} = \frac{1+1+1+1+51}{5} = \frac{55}{5} = 11`$
 
-  Four of the five values are $1$, yet the mean is $11$.
+  Four of the five values are $`1`$, yet the mean is $`11`$.
 - **Key point:** the **mean is affected by extreme values (outliers)**.
-- A student asked how to handle outliers, using the example $1, 3, 5, 6, 64$. The answer is that when extreme values may be present, we use the **median**.
+- A student asked how to handle outliers, using the example $`1, 3, 5, 6, 64`$. The answer is that when extreme values may be present, we use the **median**.
 
 #### (b) Median
 
@@ -108,53 +108,53 @@ Observations are recorded as $X_1, X_2, \dots, X_n$, where $n$ is the sample siz
 - Order the data first. Ascending order is conventional, but descending is also acceptable.
 - The **position** of the median in the ordered data is
 
-  $$\text{Median position} = \frac{n+1}{2}$$
+  $`\displaystyle \text{Median position} = \frac{n+1}{2}`$
 
-**Case 1: $n$ odd.** The median is the $\frac{n+1}{2}$-th observation directly.
+**Case 1: $`n`$ odd.** The median is the $`\frac{n+1}{2}`$-th observation directly.
 
-- Example: ordered data $0, 2, 3, 5, 20, 99, 100$, so $n = 7$.
-- Position $= \frac{7+1}{2} = 4$, so the 4th observation gives **median $= 5$**.
-- If the last value is changed from $100$ to $5000$, the **median is still $5$**.
+- Example: ordered data $`0, 2, 3, 5, 20, 99, 100`$, so $`n = 7`$.
+- Position $`= \frac{7+1}{2} = 4`$, so the 4th observation gives **median $`= 5`$**.
+- If the last value is changed from $`100`$ to $`5000`$, the **median is still $`5`$**.
 
-**Case 2: $n$ even.** Position $\frac{n+1}{2}$ is a half-position, so average the two middle values.
+**Case 2: $`n`$ even.** Position $`\frac{n+1}{2}`$ is a half-position, so average the two middle values.
 
-- Example: $n = 6$, so position $= \frac{6+1}{2} = 3.5$.
-- Take the 3rd observation ($30$) and the 4th observation ($40$):
+- Example: $`n = 6`$, so position $`= \frac{6+1}{2} = 3.5`$.
+- Take the 3rd observation ($`30`$) and the 4th observation ($`40`$):
 
-  $$\text{Median} = \frac{30 + 40}{2} = 35$$
+  $`\displaystyle \text{Median} = \frac{30 + 40}{2} = 35`$
 
 **Three properties of the median (stressed as important):**
 
 1. The median is **not affected by extreme values on either side**, low or high. It depends only on the number and order of observations.
 2. Any observation selected at random is **equally likely to be greater than or less than the median**.
-3. The **sum of absolute deviations about the median is minimum**. That is, for any other value $c$:
+3. The **sum of absolute deviations about the median is minimum**. That is, for any other value $`c`$:
 
-   $$\sum_{i=1}^{n} |X_i - \text{Median}| \le \sum_{i=1}^{n} |X_i - c|$$
+   $`\displaystyle \sum_{i=1}^{n} |X_i - \text{Median}| \le \sum_{i=1}^{n} |X_i - c|`$
 
-**In-class exercise.** Use the data $0, 2, 3, 5, 20, 99, 1000$.
+**In-class exercise.** Use the data $`0, 2, 3, 5, 20, 99, 1000`$.
 
-- **Task:** compute $\sum |X_i - \text{Median}|$, $\sum |X_i - \bar{X}|$ and $\sum |X_i - \text{Mode}|$, and identify the smallest.
-- **Method:** for each observation compute $X_i - \text{Median}$, take the absolute value, then add them up. Repeat with the mean (and the mode).
+- **Task:** compute $`\sum |X_i - \text{Median}|`$, $`\sum |X_i - \bar{X}|`$ and $`\sum |X_i - \text{Mode}|`$, and identify the smallest.
+- **Method:** for each observation compute $`X_i - \text{Median}`$, take the absolute value, then add them up. Repeat with the mean (and the mode).
 - The mode is not applicable here because no values repeat.
 - **Conclusion given in class:** the sum about the median is the minimum.
 
 *Worked solution (computed for these notes; not read out in class):*
 
-- **Median** $= 5$ (the 4th of 7 values).
-  - Absolute deviations: $5, 3, 2, 0, 15, 94, 995$.
+- **Median** $`= 5`$ (the 4th of 7 values).
+  - Absolute deviations: $`5, 3, 2, 0, 15, 94, 995`$.
   - $$\sum |X_i - 5| = 1114$$
-- **Mean** $= \frac{1129}{7} \approx 161.29$.
-  - Absolute deviations: $\approx 161.29,\ 159.29,\ 158.29,\ 156.29,\ 141.29,\ 62.29,\ 838.71$.
+- **Mean** $`= \frac{1129}{7} \approx 161.29`$.
+  - Absolute deviations: $`\approx 161.29,\ 159.29,\ 158.29,\ 156.29,\ 141.29,\ 62.29,\ 838.71`$.
   - $$\sum |X_i - \bar{X}| \approx 1677.43$$
-- **Result:** $1114 < 1677.43$, which confirms that the median minimizes the sum of absolute deviations.
+- **Result:** $`1114 < 1677.43`$, which confirms that the median minimizes the sum of absolute deviations.
 
 #### (c) Mode
 
 **Definition:** The mode is the **value that occurs with the greatest frequency** in the data.
 
-- Data $1, 1, 1, 1, 51$: $1$ occurs four times, so **mode $= 1$**.
-- Another data set where $1$ appears three times: **mode $= 1$**.
-- A data set where $5$ appears 3 times and $10$ appears 3 times is **bimodal** (modes $5$ and $10$).
+- Data $`1, 1, 1, 1, 51`$: $`1`$ occurs four times, so **mode $`= 1`$**.
+- Another data set where $`1`$ appears three times: **mode $`= 1`$**.
+- A data set where $`5`$ appears 3 times and $`10`$ appears 3 times is **bimodal** (modes $`5`$ and $`10`$).
 - **No mode:** if all values are different (e.g., 10 distinct observations), there is no mode. A value must appear **at least twice** to be a mode.
   - *Note:* the lecturer at one point called an all-distinct data set "multimodal", but later stated clearly that **there is no mode** in that case. "No mode" is the correct convention.
 - **Mode may not be unique:** in one example, six different values each appeared twice, giving **six modes**.
@@ -172,7 +172,7 @@ Observations are recorded as $X_1, X_2, \dots, X_n$, where $n$ is the sample siz
 
 - **Simple check:** compute both the mean and the median.
   - If they are **very close**, there are probably not many outliers.
-  - If the data is **normally distributed**, then $\text{Mean} = \text{Median} = \text{Mode}$.
+  - If the data is **normally distributed**, then $`\text{Mean} = \text{Median} = \text{Mode}`$.
   - If the data is **positively or negatively skewed**, there will be a large difference between the mean, median and mode.
 - The distance between the measures alone is not enough to decide. You should also:
   - **plot the data**;
@@ -190,34 +190,34 @@ Observations are recorded as $X_1, X_2, \dots, X_n$, where $n$ is the sample siz
 
 | Quantile | Parts | Number of cut points |
 |---|---|---|
-| Quartiles | 4 | 3 ($Q_1, Q_2, Q_3$) |
+| Quartiles | 4 | 3 ($`Q_1, Q_2, Q_3`$) |
 | Quintiles | 5 | 4 |
 | Deciles | 10 | 9 |
 | Percentiles | 100 | 99 |
 
-- **Analogy:** to cut a chocolate bar into 4 equal pieces you need **3 cuts**. In general, $k$ parts need $k-1$ cuts.
+- **Analogy:** to cut a chocolate bar into 4 equal pieces you need **3 cuts**. In general, $`k`$ parts need $`k-1`$ cuts.
 - Always **order the data first**.
 
 **Quartiles:**
 
-- $Q_1$ (first quartile): 25% of observations are smaller and 75% are larger.
-- $Q_2$ (second quartile) is the **median**: 50% below and 50% above.
-- $Q_3$ (third quartile): 75% of observations are smaller and 25% are larger.
+- $`Q_1`$ (first quartile): 25% of observations are smaller and 75% are larger.
+- $`Q_2`$ (second quartile) is the **median**: 50% below and 50% above.
+- $`Q_3`$ (third quartile): 75% of observations are smaller and 25% are larger.
 - Like the median, a quartile either equals one of the observations or lies halfway between two observations.
-- **Idea:** after finding the median, find the "median" of the lower half to get $Q_1$ and of the upper half to get $Q_3$.
+- **Idea:** after finding the median, find the "median" of the lower half to get $`Q_1`$ and of the upper half to get $`Q_3`$.
 
-**Worked example: quartiles with $n = 10$** (only some of the data values were audible in the recording)
+**Worked example: quartiles with $`n = 10`$** (only some of the data values were audible in the recording)
 
-- **Median ($Q_2$):**
-  - Position $= \frac{10+1}{2} = 5.5$, so average the 5th and 6th values, which are $225$ and $235$.
+- **Median ($`Q_2`$):**
+  - Position $`= \frac{10+1}{2} = 5.5`$, so average the 5th and 6th values, which are $`225`$ and $`235`$.
   - $$Q_2 = \frac{225 + 235}{2} = 230$$
-- **$Q_1$:**
-  - Compute $\frac{n}{4} = \frac{10}{4} = 2.5$.
-  - The rule as stated was that $Q_1$ is "halfway between the $\frac{n}{4}$-th observation and the next". In the example, $Q_1$ was taken as the **3rd observation**.
-  - In effect, $2.5$ was rounded up to the next whole position.
-- **$Q_3$:**
-  - By symmetry, $Q_3$ is the **3rd observation from the top** (the 8th observation).
-  - Its value was $250$.
+- **$`Q_1`$:**
+  - Compute $`\frac{n}{4} = \frac{10}{4} = 2.5`$.
+  - The rule as stated was that $`Q_1`$ is "halfway between the $`\frac{n}{4}`$-th observation and the next". In the example, $`Q_1`$ was taken as the **3rd observation**.
+  - In effect, $`2.5`$ was rounded up to the next whole position.
+- **$`Q_3`$:**
+  - By symmetry, $`Q_3`$ is the **3rd observation from the top** (the 8th observation).
+  - Its value was $`250`$.
 - **Caution:** Excel and other software may give slightly different quartile values on large data sets, because they use different interpolation conventions.
 
 The lecturer will share slides with more quantile examples to practise. Quintile, decile and percentile examples continue next class.
@@ -228,16 +228,16 @@ The lecturer will share slides with more quantile examples to practise. Quintile
 
 **Context:** an 8th-standard class has **16 students**, each given a reading-level score.
 
-- **Method 1 (raw data):** arrange the scores from lowest to highest. Then compute the sum, the **mean, median, mode, $Q_1$ and $Q_3$**. These describe the centre and spread of the data.
+- **Method 1 (raw data):** arrange the scores from lowest to highest. Then compute the sum, the **mean, median, mode, $`Q_1`$ and $`Q_3`$**. These describe the centre and spread of the data.
 - **Method 2 (ungrouped frequency distribution):**
-  - List each distinct score $X_i$ with its frequency $f_i$. For example, the lowest score $5$ was obtained by $2$ students, so $f = 2$.
+  - List each distinct score $`X_i`$ with its frequency $`f_i`$. For example, the lowest score $`5`$ was obtained by $`2`$ students, so $`f = 2`$.
   - The sum of frequencies must equal the number of observations:
 
-    $$\sum f_i = n = 16$$
+    $`\displaystyle \sum f_i = n = 16`$
 
-  - Compute $X_i f_i$ for each score, then sum. The mean is
+  - Compute $`X_i f_i`$ for each score, then sum. The mean is
 
-    $$\bar{X} = \frac{\sum X_i f_i}{n} = \frac{\sum X_i f_i}{\sum f_i}$$
+    $`\displaystyle \bar{X} = \frac{\sum X_i f_i}{n} = \frac{\sum X_i f_i}{\sum f_i}`$
 
   - For large data sets this is more efficient than summing every individual value.
   - "Ungrouped" means each individual score value gets its own row with its frequency.
@@ -253,7 +253,7 @@ The lecturer will share slides with more quantile examples to practise. Quintile
   - **Uniqueness:** mean and median are always unique; the mode may be multiple or absent.
   - The **principle of using the highest level of measurement**, with the smoking and soft-drink examples.
 - **Practice:**
-  - The in-class exercise on absolute deviations using $0, 2, 3, 5, 20, 99, 1000$.
+  - The in-class exercise on absolute deviations using $`0, 2, 3, 5, 20, 99, 1000`$.
   - The quartile, quintile, decile and percentile examples on the slides the lecturer will share.
 - **Next class:**
   - mean for **grouped data**;

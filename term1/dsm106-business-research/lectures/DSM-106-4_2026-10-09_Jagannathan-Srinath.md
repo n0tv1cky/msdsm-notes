@@ -205,28 +205,28 @@ For this case, two DICTION scores are used as variables alongside the two survey
 z_i = \frac{x_i - \bar{x}}{s}
 ```
 
-where $\bar{x}$ is the sample mean of the variable and $s$ is its sample standard deviation.
+where $`\bar{x}`$ is the sample mean of the variable and $`s`$ is its sample standard deviation.
 
 **Excel steps:**
 1. Compute `AVERAGE` and `STDEV` of the column.
 2. Write the z-score formula for the first row.
 3. Lock the mean and SD cells with **`$`** (absolute references) so the formula can be dragged down.
 
-**Interpretation:** z-scores typically lie between $-3$ and $+3$.
+**Interpretation:** z-scores typically lie between $`-3`$ and $`+3`$.
 
 | z-score | Meaning |
 |---|---|
-| $z \approx 0$ | average |
-| $z \approx +1$ | above average |
-| $z \approx +2$ | high |
-| $z \approx +3$ | very high |
-| $z \approx -1$ | below average |
-| $z \approx -2$ | low |
-| $z \approx -3$ | very low |
+| $`z \approx 0`$ | average |
+| $`z \approx +1`$ | above average |
+| $`z \approx +2`$ | high |
+| $`z \approx +3`$ | very high |
+| $`z \approx -1`$ | below average |
+| $`z \approx -2`$ | low |
+| $`z \approx -3`$ | very low |
 
 **Small-sample caveat:**
 - The fine graded distinctions in the table only emerge with large samples (300, 400 or 3,000 employees).
-- With only $n = 30$, **just the sign matters**:
+- With only $`n = 30`$, **just the sign matters**:
   - Positive z means high (e.g., good team player).
   - Negative z means low (e.g., poor team player).
 - In R, the next four lines of code create the four standardized variables:

@@ -72,7 +72,7 @@ data.isna().sum()  # count missing values per column (spoken: "is n a")
 This cell doesn't draw anything. It changes how all later plots look:
 - a gray background with white grid lines (the `"darkgrid"` style);
 - figure DPI = 300, which is sharp enough to print;
-- figure size = $6 \times 3$ inches (6 in wide, 3 in tall).
+- figure size = $`6 \times 3`$ inches (6 in wide, 3 in tall).
 
 ```python
 sns.set_theme(style="darkgrid",
@@ -149,9 +149,9 @@ sns.histplot(x="flipper_length_mm", data=data, kde=True);
 - A KDE is a smooth curve estimating the shape of the distribution. It is built by placing a small bump on every observation and adding all the bumps together.
 - The standard formula (not written in lecture) is:
 
-  $$\hat f(x) = \frac{1}{nh}\sum_{i=1}^{n} K\left(\frac{x - x_i}{h}\right)$$
+  $`\displaystyle \hat f(x) = \frac{1}{nh}\sum_{i=1}^{n} K\!\left(\frac{x - x_i}{h}\right)`$
 
-  Here $K$ is the bump shape (kernel) and $h$ is the bandwidth.
+  Here $`K`$ is the bump shape (kernel) and $`h`$ is the bandwidth.
 - Advantage: the curve doesn't depend on where the bin edges fall.
 - Caveat: **the KDE is an estimate (a smooth guess). The bars are the actual counts.**
 
@@ -211,7 +211,7 @@ sns.barplot(x="species", y="flipper_length_mm", data=data, hue="sex");
 
 ### 2.7 Plot 4: Box plot (`sns.boxplot`)
 - **Question it answers:** how do several groups' distributions compare side by side?
-- **Definition:** a box plot summarizes a distribution using **five numbers**: min, $Q_1$, median, $Q_3$, max. The whiskers typically extend to $1.5 \times \text{IQR}$, where $\text{IQR} = Q_3 - Q_1$, and points beyond them are drawn as outliers.
+- **Definition:** a box plot summarizes a distribution using **five numbers**: min, $`Q_1`$, median, $`Q_3`$, max. The whiskers typically extend to $`1.5 \times \text{IQR}`$, where $`\text{IQR} = Q_3 - Q_1`$, and points beyond them are drawn as outliers.
 - The code is the same as the bar plot; just swap the function name.
 
 ```python
@@ -291,13 +291,13 @@ sns.pairplot(data, hue="species", kind="reg");       # off-diagonal scatter + fi
 
 ### 2.11 Plot 8: Heatmap (`sns.heatmap`) of correlations
 - **Question it answers:** the pair plot shows relationships as pictures. How strongly are two columns related, **as a number**?
-- **The correlation coefficient** ranges from $-1$ to $+1$:
-  - $r = +1$ (close to): strong positive correlation;
-  - $r = -1$ (close to): strong negative (anti-)correlation;
-  - $r = 0$: no (linear) correlation.
+- **The correlation coefficient** ranges from $`-1`$ to $`+1`$:
+  - $`r = +1`$ (close to): strong positive correlation;
+  - $`r = -1`$ (close to): strong negative (anti-)correlation;
+  - $`r = 0`$: no (linear) correlation.
 - The Pearson formula (not written in lecture; pandas computes it) is:
 
-  $$r_{xy} = \frac{\sum_{i}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i}(x_i-\bar{x})^2}\ \sqrt{\sum_{i}(y_i-\bar{y})^2}}, \qquad -1 \le r_{xy} \le 1$$
+  $`\displaystyle r_{xy} = \frac{\sum_{i}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i}(x_i-\bar{x})^2}\,\sqrt{\sum_{i}(y_i-\bar{y})^2}}, \qquad -1 \le r_{xy} \le 1`$
 
 - **Pandas does the statistics; Seaborn just draws the matrix.**
 
@@ -313,7 +313,7 @@ sns.heatmap(corr, mask=mask, annot=True);
 *Inferred: the exact correlation call, the masking code, and any colormap arguments.*
 
 - **What it showed:**
-  - The diagonal is always $1$, since each variable is perfectly correlated with itself.
+  - The diagonal is always $`1`$, since each variable is perfectly correlated with itself.
   - Some pairs are strongly positive and some are negative (anti-correlated).
   - No pair had a correlation of exactly zero.
 - The masked version hides the upper triangle and shows only the lower one, because the matrix is symmetric.
@@ -327,7 +327,7 @@ sns.heatmap(corr, mask=mask, annot=True);
 | `import seaborn as sns` | Import Seaborn with its conventional alias |
 | `sns.load_dataset("penguins")` | Load a built-in practice dataset as a pandas DataFrame |
 | `df.head()` | Show the first 5 rows |
-| `df.shape` | (rows, columns) tuple; here $(344, 7)$ |
+| `df.shape` | (rows, columns) tuple; here $`(344, 7)`$ |
 | `df.isna()` / `.sum()` | Flag missing (NaN) values / count them per column |
 | `NaN` | pandas' marker for a missing value |
 | `sns.set_theme(style=..., rc=...)` | Set global style (e.g. `"darkgrid"`), DPI, figure size |
@@ -350,7 +350,7 @@ sns.heatmap(corr, mask=mask, annot=True);
 | `hue=` | Color by a categorical column (auto legend) |
 | `style=` | Marker shape by a column |
 | `size=`, `sizes=(min, max)` | Marker size by a numeric column, and its range |
-| `alpha=` | Transparency, $0$ (invisible) to $1$ (opaque); reveals overlaps |
+| `alpha=` | Transparency, $`0`$ (invisible) to $`1`$ (opaque); reveals overlaps |
 | `bins="auto"` / `binwidth=` | Automatic binning / fixed bin width (e.g. 3 mm) |
 | `kde=True` | Overlay a KDE curve on a histogram |
 | `multiple="stack"` | Stack group histograms instead of overlapping them |

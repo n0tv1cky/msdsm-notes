@@ -76,7 +76,7 @@ The class then compared these with what actually happened: margins fell, the sto
 ```
 
 - **WFM:** EV = 14,481. WFM carries no debt, so EV = equity value.
-- **Walmart:** $\text{EV} = 251{,}747 + 55{,}245 = 306{,}992$.
+- **Walmart:** $`\text{EV} = 251{,}747 + 55{,}245 = 306{,}992`$.
 - **Leverage:** the value of a firm is not just share price × number of shares; debt also adds to firm value. Taking on debt can raise the value of the firm.
 
 ### 2.4 EV/EBITDA multiple (relative valuation, Method 1)
@@ -87,7 +87,7 @@ The class then compared these with what actually happened: margins fell, the sto
 \text{EBITDA multiple} = \frac{\text{EV}}{\text{EBITDA}}
 ```
 
-- **WFM:** $\dfrac{14{,}481}{1{,}222} \approx 11.9$. The market values WFM at 11.9 times its annual EBITDA.
+- **WFM:** $`\dfrac{14{,}481}{1{,}222} \approx 11.9`$. The market values WFM at 11.9 times its annual EBITDA.
 - **A multiple means nothing by itself.** It must be compared with industry peers:
   - **Sprouts:** multiple = 23.6, with EBITDA of only 187 and EV of about USD 4.4 bn.
     - This suggests heavy overvaluation relative to peers.
@@ -130,8 +130,8 @@ This is well below the USD 38.19 market price and the USD 60 target, so on this 
 #### Intuition example: buying a company
 
 - Suppose a company's annual EBITDA ("gross profit") is ₹200 crore.
-- The seller asks ₹4,000 crore. This implies a multiple of $\frac{4000}{200} = 20\times$.
-- The buyer replies that no competitor trades above 10×, so they offer $10 \times 200 = ₹2{,}000$ crore. This is how negotiations work.
+- The seller asks ₹4,000 crore. This implies a multiple of $`\frac{4000}{200} = 20\times`$.
+- The buyer replies that no competitor trades above 10×, so they offer $`10 \times 200 = ₹2{,}000`$ crore. This is how negotiations work.
 - A shareholder buys only one share, not the whole firm. That is why analysts translate firm value into a **per-share price**.
 
 #### How analysts use the method
@@ -250,16 +250,16 @@ This involves some speculation.
 
 #### (e) Discount rate and present value
 
-- **Steady-state growth:** $g = 3.4\text{%}$.
-- **Discount rate:** $r = 7\text{%}$, the cost of capital of 6.9% rounded. It is the cost of raising money through shares or corporate bonds.
+- **Steady-state growth:** $`g = 3.4\%`$.
+- **Discount rate:** $`r = 7\%`$, the cost of capital of 6.9% rounded. It is the cost of raising money through shares or corporate bonds.
 - **Time value of money:**
 
 ```math
 PV = \frac{CF_t}{(1+r)^t}
 ```
 
-- One dollar next year is worth $\frac{1}{1.07} \approx 0.93$ dollars today.
-  - The lecturer said two years out would be "about 0.91–0.92." The correct figure is $\frac{1}{1.07^2} \approx 0.87$.
+- One dollar next year is worth $`\frac{1}{1.07} \approx 0.93`$ dollars today.
+  - The lecturer said two years out would be "about 0.91–0.92." The correct figure is $`\frac{1}{1.07^2} \approx 0.87`$.
 - Personal example: ₹1 crore received next year is worth about ₹93 lakh today.
 
 #### (f) Free cash flow
@@ -268,7 +268,7 @@ PV = \frac{CF_t}{(1+r)^t}
 \text{NOPAT} = \text{EBIT} \times (1 - t)
 ```
 
-- Example: $976 \times (1 - 0.39) \approx 596$.
+- Example: $`976 \times (1 - 0.39) \approx 596`$.
 
 ```math
 \text{FCF} = \text{NOPAT} - \Delta\text{Net PP\&E} - \Delta\text{NWC}
@@ -319,7 +319,7 @@ This explains Deutsche Bank's USD 60 target.
 | Scenario | EBITDA margin path | Implied EBITDA multiple | Share price |
 |---|---|---|---|
 | Base case | about 9.4% → 9.8% → 9.3% | 10.8 | USD 58.28 |
-| Worst case | falls by 0.5 percentage points every year | $\frac{8{,}121}{1{,}679} \approx 4.8$ | USD 16 |
+| Worst case | falls by 0.5 percentage points every year | $`\frac{8{,}121}{1{,}679} \approx 4.8`$ | USD 16 |
 | Jasraj's middle case | falls by 0.25 percentage points every year: 9.25, 9.0, 8.75, 8.5, 8.25, 8.0, 7.75, 7.5, 7.25, 7.0, then held at 7.0 | 8.6 (same as Walmart) | USD 36.13 |
 
 - Jasraj guessed USD 30 for the worst case; the model gave USD 16.
@@ -362,7 +362,7 @@ This explains Deutsche Bank's USD 60 target.
   - Current asset and current liabilities turnover, and how to interpret them by industry
   - NWC, ROC vs cost of capital
   - NOPAT, FCF
-  - Discount rate, NPV, the Gordon-growth terminal value $\frac{FCF}{r-g}$, discounting the TV by $(1+r)^{10}$
+  - Discount rate, NPV, the Gordon-growth terminal value $`\frac{FCF}{r-g}`$, discounting the TV by $`(1+r)^{10}`$
   - EV ÷ shares = share price
   - Scenario/sensitivity analysis on the margin assumption
 - **Next (final) class** (the Monday about 10–12 days later, not the coming Monday):

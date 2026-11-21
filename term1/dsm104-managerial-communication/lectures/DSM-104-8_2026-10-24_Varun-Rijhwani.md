@@ -92,7 +92,7 @@ The slides were shown on screen and not read aloud. The content below is reconst
 - **Pitch A.** The speaker emphasises their own experience: *18 years managing cybersecurity across banking and technology organisations*. On the basis of what "my team and I" are observing in the current system, they recommend the upgrade. **This is ethos.**
 - **Pitch B.** The speaker points to what happened to a **comparable company/competitor**, says the same could happen to us, and stresses that **customer information** is at stake. It answers *why should we care* and *what is at stake*. Some students felt it was exaggerated. **This is pathos.**
 - **Pitch C.** The speaker gives figures: current exposure, the investment of **₹5 crore**, and an exposure reduction of **₹8 crore** after the investment. **This is logos.**
-  - Implied net benefit, as a student reasoned: $8 - 5 = 3$ crore reduction in exposure beyond the cost.
+  - Implied net benefit, as a student reasoned: $`8 - 5 = 3`$ crore reduction in exposure beyond the cost.
 
 **Class vote:** everyone chose **C**. Reasons given:
 - It is clearly defined, concise and factual.

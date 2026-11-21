@@ -88,7 +88,7 @@ except ImportError:
 - A probability distribution tells you two things:
   1. **which values** a random quantity can take;
   2. **how likely** each value is.
-- A **random variable** $X$ assigns a number to each outcome.
+- A **random variable** $`X`$ assigns a number to each outcome.
 
 The instructor showed this table:
 
@@ -130,7 +130,7 @@ plt.show()
 
 *Inferred details in this code:*
 - The array size was spoken as "40 by 40", but the instructor also said the flattened length was "~106,000". Those two do not match: a 40×40 array has 1,600 elements.
-- For a Poisson distribution with $\lambda=24$, the expected std is $\sqrt{24}\approx 4.90$. The printed 4.52 does not quite match, so the exact $\lambda$ or size may differ.
+- For a Poisson distribution with $`\lambda=24`$, the expected std is $`\sqrt{24}\approx 4.90`$. The printed 4.52 does not quite match, so the exact $`\lambda`$ or size may differ.
 - The plotting style (`cmap`, `discrete=True`) is a guess.
 
 **Q&A points from this demo:**
@@ -185,9 +185,9 @@ A small survey found:
 
 *The probabilities were reconstructed. These values are consistent with every answer stated in class.*
 
-- Exactly 2 planets: $P(X=2) = 0.15$.
-- At most 2 planets: $F(2) = P(X\le 2) = 0.5+0.3+0.15 = 0.95$.
-- At least one planet: $P(X\ge 1) = 1 - 0.5 = 0.5$.
+- Exactly 2 planets: $`P(X=2) = 0.15`$.
+- At most 2 planets: $`F(2) = P(X\le 2) = 0.5+0.3+0.15 = 0.95`$.
+- At least one planet: $`P(X\ge 1) = 1 - 0.5 = 0.5`$.
 - Expected value: multiply each value by its probability and sum.
 
 ```math
@@ -196,14 +196,14 @@ E[X] = \sum_x x\,p(x) = 0(0.5) + 1(0.3) + 2(0.15) + 3(0.05) = 0.75 \text{ planet
 
 **Worked Example B (continuous): repeated magnitude measurements**
 
-- A standard star's measured magnitude scatters around $\mu = 12$ with error $\sigma = 0.05$ mag.
+- A standard star's measured magnitude scatters around $`\mu = 12`$ with error $`\sigma = 0.05`$ mag.
 - The probability that one measurement lies between two values is the **area under the PDF**.
-- Taking the interval as $\mu \pm 2\sigma$ (the bounds are inferred; the result was ≈0.95):
+- Taking the interval as $`\mu \pm 2\sigma`$ (the bounds are inferred; the result was ≈0.95):
 
 ```math
 P(11.9 \le m \le 12.1) = \int_{11.9}^{12.1} f(m)\,dm \approx 0.95
 ```
-- **Key point:** for a continuous variable, $P(m = 12) = 0$ exactly. Only ranges have probability. $f(m)$ is a **density**, not a probability.
+- **Key point:** for a continuous variable, $`P(m = 12) = 0`$ exactly. Only ranges have probability. $`f(m)`$ is a **density**, not a probability.
 
 **Comparison figure (PMF vs PDF vs CDF)**
 
@@ -238,8 +238,8 @@ plt.show()
 ### 2.6 Bernoulli distribution
 
 **Definition:** a single trial with exactly two outcomes.
-- Success: $X=1$ with probability $p$.
-- Failure: $X=0$ with probability $1-p$.
+- Success: $`X=1`$ with probability $`p`$.
+- Failure: $`X=0`$ with probability $`1-p`$.
 - It is the building block of the binomial and geometric distributions.
 
 **PMF:**
@@ -263,9 +263,9 @@ E[X^2] = 0^2\cdot(1-p) + 1^2\cdot p = p
 ```
 
 **Worked example: tonight at the observatory**
-- The sky is clear (success) with $p = 0.6$ and cloudy with $1-p = 0.4$.
-- Mean: $E[X] = 0.6$.
-- Variance: $p(1-p) = 0.6 \times 0.4 = 0.24$.
+- The sky is clear (success) with $`p = 0.6`$ and cloudy with $`1-p = 0.4`$.
+- Mean: $`E[X] = 0.6`$.
+- Variance: $`p(1-p) = 0.6 \times 0.4 = 0.24`$.
 
 ```python
 p = 0.6
@@ -278,11 +278,11 @@ plt.ylabel("P(X=x)")
 plt.show()
 ```
 
-The `stats.bernoulli.pmf(value, p)` argument order was stated: the outcome first, then $p$.
+The `stats.bernoulli.pmf(value, p)` argument order was stated: the outcome first, then $`p`$.
 
 ### 2.7 Binomial distribution
 
-**Definition:** repeat a Bernoulli trial $n$ times, where the trials are **independent** and $p$ is the **same** each time. The number of successes $X$ is then binomial.
+**Definition:** repeat a Bernoulli trial $`n`$ times, where the trials are **independent** and $`p`$ is the **same** each time. The number of successes $`X`$ is then binomial.
 
 **PMF:**
 
@@ -302,7 +302,7 @@ P(X = k) = \binom{n}{k} p^{k}(1-p)^{n-k}, \qquad k = 0, 1, \dots, n
 E[X] = np, \qquad \mathrm{Var}(X) = np(1-p)
 ```
 
-Here $n$ is the number of trials and $p$ is the success probability.
+Here $`n`$ is the number of trials and $`p`$ is the success probability.
 
 **Worked example: planet transits**
 
@@ -312,16 +312,16 @@ Here $n$ is the number of trials and $p$ is the success probability.
 p \approx \frac{R_\star}{a}
 ```
 2. **Plug in a hot Jupiter around a Sun-like star.**
-   - Orbit: $a = 0.05$ AU.
-   - Star radius: $R_\star = 6.96 \times 10^{5}$ km.
-   - Conversion: $1\ \text{AU} = 1.496\times10^{8}$ km.
+   - Orbit: $`a = 0.05`$ AU.
+   - Star radius: $`R_\star = 6.96 \times 10^{5}`$ km.
+   - Conversion: $`1\,\text{AU} = 1.496\times10^{8}`$ km.
    - Result:
 
 ```math
 p = \frac{6.96\times10^{5}}{0.05 \times 1.496\times10^{8}} \approx 0.093 \approx 0.1
 ```
-3. **Set up the binomial.** Take $n = 20$ stars, each hosting a hot Jupiter. Then $X$, the number of transits, follows $X \sim \text{Binomial}(20, p)$.
-4. **Exactly 2 transits (by hand, $p = 0.1$):**
+3. **Set up the binomial.** Take $`n = 20`$ stars, each hosting a hot Jupiter. Then $`X`$, the number of transits, follows $`X \sim \text{Binomial}(20, p)`$.
+4. **Exactly 2 transits (by hand, $`p = 0.1`$):**
 
 ```math
 P(X=2) = \binom{20}{2}(0.1)^2(0.9)^{18} = 190 \times 0.01 \times 0.1501 \approx 0.285
@@ -333,9 +333,9 @@ P(X=0) = (0.9)^{20} \approx 0.122
 ```
 
 **Code and results:**
-- In code, the instructor computed $p$ from the constants (giving ≈0.093) and evaluated the PMF with `scipy`.
-- Code values for $k=0,1,2$ were spoken but were not reliably audible. With $p=0.093$ you should get roughly $P(0)\approx0.14$, $P(1)\approx0.29$, $P(2)\approx0.28$.
-- The hand calculation with $p=0.1$ gave 0.285. The instructor showed the code and hand values agree.
+- In code, the instructor computed $`p`$ from the constants (giving ≈0.093) and evaluated the PMF with `scipy`.
+- Code values for $`k=0,1,2`$ were spoken but were not reliably audible. With $`p=0.093`$ you should get roughly $`P(0)\approx0.14`$, $`P(1)\approx0.29`$, $`P(2)\approx0.28`$.
+- The hand calculation with $`p=0.1`$ gave 0.285. The instructor showed the code and hand values agree.
 - He also simulated many 20-star surveys, histogrammed the number of transits, and overlaid the binomial PMF. The histogram matched it.
 
 ```python
@@ -363,11 +363,11 @@ plt.legend()
 plt.show()
 ```
 
-*Inferred: the simulation size, bins, and x-range (the instructor mentioned "10"). A student asked about the line computing `comb(20, 2)`: it is $\binom{20}{2} = 190$.*
+*Inferred: the simulation size, bins, and x-range (the instructor mentioned "10"). A student asked about the line computing `comb(20, 2)`: it is $`\binom{20}{2} = 190`$.*
 
 **Interactive version (ipywidgets):**
-- The instructor applied the clear-night Bernoulli example to $n$ nights (e.g. 20) and plotted the binomial PMF of the number of clear nights.
-- Sliders let you change $n$ and $p$, and the plot re-runs automatically.
+- The instructor applied the clear-night Bernoulli example to $`n`$ nights (e.g. 20) and plotted the binomial PMF of the number of clear nights.
+- Sliders let you change $`n`$ and $`p`$, and the plot re-runs automatically.
 
 ```python
 def plot_clear_nights(n=20, p=0.6):
@@ -389,8 +389,8 @@ interact(plot_clear_nights,
 The instructor called this "the most important discrete distribution used in astronomy".
 
 **Definition:**
-- $X$ is the number of events in a fixed interval.
-- Events occur **independently** at a **constant average rate** $\lambda$.
+- $`X`$ is the number of events in a fixed interval.
+- Events occur **independently** at a **constant average rate** $`\lambda`$.
 
 **PMF:**
 
@@ -398,9 +398,9 @@ The instructor called this "the most important discrete distribution used in ast
 P(X = k) = \frac{\lambda^{k} e^{-\lambda}}{k!}, \qquad k = 0, 1, 2, \dots
 ```
 
-Here $\lambda$ is the mean number of events per interval.
+Here $`\lambda`$ is the mean number of events per interval.
 
-**Connection to the binomial:** take $n \to \infty$ and $p \to 0$ with $np = \lambda$ fixed, and the binomial PMF becomes the Poisson PMF.
+**Connection to the binomial:** take $`n \to \infty`$ and $`p \to 0`$ with $`np = \lambda`$ fixed, and the binomial PMF becomes the Poisson PMF.
 
 **Key property:** the mean equals the variance.
 
@@ -410,14 +410,14 @@ E[X] = \mathrm{Var}(X) = \lambda
 
 **Why astronomers care (photon noise):**
 - Photons arrive randomly and independently at a steady rate, so photon counts are Poisson.
-- **Noise** is the standard deviation, $\sqrt{\lambda}$ (or $\sqrt{N}$ for $N$ counts).
+- **Noise** is the standard deviation, $`\sqrt{\lambda}`$ (or $`\sqrt{N}`$ for $`N`$ counts).
 - **Signal-to-noise ratio:**
 
 ```math
 \text{S/N} = \frac{N}{\sqrt{N}} = \sqrt{N}
 ```
 
-**Worked example: a faint star sending $\lambda = 4$ photons/s to one pixel**
+**Worked example: a faint star sending $`\lambda = 4`$ photons/s to one pixel**
 
 Exactly 2 photons in 1 second:
 
@@ -471,7 +471,7 @@ This was mentioned only briefly as another discrete distribution built on Bernou
 f(x) = \frac{1}{\sqrt{2\pi}\,\sigma}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
 ```
 
-Here $\mu$ is the centre (mean) and $\sigma$ is the spread (standard deviation).
+Here $`\mu`$ is the centre (mean) and $`\sigma`$ is the spread (standard deviation).
 
 **Z-score:**
 
@@ -481,18 +481,18 @@ z = \frac{x - \mu}{\sigma}
 
 **Worked example: sky background noise**
 - Background noise is approximately normal.
-- A pixel that is $k\sigma$ above the background could be a noise fluctuation. The chance that noise alone produces a value at least that high is the **one-sided tail probability**:
+- A pixel that is $`k\sigma`$ above the background could be a noise fluctuation. The chance that noise alone produces a value at least that high is the **one-sided tail probability**:
 
 ```math
 P(Z \ge k) = 1 - \Phi(k)
 ```
-- $\Phi$ is the standard normal CDF. In code this is `stats.norm.sf(k)` or `1 - stats.norm.cdf(k)`.
+- $`\Phi`$ is the standard normal CDF. In code this is `stats.norm.sf(k)` or `1 - stats.norm.cdf(k)`.
 
 | Threshold | One-sided false-alarm probability |
 |---|---|
-| $1\sigma$ | $\approx 1.59\times10^{-1}$ (stated in class) |
-| $3\sigma$ | $\approx 1.35\times10^{-3}$ |
-| $5\sigma$ | $\approx 2.87\times10^{-7}$ |
+| $`1\sigma`$ | $`\approx 1.59\times10^{-1}`$ (stated in class) |
+| $`3\sigma`$ | $`\approx 1.35\times10^{-3}`$ |
+| $`5\sigma`$ | $`\approx 2.87\times10^{-7}`$ |
 
 *The 3σ and 5σ values are standard figures; the spoken numbers were inaudible.*
 
@@ -509,9 +509,9 @@ for k in [1, 2, 3, 5]:
 
 | Interval | Area (probability) |
 |---|---|
-| $\mu\pm1\sigma$ | ≈ **68.27%** |
-| $\mu\pm2\sigma$ | ≈ **95.45%** |
-| $\mu\pm3\sigma$ | ≈ **99.73%** |
+| $`\mu\pm1\sigma`$ | ≈ **68.27%** |
+| $`\mu\pm2\sigma`$ | ≈ **95.45%** |
+| $`\mu\pm3\sigma`$ | ≈ **99.73%** |
 
 *The audio said "99.9%". The correct standard value is 99.73%.*
 
@@ -572,15 +572,15 @@ plt.show()
 | `.ravel()` | Flatten a multi-dimensional array to 1D. |
 | f-string `f"{x:.2f}"` | Format a number with 2 decimals (`.0f`, `.3f`, `.3e` for scientific). |
 | `np.arange`, `np.linspace` | Integer ranges and evenly spaced float grids. |
-| `math.comb(n, k)` | Binomial coefficient $\binom{n}{k}$. |
-| `math.factorial(k)` | $k!$ |
-| `math.exp(x)` | $e^{x}$ |
+| `math.comb(n, k)` | Binomial coefficient $`\binom{n}{k}`$. |
+| `math.factorial(k)` | $`k!`$ |
+| `math.exp(x)` | $`e^{x}`$ |
 | `stats.bernoulli.pmf(x, p)` | Bernoulli PMF; also `.mean(p)`, `.var(p)`. |
 | `stats.binom.pmf(k, n, p)` | Binomial PMF; also `.mean`, `.std`. |
 | `stats.poisson.pmf(k, lam)` | Poisson PMF. |
 | `stats.norm.pdf(x, loc, scale)` | Normal density. |
-| `stats.norm.cdf(x)` | Normal CDF $\Phi(x)$. |
-| `stats.norm.sf(x)` | Survival function $1-\Phi(x)$ (one-sided tail). |
+| `stats.norm.cdf(x)` | Normal CDF $`\Phi(x)`$. |
+| `stats.norm.sf(x)` | Survival function $`1-\Phi(x)`$ (one-sided tail). |
 | `plt.imshow`, `plt.colorbar` | Display a 2D array as an image, with a colour scale. |
 | `sns.histplot`, `plt.hist` | Histograms. |
 | `plt.bar` | Bar chart (for PMFs). |
@@ -600,7 +600,7 @@ plt.show()
 - **Use `:.Nf` to control decimal places** in printed output.
 - **Check `scipy.stats` argument order.** For `pmf`, the outcome comes first, then the parameters: `bernoulli.pmf(1, p)`, `binom.pmf(k, n, p)`, `poisson.pmf(k, lam)`.
 - **Verify library results with a hand calculation.** The binomial hand calculation was compared with `stats.binom.pmf` and they agreed.
-- **Conceptual pitfall:** a PDF value is **not** a probability. For continuous variables $P(X=x)=0$; only intervals have probability.
+- **Conceptual pitfall:** a PDF value is **not** a probability. For continuous variables $`P(X=x)=0`$; only intervals have probability.
 - **Choosing a distribution:** Poisson or binomial for discrete counts; Gaussian for continuous data or large samples. "It depends on your sample."
 
 ---
@@ -609,7 +609,7 @@ plt.show()
 
 - No exam or assignment emphasis was stated explicitly.
 - Implicitly central (they were repeated or used as worked examples):
-  - the mean and variance formulas for Bernoulli ($p$, $p(1-p)$), binomial ($np$, $np(1-p)$) and Poisson (both $\lambda$);
+  - the mean and variance formulas for Bernoulli ($`p`$, $`p(1-p)`$), binomial ($`np`$, $`np(1-p)`$) and Poisson (both $`\lambda`$);
   - PMF vs PDF vs CDF;
   - the 68–95–99.7 rule;
   - the meaning of a 5σ detection.

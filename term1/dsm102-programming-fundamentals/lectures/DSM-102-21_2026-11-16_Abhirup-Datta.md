@@ -148,7 +148,7 @@ These are standard reference items related to methods the groups mentioned. They
 r_{xy} = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\,\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}, \qquad -1 \le r_{xy} \le 1
 ```
 
-**Simple linear regression** (as in Group 3's idea, predicting the final score $y$ from the score after 10 overs $x$):
+**Simple linear regression** (as in Group 3's idea, predicting the final score $`y`$ from the score after 10 overs $`x`$):
 
 ```math
 \hat{y} = \beta_0 + \beta_1 x, \qquad \hat\beta_1 = \frac{\sum_i (x_i-\bar x)(y_i-\bar y)}{\sum_i (x_i-\bar x)^2}, \qquad \hat\beta_0 = \bar y - \hat\beta_1 \bar x

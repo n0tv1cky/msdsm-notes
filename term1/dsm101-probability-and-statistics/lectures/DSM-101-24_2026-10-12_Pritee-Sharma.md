@@ -110,11 +110,11 @@ This session continued from the previous class on sampling (probability vs. non-
 - Observations are ordered, **and the intervals between consecutive values are equal**.
 - **There is no true zero.** Zero does not mean complete absence of the characteristic.
 - **Key test given in class:** when you change measurement scales, the **zero of one scale does not match the zero of another**.
-  - Example: $0^\circ\text{C} \neq 0^\circ\text{F} \neq 0\ \text{K}$.
+  - Example: $`0^\circ\text{C} \neq 0^\circ\text{F} \neq 0\ \text{K}`$.
 - **Consequence:** you **cannot form meaningful ratios**.
-  - Example: New York at $40^\circ$ and Buffalo at $20^\circ$ does **not** mean one city is "twice as hot or cold" as the other.
-  - Likewise, you cannot say $10^\circ$ is half of $20^\circ$, or $20^\circ$ is half of $40^\circ$.
-- **Body temperature illustration:** about $98^\circ$F is normal and $100$–$101^\circ$F is fever. These values don't line up numerically with Celsius, where normal is about $37^\circ$C.
+  - Example: New York at $`40^\circ`$ and Buffalo at $`20^\circ`$ does **not** mean one city is "twice as hot or cold" as the other.
+  - Likewise, you cannot say $`10^\circ`$ is half of $`20^\circ`$, or $`20^\circ`$ is half of $`40^\circ`$.
+- **Body temperature illustration:** about $`98^\circ`$F is normal and $`100`$–$`101^\circ`$F is fever. These values don't line up numerically with Celsius, where normal is about $`37^\circ`$C.
 - **Appropriate statistics (as stated):** **mode** and **arithmetic mean**. Median is also valid, since interval data are ordered.
 
 **Student examples discussed (with the lecturer's verdicts):**
@@ -124,20 +124,20 @@ This session continued from the previous class on sampling (probability vs. non-
 | Time on a 12-hour clock (2–4 pm and 6–8 pm are both 2 hours) | Rejected: time spans are measured exactly (120 min each). Whether the time was "productive" is a separate question. |
 | Hemoglobin levels / normal ranges in medical reports | Uncertain: likely measurable exactly; the lecturer couldn't confirm either way. |
 | BMI as a measure of health | Rejected: BMI is an exact value. "Health" is a subjective construct that would need definition. |
-| Monthly rainfall | Rejected: $0\ \text{L} = 0\ \text{gallons}$, so it has a true zero (ratio data). |
+| Monthly rainfall | Rejected: $`0\ \text{L} = 0\ \text{gallons}`$, so it has a true zero (ratio data). |
 | GDP growth rate (quarterly) | Rejected: GDP has a true zero. Zero rupees = zero dollars = zero yen. Quarters are time, which is a separate matter. |
 | Hardness of minerals | Initially grouped with temperature by the lecturer. A student (Subra) **corrected this at the end: hardness is ordinal** (Mohs scale). The lecturer agreed. |
 
 #### (d) Ratio data
 - Consecutive intervals are equal **and there is a true (absolute, non-arbitrary) zero**.
-- All scales for the quantity start at the same zero, e.g., $0\ \text{kg} = 0\ \text{lb}$ and $0\ \text{km} = 0\ \text{miles} = 0\ \text{ft}$.
+- All scales for the quantity start at the same zero, e.g., $`0\ \text{kg} = 0\ \text{lb}`$ and $`0\ \text{km} = 0\ \text{miles} = 0\ \text{ft}`$.
 - Because of the true zero, **ratios are meaningful** (doubling and halving make sense):
-  - $100\ \text{lb} = 2 \times 50\ \text{lb}$, and equally $100\ \text{kg} = 2 \times 50\ \text{kg}$.
+  - $`100\ \text{lb} = 2 \times 50\ \text{lb}`$, and equally $`100\ \text{kg} = 2 \times 50\ \text{kg}`$.
   - USD 100 is half as much as USD 200.
 - **Examples:** height, weight, length, distance, mass, monetary values (income, GDP), units sold.
 - **Caveat on units sold:** flow commodities such as fuel are continuous, so "units sold" only applies if sold in whole units (1 L, 2 L, 3 L, …).
 - **Kelvin (student question):** Celsius and Fahrenheit are interval, but **Kelvin is ratio**, because it has an absolute zero.
-  - In class this was stated as "300 K is half of 150 K." That is a slip: the correct statement is $150\ \text{K} = \tfrac{1}{2} \times 300\ \text{K}$.
+  - In class this was stated as "300 K is half of 150 K." That is a slip: the correct statement is $`150\ \text{K} = \tfrac{1}{2} \times 300\ \text{K}`$.
 
 ### 2.7 Linking data types to scales (preview of next class)
 - Each data type is measured on its matching scale:
@@ -156,16 +156,16 @@ This session continued from the previous class on sampling (probability vs. non-
 |---|---|---|---|---|---|---|
 | Nominal | No | No | No | No | Frequency, mode | Gender, religion, jersey numbers, marital status |
 | Ordinal | Yes | No | No | No | Mode, median (not mean) | Hurricane category, class rank, military rank, Mohs hardness, income brackets |
-| Interval | Yes | Yes | No | No | Mode, (median), arithmetic mean | Temperature in $^\circ$C or $^\circ$F |
+| Interval | Yes | Yes | No | No | Mode, (median), arithmetic mean | Temperature in $`^\circ`$C or $`^\circ`$F |
 | Ratio | Yes | Yes | Yes | Yes | All of the above, plus ratios | Height, weight, distance, money/GDP, rainfall, Kelvin |
 
-**Supplementary (not stated in lecture):** temperature conversions show why $^\circ$C and $^\circ$F zeros don't coincide:
+**Supplementary (not stated in lecture):** temperature conversions show why $`^\circ`$C and $`^\circ`$F zeros don't coincide:
 
 ```math
 F = \tfrac{9}{5}C + 32, \qquad K = C + 273.15
 ```
 
-So $0^\circ\text{C} = 32^\circ\text{F} = 273.15\ \text{K}$.
+So $`0^\circ\text{C} = 32^\circ\text{F} = 273.15\ \text{K}`$.
 
 ---
 
@@ -178,7 +178,7 @@ No explicit exam announcements were made. Likely-testable points and follow-ups:
 - Know the **permissible statistics** for each level (nominal: mode/frequency; ordinal: + median; interval: + mean; ratio: ratios as well).
 - Be able to **classify examples** correctly. Common traps:
   - hardness → ordinal
-  - $^\circ$C/$^\circ$F → interval, but Kelvin → ratio
+  - $`^\circ`$C/$`^\circ`$F → interval, but Kelvin → ratio
   - GDP and rainfall → ratio
   - jersey numbers → nominal
 - **Survey-design principle:** variables must be clearly defined and response options **exhaustive and unambiguous** (employment: 180-day threshold plus a part-time option).

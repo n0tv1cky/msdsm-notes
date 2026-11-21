@@ -24,7 +24,7 @@ In this session, students interpreted the six clusters three ways: from the clus
 
 The instructor then summarised the main lesson: combining qualitative and quantitative techniques gives richer insights than any single technique.
 
-The second half introduced **causal maps**, a small-sample (about 20 or fewer respondents) data-collection and analysis method. Respondents select key issues from a pre-identified list, draw signed arrows (from $-3$ to $+3$) between them, and the map is converted into a matrix so different people's mental models can be compared. Matrix comparison continues next class (Friday).
+The second half introduced **causal maps**, a small-sample (about 20 or fewer respondents) data-collection and analysis method. Respondents select key issues from a pre-identified list, draw signed arrows (from $`-3`$ to $`+3`$) between them, and the map is converted into a matrix so different people's mental models can be compared. Matrix comparison continues next class (Friday).
 
 ---
 
@@ -49,22 +49,22 @@ The second half introduced **causal maps**, a small-sample (about 20 or fewer re
 ```math
 z_i = \frac{x_i - \bar{x}}{s}
 ```
-  Here $\bar{x}$ is the sample mean and $s$ is the sample standard deviation of that indicator.
-- **Interpretation scale** (z-scores generally range from $-3$ to $+3$):
+  Here $`\bar{x}`$ is the sample mean and $`s`$ is the sample standard deviation of that indicator.
+- **Interpretation scale** (z-scores generally range from $`-3`$ to $`+3`$):
 
 | z-score | Meaning |
 |---|---|
-| $-3$ | Extremely low |
-| $-2$ | Low |
-| $-1$ | Below average |
-| $0$ | Average |
-| $+1$ | Above average |
-| $+2$ | High |
-| $+3$ | Very high |
+| $`-3`$ | Extremely low |
+| $`-2`$ | Low |
+| $`-1`$ | Below average |
+| $`0`$ | Average |
+| $`+1`$ | Above average |
+| $`+2`$ | High |
+| $`+3`$ | Very high |
 
-- **Small-sample caveat:** with only $n = 30$, these fine gradations may not behave as expected. The class therefore used a simple binary rule:
-  - $z > 0$ means **high**.
-  - $z < 0$ means **low**.
+- **Small-sample caveat:** with only $`n = 30`$, these fine gradations may not behave as expected. The class therefore used a simple binary rule:
+  - $`z > 0`$ means **high**.
+  - $`z < 0`$ means **low**.
 - **Important sign convention for ITQ:** a **positive** ITQ z-score means the person **wants to leave**, not that they want to stay. Rahul initially read this the other way round and was corrected.
 
 ### 2.3 Cluster Analysis Output: Six Groups (from the cluster-means table, volunteer Nihal)
@@ -123,7 +123,7 @@ For resonant inerts, the instructor noted we cannot tell whether they are good o
   - Team play, creativity and performance are all negative. ITQ is positive.
   - Classified as **Dissonant Inerts**.
 - **Cluster 3** (bottom-right, green): employees **2, 12, 5, 7, 11**.
-  - Performance, creativity and team play are all high, but ITQ is high (**ITQ $z \approx 0.96$**).
+  - Performance, creativity and team play are all high, but ITQ is high (**ITQ $`z \approx 0.96`$**).
   - Classified as **Dissonant Embedded Champions**.
 - **Cluster 5** (top, blue): employees **3, 10, 1, 8, 9**.
   - Everything else stays high, and ITQ is low.
@@ -212,26 +212,26 @@ Three techniques were combined in this exercise:
 3. **Draw the map.** The respondent connects the chosen issues (nodes) with **arrows**.
    - Not every pair needs to be connected; they connect only issues they believe are related.
    - Arrows can be **reciprocal** (A to B and B to A, possibly with different values).
-4. **Arrow weights** range from $-3$ to $+3$:
+4. **Arrow weights** range from $`-3`$ to $`+3`$:
 
 | Weight | Meaning |
 |---|---|
-| $-3$ | Very high negative (inverse) relationship |
-| $-2$ | High negative relationship |
-| $-1$ | Moderate negative relationship |
-| No arrow ($0$) | No relationship |
-| $+1$ | Moderate positive relationship |
-| $+2$ | High positive relationship |
-| $+3$ | Very high positive relationship |
+| $`-3`$ | Very high negative (inverse) relationship |
+| $`-2`$ | High negative relationship |
+| $`-1`$ | Moderate negative relationship |
+| No arrow ($`0`$) | No relationship |
+| $`+1`$ | Moderate positive relationship |
+| $`+2`$ | High positive relationship |
+| $`+3`$ | Very high positive relationship |
 
    A negative weight means that if one issue rises, the other falls, and vice versa.
 
-5. **Convert the map into a matrix** $A = [a_{ij}]$, where $a_{ij}$ is the weight of the arrow from issue $i$ (row) to issue $j$ (column):
+5. **Convert the map into a matrix** $`A = [a_{ij}]`$, where $`a_{ij}`$ is the weight of the arrow from issue $`i`$ (row) to issue $`j`$ (column):
 
 ```math
 a_{ij} \in \{-3, -2, -1, 0, +1, +2, +3\}
 ```
-   Use $a_{ij} = 0$ where there is no arrow.
+   Use $`a_{ij} = 0`$ where there is no arrow.
 6. **Compare matrices across respondents** to find the extent of agreement or disagreement between people. Then derive insights and decide what the business should do to resolve disagreements.
 
 **Important caveat:** a causal map is the respondent's **subjective opinion, not objective truth**. Another person would likely draw a completely different map from the same issues.
@@ -254,21 +254,21 @@ a_{ij} \in \{-3, -2, -1, 0, +1, +2, +3\}
 
 | Arrow | Weight | Interpretation |
 |---|---|---|
-| 5 to 3 | $+3$ | Market share has a very high positive relationship with vision and strategic direction |
-| 30 to 3 | $+3$ | Good leadership gives a very good vision and strategic direction; poor leadership gives a poor one |
-| 30 to 47 | $+2$ | High positive |
-| 20 to 33 | $+1$ | More competition pushes you to learn more about market needs. Only moderate, because you may lack the capability and other factors also matter |
-| 33 to 20 | $-1$ | More market knowledge helps overcome competition. Only moderately, because you also need vision, leadership, brand recognition and efficiency |
-| 5 to 20 | $-2$ | High market share lets you withstand competition to a high extent. Not $-3$, because without leadership, efficiency or vision, competitors can still overtake you |
+| 5 to 3 | $`+3`$ | Market share has a very high positive relationship with vision and strategic direction |
+| 30 to 3 | $`+3`$ | Good leadership gives a very good vision and strategic direction; poor leadership gives a poor one |
+| 30 to 47 | $`+2`$ | High positive |
+| 20 to 33 | $`+1`$ | More competition pushes you to learn more about market needs. Only moderate, because you may lack the capability and other factors also matter |
+| 33 to 20 | $`-1`$ | More market knowledge helps overcome competition. Only moderately, because you also need vision, leadership, brand recognition and efficiency |
+| 5 to 20 | $`-2`$ | High market share lets you withstand competition to a high extent. Not $`-3`$, because without leadership, efficiency or vision, competitors can still overtake you |
 | 3 and 47 | none | According to this manager the two issues are not directly related |
 
 The 20 and 33 pair shows **reciprocal (recursive) arrows with opposite signs**.
 
 **Matrix translation**
 
-- **Row 30:** $a_{30,3} = +3$ and $a_{30,47} = +2$. All other entries in the row are $0$.
-- **Row 47:** no outgoing arrows, so the whole row is $0$.
-- **Row 5:** $a_{5,3} = +3$. It should also show $a_{5,20} = -2$, but the matrix on the slide **omitted it**. The instructor pointed this out as an error.
+- **Row 30:** $`a_{30,3} = +3`$ and $`a_{30,47} = +2`$. All other entries in the row are $`0`$.
+- **Row 47:** no outgoing arrows, so the whole row is $`0`$.
+- **Row 5:** $`a_{5,3} = +3`$. It should also show $`a_{5,20} = -2`$, but the matrix on the slide **omitted it**. The instructor pointed this out as an error.
 
 Once maps are converted into matrices, you can check whether two people think alike or very differently.
 
@@ -280,7 +280,7 @@ Once maps are converted into matrices, you can check whether two people think al
 - **Coding convention:**
   - **100** (a deliberately large number) means the issue was **not chosen**.
   - **0** means the issue **was chosen** but has no connection on that pair.
-  - Otherwise the entry is the arrow weight from $-3$ to $+3$.
+  - Otherwise the entry is the arrow weight from $`-3`$ to $`+3`$.
 - **Respondent "Ion":**
   - Chose issues **5, 8, 10, 12, 13**.
   - Issue 1, for example, is coded 100 because it was not chosen.
@@ -313,16 +313,16 @@ No item was explicitly labelled "on the exam", but the following were emphasised
 - **Before Friday:** review the Excel sheets the instructor will share. These are the R cluster-assignment output and the causal-map matrices. Try to work out how matrices can be compared, so the Friday discussion goes faster.
 - **Know the typology** cold: Champion/Inert, Resonant/Dissonant and Embedded/Disembedded definitions, the six combined categories, and the **HR intervention for each**. This was tested repeatedly via volunteers.
 - **ITQ sign convention:** a positive z-score on intention to quit means the person wants to **leave**.
-- **Small-sample z-score rule:** with $n = 30$, use $z > 0$ as high and $z < 0$ as low, rather than the $-3$ to $+3$ gradations.
+- **Small-sample z-score rule:** with $`n = 30`$, use $`z > 0`$ as high and $`z < 0`$ as low, rather than the $`-3`$ to $`+3`$ gradations.
 - **Mixed methods message:** be able to name the three techniques (factor, text, cluster) and explain why combining qualitative and quantitative methods yields richer insights.
 - **Causal maps essentials:**
   - Small samples only (about 20 or fewer).
   - When to prefer causal maps over surveys or interviews.
   - The steps: 50 issues, choose 10, draw map, matrix, compare.
-  - The $-3$ to $+3$ arrow scale, with no arrow coded as 0.
+  - The $`-3`$ to $`+3`$ arrow scale, with no arrow coded as 0.
   - The 100 code for unchosen issues.
   - Maps are subjective, not objective truth.
-  - Be able to translate a map into a matrix (and spot omissions like the missing $a_{5,20} = -2$).
+  - Be able to translate a map into a matrix (and spot omissions like the missing $`a_{5,20} = -2`$).
 - **Correlation does not imply causation:** flagged in Rahul's analysis.
 - **Next class (Friday):** continue the causal map matrix comparison, followed by a business case study using causal maps.
 

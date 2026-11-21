@@ -71,7 +71,7 @@ Y = f(M,\; N,\; E)
 ### 2.5 Constant returns to scale (CRS)
 
 - **Definition:** If all inputs are increased by the same proportion **λ**, and output also increases by exactly that proportion **λ**, the technology exhibits **constant returns to scale**.
-  - Formally: $f(\lambda M, \lambda N, \lambda E) = \lambda\  f(M,N,E)$
+  - Formally: $`f(\lambda M, \lambda N, \lambda E) = \lambda\, f(M,N,E)`$
   - Mathematically: the production function is **homogeneous of degree one**.
 - Worked illustration: workers 1→2, energy 80→160, machines 3→6 ⇒ output 50→100. ✔ CRS.
 - Other cases (mentioned, to be covered later in the course under firm behaviour):
@@ -205,18 +205,18 @@ where
 
 ### 2.15 Deriving the isocost line (board derivation)
 
-Write the cost equation in the general linear form $ax + by = c$, with $x = L$, $y = R$, $a = w$, $b = p$, $c = C$.
+Write the cost equation in the general linear form $`ax + by = c`$, with $`x = L`$, $`y = R`$, $`a = w`$, $`b = p`$, $`c = C`$.
 
 **Intercepts:**
 
-- Set **L = 0** ⇒ $pR = C$ ⇒ **R-intercept (vertical) = C/p**
-- Set **R = 0** ⇒ $wL = C$ ⇒ **L-intercept (horizontal) = C/w**
+- Set **L = 0** ⇒ $`pR = C`$ ⇒ **R-intercept (vertical) = C/p**
+- Set **R = 0** ⇒ $`wL = C`$ ⇒ **L-intercept (horizontal) = C/w**
 
 **Slope:**
 
-- General: slope $= -a/b$
-- Here: $\text{slope} = -\frac{w}{p}$
-- (Equivalently, rearranging to y = mx + c form: $R = \dfrac{C}{p} - \dfrac{w}{p}L$; or in intercept form $\dfrac{L}{C/w} + \dfrac{R}{C/p} = 1$.)
+- General: slope $`= -a/b`$
+- Here: $`\text{slope} = -\frac{w}{p}`$
+- (Equivalently, rearranging to y = mx + c form: $`R = \dfrac{C}{p} - \dfrac{w}{p}L`$; or in intercept form $`\dfrac{L}{C/w} + \dfrac{R}{C/p} = 1`$.)
 
 **Definition — isocost line:** The locus of all input combinations (L, R) that cost **the same** total amount. "Iso" = same. Along an isocost line, you change the input mix while **holding total cost constant**.
 
@@ -236,15 +236,15 @@ Write the cost equation in the general linear form $ax + by = c$, with $x = L$, 
 
 Suppose **both** input prices are scaled by the same factor (illustrated with factor 2):
 
-- $w' = 2w$, $p' = 2p$
+- $`w' = 2w`$, $`p' = 2p`$
 
 Then:
 
-- **Slope** $= -w'/p' = -2w/2p = -w/p$ → **unchanged**.
-- New cost of the _same_ input bundle: $C' = p'R + w'L = 2pR + 2wL = 2(pR + wL) = 2C$.
+- **Slope** $`= -w'/p' = -2w/2p = -w/p`$ → **unchanged**.
+- New cost of the _same_ input bundle: $`C' = p'R + w'L = 2pR + 2wL = 2(pR + wL) = 2C`$.
 - New intercepts:
-  - Vertical: $C'/p' = 2C/2p = C/p$ → **unchanged**
-  - Horizontal: $C'/w' = 2C/2w = C/w$ → **unchanged**
+  - Vertical: $`C'/p' = 2C/2p = C/p`$ → **unchanged**
+  - Horizontal: $`C'/w' = 2C/2w = C/w`$ → **unchanged**
 - ⇒ **You end up on exactly the same isocost line as before.**
 
 **Generalisation:** For **any λ > 0**, if both input prices are multiplied by λ, the slope and intercepts are unchanged and you remain on the same (drawn) isocost line.
@@ -257,8 +257,8 @@ Then:
 
 ### 2.18 Change in _relative_ prices — rotation of the isocost line
 
-- Now suppose **only the wage doubles** ($w' = 2w$), while the price of coal is unchanged ($p' = p$).
-- New slope $= -w'/p' = -2w/p$ ⇒ the isocost line becomes **twice as steep**.
+- Now suppose **only the wage doubles** ($`w' = 2w`$), while the price of coal is unchanged ($`p' = p`$).
+- New slope $`= -w'/p' = -2w/p`$ ⇒ the isocost line becomes **twice as steep**.
 - **Vertical intercept is unchanged** at **C/p** (because setting L = 0 removes w from the equation entirely).
 - **Horizontal intercept falls** from C/w to **C/w′ = C/2w**.
 - ⇒ The isocost line **rotates/pivots about the vertical intercept and becomes steeper**.
@@ -277,7 +277,7 @@ _(Note: at one point in class the instructor mislabelled which variable sat on w
 
 - P1 and P2 lie on the **same isocost line** (both cost £80) — by definition of an isocost line.
 - Points **Q1, Q2** use **more of both** workers and coal ⇒ they lie on a **higher, parallel** isocost line ⇒ higher cost. (More inputs also means more output is produced with that technology — but note: **the isocost graph shows only cost, not output**; output is shown on the technology graph.)
-- Slope with these prices: $-w/p = -10/20 = -1/2$.
+- Slope with these prices: $`-w/p = -10/20 = -1/2`$.
 
 ### 2.20 Worked example — the price change that drives the Industrial Revolution
 
@@ -335,7 +335,7 @@ _(Note: at one point in class the instructor mislabelled which variable sat on w
 
 The instructor did not announce a formal assessment item in this session, but the following were explicitly emphasised as key takeaways or forward references:
 
-- ⭐ **"What matters is _relative_ prices."** Repeated several times and demonstrated both algebraically and geometrically (proportional price changes leave slope and intercepts unchanged). Be able to reproduce both the algebra ($C' = \lambda C$, intercepts $C'/w' = C/w$, $C'/p' = C/p$) and the geometric argument.
+- ⭐ **"What matters is _relative_ prices."** Repeated several times and demonstrated both algebraically and geometrically (proportional price changes leave slope and intercepts unchanged). Be able to reproduce both the algebra ($`C' = \lambda C`$, intercepts $`C'/w' = C/w`$, $`C'/p' = C/p`$) and the geometric argument.
 - ⭐ **Be able to derive the isocost line from scratch**: intercepts C/w and C/p, slope −w/p — the instructor did this live on the board and asked repeatedly "so far so good?".
 - ⭐ **The quadrant test for dominated technologies** — the practical rule for identifying engineering-inefficient technologies without price data. Practised interactively with the class (A dominates C; B dominates D).
 - ⭐ **Know that after removing dominated technologies, remaining ones can only be ranked using input prices** — this is the bridge from engineering efficiency to economic efficiency.
@@ -350,18 +350,18 @@ The instructor did not announce a formal assessment item in this session, but th
 
 | Concept                                         | Formula / Statement                                                              |
 | ----------------------------------------------- | -------------------------------------------------------------------------------- |
-| Production function                             | $Y = f(M, N, E)$                                                                 |
+| Production function                             | $`Y = f(M, N, E)`$                                                                 |
 | Fixed proportions (olive oil)                   | 3 machines : 1 worker : 80 kWh → 50 L oil                                        |
-| Constant returns to scale                       | $f(\lambda M, \lambda N, \lambda E) = \lambda f(M,N,E)$; homogeneous of degree 1 |
-| Average product of an input                     | $AP = \dfrac{\text{Total output}}{\text{Input quantity}}$                        |
-| Average product of labour (labour productivity) | $AP_L = \dfrac{Y}{L}$                                                            |
-| Energy–labour ratio (energy intensity)          | $\dfrac{E}{L}$ = slope of ray from origin in (L, E) space                        |
-| Cost / isocost equation                         | $C = wL + pR$                                                                    |
-| Isocost vertical (coal) intercept               | $R = \dfrac{C}{p}$                                                               |
-| Isocost horizontal (labour) intercept           | $L = \dfrac{C}{w}$                                                               |
-| Isocost slope                                   | $-\dfrac{w}{p}$                                                                  |
-| Isocost in slope-intercept form                 | $R = \dfrac{C}{p} - \dfrac{w}{p}L$                                               |
-| Profit                                          | $\pi = \text{Revenue} - \text{Cost}$                                             |
+| Constant returns to scale                       | $`f(\lambda M, \lambda N, \lambda E) = \lambda f(M,N,E)`$; homogeneous of degree 1 |
+| Average product of an input                     | $`AP = \dfrac{\text{Total output}}{\text{Input quantity}}`$                        |
+| Average product of labour (labour productivity) | $`AP_L = \dfrac{Y}{L}`$                                                            |
+| Energy–labour ratio (energy intensity)          | $`\dfrac{E}{L}`$ = slope of ray from origin in (L, E) space                        |
+| Cost / isocost equation                         | $`C = wL + pR`$                                                                    |
+| Isocost vertical (coal) intercept               | $`R = \dfrac{C}{p}`$                                                               |
+| Isocost horizontal (labour) intercept           | $`L = \dfrac{C}{w}`$                                                               |
+| Isocost slope                                   | $`-\dfrac{w}{p}`$                                                                  |
+| Isocost in slope-intercept form                 | $`R = \dfrac{C}{p} - \dfrac{w}{p}L`$                                               |
+| Profit                                          | $`\pi = \text{Revenue} - \text{Cost}`$                                             |
 | Innovation rent                                 | Profit(new technology) − Profit(next best / existing technology)                 |
 
 <!-- nav -->

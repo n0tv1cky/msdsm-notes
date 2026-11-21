@@ -17,7 +17,7 @@ faculty: Karthikeya Naraparaju
 
 ## 1. Overview
 
-This session builds the core micro-economic apparatus for modelling **individual decision-making as constrained optimisation**, using the classic **work vs. free time (leisure)** trade-off. The running example is a worker, **Karim**, who earns an hourly wage of **€30** and must decide how to split his 24-hour day between paid work (which buys consumption) and free time. The lecture first recaps the **production function** linking hours worked to income ($y = wh$), then develops **preferences** via **utility, indifference curves, indifference maps, the marginal rate of substitution (MRS)** and **diminishing MRS** (grounded in **diminishing marginal utility**). It then derives the **budget constraint / feasibility frontier** $C = w(24 - t)$, shows its algebraic equivalence to the standard two-good budget line $P_X X + P_Y Y = \text{income}$ (with the wage acting as the *price of free time* and consumption as the *numéraire* good), graphs the **feasible set**, shows how it **pivots** (not shifts) when the wage rises, and argues that interior points are **sub-optimal** — the chosen point must lie on the frontier. The key conceptual punchline: the budget line is the trade-off the **market imposes** on Karim; the indifference curve is the trade-off Karim is **willing** to make. The next session will superimpose the two to find the optimum, and then move on to income & substitution effects and technological change.
+This session builds the core micro-economic apparatus for modelling **individual decision-making as constrained optimisation**, using the classic **work vs. free time (leisure)** trade-off. The running example is a worker, **Karim**, who earns an hourly wage of **€30** and must decide how to split his 24-hour day between paid work (which buys consumption) and free time. The lecture first recaps the **production function** linking hours worked to income ($`y = wh`$), then develops **preferences** via **utility, indifference curves, indifference maps, the marginal rate of substitution (MRS)** and **diminishing MRS** (grounded in **diminishing marginal utility**). It then derives the **budget constraint / feasibility frontier** $`C = w(24 - t)`$, shows its algebraic equivalence to the standard two-good budget line $`P_X X + P_Y Y = \text{income}`$ (with the wage acting as the *price of free time* and consumption as the *numéraire* good), graphs the **feasible set**, shows how it **pivots** (not shifts) when the wage rises, and argues that interior points are **sub-optimal** — the chosen point must lie on the frontier. The key conceptual punchline: the budget line is the trade-off the **market imposes** on Karim; the indifference curve is the trade-off Karim is **willing** to make. The next session will superimpose the two to find the optimum, and then move on to income & substitution effects and technological change.
 
 ---
 
@@ -38,11 +38,11 @@ This session builds the core micro-economic apparatus for modelling **individual
 ```math
 y = w \cdot h
 ```
-  - $y$ = total income (per day)
-  - $w$ = hourly wage
-  - $h$ = hours of work per day
-- Karim's wage: $w = €30$ per hour.
-- **Graph**: $x$-axis = hours of work per day; $y$-axis = income. A **straight line through the origin with slope 30**.
+  - $`y`$ = total income (per day)
+  - $`w`$ = hourly wage
+  - $`h`$ = hours of work per day
+- Karim's wage: $`w = €30`$ per hour.
+- **Graph**: $`x`$-axis = hours of work per day; $`y`$-axis = income. A **straight line through the origin with slope 30**.
 - Linearity means: the **next hour of work yields the same extra income as the previous hour** (constant returns to hours). Noted as an assumption — in reality overtime might pay more.
 - Parallel drawn to the earlier **olive-oil production function** example (inputs → output); here the single input is hours of work.
 
@@ -71,11 +71,11 @@ y = w \cdot h
 - **Indifference curve** = the locus of all bundles giving the **same** level of utility. Utility is **constant along** an indifference curve.
 
 ### 2.6 Worked numbers on one indifference curve
-- **Axes**: $x$-axis = hours of free time per day; $y$-axis = consumption spending (€).
+- **Axes**: $`x`$-axis = hours of free time per day; $`y`$-axis = consumption spending (€).
 - Points on the same curve: **A, E, F, G, H, D** — all equally satisfying.
   - **Point A**: 15 hours free time, **€540** consumption.
   - **Point E**: 16 hours free time (one extra hour), **€446** consumption.
-  - So moving A → E: gain 1 hour of free time, give up $540 - 446 = €94$ of consumption.
+  - So moving A → E: gain 1 hour of free time, give up $`540 - 446 = €94`$ of consumption.
 - Comparisons used in class:
   - A ≻ B (B has the same consumption as A but less free time).
   - Since Karim is indifferent between A, E, F, G, H, D, and A ≻ B, it follows that **E, F, G, H, D are all ≻ B**.
@@ -90,7 +90,7 @@ y = w \cdot h
 5. **They get flatter as you move to the right** (convex to the origin).
 
 ### 2.8 Marginal Rate of Substitution (MRS)
-- **Definition**: the **slope of the indifference curve** (in magnitude) — for one additional unit of the good on the $x$-axis, how many units of the $y$-axis good you are willing to give up and remain indifferent.
+- **Definition**: the **slope of the indifference curve** (in magnitude) — for one additional unit of the good on the $`x`$-axis, how many units of the $`y`$-axis good you are willing to give up and remain indifferent.
 
 ```math
 \text{MRS} = \left|\frac{\Delta C}{\Delta T}\right|_{\text{utility constant}}
@@ -106,7 +106,7 @@ y = w \cdot h
 ### 2.9 Indifference maps and how MRS varies across curves
 - **Indifference map** = a set (family) of indifference curves. Two maps of three curves each were shown.
 
-**(a) Moving vertically (left-hand graph):** a **vertical red line at $T = 15$ hours**, cutting the lowest, middle and highest indifference curves.
+**(a) Moving vertically (left-hand graph):** a **vertical red line at $`T = 15`$ hours**, cutting the lowest, middle and highest indifference curves.
 - Reading the slope (tangent) at each intersection: **the curves get steeper as you move up** ⇒ **MRS increases**.
 - **Reason**: along the vertical line, free time is held constant while **consumption rises**. Having abundant consumption and relatively scarce free time, you are willing to give up **more** consumption for one extra hour of free time.
 - Class clarification: on the *same* indifference curve (e.g. A and E) utility is **identical by definition**; only the *composition* of the bundle differs.
@@ -127,9 +127,9 @@ y = w \cdot h
 ```math
 C = w\,(24 - t)
 ```
-  - $C$ = consumption, $w$ = hourly wage, $24$ = total hours in a day, $t$ = hours of **free time**.
-  - Hours worked $= 24 - t$.
-  - Example: 8 hours sleep as the only free time ⇒ $t = 8$, hours worked $= 16$, $C = 16w$.
+  - $`C`$ = consumption, $`w`$ = hourly wage, $`24`$ = total hours in a day, $`t`$ = hours of **free time**.
+  - Hours worked $`= 24 - t`$.
+  - Example: 8 hours sleep as the only free time ⇒ $`t = 8`$, hours worked $`= 16`$, $`C = 16w`$.
 
 - **Algebraic rearrangement** (done on the board):
 
@@ -137,64 +137,64 @@ C = w\,(24 - t)
 C = 24w - w\,t \quad \Longrightarrow \quad w\,t + C = 24\,w
 ```
 
-- This has the linear form $a x + b y = c$, with slope $-\ a/b$.
+- This has the linear form $`a x + b y = c`$, with slope $`-\,a/b`$.
 - **General two-good budget line in economics**:
 
 ```math
 P_X X + P_Y Y = \text{Income}
 ```
-  - $P_X X$ = total spending on good $X$; $P_Y Y$ = total spending on $Y$; with only two goods, total spending = total income (budget is exhausted). This line is called the **budget line** or **budget constraint**.
+  - $`P_X X`$ = total spending on good $`X`$; $`P_Y Y`$ = total spending on $`Y`$; with only two goods, total spending = total income (budget is exhausted). This line is called the **budget line** or **budget constraint**.
 
 - **Mapping the work–leisure problem onto the general form**:
 
 | General | Work–leisure model |
 |---|---|
-| $X$ | $T$ = free time ($x$-axis) |
-| $Y$ | $C$ = consumption ($y$-axis) |
-| $P_X$ | $w$ = **the price of free time** (= hourly wage = opportunity cost of an hour not worked) |
-| $P_Y$ | $1$ — consumption is the **numéraire** good |
-| Income | $24w$ = the **endowment** (max attainable, since everyone has only 24 hours) |
+| $`X`$ | $`T`$ = free time ($`x`$-axis) |
+| $`Y`$ | $`C`$ = consumption ($`y`$-axis) |
+| $`P_X`$ | $`w`$ = **the price of free time** (= hourly wage = opportunity cost of an hour not worked) |
+| $`P_Y`$ | $`1`$ — consumption is the **numéraire** good |
+| Income | $`24w`$ = the **endowment** (max attainable, since everyone has only 24 hours) |
 
-- **Numéraire good**: setting $P_Y = 1$ expresses everything in terms of $w$. Economists only care about **relative prices**; here $P_1/P_2 = w/1 = w$, so $w$ *is* the relative price ratio.
-- **Endowment**: economists also call income "endowment" — the resource you start with. Here it is $24 \times w$, which is split between free time and consumption.
+- **Numéraire good**: setting $`P_Y = 1`$ expresses everything in terms of $`w`$. Economists only care about **relative prices**; here $`P_1/P_2 = w/1 = w`$, so $`w`$ *is* the relative price ratio.
+- **Endowment**: economists also call income "endowment" — the resource you start with. Here it is $`24 \times w`$, which is split between free time and consumption.
 
-### 2.11 Graphing the feasible set (worked numbers, $w = €30$)
-- **Axes**: $x$-axis = hours of **free time** $t$; $y$-axis = **consumption** $C$.
-- Effective origin taken at **$t = 8$** (8 hours of sleep is non-negotiable) ⇒ **maximum 16 hours of work**.
-- **Vertical (maximum-consumption) point**: at $t = 8$,
+### 2.11 Graphing the feasible set (worked numbers, $`w = €30`$)
+- **Axes**: $`x`$-axis = hours of **free time** $`t`$; $`y`$-axis = **consumption** $`C`$.
+- Effective origin taken at **$`t = 8`$** (8 hours of sleep is non-negotiable) ⇒ **maximum 16 hours of work**.
+- **Vertical (maximum-consumption) point**: at $`t = 8`$,
 
 ```math
 C_{\max} = 16 \times w = 16 \times 30 = €480
 ```
-- **Horizontal ($x$) intercept**: $t = 24$ (all day is free time) ⇒ $C = 0$ (no other income source, no borrowing).
-- The line joining these is downward-sloping with slope $-w = -30$.
-- **Feasible set** = the triangular area on/under this line: **every combination of $C$ and $T$ that Karim can afford**.
+- **Horizontal ($`x`$) intercept**: $`t = 24`$ (all day is free time) ⇒ $`C = 0`$ (no other income source, no borrowing).
+- The line joining these is downward-sloping with slope $`-w = -30`$.
+- **Feasible set** = the triangular area on/under this line: **every combination of $`C`$ and $`T`$ that Karim can afford**.
 - **Feasible frontier** (a.k.a. **budget line**) = the boundary line itself.
 
 **Infeasibility examples used:**
 - A bundle with **€500** of consumption is **infeasible** — even working all 16 hours the maximum is €480.
-- A bundle of **12 hours free time with €400 consumption** is **infeasible**: with $t = 12$ you work 12 hours, so $12 \times 30 = €360$ is the maximum consumption at that level of free time. To get €400 you must take **less** free time.
+- A bundle of **12 hours free time with €400 consumption** is **infeasible**: with $`t = 12`$ you work 12 hours, so $`12 \times 30 = €360`$ is the maximum consumption at that level of free time. To get €400 you must take **less** free time.
 
 ### 2.12 Budget line vs. indifference curve — the key distinction
 **Student Q:** *Both graphs plot C against T — why is one a straight line and the other convex?*
 - **Budget line / feasible frontier** = the trade-off the **market imposes** on Karim. It is **exogenous**; it does not depend on what he likes. It is *what Karim can do*.
 - **Indifference curves** = the trade-offs Karim is **willing** to make. They reflect his own tastes — *what Karim wants*.
-- Reconciling the production function and the frontier: the production function was drawn with **hours worked** on the $x$-axis (upward sloping, slope 30). Replacing hours worked with $t = 24 - \text{hours worked}$ **inverts the $x$-axis**, turning it into the downward-sloping feasible frontier in $(T, C)$ space. Both are now in the same $(T, C)$ coordinates, so the two diagrams can be **superimposed**.
+- Reconciling the production function and the frontier: the production function was drawn with **hours worked** on the $`x`$-axis (upward sloping, slope 30). Replacing hours worked with $`t = 24 - \text{hours worked}`$ **inverts the $`x`$-axis**, turning it into the downward-sloping feasible frontier in $`(T, C)`$ space. Both are now in the same $`(T, C)`$ coordinates, so the two diagrams can be **superimposed**.
 - "I'd like to be on the moon, but my employer shows me reality" — we want the highest indifference curve, but cannot go beyond the feasible set. This is why it is **constrained** optimisation, not plain optimisation.
-- **Clarification (Nihal's question)**: in the budget-line equation $wt + C = 24w$, **$t$ is leisure (free time), not hours worked** — consistent with the indifference-curve axes.
+- **Clarification (Nihal's question)**: in the budget-line equation $`wt + C = 24w`$, **$`t`$ is leisure (free time), not hours worked** — consistent with the indifference-curve axes.
 
 ### 2.13 Comparative statics: a wage increase
 - **Question**: if the hourly wage rises, how does the feasible set change — parallel shift or pivot?
 - **Answer**: it **pivots**, it does not shift in parallel.
-  - The **$x$-intercept is unchanged at $t = 24$**: no matter how high the wage, if you take all 24 hours as free time you earn and consume **zero**.
-  - The **$y$-axis maximum rises** (from $16w_{\text{old}}$ to $16w_{\text{new}}$), and the frontier becomes **steeper** (slope $-w$ becomes more negative).
+  - The **$`x`$-intercept is unchanged at $`t = 24`$**: no matter how high the wage, if you take all 24 hours as free time you earn and consume **zero**.
+  - The **$`y`$-axis maximum rises** (from $`16w_{\text{old}}`$ to $`16w_{\text{new}}`$), and the frontier becomes **steeper** (slope $`-w`$ becomes more negative).
   - **Result**: the feasible set expands; bundles previously infeasible become feasible.
 
 ### 2.14 Why the optimum lies *on* the frontier (interior points are sub-optimal)
-- Take a point **A** strictly **inside** the feasible set, with free time $T'$ and consumption $C'$.
+- Take a point **A** strictly **inside** the feasible set, with free time $`T'`$ and consumption $`C'`$.
 - Two directions of improvement:
-  - Move **vertically up** to point **B** on the frontier: **same free time $T'$, strictly more consumption** ($C'' > C'$).
-  - Move **horizontally right** to point **C** on the frontier: **same consumption $C'$, strictly more free time** ($T'' > T'$).
+  - Move **vertically up** to point **B** on the frontier: **same free time $`T'`$, strictly more consumption** ($`C'' > C'`$).
+  - Move **horizontally right** to point **C** on the frontier: **same consumption $`C'`$, strictly more free time** ($`T'' > T'`$).
 - Since both C and T are **goods** (more is better), A is **dominated** ⇒ **A is sub-optimal**.
 - Therefore a rational chooser locates **on the feasible frontier**. *Which* point on the frontier depends on **preferences**:
   - A leisure-lover's indifference curves make **C** the higher-utility point.
@@ -208,12 +208,12 @@ C_{\max} = 16 \times w = 16 \times 30 = €480
 
 | Graph | Axes | Shape / features |
 |---|---|---|
-| Production function | $x$: hours of work/day; $y$: income | Straight line from origin, slope $= w = 30$ |
-| Indifference curve | $x$: hours of free time; $y$: consumption spending (€) | Downward-sloping, **convex to origin**, flattening to the right; points A(15, 540) … E(16, 446) … D |
-| Indifference map — vertical cut | same axes | Vertical red line at $T = 15$ across 3 curves; tangents get **steeper** upward ⇒ MRS ↑ |
-| Indifference map — horizontal cut | same axes | Horizontal red line at fixed $C$ across 3 curves; tangents get **flatter** rightward ⇒ MRS ↓ (flattest at H) |
-| Feasible set | $x$: free time $t$ (from 8 to 24); $y$: consumption $C$ | Downward-sloping frontier, slope $-30$; hits $C = 480$ at $t = 8$ and $C = 0$ at $t = 24$; shaded triangle = feasible set |
-| Wage increase | same axes | Frontier **pivots** about the point $(24, 0)$; $y$ height rises above 480; steeper |
+| Production function | $`x`$: hours of work/day; $`y`$: income | Straight line from origin, slope $`= w = 30`$ |
+| Indifference curve | $`x`$: hours of free time; $`y`$: consumption spending (€) | Downward-sloping, **convex to origin**, flattening to the right; points A(15, 540) … E(16, 446) … D |
+| Indifference map — vertical cut | same axes | Vertical red line at $`T = 15`$ across 3 curves; tangents get **steeper** upward ⇒ MRS ↑ |
+| Indifference map — horizontal cut | same axes | Horizontal red line at fixed $`C`$ across 3 curves; tangents get **flatter** rightward ⇒ MRS ↓ (flattest at H) |
+| Feasible set | $`x`$: free time $`t`$ (from 8 to 24); $`y`$: consumption $`C`$ | Downward-sloping frontier, slope $`-30`$; hits $`C = 480`$ at $`t = 8`$ and $`C = 0`$ at $`t = 24`$; shaded triangle = feasible set |
+| Wage increase | same axes | Frontier **pivots** about the point $`(24, 0)`$; $`y`$ height rises above 480; steeper |
 | Interior-point argument | same axes | Point A inside; vertical arrow A→B and horizontal arrow A→C, both reaching the frontier |
 
 ---
@@ -248,7 +248,7 @@ P_X X + P_Y Y = \text{Income} \qquad \text{(general two-good budget line)}
 \text{MRS} = \left|\text{slope of indifference curve}\right| = \left|\frac{\Delta C}{\Delta T}\right|_{U \text{ constant}}
 ```
 
-Key numbers: $w = €30$; max work $= 16$ h; min free time $= 8$ h; $C_{\max} = 16 \times 30 = €480$; at $t = 12$, $C_{\max} = 12 \times 30 = €360$.
+Key numbers: $`w = €30`$; max work $`= 16`$ h; min free time $`= 8`$ h; $`C_{\max} = 16 \times 30 = €480`$; at $`t = 12`$, $`C_{\max} = 12 \times 30 = €360`$.
 
 ---
 
@@ -273,7 +273,7 @@ Key numbers: $w = €30$; max work $= 16$ h; min free time $= 8$ h; $C_{\max} = 
 - State and justify the **five properties of indifference curves** (downward-sloping, higher = better, smooth, non-crossing, flattening / convex).
 - Explain **diminishing MRS** and its origin in **diminishing marginal utility**.
 - Explain the difference between a trade-off one is **willing** to make (MRS) and one **constrained** to make (wage / slope of budget line).
-- Compute intercepts of the budget line and identify feasible vs. infeasible bundles given $w$ and hour constraints.
+- Compute intercepts of the budget line and identify feasible vs. infeasible bundles given $`w`$ and hour constraints.
 - Explain why a wage change **pivots** (not shifts) the feasible frontier.
 - Argue why interior points of the feasible set are **sub-optimal**.
 

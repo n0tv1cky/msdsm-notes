@@ -18,7 +18,7 @@ faculty: Deepak Sethia
 
 ## 1. Overview
 
-This session continues from the previous class's derivation of the **money multiplier**. It opens with a quick recap and a numerical exercise ($rr = 10\text{%}$, $cr = 30\text{%}$, giving a multiplier of 3.25). It then explains why **banks are unique financial institutions**: they create money, while bond and equity markets only transfer savings. A ₹1,000 example with a 10% reserve requirement shows how withdrawals and transfers leave individual banks with reserve surpluses or deficits. That gap is why **interbank markets** exist and why banks borrow from or park money with the RBI.
+This session continues from the previous class's derivation of the **money multiplier**. It opens with a quick recap and a numerical exercise ($`rr = 10\%`$, $`cr = 30\%`$, giving a multiplier of 3.25). It then explains why **banks are unique financial institutions**: they create money, while bond and equity markets only transfer savings. A ₹1,000 example with a 10% reserve requirement shows how withdrawals and transfers leave individual banks with reserve surpluses or deficits. That gap is why **interbank markets** exist and why banks borrow from or park money with the RBI.
 
 The lecture then sets up the **inverse relationship between bond prices and interest rates** using a perpetual bond. It uses this to show that "RBI sells bonds", "money supply falls" and "interest rates rise" are one and the same event. The two RBI tools are compared:
 
@@ -40,14 +40,14 @@ The session also covers:
 ### 2.1 Recap: Money Supply and the Money Multiplier
 
 **Money supply** means the things we use for transactions. There are two components:
-- **Currency** ($C$), held by the public.
-- **Deposits** ($D$), held in banks.
+- **Currency** ($`C`$), held by the public.
+- **Deposits** ($`D`$), held in banks.
 
-**How deposits are created:** banks keep part of each deposit as **reserves** ($R$) and lend out the rest.
+**How deposits are created:** banks keep part of each deposit as **reserves** ($`R`$) and lend out the rest.
 
 **What the central bank creates:**
-- Currency in people's wallets ($C$).
-- Currency in bank vaults ($R$).
+- Currency in people's wallets ($`C`$).
+- Currency in bank vaults ($`R`$).
 
 Together these form the **monetary base**. Three names are used for the same thing: **high-powered money = monetary base = M0** (narrow money):
 
@@ -61,15 +61,15 @@ B = C + R
 M = C + D
 ```
 
-**Money multiplier.** Divide each term of the numerator and denominator by $D$:
+**Money multiplier.** Divide each term of the numerator and denominator by $`D`$:
 
 ```math
 m = \frac{M}{B} = \frac{C + D}{C + R} = \frac{\frac{C}{D} + 1}{\frac{C}{D} + \frac{R}{D}} = \frac{cr + 1}{cr + rr}
 ```
 
 where:
-- $cr = \frac{C}{D}$ is the **currency–deposit ratio**.
-- $rr = \frac{R}{D}$ is the **reserve–deposit ratio** (set via the CRR requirement).
+- $`cr = \frac{C}{D}`$ is the **currency–deposit ratio**.
+- $`rr = \frac{R}{D}`$ is the **reserve–deposit ratio** (set via the CRR requirement).
 
 Therefore:
 
@@ -77,21 +77,21 @@ Therefore:
 M = m \times B
 ```
 
-**Intuition: a smaller $rr$ means a larger multiplier.**
+**Intuition: a smaller $`rr`$ means a larger multiplier.**
 - Each unit of reserves supports more deposits.
 - Banks keep a smaller fraction and lend out more.
 
-**Intuition: a smaller $cr$ means a larger multiplier.**
+**Intuition: a smaller $`cr`$ means a larger multiplier.**
 - One unit of central-bank money held as currency supports only one unit of transactions money.
 - One unit held as bank reserves supports many units of deposits.
 - So the more central-bank money sits in wallets, the less is available as reserves, and the smaller the multiplier.
 
-**What determines $cr$ (it varies):**
+**What determines $`cr`$ (it varies):**
 - How close ATMs are.
-- How widely online/UPI payments are accepted. More digital payments mean lower $cr$.
-- Festival and holiday seasons (Diwali, Christmas, travel). People hold more cash as a safety margin, so $cr$ rises.
+- How widely online/UPI payments are accepted. More digital payments mean lower $`cr`$.
+- Festival and holiday seasons (Diwali, Christmas, travel). People hold more cash as a safety margin, so $`cr`$ rises.
 
-**What determines $rr$:**
+**What determines $`rr`$:**
 - Set by the central bank as the **CRR (Cash Reserve Ratio)**.
 - In India it is currently about **4%**: for every ₹100 deposited, the bank keeps ₹4.
 
@@ -103,7 +103,7 @@ M = m \times B
 
 #### Worked Example 1: Money multiplier
 
-Given $rr = 0.10$ and $cr = 0.30$:
+Given $`rr = 0.10`$ and $`cr = 0.30`$:
 
 ```math
 m = \frac{0.30 + 1}{0.30 + 0.10} = \frac{1.30}{0.40} = 3.25
@@ -193,16 +193,16 @@ Tata Motors wants to build a car factory and has two ways to raise funds.
 P = \frac{C}{i}
 ```
 
-where $C$ is the annual coupon and $i$ is the market interest rate.
+where $`C`$ is the annual coupon and $`i`$ is the market interest rate.
 
 #### Worked Example 3: Perpetual bond
 
-- You lend ₹1,000 to the Government of India at **10%**. You receive ₹100 per year forever, since $\frac{100}{0.10} = 1000$.
+- You lend ₹1,000 to the Government of India at **10%**. You receive ₹100 per year forever, since $`\frac{100}{0.10} = 1000`$.
 
 **If the interest rate falls to 8%:**
 - A new ₹1,000 bond now pays only ₹80 a year.
 - Would you sell your ₹100/year bond for ₹1,000? **No**, because ₹1,000 now buys only ₹80 a year.
-- What price matches your bond? Solve $0.08 \times X = 100$:
+- What price matches your bond? Solve $`0.08 \times X = 100`$:
 
 ```math
 X = \frac{100}{0.08} = ₹1{,}250
@@ -285,8 +285,8 @@ i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarrow 
 
 | Tool | What it changes | Mechanism |
 |---|---|---|
-| **CRR (Cash Reserve Ratio)** | The **money multiplier** (via $rr$) | A lower CRR means banks hold fewer reserves, so they create more loans and deposits. Loan supply rises and interest rates fall. |
-| **Open market operations / repo and reverse repo** | The **monetary base** (high-powered money, $B$) | RBI buys or sells government bonds, which adds or removes reserves and cash. |
+| **CRR (Cash Reserve Ratio)** | The **money multiplier** (via $`rr`$) | A lower CRR means banks hold fewer reserves, so they create more loans and deposits. Loan supply rises and interest rates fall. |
+| **Open market operations / repo and reverse repo** | The **monetary base** (high-powered money, $`B`$) | RBI buys or sells government bonds, which adds or removes reserves and cash. |
 
 **Banks prefer repo-type operations to CRR changes.**
 - CRR locks up their funds and earns **no interest**.
@@ -335,8 +335,8 @@ i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarrow 
 | Monetary base | about \$600 billion | about \$5 trillion | about 8–9× |
 | Money supply | \$4.6 trillion | about \$22 trillion | about 5× |
 
-- The numerator ($M$) grew about 5×, while the denominator ($B$) grew about 9×.
-- So the ratio $m = M/B$ **declined**.
+- The numerator ($`M`$) grew about 5×, while the denominator ($`B`$) grew about 9×.
+- So the ratio $`m = M/B`$ **declined**.
 
 **Why banks didn't lend the new reserves:**
 1. The US pays **interest on reserves**, so banks are happy to hold them.
@@ -356,7 +356,7 @@ i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarrow 
 - People deposited their currency, so **currency in circulation fell**.
 - Banks could not find borrowers fast enough for the sudden flood of deposits. They parked the excess with RBI via the **reverse repo window**.
 - So the **monetary base fell**, effectively "destroyed".
-- But $M = C + D$ **did not change**. Currency was merely converted into deposits.
+- But $`M = C + D`$ **did not change**. Currency was merely converted into deposits.
 - The red line continued its normal path. The denominator fell, so the **multiplier jumped**.
 - This is a neat way to capture demonetization in money-multiplier terms.
 
@@ -491,8 +491,8 @@ i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarrow 
 - "Just read the definitions." The logic was covered in class.
 
 **Money multiplier calculation** (likely exam-style):
-- Use $m = \frac{cr+1}{cr+rr}$ and $\Delta M = m \times \Delta B$.
-- Practice: $rr = 10\text{%}$, $cr = 30\text{%}$ gives $m = 3.25$. A \$40m open market purchase then gives $\Delta M = \text{USD }130$m.
+- Use $`m = \frac{cr+1}{cr+rr}`$ and $`\Delta M = m \times \Delta B`$.
+- Practice: $`rr = 10\%`$, $`cr = 30\%`$ gives $`m = 3.25`$. A \$40m open market purchase then gives $`\Delta M = \$130`$m.
 
 **Core relationship to master.** Bond prices and interest rates move inversely.
 - "RBI sells bonds = money supply falls = interest rates rise = bond prices fall" are **one event**, not four.

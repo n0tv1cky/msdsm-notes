@@ -45,10 +45,10 @@ Cognitive distance (CD) ranges from 0 to 1. The interpretation bands are:
 
 | Cognitive distance | Group type | Interpretation |
 |---|---|---|
-| $0 \le CD \le 0.15$ | **Groupthink** | One person dominates. Diverse perspectives are ignored. Unhealthy. |
-| $0.16 \le CD \le 0.40$ | **Functional group** | Different perspectives are considered. Frank debates take place. Decisions rest on diverse opinions. Ideal. |
-| $0.41 \le CD \le 0.70$ | **Threshold group** | Still acceptable. Diversity of views and strong decision-making. Risk: it may cross 0.7. |
-| $0.71 \le CD \le 1$ | **Dysfunctional group** | Too many differences: politicking, factions, anxieties. Coherence is lost and no coherent strategy emerges. |
+| $`0 \le CD \le 0.15`$ | **Groupthink** | One person dominates. Diverse perspectives are ignored. Unhealthy. |
+| $`0.16 \le CD \le 0.40`$ | **Functional group** | Different perspectives are considered. Frank debates take place. Decisions rest on diverse opinions. Ideal. |
+| $`0.41 \le CD \le 0.70`$ | **Threshold group** | Still acceptable. Diversity of views and strong decision-making. Risk: it may cross 0.7. |
+| $`0.71 \le CD \le 1`$ | **Dysfunctional group** | Too many differences: politicking, factions, anxieties. Coherence is lost and no coherent strategy emerges. |
 
 ### 2.2 Recap: The UK Healthcare Organisation Case
 
@@ -68,9 +68,9 @@ Cognitive distance (CD) ranges from 0 to 1. The interpretation bands are:
 - The maps were converted to matrices, and cognitive distances were computed.
 
 **Phase 1 (before intervention): average cognitive distance**
-- Between the 2 trustees: $0.97$
-- Among the 4 top managers: approximately $0.85$–$0.86$
-- Among the 6 middle managers: approximately $0.80$
+- Between the 2 trustees: $`0.97`$
+- Among the 4 top managers: approximately $`0.85`$–$`0.86`$
+- Among the 6 middle managers: approximately $`0.80`$
 - All are above 0.7, so the groups were dysfunctional and the organisation could not adapt strategically.
 
 **Intervention**
@@ -127,10 +127,10 @@ Cognitive distance (CD) ranges from 0 to 1. The interpretation bands are:
 ID_j = \sum_{i \to j} |w_{ij}|
 ```
 
-where $w_{ij}$ is the weight of the arrow from issue $i$ to issue $j$.
+where $`w_{ij}`$ is the weight of the arrow from issue $`i`$ to issue $`j`$.
 
 **Worked example (one causal map, with student Nihal)**
-- **Node 3** has the most incoming arrows: 3 arrows. Their magnitudes sum to $ID_3 = 8$.
+- **Node 3** has the most incoming arrows: 3 arrows. Their magnitudes sum to $`ID_3 = 8`$.
 - Node 20 has only 2 incoming arrows, as the instructor corrected.
 - Only arrows coming *into* a node count. Arrows going out do not.
 
@@ -172,8 +172,8 @@ The points are summed across the 12 respondents to get each issue's total rank p
 - "Helping clients achieve recovery" fell from **87 to 60**.
 
 **Insight 1: The gap between issue #1 and issue #2 measures clarity**
-- Phase 1 gap: $87 - 64 = 23$. This is narrow, so the group was confused and could not clearly prioritise the top issue.
-- Phase 2 gap: $125 - 60 = 65$. This is wide, so there was clear prioritisation. All 12 now agree that **service quality** is the most important issue.
+- Phase 1 gap: $`87 - 64 = 23`$. This is narrow, so the group was confused and could not clearly prioritise the top issue.
+- Phase 2 gap: $`125 - 60 = 65`$. This is wide, so there was clear prioritisation. All 12 now agree that **service quality** is the most important issue.
 
 **Insight 2: The gap between issue #4 and issue #5 shows whether the "top 4" is clear**
 - Phase 1, issues 4 onward: ID values of about **43, 41, 37, 36, 35, 33**. The differences are tiny, so the top four could not be clearly distinguished from the rest.
@@ -189,13 +189,13 @@ The points are summed across the 12 respondents to get each issue's total rank p
 
 | Group | Phase 1 | Phase 2 | Phase 2 category |
 |---|---|---|---|
-| All 12 people (average) | $0.813$ | $0.726$ (about 0.72) | Still dysfunctional, but improved |
-| 2 trustees | $0.97$ | $0.67$ | Threshold |
-| 4 top managers | about $0.85$–$0.86$ | $0.69$ | Threshold |
-| 6 middle managers | about $0.80$ (dysfunctional) | reduced into threshold range | Threshold |
+| All 12 people (average) | $`0.813`$ | $`0.726`$ (about 0.72) | Still dysfunctional, but improved |
+| 2 trustees | $`0.97`$ | $`0.67`$ | Threshold |
+| 4 top managers | about $`0.85`$–$`0.86`$ | $`0.69`$ | Threshold |
+| 6 middle managers | about $`0.80`$ (dysfunctional) | reduced into threshold range | Threshold |
 
 **Key lessons**
-- The overall reduction is about 10% ($0.813 \to 0.726$). This is a realistic improvement for experienced people with 15–20 years in their roles. The instructor expects reductions of about 10–20%, not dramatic ones.
+- The overall reduction is about 10% ($`0.813 \to 0.726`$). This is a realistic improvement for experienced people with 15–20 years in their roles. The instructor expects reductions of about 10–20%, not dramatic ones.
 - **Change management proceeds within hierarchical levels first, then across levels.**
   - Consensus forms first among peers: trustees with trustees, top managers with top managers, middle managers with middle managers.
   - Over time, cross-level consensus grows. The overall 0.726 is likely to fall into the threshold range eventually.
@@ -274,7 +274,7 @@ No respondent can rate 1,296 profiles, so this is infeasible.
 - Remedy: split the task into batches of **5–6 profiles per sitting**, run across 5–6 rounds.
 
 **Two cautions about today's results**
-1. The sample size is too small ($n = 9$).
+1. The sample size is too small ($`n = 9`$).
 2. Respondents were fatigued, so some answers are random.
 
 **Step 2: Part-worth utilities, estimated by multiple regression**
@@ -361,7 +361,7 @@ Comparing utility ranges across attributes gives a rough hint of importance. For
   - Small groups of 20 or fewer: causal maps, as an intervention.
   - Causal maps as the middle path between surveys and qualitative interviews.
 - **Conjoint design:**
-  - Full factorial = product of levels ($1296$).
+  - Full factorial = product of levels ($`1296`$).
   - Reduced optimal design = 36.
   - Respondent fatigue.
   - Utilities via multiple regression.

@@ -14,7 +14,7 @@ faculty: Deepak Sethia
 
 ## 1. Overview
 
-This session continues national income accounting. It finishes the wheat–bread example from the previous class, covering self-consumption, unsold inventory and perishable unsold output, and shows how losses keep the income and expenditure approaches equal. It then explains each expenditure component of $Y = C + I + G + X - M$:
+This session continues national income accounting. It finishes the wheat–bread example from the previous class, covering self-consumption, unsold inventory and perishable unsold output, and shows how losses keep the income and expenditure approaches equal. It then explains each expenditure component of $`Y = C + I + G + X - M`$:
 
 - imputed rent in consumption
 - planned vs unplanned inventories in investment
@@ -36,14 +36,14 @@ It works through the three equivalent approaches to GDP (production/value-added,
 - The baker converts 30 kg of wheat into 30 kg of bread, adding ₹5/kg of value. Bread sells at ₹20/kg.
 
 **Production approach:**
-- Wheat: $50 \times 15 = 750$
-- Bread value added: $30 \times 5 = 150$
-- GDP $= 750 + 150 = ₹900$
+- Wheat: $`50 \times 15 = 750`$
+- Bread value added: $`30 \times 5 = 150`$
+- GDP $`= 750 + 150 = ₹900`$
 
 **Expenditure approach (final consumption only):**
-- Farmer's self-consumed wheat: $20 \times 15 = 300$
-- Bread sold to consumers: $30 \times 20 = 600$
-- GDP $= 300 + 600 = ₹900$
+- Farmer's self-consumed wheat: $`20 \times 15 = 300`$
+- Bread sold to consumers: $`30 \times 20 = 600`$
+- GDP $`= 300 + 600 = ₹900`$
 
 Self-consumed output is counted in GDP.
 
@@ -54,19 +54,19 @@ Suppose some bread (10 kg) is unsold at year-end. The ₹5 value addition per kg
 - ₹2 for marketing and sales (not yet done; it happens next year)
 
 Treatment:
-- Unsold bread is valued as inventory at $15 + 3 = ₹18$/kg, not ₹20. The firm books inventory at ₹18 because the ₹2 activity has not happened yet.
+- Unsold bread is valued as inventory at $`15 + 3 = ₹18`$/kg, not ₹20. The firm books inventory at ₹18 because the ₹2 activity has not happened yet.
 - This year, farmers and conversion workers have been paid. Sales and marketing staff have not.
 - **Rule:** activity done this year counts in this year's GDP. Wheat production and conversion to bread enter this year's GDP as inventory investment. The sales/marketing ₹2 counts in next year's GDP.
-- Implied total (not stated explicitly in class): $300 + 20\times 20 + 10 \times 18 = 300 + 400 + 180 = ₹880$.
+- Implied total (not stated explicitly in class): $`300 + 20\times 20 + 10 \times 18 = 300 + 400 + 180 = ₹880`$.
 
 ### 2.3 Perishable unsold output
 
 Everything is the same as above, but the bread is perishable, so the 10 kg of unsold bread perishes.
 
 **Expenditure side:**
-- Wheat: $20 \times 15 = 300$
-- Bread: $20 \times 20 = 400$
-- GDP $= ₹700$. The 10 kg perished and was never consumed, so it is not counted.
+- Wheat: $`20 \times 15 = 300`$
+- Bread: $`20 \times 20 = 400`$
+- GDP $`= ₹700`$. The 10 kg perished and was never consumed, so it is not counted.
 
 **The puzzle:** Farmers and bakery workers were paid for producing that 10 kg, so the income side seems to show income without matching output.
 
@@ -95,7 +95,7 @@ Output must be consumed, invested, used by government, exported, or (subtracted)
 3. **Production approach:** value of output minus value of inputs, summed across the economy (gross value added).
 
 **Circular flow diagram (from last session):**
-- Red lines show final demand ($C, I, G, X - M$).
+- Red lines show final demand ($`C, I, G, X - M`$).
 - Blue lines show factor payments.
 - Black lines show transfers.
 - Total final demand (red) equals total factor payments (blue).
@@ -131,13 +131,13 @@ The same item can be consumption or investment depending on its use:
 - **Rule:** value government services at their **cost of production**.
 - Examples include education, healthcare, defence (soldiers) and police/law and order. Contrast this with private security guards, whose price is observed in the market.
 
-### 2.8 Exports and imports: why $+X$ and $-M$
+### 2.8 Exports and imports: why $`+X`$ and $`-M`$
 
 **iPhone example (imports):**
 - Imported at ₹70,000. The seller's margin is ₹10,000, so it is sold at ₹80,000 for personal use.
-- $C = 80{,}000$, but only ₹10,000 of output and income is generated in India (seller's wages and profits).
+- $`C = 80{,}000`$, but only ₹10,000 of output and income is generated in India (seller's wages and profits).
 - The ₹70,000 goes to foreign workers and firms.
-- To reconcile, $M = 70{,}000$:
+- To reconcile, $`M = 70{,}000`$:
 
 ```math
 Y = 80{,}000 - 70{,}000 = 10{,}000
@@ -147,12 +147,12 @@ Y = 80{,}000 - 70{,}000 = 10{,}000
 
 **Tata Nano example (exports):**
 - A car worth ₹1 lakh is produced in India and exported to South Africa.
-- $C = I = G = 0$, yet domestic wages and profits of ₹1 lakh are generated.
-- This shows up as $X = 1$ lakh.
+- $`C = I = G = 0`$, yet domestic wages and profits of ₹1 lakh are generated.
+- This shows up as $`X = 1`$ lakh.
 
 **Logic:**
-- When foreigners buy Indian goods, we earn income without domestic $C$, $I$ or $G$, so we add $X$.
-- When we import, we spend through $C$, $I$ or $G$ without earning domestic income, so we subtract $M$.
+- When foreigners buy Indian goods, we earn income without domestic $`C`$, $`I`$ or $`G`$, so we add $`X`$.
+- When we import, we spend through $`C`$, $`I`$ or $`G`$ without earning domestic income, so we subtract $`M`$.
 
 ### 2.9 Value-added chain: equivalence of the three approaches
 
@@ -174,7 +174,7 @@ Y = 80{,}000 - 70{,}000 = 10{,}000
 - **Income approach:** each stage's value added is distributed as wages and profits. Summing these also gives 200.
 
 **Adding indirect tax:**
-- With 5% GST, the consumer pays $200 \times 1.05 = 210$.
+- With 5% GST, the consumer pays $`200 \times 1.05 = 210`$.
 - Factor owners still receive only 200; the ₹10 goes to government.
 
 ```math
@@ -182,9 +182,9 @@ Y = 80{,}000 - 70{,}000 = 10{,}000
 ```
 
 Summary of the three approaches:
-- **Expenditure:** $C + I + G + NX$
-- **Production:** $\sum$ GVA (output minus intermediate consumption) plus net production taxes
-- **Income:** $\sum$ wages, profits, etc. plus net indirect taxes
+- **Expenditure:** $`C + I + G + NX`$
+- **Production:** $`\sum`$ GVA (output minus intermediate consumption) plus net production taxes
+- **Income:** $`\sum`$ wages, profits, etc. plus net indirect taxes
 
 All three give the same GDP.
 
@@ -194,9 +194,9 @@ All three give the same GDP.
 - Imported inputs (parts and components): ₹6,000
 - Salaries for assembly: ₹3,000
 - Operating profit: ₹1,000
-- Price at factor cost: $6{,}000 + 3{,}000 + 1{,}000 = ₹10{,}000$
+- Price at factor cost: $`6{,}000 + 3{,}000 + 1{,}000 = ₹10{,}000`$
 - Indirect taxes/duty: ₹2,000. Subsidy (e.g., Make in India): ₹500.
-- Market price: $10{,}000 + 2{,}000 - 500 = ₹11{,}500$
+- Market price: $`10{,}000 + 2{,}000 - 500 = ₹11{,}500`$
 
 **GDP at factor cost (income earned in India):**
 
@@ -278,7 +278,7 @@ Start with
 Y = C + I + G + X - M
 ```
 
-Let $T$ be tax revenue and $TR$ be government transfer payments. Subtract $T$ and add $TR$ on both sides:
+Let $`T`$ be tax revenue and $`TR`$ be government transfer payments. Subtract $`T`$ and add $`TR`$ on both sides:
 
 ```math
 \underbrace{Y - T + TR}_{\text{household disposable income}} = C + I + \underbrace{(G + TR - T)}_{\text{fiscal deficit}} + (X - M)
@@ -290,7 +290,7 @@ Let $T$ be tax revenue and $TR$ be government transfer payments. Subtract $T$ an
 100 - 30 + 10 = 80
 ```
 
-Moving $C$ to the left side gives household savings:
+Moving $`C`$ to the left side gives household savings:
 
 ```math
 \underbrace{(Y - T + TR - C)}_{S_{\text{household}}} = I + \underbrace{(G + TR - T)}_{\text{fiscal deficit}} + \underbrace{(X - M)}_{\text{trade surplus}}
@@ -361,11 +361,11 @@ Real GDP continues in the next session.
 
 Nothing was explicitly flagged as exam or assignment material. The lecturer stressed these points repeatedly:
 
-- **All incomes count, including negative profits.** Perished output is offset by the owner's loss ($15 + 3 - 18 = 0$).
+- **All incomes count, including negative profits.** Perished output is offset by the owner's loss ($`15 + 3 - 18 = 0`$).
 - **Inventory is valued at the cost of work done this year** (₹18, not ₹20). Remaining activity counts in next year's GDP.
-- **Why $+X$ and $-M$:** iPhone example ($C = 80{,}000$, $M = 70{,}000$, $Y = 10{,}000$) and Tata Nano example ($X = 1$ lakh).
-- **Value-added chain:** $23 + 30 + 57 + 90 = 200$, and the three approaches are equivalent.
-- **Factor cost vs market price:** GDP at market prices = GDP at factor cost + indirect taxes − subsidies (mobile example: $4{,}000 + 2{,}000 - 500 = 5{,}500$).
+- **Why $`+X`$ and $`-M`$:** iPhone example ($`C = 80{,}000`$, $`M = 70{,}000`$, $`Y = 10{,}000`$) and Tata Nano example ($`X = 1`$ lakh).
+- **Value-added chain:** $`23 + 30 + 57 + 90 = 200`$, and the three approaches are equivalent.
+- **Factor cost vs market price:** GDP at market prices = GDP at factor cost + indirect taxes − subsidies (mobile example: $`4{,}000 + 2{,}000 - 500 = 5{,}500`$).
 - **GDP vs NDP:** macroeconomics concerns the use of existing capacity (demand); growth concerns creating capacity.
 - **GNP is based on residency, not citizenship.** Remittances are transfers, not factor income.
 - **Savings–investment identity and twin deficits:**

@@ -64,7 +64,7 @@ where:
 
 ### 2.4 The working form — *important note flagged in class*
 > **Posterior ∝ Likelihood × Prior**
-> $\displaystyle P(\theta \mid D, I, M) \ \propto\  P(D \mid \theta, I, M)\  P(\theta \mid I, M)$
+> $`\displaystyle P(\theta \mid D, I, M) \;\propto\; P(D \mid \theta, I, M)\, P(\theta \mid I, M)`$
 
 - This proportional form is what you will use **most of the time**: for **parameter estimation** and **hypothesis testing**, where normalization is unnecessary.
 - The **equality** form (i.e. including the evidence) is needed only for **model selection** — when comparing model 1 vs. model 2 vs. model 3, because P(D) depends on M. You compute the posterior separately for each model and compare.
@@ -83,7 +83,7 @@ where:
 - So: posterior is the **posterior of the parameters**; likelihood is the **likelihood of the data**.
 - **Combining multiple data sets:** for many data points drawn from the *same* model, the total likelihood is the **product** of the individual likelihoods:
 
-  $$L(\theta) = \prod_i P(d_i \mid \theta, I, M)$$
+  $`\displaystyle L(\theta) = \prod_i P(d_i \mid \theta, I, M)`$
 
 - **Q&A clarification (student question):** you may multiply likelihoods **only when each data point was obtained via an independent experiment** — independent draws from the same underlying population probability distribution function (i.i.d.).
   - Illustration: seeing an apple fall from one tree is one experiment; walking to a different tree at a random location and seeing another apple fall is a second, uncorrelated experiment → independent → multiply.
@@ -91,7 +91,7 @@ where:
 ### 2.7 Worked conceptual example: straight-line model
 - Suppose the data are fitted by
 
-  $$y = mx + c$$
+  $`\displaystyle y = mx + c`$
 
 - Parameters of this model: **m** and **c**.
 - What you want: **P(m | data)** and **P(c | data)** — the posteriors of the slope and intercept.
@@ -108,7 +108,7 @@ where:
 ### 2.9 Evidence — detailed
 - P(D | I, M) = **probability of the data** = the integral (marginalization) of the numerator over *all* parameters:
 
-  $$P(D \mid I, M) = \int P(D \mid \theta, I, M)\  P(\theta \mid I, M)\  d\theta$$
+  $`\displaystyle P(D \mid I, M) = \int P(D \mid \theta, I, M)\, P(\theta \mid I, M)\, d\theta`$
 
 - Interpretation: **all possibilities via which the data could have been obtained** — including possibilities the model allows *and* those it does not.
 - Needed only for **model selection** (see §2.4).
@@ -159,7 +159,7 @@ where:
 ### 2.12 Kinds of priors and practical guidance
 - **Uniform / flat / non-informative prior:** when you know nothing about the experiment or model before performing it, take
 
-  $$P(\theta) = \text{constant}$$
+  $`\displaystyle P(\theta) = \text{constant}`$
 
   i.e. all values of θ equally probable. Reasonable as a starting point; has advantages *and* disadvantages (to be discussed later).
 - **Effect of the prior diminishes with data:** as the experiment gathers more and more data, the likelihood becomes **more robust and narrower**, and the influence of the prior shrinks.

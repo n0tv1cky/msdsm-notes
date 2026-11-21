@@ -49,14 +49,14 @@ The exact calculation of those ranges is deferred to the next class.
 
 ### 2.3 Three related but distinct definitions
 
-**(a) Convex function.** For any two points $x_a, x_b$ and any $\lambda \in [0,1]$:
+**(a) Convex function.** For any two points $`x_a, x_b`$ and any $`\lambda \in [0,1]`$:
 
 ```math
 f\big(\lambda x_a + (1-\lambda)x_b\big) \;\le\; \lambda f(x_a) + (1-\lambda) f(x_b)
 ```
-- The value at any in-between point $x_0 = \lambda x_a + (1-\lambda)x_b$ is no higher than the weighted average of the endpoint values.
+- The value at any in-between point $`x_0 = \lambda x_a + (1-\lambda)x_b`$ is no higher than the weighted average of the endpoint values.
 - Geometrically, every **secant (chord) lies on or above the curve**. Picture a "bowl" shape.
-- A function is **concave** if the inequality is reversed, i.e. $-f$ is convex.
+- A function is **concave** if the inequality is reversed, i.e. $`-f`$ is convex.
 - **Linear functions are both convex and concave.**
 
 **(b) Convex set / convex feasible region.** A region is convex if, for any two points in it, the **entire line segment joining them lies inside the region**.
@@ -70,9 +70,9 @@ f\big(\lambda x_a + (1-\lambda)x_b\big) \;\le\; \lambda f(x_a) + (1-\lambda) f(x
 \text{s.t.}\quad & g_i(x) \le 0, \qquad i = 1, 2, \dots, m
 \end{aligned}
 ```
-where $f$ and all $g_i$ are **convex functions**.
-- Why this works: a constraint of the form "convex function $\le$ constant" always produces a convex feasible region.
-- Example: $x^2 + y^2 \le 5$ gives a filled disc, which is convex. ⚠️ The right-hand side was garbled in the audio ("phi"); "5" is a guess, and any positive constant gives a disc.
+where $`f`$ and all $`g_i`$ are **convex functions**.
+- Why this works: a constraint of the form "convex function $`\le`$ constant" always produces a convex feasible region.
+- Example: $`x^2 + y^2 \le 5`$ gives a filled disc, which is convex. ⚠️ The right-hand side was garbled in the audio ("phi"); "5" is a guess, and any positive constant gives a disc.
 - **Maximising a concave function** can be rewritten in this form, so it is also convex optimisation. Example:
 
 ```math
@@ -82,18 +82,18 @@ where $f$ and all $g_i$ are **convex functions**.
 - Standard textbook extension, not stated in the lecture: equality constraints are allowed if they are affine (linear).
 
 ### 2.4 Student question: a "calculus" definition?
-- **Student's proposal:** if $f(a) \le f(a^-)$ and $f(a) \le f(a^+)$, that defines a minimum. If $f(a) \ge f(a^-)$ and $f(a) \ge f(a^+)$, that defines a maximum.
+- **Student's proposal:** if $`f(a) \le f(a^-)`$ and $`f(a) \le f(a^+)`$, that defines a minimum. If $`f(a) \ge f(a^-)`$ and $`f(a) \ge f(a^+)`$, that defines a maximum.
 - **Instructor's answer:** that condition defines a **local minimum/maximum at a point**. It is not the definition of convexity.
-- A convex function need not have a finite minimiser. Example: $f(x) = e^{-x}$ is convex and keeps decreasing, so its "minimum" is only approached as $x \to \infty$.
+- A convex function need not have a finite minimiser. Example: $`f(x) = e^{-x}`$ is convex and keeps decreasing, so its "minimum" is only approached as $`x \to \infty`$.
 
 ### 2.5 Pictorial examples: easy (convex) vs. hard (non-convex)
 
 | # | Problem | Picture | Easy/Hard | Why |
 |---|---|---|---|---|
-| 1 | $\min f(x)$, $x_{L} \le x \le x_{U}$, $f$ bowl-shaped (convex) | U-shaped curve on an interval | **Easy** | From any start, moving downhill reaches the bottom. That point is both local and global minimum. |
-| 2 | $\max f(x)$, same bowl, same interval | Same U-shape | **Hard** | Starting left of the bottom you climb to the left endpoint; starting right you climb to the right endpoint. Both are local maxima, and you must compare all such extreme candidates. In large problems there can be very many. |
-| 3 | $\max f(x)$, $f$ concave (∩-shaped) | Hill | **Easy** | Convex optimisation in disguise. The local maximum is the global maximum. |
-| 4 | $\max f(x)$, $f$ wavy with several peaks | Multi-hump curve | **Hard** | Every peak is a local maximum, and only one is global. When you reach a peak that beats all its neighbours, you cannot know whether to stop. |
+| 1 | $`\min f(x)`$, $`x_{L} \le x \le x_{U}`$, $`f`$ bowl-shaped (convex) | U-shaped curve on an interval | **Easy** | From any start, moving downhill reaches the bottom. That point is both local and global minimum. |
+| 2 | $`\max f(x)`$, same bowl, same interval | Same U-shape | **Hard** | Starting left of the bottom you climb to the left endpoint; starting right you climb to the right endpoint. Both are local maxima, and you must compare all such extreme candidates. In large problems there can be very many. |
+| 3 | $`\max f(x)`$, $`f`$ concave (∩-shaped) | Hill | **Easy** | Convex optimisation in disguise. The local maximum is the global maximum. |
+| 4 | $`\max f(x)`$, $`f`$ wavy with several peaks | Multi-hump curve | **Hard** | Every peak is a local maximum, and only one is global. When you reach a peak that beats all its neighbours, you cannot know whether to stop. |
 
 - **One remedy for example 4:** split the domain into "boxes", each of which makes a convex sub-problem. Solve each box, then compare the results.
 - This is far more work, because you must handle every subset/box in which the problem becomes convex.
@@ -102,15 +102,15 @@ where $f$ and all $g_i$ are **convex functions**.
 
 **LP with a convex polygon.**
 - The objective improves in a fixed direction (iso-profit lines move outward).
-- Moving corner to corner, e.g. $A \to B \to C \to \dots$, each step strictly improves the objective until no improving direction remains.
+- Moving corner to corner, e.g. $`A \to B \to C \to \dots`$, each step strictly improves the objective until no improving direction remains.
 - The final corner is both local and global optimum.
 - You can never get stuck, because there is always an improving direction until the true optimum is reached. This is the intuition behind the simplex method.
 
-**Non-convex region with corners $A, B, C, D, E$.**
+**Non-convex region with corners $`A, B, C, D, E`$.**
 - The objective improves in the direction drawn.
-- **Corner $C$** beats $D$ and every feasible point in a small ball around it, so $C$ is a **local optimum**.
-- **Corner $E$** has a strictly better objective. $E$ is the **global optimum**.
-- A local search stopping at $C$ would wrongly conclude it is optimal. This cannot happen in a convex problem.
+- **Corner $`C`$** beats $`D`$ and every feasible point in a small ball around it, so $`C`$ is a **local optimum**.
+- **Corner $`E`$** has a strictly better objective. $`E`$ is the **global optimum**.
+- A local search stopping at $`C`$ would wrongly conclude it is optimal. This cannot happen in a convex problem.
 
 ### 2.7 Convex NLP vs. non-convex NLP
 - **Convex NLP:** a curved but convex feasible region with a linear objective. The tangency point is local and global optimum.
@@ -125,8 +125,8 @@ where $f$ and all $g_i$ are **convex functions**.
 **Business problem.** Merton Truck makes two truck models, Model 101 and Model 102. It must decide the production mix that maximises total contribution. Production is limited by four departments: engine assembly, metal stamping, the Model 101 assembly line and the Model 102 assembly line.
 
 **Decision variables.**
-- $x_1$ = number of Model 101 trucks produced per period (trucks).
-- $x_2$ = number of Model 102 trucks produced per period (trucks).
+- $`x_1`$ = number of Model 101 trucks produced per period (trucks).
+- $`x_2`$ = number of Model 102 trucks produced per period (trucks).
 - ⚠️ The period (per month) comes from the standard case, not the transcript.
 
 **Model.**
@@ -143,8 +143,8 @@ where $f$ and all $g_i$ are **convex functions**.
 ```
 
 Notes on the data:
-- ⚠️ The ASR once read the objective as "$3000x_1 + 4000x_2$". The instructor's later arithmetic ($3000 \cdot 2000 + 5000 \cdot 1000 = 11$ million) confirms the coefficient of $x_2$ is **5000**.
-- ⚠️ The coefficients for the two assembly lines ($2x_1 \le 5000$ and $3x_2 \le 4500$) are inferred from the standard Merton Truck case. They are consistent with everything said in class: the RHS 5000 is mentioned, and the allowable decreases of 1000 and 1500 match these slacks exactly.
+- ⚠️ The ASR once read the objective as "$`3000x_1 + 4000x_2`$". The instructor's later arithmetic ($`3000 \cdot 2000 + 5000 \cdot 1000 = 11`$ million) confirms the coefficient of $`x_2`$ is **5000**.
+- ⚠️ The coefficients for the two assembly lines ($`2x_1 \le 5000`$ and $`3x_2 \le 4500`$) are inferred from the standard Merton Truck case. They are consistent with everything said in class: the RHS 5000 is mentioned, and the allowable decreases of 1000 and 1500 match these slacks exactly.
 - Integrality is ignored, i.e. the LP relaxation is used, as is standard for this case.
 
 **Equality (standard) form with slacks.**
@@ -158,21 +158,21 @@ x_1 + 2x_2 + s_1 &= 4000\\
 x_1, x_2, s_1, s_2, s_3, s_4 &\ge 0
 \end{aligned}
 ```
-Each $s_i$ is the number of unused hours in department $i$.
+Each $`s_i`$ is the number of unused hours in department $`i`$.
 
-**Optimal solution.** $x_1 = 2000$, $x_2 = 1000$, $Z^\ast  = \text{USD } 11{,}000{,}000$.
-- Slacks at the optimum: $s_1 = 0$, $s_2 = 0$, $s_3 = 5000 - 4000 = 1000$, $s_4 = 4500 - 3000 = 1500$.
+**Optimal solution.** $`x_1 = 2000`$, $`x_2 = 1000`$, $`Z^* = \text{USD } 11{,}000{,}000`$.
+- Slacks at the optimum: $`s_1 = 0`$, $`s_2 = 0`$, $`s_3 = 5000 - 4000 = 1000`$, $`s_4 = 4500 - 3000 = 1500`$.
 
 **Graphical solution.** The feasible region is a convex polygon. ⚠️ The corner labels and the other corners' values below were reconstructed by me. The lecture only states that **corner D = (2000, 1000)** is optimal, at the intersection of engine assembly and metal stamping.
 
-| Corner | Defining constraints | $(x_1, x_2)$ | $Z$ (USD) |
+| Corner | Defining constraints | $`(x_1, x_2)`$ | $`Z`$ (USD) |
 |---|---|---|---|
-| A | axes | $(0, 0)$ | $0$ |
-| B | $x_2 = 0$, 101-assembly | $(2500, 0)$ | $7{,}500{,}000$ |
-| C | 101-assembly, metal stamping | $(2500, 500)$ | $10{,}000{,}000$ |
-| **D** | **engine assembly, metal stamping** | **$(2000, 1000)$** | **$11{,}000{,}000$** ✔ |
-| E | engine assembly, 102-assembly | $(1000, 1500)$ | $10{,}500{,}000$ |
-| F | $x_1 = 0$, 102-assembly | $(0, 1500)$ | $7{,}500{,}000$ |
+| A | axes | $`(0, 0)`$ | $`0`$ |
+| B | $`x_2 = 0`$, 101-assembly | $`(2500, 0)`$ | $`7{,}500{,}000`$ |
+| C | 101-assembly, metal stamping | $`(2500, 500)`$ | $`10{,}000{,}000`$ |
+| **D** | **engine assembly, metal stamping** | **$`(2000, 1000)`$** | **$`11{,}000{,}000`$** ✔ |
+| E | engine assembly, 102-assembly | $`(1000, 1500)`$ | $`10{,}500{,}000`$ |
+| F | $`x_1 = 0`$, 102-assembly | $`(0, 1500)`$ | $`7{,}500{,}000`$ |
 
 ### 2.9 Binding vs. non-binding constraints
 - **Binding (bottleneck) constraints** are used 100% at the optimum (slack = 0). Here these are **engine assembly** and **metal stamping**.
@@ -183,7 +183,7 @@ Each $s_i$ is the number of unused hours in department $i$.
   - Their shadow price is **0**.
 
 ### 2.10 Shadow price: definition
-**Shadow price** of a constraint = the change (increase) in the optimal objective value per unit (marginal, small $\delta$) increase in that constraint's right-hand side.
+**Shadow price** of a constraint = the change (increase) in the optimal objective value per unit (marginal, small $`\delta`$) increase in that constraint's right-hand side.
 - Every constraint has a shadow price. It may be **positive, zero, or negative**.
 - **Excel check shown in class:** raising engine-assembly hours from 4000 to 4001 and re-optimising increased the objective by USD 2,000.
   - ⚠️ ASR said "11 million 200". The correct value is USD 11,002,000.
@@ -199,7 +199,7 @@ Each $s_i$ is the number of unused hours in department $i$.
 
 ### 2.11 Deriving shadow prices by the "delta method" (worked example)
 
-**Idea.** Since corner D is optimal and is defined by the two binding constraints, keep only those two as equalities. Then perturb their RHS by $\delta_1$ (engine assembly) and $\delta_2$ (metal stamping):
+**Idea.** Since corner D is optimal and is defined by the two binding constraints, keep only those two as equalities. Then perturb their RHS by $`\delta_1`$ (engine assembly) and $`\delta_2`$ (metal stamping):
 
 ```math
 \begin{aligned}
@@ -208,7 +208,7 @@ x_1 + 2x_2 &= 4000 + \delta_1 && (1)\\
 \end{aligned}
 ```
 
-**Step 1. Eliminate $x_2$.** Compute (2) − (1):
+**Step 1. Eliminate $`x_2`$.** Compute (2) − (1):
 
 ```math
 x_1 = 2000 - \delta_1 + \delta_2
@@ -223,7 +223,7 @@ x_1 = 2000 - \delta_1 + \delta_2
 ```math
 \Rightarrow\quad x_2 = 1000 + \delta_1 - \tfrac{1}{2}\delta_2
 ```
-Check: with $\delta_1 = \delta_2 = 0$ we recover D $= (2000, 1000)$.
+Check: with $`\delta_1 = \delta_2 = 0`$ we recover D $`= (2000, 1000)`$.
 
 **Step 3. Substitute into the objective.**
 
@@ -238,13 +238,13 @@ Z &= 3000(2000 - \delta_1 + \delta_2) + 5000\left(1000 + \delta_1 - \tfrac{1}{2}
 \boxed{Z = 11{,}000{,}000 + 2000\,\delta_1 + 500\,\delta_2}
 ```
 
-The coefficient of $\delta_1$ is the **shadow price of engine assembly (2000)**. The coefficient of $\delta_2$ is the **shadow price of metal stamping (500)**.
+The coefficient of $`\delta_1`$ is the **shadow price of engine assembly (2000)**. The coefficient of $`\delta_2`$ is the **shadow price of metal stamping (500)**.
 
 **Interpretation.** One extra engine-assembly hour moves the optimum from D to a new corner D′:
-- $x_1$ falls by 1 and $x_2$ rises by 1;
-- net gain $= -3000 + 5000 = \text{USD } 2000$.
+- $`x_1`$ falls by 1 and $`x_2`$ rises by 1;
+- net gain $`= -3000 + 5000 = \text{USD } 2000`$.
 
-**Additivity, demonstrated in Excel.** Take $\delta_1 = 1$ and $\delta_2 = 2$:
+**Additivity, demonstrated in Excel.** Take $`\delta_1 = 1`$ and $`\delta_2 = 2`$:
 
 ```math
 \Delta Z = 2000(1) + 500(2) = 3000
@@ -267,7 +267,7 @@ Re-optimising in Excel confirmed the objective rose by USD 3,000.
 **Why shadow prices have a range.** A shadow price holds only while the **same set of constraints stays binding**, i.e. the optimal corner is still the intersection of engine assembly and metal stamping.
 
 **Graphical explanation.**
-- **Increasing engine-assembly hours:** the line shifts outward and D moves to D′ with higher $Z$.
+- **Increasing engine-assembly hours:** the line shifts outward and D moves to D′ with higher $`Z`$.
   - If it shifts too far, the optimal corner becomes the intersection of **Model 102 assembly** and metal stamping.
   - The binding set changes, so the shadow price changes.
   - Beyond that point extra hours do not reduce profit. They just go unused, and the gain stops accruing at USD 2,000/hr.
@@ -281,19 +281,19 @@ Re-optimising in Excel confirmed the objective rose by USD 3,000.
 |---|---|---|---|---|---|
 | Engine assembly | 4000 | 2000 | 500 | 500 | 3500 – 4500 |
 | Metal stamping | 6000 | 500 | 500 | 1000 | 5000 – 6500 |
-| Model 101 assembly | 5000 | 0 | $\infty$ | 1000 | $\ge 4000$ |
-| Model 102 assembly | 4500 | 0 | $\infty$ | 1500 | $\ge 3000$ |
+| Model 101 assembly | 5000 | 0 | $`\infty`$ | 1000 | $`\ge 4000`$ |
+| Model 102 assembly | 4500 | 0 | $`\infty`$ | 1500 | $`\ge 3000`$ |
 
 **Quick check using the delta-method formulas** (the instructor will formalise this next class). The binding pair defines the optimum only while the other two constraints stay satisfied:
 
-- **Engine assembly** ($\delta_2 = 0$):
-  - The 102 line requires $x_2 = 1000 + \delta_1 \le 1500$, so $\delta_1 \le 500$.
-  - The 101 line requires $x_1 = 2000 - \delta_1 \le 2500$, so $\delta_1 \ge -500$.
-- **Metal stamping** ($\delta_1 = 0$):
-  - The 101 line requires $x_1 = 2000 + \delta_2 \le 2500$, so $\delta_2 \le 500$.
-  - The 102 line requires $x_2 = 1000 - \tfrac{1}{2}\delta_2 \le 1500$, so $\delta_2 \ge -1000$.
+- **Engine assembly** ($`\delta_2 = 0`$):
+  - The 102 line requires $`x_2 = 1000 + \delta_1 \le 1500`$, so $`\delta_1 \le 500`$.
+  - The 101 line requires $`x_1 = 2000 - \delta_1 \le 2500`$, so $`\delta_1 \ge -500`$.
+- **Metal stamping** ($`\delta_1 = 0`$):
+  - The 101 line requires $`x_1 = 2000 + \delta_2 \le 2500`$, so $`\delta_2 \le 500`$.
+  - The 102 line requires $`x_2 = 1000 - \tfrac{1}{2}\delta_2 \le 1500`$, so $`\delta_2 \ge -1000`$.
 - **Non-binding constraints:**
-  - The allowable increase is $\infty$, because extra capacity is never used.
+  - The allowable increase is $`\infty`$, because extra capacity is never used.
   - The allowable decrease equals the slack (1000 and 1500). Cutting more than that makes the constraint binding.
 
 ---

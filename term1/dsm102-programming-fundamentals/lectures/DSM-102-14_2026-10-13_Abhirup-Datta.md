@@ -63,7 +63,7 @@ plt.legend()                                    # legend added separately
 
 | Object | Dimension | Description / example |
 |---|---|---|
-| Scalar | 0-D | A single number with no direction. Examples: temperature $t$, flat price $P$, the number $5$. |
+| Scalar | 0-D | A single number with no direction. Examples: temperature $`t`$, flat price $`P`$, the number $`5`$. |
 | Vector | 1-D | A list of numbers. It can be seen as a point, or as an arrow from the origin to that point. It has magnitude and direction. |
 | Matrix | 2-D | A table of rows × columns. |
 | Tensor | 3-D and higher | A collection of matrices, used for more than 2 dimensions. |
@@ -74,7 +74,7 @@ Points raised in class discussion:
 
 ### 2.3 Vector addition and scalar multiplication
 
-Worked example: $u = (3, 1)$, $v = (1, 2)$.
+Worked example: $`u = (3, 1)`$, $`v = (1, 2)`$.
 
 ```math
 u + v = (3+1,\; 1+2) = (4, 3)
@@ -97,7 +97,7 @@ print(u + v)    # [4 3]
 print(2 * u)    # [6 2]
 ```
 
-**Plot.** The instructor drew $u$ (blue arrow, 3 in $x$, 1 in $y$), $v$ (1 in $x$, 2 in $y$) and $u+v$ as arrows from the origin. The exact plotting code was not dictated. A likely form:
+**Plot.** The instructor drew $`u`$ (blue arrow, 3 in $`x`$, 1 in $`y`$), $`v`$ (1 in $`x`$, 2 in $`y`$) and $`u+v`$ as arrows from the origin. The exact plotting code was not dictated. A likely form:
 
 ```python
 import matplotlib.pyplot as plt
@@ -110,11 +110,11 @@ plt.xlim(-1, 5); plt.ylim(-1, 4); plt.grid(); plt.legend(); plt.show()
 
 ### 2.4 Data matrix example: three houses × three features
 
-- The data is 3 houses stacked into a $3\times 3$ matrix.
+- The data is 3 houses stacked into a $`3\times 3`$ matrix.
 - Each row is a house. The columns are the features **area, rooms, age**.
 - Checking `.shape` gives `(3, 3)`.
 - Indexing is **0-based**, so the **second house is row index 1**.
-- The numbers $10, 25, 2$ were read out while indexing the matrix. The transcript does not make clear whether these were the second house's row or one column, and the full matrix was not read out. The values below are placeholders.
+- The numbers $`10, 25, 2`$ were read out while indexing the matrix. The transcript does not make clear whether these were the second house's row or one column, and the full matrix was not read out. The values below are placeholders.
 
 ```python
 # Values are illustrative; only "10, 25, 2" was audible
@@ -149,9 +149,9 @@ u \cdot v = 3\cdot 1 + 1\cdot 2 = 5
 ```
 
 **Interpreting the sign.**
-- $u\cdot v > 0$: the vectors point in broadly the same direction.
-- $u\cdot v = 0$: the vectors are perpendicular (orthogonal).
-- $u\cdot v < 0$: the vectors point in broadly opposite directions.
+- $`u\cdot v > 0`$: the vectors point in broadly the same direction.
+- $`u\cdot v = 0`$: the vectors are perpendicular (orthogonal).
+- $`u\cdot v < 0`$: the vectors point in broadly opposite directions.
 - The audio here was garbled ("zero means opposite"). The correct rule is that a **negative** dot product means opposite directions, and **zero** means orthogonal.
 
 **Angle between vectors:**
@@ -160,7 +160,7 @@ u \cdot v = 3\cdot 1 + 1\cdot 2 = 5
 \cos\theta = \frac{u\cdot v}{\lVert u\rVert\,\lVert v\rVert} = \frac{5}{\sqrt{10}\,\sqrt{5}} = \frac{5}{\sqrt{50}} = \frac{1}{\sqrt{2}} \;\Rightarrow\; \theta = 45^\circ
 ```
 
-**Orthogonal example.** Two vectors $a$ and $b$ were shown to have $a\cdot b = 0$, so they are perpendicular. Their values were not audible; $a=(1,2)$, $b=(-2,1)$ below is an assumed example.
+**Orthogonal example.** Two vectors $`a`$ and $`b`$ were shown to have $`a\cdot b = 0`$, so they are perpendicular. Their values were not audible; $`a=(1,2)`$, $`b=(-2,1)`$ below is an assumed example.
 
 ```python
 print(u @ v)          # 5   (@ operator; transcript said "ampersand")
@@ -215,11 +215,11 @@ u_hat = u / np.linalg.norm(u)     # unit vector (normalisation)
 
 ### 2.7 Linear independence and rank
 
-**Example:** $v_1 = (1,2)$, $v_2 = (2,4)$.
+**Example:** $`v_1 = (1,2)`$, $`v_2 = (2,4)`$.
 
-- **Question:** Does $v_2$ add new information? No, because $v_2 = 2v_1$. The vectors are **dependent**.
+- **Question:** Does $`v_2`$ add new information? No, because $`v_2 = 2v_1`$. The vectors are **dependent**.
 - **Rank** is the number of truly independent columns (or rows).
-- The matrix $[v_1 \  v_2]$ has 2 columns but **rank 1**.
+- The matrix $`[v_1 \; v_2]`$ has 2 columns but **rank 1**.
 - The two vectors are independent only if the rank equals the number of vectors.
 
 ```python
@@ -234,7 +234,7 @@ print("independent" if r == M.shape[1] else "dependent")   # dependent
 
 ### 2.8 Matrices: definition, addition, scalar multiplication
 
-- A matrix of size $m\times n$ has $m$ rows and $n$ columns.
+- A matrix of size $`m\times n`$ has $`m`$ rows and $`n`$ columns.
 - In a data matrix, rows are samples and columns are features.
 - A vector is a matrix with one row or one column.
 
@@ -262,27 +262,27 @@ print(3 * A)             # [[6 3] [3 9]]
 
 ### 2.9 Matrix multiplication
 
-**Definition.** For $C = AB$:
+**Definition.** For $`C = AB`$:
 
 ```math
 C_{ij} = \sum_{k} A_{ik} B_{kj}
 ```
 
-That is, row $i$ of $A$ is multiplied pairwise with column $j$ of $B$, and the products are summed.
+That is, row $`i`$ of $`A`$ is multiplied pairwise with column $`j`$ of $`B`$, and the products are summed.
 
-**Shape rule.** The number of columns of $A$ must equal the number of rows of $B$:
+**Shape rule.** The number of columns of $`A`$ must equal the number of rows of $`B`$:
 
 ```math
 (m\times n)(n\times p) \to (m\times p)
 ```
 
-**Worked example.** The lecture began with the first entry, $2\cdot 1 + 1\cdot 4 = 6$:
+**Worked example.** The lecture began with the first entry, $`2\cdot 1 + 1\cdot 4 = 6`$:
 
 ```math
 AB = \begin{pmatrix} 2\cdot1+1\cdot4 & 2\cdot0+1\cdot1\\ 1\cdot1+3\cdot4 & 1\cdot0+3\cdot1\end{pmatrix} = \begin{pmatrix} 6 & 1\\ 13 & 3\end{pmatrix}
 ```
 
-**Does $AB = BA$?** This was asked in class. A student answered that they are equal "if it is commutative". The important fact is that **matrix multiplication is generally NOT commutative**. Here:
+**Does $`AB = BA`$?** This was asked in class. A student answered that they are equal "if it is commutative". The important fact is that **matrix multiplication is generally NOT commutative**. Here:
 
 ```math
 BA = \begin{pmatrix} 2 & 1\\ 9 & 7\end{pmatrix} \neq AB
@@ -297,7 +297,7 @@ print(B @ A)   # [[2 1] [9 7]]  -> order matters
 
 ### 2.10 Linear transformations
 
-A matrix acts as a function $T$ that maps a vector $(x, y)$ to $(x', y')$. $T$ is linear if it satisfies two rules:
+A matrix acts as a function $`T`$ that maps a vector $`(x, y)`$ to $`(x', y')`$. $`T`$ is linear if it satisfies two rules:
 
 ```math
 T(u + v) = T(u) + T(v), \qquad T(c\,u) = c\,T(u)
@@ -309,22 +309,22 @@ T(u + v) = T(u) + T(v), \qquad T(c\,u) = c\,T(u)
 \hat{i} = \begin{pmatrix}1\\0\end{pmatrix}\ (x\text{-axis}), \qquad \hat{j} = \begin{pmatrix}0\\1\end{pmatrix}\ (y\text{-axis})
 ```
 
-The columns of a matrix show where $\hat{i}$ and $\hat{j}$ land after the transformation.
+The columns of a matrix show where $`\hat{i}`$ and $`\hat{j}`$ land after the transformation.
 
 **Types of transformation:**
 
 | Type | Matrix | Effect in the lecture's 4-panel plot |
 |---|---|---|
-| Scaling | $\begin{pmatrix}2 & 0\\ 0 & 0.5\end{pmatrix}$ | The $x$-direction is stretched ×2 (red arrow to $(2,0)$). The $y$-direction is squeezed to half (green arrow to $(0, 0.5)$). |
-| Rotation by $\theta$ | $\begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}$ | With $\theta = 30^\circ$, the whole grid rotates like a sheet of graph paper. |
-| Shear | $\begin{pmatrix}1 & 1\\ 0 & 1\end{pmatrix}$ | Red $\hat i$ does not move. Green $\hat j$ is pushed to $(1,1)$. The grid leans like pushing the top of a stack of books. Shear shifts one coordinate in proportion to the other. |
-| General | $A = \begin{pmatrix}2 & 1\\ 1 & 3\end{pmatrix}$ | A mix of stretch and slant. Red goes to $(2,1)$ and green goes to $(1,3)$. |
+| Scaling | $`\begin{pmatrix}2 & 0\\ 0 & 0.5\end{pmatrix}`$ | The $`x`$-direction is stretched ×2 (red arrow to $`(2,0)`$). The $`y`$-direction is squeezed to half (green arrow to $`(0, 0.5)`$). |
+| Rotation by $`\theta`$ | $`\begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}`$ | With $`\theta = 30^\circ`$, the whole grid rotates like a sheet of graph paper. |
+| Shear | $`\begin{pmatrix}1 & 1\\ 0 & 1\end{pmatrix}`$ | Red $`\hat i`$ does not move. Green $`\hat j`$ is pushed to $`(1,1)`$. The grid leans like pushing the top of a stack of books. Shear shifts one coordinate in proportion to the other. |
+| General | $`A = \begin{pmatrix}2 & 1\\ 1 & 3\end{pmatrix}`$ | A mix of stretch and slant. Red goes to $`(2,1)`$ and green goes to $`(1,3)`$. |
 
 **How to read the plot.**
 - Light grey shows the original grid.
 - Blue shows the grid after the transformation.
-- The red arrow is the image of $(1,0)$.
-- The green arrow is the image of $(0,1)$.
+- The red arrow is the image of $`(1,0)`$.
+- The green arrow is the image of $`(0,1)`$.
 
 **Rotation by 90°:**
 
@@ -346,8 +346,8 @@ print(R90 @ np.array([1, 0]))        # [0 1]
 
 ### 2.11 Determinant as an area-scaling factor
 
-- The unit square spanned by $(1,0)$ and $(0,1)$ has area $1$.
-- After applying $A$, the area becomes $5$.
+- The unit square spanned by $`(1,0)`$ and $`(0,1)`$ has area $`1`$.
+- After applying $`A`$, the area becomes $`5`$.
 - **Correct rule:**
 
 ```math
@@ -362,7 +362,7 @@ print(R90 @ np.array([1, 0]))        # [0 1]
 
 The determinant (5) matches the transformed area (5).
 
-> The verbal explanation of the area in the transcript ("square of diagonal terms then square root") was garbled. Use $|\det A|$.
+> The verbal explanation of the area in the transcript ("square of diagonal terms then square root") was garbled. Use $`|\det A|`$.
 
 ### 2.12 Transpose, identity, determinant, inverse
 
@@ -378,9 +378,9 @@ The transpose of a product reverses the order:
 (AB)^T = B^T A^T
 ```
 
-**Identity** $I$. Ones on the diagonal and zeros elsewhere, so $AI = IA = A$.
+**Identity** $`I`$. Ones on the diagonal and zeros elsewhere, so $`AI = IA = A`$.
 
-**Inverse** $A^{-1}$. It satisfies $AA^{-1} = I$ and exists only if $\det A \neq 0$. If $\det A = 0$, the matrix is called **singular** and has no inverse. For a $2\times2$ matrix:
+**Inverse** $`A^{-1}`$. It satisfies $`AA^{-1} = I`$ and exists only if $`\det A \neq 0`$. If $`\det A = 0`$, the matrix is called **singular** and has no inverse. For a $`2\times2`$ matrix:
 
 ```math
 A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b\\ -c & a\end{pmatrix}
@@ -401,10 +401,10 @@ print(np.linalg.inv(A))     # [[ 0.6 -0.2] [-0.2  0.4]]
 
 **Debugging tip shown in VS Code/Jupyter.** Hovering over a function such as `np.linalg.inv` shows its parameters (e.g. `a`) and its return value.
 
-### 2.13 Solving linear systems $Ax = b$
+### 2.13 Solving linear systems $`Ax = b`$
 
 **Method.**
-- Write the equations in matrix form, with unknown vector $x = (x, y)^T$.
+- Write the equations in matrix form, with unknown vector $`x = (x, y)^T`$.
 - The solution is:
 
 ```math
@@ -414,10 +414,10 @@ x = A^{-1} b
 - In practice, use `np.linalg.solve(A, b)`. It is more stable than computing the inverse.
 
 **Example.**
-- The first equation was $2x + y = 5$, drawn as the blue line.
+- The first equation was $`2x + y = 5`$, drawn as the blue line.
 - The second equation was drawn as the orange line, but it was not stated in the audio.
-- The lines intersect at **$x = 1$, $y = 3$**.
-- If the coefficient matrix was the same $A$, the second equation would be $x + 3y = 10$, which is consistent with $(1,3)$. This is an **assumption**.
+- The lines intersect at **$`x = 1`$, $`y = 3`$**.
+- If the coefficient matrix was the same $`A`$, the second equation would be $`x + 3y = 10`$, which is consistent with $`(1,3)`$. This is an **assumption**.
 
 ```python
 A = np.array([[2, 1],
@@ -438,7 +438,7 @@ print(sol)                   # [1. 3.]
 A v = \lambda v
 ```
 
-  Here $\lambda$ is the eigenvalue and $v$ is the eigenvector.
+  Here $`\lambda`$ is the eigenvalue and $`v`$ is the eigenvector.
 - The eigenvalues are the roots of the characteristic equation:
 
 ```math
@@ -454,7 +454,7 @@ print(V)      # eigenvectors as columns
 # check: A @ V[:,0] ≈ lam[0] * V[:,0]
 ```
 
-The lecture did not say which matrix was used here. The sample output assumes it was $A$.
+The lecture did not say which matrix was used here. The sample output assumes it was $`A`$.
 
 ### 2.15 Least-squares line fitting
 
@@ -464,9 +464,9 @@ The lecture did not say which matrix was used here. The sample output assumes it
 y = \beta_0 + \beta_1 x + \varepsilon
 ```
 
-- $\beta_0$ is the intercept (the shift from the origin, "$c$").
-- $\beta_1$ is the slope ("$m$").
-- $\varepsilon$ is noise.
+- $`\beta_0`$ is the intercept (the shift from the origin, "$`c`$").
+- $`\beta_1`$ is the slope ("$`m`$").
+- $`\varepsilon`$ is noise.
 
 **Goal.** Find the best-fit line by minimising the sum of squared vertical distances (residuals) from the points to the line:
 
@@ -475,7 +475,7 @@ S(\beta_0, \beta_1) = \sum_{i=1}^{n} \big(y_i - \beta_0 - \beta_1 x_i\big)^2
 ```
 
 **Calculus approach.**
-- Set $\dfrac{\partial S}{\partial \beta_0} = 0$ and $\dfrac{\partial S}{\partial \beta_1} = 0$.
+- Set $`\dfrac{\partial S}{\partial \beta_0} = 0`$ and $`\dfrac{\partial S}{\partial \beta_1} = 0`$.
 - A positive second derivative means a minimum. A negative one means a maximum.
 
 **Result:**
@@ -514,7 +514,7 @@ plt.show()
 |---|---|
 | `np.array(...)` | Creates a NumPy vector or matrix from a list or nested lists. |
 | `.shape` | Returns a tuple of dimensions, e.g. `(3, 3)`. |
-| `arr[i]`, `arr[:, j]` | Row $i$ and column $j$ indexing (0-based). |
+| `arr[i]`, `arr[:, j]` | Row $`i`$ and column $`j`$ indexing (0-based). |
 | `+`, `*` with a scalar | Element-wise addition and scalar multiplication. |
 | `@` | Matrix multiplication or dot product (the transcript's "ampersand"). |
 | `np.dot(x, y)` | Dot product of vectors or matrix product. |
@@ -524,10 +524,10 @@ plt.show()
 | `np.column_stack` / `np.vstack` | Stack vectors into a matrix (exact function inferred). |
 | `np.linalg.matrix_rank(M)` | Number of independent columns. |
 | `A.T` | Transpose. |
-| `np.eye(n)` | $n\times n$ identity matrix. |
+| `np.eye(n)` | $`n\times n`$ identity matrix. |
 | `np.linalg.det(A)` | Determinant. |
 | `np.linalg.inv(A)` | Inverse (fails if the matrix is singular). |
-| `np.linalg.solve(A, b)` | Solves $Ax=b$. |
+| `np.linalg.solve(A, b)` | Solves $`Ax=b`$. |
 | `np.linalg.eig(A)` | Returns eigenvalues and an eigenvector matrix (columns). |
 | `plt.quiver` | Draws arrows (vectors). Assumed for the vector plots. |
 | `plt.scatter`, `plt.plot` | Scatter points and draw the fitted line. |
@@ -540,10 +540,10 @@ plt.show()
 ## 4. Syntax Rules, Common Mistakes and Tips
 
 - **`A * B` is element-wise multiplication. `A @ B` is matrix multiplication.**
-- **Order matters:** in general $AB \neq BA$.
-- **Shapes:** addition needs identical shapes. Multiplication needs (columns of $A$) = (rows of $B$).
+- **Order matters:** in general $`AB \neq BA`$.
+- **Shapes:** addition needs identical shapes. Multiplication needs (columns of $`A`$) = (rows of $`B`$).
 - **Indexing is 0-based:** the "second house" is row `1`.
-- **Singular matrices** ($\det = 0$) have no inverse. `np.linalg.inv` raises `LinAlgError`.
+- **Singular matrices** ($`\det = 0`$) have no inverse. `np.linalg.inv` raises `LinAlgError`.
 - Prefer `np.linalg.solve` over `inv(A) @ b`.
 - **Floating point:** expect values like `det = 5.000000000000001` and an angle of `45.00000000000001`.
 - To discover a function's parameters, use `help()`, `?`, or hover in VS Code/Jupyter.

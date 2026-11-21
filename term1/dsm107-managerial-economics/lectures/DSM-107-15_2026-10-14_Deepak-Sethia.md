@@ -33,7 +33,7 @@ The second half introduces money:
 - The real-resource cost of commodity money, illustrated with Mughal silver.
 - Inflation from over-printing, illustrated with Zimbabwe.
 - The idea that commercial banks also create money under fractional-reserve banking.
-- The derivation of the **money multiplier** $\frac{1+cu}{cu+re}$, with a worked example where 1,000 of base money becomes a money supply of 5,000.
+- The derivation of the **money multiplier** $`\frac{1+cu}{cu+re}`$, with a worked example where 1,000 of base money becomes a money supply of 5,000.
 
 ---
 
@@ -58,21 +58,21 @@ AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}
 ```
 
 - Here:
-  - $c$ is the marginal propensity to consume (MPC).
-  - $t$ is the proportional income tax rate.
-  - $TR$ is government transfers.
-  - $G$ is government purchases.
+  - $`c`$ is the marginal propensity to consume (MPC).
+  - $`t`$ is the proportional income tax rate.
+  - $`TR`$ is government transfers.
+  - $`G`$ is government purchases.
 
 #### A3. Keynesian cross graph (described verbally)
-- **Axes:** output/income $Y$ on the horizontal axis and aggregate demand on the vertical axis.
-- **The $45^\circ$ line** is the set of points where output equals demand. Any height on the line equals the corresponding horizontal base.
-- **Starting point:** the economy is at **$E_1$**, where the AD line crosses the $45^\circ$ line, to the left of full-employment output.
-- **Policy shock:** the government builds a **new highway**, so $G$ rises and the **AD line shifts up** in parallel.
+- **Axes:** output/income $`Y`$ on the horizontal axis and aggregate demand on the vertical axis.
+- **The $`45^\circ`$ line** is the set of points where output equals demand. Any height on the line equals the corresponding horizontal base.
+- **Starting point:** the economy is at **$`E_1`$**, where the AD line crosses the $`45^\circ`$ line, to the left of full-employment output.
+- **Policy shock:** the government builds a **new highway**, so $`G`$ rises and the **AD line shifts up** in parallel.
 - **Adjustment process:**
-  1. At the old output level, demand now exceeds output. The AD height is above the $45^\circ$ line.
+  1. At the old output level, demand now exceeds output. The AD height is above the $`45^\circ`$ line.
   2. Inventories are depleted, so firms raise production.
   3. Firms hire unemployed workers, who receive wages and consume more. This is induced demand.
-  4. Output rises until the economy reaches the new intersection of the higher AD line with the $45^\circ$ line, closer to potential output.
+  4. Output rises until the economy reaches the new intersection of the higher AD line with the $`45^\circ`$ line, closer to potential output.
 - **No overshooting:** beyond the new intersection, output would exceed demand, so the economy does not move past it.
 - **Other ways to raise AD:**
   - More government spending.
@@ -80,13 +80,13 @@ AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}
   - Improved investment sentiment, where firms see a "rosy picture" and invest more.
 
 #### A4. Government spending multiplier
-- If government spending rises by $\Delta G$:
+- If government spending rises by $`\Delta G`$:
 
 ```math
 \Delta Y = \alpha_G \,\Delta G
 ```
 
-- $\alpha_G$ is the **spending multiplier** introduced in the previous session.
+- $`\alpha_G`$ is the **spending multiplier** introduced in the previous session.
 - **Intuition:** one unit of spending generates more than one unit of output.
   - Workers produce the extra demand in the first round.
   - Their wages create **induced demand** in the second, third and later rounds.
@@ -96,7 +96,7 @@ AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}
 \alpha_G = \frac{1}{1 - c(1-t)}
 ```
 
-**Worked example (class answer: 2.5).** The parameters below are implied by the class discussion: $c = 0.8$ and $t = 0.25$.
+**Worked example (class answer: 2.5).** The parameters below are implied by the class discussion: $`c = 0.8`$ and $`t = 0.25`$.
 - With taxes:
 
 ```math
@@ -114,8 +114,8 @@ AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}
 - In a recession this dampening is unhelpful. Governments may therefore **cut the tax rate** to raise the multiplier.
 
 #### A5. Transfer multiplier
-- Suppose transfers rise by $\Delta TR$.
-- Households receive $\Delta TR$ but save the fraction $(1-c)$, so first-round spending is only $c\ \Delta TR$.
+- Suppose transfers rise by $`\Delta TR`$.
+- Households receive $`\Delta TR`$ but save the fraction $`(1-c)`$, so first-round spending is only $`c\,\Delta TR`$.
 - The spending rounds are:
 
 ```math
@@ -128,7 +128,7 @@ c\,\Delta TR,\quad c^2\,\Delta TR,\quad c^3\,\Delta TR,\ \dots
 \Delta Y = c\,\alpha_G\,\Delta TR
 ```
 
-- **Transfer multiplier $<$ direct spending multiplier.**
+- **Transfer multiplier $`<`$ direct spending multiplier.**
   - Direct spending creates first-round demand itself, such as demand for cement and steel, before wages are spent.
   - Transfers skip that first round of demand.
 
@@ -140,7 +140,7 @@ c\,\Delta TR,\quad c^2\,\Delta TR,\quad c^3\,\Delta TR,\ \dots
 ```
 
 - A tax rise reduces output and a tax cut raises it.
-- **Raising the marginal (proportional) tax rate $t$ has two effects:**
+- **Raising the marginal (proportional) tax rate $`t`$ has two effects:**
   1. AD falls because disposable income falls.
   2. The multiplier itself becomes smaller.
 
@@ -160,13 +160,13 @@ c\,\Delta TR,\quad c^2\,\Delta TR,\quad c^3\,\Delta TR,\ \dots
 BS = tY - G - TR
 ```
 
-- $tY$ is tax revenue.
-- $G$ and $TR$ are the two types of government spending.
+- $`tY`$ is tax revenue.
+- $`G`$ and $`TR`$ are the two types of government spending.
 
 **Graph (described verbally):**
-- **Axes:** income $Y$ on the horizontal axis and budget surplus on the vertical axis.
-- **Intercept:** at $Y=0$, $BS = -(G+TR)$, which is negative.
-- **Shape:** an upward-sloping straight line with slope $t$.
+- **Axes:** income $`Y`$ on the horizontal axis and budget surplus on the vertical axis.
+- **Intercept:** at $`Y=0`$, $`BS = -(G+TR)`$, which is negative.
+- **Shape:** an upward-sloping straight line with slope $`t`$.
 
 **Implication:** the budget surplus or fiscal deficit is **not independent of the business cycle**. Deficits widen automatically in bad times.
 
@@ -264,15 +264,15 @@ BS = tY - G - TR
 - **Zimbabwe example:**
   - People hold \$1 billion in notes.
   - The government prints \$1 trillion.
-  - Existing holdings now buy about $\frac{1}{1000}$ of what they bought before.
+  - Existing holdings now buy about $`\frac{1}{1000}`$ of what they bought before.
 - Printing money therefore amounts to **stealing from existing note-holders**.
 
 #### B6. Measures of money
 - Transactions use **cash and bank deposits**.
   - UPI transfers deposits from your bank account to the seller's account.
-- **$M_0$** has three equivalent names: **high-powered money / monetary base / base money / narrow money**.
+- **$`M_0`$** has three equivalent names: **high-powered money / monetary base / base money / narrow money**.
   - It is the cash created by the RBI.
-- **$M_3$** is **broad money / money stock**: the money used for transactions, namely currency in circulation plus deposits.
+- **$`M_3`$** is **broad money / money stock**: the money used for transactions, namely currency in circulation plus deposits.
   - This includes demand and time deposits. Cash is more liquid than time (fixed) deposits.
 - **The RBI creates only cash.**
   - **Deposits are created by commercial banks** such as SBI, HDFC, Canara Bank and PNB.
@@ -286,7 +286,7 @@ BS = tY - G - TR
   - They keep a buffer and lend out the rest.
   - Instructor's illustration: 100 people deposit 1 rupee each; the bank keeps 20 and lends out 80.
 
-#### B8. Worked example: deposit creation ($re = 20\text{%}$, no cash held by public)
+#### B8. Worked example: deposit creation ($`re = 20\%`$, no cash held by public)
 **First round:**
 - The central bank (RBI or Fed) creates 1,000, which is deposited in a bank.
 - The bank keeps 200 as reserves and lends 800.
@@ -304,7 +304,7 @@ BS = tY - G - TR
 - The bank keeps 160 and lends 640.
 
 **Continuing rounds:**
-- Deposits form an infinite geometric progression with common ratio $(1-re) = 0.8$:
+- Deposits form an infinite geometric progression with common ratio $`(1-re) = 0.8`$:
 
 ```math
 1000 + 1000(0.8) + 1000(0.8)^2 + \dots = \frac{1000}{1-(1-re)} = \frac{1000}{re} = \frac{1000}{0.2} = 5000
@@ -328,9 +328,9 @@ BS = tY - G - TR
 
 #### B9. General money multiplier (with currency holding)
 **Definitions:**
-- $CU$ is currency in circulation, held in the public's wallets.
-- $D$ is deposits.
-- $RE$ is bank reserves held in bank vaults. In India, the required part is set through the **CRR**.
+- $`CU`$ is currency in circulation, held in the public's wallets.
+- $`D`$ is deposits.
+- $`RE`$ is bank reserves held in bank vaults. In India, the required part is set through the **CRR**.
 
 **Money stock and base:**
 
@@ -338,24 +338,24 @@ BS = tY - G - TR
 M = CU + D, \qquad H = CU + RE
 ```
 
-**Dividing numerator and denominator by $D$:**
+**Dividing numerator and denominator by $`D`$:**
 
 ```math
 mm = \frac{M}{H} = \frac{CU + D}{CU + RE} = \frac{\frac{CU}{D} + 1}{\frac{CU}{D} + \frac{RE}{D}} = \frac{cu + 1}{cu + re}
 ```
 
 - Here:
-  - $cu = \frac{CU}{D}$ is the **currency–deposit ratio**.
-  - $re = \frac{RE}{D}$ is the **reserve–deposit ratio**, which corresponds to India's **CRR (Cash Reserve Ratio)**.
+  - $`cu = \frac{CU}{D}`$ is the **currency–deposit ratio**.
+  - $`re = \frac{RE}{D}`$ is the **reserve–deposit ratio**, which corresponds to India's **CRR (Cash Reserve Ratio)**.
 
 **Comparative statics:**
 
-| Ratio change | Effect on $mm$ | Reason |
+| Ratio change | Effect on $`mm`$ | Reason |
 |---|---|---|
-| Lower $re$ | Larger $mm$ | At 20%, each 1 rupee of reserves supports 5 of deposits. At 10%, it supports 10. |
-| Higher $cu$ | Smaller $mm$ | This holds because $re < 1$. |
+| Lower $`re`$ | Larger $`mm`$ | At 20%, each 1 rupee of reserves supports 5 of deposits. At 10%, it supports 10. |
+| Higher $`cu`$ | Smaller $`mm`$ | This holds because $`re < 1`$. |
 
-**Why higher $cu$ shrinks the multiplier:**
+**Why higher $`cu`$ shrinks the multiplier:**
 - One unit of high-powered money held as currency supports exactly one unit of transaction money.
 - One unit held as bank reserves supports several units of deposits.
 - So when more base money sits in wallets, less is available as reserves, and fewer deposits can be supported.
@@ -374,12 +374,12 @@ mm = \frac{M}{H} = \frac{CU + D}{CU + RE} = \frac{\frac{CU}{D} + 1}{\frac{CU}{D}
 - Doubts about current dollar stability were deferred to the exchange-rate sessions.
 
 #### B10. Determinants of the ratios
-**Currency–deposit ratio ($cu$):**
+**Currency–deposit ratio ($`cu`$):**
 - It is **lower** when ATMs are nearby and UPI is widely accepted.
 - It is **higher** when ATMs are far away or UPI is not accepted. Distance raises **shoe-leather costs**, so people hold more cash.
-- **Seasonality:** during festivals such as Diwali, people hold more cash for gifting and transactions, so $cu$ rises.
+- **Seasonality:** during festivals such as Diwali, people hold more cash for gifting and transactions, so $`cu`$ rises.
 
-**Reserve ratio ($re$):**
+**Reserve ratio ($`re`$):**
 - It is set mainly by the central bank: the RBI sets the CRR.
 - Banks may voluntarily hold **excess reserves** for safety against withdrawals.
 
@@ -390,15 +390,15 @@ mm = \frac{M}{H} = \frac{CU + D}{CU + RE} = \frac{\frac{CU}{D} + 1}{\frac{CU}{D}
 No explicit exam or assignment announcements were made. Points the instructor stressed or tested in class:
 
 **Fiscal policy:**
-- **Be able to compute the spending multiplier with taxes.** The in-class quiz used $c = 0.8$ and $t = 0.25$, giving $\alpha_G = 2.5$ versus 5 without taxes.
-- **Know why transfer and lump-sum-tax multipliers equal $c\ \alpha_G$** and are smaller than the direct-spending multiplier.
+- **Be able to compute the spending multiplier with taxes.** The in-class quiz used $`c = 0.8`$ and $`t = 0.25`$, giving $`\alpha_G = 2.5`$ versus 5 without taxes.
+- **Know why transfer and lump-sum-tax multipliers equal $`c\,\alpha_G`$** and are smaller than the direct-spending multiplier.
 - **Know the two effects of raising the marginal tax rate:** lower AD and a smaller multiplier.
 - **Be able to explain procyclical versus countercyclical policy**, including why a government should not behave like a household.
 
 **Money:**
-- **Be able to derive the money multiplier** $\frac{1+cu}{cu+re}$.
-- **Be able to work the GP deposit-creation example:** with $re = 20\text{%}$, the base of 1,000 becomes a money supply of 5,000.
-- **Know the comparative statics for $re$ and $cu$**, especially the intuition for why higher $cu$ lowers the multiplier.
+- **Be able to derive the money multiplier** $`\frac{1+cu}{cu+re}`$.
+- **Be able to work the GP deposit-creation example:** with $`re = 20\%`$, the base of 1,000 becomes a money supply of 5,000.
+- **Know the comparative statics for $`re`$ and $`cu`$**, especially the intuition for why higher $`cu`$ lowers the multiplier.
 - **Conceptual trap:** money is not real wealth, and more money does not mean more goods. Use the phrase "money available for transactions".
 
 **Next session (tomorrow):**
