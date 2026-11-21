@@ -11,6 +11,8 @@ index.html, .nojekyll   GitHub Pages site root (must stay at the top level)
 README.md
 scripts/                note-generation tooling (Python, stdlib only)
   generate_notes.py       transcript -> study notes, via the Anthropic API
+  github_math.py          rewrites note maths into the form github.com renders ($`..`$, ```math)
+  notion_body.py          Notion-safe page body + maths checks (undoes the GitHub form first)
   sessions.py             reads the canonical session list; naming + front matter
   sync_names.py           renames notes/transcripts when session numbers change
   nav_links.py            previous/next links between notes, in the order classes were held

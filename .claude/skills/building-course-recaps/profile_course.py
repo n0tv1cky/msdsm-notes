@@ -12,6 +12,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+from github_math import from_github  # noqa: E402
+
 SIGNALS = {
     # $...$ / $$...$$ blocks -> formula density
     "math": re.compile(r"\$\$.+?\$\$|\$[^$\n]+?\$", re.S),
@@ -81,7 +84,7 @@ def main():
 
     seen = {}
     for p in files:
-        text = p.read_text(encoding="utf-8")
+        text = from_github(p.read_text(encoding="utf-8"))  # ```math fences would count as code
         words = max(len(text.split()), 1)
         counts = {c: len(r.findall(text)) for c, r in SIGNALS.items()}
         counts["code"] //= 2  # opening + closing fence

@@ -32,6 +32,7 @@ import urllib.request
 from pathlib import Path
 
 from nav_links import update_lectures_dir
+from github_math import github_issues, to_github
 from notion_body import check as check_math
 from sessions import load as load_sessions, lookup, name_of, with_front_matter
 
@@ -173,7 +174,11 @@ def build_prompt(course_name, guidance, name, transcript):
         "bare Unicode superscript/subscript characters (e.g. x², ₓᵢ) or "
         "unescaped ^/_ outside a $...$ block -- those don't render "
         "consistently. Apply this to every formula in the notes, not just "
-        "the formula-sheet section.\n\n"
+        "the formula-sheet section. Put display maths ($$...$$) on lines of "
+        "its own, never mid-sentence. Don't use \\phantom. Write a literal "
+        "dollar amount as \\$ (e.g. \\$500), never a bare $ next to "
+        "maths. (Your $...$ output is converted afterwards to GitHub's "
+        "```math / $`...`$ syntax, so write ordinary LaTeX delimiters.)\n\n"
         f"{guidance}\n\n"
         f"Transcript:\n{transcript}"
     )
@@ -245,11 +250,17 @@ def main():
             print(f"  TRUNCATED (stop_reason={stop_reason}) -- NOT saving. "
                   f"Got {len(text.split())} words; raise MAX_TOKENS or split the transcript.")
             continue
+        # Verify math delimiters on the raw model output: a mis-paired $ would
+        # be converted wrongly below, render as raw LaTeX on GitHub and
+        # "Invalid equation" in Notion. Fix the note before syncing it.
+        issues = check_math(text)
+        # Then rewrite the maths into the only form github.com renders
+        # reliably (```math fences, $`...`$ inline; see github_math.py).
+        text = to_github(text)
+        issues += github_issues(text)
         out_path.write_text(with_front_matter(text, entry), encoding="utf-8")
         print(f"  saved {out_path.name} ({len(text.split())} words, stop_reason={stop_reason})")
-        # Verify math delimiters: a malformed $ renders as raw LaTeX on GitHub
-        # and "Invalid equation" in Notion. Fix the note before syncing it.
-        for issue in check_math(out_path.read_text(encoding="utf-8")):
+        for issue in issues:
             print(f"  VERIFY: {issue}")
             flagged.append(f"{out_path.name}: {issue}")
 
@@ -258,7 +269,8 @@ def main():
 
     if flagged:
         print(f"\nVERIFY FAILED: {len(flagged)} math issue(s) -- fix these notes before "
-              "syncing (python3 scripts/notion_body.py --check <note.md>):")
+              "syncing (python3 scripts/notion_body.py --check <note.md>; "
+              "python3 scripts/github_math.py --check <note.md>):")
         for f in flagged:
             print("  " + f)
         sys.exit(1)

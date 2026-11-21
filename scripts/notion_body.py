@@ -11,8 +11,12 @@ blocks
     X
     $$
 
-import as proper block equations. GitHub renders both forms, so the repo
-notes stay as generated; only the body sent to Notion is rewritten.
+import as proper block equations.
+
+The repo notes are in GitHub-safe form (```math fences, $`...`$ inline; see
+github_math.py), which Notion would show as code. So the body is first put
+back to plain $...$ / $$ delimiters with github_math.from_github, then
+display maths is rewritten to multi-line blocks.
 
 Usage:
   notion_body.py <note.md>            print the body to send to Notion
@@ -26,6 +30,8 @@ contain no `\\$$` (that is the signature of a mangled equation).
 """
 import re
 import sys
+
+from github_math import from_github
 
 DISPLAY = re.compile(r"\$\$(.+?)\$\$")
 LIST_MARKER = re.compile(r"^([-*+]|\d+\.)\s+")
@@ -76,7 +82,7 @@ def blockify_display_math(text: str) -> str:
 
 
 def notion_body(text: str) -> str:
-    return blockify_display_math(strip_for_notion(text))
+    return blockify_display_math(strip_for_notion(from_github(text)))
 
 
 PROSE = re.compile(r"(?:\b[A-Za-z]{2,}\b[ ,;.]+){4}")
@@ -126,7 +132,9 @@ def looks_like_prose(span: str) -> bool:
 
 
 def check(text: str) -> list[str]:
-    """Return human-readable math problems (empty list = clean)."""
+    """Return human-readable math problems (empty list = clean). Accepts
+    plain-$ text or GitHub-form notes (converted back first)."""
+    text = from_github(text)
     issues = []
     in_code = False
     for n, ln in enumerate(text.split("\n"), 1):

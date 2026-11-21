@@ -42,6 +42,8 @@ import time
 import urllib.request
 from pathlib import Path
 
+from github_math import from_github
+
 REPO = Path(__file__).resolve().parent.parent
 ENV_PATH = Path("/Users/n0tv1cky/Documents/Personal/masters/.env")
 KIT = REPO / ".claude/skills/building-course-recaps/kit"
@@ -142,7 +144,9 @@ def module_prompt(plan, mod):
     notes = []
     for stem in mod["sessions"]:
         p = notes_dir / (stem + ".md")
-        notes.append(f"=== {p.name} ===\n{p.read_text(encoding='utf-8')}")
+        # Notes use GitHub-only maths syntax; give the model plain $ / $$ LaTeX,
+        # which is what KaTeX auto-render on the recap page expects.
+        notes.append(f"=== {p.name} ===\n{from_github(p.read_text(encoding='utf-8'))}")
     return (
         f"COURSE: {plan['kicker']}\n"
         f"KaTeX: {'on' if plan.get('katex') else 'off (use <code> for formulas)'}\n"
