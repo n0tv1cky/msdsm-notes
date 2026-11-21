@@ -43,12 +43,12 @@ The class concludes that **both cost analyses are flawed**. The tomatoes are a *
 ### 2.1 Recap: Merton Truck model
 
 **Decision variables**
-- $x_1$ = number of Model 101 trucks produced (units/month)
-- $x_2$ = number of Model 102 trucks produced (units/month)
+- $`x_1`$ = number of Model 101 trucks produced (units/month)
+- $`x_2`$ = number of Model 102 trucks produced (units/month)
 
 **Model**
 
-$$
+```math
 \begin{aligned}
 \max\quad & Z = 3000\,x_1 + 5000\,x_2 && \text{(total contribution, \$)}\\
 \text{s.t.}\quad & x_1 + 2x_2 \le 4000 && \text{(engine assembly hours)}\\
@@ -57,77 +57,83 @@ $$
 & 3x_2 \le 4500 && \text{(Model 102 assembly hours) [inferred]}\\
 & x_1,\ x_2 \ge 0
 \end{aligned}
-$$
+```
 
-The lecture states the engine assembly ratio $1:2$ and the metal stamping ratio $2:2$ directly. The two assembly-line constraints come from the standard case and are consistent with the corner points quoted in class.
+The lecture states the engine assembly ratio $`1:2`$ and the metal stamping ratio $`2:2`$ directly. The two assembly-line constraints come from the standard case and are consistent with the corner points quoted in class.
 
-**Optimal solution:** $x_1 = 2000$, $x_2 = 1000$, giving $Z = 3000(2000)+5000(1000) = \$11{,}000{,}000$.
+**Optimal solution:** $`x_1 = 2000`$, $`x_2 = 1000`$, giving $`Z = 3000(2000)+5000(1000) = \$11{,}000{,}000`$.
 - The binding constraints are **engine assembly** and **metal stamping**.
-- At one point the transcript says "1000, 1000". This is a slip; the optimum is $(2000, 1000)$.
+- At one point the transcript says "1000, 1000". This is a slip; the optimum is $`(2000, 1000)`$.
 
 **Reduced costs**
-- Both $x_1$ and $x_2$ are positive (basic) at the optimum, so their **reduced cost is 0**.
-- Forcing $x_1 \ge 1$ would be a redundant constraint, so the objective would not change.
-- **Model 103** (extended version of the case) had a **reduced cost of $-350$**. Forcing one unit of Model 103 into production lowers total profit by \$350, because it is "loss-making" relative to the current use of resources.
+- Both $`x_1`$ and $`x_2`$ are positive (basic) at the optimum, so their **reduced cost is 0**.
+- Forcing $`x_1 \ge 1`$ would be a redundant constraint, so the objective would not change.
+- **Model 103** (extended version of the case) had a **reduced cost of $`-350`$**. Forcing one unit of Model 103 into production lowers total profit by \$350, because it is "loss-making" relative to the current use of resources.
 
 ### 2.2 Allowable increase/decrease of objective coefficients
 
 **Definition.** The allowable increase and decrease tell you how far you can change one objective-function coefficient (one at a time, all else fixed) while the **current corner point remains optimal**. The optimal *values of the variables* stay the same. The objective *value* does change.
 
-**Solver report for $x_1$:** coefficient 3000, allowable increase 2000, allowable decrease 500.
+**Solver report for $`x_1`$:** coefficient 3000, allowable increase 2000, allowable decrease 500.
 
 **Excel demonstration**
 | Change made | Result |
 |---|---|
-| $c_1 = 4999$ | Optimum still $(2000, 1000)$ |
-| $c_1 = 5001$ | Optimum jumps to corner **E** $= (2500, 500)$ |
+| $`c_1 = 4999`$ | Optimum still $`(2000, 1000)`$ |
+| $`c_1 = 5001`$ | Optimum jumps to corner **E** $`= (2500, 500)`$ |
 
 ### 2.3 Graphical intuition
 
 The feasible region is a polygon. Its corner points, with the objective values at the original coefficients, are below. The lecture names only C, D and E; the other labels are **[inferred]**.
 
-| Corner | Constraints that intersect there | $(x_1, x_2)$ | $Z$ |
+| Corner | Constraints that intersect there | $`(x_1, x_2)`$ | $`Z`$ |
 |---|---|---|---|
-| A | origin | $(0,0)$ | 0 |
-| B | $x_1=0$ and Model 102 assembly | $(0,1500)$ | 7.5M |
-| C | Model 102 assembly and engine assembly | $(1000,1500)$ | 10.5M |
-| **D** | engine assembly and metal stamping | $(2000,1000)$ | **11M (optimal)** |
-| E | metal stamping and Model 101 assembly | $(2500,500)$ | 10M |
-| F | Model 101 assembly and $x_2=0$ | $(2500,0)$ | 7.5M |
+| A | origin | $`(0,0)`$ | 0 |
+| B | $`x_1=0`$ and Model 102 assembly | $`(0,1500)`$ | 7.5M |
+| C | Model 102 assembly and engine assembly | $`(1000,1500)`$ | 10.5M |
+| **D** | engine assembly and metal stamping | $`(2000,1000)`$ | **11M (optimal)** |
+| E | metal stamping and Model 101 assembly | $`(2500,500)`$ | 10M |
+| F | Model 101 assembly and $`x_2=0`$ | $`(2500,0)`$ | 7.5M |
 
 **How the optimum moves as the objective line rotates**
-- **When $c_1$ increases**, the iso-profit line gets steeper. D stays optimal until the line becomes **parallel to segment DE** (the metal stamping line). At that moment D and E are both optimal. Any steeper, and E alone is optimal.
+- **When $`c_1`$ increases**, the iso-profit line gets steeper. D stays optimal until the line becomes **parallel to segment DE** (the metal stamping line). At that moment D and E are both optimal. Any steeper, and E alone is optimal.
 - **When the line becomes flatter**, D stays optimal until the line is **parallel to segment CD** (the engine assembly line). At that moment C and D are both optimal. Any flatter, and C alone is optimal.
 
 **Key rule:** The slope of the objective-function line must lie **between the slopes of the binding constraints** (here, engine assembly and metal stamping) for the current corner to stay optimal.
 
 ### 2.4 Algebraic ranging using coefficient ratios
 
-Instead of slopes, compare the ratios (coefficient of $x_1$)/(coefficient of $x_2$):
-- Engine assembly: $\tfrac{1}{2}$
-- Metal stamping: $\tfrac{2}{2}$
-- Objective: $\tfrac{3000}{5000}$
+Instead of slopes, compare the ratios (coefficient of $`x_1`$)/(coefficient of $`x_2`$):
+- Engine assembly: $`\tfrac{1}{2}`$
+- Metal stamping: $`\tfrac{2}{2}`$
+- Objective: $`\tfrac{3000}{5000}`$
 
 The objective's ratio must lie between the two constraint ratios.
 
-**Range for the coefficient of $x_1$.** Replace 3000 by $k$:
+**Range for the coefficient of $`x_1`$.** Replace 3000 by $`k`$:
 
-$$\frac{1}{2} \le \frac{k}{5000} \le \frac{2}{2} \;\Longrightarrow\; 2500 \le k \le 5000$$
+```math
+\frac{1}{2} \le \frac{k}{5000} \le \frac{2}{2} \;\Longrightarrow\; 2500 \le k \le 5000
+```
 
-- The allowable decrease is $3000 - 2500 = 500$.
-- The allowable increase is $5000 - 3000 = 2000$.
+- The allowable decrease is $`3000 - 2500 = 500`$.
+- The allowable increase is $`5000 - 3000 = 2000`$.
 - This explains the demo: 4999 is inside the range, but 5001 is outside.
-- At exactly $k = 5000$, D and E tie.
+- At exactly $`k = 5000`$, D and E tie.
 
-**Range for the coefficient of $x_2$.** Replace 5000 by $k'$:
+**Range for the coefficient of $`x_2`$.** Replace 5000 by $`k'`$:
 
-$$\frac{1}{2} \le \frac{3000}{k'} \le \frac{2}{2}$$
+```math
+\frac{1}{2} \le \frac{3000}{k'} \le \frac{2}{2}
+```
 
 Taking reciprocals reverses the inequalities:
 
-$$2 \ge \frac{k'}{3000} \ge 1 \;\Longrightarrow\; 3000 \le k' \le 6000$$
+```math
+2 \ge \frac{k'}{3000} \ge 1 \;\Longrightarrow\; 3000 \le k' \le 6000
+```
 
-So the allowable increase is $1000$ and the allowable decrease is $2000$ (since $5000-2000=3000$).
+So the allowable increase is $`1000`$ and the allowable decrease is $`2000`$ (since $`5000-2000=3000`$).
 
 ### 2.5 Summary of Merton Truck insights
 - The optimal solution is not the only output that matters. Sensitivity analysis supports **negotiation**: with workers, suppliers, or about any constraint.
@@ -142,13 +148,15 @@ So the allowable increase is $1000$ and the allowable decrease is $2000$ (since 
 
 General form:
 
-$$\min \sum_j c_j x_j \quad \text{s.t.}\quad L_i \le \sum_j a_{ij} x_j \le U_i\ \ \forall i,\qquad x_j \ge 0$$
+```math
+\min \sum_j c_j x_j \quad \text{s.t.}\quad L_i \le \sum_j a_{ij} x_j \le U_i\ \ \forall i,\qquad x_j \ge 0
+```
 
 Here:
-- $x_j$ = servings of food $j$;
-- $c_j$ = cost per serving of food $j$;
-- $a_{ij}$ = amount of nutrient $i$ per serving of food $j$;
-- $L_i$ and $U_i$ = the minimum and maximum required amounts of nutrient $i$.
+- $`x_j`$ = servings of food $`j`$;
+- $`c_j`$ = cost per serving of food $`j`$;
+- $`a_{ij}`$ = amount of nutrient $`i`$ per serving of food $`j`$;
+- $`L_i`$ and $`U_i`$ = the minimum and maximum required amounts of nutrient $`i`$.
 
 **Meaning of reduced cost.** Suppose milk is 0 in the optimal diet. That means other foods supply the same nutrients more cheaply. The **reduced cost** of milk is how much its cost per serving must be **reduced** before milk enters the optimal diet. Hence the name.
 
@@ -162,8 +170,8 @@ Equivalently, the reduced cost is how much the objective changes if a non-partic
 
 **Supply**
 - 3,000,000 lb of tomatoes, contracted at the average price of **\$0.18/lb**.
-- 20% is **grade A**: $600{,}000$ lb.
-- 80% is **grade B**: $2{,}400{,}000$ lb.
+- 20% is **grade A**: $`600{,}000`$ lb.
+- 80% is **grade B**: $`2{,}400{,}000`$ lb.
 
 **Quality ratings** (scale of 1–10): grade A = **9**, grade B = **5**. Grades can be mixed, and the blended rating is assumed to be a linear (weighted) average.
 
@@ -182,19 +190,23 @@ Equivalently, the reduced cost is how much the objective changes if a non-partic
 
 ### 2.8 Blending (mixture) constraints
 
-Let the mix ratio be $A:B = \lambda : 1$.
+Let the mix ratio be $`A:B = \lambda : 1`$.
 
 **Whole tomatoes (rating at least 8)**
 
-$$\frac{9\lambda + 5(1)}{\lambda+1} \ge 8 \;\Rightarrow\; 9\lambda + 5 \ge 8\lambda + 8 \;\Rightarrow\; \lambda \ge 3$$
+```math
+\frac{9\lambda + 5(1)}{\lambda+1} \ge 8 \;\Rightarrow\; 9\lambda + 5 \ge 8\lambda + 8 \;\Rightarrow\; \lambda \ge 3
+```
 
-So $A:B \ge 3:1$. That means **at least 75% grade A** and at most 25% grade B.
+So $`A:B \ge 3:1`$. That means **at least 75% grade A** and at most 25% grade B.
 
-The alligation shortcut gives the same answer: 8 is 3 units from B (5) and 1 unit from A (9), so the ratio is $A:B = 3:1$.
+The alligation shortcut gives the same answer: 8 is 3 units from B (5) and 1 unit from A (9), so the ratio is $`A:B = 3:1`$.
 
 **Juice (rating at least 6)**
 
-$$9\lambda + 5 \ge 6\lambda + 6 \;\Rightarrow\; \lambda \ge \tfrac{1}{3}$$
+```math
+9\lambda + 5 \ge 6\lambda + 6 \;\Rightarrow\; \lambda \ge \tfrac{1}{3}
+```
 
 So **at least 25% grade A** and at most 75% grade B.
 
@@ -210,39 +222,57 @@ Contribution = selling price minus variable costs. The variable costs are:
 - **Fruit cost**.
 
 **Fruit cost = \$0.18/lb × lb per case:**
-- Whole tomatoes: $18 \times 0.18 = \$3.24$ per case
-- Juice: $20 \times 0.18 = \$3.60$ per case
-- Paste: $25 \times 0.18 = \$4.50$ per case
+- Whole tomatoes: $`18 \times 0.18 = \$3.24`$ per case
+- Juice: $`20 \times 0.18 = \$3.60`$ per case
+- Paste: $`25 \times 0.18 = \$4.50`$ per case
 
-**Whole tomatoes:** selling price \$12.00, total variable cost \$10.80, so contribution = $12 - 10.80 = \$1.20$ per case. Selling price minus non-fruit variable costs is about \$4.44 (the lecture says 4.4).
+**Whole tomatoes:** selling price \$12.00, total variable cost \$10.80, so contribution = $`12 - 10.80 = \$1.20`$ per case. Selling price minus non-fruit variable costs is about \$4.44 (the lecture says 4.4).
 
 **Allocated (fixed) overhead** should be ignored for this decision. This lesson carried over from Merton Truck: keep fixed costs separate.
 
 ### 2.10 Myers' analysis (Exhibit 3)
 
-**Argument.** Grade A is premium quality, so it should carry a higher cost than grade B. Let $Z$ = cost per lb of grade A and $Y$ = cost per lb of grade B. Myers uses two equations.
+**Argument.** Grade A is premium quality, so it should carry a higher cost than grade B. Let $`Z`$ = cost per lb of grade A and $`Y`$ = cost per lb of grade B. Myers uses two equations.
 
 1. **Total cost is preserved:**
-$$600{,}000\,Z + 2{,}400{,}000\,Y = 3{,}000{,}000 \times 0.18 = \$540{,}000$$
+
+```math
+600{,}000\,Z + 2{,}400{,}000\,Y = 3{,}000{,}000 \times 0.18 = \$540{,}000
+```
 
 2. **Cost is proportional to rating:**
-$$\frac{Z}{9} = \frac{Y}{5} \;\Rightarrow\; Z = 1.8\,Y$$
+
+```math
+\frac{Z}{9} = \frac{Y}{5} \;\Rightarrow\; Z = 1.8\,Y
+```
 
 **Solving:**
-$$3{,}480{,}000\,Y = 540{,}000 \;\Rightarrow\; Y \approx \$0.1552/\text{lb}, \quad Z \approx \$0.2793/\text{lb}$$
+
+```math
+3{,}480{,}000\,Y = 540{,}000 \;\Rightarrow\; Y \approx \$0.1552/\text{lb}, \quad Z \approx \$0.2793/\text{lb}
+```
 
 The transcript says "27.96 cents" and "1.154"; both are ASR or slip errors. The case values are about 27.93¢ and 15.52¢.
 
 **Fruit cost per case under Myers**
 
 Whole tomatoes (75% A, 25% B):
-$$18\,(0.75\times 0.2793 + 0.25\times 0.1552) \approx \$4.47$$
+
+```math
+18\,(0.75\times 0.2793 + 0.25\times 0.1552) \approx \$4.47
+```
 
 Juice (25% A, 75% B):
-$$20\,(0.25\times 0.2793 + 0.75\times 0.1552) \approx \$3.72$$
+
+```math
+20\,(0.25\times 0.2793 + 0.75\times 0.1552) \approx \$3.72
+```
 
 Paste (all B):
-$$25 \times 0.1552 \approx \$3.88 \;(\text{"3.9" in lecture})$$
+
+```math
+25 \times 0.1552 \approx \$3.88 \;(\text{"3.9" in lecture})
+```
 
 **Comparison with Cooper**
 | Product | Cooper (\$/case) | Myers (\$/case) | Why it changes |
@@ -251,7 +281,7 @@ $$25 \times 0.1552 \approx \$3.88 \;(\text{"3.9" in lecture})$$
 | Juice | 3.60 | 3.72 | Only a slight change: the 25:75 mix is close to the 20:80 supply mix |
 | Paste | 4.50 | 3.88 | Large drop: uses only cheap grade B |
 
-**Myers' conclusion.** Whole tomatoes now show a contribution of about $4.44 - 4.47 = -\$0.03$ per case, a loss. So he says: don't produce whole tomatoes; use grade A for juice and paste.
+**Myers' conclusion.** Whole tomatoes now show a contribution of about $`4.44 - 4.47 = -\$0.03`$ per case, a loss. So he says: don't produce whole tomatoes; use grade A for juice and paste.
 
 ### 2.11 Class discussion: who is right?
 
@@ -288,14 +318,14 @@ A student (Rahul) described practice-area leads charged as a fraction (e.g., 0.2
 
 ### 2.12 Preview: likely LP for next class [inferred, not formulated in this session]
 
-**Decision variables:** $x_{ij}$ = lb of grade $i\in\{A,B\}$ used in product $j\in\{W,J,P\}$, where $W$ = whole tomatoes, $J$ = juice, $P$ = paste.
+**Decision variables:** $`x_{ij}`$ = lb of grade $`i\in\{A,B\}`$ used in product $`j\in\{W,J,P\}`$, where $`W`$ = whole tomatoes, $`J`$ = juice, $`P`$ = paste.
 
 **Objective.** Maximise contribution *excluding fruit cost* (the fruit cost is sunk). Per-lb contributions are taken from the case exhibits **[inferred]**:
-- Whole: $4.44/18 \approx 0.2467$
-- Juice: $(13.50-9.54)/20 = 0.198$
-- Paste: $(11.36-5.85)/25 \approx 0.2204$
+- Whole: $`4.44/18 \approx 0.2467`$
+- Juice: $`(13.50-9.54)/20 = 0.198`$
+- Paste: $`(11.36-5.85)/25 \approx 0.2204`$
 
-$$
+```math
 \begin{aligned}
 \max\quad & 0.2467(x_{AW}+x_{BW}) + 0.198(x_{AJ}+x_{BJ}) + 0.2204(x_{AP}+x_{BP})\\
 \text{s.t.}\quad & x_{AW}+x_{AJ}+x_{AP} \le 600{,}000 && \text{(grade A supply, lb)}\\
@@ -307,7 +337,7 @@ $$
 & x_{AP}+x_{BP} \le 80{,}000\times 25 && \text{(paste demand, lb)}\\
 & x_{ij} \ge 0
 \end{aligned}
-$$
+```
 
 The shadow price of the grade A supply constraint answers the question about buying the extra 80,000 lb at 25.5¢.
 
