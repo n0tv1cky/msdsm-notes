@@ -45,7 +45,10 @@ The second half introduced **causal maps**, a small-sample (about 20 or fewer re
 
 - **Why:** the four indicators were on different ranges, so they were converted to a common scale.
 - **Formula** (standard; the lecture referred to "converting to z-scores" without writing it out):
-$$z_i = \frac{x_i - \bar{x}}{s}$$
+
+```math
+z_i = \frac{x_i - \bar{x}}{s}
+```
   Here $\bar{x}$ is the sample mean and $s$ is the sample standard deviation of that indicator.
 - **Interpretation scale** (z-scores generally range from $-3$ to $+3$):
 
@@ -224,7 +227,10 @@ Three techniques were combined in this exercise:
    A negative weight means that if one issue rises, the other falls, and vice versa.
 
 5. **Convert the map into a matrix** $A = [a_{ij}]$, where $a_{ij}$ is the weight of the arrow from issue $i$ (row) to issue $j$ (column):
-$$a_{ij} \in \{-3, -2, -1, 0, +1, +2, +3\}$$
+
+```math
+a_{ij} \in \{-3, -2, -1, 0, +1, +2, +3\}
+```
    Use $a_{ij} = 0$ where there is no arrow.
 6. **Compare matrices across respondents** to find the extent of agreement or disagreement between people. Then derive insights and decide what the business should do to resolve disagreements.
 

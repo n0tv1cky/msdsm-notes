@@ -148,7 +148,9 @@ sns.histplot(x="flipper_length_mm", data=data, kde=True);
 ```
 - A KDE is a smooth curve estimating the shape of the distribution. It is built by placing a small bump on every observation and adding all the bumps together.
 - The standard formula (not written in lecture) is:
-  $$\hat f(x) = \frac{1}{nh}\sum_{i=1}^{n} K\!\left(\frac{x - x_i}{h}\right)$$
+
+  $$\hat f(x) = \frac{1}{nh}\sum_{i=1}^{n} K\left(\frac{x - x_i}{h}\right)$$
+
   Here $K$ is the bump shape (kernel) and $h$ is the bandwidth.
 - Advantage: the curve doesn't depend on where the bin edges fall.
 - Caveat: **the KDE is an estimate (a smooth guess). The bars are the actual counts.**
@@ -294,7 +296,9 @@ sns.pairplot(data, hue="species", kind="reg");       # off-diagonal scatter + fi
   - $r = -1$ (close to): strong negative (anti-)correlation;
   - $r = 0$: no (linear) correlation.
 - The Pearson formula (not written in lecture; pandas computes it) is:
-  $$r_{xy} = \frac{\sum_{i}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i}(x_i-\bar{x})^2}\,\sqrt{\sum_{i}(y_i-\bar{y})^2}}, \qquad -1 \le r_{xy} \le 1$$
+
+  $$r_{xy} = \frac{\sum_{i}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i}(x_i-\bar{x})^2}\ \sqrt{\sum_{i}(y_i-\bar{y})^2}}, \qquad -1 \le r_{xy} \le 1$$
+
 - **Pandas does the statistics; Seaborn just draws the matrix.**
 
 ```python

@@ -56,7 +56,9 @@ Rules (shown for $Q_1$; the same logic applies to $Q_2$ and $Q_3$):
 **Worked example ($n = 10$, sorted data on slide):**
 - **$Q_1$:** $\dfrac{n}{4} = \dfrac{10}{4} = 2.5$, which is not an integer. Round up to position 3. The 3rd observation is 225, so $Q_1 = 225$.
 - **$Q_2$ (median):** $\dfrac{n}{2} = \dfrac{10}{2} = 5$, which is an integer. Average the 5th and 6th observations:
+
   $$Q_2 = \frac{225 + 235}{2} = 230$$
+
 - **$Q_3$:** $\dfrac{3n}{4} = \dfrac{30}{4} = 7.5$, which is not an integer. Round up to position 8. The 8th observation is 250, so $Q_3 = 250$.
 
 *(The full dataset was on the slide and not read aloud. The transcript gives 225 for both the 3rd and 5th observations, which is possible if values repeat. Check against the PPT.)*
@@ -91,7 +93,10 @@ Setup: 16 students took a reading test, and the scores were sorted.
 - **Mode:** $9$ (it appears 5 times)
 
 **Alternative method: frequency distribution.** List each distinct score $x_i$ with its frequency $f_i$, then:
-$$\bar{x} = \frac{\sum x_i f_i}{\sum f_i} = \frac{\sum x_i f_i}{n}$$
+
+```math
+\bar{x} = \frac{\sum x_i f_i}{\sum f_i} = \frac{\sum x_i f_i}{n}
+```
 - Example row: score 5 obtained by 2 students gives $x_i f_i = 5 \times 2 = 10$.
 - Summing all $x_i f_i$ gives $120$, and $120/16 = 7.5$, the same as before.
 - This method is preferred when the **same values repeat often** in the data.
@@ -103,7 +108,10 @@ $$\bar{x} = \frac{\sum x_i f_i}{\sum f_i} = \frac{\sum x_i f_i}{n}$$
 - **Step 1:** take each class **midpoint** as $x_i$: $5, 15, 25, 35, 45$.
 - **Step 2:** compute $x_i f_i$ for each class (e.g. the first class multiplies the midpoint 5 by a frequency of 3).
 - **Step 3:** apply
-$$\bar{x} = \frac{\sum f_i x_i}{N}, \qquad N = \sum f_i$$
+
+```math
+\bar{x} = \frac{\sum f_i x_i}{N}, \qquad N = \sum f_i
+```
 - **Result:** $\bar{x} = 21.8$ minutes.
 - On a histogram, the mean falls in the middle class (20–30), slightly to the right.
 
@@ -129,7 +137,10 @@ $$\bar{x} = \frac{\sum f_i x_i}{N}, \qquad N = \sum f_i$$
 2. $N = 40$, so $\dfrac{N}{2} = 20$.
 3. **Median class:** the class whose cumulative frequency is the first one at or just above $N/2$. Since $cf = 27 \ge 20$, the median class is **70.5–80.5**.
 4. Apply the formula:
-$$\text{Median} = L + \left(\frac{\frac{N}{2} - cf}{f}\right) \times h$$
+
+```math
+\text{Median} = L + \left(\frac{\frac{N}{2} - cf}{f}\right) \times h
+```
 
 where:
 - $L$ = lower limit of the median class $= 70.5$
@@ -138,7 +149,9 @@ where:
 - $f$ = frequency of the median class $= 15$
 - $h$ = class width $= 10$
 
-$$\text{Median} = 70.5 + \frac{20 - 12}{15} \times 10 = 70.5 + 5.33 = 75.83 \approx 75.8$$
+```math
+\text{Median} = 70.5 + \frac{20 - 12}{15} \times 10 = 70.5 + 5.33 = 75.83 \approx 75.8
+```
 
 > **Slide correction flagged by the professor:** the formula on the slide was missing the "$\times h$" term. Include it in your notes.
 
@@ -148,7 +161,10 @@ $$\text{Median} = 70.5 + \frac{20 - 12}{15} \times 10 = 70.5 + 5.33 = 75.83 \app
 - **Modal class:** the class with the highest frequency. Here that is **10–20**, with frequency 24.
 
 **Formula:**
-$$\text{Mode} = L + \left(\frac{f_1 - f_0}{2f_1 - f_0 - f_2}\right) \times h$$
+
+```math
+\text{Mode} = L + \left(\frac{f_1 - f_0}{2f_1 - f_0 - f_2}\right) \times h
+```
 
 where:
 - $L$ = lower limit of the modal class $= 10$
@@ -157,7 +173,9 @@ where:
 - $f_2$ = frequency of the succeeding class (not read out; $f_2 = 8$ reproduces the stated answer)
 - $h$ = class width $= 10$
 
-$$\text{Mode} = 10 + \frac{24 - 18}{2(24) - 18 - 8} \times 10 = 10 + \frac{60}{22} \approx 12.73$$
+```math
+\text{Mode} = 10 + \frac{24 - 18}{2(24) - 18 - 8} \times 10 = 10 + \frac{60}{22} \approx 12.73
+```
 
 - **Result:** Mode $= 12.73$, which falls inside the modal class 10–20 on the histogram.
 - The spoken labels for $f_0$ and $f_1$ were muddled in the transcript. The definitions above are the standard ones and match the answer.
@@ -165,7 +183,10 @@ $$\text{Mode} = 10 + \frac{24 - 18}{2(24) - 18 - 8} \times 10 = 10 + \frac{60}{2
 ### 2.9 Quantiles of grouped data
 
 A general formula for any percentile or quantile of grouped data was shown on a slide but not read aloud. The standard form, which mirrors the median formula, is:
-$$P_k = L + \left(\frac{\frac{kN}{100} - cf}{f}\right) \times h$$
+
+```math
+P_k = L + \left(\frac{\frac{kN}{100} - cf}{f}\right) \times h
+```
 Here $L$, $cf$, $f$ and $h$ refer to the class containing the $\left(\dfrac{kN}{100}\right)^{\text{th}}$ observation. Check this against the shared PPT.
 
 ---
@@ -194,7 +215,9 @@ Here $L$, $cf$, $f$ and $h$ refer to the class containing the $\left(\dfrac{kN}{
 
 ### 2.11 Range
 
-$$\text{Range} = \text{Largest value} - \text{Smallest value}$$
+```math
+\text{Range} = \text{Largest value} - \text{Smallest value}
+```
 
 - **Example:** monthly profits of a small firm over 10 months (₹ lakhs). The maximum is 32 and the minimum is 12, so Range $= 32 - 12 = 20$ lakhs.
 - **Merits:** very simple to compute and easy to explain to others (e.g. "our monthly income ranges over …").
@@ -202,7 +225,9 @@ $$\text{Range} = \text{Largest value} - \text{Smallest value}$$
 
 ### 2.12 Interquartile range (IQR)
 
-$$\text{IQR} = Q_3 - Q_1$$
+```math
+\text{IQR} = Q_3 - Q_1
+```
 
 **Example: monthly sales revenue of 15 outlets (₹ lakhs), sorted ascending**
 - $Q_1 = 22$ and $Q_3 = 35$, so $\text{IQR} = 35 - 22 = 13$.
@@ -223,10 +248,16 @@ $$\text{IQR} = Q_3 - Q_1$$
 - Denoted by $s$. It measures a kind of "average deviation" about the mean, i.e. how far observations lie on either side of $\bar{x}$.
 - **It is not literally the average deviation.**
   - The sum of raw deviations from the mean is always zero, because positive and negative deviations cancel:
-$$\sum_{i=1}^{n} (x_i - \bar{x}) = 0, \qquad \text{where } \bar{x} = \frac{\sum x_i}{n}$$
+
+```math
+\sum_{i=1}^{n} (x_i - \bar{x}) = 0, \qquad \text{where } \bar{x} = \frac{\sum x_i}{n}
+```
 
 **Definitional formula:**
-$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$
+
+```math
+s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}
+```
 
 **Procedure (column-by-column):**
 1. List each $x_i$ and compute $\bar{x}$.
@@ -239,7 +270,10 @@ $$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$
 **Three key properties emphasized:**
 1. **Squaring solves the zero-sum problem.** Squared deviations cannot cancel out.
 2. **Least-squares property.** $\sum (x_i - \bar{x})^2$ is a **minimum**: no other value $a$ gives a smaller sum of squared deviations.
-$$\sum (x_i - \bar{x})^2 \le \sum (x_i - a)^2 \quad \text{for all } a$$
+
+```math
+\sum (x_i - \bar{x})^2 \le \sum (x_i - a)^2 \quad \text{for all } a
+```
    - Contrast with the median, from an earlier class, which minimizes the sum of **absolute** deviations: $\sum |x_i - \text{Median}|$ is a minimum.
 3. **Divide by $n-1$ because one degree of freedom is lost.**
    - We use $\bar{x}$, a statistic computed from the same data, to compute another statistic ($s$).
@@ -248,7 +282,7 @@ $$\sum (x_i - \bar{x})^2 \le \sum (x_i - a)^2 \quad \text{for all } a$$
 
 **Variance and coefficient of variation:** listed among the measures but not yet covered. For reference, the standard definitions are:
 - Sample variance: $s^2 = \dfrac{\sum (x_i - \bar{x})^2}{n-1}$
-- Coefficient of variation: $CV = \dfrac{s}{\bar{x}} \times 100\%$
+- Coefficient of variation: $CV = \dfrac{s}{\bar{x}} \times 100\text{%}$
 
 ---
 

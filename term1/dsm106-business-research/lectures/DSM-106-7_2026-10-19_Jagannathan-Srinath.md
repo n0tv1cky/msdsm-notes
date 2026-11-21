@@ -123,7 +123,9 @@ Cognitive distance (CD) ranges from 0 to 1. The interpretation bands are:
 - A node with many incoming arrows is a more important issue.
 - ID is computed by **summing the magnitudes** of incoming arrows. **Signs are ignored** (whether + or −, only the magnitude counts):
 
-$$ID_j = \sum_{i \to j} |w_{ij}|$$
+```math
+ID_j = \sum_{i \to j} |w_{ij}|
+```
 
 where $w_{ij}$ is the weight of the arrow from issue $i$ to issue $j$.
 
@@ -144,7 +146,9 @@ Each respondent also **ranked** their 10 chosen issues. Points were assigned as 
 
 In formula form:
 
-$$\text{Points} = 11 - \text{rank}$$
+```math
+\text{Points} = 11 - \text{rank}
+```
 
 The points are summed across the 12 respondents to get each issue's total rank points.
 
@@ -249,7 +253,9 @@ There are **7 attributes**, with the levels vector written in the code as **6, 2
 
 **Full factorial (all possible combinations):**
 
-$$6 \times 2 \times 3 \times 3 \times 3 \times 2 \times 2 = 1296$$
+```math
+6 \times 2 \times 3 \times 3 \times 3 \times 2 \times 2 = 1296
+```
 
 No respondent can rate 1,296 profiles, so this is infeasible.
 
@@ -301,7 +307,9 @@ Comparing utility ranges across attributes gives a rough hint of importance. For
 
 - *Standard formula (not stated explicitly in class):*
 
-$$\text{Importance}_k = \frac{\max(u_k) - \min(u_k)}{\sum_{m}\left[\max(u_m) - \min(u_m)\right]} \times 100\%$$
+```math
+\text{Importance}_k = \frac{\max(u_k) - \min(u_k)}{\sum_{m}\left[\max(u_m) - \min(u_m)\right]} \times 100\%
+```
 
 - **70% rule:** Take attributes in order of importance until the cumulative total crosses **70%**. Those are the attributes to concentrate on and build strongly.
   - Brand + cores + RAM ≈ 40 + 15 + 15 = **about 70%**, which is borderline.

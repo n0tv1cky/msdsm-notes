@@ -32,14 +32,17 @@ Next class covers sampling and how to choose sample size.
 ### 2.1 Recap: Standardized Data and Z-scores
 
 * The previous class built up from the mean, to standard deviation, variance, and coefficient of variation, and then to **z-scores**:
-$$z = \frac{x - \mu}{\sigma}$$
+
+```math
+z = \frac{x - \mu}{\sigma}
+```
 * If the data are **normally distributed**, the share of standardized data within each range is:
 
 | Range of $z$ | Approx. % of data |
 |---|---|
 | $-1.96 \le z \le 1.96$ | 95% (often rounded to "within $\pm 2$ SD") |
 | $-3 \le z \le 3$ | 99.7% |
-| $-4 \le z \le 4$ | ~99.99% (precisely $\approx 99.994\%$) |
+| $-4 \le z \le 4$ | ~99.99% (precisely $\approx 99.994\text{%}$) |
 
 * **Why this matters:** if the standardized scores fall within the expected range, the data are consistent with a normal distribution. Values far outside it (e.g., $|z| > 3$) point to **outliers or measurement errors** that need attention.
 
@@ -49,7 +52,9 @@ $$z = \frac{x - \mu}{\sigma}$$
 * **Procedure:**
   1. Sort the data in **ascending order**.
   2. Record the five numbers:
+
      $$X_{\text{smallest}},\quad Q_1,\quad Q_2\ (\text{median}),\quad Q_3,\quad X_{\text{largest}}$$
+
 * $X_{\text{largest}} - X_{\text{smallest}}$ gives the **range**.
 
 **Worked example (from slide):**
@@ -60,7 +65,9 @@ $$z = \frac{x - \mu}{\sigma}$$
 
 * **Conclusion: the data are right-skewed (positively skewed).**
 * **Reasoning:** in a right-skewed distribution, the distance from $Q_3$ to $X_{\text{largest}}$ is much greater than the distance from $X_{\text{smallest}}$ to $Q_1$:
+
   $$X_{\text{largest}} - Q_3 = 63 - 15 = 48 \quad\gg\quad Q_1 - X_{\text{smallest}} = 8 - 2 = 6$$
+
 * *(The audio once says "16.5 to 63", but the slide value of $Q_3$ is 15. Use 15.)*
 * **General rule for reading shape from the five numbers:**
   * **Symmetric:** $Q_1 - X_{\text{smallest}} \approx X_{\text{largest}} - Q_3$ and $Q_2 - Q_1 \approx Q_3 - Q_2$
@@ -109,9 +116,13 @@ Students computed the five-number summary from a data set on the slide.
 | Maximum | 77 |
 
 * **Range:**
+
   $$\text{Range} = X_{\max} - X_{\min} = 77 - 59 = 18$$
+
 * **Interquartile range (IQR):** this is the spread of the middle 50% of the data.
+
   $$\text{IQR} = Q_3 - Q_1 = 70 - 64.5 = 5.5$$
+
 * **Width of each quarter:**
   * $59 \to 64.5$: width 5.5
   * $64.5 \to 66$: width 1.5 (**smallest spread**)
@@ -136,12 +147,16 @@ A frequency or percentage distribution can be used in three situations:
   * *(The audio garbles this as "1520–1590" and "500–590". The class intervals and the range of 70 confirm 520–590.)*
 * The goal is to group the data into **7 equal classes**.
 * Class width:
+
   $$\text{Width of interval} = \frac{\text{Range}}{\text{Number of classes}} = \frac{X_{\text{largest}} - X_{\text{smallest}}}{k} = \frac{590 - 520}{7} = \frac{70}{7} = 10$$
+
 * The classes are 520–530, 530–540, …, 580–590.
 * **Frequency column:** number of people in each class. The first class has 6, followed by 30, 38, and so on. *(The audio says "60" but means 6, as the percentage below shows.)*
 * **Percentage column:**
+
   $$\text{Percentage} = \frac{\text{class frequency}}{n} \times 100$$
-  For example, $\frac{6}{200} \times 100 = 3\%$.
+
+  For example, $\frac{6}{200} \times 100 = 3\text{%}$.
 
 **Cumulative distribution**
 
@@ -260,24 +275,38 @@ A frequency or percentage distribution can be used in three situations:
 
 ## Quick Formula Sheet
 
-$$z = \frac{x - \mu}{\sigma}$$
+```math
+z = \frac{x - \mu}{\sigma}
+```
 
-$$\text{Range} = X_{\text{largest}} - X_{\text{smallest}}$$
+```math
+\text{Range} = X_{\text{largest}} - X_{\text{smallest}}
+```
 
-$$\text{IQR} = Q_3 - Q_1$$
+```math
+\text{IQR} = Q_3 - Q_1
+```
 
-$$\text{Class width} = \frac{X_{\text{largest}} - X_{\text{smallest}}}{\text{number of classes}}$$
+```math
+\text{Class width} = \frac{X_{\text{largest}} - X_{\text{smallest}}}{\text{number of classes}}
+```
 
-$$\text{Percentage} = \frac{f_i}{n} \times 100$$
+```math
+\text{Percentage} = \frac{f_i}{n} \times 100
+```
 
-$$\text{Cumulative frequency up to class } j = \sum_{i=1}^{j} f_i$$
+```math
+\text{Cumulative frequency up to class } j = \sum_{i=1}^{j} f_i
+```
 
-$$\text{Class midpoint} = \frac{\text{lower limit} + \text{upper limit}}{2}$$
+```math
+\text{Class midpoint} = \frac{\text{lower limit} + \text{upper limit}}{2}
+```
 
 **Normal coverage:**
-* $\pm 1.96\sigma \to 95\%$
-* $\pm 3\sigma \to 99.7\%$
-* $\pm 4\sigma \to \approx 99.99\%$
+* $\pm 1.96\sigma \to 95\text{%}$
+* $\pm 3\sigma \to 99.7\text{%}$
+* $\pm 4\sigma \to \approx 99.99\text{%}$
 
 <!-- nav -->
 ← [Session 27 (2026-10-19)](DSM-101-27_2026-10-19_Pritee-Sharma.md) · [All lectures](./) · [Session 29 (2026-10-23)](DSM-101-29_2026-10-23_Pritee-Sharma.md) →

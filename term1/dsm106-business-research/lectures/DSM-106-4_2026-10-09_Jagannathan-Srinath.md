@@ -46,9 +46,13 @@ All four variables are then **standardized into z-scores** so they share a commo
 
 **Composite scores** are simple averages of the items, computed in Excel:
 
-$$\text{Performance} = \frac{I_1 + I_4 + I_5 + I_6}{4}$$
+```math
+\text{Performance} = \frac{I_1 + I_4 + I_5 + I_6}{4}
+```
 
-$$\text{Intention to Quit (ITQ)} = \frac{I_2 + I_3 + I_7}{3}$$
+```math
+\text{Intention to Quit (ITQ)} = \frac{I_2 + I_3 + I_7}{3}
+```
 
 - Qualitative performance-appraisal text is also available for the same 30 employees. This is the next layer of the analysis.
 
@@ -85,7 +89,9 @@ $$\text{Intention to Quit (ITQ)} = \frac{I_2 + I_3 + I_7}{3}$$
 
 **Formula (DICTION dictionary composition):**
 
-$$\text{Activity} = (\text{Aggression} + \text{Accomplishment} + \text{Communication} + \text{Motion}) - (\text{Cognitive Terms} + \text{Passivity} + \text{Embellishment})$$
+```math
+\text{Activity} = (\text{Aggression} + \text{Accomplishment} + \text{Communication} + \text{Motion}) - (\text{Cognitive Terms} + \text{Passivity} + \text{Embellishment})
+```
 
 Why some components are subtracted:
 - **Passivity** is subtracted because inert language is not creative.
@@ -195,7 +201,9 @@ For this case, two DICTION scores are used as variables alongside the two survey
 
 **Formula:**
 
-$$z_i = \frac{x_i - \bar{x}}{s}$$
+```math
+z_i = \frac{x_i - \bar{x}}{s}
+```
 
 where $\bar{x}$ is the sample mean of the variable and $s$ is its sample standard deviation.
 

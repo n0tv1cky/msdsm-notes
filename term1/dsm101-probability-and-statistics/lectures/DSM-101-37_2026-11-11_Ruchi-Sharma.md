@@ -44,40 +44,68 @@ The lecture also covers spurious ("nonsense") correlation and why correlation do
 ### 2.3 Definitions
 
 **Covariance** (population form):
-$$\operatorname{Cov}(X,Y) = E\big[(X - E[X])(Y - E[Y])\big]$$
+
+```math
+\operatorname{Cov}(X,Y) = E\big[(X - E[X])(Y - E[Y])\big]
+```
 
 Sample/data version, also written as the product moment $\mu_{11}$:
-$$\operatorname{Cov}(X,Y) = \mu_{11} = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})$$
+
+```math
+\operatorname{Cov}(X,Y) = \mu_{11} = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})
+```
 
 **Variances:**
-$$\sigma_X^2 = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})^2, \qquad \sigma_Y^2 = \frac{1}{n}\sum_{i=1}^{n}(y_i - \bar{y})^2$$
+
+```math
+\sigma_X^2 = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})^2, \qquad \sigma_Y^2 = \frac{1}{n}\sum_{i=1}^{n}(y_i - \bar{y})^2
+```
 
 **Pearson correlation coefficient:**
-$$r_{XY} = \frac{\operatorname{Cov}(X,Y)}{\sigma_X\,\sigma_Y} = \frac{\mu_{11}}{\sqrt{\mu_{20}}\sqrt{\mu_{02}}}$$
+
+```math
+r_{XY} = \frac{\operatorname{Cov}(X,Y)}{\sigma_X\,\sigma_Y} = \frac{\mu_{11}}{\sqrt{\mu_{20}}\sqrt{\mu_{02}}}
+```
 
 Written out in full:
-$$r_{XY} = \frac{\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(y_i - \bar{y})^2}}$$
+
+```math
+r_{XY} = \frac{\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(y_i - \bar{y})^2}}
+```
 
 ### 2.4 Shortcut (computational) forms
 
 **Numerator.**
 1. Expand the product inside the sum: $(x_i - \bar{x})(y_i - \bar{y}) = x_i y_i - x_i\bar{y} - \bar{x}y_i + \bar{x}\bar{y}$.
 2. Apply $\frac{1}{n}\sum$ to each term. Since $\bar{x}$ and $\bar{y}$ are constants, they come out of the sums.
-$$\frac{1}{n}\sum x_i y_i \;-\; \bar{y}\cdot\frac{1}{n}\sum x_i \;-\; \bar{x}\cdot\frac{1}{n}\sum y_i \;+\; \frac{1}{n}\cdot n\,\bar{x}\bar{y}$$
+
+```math
+\frac{1}{n}\sum x_i y_i \;-\; \bar{y}\cdot\frac{1}{n}\sum x_i \;-\; \bar{x}\cdot\frac{1}{n}\sum y_i \;+\; \frac{1}{n}\cdot n\,\bar{x}\bar{y}
+```
 3. Use $\frac{1}{n}\sum x_i = \bar{x}$ and $\frac{1}{n}\sum y_i = \bar{y}$. The terms become $-\bar{x}\bar{y} - \bar{x}\bar{y} + \bar{x}\bar{y} = -\bar{x}\bar{y}$.
 
-$$\boxed{\operatorname{Cov}(X,Y) = \frac{1}{n}\sum x_i y_i - \bar{x}\,\bar{y}}$$
+```math
+\boxed{\operatorname{Cov}(X,Y) = \frac{1}{n}\sum x_i y_i - \bar{x}\,\bar{y}}
+```
 
 In words: multiply the two series term by term, sum, divide by $n$, then subtract the product of the means.
 
 **Denominator (variance).**
 1. Expand with $(a-b)^2 = a^2 - 2ab + b^2$.
-$$\sigma_X^2 = \frac{1}{n}\sum (x_i - \bar{x})^2 = \frac{1}{n}\sum x_i^2 - 2\bar{x}\cdot\frac{1}{n}\sum x_i + \frac{1}{n}\cdot n\bar{x}^2 = \frac{1}{n}\sum x_i^2 - 2\bar{x}^2 + \bar{x}^2$$
 
-$$\boxed{\sigma_X^2 = \frac{1}{n}\sum x_i^2 - \bar{x}^2}, \qquad \boxed{\sigma_Y^2 = \frac{1}{n}\sum y_i^2 - \bar{y}^2}$$
+```math
+\sigma_X^2 = \frac{1}{n}\sum (x_i - \bar{x})^2 = \frac{1}{n}\sum x_i^2 - 2\bar{x}\cdot\frac{1}{n}\sum x_i + \frac{1}{n}\cdot n\bar{x}^2 = \frac{1}{n}\sum x_i^2 - 2\bar{x}^2 + \bar{x}^2
+```
+
+```math
+\boxed{\sigma_X^2 = \frac{1}{n}\sum x_i^2 - \bar{x}^2}, \qquad \boxed{\sigma_Y^2 = \frac{1}{n}\sum y_i^2 - \bar{y}^2}
+```
 
 **Combined shortcut form.** This is a standard textbook equivalent obtained by multiplying through by $n^2$; it was not written out in class.
-$$r = \frac{n\sum x_i y_i - \sum x_i \sum y_i}{\sqrt{n\sum x_i^2 - \left(\sum x_i\right)^2}\;\sqrt{n\sum y_i^2 - \left(\sum y_i\right)^2}}$$
+
+```math
+r = \frac{n\sum x_i y_i - \sum x_i \sum y_i}{\sqrt{n\sum x_i^2 - \left(\sum x_i\right)^2}\;\sqrt{n\sum y_i^2 - \left(\sum y_i\right)^2}}
+```
 
 ### 2.5 Property 1 — Limits of $r$: $-1 \le r \le 1$ (the most important property)
 
@@ -85,14 +113,26 @@ $$r = \frac{n\sum x_i y_i - \sum x_i \sum y_i}{\sqrt{n\sum x_i^2 - \left(\sum x_
 
 1. Define deviations $a_i = x_i - \bar{x}$ and $b_i = y_i - \bar{y}$.
 2. The $\frac{1}{n}$ factors cancel, leaving
-$$r = \frac{\sum a_i b_i}{\sqrt{\sum a_i^2 \sum b_i^2}} \quad\Rightarrow\quad r^2 = \frac{\left(\sum a_i b_i\right)^2}{\sum a_i^2 \sum b_i^2}$$
+
+```math
+r = \frac{\sum a_i b_i}{\sqrt{\sum a_i^2 \sum b_i^2}} \quad\Rightarrow\quad r^2 = \frac{\left(\sum a_i b_i\right)^2}{\sum a_i^2 \sum b_i^2}
+```
 3. The **Cauchy–Schwarz inequality** states that for real numbers $a_i, b_i$, $i = 1, \dots, n$:
-$$\left(\sum_{i=1}^{n} a_i b_i\right)^2 \le \left(\sum_{i=1}^{n} a_i^2\right)\left(\sum_{i=1}^{n} b_i^2\right)$$
+
+```math
+\left(\sum_{i=1}^{n} a_i b_i\right)^2 \le \left(\sum_{i=1}^{n} a_i^2\right)\left(\sum_{i=1}^{n} b_i^2\right)
+```
 4. **Equality** holds if and only if the ratios are all equal:
-$$\frac{a_1}{b_1} = \frac{a_2}{b_2} = \cdots = \frac{a_n}{b_n} = \text{constant}$$
+
+```math
+\frac{a_1}{b_1} = \frac{a_2}{b_2} = \cdots = \frac{a_n}{b_n} = \text{constant}
+```
    This corresponds to a perfect linear relationship.
 5. Therefore $r^2 \le 1$, so $|r| \le 1$, which gives
-$$\boxed{-1 \le r \le 1}$$
+
+```math
+\boxed{-1 \le r \le 1}
+```
 
 **Practical check:** if anyone reports a correlation outside $[-1, 1]$ (the instructor's example was "the correlation is 98"), question the method, because something has gone wrong.
 
@@ -121,7 +161,10 @@ $$\boxed{-1 \le r \le 1}$$
 ### 2.7 Property 2 — $r$ is independent of change of origin and scale
 
 **Setup.** Define new variables
-$$u = \frac{x - a}{h}, \qquad v = \frac{y - b}{k}$$
+
+```math
+u = \frac{x - a}{h}, \qquad v = \frac{y - b}{k}
+```
 so that $x = a + hu$ and $y = b + kv$.
 - $a$ and $b$ are changes of **origin**.
 - $h$ and $k$ are changes of **scale**.
@@ -133,18 +176,36 @@ so that $x = a + hu$ and $y = b + kv$.
 **Proof.**
 
 1. Expectations:
-$$E[X] = a + hE[U], \qquad E[Y] = b + kE[V]$$
-2. Deviations (the constants $a$ and $b$ cancel):
-$$X - E[X] = h\,(U - E[U]), \qquad Y - E[Y] = k\,(V - E[V])$$
-3. Numerator:
-$$\operatorname{Cov}(X,Y) = E\big[h(U - E[U])\cdot k(V - E[V])\big] = hk\,\operatorname{Cov}(U,V)$$
-4. Denominator:
-$$\sigma_X^2 = E\big[h^2(U - E[U])^2\big] = h^2\sigma_U^2 \;\Rightarrow\; \sigma_X = h\,\sigma_U$$
-$$\sigma_Y = k\,\sigma_V$$
-5. Therefore:
-$$r_{XY} = \frac{hk\,\operatorname{Cov}(U,V)}{hk\,\sigma_U\,\sigma_V} = r_{UV}$$
 
-> *Note added for completeness (not stated in class):* strictly, $\sigma_X = |h|\,\sigma_U$. So $r_{XY} = r_{UV}$ when $h$ and $k$ have the same sign, and $r_{XY} = -r_{UV}$ if exactly one of them is negative. The magnitude is always preserved.
+```math
+E[X] = a + hE[U], \qquad E[Y] = b + kE[V]
+```
+2. Deviations (the constants $a$ and $b$ cancel):
+
+```math
+X - E[X] = h\,(U - E[U]), \qquad Y - E[Y] = k\,(V - E[V])
+```
+3. Numerator:
+
+```math
+\operatorname{Cov}(X,Y) = E\big[h(U - E[U])\cdot k(V - E[V])\big] = hk\,\operatorname{Cov}(U,V)
+```
+4. Denominator:
+
+```math
+\sigma_X^2 = E\big[h^2(U - E[U])^2\big] = h^2\sigma_U^2 \;\Rightarrow\; \sigma_X = h\,\sigma_U
+```
+
+```math
+\sigma_Y = k\,\sigma_V
+```
+5. Therefore:
+
+```math
+r_{XY} = \frac{hk\,\operatorname{Cov}(U,V)}{hk\,\sigma_U\,\sigma_V} = r_{UV}
+```
+
+> *Note added for completeness (not stated in class):* strictly, $\sigma_X = |h|\ \sigma_U$. So $r_{XY} = r_{UV}$ when $h$ and $k$ have the same sign, and $r_{XY} = -r_{UV}$ if exactly one of them is negative. The magnitude is always preserved.
 
 **Applied economics example (deflating series).**
 - Suppose you want the correlation between **sales** and **raw-material** series, both measured at current prices (price × quantity).
@@ -170,7 +231,10 @@ $$r_{XY} = \frac{hk\,\operatorname{Cov}(U,V)}{hk\,\sigma_U\,\sigma_V} = r_{UV}$$
    - $\sum y_i = 28$, so $\bar{y} = 28/7 = 4$. The transcript says "$\bar{y}$ is 0", which looks like a slip; the result does not depend on it.
    - $\sum x_i y_i = \sum x_i^3 = 0$.
 2. Numerator:
-$$\frac{1}{n}\sum x_i y_i - \bar{x}\bar{y} = 0 - 0\cdot 4 = 0$$
+
+```math
+\frac{1}{n}\sum x_i y_i - \bar{x}\bar{y} = 0 - 0\cdot 4 = 0
+```
 3. Hence $r = 0$.
 
 Yet $y$ is completely determined by $x$ ($y = x^2$), so the variables are clearly **not** independent.

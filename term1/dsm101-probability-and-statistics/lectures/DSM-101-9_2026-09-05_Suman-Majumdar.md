@@ -17,7 +17,7 @@ faculty: Suman Majumdar
 
 ## 1. Overview
 
-This session is devoted entirely to the **Central Limit Theorem (CLT)** — described by the instructor as "the pinnacle of applied statistics," without which "all our understanding and interpretation of data would collapse." The lecture begins with an informal statement of the theorem (repeatedly draw $n$ samples from *any* parent distribution with **finite variance**, sum/average them, and the histogram of those sums/averages tends to a Gaussian), then demonstrates it live using the *Seeing Theory* CLT simulator — first with a uniform parent distribution, then with deliberately skewed and bimodal ("blow-up at both ends") parent distributions — showing that (i) convergence to Gaussianity always happens regardless of parent shape, (ii) larger sample size $n$ ⇒ narrower resulting Gaussian and faster convergence, and (iii) with sample size $= 1$ there is no summing and hence no CLT. The consequences are then drawn out: the **standard error** $\sigma_{\bar X}=\sigma_X/\sqrt{n}$, why Gaussians are ubiquitous in nature (human heights, ocean-wave heights, consumer behaviour, stock-index fluctuations — all sums of many random influences), and a **graphical/convolution proof sketch** (rectangle $*$ rectangle = triangle, triangle $*$ rectangle ≈ bell, repeat ⇒ Gaussian), with side remarks on convolution in phone cameras, AI image generation, and CNNs. The session closes with a fully worked numerical problem on New Jersey teacher salaries contrasting $P(X<50{,}000)$ for a single teacher versus $P(\bar X<50{,}000)$ for a sample of 100.
+This session is devoted entirely to the **Central Limit Theorem (CLT)** — described by the instructor as "the pinnacle of applied statistics," without which "all our understanding and interpretation of data would collapse." The lecture begins with an informal statement of the theorem (repeatedly draw $n$ samples from *any* parent distribution with **finite variance**, sum/average them, and the histogram of those sums/averages tends to a Gaussian), then demonstrates it live using the *Seeing Theory* CLT simulator — first with a uniform parent distribution, then with deliberately skewed and bimodal ("blow-up at both ends") parent distributions — showing that (i) convergence to Gaussianity always happens regardless of parent shape, (ii) larger sample size $n$ ⇒ narrower resulting Gaussian and faster convergence, and (iii) with sample size $= 1$ there is no summing and hence no CLT. The consequences are then drawn out: the **standard error** $\sigma_{\bar X}=\sigma_X/\sqrt{n}$, why Gaussians are ubiquitous in nature (human heights, ocean-wave heights, consumer behaviour, stock-index fluctuations — all sums of many random influences), and a **graphical/convolution proof sketch** (rectangle $\ast $ rectangle = triangle, triangle $\ast $ rectangle ≈ bell, repeat ⇒ Gaussian), with side remarks on convolution in phone cameras, AI image generation, and CNNs. The session closes with a fully worked numerical problem on New Jersey teacher salaries contrasting $P(X<50{,}000)$ for a single teacher versus $P(\bar X<50{,}000)$ for a sample of 100.
 
 ---
 
@@ -38,7 +38,10 @@ This session is devoted entirely to the **Central Limit Theorem (CLT)** — desc
 
 - Equivalently, the **mean of a large number of values tends to follow a normal distribution regardless of the probability distribution from which the values were drawn** — hence *the sampling distribution is known even when the underlying probability distribution is not*.
 - The normalized sum written in lecture:
-$$X \;=\; \frac{x_1 + x_2 + \cdots + x_n}{\sqrt{n}}$$
+
+```math
+X \;=\; \frac{x_1 + x_2 + \cdots + x_n}{\sqrt{n}}
+```
   follows a Gaussian distribution (for large $n$).
 - Also noted: distributions such as the **Binomial** and **Poisson** arise from multiple drawings from an underlying distribution, and they **all tend to look Gaussian as the number of drawings increases** — consistent with the earlier derivation in the course of the Gaussian as a limit of the Poisson.
 
@@ -84,7 +87,9 @@ Setup of the applet:
 - **Sampling distribution of the mean:**
   - Centred at $\bar X$ (tending to the true mean),
   - With **standard error**
-  $$\sigma_{\bar X} \;=\; \frac{\sigma_X}{\sqrt{n}}$$
+
+  $$\sigma_{\bar X} \ =\  \frac{\sigma_X}{\sqrt{n}}$$
+
   where $\sigma_X$ is the parent-distribution standard deviation and $n$ is the number of samples summed/averaged. Valid as $n \to \infty$ (i.e. large $n$).
 - **Interpretation:** estimating the mean from a sample tends towards the true mean, and the **uncertainty in the estimate decreases as the sample gets bigger** — exactly what was seen when the applet sample size was raised from 3 to 15.
 - (As stated in lecture) the sample standard deviation/"sample variance" quantity scales as $1/\sqrt{n}$: $\sigma/\sqrt{n}$.
@@ -105,15 +110,15 @@ The repeated logic: *any observed quantity is the sum of many random influences,
 - The instructor's remark: CLT "sounds like a magic / dark art" at first, but the derivation shows it is ordinary science.
 
 ### 2.7 Convolution — graphical "proof" of the CLT
-- **Definition given:** *convolution is scanning one function with another*; denoted by the **star symbol**, e.g. $f * g$.
+- **Definition given:** *convolution is scanning one function with another*; denoted by the **star symbol**, e.g. $f \ast  g$.
 - **Procedure described:**
   1. Hold one rectangle function fixed in space.
   2. Bring the second rectangle in from $+\infty$ and slide it, in small steps, towards $-\infty$.
   3. At each position, record the **overlapping area** between the two functions.
   4. Before any overlap, the overlap area is $0$; as they begin to overlap the area increases; it is **maximum when the two identical boxes coincide exactly**; then it decreases back to $0$ as the sliding function moves away.
 - **Results of repeated convolution:**
-  - rectangle $*$ rectangle $=$ **triangle**
-  - triangle $*$ rectangle $\approx$ **bell-shaped curve**
+  - rectangle $\ast $ rectangle $=$ **triangle**
+  - triangle $\ast $ rectangle $\approx$ **bell-shaped curve**
   - keep convolving ⇒ you **eventually land on a Gaussian**
 - This is **shape-independent**: as long as the shapes have finite boundaries, convolving any shape with any shape repeatedly gives a Gaussian. This is a **straightforward graphical proof of the CLT** (and mirrors what the simulation showed).
 - Note: many alternative graphical/sampling demonstrations of the CLT exist online.
@@ -134,28 +139,46 @@ The repeated logic: *any observed quantity is the sum of many random influences,
 > **(c)** Why is the probability in (a) higher than the probability in (b)?
 
 Given:
-$$\mu = 52{,}174, \qquad \sigma = 7{,}500$$
+
+```math
+\mu = 52{,}174, \qquad \sigma = 7{,}500
+```
 
 ### Part (a) — single teacher, $n=1$
 Convert \$50,000 to a $z$-score (how many $\sigma$ away from the mean it lies):
-$$z = \frac{50{,}000 - 52{,}174}{7{,}500} = -0.2899$$
+
+```math
+z = \frac{50{,}000 - 52{,}174}{7{,}500} = -0.2899
+```
 The standard normal is centred at $0$; the negative sign puts \$50,000 on the **left** of the peak, $0.2899\sigma$ below the mean.
 
 Required probability is the **cumulative distribution function (CDF)** value — i.e. the **area under the curve to the left of \$50,000**:
-$$P(X<50{,}000) = P(Z < -0.2899) = \int_{-\infty}^{-0.2899} p(z)\,dz \approx 0.3860$$
 
-- Interpretation given in class: the whole left half (up to the mean) is $0.50$; being slightly below the mean already drops the probability a little below 50 %, to $\approx 38.6\%$.
+```math
+P(X<50{,}000) = P(Z < -0.2899) = \int_{-\infty}^{-0.2899} p(z)\,dz \approx 0.3860
+```
+
+- Interpretation given in class: the whole left half (up to the mean) is $0.50$; being slightly below the mean already drops the probability a little below 50 %, to $\approx 38.6\text{%}$.
 - (The instructor also referenced the one-tail value $0.159$ associated with the $1\sigma$ point while sketching the $1\sigma$, $2\sigma$, $3\sigma$ marks on the curve.)
 
 ### Part (b) — sample mean of $n=100$ teachers
 Now the relevant distribution is the **sampling distribution of the mean**, which has the **same centre** but a **much smaller** spread:
-$$\sigma_{\bar X} = \frac{\sigma}{\sqrt{n}} = \frac{7{,}500}{\sqrt{100}} = \frac{7{,}500}{10} = 750$$
+
+```math
+\sigma_{\bar X} = \frac{\sigma}{\sqrt{n}} = \frac{7{,}500}{\sqrt{100}} = \frac{7{,}500}{10} = 750
+```
 
 New $z$-score:
-$$z = \frac{50{,}000 - 52{,}174}{750} = -2.8987 \approx -2.90$$
+
+```math
+z = \frac{50{,}000 - 52{,}174}{750} = -2.8987 \approx -2.90
+```
 
 i.e. **almost $3\sigma$ below the mean** — far out in the tail, where very little area remains.
-$$P(\bar X < 50{,}000) = P(Z < -2.8987) \approx 0.0019$$
+
+```math
+P(\bar X < 50{,}000) = P(Z < -2.8987) \approx 0.0019
+```
 
 ### Part (c) — explanation
 - The two parts refer to **two different distributions with different $\sigma$'s**:
@@ -174,9 +197,9 @@ $$P(\bar X < 50{,}000) = P(Z < -2.8987) \approx 0.0019$$
 | Normalized sum | $X = \dfrac{x_1+x_2+\cdots+x_n}{\sqrt{n}} \sim$ Gaussian for large $n$ |
 | Sample mean | $\bar X = \dfrac{1}{n}\sum_{i=1}^{n} x_i$ (i.e. average $=$ sum$/n$) |
 | **Standard error of the mean** | $\sigma_{\bar X} = \dfrac{\sigma_X}{\sqrt{n}}$ |
-| Cumulative distribution function | $P(X < a) = \displaystyle\int_{-\infty}^{a} p(x)\,dx$ |
+| Cumulative distribution function | $P(X < a) = \displaystyle\int_{-\infty}^{a} p(x)\ dx$ |
 | $z$-score / standardization | $z = \dfrac{x-\mu}{\sigma}$ (for a single observation), $z = \dfrac{\bar x - \mu}{\sigma/\sqrt{n}}$ (for a sample mean) |
-| Convolution notation | $f * g$ — "scanning one function with another"; area of overlap as a function of displacement |
+| Convolution notation | $f \ast  g$ — "scanning one function with another"; area of overlap as a function of displacement |
 | Fair-coin parent distribution | $P(\text{Head}) = P(\text{Tail}) = 0.5$ |
 
 ---

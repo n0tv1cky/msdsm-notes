@@ -60,7 +60,9 @@ The class then compared these with what actually happened: margins fell, the sto
   - *Caution:* in standard accounting, gross profit = Sales − COGS, which is not the same as EBITDA. For this case, follow the lecture's usage, but know the distinction for finance courses.
 - Formula:
 
-$$\text{EBITDA margin} = \frac{\text{EBITDA}}{\text{Sales}}$$
+```math
+\text{EBITDA margin} = \frac{\text{EBITDA}}{\text{Sales}}
+```
 
 - **WFM EBITDA margin = 9.5%.** **Walmart = 7.5%.** **Costco = 3.8%**, similar to conventional grocers.
 - **Why WFM earns a higher margin:** it sells organic products positioned as premium, so consumers pay more. Its margin is higher even than Walmart's.
@@ -69,7 +71,9 @@ $$\text{EBITDA margin} = \frac{\text{EBITDA}}{\text{Sales}}$$
 
 - EV is the market valuation of the firm:
 
-$$\text{EV} = \text{Equity value (market cap)} + \text{Debt}$$
+```math
+\text{EV} = \text{Equity value (market cap)} + \text{Debt}
+```
 
 - **WFM:** EV = 14,481. WFM carries no debt, so EV = equity value.
 - **Walmart:** $\text{EV} = 251{,}747 + 55{,}245 = 306{,}992$.
@@ -79,7 +83,9 @@ $$\text{EV} = \text{Equity value (market cap)} + \text{Debt}$$
 
 - Formula:
 
-$$\text{EBITDA multiple} = \frac{\text{EV}}{\text{EBITDA}}$$
+```math
+\text{EBITDA multiple} = \frac{\text{EV}}{\text{EBITDA}}
+```
 
 - **WFM:** $\dfrac{14{,}481}{1{,}222} \approx 11.9$. The market values WFM at 11.9 times its annual EBITDA.
 - **A multiple means nothing by itself.** It must be compared with industry peers:
@@ -99,17 +105,25 @@ $$\text{EBITDA multiple} = \frac{\text{EV}}{\text{EBITDA}}$$
 
 **At Walmart's multiple (8.6):**
 
-$$\text{EV} = 1{,}222 \times 8.6 = 10{,}509 \text{ (about USD 10.5 bn)}$$
+```math
+\text{EV} = 1{,}222 \times 8.6 = 10{,}509 \text{ (about USD 10.5 bn)}
+```
 
-$$\text{Share price} = \frac{10{,}509}{372} \approx 28.25 \text{ USD}$$
+```math
+\text{Share price} = \frac{10{,}509}{372} \approx 28.25 \text{ USD}
+```
 
 This is well below the USD 38.19 market price and the USD 60 target, so on this basis WFM looks overvalued.
 
 **At Costco's multiple (13.6):**
 
-$$\text{EV} = 1{,}222 \times 13.6 = 16{,}619$$
+```math
+\text{EV} = 1{,}222 \times 13.6 = 16{,}619
+```
 
-$$\text{Share price} = \frac{16{,}619}{372} \approx 44.7 \text{ USD (about USD 45)}$$
+```math
+\text{Share price} = \frac{16{,}619}{372} \approx 44.7 \text{ USD (about USD 45)}
+```
 
 **Takeaway:** to justify its price, WFM must **consistently maintain a profit margin above Walmart's** (9.5% vs 7.5%). New competitors are squeezing that margin, which is why the share price is in question.
 
@@ -150,7 +164,9 @@ This involves some speculation.
 
 **1. Current asset turnover**
 
-$$\text{Current asset turnover} = \frac{\text{Sales}}{\text{Current assets}}$$
+```math
+\text{Current asset turnover} = \frac{\text{Sales}}{\text{Current assets}}
+```
 
 - Actuals: 7.0, 5.6, 6.5. For example, sales of 10,108 divided by current assets gives 7.0.
 - Projected to rise to 7.2 and then stay at 7.6.
@@ -161,7 +177,9 @@ $$\text{Current asset turnover} = \frac{\text{Sales}}{\text{Current assets}}$$
 
 **2. Current liabilities turnover**
 
-$$\text{COGS} = \text{Sales} - \text{EBITDA}, \qquad \text{Current liabilities turnover} = \frac{\text{COGS}}{\text{Current liabilities}}$$
+```math
+\text{COGS} = \text{Sales} - \text{EBITDA}, \qquad \text{Current liabilities turnover} = \frac{\text{COGS}}{\text{Current liabilities}}
+```
 
 - Current liabilities are unpaid supplier bills for inventory.
 - **Low turnover:** bills are settled slowly (30/60/90 days or longer).
@@ -178,7 +196,9 @@ $$\text{COGS} = \text{Sales} - \text{EBITDA}, \qquad \text{Current liabilities t
 
 - Plant and equipment per store includes items such as air conditioning and cold storage.
 
-$$\frac{1{,}997}{311} \approx 6.4 \text{ USD million per store (2013)}$$
+```math
+\frac{1{,}997}{311} \approx 6.4 \text{ USD million per store (2013)}
+```
 
 - Projected to decline to about USD 5.4 million per store as stores become smaller.
 
@@ -199,7 +219,9 @@ $$\frac{1{,}997}{311} \approx 6.4 \text{ USD million per store (2013)}$$
 7. Current liabilities = COGS ÷ current liabilities turnover.
 8. **Net working capital (NWC):**
 
-$$\text{NWC} = \text{Current assets} - \text{Current liabilities}$$
+```math
+\text{NWC} = \text{Current assets} - \text{Current liabilities}
+```
 
    - NWC is inventory minus bills to be settled.
    - Slightly negative NWC is fine. It means inventory sells fast and bills are paid slowly; Walmart may have negative NWC.
@@ -209,7 +231,9 @@ $$\text{NWC} = \text{Current assets} - \text{Current liabilities}$$
 
 #### (d) Return on capital (ROC)
 
-$$\text{ROC} = \frac{\text{NOPAT}}{\text{NWC} + \text{Net PP\&E}}$$
+```math
+\text{ROC} = \frac{\text{NOPAT}}{\text{NWC} + \text{Net PP\&E}}
+```
 
 - The denominator is the capital needed to run the business: short-term capital (working capital) plus long-term capital (plant and equipment). It is roughly what a buyer would pay at minimum.
 - Last actual ROC: about 16.37%. Projected: **20.9%** (including perpetuity). This is very high compared with the **cost of capital of about 6.9–7%**.
@@ -217,18 +241,22 @@ $$\text{ROC} = \frac{\text{NOPAT}}{\text{NWC} + \text{Net PP\&E}}$$
 
 **Other turnover ratios:**
 
-$$\text{NWC turnover} = \frac{\text{Sales}}{\text{NWC}}, \qquad \text{PP\&E turnover} = \frac{\text{Sales}}{\text{Net PP\&E}}$$
+```math
+\text{NWC turnover} = \frac{\text{Sales}}{\text{NWC}}, \qquad \text{PP\&E turnover} = \frac{\text{Sales}}{\text{Net PP\&E}}
+```
 
 - Sales are well above NWC, so there are no short-term liquidity problems.
 - Sales exceed long-term assets.
 
 #### (e) Discount rate and present value
 
-- **Steady-state growth:** $g = 3.4\%$.
-- **Discount rate:** $r = 7\%$, the cost of capital of 6.9% rounded. It is the cost of raising money through shares or corporate bonds.
+- **Steady-state growth:** $g = 3.4\text{%}$.
+- **Discount rate:** $r = 7\text{%}$, the cost of capital of 6.9% rounded. It is the cost of raising money through shares or corporate bonds.
 - **Time value of money:**
 
-$$PV = \frac{CF_t}{(1+r)^t}$$
+```math
+PV = \frac{CF_t}{(1+r)^t}
+```
 
 - One dollar next year is worth $\frac{1}{1.07} \approx 0.93$ dollars today.
   - The lecturer said two years out would be "about 0.91–0.92." The correct figure is $\frac{1}{1.07^2} \approx 0.87$.
@@ -236,11 +264,15 @@ $$PV = \frac{CF_t}{(1+r)^t}$$
 
 #### (f) Free cash flow
 
-$$\text{NOPAT} = \text{EBIT} \times (1 - t)$$
+```math
+\text{NOPAT} = \text{EBIT} \times (1 - t)
+```
 
 - Example: $976 \times (1 - 0.39) \approx 596$.
 
-$$\text{FCF} = \text{NOPAT} - \Delta\text{Net PP\&E} - \Delta\text{NWC}$$
+```math
+\text{FCF} = \text{NOPAT} - \Delta\text{Net PP\&E} - \Delta\text{NWC}
+```
 
 - From net profit, some money goes into PP&E for new stores and some into maintaining working capital. What remains is cash in hand.
 
@@ -248,25 +280,35 @@ $$\text{FCF} = \text{NOPAT} - \Delta\text{Net PP\&E} - \Delta\text{NWC}$$
 
 **1. PV of the forecast period (10 years).** In Excel this is `=NPV(7%, FCF range)`.
 
-$$PV_{\text{forecast}} = \sum_{t=1}^{10} \frac{FCF_t}{(1.07)^t} = 4{,}328$$
+```math
+PV_{\text{forecast}} = \sum_{t=1}^{10} \frac{FCF_t}{(1.07)^t} = 4{,}328
+```
 
 **2. Terminal value (constant-growth / Gordon growth formula).** The terminal FCF of about 1,229 continues forever, growing at 3.4%.
 
-$$TV_{10} = \frac{FCF_{\text{terminal}}}{r - g} = \frac{1{,}229}{0.07 - 0.034} \approx 34{,}135$$
+```math
+TV_{10} = \frac{FCF_{\text{terminal}}}{r - g} = \frac{1{,}229}{0.07 - 0.034} \approx 34{,}135
+```
 
 **3. Discount the terminal value to today.** The TV sits 10 years in the future.
 
-$$PV_{TV} = \frac{34{,}135}{(1.07)^{10}} \approx 17{,}352$$
+```math
+PV_{TV} = \frac{34{,}135}{(1.07)^{10}} \approx 17{,}352
+```
 
 **4. Enterprise value.**
 
-$$\text{EV} = PV_{\text{forecast}} + PV_{TV} = 4{,}328 + 17{,}352 \approx 21{,}681 \text{ (about USD 21.7 bn)}$$
+```math
+\text{EV} = PV_{\text{forecast}} + PV_{TV} = 4{,}328 + 17{,}352 \approx 21{,}681 \text{ (about USD 21.7 bn)}
+```
 
 **5. Equity value.** There is no debt, so equity value = EV.
 
 **6. Share price.**
 
-$$\text{Share price} = \frac{21{,}681}{372} \approx 58.28 \text{ USD}$$
+```math
+\text{Share price} = \frac{21{,}681}{372} \approx 58.28 \text{ USD}
+```
 
 This explains Deutsche Bank's USD 60 target.
 

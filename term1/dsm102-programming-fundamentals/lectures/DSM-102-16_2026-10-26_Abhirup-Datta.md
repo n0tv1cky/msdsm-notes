@@ -46,25 +46,43 @@ A mid-lecture student question led to a beginner-level re-explanation of overfit
 ### 2.1 Recap: uncertainty in OLS coefficients (from last class)
 
 **OLS estimate (normal equations):**
-$$\hat\beta = (X^TX)^{-1}X^Ty$$
+
+```math
+\hat\beta = (X^TX)^{-1}X^Ty
+```
 
 **Step 1 – Estimate the noise variance from residuals.** Divide by $n-p$, not $n$:
-$$\hat\sigma^2 = \frac{1}{n-p}\sum_{i=1}^{n}\left(y_i - x_i^T\hat\beta\right)^2$$
+
+```math
+\hat\sigma^2 = \frac{1}{n-p}\sum_{i=1}^{n}\left(y_i - x_i^T\hat\beta\right)^2
+```
 - $n$ = number of data points; $p$ = number of fitted parameters.
 - **Why $n-p$:** every parameter you fit uses up one data point's worth of freedom.
 - Example: with 2 points and 2 parameters, the line passes through both exactly. The residuals are 0, which tells you nothing about the noise.
 
 **Step 2 – Covariance of the coefficients.** Multiply the noise variance by the *same* matrix that gave $\hat\beta$:
-$$\mathrm{Cov}(\hat\beta) = \hat\sigma^2\,(X^TX)^{-1}$$
+
+```math
+\mathrm{Cov}(\hat\beta) = \hat\sigma^2\,(X^TX)^{-1}
+```
 
 **Standard errors** are the square roots of its diagonal:
-$$\mathrm{SE}(\hat\beta_j) = \sqrt{\left[\hat\sigma^2 (X^TX)^{-1}\right]_{jj}}$$
+
+```math
+\mathrm{SE}(\hat\beta_j) = \sqrt{\left[\hat\sigma^2 (X^TX)^{-1}\right]_{jj}}
+```
 
 **t-value:**
-$$t_j = \frac{\hat\beta_j}{\mathrm{SE}(\hat\beta_j)}$$
+
+```math
+t_j = \frac{\hat\beta_j}{\mathrm{SE}(\hat\beta_j)}
+```
 
 **95% confidence interval:** the estimate plus or minus about two standard errors. Precisely:
-$$\hat\beta_j \pm t_{0.975,\,n-p}\,\mathrm{SE}(\hat\beta_j)$$
+
+```math
+\hat\beta_j \pm t_{0.975,\,n-p}\,\mathrm{SE}(\hat\beta_j)
+```
 
 #### The "regression engine" (~15 lines)
 The instructor showed a single function that solves the normal equations, then computes SEs, t-values and intervals. It has a `weights` argument, to be ignored until Part B.
@@ -100,7 +118,10 @@ def fit_ols(X, y, weights=None, level=0.95):
 - **Velocity** $v$ in km/s, from redshift. Positive means moving away from us.
 
 **Physical model (uniform expansion):** a galaxy twice as far away recedes twice as fast.
-$$v = H_0\,d$$
+
+```math
+v = H_0\,d
+```
 $H_0$ is the **Hubble constant**, i.e. the slope we are looking for.
 
 **Negative velocities:** some galaxies (e.g. **Andromeda**) are moving *toward* us, because Andromeda is falling into the Milky Way. This is real motion, not measurement error.
@@ -125,9 +146,15 @@ beta2, se2, t2, ci2 = fit_ols(X2, v)
 ```
 
 **Age of the universe from $H_0$.** If galaxies fly apart at constant speed, distance divided by speed is the time since they were together:
-$$t_{\text{age}} \approx \frac{1}{H_0}$$
+
+```math
+t_{\text{age}} \approx \frac{1}{H_0}
+```
 With unit conversion, for $H_0$ in km/s/Mpc:
-$$t_{\text{age}}\,[\text{Gyr}] \approx \frac{977.8}{H_0}$$
+
+```math
+t_{\text{age}}\,[\text{Gyr}] \approx \frac{977.8}{H_0}
+```
 
 Worked numbers:
 - $977.8/424 \approx 2.3$ billion years.
@@ -157,7 +184,7 @@ age_ci  = 977.8 / ci2[0][::-1]   # inverting flips the interval endpoints
 ### 2.3 Part B — The galaxy star-formation main sequence
 
 **Quantities measured per galaxy:**
-- **Stellar mass** $M_*$: the mass of all its stars.
+- **Stellar mass** $M_\ast $: the mass of all its stars.
 - **Star formation rate (SFR):** solar masses of new stars made per year. The Milky Way makes about 1–2 per year.
 
 **Two facts about star-forming galaxies:**
@@ -165,7 +192,10 @@ age_ci  = 977.8 / ci2[0][::-1]   # inverting flips the interval endpoints
 - In the past, when the universe was younger, every galaxy made stars faster.
 
 **Speagle et al. (2014)** combined 25 published studies into one formula. Here $t$ is the age of the universe in Gyr and masses are in solar units:
-$$\log \mathrm{SFR} = (0.84 - 0.026\,t)\,\log M_* - (6.51 - 0.11\,t)$$
+
+```math
+\log \mathrm{SFR} = (0.84 - 0.026\,t)\,\log M_* - (6.51 - 0.11\,t)
+```
 - The age of the universe $t$ appears **twice**: once changing the slope, once changing the height (intercept).
 - Reference points: the age of the universe today is ≈ 13.8 Gyr; at redshift $z = 3$ it was ≈ **2.1 Gyr**.
 
@@ -191,7 +221,7 @@ logSFR = (0.84 - 0.026*t)*logM - (6.51 - 0.11*t) + rng.normal(0, 0.2, N)
 - They sit *higher* (more star-forming) and start at *higher mass*.
 - Reason: far away, a telescope only sees the heavy galaxies. The instructor said to remember this, because it causes a problem later.
 
-**Model 1 – mass only:** $\log\mathrm{SFR} = \beta_0 + \beta_1 \log M_*$
+**Model 1 – mass only:** $\log\mathrm{SFR} = \beta_0 + \beta_1 \log M_\ast $
 - **Residual diagnostic:** if the model were complete, residuals vs. redshift would show random scatter around 0 with no trend.
 - **Actual result:** the residuals climb by about 1 dex from $z = 0.3$ to $z = 3$. Time is missing from the model.
 - **True slope** over the sample's epochs is between **0.58 and 0.79** (since $0.84 - 0.026t$ varies with $t$).
@@ -201,13 +231,16 @@ logSFR = (0.84 - 0.026*t)*logM - (6.51 - 0.11*t) + rng.normal(0, 0.2, N)
 **Omitted variable bias (definition):** if you leave out a variable that is *correlated* with one you kept, the kept variable's coefficient is biased. As the instructor put it, "the one you kept lies to you."
 
 **Interaction terms.** Multiplying out Speagle's formula:
-$$\log \mathrm{SFR} = -6.51 + 0.84\,\log M_* + 0.11\,t - 0.026\,(t \cdot \log M_*)$$
+
+```math
+\log \mathrm{SFR} = -6.51 + 0.84\,\log M_* + 0.11\,t - 0.026\,(t \cdot \log M_*)
+```
 - The last term is an **interaction**: just one more column of $X$, equal to the product of two other columns.
-- Meaning: the slope of the main sequence is $0.84 - 0.026\,t$, so the relation **flattens as the universe ages**.
+- Meaning: the slope of the main sequence is $0.84 - 0.026\ t$, so the relation **flattens as the universe ages**.
 
 **Models 2 and 3:**
 - **Model 2** adds $t$: $R^2$ jumps from **0.43 to 0.66**.
-- **Model 3** adds $t \cdot \log M_*$: $R^2$ rises by only about **0.03** (tiny), but its t-value is large and negative (exact value not captured).
+- **Model 3** adds $t \cdot \log M_\ast $: $R^2$ rises by only about **0.03** (tiny), but its t-value is large and negative (exact value not captured).
 - **Lesson: $R^2$ measures overall fit. It is NOT a test of whether a particular effect is real.**
 
 ```python
@@ -221,8 +254,8 @@ X_m3 = np.column_stack([ones, logM, t, logM*t])      # Model 3 (interaction)
 **Interpreting a "non-significant" main effect in Model 3:**
 - The coefficient on $t$ has 95% CI ≈ $(-0.1,\ +0.39)$ [values approximate], which includes 0. That seems to say "not significant".
 - Does time not matter? Of course it does; we just saw it.
-- The catch: with an interaction present, this coefficient measures the effect of time **for a galaxy with $\log M_* = 0$**, i.e. a galaxy of exactly one solar mass. Nobody cares about that question.
-- **Fix (from the recap): center the variables** (e.g. use $\log M_* - \overline{\log M_*}$). Each main effect then refers to a typical galaxy, and centering also reduces collinearity between $t$ and $t\cdot\log M_*$.
+- The catch: with an interaction present, this coefficient measures the effect of time **for a galaxy with $\log M_\ast  = 0$**, i.e. a galaxy of exactly one solar mass. Nobody cares about that question.
+- **Fix (from the recap): center the variables** (e.g. use $\log M_\ast  - \overline{\log M_\ast }$). Each main effect then refers to a typical galaxy, and centering also reduces collinearity between $t$ and $t\cdot\log M_\ast $.
 
 #### Weighted least squares (WLS)
 **Problem:**
@@ -230,10 +263,16 @@ X_m3 = np.column_stack([ones, logM, t, logM*t])      # Model 3 (interaction)
 - OLS gives every galaxy an equal vote, which is unfair to the well-measured ones.
 
 **Minimize chi-square**, where each squared residual is divided by that point's variance:
-$$\chi^2 = \sum_{i=1}^{n} \frac{\left(y_i - x_i^T\beta\right)^2}{\sigma_i^2}$$
+
+```math
+\chi^2 = \sum_{i=1}^{n} \frac{\left(y_i - x_i^T\beta\right)^2}{\sigma_i^2}
+```
 
 **Solution:** the same algebra as OLS with a $W$ in the middle:
-$$\hat\beta_{\text{WLS}} = (X^TWX)^{-1}X^TWy, \qquad W = \mathrm{diag}\!\left(\frac{1}{\sigma_i^2}\right)$$
+
+```math
+\hat\beta_{\text{WLS}} = (X^TWX)^{-1}X^TWy, \qquad W = \mathrm{diag}\!\left(\frac{1}{\sigma_i^2}\right)
+```
 
 **Worked example of weights:**
 - $\sigma = 0.1 \Rightarrow w = 1/0.01 = 100$.
@@ -241,7 +280,10 @@ $$\hat\beta_{\text{WLS}} = (X^TWX)^{-1}X^TWy, \qquad W = \mathrm{diag}\!\left(\f
 - So the precise galaxy counts $100/4 = 25$ times more.
 
 **Trap: include the intrinsic scatter.** $\sigma_i$ must include the real scatter of the relation itself, not just the measurement error:
-$$\sigma_i^2 = \sigma_{\text{meas},i}^2 + \sigma_{\text{int}}^2$$
+
+```math
+\sigma_i^2 = \sigma_{\text{meas},i}^2 + \sigma_{\text{int}}^2
+```
 - The transcript says the intrinsic scatter is "2 dex". This is almost certainly **0.2 dex** [unclear].
 - Otherwise a few very precisely measured galaxies dominate, even though each still scatters intrinsically about the relation.
 
@@ -282,7 +324,10 @@ lr.fit(X_m3, logSFR, sample_weight=w)            # same coefficients as beta_w
 
 **Polynomial regression, degrees 1 to 15:**
 - Is a degree-15 polynomial still *linear* regression? **Yes.** It is linear in the $\beta$s; $x^2, x^3, \dots$ are just more columns of $X$:
-$$\mu = \beta_0 + \beta_1 x + \beta_2 x^2 + \dots + \beta_k x^k, \quad x = \log z \ (\text{likely})$$
+
+```math
+\mu = \beta_0 + \beta_1 x + \beta_2 x^2 + \dots + \beta_k x^k, \quad x = \log z \ (\text{likely})
+```
 - **Training error** keeps falling as degree increases. **Test error** (15 held-out points) does not:
   - ≈ **0.22** at degree 1
   - ≈ **0.165** at degree 2–3, flat for a while
@@ -333,7 +378,10 @@ for deg in range(1, 16):
 
 **Ridge regression — the other way to beat overfitting:**
 - Keep the big flexible model but charge a penalty for large coefficients:
-$$\hat\beta_{\text{ridge}} = \arg\min_\beta \ \|y - X\beta\|^2 + \lambda\|\beta\|^2 = (X^TX + \lambda I)^{-1}X^Ty$$
+
+```math
+\hat\beta_{\text{ridge}} = \arg\min_\beta \ \|y - X\beta\|^2 + \lambda\|\beta\|^2 = (X^TX + \lambda I)^{-1}X^Ty
+```
 - $\lambda = 0$ gives ordinary least squares. A huge $\lambda$ pushes all coefficients toward 0.
 - **Rule: standardize the columns first.** The penalty treats every coefficient the same, but $x$ and $x^{15}$ live on very different scales. This is the `StandardScaler` step in the pipeline.
 - $\lambda$ is chosen by cross-validation.
@@ -388,10 +436,16 @@ A student (Vikat Raj) noted that the class has diverse backgrounds and some stud
 
 **How to tell if you are over- or underfitting — reduced $\chi^2$:**
 - $\chi^2$ measures how far the line passes from the data points, relative to their error bars (requires data with error bars):
-$$\chi^2 = \sum_i \frac{(y_i - \hat y_i)^2}{\sigma_i^2}$$
+
+```math
+\chi^2 = \sum_i \frac{(y_i - \hat y_i)^2}{\sigma_i^2}
+```
 - **Degrees of freedom:** $\nu = N - p$ (number of points minus number of fitted parameters).
   - Example: 4 points with a 2-parameter line gives $\nu = 4 - 2 = 2$. The transcript is muddled here ("divide by degree of freedom minus 2"); the correct formula is below.
-$$\chi^2_\nu = \frac{\chi^2}{N - p}$$
+
+```math
+\chi^2_\nu = \frac{\chi^2}{N - p}
+```
 - **Interpretation:**
   - $\chi^2_\nu \approx 1$ (not exactly 1): good fit, consistent with the error bars.
   - $\chi^2_\nu \gg 1$: **underfitting**, or the error model is missing something (as with the 2.6 in Part B).
@@ -409,7 +463,10 @@ In each trap, $R^2$ and the residual plot look fine, yet the answer is wrong.
 - In Part B, stellar mass was treated as exact. It is not: masses fitted from a galaxy's light typically carry **0.2–0.3 dex** error.
 - Noise in $y$ averages out. **Noise in $x$ does not**: it spreads points sideways, so the cloud looks flatter than it is.
 - Standard result (the "formula on the board"):
-$$\hat\beta \to \beta\,\frac{\sigma_x^2}{\sigma_x^2 + \sigma_{u}^2}$$
+
+```math
+\hat\beta \to \beta\,\frac{\sigma_x^2}{\sigma_x^2 + \sigma_{u}^2}
+```
   where $\sigma_x^2$ is the true spread of $x$ and $\sigma_u^2$ is the measurement-error variance in $x$.
 - **Numbers:** true slope **0.71**. With **0.3 dex** mass error the fit gives ≈ **0.61**. A 0.5 dex case was also shown; that value was not captured clearly (it is smaller still).
 - **More data does not help:** the shrinkage depends on the noise, not on the sample size.

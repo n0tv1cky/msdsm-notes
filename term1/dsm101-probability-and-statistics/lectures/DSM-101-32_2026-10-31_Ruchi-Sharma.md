@@ -39,7 +39,10 @@ The last part introduces the **Poisson random variable**: its use for counts per
 ### 2.1 Recap: Binomial PMF
 
 For $X \sim \text{Binomial}(n, p)$:
-$$P(X = x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad x = 0, 1, \dots, n$$
+
+```math
+P(X = x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad x = 0, 1, \dots, n
+```
 
 ### 2.2 Student question: the tagged-fish problem (from the last class)
 
@@ -53,7 +56,10 @@ $$P(X = x) = \binom{n}{x} p^{x} (1-p)^{n-x}, \quad x = 0, 1, \dots, n$$
 ### 2.3 Binomial theorem (sum of probabilities = 1)
 
 Stated without formal proof:
-$$\sum_{x=0}^{n} \binom{n}{x} p^{x}(1-p)^{n-x} = 1$$
+
+```math
+\sum_{x=0}^{n} \binom{n}{x} p^{x}(1-p)^{n-x} = 1
+```
 
 - **Intuition:** If you add up the probabilities of every value the random variable can take, the total must be 1.
 - **Check using the earlier example** (6 flips of a fair coin, $p = 0.5$, $X$ = number of tails):
@@ -76,45 +82,72 @@ $$\sum_{x=0}^{n} \binom{n}{x} p^{x}(1-p)^{n-x} = 1$$
 The strategy is to rewrite the sum so that it becomes another binomial sum, which equals 1 by the binomial theorem.
 
 1. Start from the definition:
-$$E[X] = \sum_{x=0}^{n} x\binom{n}{x}p^x(1-p)^{n-x}$$
+
+```math
+E[X] = \sum_{x=0}^{n} x\binom{n}{x}p^x(1-p)^{n-x}
+```
 
 2. The $x = 0$ term is zero because it is multiplied by $x$. So start the sum at 1:
-$$E[X] = \sum_{x=1}^{n} x\binom{n}{x}p^x(1-p)^{n-x}$$
+
+```math
+E[X] = \sum_{x=1}^{n} x\binom{n}{x}p^x(1-p)^{n-x}
+```
 
 3. Simplify $x\binom{n}{x}$ using two facts:
-   - $n! = n\,(n-1)!$
+   - $n! = n\ (n-1)!$
    - $n - x = (n-1) - (x-1)$
 
    This gives:
-$$x\binom{n}{x} = \frac{x \cdot n\,(n-1)!}{\big((n-1)-(x-1)\big)!\; x\,(x-1)!} = n\binom{n-1}{x-1}$$
+
+```math
+x\binom{n}{x} = \frac{x \cdot n\,(n-1)!}{\big((n-1)-(x-1)\big)!\; x\,(x-1)!} = n\binom{n-1}{x-1}
+```
 
 4. Split $p^x = p \cdot p^{x-1}$ and write $(1-p)^{n-x} = (1-p)^{(n-1)-(x-1)}$.
 
 5. Pull out the constants $n$ and $p$ (they do not depend on $x$):
-$$E[X] = np\sum_{x=1}^{n}\binom{n-1}{x-1}p^{x-1}(1-p)^{(n-1)-(x-1)}$$
+
+```math
+E[X] = np\sum_{x=1}^{n}\binom{n-1}{x-1}p^{x-1}(1-p)^{(n-1)-(x-1)}
+```
 
 6. Substitute $a = x - 1$ and $b = n - 1$:
    - when $x = 1$, $a = 0$;
    - when $x = n$, $a = n - 1 = b$.
 
    The sum becomes:
-$$E[X] = np\sum_{a=0}^{b}\binom{b}{a}p^{a}(1-p)^{b-a}$$
+
+```math
+E[X] = np\sum_{a=0}^{b}\binom{b}{a}p^{a}(1-p)^{b-a}
+```
 
 7. The remaining sum is a full set of binomial probabilities, so it equals 1 by the binomial theorem. Therefore:
-$$\boxed{E[X] = np}$$
+
+```math
+\boxed{E[X] = np}
+```
 
 ### 2.6 Derivation: $\mathrm{Var}(X) = np(1-p)$
 
 1. Use the variance formula:
-$$\mathrm{Var}(X) = E[X^2] - (E[X])^2, \qquad (E[X])^2 = n^2p^2$$
+
+```math
+\mathrm{Var}(X) = E[X^2] - (E[X])^2, \qquad (E[X])^2 = n^2p^2
+```
 
 2. The difficult part is $E[X^2]$. Write $x^2 = x(x-1) + x$, so that:
-$$E[X^2] = E[X(X-1)] + E[X]$$
+
+```math
+E[X^2] = E[X(X-1)] + E[X]
+```
 
 3. Compute $E[X(X-1)]$ using the same trick as for the mean.
    - The $x = 0$ and $x = 1$ terms vanish, so the sum starts at $x = 2$.
    - The instructor asked the class to spot this step, which she had initially skipped.
-$$E[X(X-1)] = \sum_{x=2}^{n} x(x-1)\binom{n}{x}p^x(1-p)^{n-x}$$
+
+```math
+E[X(X-1)] = \sum_{x=2}^{n} x(x-1)\binom{n}{x}p^x(1-p)^{n-x}
+```
 
 4. Expand the factorials:
    - $n! = n(n-1)(n-2)!$
@@ -122,16 +155,28 @@ $$E[X(X-1)] = \sum_{x=2}^{n} x(x-1)\binom{n}{x}p^x(1-p)^{n-x}$$
    - $n - x = (n-2) - (x-2)$
 
    The $x(x-1)$ factors cancel, giving:
-$$x(x-1)\binom{n}{x} = n(n-1)\binom{n-2}{x-2}$$
+
+```math
+x(x-1)\binom{n}{x} = n(n-1)\binom{n-2}{x-2}
+```
 
 5. Split $p^x = p^2 \cdot p^{x-2}$ and write $(1-p)^{n-x} = (1-p)^{(n-2)-(x-2)}$.
 
 6. Substitute $a = x - 2$ and $b = n - 2$:
-$$E[X(X-1)] = n(n-1)p^2\sum_{a=0}^{b}\binom{b}{a}p^a(1-p)^{b-a} = n(n-1)p^2$$
+
+```math
+E[X(X-1)] = n(n-1)p^2\sum_{a=0}^{b}\binom{b}{a}p^a(1-p)^{b-a} = n(n-1)p^2
+```
 
 7. Put the pieces together:
-$$\mathrm{Var}(X) = n(n-1)p^2 + np - n^2p^2 = n^2p^2 - np^2 + np - n^2p^2 = np - np^2$$
-$$\boxed{\mathrm{Var}(X) = np(1-p) = npq, \quad q = 1-p}$$
+
+```math
+\mathrm{Var}(X) = n(n-1)p^2 + np - n^2p^2 = n^2p^2 - np^2 + np - n^2p^2 = np - np^2
+```
+
+```math
+\boxed{\mathrm{Var}(X) = np(1-p) = npq, \quad q = 1-p}
+```
 
 - Some textbooks write the variance as $npq$.
 
@@ -143,7 +188,7 @@ Stated without proof.
 - **Location of the peak:** The largest value occurs when $k$ is the **largest integer less than or equal to $(n+1)p$**.
 - **Check with the coin example:** $n = 6$ and $p = 0.5$, so $(n+1)p = 7 \times 0.5 = 3.5$. The largest integer $\le 3.5$ is 3, and indeed $P(X=3) = \frac{20}{64}$ is the maximum in the table.
 - **Proof hint (given verbally):** Look at the ratio $\dfrac{P(X=k)}{P(X=k-1)}$ and see when it is greater than or less than 1.
-  - *(Note-writer's addition:* the ratio is $\dfrac{(n-k+1)\,p}{k\,(1-p)}$. It is $\ge 1$ exactly when $k \le (n+1)p$.)*
+  - *(Note-writer's addition:* the ratio is $\dfrac{(n-k+1)\ p}{k\ (1-p)}$. It is $\ge 1$ exactly when $k \le (n+1)p$.)*
 
 ### 2.8 Practice questions on the binomial
 
@@ -164,7 +209,10 @@ Stated without proof.
   - **Not binomial.** The number of trials is not fixed; it is potentially infinite.
 
 **A student's computation (context unclear in the transcript; labelled "Section B, first question"):**
-$$\binom{5}{4}\left(\tfrac{1}{6}\right)^4\left(\tfrac{5}{6}\right)^{1} \approx 0.0032 = 0.32\%$$
+
+```math
+\binom{5}{4}\left(\tfrac{1}{6}\right)^4\left(\tfrac{5}{6}\right)^{1} \approx 0.0032 = 0.32\%
+```
 
 **Q4: Recover $n$ and $p$ from the mean and variance.**
 
@@ -173,19 +221,28 @@ $$\binom{5}{4}\left(\tfrac{1}{6}\right)^4\left(\tfrac{5}{6}\right)^{1} \approx 0
   - From $np = 4$ and $npq = \frac{4}{3}$, we get $q = \frac{4/3}{4} = \frac{1}{3}$.
   - So $p = \frac{2}{3}$ and $n = \frac{4}{2/3} = 6$.
   - Use the complement:
-$$P(X \ge 1) = 1 - P(X = 0) = 1 - \left(\tfrac{1}{3}\right)^6 = 1 - \tfrac{1}{729} = \tfrac{728}{729} \approx 0.9986$$
+
+```math
+P(X \ge 1) = 1 - P(X = 0) = 1 - \left(\tfrac{1}{3}\right)^6 = 1 - \tfrac{1}{729} = \tfrac{728}{729} \approx 0.9986
+```
 
 **Q (the "second" question): direct PMF calculation.**
 
 - **Given:** $n = 8$, $p = 0.1$, find $P(X = 2)$.
 - **Solution:**
-$$P(X=2) = \binom{8}{2}(0.1)^2(0.9)^6 = 28 \times 0.01 \times 0.531441 \approx 0.1488 = 14.88\%$$
+
+```math
+P(X=2) = \binom{8}{2}(0.1)^2(0.9)^6 = 28 \times 0.01 \times 0.531441 \approx 0.1488 = 14.88\%
+```
 
 **Q6: Goals scored.**
 
 - **Setup:** 5 goals, each equally likely to go either way, so $n = 5$ and $p = q = \frac{1}{2}$. Compute the full distribution.
 - **General term:**
-$$P(X=k) = \binom{5}{k}\left(\tfrac{1}{2}\right)^k\left(\tfrac{1}{2}\right)^{5-k} = \binom{5}{k}\tfrac{1}{32}$$
+
+```math
+P(X=k) = \binom{5}{k}\left(\tfrac{1}{2}\right)^k\left(\tfrac{1}{2}\right)^{5-k} = \binom{5}{k}\tfrac{1}{32}
+```
 - **First term:** $P(X=0) = \binom{5}{0}\left(\tfrac12\right)^0\left(\tfrac12\right)^5 = \tfrac{1}{32}$.
 - **Repeat for $k = 1, \dots, 5$.** *(Note-writer's computation:)* the values are $\tfrac{1}{32}, \tfrac{5}{32}, \tfrac{10}{32}, \tfrac{10}{32}, \tfrac{5}{32}, \tfrac{1}{32}$.
 
@@ -220,13 +277,19 @@ The remaining questions will be shared as a file for practice.
 - The full derivation is postponed to the next class.
 
 **Poisson PMF:**
-$$P(X = x) = \frac{e^{-\lambda}\lambda^{x}}{x!}, \quad x = 0, 1, 2, \dots$$
+
+```math
+P(X = x) = \frac{e^{-\lambda}\lambda^{x}}{x!}, \quad x = 0, 1, 2, \dots
+```
 
 ### 2.10 Worked example: typographical errors
 
 - **Setup:** The number of typographical errors on a single page follows a Poisson distribution with $\lambda = \tfrac{1}{2}$. Find the probability of **at least one** error on a given page.
 - **Method:** Use the complement.
-$$P(X \ge 1) = 1 - P(X=0) = 1 - \frac{e^{-1/2}\left(\tfrac12\right)^0}{0!} = 1 - e^{-1/2} \approx 1 - 0.6065 = 0.3935$$
+
+```math
+P(X \ge 1) = 1 - P(X=0) = 1 - \frac{e^{-1/2}\left(\tfrac12\right)^0}{0!} = 1 - e^{-1/2} \approx 1 - 0.6065 = 0.3935
+```
 - The answer is roughly **39–40%**.
 
 ---

@@ -33,7 +33,7 @@ The session first recaps the components of aggregate demand: consumption, saving
 
 Government spending, lump-sum taxes and transfers are then added to derive the **expenditure multiplier** $\frac{1}{1-c}$ in two ways: algebraically, and as the sum of an infinite geometric progression. The worked example is a ₹1,000 crore project with MPC $= 2/3$, which gives a total output change of ₹3,000 crore. The instructor stresses that the multiplier works only when the economy has **unemployed resources**. At full employment it only diverts resources and causes inflation.
 
-The model is then extended to **proportional income taxes**, giving the smaller multiplier $\frac{1}{1-c(1-t)}$. The instructor argues that a smaller multiplier is often preferable because it makes the economy more stable. Taxes and transfers act as **automatic stabilizers**, illustrated with a ₹100 income example. The session ends by stressing that equilibrium is not the same as full employment, and that fiscal policy can raise aggregate demand to potential output $Y^*$.
+The model is then extended to **proportional income taxes**, giving the smaller multiplier $\frac{1}{1-c(1-t)}$. The instructor argues that a smaller multiplier is often preferable because it makes the economy more stable. Taxes and transfers act as **automatic stabilizers**, illustrated with a ₹100 income example. The session ends by stressing that equilibrium is not the same as full employment, and that fiscal policy can raise aggregate demand to potential output $Y^\ast $.
 
 ---
 
@@ -49,11 +49,17 @@ The model is then extended to **proportional income taxes**, giving the smaller 
   - **Age / life cycle.** People in mid-life tend to save more than the young or the old.
 - In the short run, the analysis focuses only on income.
 - **Consumption function** (linear):
-$$C = \bar{C} + cY$$
+
+```math
+C = \bar{C} + cY
+```
   - $\bar{C}$ is **autonomous consumption**, which is independent of income.
   - $c$ is the **marginal propensity to consume (MPC)**: the extra consumption from one additional unit of income, with $0 < c < 1$.
 - **Saving:**
-$$S = Y - C$$
+
+```math
+S = Y - C
+```
   Saving is income earned but not consumed.
 
 ### 2.2 Investment: fixed vs. inventory, planned vs. unplanned
@@ -108,16 +114,25 @@ $$S = Y - C$$
 
 ### 2.4 Adding government (lump-sum taxes and transfers)
 - **Disposable income:**
-$$Y_D = Y - \overline{TA} + \overline{TR}$$
+
+```math
+Y_D = Y - \overline{TA} + \overline{TR}
+```
   - Taxes are paid to the government.
   - Transfers are received from it: e.g., PM-Kisan, pensions, Ladli-type schemes, unemployment benefits.
 - **Consumption now depends on disposable income:**
-$$C = \bar{C} + cY_D = \bar{C} + c(Y - \overline{TA} + \overline{TR})$$
+
+```math
+C = \bar{C} + cY_D = \bar{C} + c(Y - \overline{TA} + \overline{TR})
+```
 - **Government spending $\bar{G}$ is autonomous.**
   - Salaries of doctors, teachers and soldiers are predetermined.
   - They do not depend on that year's income, since staff are not fired immediately.
 - **Aggregate demand:**
-$$AD = C + \bar{I} + \bar{G} = \underbrace{\bar{C} - c\overline{TA} + c\overline{TR} + \bar{I} + \bar{G}}_{\bar{A}} + cY$$
+
+```math
+AD = C + \bar{I} + \bar{G} = \underbrace{\bar{C} - c\overline{TA} + c\overline{TR} + \bar{I} + \bar{G}}_{\bar{A}} + cY
+```
   So $AD = \bar{A} + cY$, where $\bar{A}$ collects every term independent of $Y$.
 - The full expenditure identity was also referenced: $AD = C + I + G + X - M$.
 
@@ -125,9 +140,15 @@ $$AD = C + \bar{I} + \bar{G} = \underbrace{\bar{C} - c\overline{TA} + c\overline
 1. Set output equal to demand: $Y = \bar{A} + cY$.
 2. Move $cY$ across: $Y - cY = \bar{A}$, so $Y(1-c) = \bar{A}$.
 3. Solve:
-$$Y^{*} = \frac{1}{1-c}\,\bar{A} \qquad\Rightarrow\qquad \Delta Y = \frac{1}{1-c}\,\Delta\bar{A}$$
+
+```math
+Y^{*} = \frac{1}{1-c}\,\bar{A} \qquad\Rightarrow\qquad \Delta Y = \frac{1}{1-c}\,\Delta\bar{A}
+```
 - **Multiplier:**
-$$\alpha = \frac{1}{1-c}$$
+
+```math
+\alpha = \frac{1}{1-c}
+```
   It shows how much output changes for a one-unit change in autonomous demand, e.g., ₹1 of extra government spending.
 - **Sign and size.** Since $0 < c < 1$, we have $0 < 1 - c < 1$, so $\frac{1}{1-c} > 1$.
   - Class example: if $c = 0.8$, then $1 - c = 0.2$ and the multiplier is $\frac{1}{0.2} = 5$.
@@ -151,12 +172,21 @@ $$\alpha = \frac{1}{1-c}$$
 | … | … | … |
 
 - Total change:
-$$\Delta Y = 1000\left[1 + c + c^2 + c^3 + \cdots\right]$$
+
+```math
+\Delta Y = 1000\left[1 + c + c^2 + c^3 + \cdots\right]
+```
 - This is an infinite **geometric progression** with common ratio $r = c = 2/3 < 1$.
 - Sum of an infinite GP:
-$$S_\infty = \frac{a}{1-r}$$
+
+```math
+S_\infty = \frac{a}{1-r}
+```
 - Applying it:
-$$\Delta Y = 1000 \times \frac{1}{1 - \frac{2}{3}} = 1000 \times 3 = 3000 \text{ crore}$$
+
+```math
+\Delta Y = 1000 \times \frac{1}{1 - \frac{2}{3}} = 1000 \times 3 = 3000 \text{ crore}
+```
 - **Both routes give the same multiplier** $\frac{1}{1-c}$:
   - the **equation route**: $Y = AD = \bar{A} + cY$;
   - the **GP route**: summing the spending rounds.
@@ -173,22 +203,37 @@ $$\Delta Y = 1000 \times \frac{1}{1 - \frac{2}{3}} = 1000 \times 3 = 3000 \text{
 - Fiscal policy acts through two channels: government **spending** and **taxes/transfers**.
 - Taxes are usually **proportional** rather than lump-sum: $TA = tY$.
 - **Disposable income:**
-$$Y_D = Y + \overline{TR} - tY$$
+
+```math
+Y_D = Y + \overline{TR} - tY
+```
 - **Consumption:**
-$$C = \bar{C} + c\overline{TR} + c(1-t)Y$$
+
+```math
+C = \bar{C} + c\overline{TR} + c(1-t)Y
+```
 - **Aggregate demand:**
-$$AD = \underbrace{\bar{C} + c\overline{TR} + \bar{I} + \bar{G}}_{\bar{A}} + c(1-t)Y$$
+
+```math
+AD = \underbrace{\bar{C} + c\overline{TR} + \bar{I} + \bar{G}}_{\bar{A}} + c(1-t)Y
+```
   - Note: this $\bar{A}$ **no longer contains** $-c\overline{TA}$, because taxes now enter through $t$.
 - **Equilibrium:**
   1. Set $Y = \bar{A} + c(1-t)Y$.
   2. Rearrange to $Y\left[1 - c(1-t)\right] = \bar{A}$.
   3. Solve:
-$$Y^{*} = \frac{1}{1-c(1-t)}\,\bar{A}, \qquad \Delta Y = \frac{1}{1-c(1-t)}\,\Delta\bar{A}$$
+
+```math
+Y^{*} = \frac{1}{1-c(1-t)}\,\bar{A}, \qquad \Delta Y = \frac{1}{1-c(1-t)}\,\Delta\bar{A}
+```
 - **Multiplier with proportional taxes:**
-$$\alpha_G = \frac{1}{1-c(1-t)}$$
+
+```math
+\alpha_G = \frac{1}{1-c(1-t)}
+```
 
 ### 2.9 In-class poll 1: which multiplier is bigger? (counted for attendance)
-- Question: is $\frac{1}{1-c}$ larger or smaller than $\frac{1}{1-c(1-t)}$, with $t = 20\%$?
+- Question: is $\frac{1}{1-c}$ larger or smaller than $\frac{1}{1-c(1-t)}$, with $t = 20\text{%}$?
 - **Answer: $\frac{1}{1-c}$ is bigger.**
 - Reasoning:
   1. Since $t > 0$, we have $1 - t < 1$.
@@ -229,11 +274,11 @@ $$\alpha_G = \frac{1}{1-c(1-t)}$$
   - **Stabilizers** need no case-by-case approval. People who lose jobs qualify for benefits or NREGA work automatically and keep spending.
 - **Historical point:** after the Great Depression of the 1930s, the introduction of personal income tax and transfer systems made business cycles much less volatile. No comparable downturn has occurred since.
 
-### 2.12 Equilibrium ≠ full employment; fiscal policy to reach $Y^*$
+### 2.12 Equilibrium ≠ full employment; fiscal policy to reach $Y^\ast $
 **Graph**
 - Same axes as before ($Y$ horizontal, $AD$ vertical) with the $45^\circ$ line.
-- A vertical line at $Y^*$ marks **potential (full-employment) output**: what the economy can produce using all labour and capital.
-- The initial equilibrium is at $E_1$ with output $Y_1 < Y^*$.
+- A vertical line at $Y^\ast $ marks **potential (full-employment) output**: what the economy can produce using all labour and capital.
+- The initial equilibrium is at $E_1$ with output $Y_1 < Y^\ast $.
 
 **Key point (repeated by the instructor)**
 > Equilibrium only means **whatever is produced is sold**. It does **not** mean **whatever can be produced is produced**.
@@ -245,9 +290,9 @@ $$\alpha_G = \frac{1}{1-c(1-t)}$$
 2. At the old $Y_1$, demand (up to the new AD line) now exceeds output (up to the $45^\circ$ line).
 3. Inventories deplete, so firms expand production.
 4. Newly paid workers spend, triggering further multiplier rounds.
-5. The economy moves to a new, higher equilibrium. With enough stimulus it reaches $Y^*$.
+5. The economy moves to a new, higher equilibrium. With enough stimulus it reaches $Y^\ast $.
 
-- *To be continued next session:* how additional government demand creates successive spending rounds and lifts the economy out of recession. The $Y^*$ line will be dropped from diagrams from the next session onward.
+- *To be continued next session:* how additional government demand creates successive spending rounds and lifts the economy out of recession. The $Y^\ast $ line will be dropped from diagrams from the next session onward.
 
 ---
 
@@ -261,7 +306,7 @@ $$\alpha_G = \frac{1}{1-c(1-t)}$$
 | Autonomous demand (lump-sum) | $\bar{A} = \bar{C} - c\overline{TA} + c\overline{TR} + \bar{I} + \bar{G}$ |
 | Aggregate demand | $AD = \bar{A} + cY$ |
 | Equilibrium condition | $Y = AD$ (equivalently $S = I$) |
-| Equilibrium income | $Y^{*} = \frac{\bar{A}}{1-c}$ |
+| Equilibrium income | $Y^{\ast } = \frac{\bar{A}}{1-c}$ |
 | Simple multiplier | $\frac{\Delta Y}{\Delta \bar{A}} = \frac{1}{1-c}$ |
 | Infinite GP sum | $S_\infty = \frac{a}{1-r}$, valid for $\lvert r\rvert < 1$ |
 | Disposable income (proportional) | $Y_D = Y + \overline{TR} - tY$ |

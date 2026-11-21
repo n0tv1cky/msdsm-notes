@@ -303,17 +303,22 @@ plt.show()
 ## 5. Formulas / equations used
 
 - Simulated signal (the "mean curve"):
+
   $$y = -x^{2}$$
+
   (downward-opening parabola on $x \in [0, x_{\max}]$, default $x_{\max} = 10$)
 
 - Noisy observed data:
+
   $$y_{\text{data}} = -x_{\text{data}}^{2} + a_{\text{noise}}\cdot \varepsilon,\qquad \varepsilon \sim \mathcal{N}(0,1)$$
-  with $a_{\text{noise}} \in \{0.5,\,1.5,\,4.5\}$ tried in class (`amp_noise`).
+
+  with $a_{\text{noise}} \in \lbrace 0.5,\ 1.5,\ 4.5\rbrace $ tried in class (`amp_noise`).
 
 - Compound-assignment identity:
-  $$\texttt{y\_data += amp\_noise} \;\;\equiv\;\; \texttt{y\_data = y\_data + amp\_noise}$$
 
-- Grid used for evaluation: $x_{\text{fine}} = \text{linspace}(0,\,x_{\max},\,N_{\text{fine}})$, with $N_{\text{fine}} \gg n$ so the interpolant is drawn smoothly.
+  $$\texttt{y\_data += amp\_noise} \ \ \equiv\ \  \texttt{y\_data = y\_data + amp\_noise}$$
+
+- Grid used for evaluation: $x_{\text{fine}} = \text{linspace}(0,\ x_{\max},\ N_{\text{fine}})$, with $N_{\text{fine}} \gg n$ so the interpolant is drawn smoothly.
 
 ---
 

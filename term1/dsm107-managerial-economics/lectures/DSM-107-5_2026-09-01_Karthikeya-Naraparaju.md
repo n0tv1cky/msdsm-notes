@@ -34,7 +34,10 @@ This session builds the core micro-economic apparatus for modelling **individual
 
 ### 2.2 The production function (time → income)
 - Formula:
-$$y = w \cdot h$$
+
+```math
+y = w \cdot h
+```
   - $y$ = total income (per day)
   - $w$ = hourly wage
   - $h$ = hours of work per day
@@ -46,7 +49,10 @@ $$y = w \cdot h$$
 ### 2.3 Opportunity cost of free time
 - Hours of work and hours of free time are complements of each other within the day: +1 hour free time ⇒ −1 hour work.
 - Therefore:
-$$\text{Opportunity cost of 1 extra hour of free time} = w = €30$$
+
+```math
+\text{Opportunity cost of 1 extra hour of free time} = w = €30
+```
 - i.e. the next-best forgone alternative of an hour of leisure is working that hour and earning €30.
 
 ### 2.4 Assumptions of the model
@@ -85,7 +91,10 @@ $$\text{Opportunity cost of 1 extra hour of free time} = w = €30$$
 
 ### 2.8 Marginal Rate of Substitution (MRS)
 - **Definition**: the **slope of the indifference curve** (in magnitude) — for one additional unit of the good on the $x$-axis, how many units of the $y$-axis good you are willing to give up and remain indifferent.
-$$\text{MRS} = \left|\frac{\Delta C}{\Delta T}\right|_{\text{utility constant}}$$
+
+```math
+\text{MRS} = \left|\frac{\Delta C}{\Delta T}\right|_{\text{utility constant}}
+```
 - In this model: the amount of **consumption spending** willingly sacrificed for **one more hour of free time**.
 - **Diminishing MRS**: as you move rightward along an indifference curve (more free time), MRS falls — the curve flattens.
 - **Intuition**: at A you have relatively *little* free time, so you will give up a lot of consumption for one more hour. At D you already have *plenty* of free time, so you value an extra hour less and will surrender little consumption.
@@ -114,17 +123,26 @@ $$\text{MRS} = \left|\frac{\Delta C}{\Delta T}\right|_{\text{utility constant}}$
 
 ### 2.10 The budget constraint / feasible set
 - Consumption available to Karim:
-$$C = w\,(24 - t)$$
+
+```math
+C = w\,(24 - t)
+```
   - $C$ = consumption, $w$ = hourly wage, $24$ = total hours in a day, $t$ = hours of **free time**.
   - Hours worked $= 24 - t$.
   - Example: 8 hours sleep as the only free time ⇒ $t = 8$, hours worked $= 16$, $C = 16w$.
 
 - **Algebraic rearrangement** (done on the board):
-$$C = 24w - w\,t \quad \Longrightarrow \quad w\,t + C = 24\,w$$
 
-- This has the linear form $a x + b y = c$, with slope $-\,a/b$.
+```math
+C = 24w - w\,t \quad \Longrightarrow \quad w\,t + C = 24\,w
+```
+
+- This has the linear form $a x + b y = c$, with slope $-\ a/b$.
 - **General two-good budget line in economics**:
-$$P_X X + P_Y Y = \text{Income}$$
+
+```math
+P_X X + P_Y Y = \text{Income}
+```
   - $P_X X$ = total spending on good $X$; $P_Y Y$ = total spending on $Y$; with only two goods, total spending = total income (budget is exhausted). This line is called the **budget line** or **budget constraint**.
 
 - **Mapping the work–leisure problem onto the general form**:
@@ -144,7 +162,10 @@ $$P_X X + P_Y Y = \text{Income}$$
 - **Axes**: $x$-axis = hours of **free time** $t$; $y$-axis = **consumption** $C$.
 - Effective origin taken at **$t = 8$** (8 hours of sleep is non-negotiable) ⇒ **maximum 16 hours of work**.
 - **Vertical (maximum-consumption) point**: at $t = 8$,
-$$C_{\max} = 16 \times w = 16 \times 30 = €480$$
+
+```math
+C_{\max} = 16 \times w = 16 \times 30 = €480
+```
 - **Horizontal ($x$) intercept**: $t = 24$ (all day is free time) ⇒ $C = 0$ (no other income source, no borrowing).
 - The line joining these is downward-sloping with slope $-w = -30$.
 - **Feasible set** = the triangular area on/under this line: **every combination of $C$ and $T$ that Karim can afford**.
@@ -199,19 +220,33 @@ $$C_{\max} = 16 \times w = 16 \times 30 = €480$$
 
 ## 4. Formula Sheet
 
-$$y = w \cdot h \qquad \text{(production function: income from hours worked)}$$
+```math
+y = w \cdot h \qquad \text{(production function: income from hours worked)}
+```
 
-$$\text{Opportunity cost of 1 hour of free time} = w \;(= €30)$$
+```math
+\text{Opportunity cost of 1 hour of free time} = w \;(= €30)
+```
 
-$$C = w\,(24 - t) \qquad \text{(consumption available, } t = \text{free time)}$$
+```math
+C = w\,(24 - t) \qquad \text{(consumption available, } t = \text{free time)}
+```
 
-$$w\,t + C = 24\,w \qquad \text{(budget constraint / feasible frontier)}$$
+```math
+w\,t + C = 24\,w \qquad \text{(budget constraint / feasible frontier)}
+```
 
-$$P_X X + P_Y Y = \text{Income} \qquad \text{(general two-good budget line)}$$
+```math
+P_X X + P_Y Y = \text{Income} \qquad \text{(general two-good budget line)}
+```
 
-$$\text{Slope of budget line} = -\frac{P_X}{P_Y} = -\frac{w}{1} = -w$$
+```math
+\text{Slope of budget line} = -\frac{P_X}{P_Y} = -\frac{w}{1} = -w
+```
 
-$$\text{MRS} = \left|\text{slope of indifference curve}\right| = \left|\frac{\Delta C}{\Delta T}\right|_{U \text{ constant}}$$
+```math
+\text{MRS} = \left|\text{slope of indifference curve}\right| = \left|\frac{\Delta C}{\Delta T}\right|_{U \text{ constant}}
+```
 
 Key numbers: $w = €30$; max work $= 16$ h; min free time $= 8$ h; $C_{\max} = 16 \times 30 = €480$; at $t = 12$, $C_{\max} = 12 \times 30 = €360$.
 

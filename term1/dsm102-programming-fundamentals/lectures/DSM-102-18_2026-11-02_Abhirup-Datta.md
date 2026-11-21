@@ -47,23 +47,35 @@ Results are checked both analytically and by numerical integration or simulation
 ## 2. Topics Covered, in Order
 
 ### 2.1 Probability for continuous variables
-- $P(a \le X \le b) = \int_a^b f(x)\,dx$, the area under the PDF.
-- Normalisation: $\int_{-\infty}^{\infty} f(x)\,dx = 1$.
-- The discrete analogue uses sums, e.g. $\mu = \sum_i x_i\,p(x_i)$. The instructor called this "the other side of the same coin."
+- $P(a \le X \le b) = \int_a^b f(x)\ dx$, the area under the PDF.
+- Normalisation: $\int_{-\infty}^{\infty} f(x)\ dx = 1$.
+- The discrete analogue uses sums, e.g. $\mu = \sum_i x_i\ p(x_i)$. The instructor called this "the other side of the same coin."
 
 ### 2.2 Moments
 - **Raw moment** of order $n$:
-$$\mu'_n = E[X^n] = \int_{-\infty}^{\infty} x^n f(x)\,dx$$
+
+```math
+\mu'_n = E[X^n] = \int_{-\infty}^{\infty} x^n f(x)\,dx
+```
 - **Central moment** of order $n$, where $\mu$ is the mean:
-$$\mu_n = E[(X-\mu)^n] = \int_{-\infty}^{\infty} (x-\mu)^n f(x)\,dx$$
+
+```math
+\mu_n = E[(X-\mu)^n] = \int_{-\infty}^{\infty} (x-\mu)^n f(x)\,dx
+```
 - All the summary statistics below are built from these moments.
 
 ### 2.3 Mean, median, mode
 - **Mean:**
-$$\mu = \int_{-\infty}^{\infty} x\,f(x)\,dx$$
+
+```math
+\mu = \int_{-\infty}^{\infty} x\,f(x)\,dx
+```
   The instructor described this as the area under the curve $y = x f(x)$.
 - **Median $m$:**
-$$\int_{-\infty}^{m} f(x)\,dx = \tfrac{1}{2}$$
+
+```math
+\int_{-\infty}^{m} f(x)\,dx = \tfrac{1}{2}
+```
 - **Mode:** the peak of the PDF. It satisfies $f'(x)=0$, and the second-derivative check $f''(x) < 0$ confirms a maximum.
 
 **Ordering rules (likely exam material):**
@@ -79,23 +91,38 @@ $$\int_{-\infty}^{m} f(x)\,dx = \tfrac{1}{2}$$
 - A fraction near an upper limit gives a **left-skewed** curve. An example is a beta distribution with $\alpha > \beta$.
 
 **Pearson's empirical rule** (moderately skewed distributions):
-$$\text{mean} - \text{mode} \approx 3\,(\text{mean} - \text{median})$$
+
+```math
+\text{mean} - \text{mode} \approx 3\,(\text{mean} - \text{median})
+```
 ⚠️ The transcript only said "mean minus mode should be nearly equal to 3". The full rule is the one above.
 
 ### 2.4 Variance, standard deviation, coefficient of variation
 - **Variance:**
-$$\sigma^2 = \int_{-\infty}^{\infty} (x-\mu)^2 f(x)\,dx = E[X^2] - \mu^2$$
+
+```math
+\sigma^2 = \int_{-\infty}^{\infty} (x-\mu)^2 f(x)\,dx = E[X^2] - \mu^2
+```
 - **Standard deviation** $\sigma$ has the same units as $x$, so it reads directly as an error bar.
 - **Coefficient of variation:**
-$$\mathrm{CV} = \sigma/\mu$$
+
+```math
+\mathrm{CV} = \sigma/\mu
+```
   It is unitless and measures spread relative to the mean.
 - **Photon-count example (Poisson with mean $\lambda$):** $\sigma = \sqrt{\lambda}$, so
-$$\mathrm{CV} = \frac{\sqrt{\lambda}}{\lambda} = \frac{1}{\sqrt{\lambda}}.$$
+
+```math
+\mathrm{CV} = \frac{\sqrt{\lambda}}{\lambda} = \frac{1}{\sqrt{\lambda}}.
+```
   This is the reciprocal of the signal-to-noise ratio, $\mathrm{SNR} = \sqrt{\lambda}$.
 
 ### 2.5 Skewness and kurtosis
 - **Skewness** is the standardised third central moment and measures asymmetry:
-$$\gamma_1 = \frac{\mu_3}{\sigma^3}$$
+
+```math
+\gamma_1 = \frac{\mu_3}{\sigma^3}
+```
 
   | Value | Meaning |
   |---|---|
@@ -104,7 +131,10 @@ $$\gamma_1 = \frac{\mu_3}{\sigma^3}$$
   | $\gamma_1 < 0$ | long left tail (left-skewed) |
 
 - **Kurtosis** is the standardised fourth central moment and measures how heavy the tails are:
-$$\beta_2 = \frac{\mu_4}{\sigma^4}, \qquad \gamma_2 = \beta_2 - 3 \quad (\text{excess kurtosis})$$
+
+```math
+\beta_2 = \frac{\mu_4}{\sigma^4}, \qquad \gamma_2 = \beta_2 - 3 \quad (\text{excess kurtosis})
+```
   For the normal distribution, $\beta_2 = 3$, so $\gamma_2 = 0$.
 
   | Value | Tails | Name | Outliers |
@@ -184,7 +214,10 @@ plt.show()
 
 ### 2.8 Worked example: photon arrival gaps (exponential distribution)
 **Setup:** photons from a sky patch hit a CCD at rate $\lambda = 4\ \text{s}^{-1}$. The gap $x$ between successive photons has PDF
-$$f(x) = \lambda e^{-\lambda x}, \quad x \ge 0.$$
+
+```math
+f(x) = \lambda e^{-\lambda x}, \quad x \ge 0.
+```
 
 ⚠️ The instructor called this "a Poisson distribution". Strictly, the **counts** are Poisson and the **gaps between arrivals are exponential**.
 
@@ -284,7 +317,10 @@ plt.legend(); plt.xlabel("x"); plt.ylabel("density"); plt.show()
 
 ### 2.10 Normal (Gaussian) distribution
 **PDF:**
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\right], \quad -\infty < x < \infty$$
+
+```math
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\right], \quad -\infty < x < \infty
+```
 - $\mu$ is the mean (location). Changing $\mu$ shifts the bell left or right.
 - $\sigma$ is the standard deviation (spread).
 - ⚠️ The transcript got the effect of $\sigma$ backwards ("as sigma is going high … almost delta function"). The correct statement: **larger $\sigma$ gives a flatter, wider curve; smaller $\sigma$ gives a narrower, taller curve that approaches a delta function.**
@@ -293,7 +329,10 @@ $$f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\ri
 - Sky background noise in an image is approximately normal.
 - A bright pixel is $z$ standard deviations above the background.
 - The chance that pure noise produces a fluctuation at least that large is the **one-sided tail probability**:
-$$P(Z \ge z) = 1 - \Phi(z) = \int_z^{\infty} \frac{1}{\sqrt{2\pi}}\, e^{-t^2/2}\,dt$$
+
+```math
+P(Z \ge z) = 1 - \Phi(z) = \int_z^{\infty} \frac{1}{\sqrt{2\pi}}\, e^{-t^2/2}\,dt
+```
   ⚠️ The normalising constant was spoken as "$1/(2\sigma)$". For the standard normal it is $1/\sqrt{2\pi}$.
 - **Detection thresholds** are usually $3\sigma$ or $5\sigma$:
   - $P(Z \ge 3) \approx 1.35\times10^{-3}$, so an image with $10^6$ pixels gives roughly 1,350 false "$3\sigma$ detections" from noise alone.
@@ -321,10 +360,16 @@ $$P(Z \ge z) = 1 - \Phi(z) = \int_z^{\infty} \frac{1}{\sqrt{2\pi}}\, e^{-t^2/2}\
 **Steps:**
 1. Difference in means: $\Delta = 73.04 - 67.4 = 5.64$ (the instructor said "≈ 6").
 2. Propagated (combined) error:
-$$\sigma_\Delta = \sqrt{0.5^2 + 1.04^2} \approx 1.154$$
+
+```math
+\sigma_\Delta = \sqrt{0.5^2 + 1.04^2} \approx 1.154
+```
    This is larger than either individual error.
 3. Significance:
-$$z = \Delta/\sigma_\Delta \approx 5.64/1.154 \approx 4.9 \approx 5\sigma$$
+
+```math
+z = \Delta/\sigma_\Delta \approx 5.64/1.154 \approx 4.9 \approx 5\sigma
+```
 4. The probability of a difference this large arising by chance is about $10^{-6}$.
 
 This is "one of the biggest open questions in cosmology". In the plot, the two Gaussians were drawn side by side: Planck's is narrow and sharply peaked; SH0ES's is a wider bell.
@@ -379,13 +424,19 @@ plt.show()
 
 ### 2.12 Exponential distribution (revisited)
 - Models the waiting time between two photon arrivals:
-$$f(x) = \lambda e^{-\lambda x}, \quad x \ge 0$$
+
+```math
+f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
+```
 - Mean $= 1/\lambda$, variance $= 1/\lambda^2$, median $= \ln 2/\lambda$.
 - The plot is the same as in §2.8.
 
 ### 2.13 Uniform distribution: random times and random sky directions
 **Definition:** every value in $[a, b]$ is equally likely:
-$$f(x) = \frac{1}{b-a}, \quad a \le x \le b$$
+
+```math
+f(x) = \frac{1}{b-a}, \quad a \le x \le b
+```
 
 | Statistic | Formula |
 |---|---|
@@ -401,15 +452,24 @@ $$f(x) = \frac{1}{b-a}, \quad a \le x \le b$$
 - The star is in eclipse for 10% of its orbital period.
 - Observing at a random moment, the orbital phase is $\phi \sim U(0,1)$.
 - If the eclipse occupies $0.45 \le \phi \le 0.55$, then
-$$P(0.45 \le \phi \le 0.55) = 0.10$$
+
+```math
+P(0.45 \le \phi \le 0.55) = 0.10
+```
 - ⚠️ The upper bound was spoken as "0.5". It must be 0.55 to give a width of 0.10.
 
 **Example 2: isotropic gamma-ray bursts**
 - Classical GRBs are spread isotropically over the sky, so $\sin(\text{dec})$ is uniform on $[-1, 1]$.
 - Fraction of sky within $\pm30^\circ$ of the celestial equator:
-$$\frac{\sin 30^\circ - \sin(-30^\circ)}{2} = 0.5$$
+
+```math
+\frac{\sin 30^\circ - \sin(-30^\circ)}{2} = 0.5
+```
 - For an observer at latitude $22.7^\circ$ N (likely an Indian site), declinations above $-(90^\circ - 22.7^\circ) = -67.3^\circ$ can rise above the horizon. The visible fraction is
-$$\frac{1 + \sin 67.3^\circ}{2} \approx 0.96$$
+
+```math
+\frac{1 + \sin 67.3^\circ}{2} \approx 0.96
+```
 
 **Plots:**
 - Density vs orbital phase on $[0,1]$: a flat line (red).
@@ -436,14 +496,20 @@ print(np.mean(dec > -(90 - 22.7)))             # ≈ 0.96
 ### 2.14 Beta distribution: what fraction of galaxies are spirals?
 - The beta distribution describes a quantity that is itself a probability or fraction on $[0,1]$. It is the standard tool for Bayesian estimation of fractions.
 - **PDF:**
-$$f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \qquad B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$$
+
+```math
+f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \qquad B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}
+```
 - **Mean and variance:**
-$$\mu = \frac{\alpha}{\alpha+\beta}, \qquad \sigma^2 = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$$
+
+```math
+\mu = \frac{\alpha}{\alpha+\beta}, \qquad \sigma^2 = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+```
 - **Mode:** $\dfrac{\alpha-1}{\alpha+\beta-2}$ for $\alpha, \beta > 1$.
 
 **Example: Galaxy Zoo** (citizen-science classification into spiral, elliptical or barred galaxies)
 - Start from a flat prior, $\text{Beta}(1,1)$.
-- After observing $s$ spirals out of $n$ galaxies, the posterior is $\text{Beta}(1+s,\,1+n-s)$.
+- After observing $s$ spirals out of $n$ galaxies, the posterior is $\text{Beta}(1+s,\ 1+n-s)$.
 
 | Sample | Data | Posterior | Posterior mean |
 |---|---|---|---|
@@ -474,7 +540,10 @@ for name, d in [("field", field), ("cluster", cluster)]:
 
 ### 2.15 Gamma distribution: how long to collect enough X-ray photons
 - **PDF**, with shape $k$ (number of events) and scale $\theta$ (mean gap, $\theta = 1/\text{rate}$):
-$$f(x) = \frac{x^{k-1} e^{-x/\theta}}{\Gamma(k)\,\theta^{k}}, \quad x > 0$$
+
+```math
+f(x) = \frac{x^{k-1} e^{-x/\theta}}{\Gamma(k)\,\theta^{k}}, \quad x > 0
+```
   ⚠️ The $\Gamma(k)$ in the denominator was not spoken but is required.
 - Mean $= k\theta$; variance $= k\theta^2$.
 - **Interpretation:** the waiting time for the $k$-th photon is the sum of $k$ exponential gaps.
@@ -482,10 +551,16 @@ $$f(x) = \frac{x^{k-1} e^{-x/\theta}}{\Gamma(k)\,\theta^{k}}, \quad x > 0$$
 
 ### 2.16 Chi-square distribution (important: the backbone of goodness of fit)
 - **Definition:** if $Z_1, Z_2, \dots, Z_k$ are independent standard normal variables, then
-$$Q = \sum_{i=1}^{k} Z_i^2 \sim \chi^2_k$$
+
+```math
+Q = \sum_{i=1}^{k} Z_i^2 \sim \chi^2_k
+```
   where $k$ is the degrees of freedom.
 - **PDF:**
-$$f(x) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(k/2)}, \quad x > 0$$
+
+```math
+f(x) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(k/2)}, \quad x > 0
+```
   This is a gamma distribution with shape $k/2$ and scale $2$.
 - **Standard moments** (not all spoken):
 
@@ -498,7 +573,10 @@ $$f(x) = \frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma(k/2)}, \quad x > 0$$
   | Excess kurtosis | $12/k$ |
 
 - **Goodness-of-fit statistic** for data $y_i$, model values $m_i$ and uncertainties $\sigma_i$:
-$$\chi^2 = \sum_{i=1}^{N} \frac{(y_i - m_i)^2}{\sigma_i^2}$$
+
+```math
+\chi^2 = \sum_{i=1}^{N} \frac{(y_i - m_i)^2}{\sigma_i^2}
+```
   - Degrees of freedom $= N - (\text{number of fitted parameters})$.
   - Reduced chi-square: $\chi^2_\nu = \chi^2/\text{dof}$. A value near 1 indicates a good fit.
 - **Example:** two stars' magnitude measurements with $\sigma = 0.02$ mag (magnitudes around 9–10), each fitted with a model.
@@ -523,7 +601,10 @@ def chi_square(y, model, sigma):
 ### 2.17 Log-normal distribution: stellar masses
 - If $\ln X \sim \mathcal{N}(\mu, \sigma^2)$, then $X$ is log-normal. It looks Gaussian-like, but in $\ln x$ rather than $x$.
 - **PDF:**
-$$f(x) = \frac{1}{x\,\sigma\sqrt{2\pi}} \exp\!\left[-\frac{(\ln x - \mu)^2}{2\sigma^2}\right], \quad x > 0$$
+
+```math
+f(x) = \frac{1}{x\,\sigma\sqrt{2\pi}} \exp\!\left[-\frac{(\ln x - \mu)^2}{2\sigma^2}\right], \quad x > 0
+```
 - **Summary statistics:**
 
   | Statistic | Formula |
@@ -531,7 +612,7 @@ $$f(x) = \frac{1}{x\,\sigma\sqrt{2\pi}} \exp\!\left[-\frac{(\ln x - \mu)^2}{2\si
   | Mean | $e^{\mu+\sigma^2/2}$ |
   | Median | $e^{\mu}$ |
   | Mode | $e^{\mu-\sigma^2}$ |
-  | Variance | $(e^{\sigma^2}-1)\,e^{2\mu+\sigma^2}$ |
+  | Variance | $(e^{\sigma^2}-1)\ e^{2\mu+\sigma^2}$ |
 
 - **Example: stellar initial mass function** (specific $\mu, \sigma$ not captured; "refer to at home"). The result is mode $\ll$ median $\ll$ mean, i.e. an extremely right-skewed curve.
 - Python: `scipy.stats.lognorm(s=sigma, scale=np.exp(mu))`. A number "49.1" was spoken here in a garbled context and is unclear.

@@ -18,7 +18,7 @@ faculty: Deepak Sethia
 
 ## 1. Overview
 
-This session continues from the previous class's derivation of the **money multiplier**. It opens with a quick recap and a numerical exercise ($rr = 10\%$, $cr = 30\%$, giving a multiplier of 3.25). It then explains why **banks are unique financial institutions**: they create money, while bond and equity markets only transfer savings. A ₹1,000 example with a 10% reserve requirement shows how withdrawals and transfers leave individual banks with reserve surpluses or deficits. That gap is why **interbank markets** exist and why banks borrow from or park money with the RBI.
+This session continues from the previous class's derivation of the **money multiplier**. It opens with a quick recap and a numerical exercise ($rr = 10\text{%}$, $cr = 30\text{%}$, giving a multiplier of 3.25). It then explains why **banks are unique financial institutions**: they create money, while bond and equity markets only transfer savings. A ₹1,000 example with a 10% reserve requirement shows how withdrawals and transfers leave individual banks with reserve surpluses or deficits. That gap is why **interbank markets** exist and why banks borrow from or park money with the RBI.
 
 The lecture then sets up the **inverse relationship between bond prices and interest rates** using a perpetual bond. It uses this to show that "RBI sells bonds", "money supply falls" and "interest rates rise" are one and the same event. The two RBI tools are compared:
 
@@ -51,15 +51,21 @@ The session also covers:
 
 Together these form the **monetary base**. Three names are used for the same thing: **high-powered money = monetary base = M0** (narrow money):
 
-$$B = C + R$$
+```math
+B = C + R
+```
 
 **Broad money / money supply:**
 
-$$M = C + D$$
+```math
+M = C + D
+```
 
 **Money multiplier.** Divide each term of the numerator and denominator by $D$:
 
-$$m = \frac{M}{B} = \frac{C + D}{C + R} = \frac{\frac{C}{D} + 1}{\frac{C}{D} + \frac{R}{D}} = \frac{cr + 1}{cr + rr}$$
+```math
+m = \frac{M}{B} = \frac{C + D}{C + R} = \frac{\frac{C}{D} + 1}{\frac{C}{D} + \frac{R}{D}} = \frac{cr + 1}{cr + rr}
+```
 
 where:
 - $cr = \frac{C}{D}$ is the **currency–deposit ratio**.
@@ -67,7 +73,9 @@ where:
 
 Therefore:
 
-$$M = m \times B$$
+```math
+M = m \times B
+```
 
 **Intuition: a smaller $rr$ means a larger multiplier.**
 - Each unit of reserves supports more deposits.
@@ -97,7 +105,9 @@ $$M = m \times B$$
 
 Given $rr = 0.10$ and $cr = 0.30$:
 
-$$m = \frac{0.30 + 1}{0.30 + 0.10} = \frac{1.30}{0.40} = 3.25$$
+```math
+m = \frac{0.30 + 1}{0.30 + 0.10} = \frac{1.30}{0.40} = 3.25
+```
 
 #### Worked Example 2: Change in money supply from an open market purchase (US Fed)
 
@@ -105,7 +115,9 @@ $$m = \frac{0.30 + 1}{0.30 + 0.10} = \frac{1.30}{0.40} = 3.25$$
 - Banks lend out the surplus. Borrowers deposit it. Banks keep a fraction and lend again, and the cycle repeats.
 - Using the multiplier from Example 1:
 
-$$\Delta M = m \times \Delta B = 3.25 \times \$40\text{ million} = \$130\text{ million}$$
+```math
+\Delta M = m \times \Delta B = 3.25 \times \$40\text{ million} = \$130\text{ million}
+```
 
 - The Fed created only \$40 million directly. The deposit and loan creation process raised the money supply by \$130 million.
 
@@ -177,7 +189,9 @@ Tata Motors wants to build a car factory and has two ways to raise funds.
 
 **Pricing a perpetual bond** (the present value of a perpetuity):
 
-$$P = \frac{C}{i}$$
+```math
+P = \frac{C}{i}
+```
 
 where $C$ is the annual coupon and $i$ is the market interest rate.
 
@@ -190,14 +204,18 @@ where $C$ is the annual coupon and $i$ is the market interest rate.
 - Would you sell your ₹100/year bond for ₹1,000? **No**, because ₹1,000 now buys only ₹80 a year.
 - What price matches your bond? Solve $0.08 \times X = 100$:
 
-$$X = \frac{100}{0.08} = ₹1{,}250$$
+```math
+X = \frac{100}{0.08} = ₹1{,}250
+```
 
 - So your bond's price **rises to ₹1,250**.
 
 **If the interest rate rises to 12%:**
 - No one will pay ₹1,000 for your bond.
 
-$$P = \frac{100}{0.12} \approx ₹833$$
+```math
+P = \frac{100}{0.12} \approx ₹833
+```
 
 - The lecturer said "around ₹850 or so"; the exact value is about ₹833.
 
@@ -211,7 +229,9 @@ $$P = \frac{100}{0.12} \approx ₹833$$
 
 **Key takeaway:**
 
-$$i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarrow \;\Rightarrow\; P_{\text{bond}} \uparrow$$
+```math
+i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarrow \;\Rightarrow\; P_{\text{bond}} \uparrow
+```
 
 ---
 
@@ -433,11 +453,15 @@ $$i \uparrow \;\Rightarrow\; P_{\text{bond}} \downarrow \qquad\qquad i \downarro
 - CRR is about **4%** and SLR is about **18%**.
 - Locked share of deposits:
 
-$$4\% + 18\% = 22\%$$
+```math
+4\% + 18\% = 22\%
+```
 
 - Loanable share:
 
-$$100\% - 22\% = 78\%$$
+```math
+100\% - 22\% = 78\%
+```
 
 **Purpose: a captive market for government securities.**
 - When the government runs fiscal deficits and wants to borrow at rates below what the market would demand, a high SLR **forces banks to lend to the government**.
@@ -468,7 +492,7 @@ $$100\% - 22\% = 78\%$$
 
 **Money multiplier calculation** (likely exam-style):
 - Use $m = \frac{cr+1}{cr+rr}$ and $\Delta M = m \times \Delta B$.
-- Practice: $rr = 10\%$, $cr = 30\%$ gives $m = 3.25$. A \$40m open market purchase then gives $\Delta M = \$130$m.
+- Practice: $rr = 10\text{%}$, $cr = 30\text{%}$ gives $m = 3.25$. A \$40m open market purchase then gives $\Delta M = \text{USD }130$m.
 
 **Core relationship to master.** Bond prices and interest rates move inversely.
 - "RBI sells bonds = money supply falls = interest rates rise = bond prices fall" are **one event**, not four.

@@ -37,13 +37,22 @@ This session finished the unit on discrete random variables. It began with a wor
 **Question:** What is the probability that the 6th person sampled is the first with CPR training?
 
 For this to happen, the first 5 people must be failures (untrained) and the 6th must be a success:
-$$P(X = 6) = (0.7)^5 \times (0.3)^1 = 0.16807 \times 0.3 \approx 0.0504$$
+
+```math
+P(X = 6) = (0.7)^5 \times (0.3)^1 = 0.16807 \times 0.3 \approx 0.0504
+```
 
 **General geometric PMF:**
-$$P(X = x) = (1-p)^{x-1}\,p, \qquad x = 1, 2, 3, \dots$$
+
+```math
+P(X = x) = (1-p)^{x-1}\,p, \qquad x = 1, 2, 3, \dots
+```
 
 **Mean and variance** (recalled from the previous class):
-$$E[X] = \frac{1}{p}, \qquad \mathrm{Var}(X) = \frac{1-p}{p^2}$$
+
+```math
+E[X] = \frac{1}{p}, \qquad \mathrm{Var}(X) = \frac{1-p}{p^2}
+```
 
 - The intuition given in class: for a fair die, $P(\text{a particular face}) = 1/6$, so on average you need 6 rolls to get one success.
 - For the CPR example:
@@ -60,12 +69,21 @@ $$E[X] = \frac{1}{p}, \qquad \mathrm{Var}(X) = \frac{1-p}{p^2}$$
 There are two ways to solve it:
 
 1. **Add the PMF values:**
-$$P(X \le 3) = P(X=1) + P(X=2) + P(X=3)$$
+
+```math
+P(X \le 3) = P(X=1) + P(X=2) + P(X=3)
+```
 2. **Use the complement:**
-$$P(X \le 3) = 1 - P(X > 3) = 1 - \big[P(X=4) + P(X=5) + \cdots\big]$$
+
+```math
+P(X \le 3) = 1 - P(X > 3) = 1 - \big[P(X=4) + P(X=5) + \cdots\big]
+```
 
 **CDF of the geometric distribution:** it has a simple closed form.
-$$F(x) = P(X \le x) = 1 - (1-p)^x$$
+
+```math
+F(x) = P(X \le x) = 1 - (1-p)^x
+```
 
 This works because $P(X > x) = (1-p)^x$, which is the probability that the first $x$ trials are all failures.
 
@@ -97,14 +115,23 @@ For the CPR example: $P(X \le 3) = 1 - 0.7^3 = 1 - 0.343 = 0.657$ *(computed for
 **Derivation of the PMF:** "The $r$-th success occurs on trial $n$" means two things must both happen:
 
 1. The first $n-1$ trials contain exactly $r-1$ successes. This is a binomial probability:
-$$\binom{n-1}{r-1}\,p^{\,r-1}\,(1-p)^{(n-1)-(r-1)}$$
+
+```math
+\binom{n-1}{r-1}\,p^{\,r-1}\,(1-p)^{(n-1)-(r-1)}
+```
 2. The $n$-th trial is a success, which contributes one more factor of $p$.
 
 Multiplying these together gives:
-$$\boxed{P(X = n) = \binom{n-1}{r-1}\,p^{\,r}\,(1-p)^{\,n-r}, \qquad n = r, r+1, r+2, \dots}$$
+
+```math
+\boxed{P(X = n) = \binom{n-1}{r-1}\,p^{\,r}\,(1-p)^{\,n-r}, \qquad n = r, r+1, r+2, \dots}
+```
 
 **Mean and variance:**
-$$E[X] = \frac{r}{p}, \qquad \mathrm{Var}(X) = \frac{r(1-p)}{p^2}$$
+
+```math
+E[X] = \frac{r}{p}, \qquad \mathrm{Var}(X) = \frac{r(1-p)}{p^2}
+```
 
 Compare with the geometric's $1/p$ and $(1-p)/p^2$: both are simply multiplied by $r$.
 
@@ -117,7 +144,9 @@ Compare with the geometric's $1/p$ and $(1-p)/p^2$: both are simply multiplied b
 - **What must happen:** the first 6 shots must contain **exactly** 5 successes (the transcript says "at least five", but it must be exactly 5). The 7th shot must then be a success.
 - **Exponent check:** there was some confusion in class about the exponent on $0.3$. It is $n - r = 7 - 6 = 1$, which is the same as $(n-1)-(r-1) = 6 - 5 = 1$.
 
-$$P(X=7) = \binom{6}{5}(0.7)^6(0.3)^1 = 6 \times 0.117649 \times 0.3 \approx 0.2118 \quad \text{(computed for these notes)}$$
+```math
+P(X=7) = \binom{6}{5}(0.7)^6(0.3)^1 = 6 \times 0.117649 \times 0.3 \approx 0.2118 \quad \text{(computed for these notes)}
+```
 
 #### Worked Example 2: Telephone survey
 
@@ -126,13 +155,22 @@ $$P(X=7) = \binom{6}{5}(0.7)^6(0.3)^1 = 6 \times 0.117649 \times 0.3 \approx 0.2
 **Question:** What is the probability that the 3rd completed survey occurs on the 10th call? Here $r = 3$ and $n = 10$.
 
 1. Write out the formula:
-$$P(X=10) = \binom{10-1}{3-1}(0.09)^{3}(1-0.09)^{10-3} = \binom{9}{2}(0.09)^3(0.91)^7$$
+
+```math
+P(X=10) = \binom{10-1}{3-1}(0.09)^{3}(1-0.09)^{10-3} = \binom{9}{2}(0.09)^3(0.91)^7
+```
 2. Where the pieces come from: the 9 earlier calls give $(0.09)^2 (0.91)^7$, and multiplying by the successful 10th call turns $(0.09)^2$ into $(0.09)^3$.
 3. Evaluate:
-$$= 36 \times 0.000729 \times 0.5168 \approx 0.01356 \;(\approx 1.36\%)$$
+
+```math
+= 36 \times 0.000729 \times 0.5168 \approx 0.01356 \;(\approx 1.36\%)
+```
 
 **Follow-up:** On average, how many calls must the surveyor make per day?
-$$E[X] = \frac{r}{p} = \frac{3}{0.09} \approx 33.33 \text{ calls}$$
+
+```math
+E[X] = \frac{r}{p} = \frac{3}{0.09} \approx 33.33 \text{ calls}
+```
 
 - **Rounding question from a student:** If the result were 33.8, should you round to 33 or 34? The instructor said to follow normal rounding rules: below .5 round down, .5 or above round up. So 33.33 rounds to about 33 calls.
 - Like the geometric, a table of $P(X = x)$ for $x = 3, 4, 5, \dots$ gives a **right-skewed** distribution.
@@ -152,7 +190,9 @@ All distributions covered before this one assumed independent trials, which is e
 - **Denominator:** the number of ways to choose 5 people from 25 is $\binom{25}{5}$.
 - **Numerator:** choose 4 of the 6 doctors and 1 of the 19 nurses.
 
-$$P(X=4) = \frac{\binom{6}{4}\binom{19}{1}}{\binom{25}{5}} = \frac{15 \times 19}{53130} = \frac{285}{53130} \approx 0.00536 \quad \text{(computed for these notes)}$$
+```math
+P(X=4) = \frac{\binom{6}{4}\binom{19}{1}}{\binom{25}{5}} = \frac{15 \times 19}{53130} = \frac{285}{53130} \approx 0.00536 \quad \text{(computed for these notes)}
+```
 
 #### General form
 
@@ -163,7 +203,9 @@ A population has two types of items. Examples: doctors and nurses, red and white
 - $n$ = sample size, drawn without replacement
 - $X$ = number of items of the type of interest in the sample
 
-$$\boxed{P(X = i) = \frac{\binom{N}{i}\binom{M}{n-i}}{\binom{N+M}{n}}}$$
+```math
+\boxed{P(X = i) = \frac{\binom{N}{i}\binom{M}{n-i}}{\binom{N+M}{n}}}
+```
 
 - Any random variable with this PMF is a **hypergeometric random variable**.
 - The key parameters are $N$, $M$ and $n$. The value $i$ is the outcome, not a parameter.
@@ -171,7 +213,10 @@ $$\boxed{P(X = i) = \frac{\binom{N}{i}\binom{M}{n-i}}{\binom{N+M}{n}}}$$
 **Terminology reminder from the instructor:** for discrete random variables we say **probability mass function (PMF)**. "Density" (PDF) is reserved for continuous random variables.
 
 **Mean and variance:** let $p = \dfrac{N}{N+M}$ be the proportion of the type of interest.
-$$E[X] = np, \qquad \mathrm{Var}(X) = np(1-p)\left[1 - \frac{n-1}{N+M-1}\right]$$
+
+```math
+E[X] = np, \qquad \mathrm{Var}(X) = np(1-p)\left[1 - \frac{n-1}{N+M-1}\right]
+```
 
 The bracketed factor is the finite-population correction. Without it, the variance would be the binomial $np(1-p)$.
 
@@ -184,14 +229,18 @@ The bracketed factor is the finite-population correction. Without it, the varian
 
 **Question:** What is $P(\text{system functional})$? Here $N = 15$ (working), $M = 5$ (not working) and $n = 6$.
 
-$$P(X \ge 4) = \sum_{i=4}^{6} P(X=i) = \frac{\binom{15}{4}\binom{5}{2} + \binom{15}{5}\binom{5}{1} + \binom{15}{6}\binom{5}{0}}{\binom{20}{6}}$$
+```math
+P(X \ge 4) = \sum_{i=4}^{6} P(X=i) = \frac{\binom{15}{4}\binom{5}{2} + \binom{15}{5}\binom{5}{1} + \binom{15}{6}\binom{5}{0}}{\binom{20}{6}}
+```
 
 Term by term:
 - $i=4$: 4 working and 2 not working, $1365 \times 10 = 13650$
 - $i=5$: 5 working and 1 not working, $3003 \times 5 = 15015$
 - $i=6$: all 6 working, $5005 \times 1 = 5005$
 
-$$P(X\ge 4) = \frac{33670}{38760} \approx 0.8687 \quad \text{(computed for these notes)}$$
+```math
+P(X\ge 4) = \frac{33670}{38760} \approx 0.8687 \quad \text{(computed for these notes)}
+```
 
 The instructor noted that if the condition had been exactly 4, only the first term would be needed.
 
@@ -201,7 +250,7 @@ The instructor noted that if the condition had been exactly 4, only the first te
 
 | RV | Situation | PMF | $E[X]$ | $\mathrm{Var}(X)$ |
 |---|---|---|---|---|
-| **Bernoulli** | A single trial ($n=1$) | $P(X=0)=1-p,\; P(X=1)=p$ | $p$ | $p(1-p)$ |
+| **Bernoulli** | A single trial ($n=1$) | $P(X=0)=1-p,\  P(X=1)=p$ | $p$ | $p(1-p)$ |
 | **Binomial** | Number of successes in $n$ fixed independent trials | $\binom{n}{x}p^x(1-p)^{n-x}$ | $np$ | $np(1-p)$ |
 | **Poisson** | Approximates the binomial when $n\to\infty$ and $p$ is small, with $\lambda = np$ | $\dfrac{e^{-\lambda}\lambda^x}{x!}$ | $\lambda$ | $\lambda$ (mean = variance) |
 | **Geometric** | Trial on which the 1st success occurs ($n$ not fixed) | $(1-p)^{x-1}p$ | $\dfrac{1}{p}$ | $\dfrac{1-p}{p^2}$ |
@@ -224,7 +273,9 @@ The instructor noted that if the condition had been exactly 4, only the first te
 - 7 fish are caught. What is $P(\text{exactly 2 tagged})$?
 - In an earlier class this was treated as binomial. Today it was redone as hypergeometric (without replacement), with $N=10$, $M=40$ and $n=7$.
 
-$$P(X=2) = \frac{\binom{10}{2}\binom{40}{5}}{\binom{50}{7}}$$
+```math
+P(X=2) = \frac{\binom{10}{2}\binom{40}{5}}{\binom{50}{7}}
+```
 
 The instructor briefly said "$\binom{7}{2}$" and then corrected it to $\binom{10}{2}$, because you choose 2 from the 10 tagged fish.
 

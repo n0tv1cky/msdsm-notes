@@ -75,13 +75,17 @@ Everything is the same as above, but the bread is perishable, so the 10 kg of un
 - Bakery workers receive +3
 - The baker (entrepreneur) earns a negative profit of −18
 
-$$15 + 3 - 18 = 0$$
+```math
+15 + 3 - 18 = 0
+```
 
 **Rule:** all incomes, positive or negative, count in GDP. Worthless or perished items do not appear on the expenditure side, and an equal loss to the business owner appears on the income side. Both approaches still match.
 
 ### 2.4 Uses of output and the three approaches
 
-$$Y = C + I + G + X - M$$
+```math
+Y = C + I + G + X - M
+```
 
 Output must be consumed, invested, used by government, exported, or (subtracted) imported.
 
@@ -135,7 +139,9 @@ The same item can be consumption or investment depending on its use:
 - The ₹70,000 goes to foreign workers and firms.
 - To reconcile, $M = 70{,}000$:
 
-$$Y = 80{,}000 - 70{,}000 = 10{,}000$$
+```math
+Y = 80{,}000 - 70{,}000 = 10{,}000
+```
 
 - Domestic activity (sales, marketing, seller's margin) is counted in India. Foreign manufacturing is not.
 
@@ -161,7 +167,9 @@ $$Y = 80{,}000 - 70{,}000 = 10{,}000$$
 - **Final product approach:** value of the pizza is 200.
 - **Production (value-added) approach:**
 
-$$\sum (\text{sales} - \text{intermediate inputs}) = 23 + 30 + 57 + 90 = 200$$
+```math
+\sum (\text{sales} - \text{intermediate inputs}) = 23 + 30 + 57 + 90 = 200
+```
 
 - **Income approach:** each stage's value added is distributed as wages and profits. Summing these also gives 200.
 
@@ -169,7 +177,9 @@ $$\sum (\text{sales} - \text{intermediate inputs}) = 23 + 30 + 57 + 90 = 200$$
 - With 5% GST, the consumer pays $200 \times 1.05 = 210$.
 - Factor owners still receive only 200; the ₹10 goes to government.
 
-$$\text{GDP at market prices} = \text{GDP at factor cost} + \text{indirect taxes} - \text{subsidies}$$
+```math
+\text{GDP at market prices} = \text{GDP at factor cost} + \text{indirect taxes} - \text{subsidies}
+```
 
 Summary of the three approaches:
 - **Expenditure:** $C + I + G + NX$
@@ -190,30 +200,42 @@ All three give the same GDP.
 
 **GDP at factor cost (income earned in India):**
 
-$$3{,}000 + 1{,}000 = 4{,}000$$
+```math
+3{,}000 + 1{,}000 = 4{,}000
+```
 
 **Expenditure approach:**
 
-$$Y = C - M = 11{,}500 - 6{,}000 = 5{,}500$$
+```math
+Y = C - M = 11{,}500 - 6{,}000 = 5{,}500
+```
 
 **Income approach at market prices:**
 
-$$4{,}000 + 2{,}000 - 500 = 5{,}500$$
+```math
+4{,}000 + 2{,}000 - 500 = 5{,}500
+```
 
 Both approaches give ₹5,500. Indirect taxes are added and subsidies deducted.
 
 ### 2.11 Gross vs Net: NDP
 
-$$\text{NDP} = Y - \text{Depreciation}$$
+```math
+\text{NDP} = Y - \text{Depreciation}
+```
 
 - Depreciation is technically called **consumption of fixed capital**. It covers physical wear and tear and **obsolescence**. For example, a 5-year-old laptop still works but has depreciated because it is obsolete.
 
-$$\text{Net investment} = I - \text{Depreciation}$$
+```math
+\text{Net investment} = I - \text{Depreciation}
+```
 
 **Example:**
 - Gross investment is ₹1,500 crore, of which ₹600 crore replaces depreciated capital.
 
-$$\text{Net investment} = 1{,}500 - 600 = ₹900 \text{ crore}$$
+```math
+\text{Net investment} = 1{,}500 - 600 = ₹900 \text{ crore}
+```
 
 **Why we focus on GDP, not NDP:**
 - For **growth**, which concerns creating new capacity and supply, net additions to capacity (₹900 cr) matter.
@@ -252,19 +274,27 @@ $$\text{Net investment} = 1{,}500 - 600 = ₹900 \text{ crore}$$
 
 Start with
 
-$$Y = C + I + G + X - M$$
+```math
+Y = C + I + G + X - M
+```
 
 Let $T$ be tax revenue and $TR$ be government transfer payments. Subtract $T$ and add $TR$ on both sides:
 
-$$\underbrace{Y - T + TR}_{\text{household disposable income}} = C + I + \underbrace{(G + TR - T)}_{\text{fiscal deficit}} + (X - M)$$
+```math
+\underbrace{Y - T + TR}_{\text{household disposable income}} = C + I + \underbrace{(G + TR - T)}_{\text{fiscal deficit}} + (X - M)
+```
 
 **Example:** income 100, tax 30, transfer 10 (e.g., PM-Kisan Samman Nidhi or Ladli Behna):
 
-$$100 - 30 + 10 = 80$$
+```math
+100 - 30 + 10 = 80
+```
 
 Moving $C$ to the left side gives household savings:
 
-$$\underbrace{(Y - T + TR - C)}_{S_{\text{household}}} = I + \underbrace{(G + TR - T)}_{\text{fiscal deficit}} + \underbrace{(X - M)}_{\text{trade surplus}}$$
+```math
+\underbrace{(Y - T + TR - C)}_{S_{\text{household}}} = I + \underbrace{(G + TR - T)}_{\text{fiscal deficit}} + \underbrace{(X - M)}_{\text{trade surplus}}
+```
 
 **Interpretation:** household savings, deposited in banks, fund:
 - firms' investment
@@ -308,11 +338,15 @@ GDP can rise through higher volume, higher prices, or both.
 
 **Nominal GDP (GDP at current prices):** current-year quantities × current-year prices. For example:
 
-$$\text{Nominal GDP}_{2026} = \sum Q_{2026} \times P_{2026}$$
+```math
+\text{Nominal GDP}_{2026} = \sum Q_{2026} \times P_{2026}
+```
 
 **Real GDP (GDP at constant prices):** quantities valued at base-year prices. For example, with 2015 as the base year:
 
-$$\text{Real GDP}_{2026} = \sum Q_{2026} \times P_{2015}$$
+```math
+\text{Real GDP}_{2026} = \sum Q_{2026} \times P_{2015}
+```
 
 **Example:**
 - Income rose from ₹50,000 (2015) to ₹1.5 lakh, a nominal tripling.
@@ -336,7 +370,9 @@ Nothing was explicitly flagged as exam or assignment material. The lecturer stre
 - **GNP is based on residency, not citizenship.** Remittances are transfers, not factor income.
 - **Savings–investment identity and twin deficits:**
 
-$$S_h = I + (G + TR - T) + (X - M)$$
+```math
+S_h = I + (G + TR - T) + (X - M)
+```
 
 - **Exclusions:** financial assets, second-hand goods (margins only), transfers, gifts, illegal activity.
 - **Nominal vs real GDP:** to be continued next session.

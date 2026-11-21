@@ -38,20 +38,35 @@ This session was driven by a student question emailed to the instructor, and is 
 - Draw the population distribution $P(x)$, Gaussian, centred at $\mu = 52{,}174$, width set by $\sigma = 7{,}500$.
 - A single random draw is most likely to land near the mean; the probability of landing within $1\sigma$, $2\sigma$, $3\sigma$ of the mean increases as you widen the band (covering essentially the whole distribution by $3\sigma$).
 - Measure the distance of 50,000 from the mean **in units of $\sigma$**:
-$$z = \frac{50{,}000 - \mu}{\sigma} = \frac{50{,}000 - 52{,}174}{7{,}500} = \frac{-2{,}174}{7{,}500} \approx -0.29$$
+
+```math
+z = \frac{50{,}000 - \mu}{\sigma} = \frac{50{,}000 - 52{,}174}{7{,}500} = \frac{-2{,}174}{7{,}500} \approx -0.29
+```
 - The answer is the **area under the curve from $-\infty$ to 50,000**:
-$$P(X < 50{,}000) = \int_{-\infty}^{50{,}000} P(x)\,dx = \Phi(-0.29) \approx 0.38 \quad (\approx 38\%)$$
+
+```math
+P(X < 50{,}000) = \int_{-\infty}^{50{,}000} P(x)\,dx = \Phi(-0.29) \approx 0.38 \quad (\approx 38\%)
+```
 
 **Question (b):** If we sample 100 teacher salaries, what is the probability that the **sample mean** is less than \$50,000 per year?
 
 - The population is unchanged ($\mu$, $\sigma$ as before). What changes is *which random variable* we are asking about: $\bar{X}$, not $X$.
 - **CLT statement used:** in the limit of large sample size, the sample mean approaches the population mean,
-$$\mu_s \equiv \bar{X} \longrightarrow \mu \quad \text{as } n \to \infty$$
+
+```math
+\mu_s \equiv \bar{X} \longrightarrow \mu \quad \text{as } n \to \infty
+```
 - But the spread of the *sampling distribution of the mean* is **not** $\sigma$. It is the **standard error**:
-$$\boxed{\ \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\ } \qquad \text{equivalently} \qquad \sigma^2_{\bar{X}} = \frac{\sigma^2}{n}$$
+
+```math
+\boxed{\ \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\ } \qquad \text{equivalently} \qquad \sigma^2_{\bar{X}} = \frac{\sigma^2}{n}
+```
 - For $n = 100$: $\sigma_{\bar{X}} = \dfrac{7{,}500}{\sqrt{100}} = \dfrac{7{,}500}{10} = 750$.
 - Hence
-$$z = \frac{50{,}000 - 52{,}174}{750} \approx -2.90 \qquad\Rightarrow\qquad P(\bar{X} < 50{,}000) = \Phi(-2.90) \approx 0.0019$$
+
+```math
+z = \frac{50{,}000 - 52{,}174}{750} \approx -2.90 \qquad\Rightarrow\qquad P(\bar{X} < 50{,}000) = \Phi(-2.90) \approx 0.0019
+```
 - **Interpretation contrast:**
  - Case (a) asks: *if you take one random sample, where is it likely to be found?*
  - Case (b) asks: *how certain are you that your estimate of the population mean is correct?*
@@ -73,29 +88,46 @@ $$z = \frac{50{,}000 - 52{,}174}{750} \approx -2.90 \qquad\Rightarrow\qquad P(\b
 ### 2.4 Worked Example 2 — Bank Teller (CLT for a *sum* of i.i.d. variables)
 
 **Given:** A bank teller serves customers one at a time (serially). The service time $X_i$ for customer $i$ has
-$$\mathbb{E}[X_i] = \mu = 2 \text{ minutes}, \qquad \operatorname{Var}(X_i) = \sigma^2 = 1 \ (\text{so } \sigma = 1)$$
+
+```math
+\mathbb{E}[X_i] = \mu = 2 \text{ minutes}, \qquad \operatorname{Var}(X_i) = \sigma^2 = 1 \ (\text{so } \sigma = 1)
+```
 Service times for different customers are **independent**. Let $Y$ be the total time to serve 50 customers:
-$$Y = \sum_{i=1}^{50} X_i$$
+
+```math
+Y = \sum_{i=1}^{50} X_i
+```
 
 **Question:** $P(90 < Y < 110)$?
 
 - Naive expectation: if every customer took exactly the mean time, $Y = n\mu = 50 \times 2 = 100$ minutes.
 - Standardise the sum (CLT for sums):
-$$Z = \frac{Y - n\mu}{\sqrt{n}\,\sigma} \sim N(0,1) \quad \text{approximately}$$
+
+```math
+Z = \frac{Y - n\mu}{\sqrt{n}\,\sigma} \sim N(0,1) \quad \text{approximately}
+```
 - Lower limit: $\dfrac{90 - 100}{\sqrt{50}\cdot 1} = \dfrac{-10}{\sqrt{50}} = -\sqrt{2} \approx -1.414$
 - Upper limit: $\dfrac{110 - 100}{\sqrt{50}\cdot 1} = \dfrac{+10}{\sqrt{50}} = +\sqrt{2} \approx +1.414$
 - So
-$$P(90 < Y < 110) = P(-\sqrt{2} < Z < \sqrt{2}) = \Phi(\sqrt{2}) - \Phi(-\sqrt{2}) \approx 0.8427$$
+
+```math
+P(90 < Y < 110) = P(-\sqrt{2} < Z < \sqrt{2}) = \Phi(\sqrt{2}) - \Phi(-\sqrt{2}) \approx 0.8427
+```
 - **Method note:** this is just the difference of two CDFs — evaluate the cumulative distribution at 110 and at 90 and subtract.
-- **Sanity check against the empirical rule:** $\pm 1\sigma$ covers $\approx 68.2\%$ ($34\% + 34\%$); the next band contributes $\approx 13.6\%$ per side. $84.27\%$ sits a bit beyond $1\sigma$ but well inside $2\sigma$ — consistent with $z = \pm 1.414$.
+- **Sanity check against the empirical rule:** $\pm 1\sigma$ covers $\approx 68.2\text{%}$ ($34\text{%} + 34\text{%}$); the next band contributes $\approx 13.6\text{%}$ per side. $84.27\text{%}$ sits a bit beyond $1\sigma$ but well inside $2\sigma$ — consistent with $z = \pm 1.414$.
 - **Interpretation:** it is highly likely that total service time falls in 90–110 minutes, but the interval is wide, i.e. the associated uncertainty is large.
 
 ### 2.5 Bayes' Theorem — general form used all session
 
-$$P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}, \qquad P(B) = P(B\mid A)P(A) + P(B \mid A^{c})P(A^{c})$$
+```math
+P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}, \qquad P(B) = P(B\mid A)P(A) + P(B \mid A^{c})P(A^{c})
+```
 
 The denominator is the **marginalisation** (law of total probability). For continuous parameters the instructor wrote it as
-$$P(X \mid C) = \frac{P(C \mid X)\,P(X)}{\int P(C\mid X)\,P(X)\,dX}$$
+
+```math
+P(X \mid C) = \frac{P(C \mid X)\,P(X)}{\int P(C\mid X)\,P(X)\,dX}
+```
 with the pieces named: **likelihood $\times$ prior / evidence**.
 
 ### 2.6 Worked Example 3 — Multiple-Choice Test (Guessing)
@@ -109,15 +141,22 @@ Let $C$ = event "answers correctly", $K$ = event "knows the answer".
 
 **Question:** $P(K \mid C)$ — probability the student *knew* the answer, given they answered correctly.
 
-$$P(K \mid C) = \frac{P(C\mid K)\,P(K)}{P(C\mid K)P(K) + P(C \mid K^{c})P(K^{c})}$$
+```math
+P(K \mid C) = \frac{P(C\mid K)\,P(K)}{P(C\mid K)P(K) + P(C \mid K^{c})P(K^{c})}
+```
 
 - $P(C \mid K) = 1$ (if you know it, you get it right) $\Rightarrow$ numerator $= 1\cdot p = p$.
 - $P(C \mid K^{c}) = 1/m$, $P(K^{c}) = 1-p$.
 
-$$\boxed{\,P(K\mid C) = \frac{p}{p + \frac{1}{m}(1-p)} = \frac{mp}{1 + (m-1)p}\,}$$
+```math
+\boxed{\,P(K\mid C) = \frac{p}{p + \frac{1}{m}(1-p)} = \frac{mp}{1 + (m-1)p}\,}
+```
 
 **Numerical case:** $m = 5$ options, $p = 1/2$ (treat "knows / doesn't know" as 50-50):
-$$P(K\mid C) = \frac{5 \times 0.5}{1 + 4\times 0.5} = \frac{2.5}{3} = \frac{5}{6} \approx 0.833$$
+
+```math
+P(K\mid C) = \frac{5 \times 0.5}{1 + 4\times 0.5} = \frac{2.5}{3} = \frac{5}{6} \approx 0.833
+```
 
 **Interpretation given:** the probability of being right by pure guessing is only $1/6$ vs. $5/6$ for genuine knowledge — this is *why* objective/MCQ-based competitive exams are trustworthy instruments (absent paper leaks): a correct answer really does indicate knowledge.
 
@@ -132,11 +171,13 @@ Let $G$ = "suspect is guilty", $C$ = "suspect possesses the criminal's character
 - $P(C \mid G) = 1$ (if the suspect is the guilty party, they necessarily have the criminal's established characteristic)
 - $P(C \mid G^{c}) = 0.2$ (a random non-guilty person from the population has it with prob. 0.2)
 
-$$P(G \mid C) = \frac{P(C\mid G)P(G)}{P(C\mid G)P(G) + P(C\mid G^{c})P(G^{c})} = \frac{1 \times 0.6}{(1)(0.6) + (0.2)(0.4)} = \frac{0.6}{0.6 + 0.08} = \frac{0.60}{0.68} \approx 0.88$$
+```math
+P(G \mid C) = \frac{P(C\mid G)P(G)}{P(C\mid G)P(G) + P(C\mid G^{c})P(G^{c})} = \frac{1 \times 0.6}{(1)(0.6) + (0.2)(0.4)} = \frac{0.6}{0.6 + 0.08} = \frac{0.60}{0.68} \approx 0.88
+```
 
 **Interpretation:**
 - Belief rises from $0.60 \to \approx 0.88$. **Bayes' theorem lets you quantify the *weight* of circumstantial evidence.**
-- But it is **not** certainty: there remains $\approx 12\%$ probability the suspect is innocent. You cannot convict on this alone; you need additional evidence. What this result *does* justify is continuing the investigation — grilling the suspect, questioning other parties, collecting more evidence.
+- But it is **not** certainty: there remains $\approx 12\text{%}$ probability the suspect is innocent. You cannot convict on this alone; you need additional evidence. What this result *does* justify is continuing the investigation — grilling the suspect, questioning other parties, collecting more evidence.
 
 ### 2.8 Worked Example 4b — Bayesian **Update** When the Evidence Itself Is Uncertain
 
@@ -144,7 +185,9 @@ $$P(G \mid C) = \frac{P(C\mid G)P(G)}{P(C\mid G)P(G) + P(C\mid G^{c})P(G^{c})} =
 
 Now $P(C \mid G) = 0.9$ instead of $1$; $P(G) = 0.6$, $P(C\mid G^{c}) = 0.2$, $P(G^{c}) = 0.4$ are unchanged.
 
-$$P(G\mid C) = \frac{(0.9)(0.6)}{(0.9)(0.6) + (0.2)(0.4)} = \frac{0.54}{0.54 + 0.08} = \frac{0.54}{0.62} \approx 0.871$$
+```math
+P(G\mid C) = \frac{(0.9)(0.6)}{(0.9)(0.6) + (0.2)(0.4)} = \frac{0.54}{0.54 + 0.08} = \frac{0.54}{0.62} \approx 0.871
+```
 
 **Interpretation:** the posterior drops slightly (from $\approx 0.88$ to $\approx 0.87$). Bayes' theorem **updates** the degree of belief rather than discarding it wholesale — it does not suddenly declare the person innocent; it nudges the guilt probability.
 
@@ -153,9 +196,18 @@ $$P(G\mid C) = \frac{(0.9)(0.6)}{(0.9)(0.6) + (0.2)(0.4)} = \frac{0.54}{0.54 + 0
 A student (Ashraful) asked whether $P(C\mid G) + P(C \mid G^{c})$ should equal 1.
 
 - **Answer: No.** Conditional probabilities only sum to 1 when you **hold the conditioning event fixed and vary the event**:
-$$P(C\mid G) + P(C^{c}\mid G) = 1 \qquad \checkmark$$
-$$P(G) + P(G^{c}) = 1 \qquad \checkmark$$
-$$P(C\mid G) + P(C\mid G^{c}) \ne 1 \quad \text{in general} \qquad \times$$
+
+```math
+P(C\mid G) + P(C^{c}\mid G) = 1 \qquad \checkmark
+```
+
+```math
+P(G) + P(G^{c}) = 1 \qquad \checkmark
+```
+
+```math
+P(C\mid G) + P(C\mid G^{c}) \ne 1 \quad \text{in general} \qquad \times
+```
 - In $P(C\mid G)$ and $P(C\mid G^{c})$ the *conditioning* event changes — these are probabilities over two **different sub-populations** (the guilty group and the not-guilty group), so there is no reason for them to add to 1.
 - Also clarified: the 20% figure is "has the characteristic **and** is not a criminal", because essentially the whole population is non-guilty (only a tiny fraction, ~1%, commits the crime).
 
@@ -169,13 +221,21 @@ Let $D$ = "tested person has the disease", $E$ = "test result is positive".
 - $P(D) = 0.005$, $P(D^{c}) = 0.995$
 - $P(E \mid D^{c}) = 0.01$
 
-$$P(D\mid E) = \frac{P(E\mid D)P(D)}{P(E\mid D)P(D) + P(E\mid D^{c})P(D^{c})} = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.01)(0.995)}$$
-$$= \frac{0.00495}{0.00495 + 0.00995} = \frac{0.00495}{0.01490} \approx 0.332$$
+```math
+P(D\mid E) = \frac{P(E\mid D)P(D)}{P(E\mid D)P(D) + P(E\mid D^{c})P(D^{c})} = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.01)(0.995)}
+```
+
+```math
+= \frac{0.00495}{0.00495 + 0.00995} = \frac{0.00495}{0.01490} \approx 0.332
+```
 
 **Result: only about 33% of people who test positive actually have the disease** — despite the test being "99% effective".
 
-**Now improve the false positive rate** to $0.01\% = 0.0001$:
-$$P(D\mid E) = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.0001)(0.995)} = \frac{0.00495}{0.00495 + 0.0000995} \approx 0.98$$
+**Now improve the false positive rate** to $0.01\text{%} = 0.0001$:
+
+```math
+P(D\mid E) = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.0001)(0.995)} = \frac{0.00495}{0.00495 + 0.0000995} \approx 0.98
+```
 
 **Interpretation (explicitly linked to COVID testing):**
 - Because the probability of *not* having the disease is so overwhelmingly large in the population, even a tiny false-positive rate generates a huge absolute number of false positives that swamps the true positives.
@@ -189,16 +249,16 @@ $$P(D\mid E) = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.0001)(0.995)} = \frac{0.0
 
 | Concept | Formula |
 |---|---|
-| Probability from pdf | $P(X < a) = \int_{-\infty}^{a} P(x)\,dx$ |
+| Probability from pdf | $P(X < a) = \int_{-\infty}^{a} P(x)\ dx$ |
 | Standardisation (single draw) | $z = \dfrac{x - \mu}{\sigma}$ |
-| **CLT — sample mean** | $\bar{X} \to \mu$ as $n\to\infty$; $\bar{X} \sim N\!\left(\mu, \frac{\sigma^2}{n}\right)$ |
+| **CLT — sample mean** | $\bar{X} \to \mu$ as $n\to\infty$; $\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)$ |
 | **Standard error** | $\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}}$, $\quad \sigma^2_{\bar{X}} = \dfrac{\sigma^2}{n}$ |
 | Standardisation (sample mean) | $z = \dfrac{\bar{x} - \mu}{\sigma/\sqrt{n}}$ |
-| **CLT — sum of $n$ i.i.d.** | $Y = \sum_{i=1}^{n} X_i$, $\ \mathbb{E}[Y] = n\mu$, $\ \operatorname{SD}(Y) = \sqrt{n}\,\sigma$, $\ Z = \dfrac{Y - n\mu}{\sqrt{n}\,\sigma} \sim N(0,1)$ |
+| **CLT — sum of $n$ i.i.d.** | $Y = \sum_{i=1}^{n} X_i$, $\ \mathbb{E}[Y] = n\mu$, $\ \operatorname{SD}(Y) = \sqrt{n}\ \sigma$, $\ Z = \dfrac{Y - n\mu}{\sqrt{n}\ \sigma} \sim N(0,1)$ |
 | Probability in an interval | $P(a<Y<b) = F(b) - F(a)$ |
-| Empirical rule | $\pm1\sigma \approx 68.2\%$ ($34\%+34\%$); next band $\approx 13.6\%$ per side |
+| Empirical rule | $\pm1\sigma \approx 68.2\text{%}$ ($34\text{%}+34\text{%}$); next band $\approx 13.6\text{%}$ per side |
 | **Bayes' theorem** | $P(A\mid B) = \dfrac{P(B\mid A)P(A)}{P(B\mid A)P(A) + P(B\mid A^{c})P(A^{c})}$ |
-| Bayes (continuous form) | $P(X\mid C) = \dfrac{P(C\mid X)P(X)}{\int P(C\mid X)P(X)\,dX}$ |
+| Bayes (continuous form) | $P(X\mid C) = \dfrac{P(C\mid X)P(X)}{\int P(C\mid X)P(X)\ dX}$ |
 | Valid complement identity | $P(C\mid G) + P(C^{c}\mid G) = 1$ (NOT $P(C\mid G)+P(C\mid G^{c})$) |
 | MCQ guessing result | $P(K\mid C) = \dfrac{p}{p + \frac{1}{m}(1-p)} = \dfrac{mp}{1+(m-1)p}$ |
 

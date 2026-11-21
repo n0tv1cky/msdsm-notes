@@ -210,7 +210,9 @@ MERGE(A, p, q, r)
   - one merge, costing $O(n)$.
 - This gives the recurrence and its base case:
 
-$$T(n) = 2\,T\!\left(\frac{n}{2}\right) + O(n), \qquad T(1) = a \ (\text{a constant})$$
+```math
+T(n) = 2\,T\!\left(\frac{n}{2}\right) + O(n), \qquad T(1) = a \ (\text{a constant})
+```
 
 - The base case holds because sorting one element takes constant time.
 
@@ -220,29 +222,41 @@ $$T(n) = 2\,T\!\left(\frac{n}{2}\right) + O(n), \qquad T(1) = a \ (\text{a const
 - Assume $n = 2^k$. This loses nothing, because a non-power of 2 (e.g. 17) can be padded with dummy elements up to the next power of 2.
 - Replace $O(n)$ with $cn + c_0$ so the algebra can be done explicitly:
 
-$$T(n) = 2T\!\left(\frac{n}{2}\right) + cn + c_0$$
+```math
+T(n) = 2T\!\left(\frac{n}{2}\right) + cn + c_0
+```
 
 **Step 1.** Apply the same equation with $n$ replaced by $n/2$:
 
-$$T\!\left(\frac{n}{2}\right) = 2T\!\left(\frac{n}{2^2}\right) + c\frac{n}{2} + c_0$$
+```math
+T\!\left(\frac{n}{2}\right) = 2T\!\left(\frac{n}{2^2}\right) + c\frac{n}{2} + c_0
+```
 
 **Step 2.** Substitute back into the original:
 
-$$T(n) = 2\left[2T\!\left(\frac{n}{2^2}\right) + c\frac{n}{2} + c_0\right] + cn + c_0 = 2^2\,T\!\left(\frac{n}{2^2}\right) + 2cn + (c_0 + 2c_0)$$
+```math
+T(n) = 2\left[2T\!\left(\frac{n}{2^2}\right) + c\frac{n}{2} + c_0\right] + cn + c_0 = 2^2\,T\!\left(\frac{n}{2^2}\right) + 2cn + (c_0 + 2c_0)
+```
 
 **Step 3.** Repeat the substitution. After $k$ steps the pattern is:
 
-$$T(n) = 2^k\,T\!\left(\frac{n}{2^k}\right) + k\,cn + (2^k - 1)\,c_0$$
+```math
+T(n) = 2^k\,T\!\left(\frac{n}{2^k}\right) + k\,cn + (2^k - 1)\,c_0
+```
 
 - The lecturer simply called the last term "some constant". Strictly it equals $(n-1)c_0$, which is $O(n)$, so it does not change the result.
 
 **Step 4.** Use $2^k = n$, which gives $k = \log_2 n$ (taking logs of both sides), and $T(1) = a$:
 
-$$T(n) = n \cdot T(1) + cn\log_2 n + (n-1)c_0 = an + cn\log_2 n + (n-1)c_0$$
+```math
+T(n) = n \cdot T(1) + cn\log_2 n + (n-1)c_0 = an + cn\log_2 n + (n-1)c_0
+```
 
 **Step 5.** Keep the dominant term. $n \log n$ dominates both $n$ and the constants, so:
 
-$$T(n) = O(n \log n)$$
+```math
+T(n) = O(n \log n)
+```
 
 ### 2.12 Merge sort summary
 

@@ -103,7 +103,9 @@ It closes with a farmer–baker example worked in three variants. These teach th
 - It is also the seller's **income**.
 - It corresponds to someone's **output**.
 
-$$\text{Output} \equiv \text{Income} \equiv \text{Expenditure}$$
+```math
+\text{Output} \equiv \text{Income} \equiv \text{Expenditure}
+```
 
 ### 2.7 The Circular Flow Diagram
 
@@ -152,7 +154,10 @@ $$\text{Output} \equiv \text{Income} \equiv \text{Expenditure}$$
 
 **Key takeaway: two equivalent ways to measure GDP.**
 - **Add up all red flows**, the final uses:
-$$\text{GDP} = C + I + G + NX$$
+
+```math
+\text{GDP} = C + I + G + NX
+```
   where $C$ = consumption, $I$ = investment, $G$ = government purchases, and $NX$ = net exports $= X - M$.
 - **Add up all blue payments**, the factor incomes paid by firms and government (wages, rent, interest, profit).
 - Both give the **same GDP**. Output, when sold, becomes income for those who produced it.
@@ -169,7 +174,9 @@ $$\text{GDP} = C + I + G + NX$$
 - **Government:** it takes **10** as taxes. Collecting 10 apples directly, or collecting Rs 10 and buying 10 apples, is the same thing. It distributes them, for example through Ladli Behna or a food subsidy programme.
 - **Saving and investment:** the remaining **30** is saved, with Rs 30 put in banks. Banks lend it to the apple farm, which uses it to finance the 30 apples, e.g., replanting. This is **investment**.
 
-$$C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}$$
+```math
+C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}
+```
 
 - **Lesson:** goods and money are counterparts. Goods flow one way and payment flows the other, for both final goods and factors.
 - *Small inconsistency in the lecture:* while walking through the diagram, the instructor said households "buy back 70 apples and save 30," omitting the government's 10. The fully specified version is the 60 + 10 + 30 split above.
@@ -193,13 +200,19 @@ $$C + G + I = 60 + 10 + 30 = 100 = \text{Output} = \text{Income}$$
 | **Total** | | | **1,000** |
 
 - **Formula:**
-$$\text{GVA} = \text{GVO} - \text{IC}$$
+
+```math
+\text{GVA} = \text{GVO} - \text{IC}
+```
   where GVA = gross value added, GVO = gross value of output, and IC = intermediate consumption.
-- **Sector shares:** agriculture contributes $750/1000 = 75\%$ of GDP and manufacturing $250/1000 = 25\%$.
+- **Sector shares:** agriculture contributes $750/1000 = 75\text{%}$ of GDP and manufacturing $250/1000 = 25\text{%}$.
 
 **Value added per unit, the "price" of the process:**
 - On the slide the bakery's "price" is **Rs 5**. This is the price of the *conversion process*, **not** of the bread itself:
-$$20 - 15 = 5 \text{ per unit}, \qquad 50 \times 5 = 250$$
+
+```math
+20 - 15 = 5 \text{ per unit}, \qquad 50 \times 5 = 250
+```
 - **Refinery analogy:** a refinery buys crude oil at \$100/barrel and sells refined product at \$105/barrel. Its value added, or refining margin, is \$5 per barrel.
 
 **GVA is not profit.**
@@ -220,12 +233,18 @@ $$20 - 15 = 5 \text{ per unit}, \qquad 50 \times 5 = 250$$
 **Correct answer: Rs 900, by the expenditure approach:**
 - Bread: $30 \times 20 = 600$.
 - Self-consumed wheat, imputed at the market price: $20 \times 15 = 300$. A relevant market price exists because the farmer *could* have sold it at Rs 15/kg.
-$$\text{GDP} = 600 + 300 = 900$$
+
+```math
+\text{GDP} = 600 + 300 = 900
+```
 
 **The same answer by the production approach:**
 - Wheat: $50 \times 15 = 750$, whether sold or self-consumed, since the market price applies to both.
 - Bakery value added: $30 \times 5 = 150$.
-$$\text{GDP} = 750 + 150 = 900$$
+
+```math
+\text{GDP} = 750 + 150 = 900
+```
 
 **GDP ignores distribution.**
 - 100 people eating 10 kg each gives the same GDP as one person eating 1,000 kg while 99 go hungry.
@@ -267,7 +286,10 @@ $$\text{GDP} = 750 + 150 = 900$$
 - **Apple analogy:** apples sell at Rs 20/kg in Himachal and at Rs 80/kg in Indore. Moving the product to consumers is itself an economic value addition.
 
 **Cross-check by the production approach** (this check is not in the lecture, but it is consistent with it):
-$$\underbrace{750}_{\text{wheat}} + \underbrace{20 \times 5}_{\text{sold bread VA}} + \underbrace{10 \times 3}_{\text{unsold bread VA}} = 750 + 100 + 30 = 880$$
+
+```math
+\underbrace{750}_{\text{wheat}} + \underbrace{20 \times 5}_{\text{sold bread VA}} + \underbrace{10 \times 3}_{\text{unsold bread VA}} = 750 + 100 + 30 = 880
+```
 
 ### 2.12 Open Question for Next Session: Perishable Bread
 

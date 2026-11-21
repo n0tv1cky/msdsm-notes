@@ -43,15 +43,21 @@ Setup: five points $(x_i, y_i)$, $i = 1,\dots,5$, plotted on an $x$–$y$ plane.
 
 **Option A — join consecutive points by short straight segments.**
 - Each segment is itself a model: the straight-line equation
-$$y = mx + c$$
+
+```math
+y = mx + c
+```
 - With 5 points there are 4 segments → 4 values of $m$ and 4 values of $c$ → **8 numbers to describe 5 data points**.
 - Conclusion: this is **not** data compression — we have *increased* the amount of information (added redundancy), and it yields no interpretable trend.
 
 **Option B — fit a single straight line through all five points.**
 - One value of $m$, one value of $c$.
-- Compression: $5$ pairs $(x_i, y_i)$ $\;\to\;$ $1$ pair $(m, c)$.
+- Compression: $5$ pairs $(x_i, y_i)$ $\ \to$ $1$ pair $(m, c)$.
 - A statistically sound answer must also quote uncertainties:
-$$m \pm \Delta m, \qquad c \pm \Delta c$$
+
+```math
+m \pm \Delta m, \qquad c \pm \Delta c
+```
 where $\Delta m$, $\Delta c$ are the tolerance/allowance (variance) around the slope and intercept, estimated from the fit.
 - This *is* compression and it supports an inference: "the trend has roughly this slope and this intercept."
 
@@ -81,38 +87,62 @@ where $\Delta m$, $\Delta c$ are the tolerance/allowance (variance) around the s
 ### 2.6 Calculus of probability — basic rules
 
 **(i) Bounds.** For $P(x)$ the probability of $x$ taking a certain value,
-$$0 \le P(x) \le 1$$
+
+```math
+0 \le P(x) \le 1
+```
 
 **(ii) Sum rule / normalization.**
 - Binary event (on/off, head/tail, present/absent): the probabilities of the two outcomes sum to 1.
 - General discrete case:
-$$\sum_i P(i) = 1$$
+
+```math
+\sum_i P(i) = 1
+```
 - Continuous random variable over an infinite range:
-$$\int_{-\infty}^{\infty} P(x)\,dx = 1$$
+
+```math
+\int_{-\infty}^{\infty} P(x)\,dx = 1
+```
 - **Use:** the sum rule is the standard **normalization technique**. "If you do not have any other way of normalization, the sum rule comes in handy."
 
 **(iii) Product rule / conditional probability.**
-$$P(X,Y) = P(X\mid Y)\,P(Y)$$
+
+```math
+P(X,Y) = P(X\mid Y)\,P(Y)
+```
 and equivalently
-$$P(X,Y) = P(Y\mid X)\,P(X)$$
+
+```math
+P(X,Y) = P(Y\mid X)\,P(X)
+```
 - Verbal statement given in class: *the probability of two events $X$ and $Y$ both occurring is the product of the probability of one occurring and the probability of the other occurring given that the first has already occurred.*
 - The two forms are interchangeable when we do not discriminate about which event happened first (mutually inclusive). **If the sequence of events matters for the problem, the two must be interpreted differently.**
 - Conditional probability is what allows probability to be **updated in the light of new data** — the key Bayesian feature. A frequentist treats a new data point as just another independent data point; Bayes always views the new point *in the light of the existing data*.
 
 **(iv) Addition of mutually exclusive probabilities.**
 If $n$ events are mutually exclusive (none depends on the others), with probabilities $P(x_1), P(x_2), \dots, P(x_n)$, then the probability that **either** $x_1$ **or** $x_2$ ... **or** $x_n$ occurs is
-$$P(x_1 \cup x_2 \cup \dots \cup x_n) = \sum_{i=1}^{n} P(x_i)$$
+
+```math
+P(x_1 \cup x_2 \cup \dots \cup x_n) = \sum_{i=1}^{n} P(x_i)
+```
 - Note: this is **derived from the sum rule**, not an independent axiom.
 
 **(v) Law of total probability.**
 If an event $E$ can only follow one of a set of independent preceding events $A, B, C, D, \dots$, then
-$$P(E) = P(E\mid A)P(A) + P(E\mid B)P(B) + P(E\mid C)P(C) + \dots = \sum_i P(E \mid A_i) P(A_i)$$
+
+```math
+P(E) = P(E\mid A)P(A) + P(E\mid B)P(B) + P(E\mid C)P(C) + \dots = \sum_i P(E \mid A_i) P(A_i)
+```
 - Logic: $E$ can only happen if one of the preceding events has happened; $E$ is conditioned on/connected to $A, B, C, \dots$
 - It is a **consequence of conditional probability plus the sum rule**.
 
 **(vi) Bayes' theorem.**
 Starting from $P(X\mid Y)P(Y) = P(Y\mid X)P(X)$, Thomas Bayes' famous form is
-$$P(Y \mid X) = \frac{P(X \mid Y)\, P(Y)}{P(X)}$$
+
+```math
+P(Y \mid X) = \frac{P(X \mid Y)\, P(Y)}{P(X)}
+```
 - It is *just* a rearrangement of the product rule — **the mathematics is trivial; the interpretation is what matters** (to be covered in the next few classes, along with applications to updating probabilities in the light of new data).
 
 ### 2.7 Worked problem: urn with 3 black + 1 white ball (no replacement)
@@ -126,10 +156,16 @@ $$P(Y \mid X) = \frac{P(X \mid Y)\, P(Y)}{P(X)}$$
 2. The black ball is **not** returned → 3 balls remain, of which 1 is white.
    Second draw: $P(\text{white} \mid \text{black drawn first}) = \dfrac{1}{3}$.
 3. Because the two draws are **connected (dependent) events**, apply the product rule / conditional probability rule:
-$$P(\text{black, then white}) = P(\text{black}) \times P(\text{white}\mid\text{black}) = \frac{3}{4}\times\frac{1}{3} = \frac{1}{4}$$
+
+```math
+P(\text{black, then white}) = P(\text{black}) \times P(\text{white}\mid\text{black}) = \frac{3}{4}\times\frac{1}{3} = \frac{1}{4}
+```
 
 **Symmetric case (white then black):**
-$$P(\text{white, then black}) = \frac{1}{4}\times\frac{3}{3} = \frac{1}{4}$$
+
+```math
+P(\text{white, then black}) = \frac{1}{4}\times\frac{3}{3} = \frac{1}{4}
+```
 
 **Answer: both probabilities equal $1/4$.**
 
@@ -139,18 +175,30 @@ $$P(\text{white, then black}) = \frac{1}{4}\times\frac{3}{3} = \frac{1}{4}$$
 
 - For a single continuous random variable $X$, there is a population distribution / probability distribution function for $X$.
 - For an event depending on two random variables $X$ and $Y$, define the **joint probability distribution function**
-$$P(X, Y)$$
-= the probability of finding $X$ in the range $[X,\, X+dX]$ **and** $Y$ in the range $[Y,\, Y+dY]$.
+
+```math
+P(X, Y)
+```
+= the probability of finding $X$ in the range $[X,\  X+dX]$ **and** $Y$ in the range $[Y,\  Y+dY]$.
 
 **Independence.** If $X$ and $Y$ "do not talk to each other" — no information exchange, no correlation — then
-$$P(X,Y) = P(X)\,P(Y)$$
+
+```math
+P(X,Y) = P(X)\,P(Y)
+```
 
 **Conditional distribution for a fixed value.** One can also write the conditional distribution of $X$ at a fixed $Y$:
-$$P(X \mid Y = C)$$
+
+```math
+P(X \mid Y = C)
+```
 - Caveat raised in class: this is **often not useful**, because for a continuous random variable we can never know $Y$ *exactly*.
 
 **Normalization in the multivariate case.** The sum rule still applies: integrating the multivariate distribution over **all** variables gives 1, e.g.
-$$\int\!\!\int P(x,y)\,dx\,dy = 1$$
+
+```math
+\int\!\!\int P(x,y)\,dx\,dy = 1
+```
 
 ### 2.9 Why you can never pin down a continuous random variable exactly
 
@@ -166,7 +214,10 @@ $$\int\!\!\int P(x,y)\,dx\,dy = 1$$
 
 - Situation: your observation gives you the **joint** distribution $P(X,Y)$, but you are actually interested in $P(X)$ or $P(Y)$ alone.
 - **Marginalization** = integrate the joint distribution over all the variables you are *not* interested in:
-$$P(X) = \int P(X,Y)\, dY, \qquad P(Y) = \int P(X,Y)\, dX$$
+
+```math
+P(X) = \int P(X,Y)\, dY, \qquad P(Y) = \int P(X,Y)\, dX
+```
 - Generalises to any number of variables (integrate out all the nuisance variables).
 - This also follows from the sum rule.
 - **Why it matters / why it's hard:**
@@ -181,7 +232,7 @@ $$P(X) = \int P(X,Y)\, dY, \qquad P(Y) = \int P(X,Y)\, dX$$
 
 - The "density" language is easiest to understand from the multivariate viewpoint.
 - With $n$ variables you have an $n$-dimensional space; with 3 variables $(x,y,z)$ a 3D space.
-- Take a small volume element $dx\,dy\,dz$ at a point $(x,y,z)$. The probability contained in that small element **per unit volume** is the **probability density** at that point.
+- Take a small volume element $dx\ dy\ dz$ at a point $(x,y,z)$. The probability contained in that small element **per unit volume** is the **probability density** at that point.
 - **1D case:** if $dx$ is a unit length, the probability lying in that interval is the probability density at that location of $P(x)$.
 - **2D case:** for $P(x,y)$, take a small area element with $dx$ and $dy$ each of unit length at location $(x,y)$; the probability lying in that tiny area is the probability density there.
 - **General:** density = the amount of probability within a unit length / unit area / unit volume in the multivariate space.
@@ -196,15 +247,15 @@ $$P(X) = \int P(X,Y)\, dY, \qquad P(Y) = \int P(X,Y)\, dX$$
 | Straight-line model | $y = mx + c$; reported as $m \pm \Delta m$, $c \pm \Delta c$ |
 | Probability bounds | $0 \le P(x) \le 1$ |
 | Sum rule (discrete) | $\sum_i P(i) = 1$ |
-| Sum rule (continuous) | $\int_{-\infty}^{\infty} P(x)\,dx = 1$ |
+| Sum rule (continuous) | $\int_{-\infty}^{\infty} P(x)\ dx = 1$ |
 | Product / conditional rule | $P(X,Y) = P(X\mid Y)P(Y) = P(Y\mid X)P(X)$ |
 | Mutually exclusive events | $P(x_1 \text{ or } \dots \text{ or } x_n) = \sum_{i=1}^{n} P(x_i)$ |
 | Total probability | $P(E) = \sum_i P(E\mid A_i)P(A_i)$ |
 | Bayes' theorem | $P(Y\mid X) = \dfrac{P(X\mid Y)P(Y)}{P(X)}$ |
 | Independence | $P(X,Y) = P(X)P(Y)$ |
 | Conditional distribution | $P(X \mid Y = C)$ |
-| Marginalization | $P(X) = \int P(X,Y)\,dY$ |
-| Joint normalization | $\int\!\!\int P(x,y)\,dx\,dy = 1$ |
+| Marginalization | $P(X) = \int P(X,Y)\ dY$ |
+| Joint normalization | $\int\int P(x,y)\ dx\ dy = 1$ |
 
 ---
 

@@ -56,17 +56,29 @@ This is the first of ten lectures by a new instructor. It begins with course log
   - Discrete → **probability mass function (PMF)**.
   - Continuous → **probability density function (PDF)**.
 - The PMF is defined as
-$$p_X(a) = P(X = a).$$
+
+```math
+p_X(a) = P(X = a).
+```
 
 ### 3.2 Expectation and variance of a discrete random variable
 
 - **Expected value:**
-$$E[X] = \sum_{x} x\, p_X(x)$$
+
+```math
+E[X] = \sum_{x} x\, p_X(x)
+```
   - The sum runs over all possible values of $X$, for example $x = 0, 1, \dots, n$.
 - **Variance (definition):**
-$$\mathrm{Var}(X) = E\big[(X-\mu)^2\big], \qquad \mu = E[X]$$
+
+```math
+\mathrm{Var}(X) = E\big[(X-\mu)^2\big], \qquad \mu = E[X]
+```
 - **Variance (computational form):**
-$$\mathrm{Var}(X) = E[X^2] - \big(E[X]\big)^2$$
+
+```math
+\mathrm{Var}(X) = E[X^2] - \big(E[X]\big)^2
+```
 
 ### 3.3 Bernoulli distribution
 
@@ -75,7 +87,10 @@ $$\mathrm{Var}(X) = E[X^2] - \big(E[X]\big)^2$$
 - $X = 1$ means success; $X = 0$ means failure.
 
 **PMF:**
-$$P(X=0) = 1-p, \qquad P(X=1) = p, \qquad 0 \le p \le 1$$
+
+```math
+P(X=0) = 1-p, \qquad P(X=1) = p, \qquad 0 \le p \le 1
+```
 - $p$ is the probability that the single trial is a success.
 
 **Notation:** $X \sim \text{Ber}(p)$, also written $B(1, p)$.
@@ -87,19 +102,31 @@ $$P(X=0) = 1-p, \qquad P(X=1) = p, \qquad 0 \le p \le 1$$
 - **Interpretation (instructor's emphasis):** $X$ describes the outcome for *one randomly chosen person*. It does **not** mean that one person believes there is a 60% chance.
 
 **Mean:**
-$$E[X] = 0.4 \times 0 + 0.6 \times 1 = 0.6 = p$$
+
+```math
+E[X] = 0.4 \times 0 + 0.6 \times 1 = 0.6 = p
+```
 - In general, $E[X] = p$.
 
 **Variance (numerical check with the definition):**
-$$\mathrm{Var}(X) = 0.4\,(0-0.6)^2 + 0.6\,(1-0.6)^2 = 0.144 + 0.096 = 0.24$$
+
+```math
+\mathrm{Var}(X) = 0.4\,(0-0.6)^2 + 0.6\,(1-0.6)^2 = 0.144 + 0.096 = 0.24
+```
 - This matches $p(1-p) = 0.6 \times 0.4 = 0.24$.
 
 **Variance (general derivation):**
 1. Find the second moment:
-$$E[X^2] = 0^2(1-p) + 1^2 \cdot p = p$$
+
+```math
+E[X^2] = 0^2(1-p) + 1^2 \cdot p = p
+```
    - Note: in class this was briefly misspoken as "$p^2$"; the correct value is $p$.
 2. Substitute into the computational form:
-$$\mathrm{Var}(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p)$$
+
+```math
+\mathrm{Var}(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p)
+```
 
 ### 3.4 Binomial distribution: conditions
 
@@ -130,10 +157,10 @@ The binomial distribution has wide applications in statistics and serves as the 
 
 | $x$ | $\binom{6}{x}$ | $P(X=x)$ |
 |---|---|---|
-| 0 | $\frac{6!}{0!\,6!} = 1$ | $1/64$ |
-| 1 | $\frac{6!}{1!\,5!} = 6$ | $6/64$ |
-| 2 | $\frac{6!}{2!\,4!} = 15$ | $15/64$ |
-| 3 | $\frac{6!}{3!\,3!} = 20$ | $20/64$ |
+| 0 | $\frac{6!}{0!\ 6!} = 1$ | $1/64$ |
+| 1 | $\frac{6!}{1!\ 5!} = 6$ | $6/64$ |
+| 2 | $\frac{6!}{2!\ 4!} = 15$ | $15/64$ |
+| 3 | $\frac{6!}{3!\ 3!} = 20$ | $20/64$ |
 | 4 | 15 | $15/64$ |
 | 5 | 6 | $6/64$ |
 | 6 | 1 | $1/64$ |
@@ -155,12 +182,21 @@ The binomial distribution has wide applications in statistics and serves as the 
 - The number of such sequences is $\binom{6}{2}$.
 
 **Result:**
-$$P(X=2) = \binom{6}{2}(0.7)^2(0.3)^4 = 15 \times 0.49 \times 0.0081 \approx 0.0595$$
+
+```math
+P(X=2) = \binom{6}{2}(0.7)^2(0.3)^4 = 15 \times 0.49 \times 0.0081 \approx 0.0595
+```
 - The final number was not computed in class; it is added here for completeness.
 
 **General binomial PMF:**
-$$P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \qquad x = 0, 1, \dots, n$$
-$$\binom{n}{x} = \frac{n!}{x!\,(n-x)!}$$
+
+```math
+P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \qquad x = 0, 1, \dots, n
+```
+
+```math
+\binom{n}{x} = \frac{n!}{x!\,(n-x)!}
+```
 
 **Definitions and notation:**
 - Any random variable with this PMF is a **binomial random variable** (also called a binomial variate).
@@ -182,15 +218,24 @@ $$\binom{n}{x} = \frac{n!}{x!\,(n-x)!}$$
 - This matches the standard textbook version of the problem (Ross): a package is returned if **more than one** disk is defective.
 
 **(a) What proportion of packages is returned?**
-$$P(\text{return}) = 1 - \left[\binom{10}{0}(0.01)^0(0.99)^{10} + \binom{10}{1}(0.01)^1(0.99)^9\right]$$
-$$= 1 - (0.9044 + 0.0914) = 1 - 0.9957 \approx 0.0043$$
+
+```math
+P(\text{return}) = 1 - \left[\binom{10}{0}(0.01)^0(0.99)^{10} + \binom{10}{1}(0.01)^1(0.99)^9\right]
+```
+
+```math
+= 1 - (0.9044 + 0.0914) = 1 - 0.9957 \approx 0.0043
+```
 - In class, students got $0.995$ for the bracketed sum and about $0.0043$ for the answer.
 - The instructor rounded this to about $0.005$.
 
 **(b) If someone buys 3 packages, what is the probability that exactly one is returned?**
 - Each package is now one Bernoulli trial with success probability equal to the answer from (a).
-- So the number of returned packages is $B(3,\, 0.0043)$.
-$$\binom{3}{1}(0.0043)(1-0.0043)^2 \approx 0.0128$$
+- So the number of returned packages is $B(3,\  0.0043)$.
+
+```math
+\binom{3}{1}(0.0043)(1-0.0043)^2 \approx 0.0128
+```
 - Using the rounded value $0.005$: $3(0.005)(0.995)^2 \approx 0.015$.
 - **Point stressed in class:** part (b) cannot be solved without part (a). The probability found in (a) becomes the $p$ for (b).
 
@@ -204,12 +249,18 @@ $$\binom{3}{1}(0.0043)(1-0.0043)^2 \approx 0.0128$$
 - A pond has 50 fish, 10 of them tagged.
 - A catch of 7 fish is taken at random. $X$ = number of tagged fish.
 - Using $p = 10/50 = 1/5$:
-$$P(X=2) = \binom{7}{2}\left(\tfrac{1}{5}\right)^2\left(\tfrac{4}{5}\right)^5 = 21 \times 0.04 \times 0.32768 \approx 0.275$$
+
+```math
+P(X=2) = \binom{7}{2}\left(\tfrac{1}{5}\right)^2\left(\tfrac{4}{5}\right)^5 = 21 \times 0.04 \times 0.32768 \approx 0.275
+```
 
 **Caution (not stated in class):**
 - Strictly, catching 7 distinct fish is sampling **without replacement**.
 - The exact model is **hypergeometric**:
-$$P(X=2) = \frac{\binom{10}{2}\binom{40}{5}}{\binom{50}{7}} \approx 0.296$$
+
+```math
+P(X=2) = \frac{\binom{10}{2}\binom{40}{5}}{\binom{50}{7}} \approx 0.296
+```
 - The binomial answer above is only an approximation.
 
 **Version 2:**
@@ -238,11 +289,11 @@ $$P(X=2) = \frac{\binom{10}{2}\binom{40}{5}}{\binom{50}{7}} \approx 0.296$$
 | Concept | Formula |
 |---|---|
 | PMF | $p_X(a) = P(X=a)$ |
-| Expectation (discrete) | $E[X] = \sum_x x\,p_X(x)$ |
+| Expectation (discrete) | $E[X] = \sum_x x\ p_X(x)$ |
 | Variance | $\mathrm{Var}(X) = E[(X-\mu)^2] = E[X^2] - (E[X])^2$ |
-| Bernoulli PMF | $P(X=1)=p,\; P(X=0)=1-p$ |
-| Bernoulli mean / variance | $E[X]=p,\; \mathrm{Var}(X)=p(1-p)$ |
-| Binomial coefficient | $\binom{n}{x} = \dfrac{n!}{x!\,(n-x)!}$ |
+| Bernoulli PMF | $P(X=1)=p,\  P(X=0)=1-p$ |
+| Bernoulli mean / variance | $E[X]=p,\  \mathrm{Var}(X)=p(1-p)$ |
+| Binomial coefficient | $\binom{n}{x} = \dfrac{n!}{x!\ (n-x)!}$ |
 | Binomial PMF, $X\sim B(n,p)$ | $P(X=x)=\binom{n}{x}p^x(1-p)^{n-x}$ |
 
 **Next class (Saturday):** finish the binomial distribution, then the Poisson distribution.

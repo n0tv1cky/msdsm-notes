@@ -219,7 +219,10 @@ The lecturer recommended thinking in terms of a **specific common feature** tied
 - This method is very common in social science research.
 
 **Formula referenced:** agricultural productivity is yield per unit area:
-$$\text{Productivity} = \frac{\text{Production}}{\text{Area under cultivation}}$$
+
+```math
+\text{Productivity} = \frac{\text{Production}}{\text{Area under cultivation}}
+```
 
 **Student question:** Wouldn't including low-agriculture states dilute or lower the statistic?
 
@@ -252,7 +255,10 @@ $$\text{Productivity} = \frac{\text{Production}}{\text{Area under cultivation}}$
 - Expected WTP range, from prior literature: ₹100 to ₹1,000.
 - Observed responses go as low as ₹80 to ₹90 and do not exceed about ₹900 to ₹1,000. New responses keep falling in the same range.
 - Suppose you have surveyed **500** households out of a village of **5,000**:
-$$\frac{500}{5000} = 0.10 = 10\%$$
+
+```math
+\frac{500}{5000} = 0.10 = 10\%
+```
 - You can stop on either basis:
   - responses are saturating within the range, or
   - 10% coverage is judged sufficiently representative.

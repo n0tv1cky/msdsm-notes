@@ -77,8 +77,8 @@ Every arithmetic expression has **operators** and **operands**. In $a + b$: $a$ 
 | Notation | Form | Example |
 |---|---|---|
 | **Infix** | operand, operator, operand (operator *between* operands) | $a + b$ |
-| **Prefix** | operator first, then operand1, then operand2 | $+\,a\,b$ |
-| **Postfix** | operand1, operand2, then operator | $a\,b\,+$ |
+| **Prefix** | operator first, then operand1, then operand2 | $+\ a\ b$ |
+| **Postfix** | operand1, operand2, then operator | $a\ b\ +$ |
 
 - We *write* programs in **infix**, but internally the computer must convert to **postfix** to evaluate.
 - **Both** the infix→postfix conversion **and** the postfix evaluation use a **stack**. (Detailed algorithms deferred to the next session.)
@@ -89,7 +89,7 @@ Every arithmetic expression has **operators** and **operands**. In $a + b$: $a$ 
 
 ### 3.1 Structure and the `top` index
 
-- The data items are physically stored in an **array**, e.g. $a[\,]$, with valid indices running from a lower bound $L$ to an upper bound $U$.
+- The data items are physically stored in an **array**, e.g. $a[\ ]$, with valid indices running from a lower bound $L$ to an upper bound $U$.
 - **Diagram described:** picture a horizontal row of array cells. The first item, `item1`, goes into the leftmost cell (index $L$); `item2` into the next; `item3` next; and so on — items fill up in one direction only. Alternatively, picture the same structure vertically as a **bucket / open container**: elements pile up from the bottom, and the open mouth is the single end used for both insertion and removal. Under the vertical picture the bottom cell is $L$, the next is $L+1$, and so on.
 - A separate variable, the **`top` pointer / `top` index**, is maintained alongside the array. `top` holds the **index of the last (topmost) element currently in the stack** — the element after which a new element will be inserted.
 - To insert: compute `top + 1`, store the new item at that index, and update `top`.
@@ -99,9 +99,13 @@ Every arithmetic expression has **operators** and **operands**. In $a + b$: $a$ 
 
 Given index range $L \ldots U$:
 
-$$\text{Stack is EMPTY} \iff \text{top} < L$$
+```math
+\text{Stack is EMPTY} \iff \text{top} < L
+```
 
-$$\text{Stack is FULL} \iff \text{top} \ge U$$
+```math
+\text{Stack is FULL} \iff \text{top} \ge U
+```
 
 Valid data items occupy indices between $L$ and $U$ inclusive.
 
@@ -168,7 +172,9 @@ STATUS(a, top, size):
 
 **Free-space formula (written out exactly as explained):**
 
-$$\text{Free space (\%)} = \frac{\text{size} - \text{top}}{\text{size}} \times 100$$
+```math
+\text{Free space (\%)} = \frac{\text{size} - \text{top}}{\text{size}} \times 100
+```
 
 where `size` = total number of elements the array can hold, and `top` = index of the current topmost element. $(\text{size} - \text{top})$ gives the number of free slots; dividing by `size` gives a fraction; multiplying by $100$ converts to a percentage.
 

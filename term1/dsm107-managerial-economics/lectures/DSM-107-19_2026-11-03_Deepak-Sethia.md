@@ -44,16 +44,19 @@ The session finishes the open-economy macroeconomics module and starts aggregate
 ### 2.1 Recap: Trade balance as the saving–investment gap (small open economy)
 
 **Core identity.** In an open economy, net exports equal the gap between national saving and investment:
-$$NX = S - I$$
+
+```math
+NX = S - I
+```
 
 **Small open economy.**
-- The domestic interest rate is pinned to the **world (foreign) interest rate**, $r = r^*$.
+- The domestic interest rate is pinned to the **world (foreign) interest rate**, $r = r^\ast $.
 - Investment depends on the interest rate.
 
 **Graph described.**
 - Vertical axis: interest rate $r$. Horizontal axis: quantity of saving or investment.
 - The investment demand curve $I(r)$ slopes **downward**.
-- There is a horizontal line at the world interest rate $r^*$.
+- There is a horizontal line at the world interest rate $r^\ast $.
 - The initial equilibrium is at point $E$, where saving equals investment.
 
 **Case A: Fiscal deficit rises** (government spending goes up or taxes fall).
@@ -61,7 +64,7 @@ $$NX = S - I$$
 2. This puts **upward pressure on the domestic interest rate**.
 3. Higher returns attract **capital inflows**, which increases the supply of foreign exchange.
 4. The exchange rate **appreciates**. Example: from Rs 50/USD toward a lower number.
-5. At $r^*$, investment exceeds saving ($I > S$), so there is a **trade deficit** ($NX < 0$).
+5. At $r^\ast $, investment exceeds saving ($I > S$), so there is a \ast \ast trade deficit\ast \ast  ($NX < 0$).
 6. The extra imports are financed by the capital inflow.
 
 **Case B: Fiscal discipline improves** (spending is cut or tax revenue rises).
@@ -111,7 +114,10 @@ Note the **inverse relationship between bond prices and interest rates (yields)*
 3. Capital outflows tend to pull the domestic interest rate back toward the global rate. So the attempt to lower interest rates may not fully succeed.
 4. However, depreciation makes exports cheaper, so **exports rise** and $NX$ rises.
 5. Aggregate demand rises through its $NX$ component:
-$$AD = C + I + G + NX$$
+
+```math
+AD = C + I + G + NX
+```
 
 **Result:** monetary policy is **effective**. It raises output by raising net exports.
 
@@ -153,22 +159,31 @@ Increasing the money supply is **not the only** solution. The solution always li
 **Setup.**
 - 2025 exchange rate: $E = 50$ Rs/USD.
 - The rupee is expected to depreciate 10% next year, so $E^e = 55$.
-- US interest rate: $i^* = 2\%$.
+- US interest rate: $i^\ast  = 2\text{%}$.
 - Question: what Indian T-bill rate makes an investor **indifferent** between the two countries?
 
 **Steps.**
 1. Invest USD 1 in US bonds. Next year you have $1 \times 1.02 = 1.02$ USD.
 2. In rupees at next year's expected rate, that is $1.02 \times 55 = 56.1$ rupees.
 3. The equivalent rupee investment today is Rs 50 (= USD 1). So Rs 50 must grow to Rs 56.1:
-$$i = \frac{(1+i^*)\,E^e}{E} - 1 = \frac{1.02 \times 55}{50} - 1 = \frac{56.1}{50} - 1 = 0.122 = 12.2\%$$
+
+```math
+i = \frac{(1+i^*)\,E^e}{E} - 1 = \frac{1.02 \times 55}{50} - 1 = \frac{56.1}{50} - 1 = 0.122 = 12.2\%
+```
 4. Check: $56.1 / 55 = 1.02$ USD, the same as investing in the US. So 12.2% in India is equivalent to 2% in the US.
 
 **General formula (exact):**
-$$1 + i = (1 + i^*)\,\frac{E^e}{E}$$
+
+```math
+1 + i = (1 + i^*)\,\frac{E^e}{E}
+```
 
 **Approximation:**
-$$i \approx i^* + \frac{E^e - E}{E}$$
-In the example, $2\% + 10\% \approx 12\%$.
+
+```math
+i \approx i^* + \frac{E^e - E}{E}
+```
+In the example, $2\text{%} + 10\text{%} \approx 12\text{%}$.
 
 **Key takeaway (lecturer repeated this):** the interest rate differential between two countries exists **because the market expects the higher-rate country's currency to depreciate**.
 - Example: India at 7% and the US at 5% implies an expected rupee depreciation of about 2% per year.
@@ -176,7 +191,10 @@ In the example, $2\% + 10\% \approx 12\%$.
 #### Why is depreciation expected? Inflation differentials
 
 **Real exchange rate** (recalled from the previous session):
-$$\varepsilon = E \cdot \frac{P_F}{P_D}$$
+
+```math
+\varepsilon = E \cdot \frac{P_F}{P_D}
+```
 Here $E$ is Rs per USD, $P_F$ is the foreign price level and $P_D$ is the domestic price level.
 
 **The causal chain:**
@@ -184,7 +202,10 @@ Here $E$ is Rs per USD, $P_F$ is the foreign price level and $P_D$ is the domest
 2. For the real exchange rate to stay roughly constant, $E$ must rise, i.e., the rupee depreciates.
 3. So investors expect depreciation.
 4. So they demand a higher domestic interest rate:
-$$i = i^* + \text{expected depreciation}$$
+
+```math
+i = i^* + \text{expected depreciation}
+```
 
 **Implications.**
 - The right question is not "why is my currency depreciating?" but "**why is domestic inflation high?**" The problem to address is the inflation differential.
@@ -280,7 +301,10 @@ Figures are as read from the slide. Some amounts were garbled in the transcript;
 - **Capital account surplus: about USD 89 bn**, as stated. The components as heard sum to about 94, so check the slide.
 
 **Reserves (2024):**
-$$89 - 26 = 63$$
+
+```math
+89 - 26 = 63
+```
 Reserves **increased by about USD 63 bn**. Note the sign convention: an *increase* in reserves is recorded as a *negative* entry in the BoP.
 
 **Current year: the scenario reversed.**
@@ -313,8 +337,8 @@ Reserves **increased by about USD 63 bn**. Note the sign convention: an *increas
 #### Long-run AS curve: vertical at potential output
 
 - In the long run, output depends on **capital stock, technology and labour supply**, not on prices or demand.
-- **Potential output $Y^*$** is the output when existing capacity is used at **full employment**.
-- Graph: a vertical line at $Y^*$ on the $(Y, P)$ axes. The price level has little effect on long-run output.
+- **Potential output $Y^\ast $** is the output when existing capacity is used at **full employment**.
+- Graph: a vertical line at $Y^\ast $ on the $(Y, P)$ axes. The price level has little effect on long-run output.
 - **Flagged ("we need to understand this particular part very clearly"):**
   - In the long run, output depends solely on productive capacity.
   - In the short run, output depends on demand, i.e., how much of existing capacity is used.
@@ -341,9 +365,13 @@ Reserves **increased by about USD 63 bn**. Note the sign convention: an *increas
 
 #### Unemployment rate (definition)
 
-$$\text{Labour force } (L) = \text{Employed } (N) + \text{Unemployed } (U)$$
+```math
+\text{Labour force } (L) = \text{Employed } (N) + \text{Unemployed } (U)
+```
 
-$$u = \frac{U}{L} = \frac{U}{N + U}$$
+```math
+u = \frac{U}{L} = \frac{U}{N + U}
+```
 
 **Zero unemployment is neither feasible nor desirable.** "Full employment" at potential output does **not** mean every worker has a job.
 
@@ -379,7 +407,7 @@ In the short run the economy can even produce slightly beyond full-employment ou
   | Fixed exchange rate | **Ineffective** | **Effective** (accommodated by the central bank) |
   | Flexible exchange rate | **Effective** (via depreciation and higher $NX$) | (not covered this session) |
 
-- **Interest parity calculation.** Know the formula and the worked numbers: $E = 50$, $E^e = 55$, $i^* = 2\%$ gives $i = 12.2\% \approx 12\%$. The lecturer **repeated**: interest differentials reflect expected depreciation.
+- **Interest parity calculation.** Know the formula and the worked numbers: $E = 50$, $E^e = 55$, $i^\ast  = 2\text{%}$ gives $i = 12.2\text{%} \approx 12\text{%}$. The lecturer **repeated**: interest differentials reflect expected depreciation.
 - **Causality chain.** Inflation differential leads to expected depreciation (to keep the real exchange rate constant), which leads to the interest rate differential. The root problem is domestic inflation.
 - **Risk premium** as the second source of interest differentials, linked to political, business and tax certainty.
 - **Impossible trinity.** The three goals, the "choose two" logic, and the examples (US/EU, Hong Kong, capital controls, China's managed float, the euro zone's single ECB rate).

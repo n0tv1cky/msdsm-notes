@@ -92,11 +92,25 @@ Class-generated effects of sending an email with **no subject line**:
 
 ### E. The Inverted Pyramid (framework for routine / positive / neutral / goodwill messages)
 
-$$\text{Most important information (the announcement / main point)}$$
-$$\downarrow$$
-$$\text{Explanation and key details}$$
-$$\downarrow$$
-$$\text{Less important information} \;/\; \text{call to action} \;/\; \text{background context}$$
+```math
+\text{Most important information (the announcement / main point)}
+```
+
+```math
+\downarrow
+```
+
+```math
+\text{Explanation and key details}
+```
+
+```math
+\downarrow
+```
+
+```math
+\text{Less important information} \;/\; \text{call to action} \;/\; \text{background context}
+```
 
 - Top = the announcement (e.g., "the meeting has shifted from Friday to Wednesday").
 - Middle = key details (where, when, what you must do).
@@ -189,7 +203,7 @@ The email contained four chunks of information, numbered as displayed:
 
 ## 4. Exam / Assignment / Administrative Notes
 
-- **Class test — $10\%$ of the total course weightage.**
+- **Class test — $10\text{%}$ of the total course weightage.**
   - Format: **in-class Google Form quiz**, roughly the **first 10 minutes of a session**; MCQs plus **very short one-word / one-sentence** answers; designed to be completed within 10 minutes.
   - **Unannounced timing:** it may be held at the start of **any** of sessions **5, 6, 7 or 8**. It will *not* be a separate/extra class and is not on the calendar.
   - **Syllabus:** everything covered in the sessions up to that point (including today's material on routine messages).

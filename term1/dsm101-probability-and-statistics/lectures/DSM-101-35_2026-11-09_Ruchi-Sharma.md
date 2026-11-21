@@ -29,9 +29,15 @@ This session moves from **discrete** random variables (modelled with a probabili
   - Because of this, it cannot be modelled value-by-value as in the discrete case.
   - It is described by a curve $f(x)$, the **probability density function (PDF)**.
 - **Probabilities are areas under the PDF curve.** That is why integrals are used:
-$$P(a \le X \le b) = \int_a^b f(x)\,dx$$
+
+```math
+P(a \le X \le b) = \int_a^b f(x)\,dx
+```
 - The two conditions any valid PDF must satisfy:
-$$f(x) \ge 0 \quad \text{for all } x, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 1$$
+
+```math
+f(x) \ge 0 \quad \text{for all } x, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 1
+```
   The total area equals 1 because integrating over all possibilities captures the whole probability.
 
 ---
@@ -39,13 +45,19 @@ $$f(x) \ge 0 \quad \text{for all } x, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 
 ### 2.2 Uniform (rectangular) distribution
 
 **Definition.** $X$ is uniformly distributed on the interval $(\alpha, \beta)$ (also written $(a, b)$) if its PDF is constant over that interval:
-$$f(x) = \begin{cases} \dfrac{1}{\beta - \alpha}, & \alpha < x < \beta \\[2mm] 0, & \text{otherwise} \end{cases}$$
+
+```math
+f(x) = \begin{cases} \dfrac{1}{\beta - \alpha}, & \alpha < x < \beta \\[2mm] 0, & \text{otherwise} \end{cases}
+```
 
 - **Special case $U(0,1)$:** $f(x) = 1$ for $0 < x < 1$, and $0$ otherwise.
 - **Why "rectangular":** the graph is a flat line at height $\frac{1}{b-a}$ between $a$ and $b$. That gives a rectangle of width $(b-a)$ and height $\frac{1}{b-a}$, so its area is $1$.
 
 **Cumulative distribution function (CDF):**
-$$F(x) = P(X \le x) = \int_{-\infty}^{x} f(t)\,dt = \begin{cases} 0, & x < a \\[1mm] \dfrac{x - a}{b - a}, & a \le x \le b \\[2mm] 1, & x > b \end{cases}$$
+
+```math
+F(x) = P(X \le x) = \int_{-\infty}^{x} f(t)\,dt = \begin{cases} 0, & x < a \\[1mm] \dfrac{x - a}{b - a}, & a \le x \le b \\[2mm] 1, & x > b \end{cases}
+```
 
 - $F(x)$ has corners at $x = a$ and $x = b$, so it is **not differentiable** at those two points.
 - Everywhere else, $F'(x) = f(x)$. This gives $\frac{1}{b-a}$ inside the interval and $0$ outside, which recovers the PDF.
@@ -55,15 +67,18 @@ Here $f(x) = \frac{1}{10 - 0} = \frac{1}{10}$ for $0 < x < 10$.
 
 | Probability | Integral | Result |
 |---|---|---|
-| $P(X < 3)$ | $\int_0^3 \frac{1}{10}\,dx = \frac{1}{10}(3 - 0)$ | $\frac{3}{10}$ |
-| $P(X > 6)$ | $\int_6^{10} \frac{1}{10}\,dx = \frac{1}{10}(10 - 6)$ | $\frac{4}{10}$ |
-| $P(3 < X < 8)$ | $\int_3^8 \frac{1}{10}\,dx = \frac{8}{10} - \frac{3}{10}$ | $\frac{5}{10} = \frac{1}{2}$ |
+| $P(X < 3)$ | $\int_0^3 \frac{1}{10}\ dx = \frac{1}{10}(3 - 0)$ | $\frac{3}{10}$ |
+| $P(X > 6)$ | $\int_6^{10} \frac{1}{10}\ dx = \frac{1}{10}(10 - 6)$ | $\frac{4}{10}$ |
+| $P(3 < X < 8)$ | $\int_3^8 \frac{1}{10}\ dx = \frac{8}{10} - \frac{3}{10}$ | $\frac{5}{10} = \frac{1}{2}$ |
 
 - A student asked about $P(X > 6)$. The upper limit is the end of the support, **10** (not 8). So the integral is $\int_6^{10}$.
 - Interpretation of the last row: there is a 50% chance that $X$ lies between 3 and 8.
 
 #### Mean of the uniform distribution
-$$E[X] = \int_{-\infty}^{\infty} x f(x)\,dx = \int_\alpha^\beta \frac{x}{\beta - \alpha}\,dx = \frac{1}{\beta - \alpha}\cdot\frac{\beta^2 - \alpha^2}{2} = \frac{\beta + \alpha}{2}$$
+
+```math
+E[X] = \int_{-\infty}^{\infty} x f(x)\,dx = \int_\alpha^\beta \frac{x}{\beta - \alpha}\,dx = \frac{1}{\beta - \alpha}\cdot\frac{\beta^2 - \alpha^2}{2} = \frac{\beta + \alpha}{2}
+```
 
 - The mean is simply the **midpoint** of the interval.
 - A student suggested a substitution leading to a logarithm. That approach is wrong: the denominator is the constant $(\beta - \alpha)$, not $(\beta - x)$. The integral is direct.
@@ -72,17 +87,26 @@ $$E[X] = \int_{-\infty}^{\infty} x f(x)\,dx = \int_\alpha^\beta \frac{x}{\beta -
 Use $\operatorname{Var}(X) = E[X^2] - (E[X])^2$.
 
 **Step 1: compute $E[X^2]$.** Use the factorisation $\beta^3 - \alpha^3 = (\beta - \alpha)(\beta^2 + \alpha\beta + \alpha^2)$:
-$$E[X^2] = \int_\alpha^\beta \frac{x^2}{\beta - \alpha}\,dx = \frac{\beta^3 - \alpha^3}{3(\beta - \alpha)} = \frac{\beta^2 + \alpha\beta + \alpha^2}{3}$$
+
+```math
+E[X^2] = \int_\alpha^\beta \frac{x^2}{\beta - \alpha}\,dx = \frac{\beta^3 - \alpha^3}{3(\beta - \alpha)} = \frac{\beta^2 + \alpha\beta + \alpha^2}{3}
+```
 
 **Step 2: subtract the squared mean.**
-$$\operatorname{Var}(X) = \frac{\beta^2 + \alpha\beta + \alpha^2}{3} - \left(\frac{\alpha + \beta}{2}\right)^2 = \frac{(\beta - \alpha)^2}{12}$$
+
+```math
+\operatorname{Var}(X) = \frac{\beta^2 + \alpha\beta + \alpha^2}{3} - \left(\frac{\alpha + \beta}{2}\right)^2 = \frac{(\beta - \alpha)^2}{12}
+```
 
 > **Summary:** $E[X] = \dfrac{\alpha + \beta}{2}$, $\quad \operatorname{Var}(X) = \dfrac{(\beta - \alpha)^2}{12}$
 
 #### Worked Example 2: $X \sim U(\alpha = 200, \beta = 250)$
 1. **PDF:** $f(x) = \frac{1}{250 - 200} = \frac{1}{50}$ for $200 < x < 250$.
 2. **$P(X > 230)$:**
-$$P(X > 230) = \int_{230}^{250} \frac{1}{50}\,dx = \frac{20}{50} = \frac{2}{5}$$
+
+```math
+P(X > 230) = \int_{230}^{250} \frac{1}{50}\,dx = \frac{20}{50} = \frac{2}{5}
+```
 3. **Percentile question:** set the CDF equal to the target proportion and solve, $\frac{x - 200}{50} = p$.
    - In class, the value $0.8$ was used: $\frac{x - 200}{50} = 0.8$, which gives $x = 240$. The class accepted **240** as the answer.
    - ⚠️ **Discrepancy:** $0.8$ corresponds to the **80th** percentile, but the question was stated as the **88th** percentile. For the 88th percentile, $\frac{x - 200}{50} = 0.88$, so $x = 244$. Check which value your instructor intends.
@@ -92,7 +116,10 @@ $$P(X > 230) = \int_{230}^{250} \frac{1}{50}\,dx = \frac{20}{50} = \frac{2}{5}$$
 - **Question:** what is the probability that they wait **at least 20 minutes**?
 - **Model:** the waiting time is $X \sim U(0, 30)$, so $f(x) = \frac{1}{30}$ for $0 < x < 30$, and $0$ otherwise.
 - "At least 20 minutes" means $X \ge 20$:
-$$P(X \ge 20) = \int_{20}^{30} \frac{1}{30}\,dx = \frac{30 - 20}{30} = \frac{10}{30} = \frac{1}{3}$$
+
+```math
+P(X \ge 20) = \int_{20}^{30} \frac{1}{30}\,dx = \frac{30 - 20}{30} = \frac{10}{30} = \frac{1}{3}
+```
 
 ---
 
@@ -110,16 +137,25 @@ $$P(X \ge 20) = \int_{20}^{30} \frac{1}{30}\,dx = \frac{30 - 20}{30} = \frac{10}
 
 #### Definition
 A random variable $X$ is normally distributed with parameters $\mu$ (the **mean**) and $\sigma^2$ (the **variance**) if its PDF is
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2\sigma^2}}, \qquad -\infty < x < \infty$$
+
+```math
+f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2\sigma^2}}, \qquad -\infty < x < \infty
+```
 
 It is written as $X \sim N(\mu, \sigma^2)$.
 
 #### Standard normal variate
 To standardise $X \sim N(\mu, \sigma^2)$, compute
-$$Z = \frac{X - \mu}{\sigma}$$
+
+```math
+Z = \frac{X - \mu}{\sigma}
+```
 
 Then $E[Z] = 0$ and $\operatorname{Var}(Z) = 1$, so $Z \sim N(0, 1)$. The PDF of $Z$ is
-$$\phi(z) = \frac{1}{\sqrt{2\pi}}\, e^{-z^2/2}$$
+
+```math
+\phi(z) = \frac{1}{\sqrt{2\pi}}\, e^{-z^2/2}
+```
 
 - A student (Nihal) asked whether the PDF has $\frac{1}{\sqrt{2\pi\sigma^2}}$ or just $\frac{1}{\sqrt{2\pi}}$.
 - **Answer:** the $\frac{1}{\sqrt{2\pi}}$ form is for the **standard** normal only. The general normal has $\frac{1}{\sigma\sqrt{2\pi}}$.
@@ -132,7 +168,10 @@ $$\phi(z) = \frac{1}{\sqrt{2\pi}}\, e^{-z^2/2}$$
 5. **Linear combinations stay normal.** A linear combination of **independent normal variates** is also a normal variate. This is used extensively later in **regression analysis**.
 6. **The x-axis is an asymptote to the curve.** The curve approaches the x-axis but never meets it at any finite distance.
 7. **Sum and difference of standard normals.** If $X$ and $Y$ are independent standard normal variates, $X, Y \sim N(0,1)$, then
-$$U = X + Y \sim N(0, 2), \qquad V = X - Y \sim N(0, 2)$$
+
+```math
+U = X + Y \sim N(0, 2), \qquad V = X - Y \sim N(0, 2)
+```
    and $U$ and $V$ are **independent**. The instructor noted this is also important for regression.
 
 - **Area properties** of the normal curve were deferred to a later class.
@@ -164,19 +203,28 @@ $$U = X + Y \sim N(0, 2), \qquad V = X - Y \sim N(0, 2)$$
 **Given:** class mean $\mu = 77$, standard deviation $\sigma = 8$.
 
 **(a) Rahul scored 87. What percentage scored below him?**
-$$z = \frac{87 - 77}{8} = \frac{10}{8} = 1.25$$
+
+```math
+z = \frac{87 - 77}{8} = \frac{10}{8} = 1.25
+```
 - Table lookup: row 1.2, column 0.05 gives $\Phi(1.25) = 0.89435$.
 - Equivalently, $0.5 + 0.39435$, i.e. the left half plus the area from 0 to 1.25.
 - **About 89.4%** of students scored below Rahul. In other words, Rahul beat about 89.4% of the class.
 
 **(b) Raj scored 73. What percentage scored below Raj?**
-$$z = \frac{73 - 77}{8} = \frac{-4}{8} = -0.5$$
+
+```math
+z = \frac{73 - 77}{8} = \frac{-4}{8} = -0.5
+```
 - $\Phi(-0.5) = 1 - \Phi(0.5) = 1 - 0.69146 = 0.30854$.
 - **About 30.8%** scored below Raj.
 - This area lies on the **left** side of the mean, a point clarified in Q&A.
 
 **(c) What percentage scored between Raj and Rahul?**
-$$P(-0.5 < Z < 1.25) = 0.89435 - 0.30854 = 0.58581$$
+
+```math
+P(-0.5 < Z < 1.25) = 0.89435 - 0.30854 = 0.58581
+```
 - **About 58.6%** of students scored between Raj and Rahul.
 
 ---

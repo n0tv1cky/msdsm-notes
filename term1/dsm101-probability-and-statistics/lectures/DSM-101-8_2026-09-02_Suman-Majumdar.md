@@ -26,11 +26,15 @@ This session is a purely applied follow-up to the earlier lectures on Bayes' the
 
 ### 2.1 Restatement of Bayes' Theorem (inference form)
 
-$$P(\theta \mid \text{data}) = \frac{P(\text{data} \mid \theta)\, P(\theta)}{P(\text{data})}$$
+```math
+P(\theta \mid \text{data}) = \frac{P(\text{data} \mid \theta)\, P(\theta)}{P(\text{data})}
+```
 
 with
 
-$$P(\text{data}) = \int P(\text{data} \mid \theta)\, P(\theta)\, d\theta$$
+```math
+P(\text{data}) = \int P(\text{data} \mid \theta)\, P(\theta)\, d\theta
+```
 
 Naming of each term (write these down — used throughout):
 
@@ -58,13 +62,22 @@ Given numbers used in class:
 (The instructor first wrote $1/20$ and $20/20$, then corrected on the fly to $1/21$ and $20/21$ so the priors sum to 1. Concrete counting version used: out of 210 people, 10 are librarians and 200 are farmers; of the 10 librarians, 4 have characteristic $A$; of the 200 farmers, 20 have characteristic $A$.)
 
 Numerator (likelihood × prior) for librarian:
-$$P(A \mid \text{librarian})\,P(\text{librarian}) = \frac{4}{10}\times\frac{1}{21}$$
+
+```math
+P(A \mid \text{librarian})\,P(\text{librarian}) = \frac{4}{10}\times\frac{1}{21}
+```
 
 Evidence (what is the probability of *seeing characteristic $A$ at all*, regardless of occupation):
-$$P(A) = \frac{4}{10}\times\frac{1}{21} \;+\; \frac{1}{10}\times\frac{20}{21}$$
+
+```math
+P(A) = \frac{4}{10}\times\frac{1}{21} \;+\; \frac{1}{10}\times\frac{20}{21}
+```
 
 Posterior:
-$$P(\text{librarian}\mid A) = \frac{\frac{4}{10}\cdot\frac{1}{21}}{\frac{4}{10}\cdot\frac{1}{21} + \frac{1}{10}\cdot\frac{20}{21}}$$
+
+```math
+P(\text{librarian}\mid A) = \frac{\frac{4}{10}\cdot\frac{1}{21}}{\frac{4}{10}\cdot\frac{1}{21} + \frac{1}{10}\cdot\frac{20}{21}}
+```
 
 **Key conceptual point:** the evidence is the probability of observing the feature **irrespective of which group produced it** — you sum over *all possible ways* the observation could occur. This is exactly why the integral/sum appears in $P(\text{data})$.
 
@@ -96,16 +109,23 @@ Label doors $a$, $b$, $c$. Player chooses **door $a$**.
 Definitions:
 - $P(a)$ = probability that door $a$ hides the prize (similarly $P(b)$, $P(c)$).
 - Before anything happens, all doors are equally likely:
-$$P(a) = P(b) = P(c) = \tfrac{1}{3}$$
+
+```math
+P(a) = P(b) = P(c) = \tfrac{1}{3}
+```
 - **Event $B$ (capital B):** "door $b$ gets opened and leads to worthless junk."
 
 **What we want to know** (the instructor's advice from the previous class: *write down as precisely as possible exactly what you want to know*):
 
-$$P(a \mid B) = \text{probability that door } a \text{ has the prize, given that door } b \text{ was opened and revealed junk}$$
+```math
+P(a \mid B) = \text{probability that door } a \text{ has the prize, given that door } b \text{ was opened and revealed junk}
+```
 
 ### 2.6 Monty Hall — Applying Bayes' Theorem
 
-$$P(a \mid B) = \frac{P(B \mid a)\, P(a)}{P(B)}$$
+```math
+P(a \mid B) = \frac{P(B \mid a)\, P(a)}{P(B)}
+```
 
 **Term 1: $P(B \mid a) = \dfrac{1}{2}$**
 
@@ -115,7 +135,9 @@ Reasoning: you chose door $a$, so Monty cannot open $a$. If the prize *is* behin
 
 **Term 3: the evidence $P(B)$** — expand over all mutually exclusive ways door $b$ can be opened and reveal junk:
 
-$$P(B) = P(B \mid a)P(a) + P(B \mid b)P(b) + P(B \mid c)P(c)$$
+```math
+P(B) = P(B \mid a)P(a) + P(B \mid b)P(b) + P(B \mid c)P(c)
+```
 
 Evaluating each conditional:
 
@@ -124,13 +146,22 @@ Evaluating each conditional:
 - $P(B \mid c) = 1$ — **the crucial one.** If the prize is behind $c$, and you have chosen $a$ (so Monty can't open $a$), and Monty won't reveal the prize (so he can't open $c$), then Monty has **no choice at all**: he *must* open door $b$. Probability 1.
 
 Substituting:
-$$P(B) = \frac{1}{2}\cdot\frac{1}{3} \;+\; 0\cdot\frac{1}{3} \;+\; 1\cdot\frac{1}{3} = \frac{1}{6} + \frac{1}{3} = \frac{1}{2}$$
+
+```math
+P(B) = \frac{1}{2}\cdot\frac{1}{3} \;+\; 0\cdot\frac{1}{3} \;+\; 1\cdot\frac{1}{3} = \frac{1}{6} + \frac{1}{3} = \frac{1}{2}
+```
 
 Therefore:
-$$P(a \mid B) = \frac{\frac{1}{2}\cdot\frac{1}{3}}{\frac{1}{2}} = \frac{1/6}{1/2} = \frac{1}{3}$$
+
+```math
+P(a \mid B) = \frac{\frac{1}{2}\cdot\frac{1}{3}}{\frac{1}{2}} = \frac{1/6}{1/2} = \frac{1}{3}
+```
 
 **Conclusion:**
-$$P(\text{win if you stick}) = \frac{1}{3}, \qquad P(\text{win if you switch to } c) = 1 - \frac{1}{3} = \frac{2}{3}$$
+
+```math
+P(\text{win if you stick}) = \frac{1}{3}, \qquad P(\text{win if you switch to } c) = 1 - \frac{1}{3} = \frac{2}{3}
+```
 
 **Switching doubles your probability of winning.**
 
@@ -152,8 +183,8 @@ A student asked whether $P(B\mid b)=0$ and $P(B\mid c)=1$ represent *Monty's* kn
 - Search "Monty Hall problem simulator" online — many exist; several versions of the rules.
 - Single-trial demo: chose door A, host opened door B (goat), switched, won the car.
 - Bulk simulation over **1000 trials**:
-  - **Keep the choice:** win $\approx 34\%$, lose $\approx 66\%$
-  - **Change the choice:** win $\approx 68\%$, lose $\approx 32\%$
+  - **Keep the choice:** win $\approx 34\text{%}$, lose $\approx 66\text{%}$
+  - **Change the choice:** win $\approx 68\text{%}$, lose $\approx 32\text{%}$
 - These match the theoretical $1/3$ and $2/3$.
 - **Suggested exercise:** write your own small Python simulator — the rules are very straightforward to implement.
 
@@ -162,11 +193,17 @@ A student asked whether $P(B\mid b)=0$ and $P(B\mid c)=1$ represent *Monty's* kn
 **Scenario.** A known thief (person with a criminal record) is staying in a lodging house when a piece of (fancy) cheese is stolen.
 
 **Defence lawyer's argument.** Only **1 in 2,500** known thieves who are in lodgings steal cheese from their hosts, i.e.
-$$P(S \mid T) = \frac{1}{2500} = 0.0004$$
+
+```math
+P(S \mid T) = \frac{1}{2500} = 0.0004
+```
 Therefore (claims the defence) the fact that the man is a known thief is irrelevant and should be ignored by the judge.
 
 **Additional data available to you (the prosecution barrister)** from large criminal records: the general background rate of a theft/burglary occurring in such lodgings is
-$$\frac{1}{20{,}000}$$
+
+```math
+\frac{1}{20{,}000}
+```
 
 **Events:**
 - $S$ = the lodger-thief stole the cheese
@@ -177,11 +214,17 @@ $$\frac{1}{20{,}000}$$
 **Hint / the key point.** *What piece of information has the defence lawyer ignored — probably deliberately?* Answer: **that a theft has definitely occurred.** (Analogy given: if there's a dead body, a murder definitely happened.) Every probability must be **conditioned on the fact that the cheese actually was stolen**.
 
 **Quantity to compute:**
-$$P(S \mid C, T)$$
+
+```math
+P(S \mid C, T)
+```
 — the probability that the lodger is the culprit, given that the cheese *was* stolen and given that he is a known thief.
 
 **Bayes expansion:**
-$$P(S \mid C,T) = \frac{P(C \mid S,T)\,P(S\mid T)}{P(C\mid S,T)\,P(S\mid T) + P(C\mid \tilde{S},T)\,P(\tilde{S}\mid T)}$$
+
+```math
+P(S \mid C,T) = \frac{P(C \mid S,T)\,P(S\mid T)}{P(C\mid S,T)\,P(S\mid T) + P(C\mid \tilde{S},T)\,P(\tilde{S}\mid T)}
+```
 
 **Evaluating each term:**
 
@@ -191,10 +234,16 @@ $$P(S \mid C,T) = \frac{P(C \mid S,T)\,P(S\mid T)}{P(C\mid S,T)\,P(S\mid T) + P(
 - $P(C \mid \tilde{S}, T) = \dfrac{1}{20{,}000}$ — the probability that a cheese theft occurs given the perpetrator is *not* the known thief; we use the general-population background theft rate, which is very small.
 
 **Substituting:**
-$$P(S \mid C,T) = \frac{1 \times 0.0004}{1\times 0.0004 \;+\; \frac{1}{20{,}000}\times 0.9996}$$
+
+```math
+P(S \mid C,T) = \frac{1 \times 0.0004}{1\times 0.0004 \;+\; \frac{1}{20{,}000}\times 0.9996}
+```
 
 Numerically: numerator $= 4\times10^{-4}$; second denominator term $= 0.9996/20000 \approx 4.998\times10^{-5}$; so
-$$P(S\mid C,T) \approx \frac{4\times10^{-4}}{4.4998\times10^{-4}} \approx 0.889$$
+
+```math
+P(S\mid C,T) \approx \frac{4\times10^{-4}}{4.4998\times10^{-4}} \approx 0.889
+```
 
 **Conclusion (as stated in class):** the probability comes out **very, very high** — nowhere near the $0.0004$ the defence lawyer claimed. Bayes' theorem lets you accumulate *all* the available information and give each piece its proper weight in your overall belief system, which is how you counter an argument that deliberately or unknowingly suppresses a crucial prior.
 
@@ -215,7 +264,10 @@ $$P(S\mid C,T) \approx \frac{4\times10^{-4}}{4.4998\times10^{-4}} \approx 0.889$
 | Nothing is stolen | ~19,991,000 |
 
 The defence's $0.0004$ compares 8,000 against all 20 million houses. Knowing the cheese **was** stolen rules out the ~19,991,000 houses where nothing happened. Only about 9,000 houses remain, and in 8,000 of them the thief did it:
-$$\frac{8{,}000}{9{,}000} \approx 0.89$$
+
+```math
+\frac{8{,}000}{9{,}000} \approx 0.89
+```
 So it goes from 0.04% to about 89%, and nothing changed except refusing to ignore that a theft happened.
 
 **One-line intuition.** Once you know a crime happened, you're not asking "is he likely to commit a crime?" You're asking **"which explanation for this crime is more likely?"** Both explanations are rare. But "the known thief did it" (1 in 2,500) is about **8× less rare** than "some random person did it" (1 in 20,000), so he's the likely culprit. That's the dead-body analogy: "only 1 in a million people with a motive commit murder" sounds like strong evidence of innocence, but it stops meaning much once there's a body on the floor. Someone definitely did it, and the only question left is who.
@@ -226,17 +278,31 @@ In the formula, "the cheese was stolen" is the $C$ after the bar in $P(S \mid C,
 
 ## 3. Formula Sheet
 
-$$P(\theta \mid \text{data}) = \frac{P(\text{data}\mid\theta)\,P(\theta)}{P(\text{data})}, \qquad P(\text{data}) = \int P(\text{data}\mid\theta)\,P(\theta)\,d\theta$$
+```math
+P(\theta \mid \text{data}) = \frac{P(\text{data}\mid\theta)\,P(\theta)}{P(\text{data})}, \qquad P(\text{data}) = \int P(\text{data}\mid\theta)\,P(\theta)\,d\theta
+```
 
 Discrete (two-hypothesis) form of the evidence:
-$$P(D) = P(D\mid H_1)P(H_1) + P(D\mid H_2)P(H_2)$$
+
+```math
+P(D) = P(D\mid H_1)P(H_1) + P(D\mid H_2)P(H_2)
+```
 
 Monty Hall:
-$$P(a)=P(b)=P(c)=\tfrac13,\quad P(B\mid a)=\tfrac12,\quad P(B\mid b)=0,\quad P(B\mid c)=1$$
-$$P(B)=\tfrac12\cdot\tfrac13+0\cdot\tfrac13+1\cdot\tfrac13=\tfrac12,\qquad P(a\mid B)=\frac{\tfrac12\cdot\tfrac13}{\tfrac12}=\tfrac13,\qquad P(\text{switch wins})=\tfrac23$$
+
+```math
+P(a)=P(b)=P(c)=\tfrac13,\quad P(B\mid a)=\tfrac12,\quad P(B\mid b)=0,\quad P(B\mid c)=1
+```
+
+```math
+P(B)=\tfrac12\cdot\tfrac13+0\cdot\tfrac13+1\cdot\tfrac13=\tfrac12,\qquad P(a\mid B)=\frac{\tfrac12\cdot\tfrac13}{\tfrac12}=\tfrac13,\qquad P(\text{switch wins})=\tfrac23
+```
 
 Barrister:
-$$P(S\mid C,T)=\frac{P(C\mid S,T)P(S\mid T)}{P(C\mid S,T)P(S\mid T)+P(C\mid\tilde S,T)P(\tilde S\mid T)}=\frac{1\times\frac{1}{2500}}{1\times\frac{1}{2500}+\frac{1}{20000}\times\left(1-\frac{1}{2500}\right)}\approx 0.89$$
+
+```math
+P(S\mid C,T)=\frac{P(C\mid S,T)P(S\mid T)}{P(C\mid S,T)P(S\mid T)+P(C\mid\tilde S,T)P(\tilde S\mid T)}=\frac{1\times\frac{1}{2500}}{1\times\frac{1}{2500}+\frac{1}{20000}\times\left(1-\frac{1}{2500}\right)}\approx 0.89
+```
 
 ---
 

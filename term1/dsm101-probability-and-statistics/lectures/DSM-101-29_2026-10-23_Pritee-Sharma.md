@@ -19,7 +19,7 @@ faculty: Pritee Sharma
 
 The session opened by finishing the previous lecture's material on the shape of data. The instructor added **kurtosis** (leptokurtic, platykurtic and normal curves) to the earlier discussion of skewness. The main topic was **sampling distributions**, specifically the sampling distribution of the sample mean. Suppose many samples of the same size are drawn from a population and the mean of each is computed. Those sample means follow a normal distribution centred on the population mean $\mu$, with standard deviation (the **standard error**) $\sigma/\sqrt{n}$. This holds even when the population itself is not normal, provided $n \geq 30$. This result is the **Central Limit Theorem (CLT)**.
 
-The CLT was first demonstrated with a tiny population $\{1,2,3,4,5\}$ to show **unbiasedness**, $E[\bar{X}] = \mu$. It was then applied through the **z-transformation** to three worked problems: steel-chain breaking strength, bulb lifetime claims, and hybrid motor life. The motor problem contrasted an individual observation with a sample mean. The class ended with an e-commerce delivery-time problem assigned for discussion next class.
+The CLT was first demonstrated with a tiny population $\lbrace 1,2,3,4,5\rbrace $ to show **unbiasedness**, $E[\bar{X}] = \mu$. It was then applied through the **z-transformation** to three worked problems: steel-chain breaking strength, bulb lifetime claims, and hybrid motor life. The motor problem contrasted an individual observation with a sample mean. The class ended with an e-commerce delivery-time problem assigned for discussion next class.
 
 ---
 
@@ -54,9 +54,13 @@ The CLT was first demonstrated with a tiny population $\{1,2,3,4,5\}$ to show **
 - **Statement:** For large samples ($n \geq 30$ by convention), the sampling distribution of $\bar{X}$ is approximately **normal and centred at $\mu$**. This holds **even if the population distribution is non-normal**.
 - **Properties** of the sampling distribution of means, as $n$ grows large:
   1. **Mean of the means equals the population mean:**
+
   $$E[\bar{X}] = \mu_{\bar{X}} = \mu$$
+
   2. **Standard deviation of the means equals the standard error (SE):**
+
   $$\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$$
+
   Here $\sigma$ is the population standard deviation and $n$ is the sample size.
   3. **Shape:** The distribution is normal.
 - **Consequence stated in class:** About 95% of sample means fall within $\pm 2$ standard errors of $\mu$.
@@ -66,8 +70,11 @@ The CLT was first demonstrated with a tiny population $\{1,2,3,4,5\}$ to show **
 - **Population:** $N = 5$ elements with values $1, 2, 3, 4, 5$. Take random samples of size $n = 2$.
 - **Number of possible samples:** $\binom{5}{2} = 10$.
 - **Population parameters** (the full population is known):
+
   $$\mu = \frac{1+2+3+4+5}{5} = 3$$
+
   $$\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{N}} = \sqrt{\frac{4+1+0+1+4}{5}} = \sqrt{2} \approx 1.41$$
+
   - Divide by $N$, **not** $N-1$, because this is the entire population.
 - **All 10 samples and their means:**
 
@@ -76,20 +83,29 @@ The CLT was first demonstrated with a tiny population $\{1,2,3,4,5\}$ to show **
 | $\bar{x}$ | 1.5 | 2.0 | 2.5 | 3.0 | 2.5 | 3.0 | 3.5 | 3.5 | 4.0 | 4.5 |
 
 - **Mean of the sample means:**
+
   $$E[\bar{X}] = \frac{\sum \bar{x}}{10} = \frac{30}{10} = 3 = \mu$$
+
 - **Unbiasedness:** The mean of all possible sample means equals the population mean. This property is called **unbiasedness**.
 - **Supplementary note (not covered in class):** The instructor did not finish the standard-error check for this example.
   - The SD of the 10 means is $\sqrt{7.5/10} \approx 0.866$.
   - This differs from $\sigma/\sqrt{n} = 1.41/\sqrt{2} = 1$ because the sampling is without replacement from a tiny population.
   - Applying the finite population correction recovers the exact value:
+
   $$\frac{\sigma}{\sqrt{n}}\sqrt{\frac{N-n}{N-1}} = 1 \times \sqrt{3/4} = 0.866$$
 
 ### 2.6 Standardising the sample mean (z-transformation)
 - Because $\bar{X}$ is normally distributed, it can be converted to a standard normal $Z$:
-$$Z = \frac{\bar{X} - E[\bar{X}]}{\sigma_{\bar{X}}} = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}}$$
+
+```math
+Z = \frac{\bar{X} - E[\bar{X}]}{\sigma_{\bar{X}}} = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}}
+```
 - If $n$ is large ($\geq 30$), the sample standard deviation $s$ can replace an unknown $\sigma$. It serves as an estimate of the population standard deviation.
 - **Contrast** this with the z-score for a **single observation**, which has no $\sqrt{n}$:
-$$Z = \frac{X_i - \mu}{\sigma}$$
+
+```math
+Z = \frac{X_i - \mu}{\sigma}
+```
 
 ### 2.7 Worked Example 1: Steel chains
 - **Given:**
@@ -98,7 +114,10 @@ $$Z = \frac{X_i - \mu}{\sigma}$$
   - Sample size $n = 100$ chains.
 - **Question:** What is $P(\bar{X} \leq 195)$? Equivalently, what proportion of sample means fall at or below 195 lb?
 - **Solution:**
-$$Z = \frac{195 - 200}{10/\sqrt{100}} = \frac{-5}{1} = -5$$
+
+```math
+Z = \frac{195 - 200}{10/\sqrt{100}} = \frac{-5}{1} = -5
+```
 - **Interpretation:**
   - Almost all sample means lie within $\pm 3$ to $\pm 4$ standard errors of $\mu$.
   - $z = -5$ is far in the tail, so the probability is approximately 0.
@@ -111,7 +130,10 @@ $$Z = \frac{195 - 200}{10/\sqrt{100}} = \frac{-5}{1} = -5$$
   - Sample size $n = 100$ bulbs.
   - Observed sample mean $\bar{x} = 14{,}000$ h.
 - **Solution:**
-$$Z = \frac{14{,}000 - 15{,}000}{1{,}000/\sqrt{100}} = \frac{-1000}{100} = -10$$
+
+```math
+Z = \frac{14{,}000 - 15{,}000}{1{,}000/\sqrt{100}} = \frac{-1000}{100} = -10
+```
 - **Interpretation:** The sample mean is 10 standard errors below the claimed mean.
   - The instructor said nearly all sample means (stated as 99.9%) lie within $\pm 3$ to $\pm 4$ SE.
   - Anything beyond $-4$ is extremely unlikely.
@@ -125,19 +147,31 @@ $$Z = \frac{14{,}000 - 15{,}000}{1{,}000/\sqrt{100}} = \frac{-1000}{100} = -10$$
 
 **Part (a): What is the probability that one randomly selected motor lasts between 90,000 and 110,000 miles?**
 - No sample is drawn here; this is a single unit from the population. Use $X_i$ and $\sigma$, **without $\sqrt{n}$**:
-$$Z_1 = \frac{90{,}000 - 100{,}000}{10{,}000} = -1, \qquad Z_2 = \frac{110{,}000 - 100{,}000}{10{,}000} = +1$$
+
+```math
+Z_1 = \frac{90{,}000 - 100{,}000}{10{,}000} = -1, \qquad Z_2 = \frac{110{,}000 - 100{,}000}{10{,}000} = +1
+```
 - **Reading the z-table:** Find the units and first decimal of $z$ down the left column. Find the second decimal across the top row.
   - For $z = 1.00$, the area between $0$ and $1$ is $0.3413$.
 - By symmetry, the area between $-1$ and $0$ is also $0.3413$:
-$$P(-1 \leq Z \leq 1) = 0.3413 + 0.3413 = 0.6826$$
+
+```math
+P(-1 \leq Z \leq 1) = 0.3413 + 0.3413 = 0.6826
+```
 - **Answer:** $0.6826$ (68.26%).
 
 **Part (b): For a random sample of $n = 100$ motors, what is $P(\bar{X} < 98{,}000)$?**
 - Now use the sample-mean formula, with the standard error:
-$$Z = \frac{98{,}000 - 100{,}000}{10{,}000/\sqrt{100}} = \frac{-2000}{1000} = -2$$
+
+```math
+Z = \frac{98{,}000 - 100{,}000}{10{,}000/\sqrt{100}} = \frac{-2000}{1000} = -2
+```
 - The table gives an area of $0.4772$ for $z = 2.00$, measured between $0$ and $2$.
 - The whole left half of the curve has area $0.5$. Subtract the area between $-2$ and $0$:
-$$P(\bar{X} < 98{,}000) = 0.5 - 0.4772 = 0.0228$$
+
+```math
+P(\bar{X} < 98{,}000) = 0.5 - 0.4772 = 0.0228
+```
 - **Answer:** $0.0228$ (about 2.3%).
 
 ### 2.10 Student Q&A: reading the z-table

@@ -42,6 +42,7 @@ Each idea is checked numerically in Python with NumPy, Matplotlib, SciPy and Sym
 ### 2.0 Setup / Libraries
 - Libraries used: `numpy` (`np`), `matplotlib.pyplot` (`plt`), `scipy` (especially `scipy.optimize`), and later `sympy` (`sp`) for symbolic derivatives.
 - Core framing: learning means finding
+
   $$\hat\theta = \arg\min_\theta L(\theta)$$
 
 ---
@@ -49,7 +50,10 @@ Each idea is checked numerically in Python with NumPy, Matplotlib, SciPy and Sym
 ### 2.1 The Derivative
 
 **Definition.** The derivative measures how sensitive the output is to a tiny change in one input; this is the slope.
-$$f'(x) = \frac{df}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+
+```math
+f'(x) = \frac{df}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+```
 
 **Geometric meaning.** $f'(x)$ is the slope of the tangent line at $x$.
 - $f'(x) > 0$: the function is rising.
@@ -58,7 +62,7 @@ $$f'(x) = \frac{df}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
 
 **Standard derivatives listed on the slide** (partly garbled; the standard forms are given):
 - Power rule: $\dfrac{d}{dx}x^n = n x^{n-1}$
-- Exponential: $\dfrac{d}{dx}e^{ax} = a\,e^{ax}$ **[inferred]**
+- Exponential: $\dfrac{d}{dx}e^{ax} = a\ e^{ax}$ **[inferred]**
 - Logarithm: $\dfrac{d}{dx}\ln x = \dfrac{1}{x}$ **[inferred]**
 
 #### Worked example 1: $f(x) = (x-3)^2 + 1$
@@ -85,22 +89,34 @@ For this quadratic, the forward-difference error equals exactly $h$, because $\f
 > **Tip (standard numerical analysis, not explicitly stated in lecture):** making $h$ extremely small (e.g. $10^{-12}$) eventually increases the error because of floating-point round-off. Truncation error is reduced by smaller $h$; round-off error is increased by it.
 
 #### First-order Taylor expansion and error propagation
-$$f(x + \delta) \approx f(x) + f'(x)\,\delta$$
+
+```math
+f(x + \delta) \approx f(x) + f'(x)\,\delta
+```
 
 An input uncertainty $\sigma_x$ therefore produces an output uncertainty
-$$\sigma_f \approx |f'(x)|\,\sigma_x$$
+
+```math
+\sigma_f \approx |f'(x)|\,\sigma_x
+```
 
 #### Worked example 2: Distance modulus (magnitude error becomes distance error)
 
-- Distance modulus: $\mu = m - M = 5\log_{10}\!\left(\dfrac{d}{10\,\text{pc}}\right)$.
+- Distance modulus: $\mu = m - M = 5\log_{10}\left(\dfrac{d}{10\ \text{pc}}\right)$.
 - Solving for distance:
+
   $$d = 10^{(\mu + 5)/5}\ \text{pc}$$
+
 - Derivative:
-  $$\frac{dd}{d\mu} = \frac{\ln 10}{5}\, d \approx 0.4605\, d$$
+
+  $$\frac{dd}{d\mu} = \frac{\ln 10}{5}\  d \approx 0.4605\  d$$
+
 - Propagated error:
-  $$\sigma_d = \frac{\ln 10}{5}\, d\, \sigma_\mu \quad\Rightarrow\quad \frac{\sigma_d}{d} \approx 0.46\,\sigma_\mu$$
-- The code used $\sigma_\mu = 0.1$. That gives $\sigma_d/d \approx 4.6\%$ (my arithmetic, not read out in lecture).
-- **Plot:** $d$ versus $\mu$, with the tangent line drawn at $\mu = 10$. At that point $d = 10^{3}\,\text{pc} = 1000$ pc, the slope is $\approx 460$ pc per mag, and $\sigma_d \approx 46$ pc (my arithmetic).
+
+  $$\sigma_d = \frac{\ln 10}{5}\  d\  \sigma_\mu \quad\Rightarrow\quad \frac{\sigma_d}{d} \approx 0.46\ \sigma_\mu$$
+
+- The code used $\sigma_\mu = 0.1$. That gives $\sigma_d/d \approx 4.6\text{%}$ (my arithmetic, not read out in lecture).
+- **Plot:** $d$ versus $\mu$, with the tangent line drawn at $\mu = 10$. At that point $d = 10^{3}\ \text{pc} = 1000$ pc, the slope is $\approx 460$ pc per mag, and $\sigma_d \approx 46$ pc (my arithmetic).
 
 ```python
 sigma_mu = 0.1
@@ -122,26 +138,41 @@ plt.legend(); plt.show()
 ### 2.2 Partial Derivatives
 
 **Definition.** Real models have many inputs and parameters. A partial derivative measures the effect of one of them while all others are held constant, which isolates the effect of one feature or one weight.
-$$\frac{\partial f}{\partial x_i}(x_1,\dots,x_n) = \lim_{h\to 0}\frac{f(\dots, x_i + h, \dots) - f(\dots, x_i, \dots)}{h}$$
+
+```math
+\frac{\partial f}{\partial x_i}(x_1,\dots,x_n) = \lim_{h\to 0}\frac{f(\dots, x_i + h, \dots) - f(\dots, x_i, \dots)}{h}
+```
 
 #### Worked example 3: Flux from a star
 
 The flux is
-$$F(L, d) = \frac{L}{4\pi d^2}$$
+
+```math
+F(L, d) = \frac{L}{4\pi d^2}
+```
 
 - Holding $d$ fixed: $\dfrac{\partial F}{\partial L} = \dfrac{1}{4\pi d^2}$.
 - Holding $L$ fixed: $\dfrac{\partial F}{\partial d} = -\dfrac{2L}{4\pi d^3} = -\dfrac{2F}{d}$.
 
 **Relative sensitivity** (elasticity):
-$$\frac{L}{F}\frac{\partial F}{\partial L} = 1, \qquad \frac{d}{F}\frac{\partial F}{\partial d} = -2$$
+
+```math
+\frac{L}{F}\frac{\partial F}{\partial L} = 1, \qquad \frac{d}{F}\frac{\partial F}{\partial d} = -2
+```
 
 Interpretation: a 1% change in distance changes the flux twice as much as a 1% change in luminosity.
 
 **Multi-input error propagation** (independent errors):
-$$\sigma_F^2 = \left(\frac{\partial F}{\partial L}\right)^2 \sigma_L^2 + \left(\frac{\partial F}{\partial d}\right)^2 \sigma_d^2$$
+
+```math
+\sigma_F^2 = \left(\frac{\partial F}{\partial L}\right)^2 \sigma_L^2 + \left(\frac{\partial F}{\partial d}\right)^2 \sigma_d^2
+```
 
 Dividing by $F^2$ gives the relative form:
-$$\left(\frac{\sigma_F}{F}\right)^2 = \left(\frac{\sigma_L}{L}\right)^2 + 4\left(\frac{\sigma_d}{d}\right)^2$$
+
+```math
+\left(\frac{\sigma_F}{F}\right)^2 = \left(\frac{\sigma_L}{L}\right)^2 + 4\left(\frac{\sigma_d}{d}\right)^2
+```
 
 **Code.** Initial values were $L_0 = L_\odot$ (solar luminosity) and $d_0 = 10$ pc. Analytic partials were compared with numerical finite differences, and the relative sensitivities were printed (≈ 1 and ≈ −2).
 
@@ -182,24 +213,36 @@ print(sp.diff(F_sym, d))   # -L/(2*pi*d**3)
 ### 2.3 The Gradient
 
 **Definition.** The gradient collects all partial derivatives into one vector:
-$$\nabla f(\mathbf{x}) = \left(\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n}\right)$$
+
+```math
+\nabla f(\mathbf{x}) = \left(\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n}\right)
+```
 
 **Meaning.**
 - **Direction:** the gradient points in the direction of steepest ascent. On a hill, it is the direction you would face to walk straight up the steepest part.
-- **Magnitude:** $\|\nabla f\|$ tells you how steep that incline is.
+- **Magnitude:** $\Vert \nabla f\Vert $ tells you how steep that incline is.
 
 #### Worked example 4: Gaussian star on a CCD
 
 A star's brightness profile on a CCD is approximately a 2-D Gaussian:
-$$I(x,y) = A \exp\!\left(-\frac{(x-x_0)^2 + (y-y_0)^2}{2\sigma^2}\right)$$
+
+```math
+I(x,y) = A \exp\!\left(-\frac{(x-x_0)^2 + (y-y_0)^2}{2\sigma^2}\right)
+```
 
 Its gradient:
-$$\frac{\partial I}{\partial x} = -\frac{x - x_0}{\sigma^2}\, I, \qquad \frac{\partial I}{\partial y} = -\frac{y - y_0}{\sigma^2}\, I$$
+
+```math
+\frac{\partial I}{\partial x} = -\frac{x - x_0}{\sigma^2}\, I, \qquad \frac{\partial I}{\partial y} = -\frac{y - y_0}{\sigma^2}\, I
+```
 
 **Problem: vanishing gradient.** Far from the star, $I \approx 0$, so $\nabla I \approx 0$ as well. An algorithm that follows $\nabla I$ gets stuck, because it sees no slope.
 
 **Fix: use the log.**
-$$\nabla \ln I = \frac{\nabla I}{I} = -\frac{1}{\sigma^2}\big(x - x_0,\; y - y_0\big)$$
+
+```math
+\nabla \ln I = \frac{\nabla I}{I} = -\frac{1}{\sigma^2}\big(x - x_0,\; y - y_0\big)
+```
 
 The factor $I$ cancels. The gradient of $\ln I$ never vanishes away from the centre and always points straight at the star.
 
@@ -251,12 +294,18 @@ plt.quiver(X, Y, U, V); plt.plot(*np.array(path).T, 'g.-'); plt.show()
 **Idea.** The gradient points uphill, so step in the opposite direction (multiply by $-1$). Repeat until the slope levels out, i.e. you reach the bottom. This is an alternative to the least-squares fitting covered in the previous class.
 
 **Update rule.**
-$$\theta_{t+1} = \theta_t - \eta\, \nabla L(\theta_t)$$
+
+```math
+\theta_{t+1} = \theta_t - \eta\, \nabla L(\theta_t)
+```
 
 Here $\eta$ is the **learning rate** (step size).
 
 **Why it works.** A first-order Taylor expansion gives
-$$L(\theta_{t+1}) \approx L(\theta_t) - \eta\, \|\nabla L(\theta_t)\|^2$$
+
+```math
+L(\theta_{t+1}) \approx L(\theta_t) - \eta\, \|\nabla L(\theta_t)\|^2
+```
 
 The subtracted term is non-negative, so each small step lowers the loss.
 
@@ -265,9 +314,13 @@ The subtracted term is non-negative, so each small step lowers the loss.
 ### 2.5 Cost Functions from Likelihood
 
 - Given data $x_1, \dots, x_n$ and a model distribution $p(x\mid\theta)$, the log-likelihood is
+
   $$\ell(\theta) = \sum_{i=1}^{n} \ln p(x_i \mid \theta)$$
+
 - The best parameters maximise $\ell(\theta)$. This is the same as minimising the **negative log-likelihood (NLL)**, which becomes the cost function:
+
   $$L(\theta) = -\sum_{i=1}^{n} \ln p(x_i\mid\theta)$$
+
 - **Gaussian errors** give the mean squared error: $L \propto \sum_i (y_i - \hat y_i)^2$.
 - **Bernoulli outcomes** give the log loss (cross-entropy): $L = -\sum_i \left[y_i \ln p_i + (1-y_i)\ln(1-p_i)\right]$.
 
@@ -276,10 +329,15 @@ The subtracted term is non-negative, so each small step lowers the loss.
 Five 1-second exposures recorded photon counts $k_i$. The transcript says "356 and so on". The mean is 4, so the counts were plausibly something like $[3,5,6,\dots]$ **[exact values inferred]**.
 
 1. Poisson NLL (dropping the constant $\sum \ln k_i!$):
+
    $$L(\lambda) = n\lambda - \left(\sum_i k_i\right)\ln\lambda$$
+
 2. Derivative:
+
    $$\frac{dL}{d\lambda} = n - \frac{\sum_i k_i}{\lambda}$$
+
 3. Set it to zero:
+
    $$\hat\lambda = \frac{1}{n}\sum_i k_i = \bar k$$
 
 So the MLE is the sample mean, here **4 photons/s**. A numerical minimisation (`minimize_scalar`) gave the same answer, 4 photons/s.
@@ -298,16 +356,24 @@ print(lam_calc, res.x)                  # both ~4
 
 #### Worked example 6: Hubble's law by gradient descent
 
-- Model: $v = H_0\, d$ for 4 galaxies with distances $d_i$ and velocities $v_i$.
+- Model: $v = H_0\  d$ for 4 galaxies with distances $d_i$ and velocities $v_i$.
 - Cost (Gaussian errors, so MSE):
+
   $$L(H_0) = \sum_{i=1}^{4} (v_i - H_0 d_i)^2$$
+
 - Derivative:
-  $$\frac{dL}{dH_0} = -2\sum_i d_i\,(v_i - H_0 d_i)$$
+
+  $$\frac{dL}{dH_0} = -2\sum_i d_i\ (v_i - H_0 d_i)$$
+
 - Setting it to zero gives the **closed form**:
+
   $$\hat H_0 = \frac{\sum_i d_i v_i}{\sum_i d_i^2}$$
+
   In lecture this gave $\hat H_0 \approx 70$ km/s/Mpc.
 - Gradient-descent update:
-  $$H_{t+1} = H_t - \eta\,\frac{dL}{dH_0}\bigg|_{H_t}$$
+
+  $$H_{t+1} = H_t - \eta\ \frac{dL}{dH_0}\bigg|_{H_t}$$
+
 - **Learning-rate experiment:**
 
   | $\eta$ | Behaviour |
@@ -318,7 +384,10 @@ print(lam_calc, res.x)                  # both ~4
   The error shrinks by a constant factor each step. A smaller $\eta$ converges more slowly but safely; the converged value is reached by roughly step 10 for good choices.
 
 **Why the error shrinks by a constant factor** (derivation added for clarity):
-$$H_{t+1} - \hat H_0 = \left(1 - 2\eta\textstyle\sum_i d_i^2\right)(H_t - \hat H_0)$$
+
+```math
+H_{t+1} - \hat H_0 = \left(1 - 2\eta\textstyle\sum_i d_i^2\right)(H_t - \hat H_0)
+```
 
 So convergence requires $|1 - 2\eta\sum d_i^2| < 1$, i.e. $0 < \eta < 1/\sum_i d_i^2$. This is exactly the Hessian rule in §2.8: here $H = 2\sum d_i^2$ and the condition is $\eta < 2/H$.
 
@@ -344,10 +413,16 @@ With these illustrative distances, $\sum d_i^2 = 3000$, so the threshold is $\et
 ### 2.6 The Chain Rule
 
 **Definition.** The derivative of a nested function (a function inside another function):
-$$\frac{d}{dx} f(g(x)) = f'(g(x))\cdot g'(x)$$
+
+```math
+\frac{d}{dx} f(g(x)) = f'(g(x))\cdot g'(x)
+```
 
 **In machine learning the chain is longer.** If $L$ depends on $p$, $p$ on $z$, and $z$ on $w$:
-$$\frac{\partial L}{\partial w} = \frac{\partial L}{\partial p}\cdot\frac{\partial p}{\partial z}\cdot\frac{\partial z}{\partial w}$$
+
+```math
+\frac{\partial L}{\partial w} = \frac{\partial L}{\partial p}\cdot\frac{\partial p}{\partial z}\cdot\frac{\partial z}{\partial w}
+```
 
 This is the basis of backpropagation.
 
@@ -356,15 +431,24 @@ This is the basis of backpropagation.
 - **Feature:** $x = m_{\text{PSF}} - m_{\text{model}}$. Stars have $x \approx 0$; galaxies have $x > 0$.
 - SDSS uses a cut on this difference. The standard SDSS value is about $0.145$ mag **[inferred from "Carton … magnitude"]**.
 - **Model:**
+
   $$z = w x + b, \qquad p = \sigma(z) = \frac{1}{1 + e^{-z}}$$
+
 - **Loss** (log loss / Bernoulli NLL):
+
   $$L = -\sum_i \left[y_i \ln p_i + (1-y_i)\ln(1-p_i)\right]$$
 
 **Applying the chain rule, one data point at a time.** The three factors are:
-$$\frac{\partial L_i}{\partial p_i} = -\frac{y_i}{p_i} + \frac{1-y_i}{1-p_i}, \qquad \frac{\partial p_i}{\partial z_i} = p_i(1-p_i), \qquad \frac{\partial z_i}{\partial w} = x_i$$
+
+```math
+\frac{\partial L_i}{\partial p_i} = -\frac{y_i}{p_i} + \frac{1-y_i}{1-p_i}, \qquad \frac{\partial p_i}{\partial z_i} = p_i(1-p_i), \qquad \frac{\partial z_i}{\partial w} = x_i
+```
 
 Multiplying them, the result simplifies to:
-$$\frac{\partial L}{\partial w} = \sum_i (p_i - y_i)\,x_i, \qquad \frac{\partial L}{\partial b} = \sum_i (p_i - y_i)$$
+
+```math
+\frac{\partial L}{\partial w} = \sum_i (p_i - y_i)\,x_i, \qquad \frac{\partial L}{\partial b} = \sum_i (p_i - y_i)
+```
 
 **Code steps:**
 1. Simulate $x$ for stars and galaxies.
@@ -413,23 +497,33 @@ The lecture's loss may have been a sum rather than a mean, which only rescales $
 **Motivation.** A gradient is a single vector because the function has one output (the total error). When a function takes multiple inputs and produces multiple outputs, we need the Jacobian.
 
 **Definition.** For $\mathbf f: \mathbb{R}^n \to \mathbb{R}^m$, the Jacobian is the $m\times n$ matrix of first partial derivatives:
-$$J_{ij} = \frac{\partial f_i}{\partial x_j}$$
+
+```math
+J_{ij} = \frac{\partial f_i}{\partial x_j}
+```
 
 **Key facts:**
 - The gradient is the Jacobian of a scalar function: a single row.
 - $|\det J|$ tells how the transformation stretches or shrinks area/volume. It is needed when changing variables in an integral.
 - **Error propagation for vector outputs:**
-  $$\Sigma_y = J\, \Sigma_x\, J^{T}$$
+
+  $$\Sigma_y = J\  \Sigma_x\  J^{T}$$
 
 #### Worked example 8: Polar to Cartesian
 
 The transformation is $x = r\cos\phi$, $y = r\sin\phi$. Its Jacobian:
-$$J = \begin{pmatrix} \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial \phi} \\[2mm] \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial \phi}\end{pmatrix} = \begin{pmatrix} \cos\phi & -r\sin\phi \\ \sin\phi & r\cos\phi\end{pmatrix}$$
+
+```math
+J = \begin{pmatrix} \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial \phi} \\[2mm] \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial \phi}\end{pmatrix} = \begin{pmatrix} \cos\phi & -r\sin\phi \\ \sin\phi & r\cos\phi\end{pmatrix}
+```
 
 Its determinant:
-$$\det J = r\cos^2\phi + r\sin^2\phi = r$$
 
-So a small patch $dr\,d\phi$ maps to area $dA = r\,dr\,d\phi$. This is the familiar area element in polar integrals.
+```math
+\det J = r\cos^2\phi + r\sin^2\phi = r
+```
+
+So a small patch $dr\ d\phi$ maps to area $dA = r\ dr\ d\phi$. This is the familiar area element in polar integrals.
 
 **Code.** The Jacobian was computed analytically and numerically with $h = 10^{-6}$ (printed rounded to 4 decimals). The check gave $\det J = r = 2$ at the chosen point. The value of $\phi_0$ is unclear **[inferred]**.
 
@@ -452,7 +546,10 @@ print(np.linalg.det(J_an))                  # = r0 = 2
 **Analogy.** If the gradient/Jacobian tells you the slope of the hill, the Hessian tells you its curvature.
 
 **Definition.** The matrix of second derivatives, equivalently the Jacobian of the gradient:
-$$H_{jk} = \frac{\partial^2 L}{\partial \theta_j\, \partial \theta_k}$$
+
+```math
+H_{jk} = \frac{\partial^2 L}{\partial \theta_j\, \partial \theta_k}
+```
 
 **Classifying a critical point** (where $\nabla L = 0$):
 
@@ -468,23 +565,35 @@ In 1-D this reduces to: $f'' > 0$ means a minimum, $f'' < 0$ means a maximum.
 
 **Uses of the Hessian:**
 1. **Largest stable learning rate:**
+
    $$\eta < \frac{2}{\lambda_{\max}(H)}$$
+
    This explains the divergence seen in the Hubble example.
 2. **Parameter uncertainty:** a sharp curvature of the NLL means a precise estimate.
+
    $$\sigma_\theta \approx \frac{1}{\sqrt{H}} \quad\text{(1-D)}, \qquad \operatorname{Cov}(\hat\theta) \approx H^{-1}$$
 
 **Poisson example (continuing §2.5).** The Hessian of the NLL is
-$$H = \frac{d^2L}{d\lambda^2} = \frac{\sum k_i}{\lambda^2}$$
+
+```math
+H = \frac{d^2L}{d\lambda^2} = \frac{\sum k_i}{\lambda^2}
+```
 
 At $\hat\lambda$ this equals $n/\hat\lambda$, so
-$$\sigma_\lambda = \sqrt{\frac{\hat\lambda}{n}} = \sqrt{\frac{4}{5}} \approx 0.89\ \text{photons/s}$$
+
+```math
+\sigma_\lambda = \sqrt{\frac{\hat\lambda}{n}} = \sqrt{\frac{4}{5}} \approx 0.89\ \text{photons/s}
+```
 
 This matches the lecture's "0.89 per second" and confirms $n = 5$ and $\hat\lambda = 4$.
 
 #### Worked example 9: Hessian of the Gaussian star image at its centre
 
 At $(x_0, y_0)$:
-$$H_I = -\frac{A}{\sigma^2}\begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}$$
+
+```math
+H_I = -\frac{A}{\sigma^2}\begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}
+```
 
 Both eigenvalues are negative, so the centre is a **maximum** (the star peak). For $-\ln I$ (the quantity you would minimise), $H = \frac{1}{\sigma^2}\mathbf{1}$, which is positive: a minimum.
 

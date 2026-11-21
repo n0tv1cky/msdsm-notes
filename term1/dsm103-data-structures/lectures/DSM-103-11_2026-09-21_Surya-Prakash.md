@@ -82,7 +82,10 @@ for i = 1 to n
 
 - **Total steps:** $n$.
 - If $c$ is the time for one elementary step, then
-$$T(n) = c \cdot n$$
+
+```math
+T(n) = c \cdot n
+```
 - **Two machines:**
   - A fast machine with $c_1 = 1$ s per step gives $T_1(n) = c_1 n$.
   - A slow machine with $c_2 = 2$ s per step gives $T_2(n) = c_2 n$.
@@ -108,12 +111,15 @@ $$T(n) = c \cdot n$$
 - Here $f(n)$ is the step-count expression and $g(n)$ is a simpler function such as $n^2$, $n^3$, or $\log n$.
 
 **Definition:** $f(n) = O(g(n))$ if there exist a positive constant $c > 0$ and a threshold $n_0$ such that
-$$f(n) \le c \cdot g(n) \quad \text{for all } n \ge n_0.$$
+
+```math
+f(n) \le c \cdot g(n) \quad \text{for all } n \ge n_0.
+```
 
 - **Graphs (described):**
   - *Case 1:* the curve $c \cdot g(n)$ lies above $f(n)$ for all $n$. Then $f(n) = O(g(n))$.
   - *Case 2:* the curves cross. $c \cdot g(n)$ is below $f(n)$ for small $n$ but lies above it from the crossing point $n_0$ onward. We **still** say $f(n) = O(g(n))$, because only large $n$ matters. This is why the definition includes $n_0$.
-- *Note:* the transcript at one or two points says "$f$ above $g$" or "$cg(n)$ less than $f(n)$". These are slips. The correct condition is always $f(n) \le c\,g(n)$, meaning $c\,g(n)$ bounds $f(n)$ from **above**.
+- *Note:* the transcript at one or two points says "$f$ above $g$" or "$cg(n)$ less than $f(n)$". These are slips. The correct condition is always $f(n) \le c\ g(n)$, meaning $c\ g(n)$ bounds $f(n)$ from **above**.
 
 ### 2.9 Worked example: prove $n^2 + 3n + 1 = O(n^2)$
 
@@ -156,7 +162,10 @@ The algorithm, reconstructed from the transcript (step numbers approximate):
 - **Steps inside the loop:** 2 basic steps per iteration.
 - **Number of iterations:** the loop runs for $i = 1, 2, \dots, n$, which is $n$ times, giving $2n$ steps.
 - **Total:**
-$$T(n) = 2n + 4 = O(n)$$
+
+```math
+T(n) = 2n + 4 = O(n)
+```
 - The loop-condition checks and the output step were not counted separately. This simplification does not change the order.
 - **Space:** only a constant number of variables are used. (This is standard, not stated explicitly in lecture.)
 

@@ -50,13 +50,13 @@ Busy audiences, such as senior management who have given you 10 to 15 minutes, n
 
 | Section | Purpose | Components | Approximate share of time |
 |---|---|---|---|
-| **Preview** | Set expectations and flow, create interest and enthusiasm, show relevance | Attention getter, positioning statement, overview | $10\%$ to $15\%$ |
-| **View** | The "meat" or crux: develop and support the key messages | Two to four key messages, each built with PREP | $85\%$ to $90\%$ (as stated) |
+| **Preview** | Set expectations and flow, create interest and enthusiasm, show relevance | Attention getter, positioning statement, overview | $10\text{%}$ to $15\text{%}$ |
+| **View** | The "meat" or crux: develop and support the key messages | Two to four key messages, each built with PREP | $85\text{%}$ to $90\text{%}$ (as stated) |
 | **Review** | Recap, reinforce and drive action | Recap, reinforce, call to action | Remainder |
 
 - The proportions are **approximate**, but the **principle is not**: every planned presentation must have all three sections.
-- *Note for your own notes:* the stated figures add to roughly $100\%$ before the Review is counted ($15\% + 85\% = 100\%$). In practice, the Review needs a short slice of time, so treat the View as "the large majority" of the talk.
-- **Illustrative calculation (not given in class):** for a 15-minute talk, a Preview of $10\%$ to $15\%$ is $0.10 \times 15 = 1.5$ to $0.15 \times 15 = 2.25$ minutes.
+- *Note for your own notes:* the stated figures add to roughly $100\text{%}$ before the Review is counted ($15\text{%} + 85\text{%} = 100\text{%}$). In practice, the Review needs a short slice of time, so treat the View as "the large majority" of the talk.
+- **Illustrative calculation (not given in class):** for a 15-minute talk, a Preview of $10\text{%}$ to $15\text{%}$ is $0.10 \times 15 = 1.5$ to $0.15 \times 15 = 2.25$ minutes.
 
 ### 2.4 Primacy and recency effects
 - Audiences best remember **how a presentation opens (primacy)** and **how it closes (recency)**.

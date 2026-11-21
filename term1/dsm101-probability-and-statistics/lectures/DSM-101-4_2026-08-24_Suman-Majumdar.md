@@ -80,7 +80,10 @@ This session picks up from the previous lecture's discussion of probability dist
 
 - Think of **total probability as a mass $M$** spread over the **total range/volume $V$** of the variable (the full range of $X$).
 - **Average density:**
-$$\bar{\rho} = \frac{M}{V}$$
+
+```math
+\bar{\rho} = \frac{M}{V}
+```
   This is *independent of $X$* — it's just $\bar\rho$, a constant.
 - But some regions of **parameter space carry more "mass" (probability)** than others → hence a *local* density that varies with position. That local quantity is the **probability density**.
 - **Dimensionality:** density need **not** be 3-dimensional. It is defined in whatever dimension the problem has:
@@ -90,7 +93,10 @@ $$\bar{\rho} = \frac{M}{V}$$
 
 #### Formal statement given for the 2-variable case (H = height, W = weight)
 Let $dB$ be the amount of probability contained in the region where $H \in [H, H+dH]$ and $W \in [W, W+dW]$. Then the **probability density** is
-$$\text{density} = \frac{dB}{dH\, dW}$$
+
+```math
+\text{density} = \frac{dB}{dH\, dW}
+```
 i.e. *(amount of probability mass in the element) ÷ (elementary volume of that element)*.
 
 For the 1-D (strip) case: cut the strip between $H$ and $H+dH$, compute the **area under that strip** = $dB$, then divide by $dH$.
@@ -113,7 +119,10 @@ Student question: *"I have height and weight of several people — how do I plot
 - A **multivariate/joint distribution is needed when your data/observable depends on more than one random variable.**
 - **BMI** is a *derived* observable: $B = B(h, w)$ — a function of **both height $h$ and weight $w$** via a known formula. (The instructor notes as an aside that current research suggests BMI is not a great health measure — irrelevant to the maths.)
 - So the distribution of BMI over a population is written
-$$P(B) \equiv P(x, y) \equiv P(h, w)$$
+
+```math
+P(B) \equiv P(x, y) \equiv P(h, w)
+```
   — a **multivariate distribution function**.
 
 **Visualization:**
@@ -127,7 +136,10 @@ $$P(B) \equiv P(x, y) \equiv P(h, w)$$
 
 **Getting back to 1-D from the joint distribution (marginalization in action):**
 - Sum rule in 2-D:
-$$\iint P(x,y)\, dx\, dy = 1$$
+
+```math
+\iint P(x,y)\, dx\, dy = 1
+```
   (Integrating over *both* variables must return the total probability = 1.)
 - To get **BMI as a function of height only**: integrate $P(h,w)$ **over all values of weight**.
 - To get **BMI as a function of weight only**: integrate $P(h,w)$ **over all values of height**.
@@ -175,15 +187,17 @@ $$\iint P(x,y)\, dx\, dy = 1$$
 #### General moments — the formula
 For a distribution $P(X)$ over random variable $X$, the **$n$-th moment** is the expectation value of $X^n$:
 
-$$M_n = \langle X^n \rangle = \int_{-\infty}^{+\infty} x^n \, P(x)\, dx$$
+```math
+M_n = \langle X^n \rangle = \int_{-\infty}^{+\infty} x^n \, P(x)\, dx
+```
 
 (limits = whatever the actual range of $x$ is).
 
 | $n$ | What you get |
 |---|---|
-| $n = 0$ | $\displaystyle \int_{-\infty}^{\infty} P(x)\,dx = 1$ — this is just the **sum rule**. The zeroth moment is **always 1 for every distribution**, so it carries **no information**. |
-| $n = 1$ | $\displaystyle \int_{-\infty}^{\infty} x\, P(x)\,dx = \langle x\rangle$ — the **mean** / expectation value of $x$. |
-| $n = 2$ | $\displaystyle \int_{-\infty}^{\infty} x^2\, P(x)\,dx$ — the **second moment**, associated with the **variance**. |
+| $n = 0$ | $\displaystyle \int_{-\infty}^{\infty} P(x)\ dx = 1$ — this is just the **sum rule**. The zeroth moment is **always 1 for every distribution**, so it carries **no information**. |
+| $n = 1$ | $\displaystyle \int_{-\infty}^{\infty} x\  P(x)\ dx = \langle x\rangle$ — the **mean** / expectation value of $x$. |
+| $n = 2$ | $\displaystyle \int_{-\infty}^{\infty} x^2\  P(x)\ dx$ — the **second moment**, associated with the **variance**. |
 | $n = 3, 4, \dots$ | third, fourth, … moments — keep going as needed. |
 
 > ⚠️ *Careful:* the instructor first misspoke ("moment 0 is the mean") and then corrected himself — **zeroth moment = sum rule = 1; first moment = mean.** Also note that the *raw* second moment $\langle x^2\rangle$ equals the variance only when the mean is zero; in general variance is the **centered** second moment (see below).
@@ -209,7 +223,7 @@ $$M_n = \langle X^n \rangle = \int_{-\infty}^{+\infty} x^n \, P(x)\, dx$$
 
 ### 2.8 From Moments (population) to Estimates (samples) — preview of next class
 
-- With **infinite data** you can literally **compute** the integrals $\int x^n P(x)\,dx$ and get the moments exactly.
+- With **infinite data** you can literally **compute** the integrals $\int x^n P(x)\ dx$ and get the moments exactly.
 - With **finite data** you can never do that integral from $-\infty$ to $+\infty$. Instead you:
   - Build an approximation to the PDF from the data — a **histogram**, or a **kernel density estimate** (transcribed as "carel density function" — *kernel density estimation*, to be covered), and
   - Perform **finite sums** rather than integrals.
@@ -247,15 +261,15 @@ $$M_n = \langle X^n \rangle = \int_{-\infty}^{+\infty} x^n \, P(x)\, dx$$
 
 | Concept | Formula |
 |---|---|
-| Sum rule (1-D) | $\int_{-\infty}^{\infty} P(x)\,dx = 1$ |
-| Sum rule (2-D / joint) | $\iint P(x,y)\,dx\,dy = 1$ |
+| Sum rule (1-D) | $\int_{-\infty}^{\infty} P(x)\ dx = 1$ |
+| Sum rule (2-D / joint) | $\iint P(x,y)\ dx\ dy = 1$ |
 | Marginalization | Integrate the joint PDF over **all** variables except the one of interest |
 | Average (probability) density | $\bar{\rho} = M/V$ — *constant, carries no information* |
-| Probability density (2 variables) | $\dfrac{dB}{dH\,dW}$ = (probability mass in the element) / (elementary volume) |
-| $n$-th moment | $M_n = \langle x^n\rangle = \displaystyle\int_{-\infty}^{\infty} x^n P(x)\,dx$ |
-| Zeroth moment | $\int P(x)\,dx = 1$ (always) |
-| First moment | $\langle x\rangle = \int x\,P(x)\,dx$ = **mean** |
-| Second moment | $\int x^2 P(x)\,dx$ → **variance** (when centered) |
+| Probability density (2 variables) | $\dfrac{dB}{dH\ dW}$ = (probability mass in the element) / (elementary volume) |
+| $n$-th moment | $M_n = \langle x^n\rangle = \displaystyle\int_{-\infty}^{\infty} x^n P(x)\ dx$ |
+| Zeroth moment | $\int P(x)\ dx = 1$ (always) |
+| First moment | $\langle x\rangle = \int x\ P(x)\ dx$ = **mean** |
+| Second moment | $\int x^2 P(x)\ dx$ → **variance** (when centered) |
 | Gaussian | fully specified by **$(\mu, \sigma)$**; if centered on the mean, by **$\sigma$ alone** |
 | Beyond Gaussian | add **skewness** (3rd), **kurtosis** (4th), … |
 | Histogram bin height | = **frequency (count) of observations falling in that bin**; bin width fixed |

@@ -143,18 +143,30 @@ This is the opening lecture of the Data Structures course. Because the class has
 **Formulas given (write these down exactly):**
 
 1. **Index of the I-th element relative to the lower bound:**
-$$\text{index} = L + I - 1$$
+
+```math
+\text{index} = L + I - 1
+```
 
 2. **Size of the array from its bounds:**
-$$\text{Size} = U - L + 1$$
+
+```math
+\text{Size} = U - L + 1
+```
  (verify: L = 0, U = n − 1 → size = n; L = 1, U = n → size = n)
 
 3. **Address / indexing (mapping) function for a 1-D array — general form:**
-$$\textbf{Address}(A[I]) \;=\; M \;+\; (I - L)\times W$$
+
+```math
+\textbf{Address}(A[I]) \;=\; M \;+\; (I - L)\times W
+```
  where **M** = base address, **L** = lower bound, **W** = word size (bytes per element).
 
 4. **Special case** used in the first illustration (**L = 1** and **W = 1**):
-$$\textbf{Address}(A[I]) \;=\; M \;+\; (I - 1)$$
+
+```math
+\textbf{Address}(A[I]) \;=\; M \;+\; (I - 1)
+```
 
 > A one-dimensional array needs **only one subscript** to refer to an element.
 

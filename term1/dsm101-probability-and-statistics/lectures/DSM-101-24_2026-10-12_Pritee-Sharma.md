@@ -161,7 +161,9 @@ This session continued from the previous class on sampling (probability vs. non-
 
 **Supplementary (not stated in lecture):** temperature conversions show why $^\circ$C and $^\circ$F zeros don't coincide:
 
-$$F = \tfrac{9}{5}C + 32, \qquad K = C + 273.15$$
+```math
+F = \tfrac{9}{5}C + 32, \qquad K = C + 273.15
+```
 
 So $0^\circ\text{C} = 32^\circ\text{F} = 273.15\ \text{K}$.
 

@@ -65,15 +65,21 @@ The session ended with Q&A on `fit_transform` vs `transform`.
 
 **One-feature example** (illustrative numbers from the slide):
 
-$$\text{blood sugar} = 80 + 0.5 \times \text{age}$$
+```math
+\text{blood sugar} = 80 + 0.5 \times \text{age}
+```
 
 **Simple linear regression** (one feature):
 
-$$y = \alpha + \beta x$$
+```math
+y = \alpha + \beta x
+```
 
 **Multiple linear regression** ($n$ features):
 
-$$y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$$
+```math
+y = \alpha + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n
+```
 
 What each symbol means:
 
@@ -95,7 +101,9 @@ How to read the coefficients:
 
 **Least-squares objective.** The model picks $\alpha, \beta$ to make the **sum of squared errors** as small as possible:
 
-$$\min_{\alpha,\,\beta} \; \sum_{i=1}^{N} \big(y_i - (\alpha + \beta x_i)\big)^2$$
+```math
+\min_{\alpha,\,\beta} \; \sum_{i=1}^{N} \big(y_i - (\alpha + \beta x_i)\big)^2
+```
 
 A **residual** is $y_i - \hat{y}_i$, the vertical distance from a data point to the fitted line. Fitting means minimizing the sum of squared residuals.
 
@@ -250,7 +258,9 @@ print(len(X_train), len(X_test))     # 353, 89
 
 For each feature, subtract the mean and divide by the standard deviation:
 
-$$z = \frac{x - \mu}{\sigma}$$
+```math
+z = \frac{x - \mu}{\sigma}
+```
 
 ```python
 scaler = StandardScaler()
@@ -282,10 +292,12 @@ beta_std  = model.coef_[0]
 
 **Converting back to original BMI units.** Since $z = (x-\mu)/\sigma$:
 
-$$\hat{y} = \alpha_{\text{std}} + \beta_{\text{std}}\,\frac{x-\mu}{\sigma}
+```math
+\hat{y} = \alpha_{\text{std}} + \beta_{\text{std}}\,\frac{x-\mu}{\sigma}
 \;\Rightarrow\;
 \beta_{\text{raw}} = \frac{\beta_{\text{std}}}{\sigma}, \qquad
-\alpha_{\text{raw}} = \alpha_{\text{std}} - \beta_{\text{raw}}\,\mu$$
+\alpha_{\text{raw}} = \alpha_{\text{std}} - \beta_{\text{raw}}\,\mu
+```
 
 ```python
 beta_raw  = beta_std / scaler.scale_[0]
@@ -298,9 +310,11 @@ Reported results:
   - The standardized intercept was read as "one … 49", most likely about 149–152.
   - This equals roughly the mean of `y_train`, which is what you expect after standardizing.
 - **Original units:** the instructor read the equation as
+
   $$\text{progression} \approx -180 + 10 \times \text{BMI}$$
+
 - ⚠️ **Sanity check on the −180:**
-  - A correct intercept should satisfy $\alpha_{\text{raw}} + \beta_{\text{raw}}\,\mu \approx \bar{y}_{\text{train}} \approx 152$.
+  - A correct intercept should satisfy $\alpha_{\text{raw}} + \beta_{\text{raw}}\ \mu \approx \bar{y}_{\text{train}} \approx 152$.
   - With $\beta_{\text{raw}} \approx 10$ and $\mu \approx 26$, that implies $\alpha_{\text{raw}} \approx -110$ to $-120$.
   - The "−180" may be a transcription error. Verify with your own run.
 
@@ -340,15 +354,21 @@ Some red test points sit near the line, but many are far from it.
 
 **Mean squared error:**
 
-$$\text{MSE} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$
+```math
+\text{MSE} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2
+```
 
 **Root mean squared error.** This is in the same units as $y$, which makes it easier to interpret:
 
-$$\text{RMSE} = \sqrt{\text{MSE}}$$
+```math
+\text{RMSE} = \sqrt{\text{MSE}}
+```
 
 **Coefficient of determination:**
 
-$$R^2 = 1 - \frac{\sum_i (y_i - \hat{y}_i)^2}{\sum_i (y_i - \bar{y})^2}$$
+```math
+R^2 = 1 - \frac{\sum_i (y_i - \hat{y}_i)^2}{\sum_i (y_i - \bar{y})^2}
+```
 
 $R^2$ compares your model against a baseline model that **always predicts the average** $\bar{y}$:
 
@@ -375,7 +395,9 @@ r2   = r2_score(y_test, y_pred)
 
 Progression doesn't depend on BMI alone, so three features were used:
 
-$$\text{progression} = \alpha + \beta_1\,\text{age} + \beta_2\,\text{BMI} + \beta_3\,\text{BP}$$
+```math
+\text{progression} = \alpha + \beta_1\,\text{age} + \beta_2\,\text{BMI} + \beta_3\,\text{BP}
+```
 
 The audio once said "blood sugar". The feature list he built was age, BMI, and BP.
 

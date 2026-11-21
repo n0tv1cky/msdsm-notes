@@ -74,7 +74,9 @@ The session ends with a class discussion. Its key point is that whether data cou
 - **Purpose:** Statistics are used to **estimate population parameters**. Hence the phrase "estimated population parameters."
 - **Workflow:**
 
-$$\text{draw sample} \;\rightarrow\; \text{compute statistic } (\bar{x},\, s) \;\rightarrow\; \text{estimate parameter } (\mu,\, \sigma)$$
+```math
+\text{draw sample} \;\rightarrow\; \text{compute statistic } (\bar{x},\, s) \;\rightarrow\; \text{estimate parameter } (\mu,\, \sigma)
+```
 
 | | Population | Sample |
 |---|---|---|
@@ -98,7 +100,7 @@ $$\text{draw sample} \;\rightarrow\; \text{compute statistic } (\bar{x},\, s) \;
   - It samples $n = 500$ bulbs, and **5** of them are defective.
   - The sample proportion of defectives is:
 
-    $$\hat{p} = \frac{5}{500} = 0.01 = 1\%$$
+    $$\hat{p} = \frac{5}{500} = 0.01 = 1\text{%}$$
 
   - This statistic is used to estimate the true population proportion of defectives. About 1% of the 1 million bulbs may be defective:
 
@@ -286,7 +288,7 @@ No specific exam or assignment items were announced. The points the lecturer str
 
 - **Notation:** $N$ vs $n$, $\mu$ and $\sigma$ (parameters) vs $\bar{x}$ and $s$ (statistics). Parameters require a census; statistics are used to estimate parameters.
 - **"Please remember":** Descriptive statistics in this part of the course is only about the sample. No inference to population parameters is drawn.
-- **Statistical inference:** Know the definition and the examples (election polling with $n \approx 1{,}000$; LED bulbs with $\hat{p} = 5/500 = 1\%$).
+- **Statistical inference:** Know the definition and the examples (election polling with $n \approx 1{,}000$; LED bulbs with $\hat{p} = 5/500 = 1\text{%}$).
 - **Primary vs secondary data:** Know the definitions, the advantages and disadvantages of each, and that the classification depends on who collected the data.
 - **Survey modes:** Know the trade-offs of each, including the **interviewer effect**.
 - **Coming later:**
@@ -304,11 +306,15 @@ No specific exam or assignment items were announced. The points the lecturer str
 - Sample mean: $\bar{x}$; sample standard deviation: $s$
 - Sample proportion (LED example):
 
-$$\hat{p} = \frac{\text{number of defectives}}{n} = \frac{5}{500} = 0.01$$
+```math
+\hat{p} = \frac{\text{number of defectives}}{n} = \frac{5}{500} = 0.01
+```
 
 - Estimated number of defectives in the population:
 
-$$\hat{p} \times N = 0.01 \times 1{,}000{,}000 = 10{,}000$$
+```math
+\hat{p} \times N = 0.01 \times 1{,}000{,}000 = 10{,}000
+```
 
 **For reference only (standard definitions, not written out in this lecture)**
 

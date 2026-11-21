@@ -27,7 +27,9 @@ The session opens with a recap of the Pearson correlation coefficient: its range
 ### 2.1 Recap: Pearson correlation coefficient
 
 - **Definition.** The correlation coefficient is the covariance divided by the product of the standard deviations:
+
   $$r = \rho = \frac{\operatorname{Cov}(X,Y)}{\sigma_X \sigma_Y}$$
+
 - **Range.** $-1 \le r \le 1$.
 - **What $r$ tells you:**
   - **Sign:** the direction of the relationship (positive or negative).
@@ -56,51 +58,71 @@ Let $x_i$ and $y_i$ be the ranks of the $i$-th individual under the two criteria
 
 **Step 1: Mean of the ranks.** The sum of the first $n$ natural numbers is $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$. So
 
-$$\bar{x} = \bar{y} = \frac{1}{n}\cdot\frac{n(n+1)}{2} = \frac{n+1}{2}$$
+```math
+\bar{x} = \bar{y} = \frac{1}{n}\cdot\frac{n(n+1)}{2} = \frac{n+1}{2}
+```
 
 **Step 2: Variance of the ranks.** The sum of squares of the first $n$ natural numbers is $\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$. Then
 
-$$\sigma_X^2 = \frac{1}{n}\sum_{i=1}^{n} x_i^2 - \bar{x}^2 = \frac{(n+1)(2n+1)}{6} - \left(\frac{n+1}{2}\right)^2$$
+```math
+\sigma_X^2 = \frac{1}{n}\sum_{i=1}^{n} x_i^2 - \bar{x}^2 = \frac{(n+1)(2n+1)}{6} - \left(\frac{n+1}{2}\right)^2
+```
 
 Take the common denominator 12 and simplify:
 
-$$\sigma_X^2 = \frac{(n+1)\left[2(2n+1) - 3(n+1)\right]}{12} = \frac{(n+1)(n-1)}{12}$$
+```math
+\sigma_X^2 = \frac{(n+1)\left[2(2n+1) - 3(n+1)\right]}{12} = \frac{(n+1)(n-1)}{12}
+```
 
 So
 
-$$\sigma_X^2 = \sigma_Y^2 = \frac{n^2 - 1}{12}$$
+```math
+\sigma_X^2 = \sigma_Y^2 = \frac{n^2 - 1}{12}
+```
 
 **Step 3: Rank differences.** In general $x_i \ne y_i$, since two judges rarely agree on every individual. Define
 
-$$d_i = x_i - y_i$$
+```math
+d_i = x_i - y_i
+```
 
 Because $\bar{x} = \bar{y}$, this can be rewritten as
 
-$$d_i = (x_i - \bar{x}) - (y_i - \bar{y})$$
+```math
+d_i = (x_i - \bar{x}) - (y_i - \bar{y})
+```
 
 - Summing the raw differences gives $\sum d_i = 0$ always. The instructor noted that this is a useful check that your arithmetic is on the right track.
 - Because the raw differences cancel out, we **square** them.
 
 **Step 4: Expand the sum of squared differences.**
 
-$$\sum d_i^2 = \sum (x_i - \bar{x})^2 + \sum (y_i - \bar{y})^2 - 2\sum (x_i - \bar{x})(y_i - \bar{y})$$
+```math
+\sum d_i^2 = \sum (x_i - \bar{x})^2 + \sum (y_i - \bar{y})^2 - 2\sum (x_i - \bar{x})(y_i - \bar{y})
+```
 
-Divide both sides by $n$, and use $\operatorname{Cov}(X,Y) = \rho\,\sigma_X\sigma_Y$:
+Divide both sides by $n$, and use $\operatorname{Cov}(X,Y) = \rho\ \sigma_X\sigma_Y$:
 
-$$\frac{1}{n}\sum d_i^2 = \sigma_X^2 + \sigma_Y^2 - 2\rho\,\sigma_X\sigma_Y$$
+```math
+\frac{1}{n}\sum d_i^2 = \sigma_X^2 + \sigma_Y^2 - 2\rho\,\sigma_X\sigma_Y
+```
 
 **Step 5: Simplify using equal variances.** Since $\sigma_X = \sigma_Y$:
 
-$$\frac{1}{n}\sum d_i^2 = 2\sigma_X^2 - 2\rho\,\sigma_X^2 = 2\sigma_X^2(1-\rho)$$
+```math
+\frac{1}{n}\sum d_i^2 = 2\sigma_X^2 - 2\rho\,\sigma_X^2 = 2\sigma_X^2(1-\rho)
+```
 
 Rearranging:
 
-$$\rho = 1 - \frac{\sum d_i^2}{2n\sigma_X^2}$$
+```math
+\rho = 1 - \frac{\sum d_i^2}{2n\sigma_X^2}
+```
 
 **Step 6: Substitute the variance.** Put $\sigma_X^2 = \frac{n^2-1}{12}$ into the expression. The 12 and the 2 cancel to leave 6.
 
 > **Spearman's rank correlation coefficient:**
-> $$\rho = 1 - \frac{6\sum_{i=1}^{n} d_i^2}{n(n^2-1)}$$
+> $\displaystyle \rho = 1 - \frac{6\sum_{i=1}^{n} d_i^2}{n(n^2-1)}$
 
 **Procedure:**
 1. Compute the rank differences $d_i$.
@@ -121,7 +143,9 @@ $$\rho = 1 - \frac{\sum d_i^2}{2n\sigma_X^2}$$
   5. $\rho = 1 - \frac{6\sum d_i^2}{990}$.
 - **Results (as quoted in class):** the three coefficients were about 0.21, 0.63 and 0.296.
   - For pair **A–C**, $6\sum d_i^2 = 360$:
+
     $$\rho_{AC} = 1 - \frac{360}{990} \approx 0.636$$
+
     This is positive and moderately high.
   - The pairs **A–B** and **B–C** came out **negative**, at roughly $0.21$ and $0.30$ in magnitude. The transcript does not say exactly which value belongs to which pair; check against the file.
 - **Interpretation:**
@@ -164,7 +188,9 @@ Ranking then continues at 5, 6, 7, 8, 9, 10 for the remaining values.
 
 **Tie correction.** For each group of tied values, let $m$ be the number of times that value is repeated. Add a correction term to $\sum d_i^2$:
 
-$$\frac{m(m^2-1)}{12}$$
+```math
+\frac{m(m^2-1)}{12}
+```
 
 - **Series X** has two tie groups:
   - $m = 2$: $\frac{2(2^2-1)}{12} = \frac{6}{12} = \frac{1}{2}$
@@ -175,7 +201,7 @@ $$\frac{m(m^2-1)}{12}$$
 - **Total correction:** $\frac{5}{2} + \frac{1}{2} = 3$
 
 > **Spearman's $\rho$ with tied ranks:**
-> $$\rho = 1 - \frac{6\left[\sum d_i^2 + \sum \frac{m(m^2-1)}{12}\right]}{n(n^2-1)}$$
+> $\displaystyle \rho = 1 - \frac{6\left[\sum d_i^2 + \sum \frac{m(m^2-1)}{12}\right]}{n(n^2-1)}$
 > The sum of corrections runs over every tie group in **both** series.
 
 With ties, the plain formula is no longer exact. The derivation relied on the ranks being exactly $1, \dots, n$, which gave equal means and equal variances; ties disturb this, so the correction is needed. Even so, $\sum d_i = 0$ should still hold as a check.
@@ -197,7 +223,9 @@ With ties, the plain formula is no longer exact. The derivation relied on the ra
 - Notation: $r_{12.3}$ is the correlation between $X_1$ and $X_2$ with $X_3$ held constant.
 - Like Pearson's $r$, it captures **linear** relationships and assumes normality.
 - The formula was not covered in class. For reference, the standard formula is:
-  $$r_{12.3} = \frac{r_{12} - r_{13}\,r_{23}}{\sqrt{(1-r_{13}^2)(1-r_{23}^2)}}$$
+
+  $$r_{12.3} = \frac{r_{12} - r_{13}\ r_{23}}{\sqrt{(1-r_{13}^2)(1-r_{23}^2)}}$$
+
 - It is not very commonly used. Explore it further only if your own work needs it.
 
 ### 2.4 Multiple correlation

@@ -76,9 +76,13 @@ Points raised in class discussion:
 
 Worked example: $u = (3, 1)$, $v = (1, 2)$.
 
-$$u + v = (3+1,\; 1+2) = (4, 3)$$
+```math
+u + v = (3+1,\; 1+2) = (4, 3)
+```
 
-$$2u = (2\cdot 3,\; 2\cdot 1) = (6, 2)$$
+```math
+2u = (2\cdot 3,\; 2\cdot 1) = (6, 2)
+```
 
 - Addition requires the **same shape**, and the result has the same shape.
 - Multiplying by a scalar keeps the shape and scales each entry.
@@ -126,17 +130,23 @@ print(houses[:, 1])   # a full column (one feature for all houses)
 
 **Definition.** Multiply matching entries, then sum:
 
-$$u \cdot v = \sum_{i=1}^{n} u_i v_i$$
+```math
+u \cdot v = \sum_{i=1}^{n} u_i v_i
+```
 
 **Geometric form:**
 
-$$u \cdot v = \lVert u \rVert \, \lVert v \rVert \cos\theta$$
+```math
+u \cdot v = \lVert u \rVert \, \lVert v \rVert \cos\theta
+```
 
 The result is a **scalar**.
 
 **Worked example:**
 
-$$u \cdot v = 3\cdot 1 + 1\cdot 2 = 5$$
+```math
+u \cdot v = 3\cdot 1 + 1\cdot 2 = 5
+```
 
 **Interpreting the sign.**
 - $u\cdot v > 0$: the vectors point in broadly the same direction.
@@ -146,7 +156,9 @@ $$u \cdot v = 3\cdot 1 + 1\cdot 2 = 5$$
 
 **Angle between vectors:**
 
-$$\cos\theta = \frac{u\cdot v}{\lVert u\rVert\,\lVert v\rVert} = \frac{5}{\sqrt{10}\,\sqrt{5}} = \frac{5}{\sqrt{50}} = \frac{1}{\sqrt{2}} \;\Rightarrow\; \theta = 45^\circ$$
+```math
+\cos\theta = \frac{u\cdot v}{\lVert u\rVert\,\lVert v\rVert} = \frac{5}{\sqrt{10}\,\sqrt{5}} = \frac{5}{\sqrt{50}} = \frac{1}{\sqrt{2}} \;\Rightarrow\; \theta = 45^\circ
+```
 
 **Orthogonal example.** Two vectors $a$ and $b$ were shown to have $a\cdot b = 0$, so they are perpendicular. Their values were not audible; $a=(1,2)$, $b=(-2,1)$ below is an assumed example.
 
@@ -168,21 +180,29 @@ print(a @ b)          # 0 -> perpendicular
 
 **L2 (Euclidean) norm.** This comes from Pythagoras: square each entry, add, take the square root.
 
-$$\lVert u\rVert_2 = \sqrt{\sum_i u_i^2}, \qquad \lVert (3,1)\rVert_2 = \sqrt{3^2 + 1^2} = \sqrt{10} \approx 3.162$$
+```math
+\lVert u\rVert_2 = \sqrt{\sum_i u_i^2}, \qquad \lVert (3,1)\rVert_2 = \sqrt{3^2 + 1^2} = \sqrt{10} \approx 3.162
+```
 
 **L1 norm.** This is the sum of absolute values.
 
-$$\lVert u\rVert_1 = \sum_i |u_i| = |3| + |1| = 4$$
+```math
+\lVert u\rVert_1 = \sum_i |u_i| = |3| + |1| = 4
+```
 
 **Distance between vectors.**
 
-$$d(u,v) = \lVert u - v\rVert_2 = \lVert (2,-1)\rVert_2 = \sqrt{5} \approx 2.236$$
+```math
+d(u,v) = \lVert u - v\rVert_2 = \lVert (2,-1)\rVert_2 = \sqrt{5} \approx 2.236
+```
 
 The lecture showed this as 2.23.
 
 **Normalisation (unit vector).** This was mentioned as a topic. The standard definition is:
 
-$$\hat{u} = \frac{u}{\lVert u\rVert}$$
+```math
+\hat{u} = \frac{u}{\lVert u\rVert}
+```
 
 The instructor flagged that distance computations like this are the basis of **k-Nearest Neighbours (KNN)**, which will be taught in a later class.
 
@@ -199,7 +219,7 @@ u_hat = u / np.linalg.norm(u)     # unit vector (normalisation)
 
 - **Question:** Does $v_2$ add new information? No, because $v_2 = 2v_1$. The vectors are **dependent**.
 - **Rank** is the number of truly independent columns (or rows).
-- The matrix $[v_1 \; v_2]$ has 2 columns but **rank 1**.
+- The matrix $[v_1 \  v_2]$ has 2 columns but **rank 1**.
 - The two vectors are independent only if the rank equals the number of vectors.
 
 ```python
@@ -220,11 +240,15 @@ print("independent" if r == M.shape[1] else "dependent")   # dependent
 
 **Worked example matrices:**
 
-$$A = \begin{pmatrix} 2 & 1\\ 1 & 3\end{pmatrix}, \qquad B = \begin{pmatrix} 1 & 0\\ 4 & 1\end{pmatrix}$$
+```math
+A = \begin{pmatrix} 2 & 1\\ 1 & 3\end{pmatrix}, \qquad B = \begin{pmatrix} 1 & 0\\ 4 & 1\end{pmatrix}
+```
 
 **Addition and scalar multiplication** (both require the same shape for addition):
 
-$$A + B = \begin{pmatrix} 3 & 1\\ 5 & 4\end{pmatrix}, \qquad 3A = \begin{pmatrix} 6 & 3\\ 3 & 9\end{pmatrix}$$
+```math
+A + B = \begin{pmatrix} 3 & 1\\ 5 & 4\end{pmatrix}, \qquad 3A = \begin{pmatrix} 6 & 3\\ 3 & 9\end{pmatrix}
+```
 
 ```python
 A = np.array([[2, 1],
@@ -240,21 +264,29 @@ print(3 * A)             # [[6 3] [3 9]]
 
 **Definition.** For $C = AB$:
 
-$$C_{ij} = \sum_{k} A_{ik} B_{kj}$$
+```math
+C_{ij} = \sum_{k} A_{ik} B_{kj}
+```
 
 That is, row $i$ of $A$ is multiplied pairwise with column $j$ of $B$, and the products are summed.
 
 **Shape rule.** The number of columns of $A$ must equal the number of rows of $B$:
 
-$$(m\times n)(n\times p) \to (m\times p)$$
+```math
+(m\times n)(n\times p) \to (m\times p)
+```
 
 **Worked example.** The lecture began with the first entry, $2\cdot 1 + 1\cdot 4 = 6$:
 
-$$AB = \begin{pmatrix} 2\cdot1+1\cdot4 & 2\cdot0+1\cdot1\\ 1\cdot1+3\cdot4 & 1\cdot0+3\cdot1\end{pmatrix} = \begin{pmatrix} 6 & 1\\ 13 & 3\end{pmatrix}$$
+```math
+AB = \begin{pmatrix} 2\cdot1+1\cdot4 & 2\cdot0+1\cdot1\\ 1\cdot1+3\cdot4 & 1\cdot0+3\cdot1\end{pmatrix} = \begin{pmatrix} 6 & 1\\ 13 & 3\end{pmatrix}
+```
 
 **Does $AB = BA$?** This was asked in class. A student answered that they are equal "if it is commutative". The important fact is that **matrix multiplication is generally NOT commutative**. Here:
 
-$$BA = \begin{pmatrix} 2 & 1\\ 9 & 7\end{pmatrix} \neq AB$$
+```math
+BA = \begin{pmatrix} 2 & 1\\ 9 & 7\end{pmatrix} \neq AB
+```
 
 ```python
 print(A @ B)   # [[ 6  1] [13  3]]
@@ -267,11 +299,15 @@ print(B @ A)   # [[2 1] [9 7]]  -> order matters
 
 A matrix acts as a function $T$ that maps a vector $(x, y)$ to $(x', y')$. $T$ is linear if it satisfies two rules:
 
-$$T(u + v) = T(u) + T(v), \qquad T(c\,u) = c\,T(u)$$
+```math
+T(u + v) = T(u) + T(v), \qquad T(c\,u) = c\,T(u)
+```
 
 **Basis vectors:**
 
-$$\hat{i} = \begin{pmatrix}1\\0\end{pmatrix}\ (x\text{-axis}), \qquad \hat{j} = \begin{pmatrix}0\\1\end{pmatrix}\ (y\text{-axis})$$
+```math
+\hat{i} = \begin{pmatrix}1\\0\end{pmatrix}\ (x\text{-axis}), \qquad \hat{j} = \begin{pmatrix}0\\1\end{pmatrix}\ (y\text{-axis})
+```
 
 The columns of a matrix show where $\hat{i}$ and $\hat{j}$ land after the transformation.
 
@@ -292,7 +328,9 @@ The columns of a matrix show where $\hat{i}$ and $\hat{j}$ land after the transf
 
 **Rotation by 90°:**
 
-$$\begin{pmatrix}0 & -1\\ 1 & 0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix}$$
+```math
+\begin{pmatrix}0 & -1\\ 1 & 0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix}
+```
 
 ```python
 theta = np.radians(30)
@@ -312,11 +350,15 @@ print(R90 @ np.array([1, 0]))        # [0 1]
 - After applying $A$, the area becomes $5$.
 - **Correct rule:**
 
-$$\text{new area} = |\det A| \times \text{old area}$$
+```math
+\text{new area} = |\det A| \times \text{old area}
+```
 
 **2×2 determinant:**
 
-$$\det\begin{pmatrix}a & b\\ c & d\end{pmatrix} = ad - bc, \qquad \det A = 2\cdot 3 - 1\cdot 1 = 5$$
+```math
+\det\begin{pmatrix}a & b\\ c & d\end{pmatrix} = ad - bc, \qquad \det A = 2\cdot 3 - 1\cdot 1 = 5
+```
 
 The determinant (5) matches the transformed area (5).
 
@@ -326,21 +368,29 @@ The determinant (5) matches the transformed area (5).
 
 **Transpose.** Flip rows and columns:
 
-$$(A^T)_{ij} = A_{ji}$$
+```math
+(A^T)_{ij} = A_{ji}
+```
 
 The transpose of a product reverses the order:
 
-$$(AB)^T = B^T A^T$$
+```math
+(AB)^T = B^T A^T
+```
 
 **Identity** $I$. Ones on the diagonal and zeros elsewhere, so $AI = IA = A$.
 
 **Inverse** $A^{-1}$. It satisfies $AA^{-1} = I$ and exists only if $\det A \neq 0$. If $\det A = 0$, the matrix is called **singular** and has no inverse. For a $2\times2$ matrix:
 
-$$A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b\\ -c & a\end{pmatrix}$$
+```math
+A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b\\ -c & a\end{pmatrix}
+```
 
 For the example matrix:
 
-$$A^{-1} = \frac{1}{5}\begin{pmatrix}3 & -1\\ -1 & 2\end{pmatrix}$$
+```math
+A^{-1} = \frac{1}{5}\begin{pmatrix}3 & -1\\ -1 & 2\end{pmatrix}
+```
 
 ```python
 print(A.T)                  # transpose
@@ -357,7 +407,9 @@ print(np.linalg.inv(A))     # [[ 0.6 -0.2] [-0.2  0.4]]
 - Write the equations in matrix form, with unknown vector $x = (x, y)^T$.
 - The solution is:
 
-$$x = A^{-1} b$$
+```math
+x = A^{-1} b
+```
 
 - In practice, use `np.linalg.solve(A, b)`. It is more stable than computing the inverse.
 
@@ -382,12 +434,16 @@ print(sol)                   # [1. 3.]
 - An eigenvector is a direction that the matrix only stretches, without rotating it.
 - **Definition:**
 
-$$A v = \lambda v$$
+```math
+A v = \lambda v
+```
 
   Here $\lambda$ is the eigenvalue and $v$ is the eigenvector.
 - The eigenvalues are the roots of the characteristic equation:
 
-$$\det(A - \lambda I) = 0$$
+```math
+\det(A - \lambda I) = 0
+```
 
 - **NumPy:** `lam, V = np.linalg.eig(A)`. `lam` holds the eigenvalues, and the **columns** of `V` are the eigenvectors.
 
@@ -404,7 +460,9 @@ The lecture did not say which matrix was used here. The sample output assumes it
 
 **Model:**
 
-$$y = \beta_0 + \beta_1 x + \varepsilon$$
+```math
+y = \beta_0 + \beta_1 x + \varepsilon
+```
 
 - $\beta_0$ is the intercept (the shift from the origin, "$c$").
 - $\beta_1$ is the slope ("$m$").
@@ -412,7 +470,9 @@ $$y = \beta_0 + \beta_1 x + \varepsilon$$
 
 **Goal.** Find the best-fit line by minimising the sum of squared vertical distances (residuals) from the points to the line:
 
-$$S(\beta_0, \beta_1) = \sum_{i=1}^{n} \big(y_i - \beta_0 - \beta_1 x_i\big)^2$$
+```math
+S(\beta_0, \beta_1) = \sum_{i=1}^{n} \big(y_i - \beta_0 - \beta_1 x_i\big)^2
+```
 
 **Calculus approach.**
 - Set $\dfrac{\partial S}{\partial \beta_0} = 0$ and $\dfrac{\partial S}{\partial \beta_1} = 0$.
@@ -420,7 +480,9 @@ $$S(\beta_0, \beta_1) = \sum_{i=1}^{n} \big(y_i - \beta_0 - \beta_1 x_i\big)^2$$
 
 **Result:**
 
-$$\beta_1 = \frac{\operatorname{Cov}(x,y)}{\operatorname{Var}(x)} = \frac{\sum_i (x_i-\bar{x})(y_i-\bar{y})}{\sum_i (x_i-\bar{x})^2}, \qquad \beta_0 = \bar{y} - \beta_1 \bar{x}$$
+```math
+\beta_1 = \frac{\operatorname{Cov}(x,y)}{\operatorname{Var}(x)} = \frac{\sum_i (x_i-\bar{x})(y_i-\bar{y})}{\sum_i (x_i-\bar{x})^2}, \qquad \beta_0 = \bar{y} - \beta_1 \bar{x}
+```
 
 The instructor suggested doing this derivation **by hand**. The data values used in class were not read out, so the arrays below are placeholders.
 

@@ -40,28 +40,49 @@ This session finishes the **Poisson distribution** and introduces the **geometri
 
 **Discretising the hour**
 - **Split into 60 one-minute trials.** Each minute is a trial with success probability $\lambda/60$:
-$$P(X = x) = \binom{60}{x}\left(\frac{\lambda}{60}\right)^x\left(1 - \frac{\lambda}{60}\right)^{60 - x}$$
+
+```math
+P(X = x) = \binom{60}{x}\left(\frac{\lambda}{60}\right)^x\left(1 - \frac{\lambda}{60}\right)^{60 - x}
+```
 - **Split into 3600 one-second trials.** Each second is a trial with success probability $\lambda/3600$:
-$$P(X = x) = \binom{3600}{x}\left(\frac{\lambda}{3600}\right)^x\left(1 - \frac{\lambda}{3600}\right)^{3600 - x}$$
+
+```math
+P(X = x) = \binom{3600}{x}\left(\frac{\lambda}{3600}\right)^x\left(1 - \frac{\lambda}{3600}\right)^{3600 - x}
+```
 - **Key idea:** keep making $n$ larger and $p$ smaller with $np = \lambda$ fixed. The Binomial then converges to the Poisson.
 
 ### 2.2 The derivation
 
 **Step 1: start from the Binomial PMF and substitute $p = \lambda/n$.**
-$$P(X = x) = \binom{n}{x}p^x(1-p)^{n-x} = \frac{n!}{(n-x)!\,x!}\left(\frac{\lambda}{n}\right)^x\left(1 - \frac{\lambda}{n}\right)^{n-x}$$
+
+```math
+P(X = x) = \binom{n}{x}p^x(1-p)^{n-x} = \frac{n!}{(n-x)!\,x!}\left(\frac{\lambda}{n}\right)^x\left(1 - \frac{\lambda}{n}\right)^{n-x}
+```
 
 **Standard result needed** (the instructor mentioned it is also used for continuous compound interest):
-$$\lim_{n\to\infty}\left(1 + \frac{x}{n}\right)^n = e^x$$
+
+```math
+\lim_{n\to\infty}\left(1 + \frac{x}{n}\right)^n = e^x
+```
 
 **Step 2: rearrange into three factors.**
-$$P(X=x) = \frac{\lambda^x}{x!}\cdot\frac{n(n-1)(n-2)\cdots(n-x+1)}{n^x}\cdot\left(1-\frac{\lambda}{n}\right)^{n-x}$$
+
+```math
+P(X=x) = \frac{\lambda^x}{x!}\cdot\frac{n(n-1)(n-2)\cdots(n-x+1)}{n^x}\cdot\left(1-\frac{\lambda}{n}\right)^{n-x}
+```
 
 - This uses $\dfrac{n!}{(n-x)!} = n(n-1)(n-2)\cdots(n-x+1)$, which is a product of exactly $x$ terms.
 - **Illustration used in class:** with $n = 7$ and $x = 5$,
-$$\frac{7!}{2!} = 7\cdot 6\cdot 5\cdot 4\cdot 3,$$
+
+```math
+\frac{7!}{2!} = 7\cdot 6\cdot 5\cdot 4\cdot 3,
+```
 which is 5 terms, and the last term is $n - x + 1 = 3$.
 - Because the numerator has $x$ terms, divide each one by $n$ (using up the $n^x$):
-$$\frac{n}{n}\cdot\frac{n-1}{n}\cdots\frac{n-x+1}{n} = 1\cdot\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)\cdots\left(1-\frac{x-1}{n}\right)$$
+
+```math
+\frac{n}{n}\cdot\frac{n-1}{n}\cdots\frac{n-x+1}{n} = 1\cdot\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)\cdots\left(1-\frac{x-1}{n}\right)
+```
 
 **Step 3: take the limit of each factor as $n \to \infty$.**
 1. $\dfrac{\lambda^x}{x!}$ does not depend on $n$, so it comes out of the limit unchanged.
@@ -71,7 +92,10 @@ $$\frac{n}{n}\cdot\frac{n-1}{n}\cdots\frac{n-x+1}{n} = 1\cdot\left(1-\frac{1}{n}
    - $\left(1-\frac{\lambda}{n}\right)^{n} \to e^{-\lambda}$, by the standard limit with $x$ replaced by $-\lambda$.
 
 **Result: the Poisson PMF.**
-$$\boxed{P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0, 1, 2, \dots}$$
+
+```math
+\boxed{P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0, 1, 2, \dots}
+```
 
 **Conclusion:** the Poisson is the limit of the Binomial when $n$ is very large and $p$ is very small.
 
@@ -84,22 +108,40 @@ $$\boxed{P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0, 1, 2, \dots}$
 ### 2.3 Mean of the Poisson: $E[X] = \lambda$
 
 1. Write the definition:
-$$E[X] = \sum_{x=0}^{\infty} x\,\frac{e^{-\lambda}\lambda^x}{x!}$$
+
+```math
+E[X] = \sum_{x=0}^{\infty} x\,\frac{e^{-\lambda}\lambda^x}{x!}
+```
 2. The $x = 0$ term is 0, so start the sum at $x = 1$:
-$$E[X] = \sum_{x=1}^{\infty} x\,\frac{e^{-\lambda}\lambda^x}{x!}$$
-3. Take $e^{-\lambda}$ outside. Use $x! = x\,(x-1)!$ and $\lambda^x = \lambda\cdot\lambda^{x-1}$, then cancel the $x$:
-$$E[X] = \lambda e^{-\lambda}\sum_{x=1}^{\infty}\frac{\lambda^{x-1}}{(x-1)!}$$
+
+```math
+E[X] = \sum_{x=1}^{\infty} x\,\frac{e^{-\lambda}\lambda^x}{x!}
+```
+3. Take $e^{-\lambda}$ outside. Use $x! = x\ (x-1)!$ and $\lambda^x = \lambda\cdot\lambda^{x-1}$, then cancel the $x$:
+
+```math
+E[X] = \lambda e^{-\lambda}\sum_{x=1}^{\infty}\frac{\lambda^{x-1}}{(x-1)!}
+```
 4. Substitute $a = x - 1$. When $x = 1$, $a = 0$:
-$$E[X] = \lambda e^{-\lambda}\sum_{a=0}^{\infty}\frac{\lambda^{a}}{a!} = \lambda e^{-\lambda}\cdot e^{\lambda} = \lambda e^{0} = \lambda$$
+
+```math
+E[X] = \lambda e^{-\lambda}\sum_{a=0}^{\infty}\frac{\lambda^{a}}{a!} = \lambda e^{-\lambda}\cdot e^{\lambda} = \lambda e^{0} = \lambda
+```
 
 ### 2.4 Variance of the Poisson: $\mathrm{Var}(X) = \lambda$ (left as an exercise)
 
 - Use
-$$\mathrm{Var}(X) = E[X^2] - (E[X])^2,$$
+
+```math
+\mathrm{Var}(X) = E[X^2] - (E[X])^2,
+```
 and write $E[X^2] = E[X(X-1)] + E[X]$.
 - Follow the same trick as for the mean, but pull out **two** factors: $x! = x(x-1)(x-2)!$.
 - This gives $E[X(X-1)] = \lambda^2$, so
-$$\mathrm{Var}(X) = \lambda^2 + \lambda - \lambda^2 = \lambda.$$
+
+```math
+\mathrm{Var}(X) = \lambda^2 + \lambda - \lambda^2 = \lambda.
+```
 - The full proof will be shared in the instructor's notes.
 
 ### 2.5 Recap: Binomial vs Poisson
@@ -120,16 +162,25 @@ $$\mathrm{Var}(X) = \lambda^2 + \lambda - \lambda^2 = \lambda.$$
   - $P(X=1) = \binom{10}{1}(0.1)(0.9)^9 \approx 0.3874$
   - Sum: $\approx 0.736$
 - Using the Poisson with $\lambda = 1$:
-$$P(X\le 1) = e^{-1} + e^{-1} = \frac{2}{e} \approx 0.7358$$
+
+```math
+P(X\le 1) = e^{-1} + e^{-1} = \frac{2}{e} \approx 0.7358
+```
 - The two answers are very close.
 
 **Example B: radioactive decays, with $\lambda = 4.6$ decays in 2 seconds.**
 
 (i) Exactly 3 decays in 2 seconds:
-$$P(X=3) = \frac{e^{-4.6}(4.6)^3}{3!} \approx 0.1631$$
+
+```math
+P(X=3) = \frac{e^{-4.6}(4.6)^3}{3!} \approx 0.1631
+```
 
 (ii) No more than 3 decays in 2 seconds, i.e. $X = 0, 1, 2, 3$:
-$$P(X\le 3) = e^{-4.6}\left(\frac{4.6^0}{0!} + \frac{4.6^1}{1!} + \frac{4.6^2}{2!} + \frac{4.6^3}{3!}\right) \approx 0.3257$$
+
+```math
+P(X\le 3) = e^{-4.6}\left(\frac{4.6^0}{0!} + \frac{4.6^1}{1!} + \frac{4.6^2}{2!} + \frac{4.6^3}{3!}\right) \approx 0.3257
+```
 
 - **Suggested exercise:** compute the probabilities for each value of $X$ (for example in Excel) and plot them.
 - The plot is **right-skewed**, whereas the Binomial examples seen earlier were more symmetric.
@@ -138,7 +189,10 @@ $$P(X\le 3) = e^{-4.6}\left(\frac{4.6^0}{0!} + \frac{4.6^1}{1!} + \frac{4.6^2}{2
 - People enter according to a Poisson process at **5 per minute**. The building starts empty.
 - Question: what is the probability of finding no one in the building after 10 minutes?
 - The rate scales with time, so $\lambda = 5 \times 10 = 50$:
-$$P(X=0) = \frac{e^{-50}\,50^0}{0!} = e^{-50} \approx 1.93\times 10^{-22}$$
+
+```math
+P(X=0) = \frac{e^{-50}\,50^0}{0!} = e^{-50} \approx 1.93\times 10^{-22}
+```
 - This is essentially zero.
 - The instructor stressed understanding how $\lambda$ is obtained (4.6 here, 50 there) by scaling the rate to the time window.
 
@@ -150,18 +204,27 @@ $$P(X=0) = \frac{e^{-50}\,50^0}{0!} = e^{-50} \approx 1.93\times 10^{-22}$$
 - $X$ is the number of trials required until the first success.
 
 **PMF**
-$$\boxed{P(X = n) = (1-p)^{n-1}\,p = q^{n-1}p, \quad n = 1, 2, 3, \dots}$$
+
+```math
+\boxed{P(X = n) = (1-p)^{n-1}\,p = q^{n-1}p, \quad n = 1, 2, 3, \dots}
+```
 
 - **Reasoning:** the first $n-1$ trials are failures and the $n$-th trial is a success. This condition is necessary and sufficient, and independence lets us multiply the probabilities.
 - **Example:** if the first success comes on the 9th trial, then trials 1 to 8 failed, so the probability is $(1-p)^8 p$.
 
 **Probabilities sum to 1** (a geometric series):
-$$\sum_{n=1}^{\infty}(1-p)^{n-1}p = p\cdot\frac{1}{1-(1-p)} = \frac{p}{p} = 1$$
+
+```math
+\sum_{n=1}^{\infty}(1-p)^{n-1}p = p\cdot\frac{1}{1-(1-p)} = \frac{p}{p} = 1
+```
 
 So, with probability 1, a success eventually occurs.
 
 **Mean and variance** (proofs to be shared in the notes):
-$$\boxed{E[X] = \frac{1}{p}}, \qquad \boxed{\mathrm{Var}(X) = \frac{1-p}{p^2}}$$
+
+```math
+\boxed{E[X] = \frac{1}{p}}, \qquad \boxed{\mathrm{Var}(X) = \frac{1-p}{p^2}}
+```
 
 - **Intuition:** if $P(\text{rolling a six}) = 1/6$, the expected number of rolls to get a six is 6.
 
@@ -188,7 +251,10 @@ $$\boxed{E[X] = \frac{1}{p}}, \qquad \boxed{\mathrm{Var}(X) = \frac{1-p}{p^2}}$$
 2. **Roll 7 six-sided dice and count the fives; $F$ is the number of fives.**
    - Classification: **Binomial**, with $n = 7$, $p = 1/6$.
    - Example probability:
-$$P(F=5) = \binom{7}{5}\left(\frac{1}{6}\right)^5\left(\frac{5}{6}\right)^2$$
+
+```math
+P(F=5) = \binom{7}{5}\left(\frac{1}{6}\right)^5\left(\frac{5}{6}\right)^2
+```
 
 3. **Class of 25 students; a different student is randomly selected each week to bring a snack; 8% have food allergies; $T$ is the number of weeks until an allergic student is selected.**
    - Classification: **Neither.**
@@ -201,17 +267,26 @@ $$P(F=5) = \binom{7}{5}\left(\frac{1}{6}\right)^5\left(\frac{5}{6}\right)^2$$
 4. **Survey representative calls random numbers until someone answers; $P(\text{answer}) = 0.22$; $N$ is the number of calls.**
    - Classification: **Geometric**, since the number of calls is not fixed.
    - Probability the 10th call is the first success:
-$$P(N=10) = (0.78)^9(0.22)$$
+
+```math
+P(N=10) = (0.78)^9(0.22)
+```
    - This evaluates to $\approx 0.0235$. (Computed for these notes; not stated in class.)
 
 5. **Ram makes 25% of three-point attempts. Probability the first success is on the 3rd attempt:**
-$$P(X=3) = \frac{3}{4}\cdot\frac{3}{4}\cdot\frac{1}{4} = \frac{9}{64} \approx 0.1406$$
+
+```math
+P(X=3) = \frac{3}{4}\cdot\frac{3}{4}\cdot\frac{1}{4} = \frac{9}{64} \approx 0.1406
+```
    - The first two attempts fail and the third succeeds. (Decimal value computed for these notes.)
 
 6. **Teacher draws a name at random with replacement from 20 students; $X$ is the number of draws until Sohan's name is drawn. Probability the first draw of Sohan is the 7th:**
    - Because the name is replaced, $p$ stays constant, so this is **Geometric**.
    - $p = \dfrac{1}{20}$ and $q = \dfrac{19}{20}$:
-$$P(X=7) = \left(\frac{19}{20}\right)^6\left(\frac{1}{20}\right) \approx 0.0368$$
+
+```math
+P(X=7) = \left(\frac{19}{20}\right)^6\left(\frac{1}{20}\right) \approx 0.0368
+```
 
 ---
 

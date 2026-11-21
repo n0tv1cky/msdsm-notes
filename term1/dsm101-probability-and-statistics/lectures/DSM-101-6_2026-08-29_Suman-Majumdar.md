@@ -18,7 +18,7 @@ faculty: Suman Majumdar
 
 ## 1. Overview
 
-This session traces the logical chain from the **Binomial distribution** (the "mother of all distributions") to the **Poisson distribution** and then to the **Gaussian (Normal) distribution**, focusing not on the algebraic derivations (which are in the posted slides) but on *the assumptions under which each limit holds* and *how each distribution is used in practice*. The lecturer reviews the binomial setup (binary outcomes, probability $p$ and $q = 1-p$), then imposes the Poisson conditions ($p \to 0$, $N \to \infty$, $Np = \lambda$ finite) to obtain $P(n) = \lambda^n e^{-\lambda}/n!$. Along the way he introduces the concept of the **null hypothesis** (with highway-accident, Newton's-apple, and obesity/processed-food examples), the **cumulative distribution function (CDF)** and why it is useful when a PDF cannot be integrated in closed form, and the key Poisson property that **variance = mean** (so an estimate of $\lambda$ immediately gives its uncertainty $\lambda \pm \sqrt{\lambda}$). He then adds the further assumption of *large* $\lambda$ to reach the Gaussian, stresses the crucial conceptual shift from discrete to continuous random variables (for continuous $X$, $P(X = a) = 0$; only $p(x)\,dx$ over an interval is meaningful), and closes with the **68–95–99.7 (sigma) rule** and how tail positions quantify the *rarity* of an observed result — illustrated with a road-accident example and an astronomy photon-detection example. A brief preview: **Bayes' theorem** next class, then **Central Limit Theorem**, then problem sessions.
+This session traces the logical chain from the **Binomial distribution** (the "mother of all distributions") to the **Poisson distribution** and then to the **Gaussian (Normal) distribution**, focusing not on the algebraic derivations (which are in the posted slides) but on *the assumptions under which each limit holds* and *how each distribution is used in practice*. The lecturer reviews the binomial setup (binary outcomes, probability $p$ and $q = 1-p$), then imposes the Poisson conditions ($p \to 0$, $N \to \infty$, $Np = \lambda$ finite) to obtain $P(n) = \lambda^n e^{-\lambda}/n!$. Along the way he introduces the concept of the **null hypothesis** (with highway-accident, Newton's-apple, and obesity/processed-food examples), the **cumulative distribution function (CDF)** and why it is useful when a PDF cannot be integrated in closed form, and the key Poisson property that **variance = mean** (so an estimate of $\lambda$ immediately gives its uncertainty $\lambda \pm \sqrt{\lambda}$). He then adds the further assumption of *large* $\lambda$ to reach the Gaussian, stresses the crucial conceptual shift from discrete to continuous random variables (for continuous $X$, $P(X = a) = 0$; only $p(x)\ dx$ over an interval is meaningful), and closes with the **68–95–99.7 (sigma) rule** and how tail positions quantify the *rarity* of an observed result — illustrated with a road-accident example and an astronomy photon-detection example. A brief preview: **Bayes' theorem** next class, then **Central Limit Theorem**, then problem sessions.
 
 ---
 
@@ -36,9 +36,15 @@ This session traces the logical chain from the **Binomial distribution** (the "m
 - **Condition 1:** the outcome of a single trial is **binary** (e.g. heads or tails; success or failure).
 - One outcome has probability $p$, the other has probability $q$.
 - **Condition 2 (sum rule):** if only two outcomes are possible,
-$$q = 1 - p$$
+
+```math
+q = 1 - p
+```
 - Question answered by the binomial: *if the experiment is performed $N$ times, what is the probability of getting exactly $n$ successes?*
-$$P(n) = \binom{N}{n} p^{n} q^{\,N-n} = \frac{N!}{n!\,(N-n)!}\, p^{n}(1-p)^{N-n}$$
+
+```math
+P(n) = \binom{N}{n} p^{n} q^{\,N-n} = \frac{N!}{n!\,(N-n)!}\, p^{n}(1-p)^{N-n}
+```
 - Binomial is a **discrete** distribution.
 - Called the **"mother of all distributions"** — Poisson and Gaussian are both obtained as limiting cases of it.
 
@@ -48,19 +54,27 @@ $$P(n) = \binom{N}{n} p^{n} q^{\,N-n} = \frac{N!}{n!\,(N-n)!}\, p^{n}(1-p)^{N-n}
 Poisson keeps *all* binomial properties (discrete, two outcomes labelled success/failure) and **adds one new condition**:
 
 - **New condition:** the probability of success is very small,
-$$p \ll 1 \quad\Longrightarrow\quad q = 1-p \gg p$$
+
+```math
+p \ll 1 \quad\Longrightarrow\quad q = 1-p \gg p
+```
  i.e. **most of the time you fail**; success is a **rare event**.
 
 **Formal limits used:**
 - $p \to 0$
 - $N \to \infty$
 - but the product must stay **finite**:
-$$\lambda = N p \quad \text{(finite)} \qquad (\lambda = \text{mean})$$
+
+```math
+\lambda = N p \quad \text{(finite)} \qquad (\lambda = \text{mean})
+```
 - Additionally $n \ll N$ (number of successes is tiny compared with number of trials).
 
 **Procedure (sketched, full algebra in slides):** write the binomial $P(n)$, break up the factorials, substitute $Np = \lambda$ so the expression is in terms of $N$, $n$, $\lambda$; impose $n \ll N$; take the limit $p \to 0$, $N \to \infty$. Result:
 
-$$\boxed{P(n) = \frac{\lambda^{n} e^{-\lambda}}{n!}}$$
+```math
+\boxed{P(n) = \frac{\lambda^{n} e^{-\lambda}}{n!}}
+```
 
 where $n$ = number of successes, $\lambda = Np$ = mean.
 
@@ -97,33 +111,51 @@ where $n$ = number of successes, $\lambda = Np$ = mean.
 ### 2.5 Cumulative Distribution Function (CDF)
 - **Motivation:** sometimes you cannot obtain/integrate the full functional form of $p(x)$ over $(-\infty, \infty)$, but you *can* integrate it up to some finite limit.
 - **Definition:** for a PDF $p(x)$,
-$$C(a) = \int_{-\infty}^{a} p(x)\,dx$$
+
+```math
+C(a) = \int_{-\infty}^{a} p(x)\,dx
+```
  i.e. the **area under the curve from $-\infty$ up to $x = a$**.
 - **Construction (graphical procedure described):** compute $C(a)$ for $x = a$, plot that value on a new graph (y-axis = CDF, x-axis = $x$); then shift the upper limit to $a_1$, $a_2$, … and plot each value. The curve rises monotonically and **saturates at 1** as $a \to \infty$.
 - Any single $C(a) < 1$ because it is not the total area.
 - **Normalisation / sum rule of probability (the origin of the CDF's saturation):**
-$$\int_{-\infty}^{+\infty} p(x)\,dx = 1$$
+
+```math
+\int_{-\infty}^{+\infty} p(x)\,dx = 1
+```
 - **Practical advantage:** probability that $X$ lies in $[a_1, a_2]$ is obtained by **subtracting two CDF values**:
-$$P(a_1 \le X \le a_2) = C(a_2) - C(a_1)$$
+
+```math
+P(a_1 \le X \le a_2) = C(a_2) - C(a_1)
+```
 - This lets you characterise a distribution's behaviour **even when its analytic form is unavailable/unintegrable**.
 - In the Seeing-Theory demo, the **orange curve** overlaid on the Poisson bars is the CDF (the running sum of probabilities), approaching 1.
 
 ---
 
 ### 2.6 Moments of the Poisson distribution — the key property
-- **Mean:** $\;\mu = \lambda = N p$ (students can prove this the same way as for the binomial).
+- **Mean:** $\ \mu = \lambda = N p$ (students can prove this the same way as for the binomial).
 - **★ HOMEWORK / EXERCISE:** *Show that the variance of the Poisson distribution equals its mean.*
-$$\sigma^{2} = \lambda = \mu$$
+
+```math
+\sigma^{2} = \lambda = \mu
+```
 - **Consequence (called "remarkable"):** the **second moment carries no new information beyond the first**. If you know the mean, you automatically know the variance — no extra measurement needed.
 - **Uncertainty on a Poisson count:** if you measure $n$ events,
-$$\text{result} = n \pm \sqrt{n}\qquad\text{(since } \sigma = \sqrt{\lambda}\text{)}$$
+
+```math
+\text{result} = n \pm \sqrt{n}\qquad\text{(since } \sigma = \sqrt{\lambda}\text{)}
+```
 
 #### Worked numerical example — 5 accidents per hour
 - 1000 cars pass per hour; on average **5 accidents observed per hour**.
 - Mean: $\mu = \lambda = 5$.
-- Because Poisson: $\sigma^{2} = 5 \;\Rightarrow\; \sigma = \sqrt{5}$.
+- Because Poisson: $\sigma^{2} = 5 \ \Rightarrow\  \sigma = \sqrt{5}$.
 - Quoted measurement with uncertainty:
-$$5 \pm \sqrt{5}$$
+
+```math
+5 \pm \sqrt{5}
+```
 - **Take-away:** knowing nothing else about the problem, as long as you can establish that it follows a Poisson distribution, **measuring the number of successes immediately gives both the mean and the uncertainty of that estimate.**
 
 - **Application domain mentioned:** astronomy — detecting photons from a very distant source, where receiving a photon *from the target* is extremely rare compared with contamination from other sources. Rarity of success ⇒ Poisson ⇒ measured photon counts immediately come with uncertainties.
@@ -150,9 +182,15 @@ Starting from the Poisson, to reach the Gaussian you need:
 - For a **continuous** random variable $X$ with PDF $p(x)$:
  - **Wrong intuition:** "drop a perpendicular at $x=a$, read off $p(a)$ — that's the probability." **This is completely wrong.**
  - Asking for $P(X = a)$ means putting a **delta function at $a$**: it has **zero width**, hence **zero area under the curve**, hence
-$$P(X = a) = 0 \quad \text{(exactly zero, for any specific } a\text{)}$$
+
+```math
+P(X = a) = 0 \quad \text{(exactly zero, for any specific } a\text{)}
+```
  - **The correct question:** what is the probability that $X$ lies between $a$ and $a + dx$?
-$$P(a \le X \le a + dx) = \int_{a}^{a+dx} p(x)\,dx$$
+
+```math
+P(a \le X \le a + dx) = \int_{a}^{a+dx} p(x)\,dx
+```
  which has a **finite** value.
 - For a **discrete** distribution there *are* specific discrete outcomes, so the probability *of a specific value* is well-defined.
 - Lecturer's warning: *"people make this mistake quite often while solving the problem."*
@@ -167,8 +205,8 @@ $$P(a \le X \le a + dx) = \int_{a}^{a+dx} p(x)\,dx$$
 #### The sigma rule (areas under the Gaussian)
 For a Gaussian centred at 0 (or at $\mu$) with standard deviation $\sigma$:
 - Within $\mu \pm 1\sigma$: **≈ 68.2 %** of the area (**34.1 % on each side**).
-- Going from $1\sigma$ to $2\sigma$ adds **13.6 % on each side** → within $\mu \pm 2\sigma$: $68.2 + 2\times 13.6 \approx 95.4\%$.
-- (Continuing gives the familiar $\approx 99.7\%$ within $\pm 3\sigma$.)
+- Going from $1\sigma$ to $2\sigma$ adds **13.6 % on each side** → within $\mu \pm 2\sigma$: $68.2 + 2\times 13.6 \approx 95.4\text{%}$.
+- (Continuing gives the familiar $\approx 99.7\text{%}$ within $\pm 3\sigma$.)
 - **Interpretation:** the width in units of $\sigma$ tells you **how rare an event is**.
 
 ---
@@ -184,7 +222,10 @@ General logic presented:
 - Historical baseline: out of every 1000 (in one framing, 10,000) cars, on average **100 cars** have some sort of accident → this 100 plays the role of the **mean**, $\mu = 100$.
 - You must also ask for the spread: suppose they tell you $\sigma = 5$ cars.
 - Then $3\sigma = 3 \times 5 = 15$, so the $\pm 3\sigma$ band is
-$$100 + 15 = 115 \quad\text{and}\quad 100 - 15 = 85$$
+
+```math
+100 + 15 = 115 \quad\text{and}\quad 100 - 15 = 85
+```
  i.e. results between **85 and 115** are "normal."
 - Now suppose last year on one particular day, of the cars passing, **200 had accidents**.
 - 200 lies far outside $\mu \pm 3\sigma$ — out where "the plot almost touches the x-axis" → an **extremely rare event**.

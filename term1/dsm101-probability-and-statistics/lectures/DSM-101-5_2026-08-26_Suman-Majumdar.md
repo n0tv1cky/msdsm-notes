@@ -27,15 +27,27 @@ This session bridges the previous lecture's discussion of **moments** of a proba
 
 - Given a probability distribution function (PDF) $P(x)$, if you know its **full functional form** you can (for 1-D) simply plot it; mathematically, you extract its characteristics by computing **moments**.
 - **Zeroth moment — normalisation / sum rule.** Verifies the PDF is correctly normalised:
-$$\int_{-\infty}^{\infty} P(x)\,dx = 1$$
+
+```math
+\int_{-\infty}^{\infty} P(x)\,dx = 1
+```
   (discrete version: $\sum_i P(x_i) = 1$). If you cannot do this analytically, do it **numerically** and check it comes out to $1$ or very close to $1$.
 - **First moment — mean / expectation value:**
-$$\langle x \rangle = E[X] = \int_{-\infty}^{\infty} x\,P(x)\,dx$$
+
+```math
+\langle x \rangle = E[X] = \int_{-\infty}^{\infty} x\,P(x)\,dx
+```
 - **Second moment → variance:**
-$$E[X^2] = \int_{-\infty}^{\infty} x^2 P(x)\,dx, \qquad \mathrm{Var}(X) = E[X^2] - \left(E[X]\right)^2$$
+
+```math
+E[X^2] = \int_{-\infty}^{\infty} x^2 P(x)\,dx, \qquad \mathrm{Var}(X) = E[X^2] - \left(E[X]\right)^2
+```
   *(Lecturer explicitly flagged a typo on the reference webpage: the first term of the variance formula must have the **square**, i.e. $E[X^2]$, not $E[X]$.)*
 - **Third moment → skewness; fourth moment → kurtosis**, and so on. General $k$-th moment:
-$$\langle x^k \rangle = \int_{-\infty}^{\infty} x^k P(x)\,dx$$
+
+```math
+\langle x^k \rangle = \int_{-\infty}^{\infty} x^k P(x)\,dx
+```
 - **Key property of the Gaussian:** a true Gaussian has only **two unique moments** — the mean and the variance. From the **third moment onwards, all moments can be expressed in terms of the first two**. So skewness, kurtosis etc. are either zero or fully determined by mean and variance. ⇒ *For a genuinely Gaussian PDF, mean and variance are the only information you need.*
 
 ### 2.2 When you do **not** know the functional form: sampling
@@ -70,9 +82,15 @@ Observed in the live simulation:
 
 - **Definition given:** the expectation value of a random variable is *"the number that attempts to capture the centre of the random variable's distribution"* — i.e., the value of $x$ around which most outcomes cluster (the location of the peak of $P(x)$).
 - Fair die: each of the 6 faces has probability
-$$p = \frac{1}{6} \approx 0.166\ldots \approx 0.17$$
+
+```math
+p = \frac{1}{6} \approx 0.166\ldots \approx 0.17
+```
 - Because the variable is **discrete**, the integral is replaced by a sum, and since all probabilities are equal, $\tfrac16$ factors out:
-$$E[X] = \sum_{i=1}^{6} x_i\,P(x_i) = \frac{1}{6}\,(1+2+3+4+5+6) = \frac{21}{6} = 3.5$$
+
+```math
+E[X] = \sum_{i=1}^{6} x_i\,P(x_i) = \frac{1}{6}\,(1+2+3+4+5+6) = \frac{21}{6} = 3.5
+```
 - The simulation plots the **running average** versus **number of rolls**; the dashed reference line sits at $3.5$.
 - Observed behaviour: the running mean **fluctuates around $3.5$** and never lands exactly on it, but by roughly **100 rolls** the curve **flattens/plateaus** with only small oscillations.
 - **Classroom aside (simulation artefact):** the first roll was always a 6 because the animation uses **pseudo-random numbers** with a **hard-coded seed** in the underlying Python script (scripts available on the linked GitHub page). Not a statistical effect.
@@ -87,7 +105,7 @@ $$E[X] = \sum_{i=1}^{6} x_i\,P(x_i) = \frac{1}{6}\,(1+2+3+4+5+6) = \frac{21}{6} 
 
 Setup: 10 cards of a single suit with values $1,2,\dots,10$, all equally probable, drawn at random (with replacement).
 
-- The **analytical** (population) variance for this uniform-on-$\{1,\dots,10\}$ case was quoted in class as **≈ 8.5**.
+- The **analytical** (population) variance for this uniform-on-$\lbrace 1,\dots,10\rbrace $ case was quoted in class as **≈ 8.5**.
   *(Note: the exact textbook value for the discrete uniform on $1..10$ is $\frac{10^2-1}{12} = 8.25$; the simulation's converged values below hover near this. Use $\mathrm{Var} = E[X^2] - (E[X])^2$ if asked to compute it yourself.)*
 - Running estimate of the variance from the simulation:
 
@@ -136,29 +154,45 @@ Two coins tossed together. Raw outcomes: HH, HT, TH, TT. If the coins are identi
 
 Because successive tosses are **independent**, joint probabilities factorise:
 
-$$P(HH) = P(H)\,P(H)$$
-$$P(HT \text{ or } TH) = P(HT) + P(TH) = P(H)P(T) + P(T)P(H) = 2\,P(H)\,P(T)$$
-$$P(TT) = P(T)\,P(T)$$
+```math
+P(HH) = P(H)\,P(H)
+```
+
+```math
+P(HT \text{ or } TH) = P(HT) + P(TH) = P(H)P(T) + P(T)P(H) = 2\,P(H)\,P(T)
+```
+
+```math
+P(TT) = P(T)\,P(T)
+```
 
 These are exactly the terms of the binomial expansion:
 
-$$\left(P(H) + P(T)\right)^2 = P(H)^2 + 2P(H)P(T) + P(T)^2$$
+```math
+\left(P(H) + P(T)\right)^2 = P(H)^2 + 2P(H)P(T) + P(T)^2
+```
 
 Generalising: if the experiment is performed $3$ times the exponent becomes $3$; for $N$ trials the exponent becomes $N$. The multiplicities ($1, 2, 1, \dots$) are simply the **coefficients of the binomial expansion of $(p+q)^N$**.
 
 ### 3.3 The binomial formula
 
-The number of permutations giving $n$ successes is the $n$-th coefficient in the expansion of $(p+q)^N$; each such permutation has probability $p^{n} q^{\,N-n}$ (since $n$ successes ⇒ $N-n$ failures). Hence
+The number of permutations giving $n$ successes is the $n$-th coefficient in the expansion of $(p+q)^N$; each such permutation has probability $p^{n} q^{\ N-n}$ (since $n$ successes ⇒ $N-n$ failures). Hence
 
-$$\boxed{\;P(n) = \binom{N}{n}\, p^{\,n}\, q^{\,N-n}, \qquad 0 \le n \le N \;}$$
+```math
+\boxed{\;P(n) = \binom{N}{n}\, p^{\,n}\, q^{\,N-n}, \qquad 0 \le n \le N \;}
+```
 
 with the **binomial coefficient**
 
-$$\binom{N}{n} = \frac{N!}{n!\,(N-n)!}$$
+```math
+\binom{N}{n} = \frac{N!}{n!\,(N-n)!}
+```
 
 Using $q = 1-p$:
 
-$$P(n) = \frac{N!}{n!\,(N-n)!}\; p^{\,n}\,(1-p)^{\,N-n}$$
+```math
+P(n) = \frac{N!}{n!\,(N-n)!}\; p^{\,n}\,(1-p)^{\,N-n}
+```
 
 - **Interpretation:** the binomial coefficient $\binom{N}{n}$ acts as the **statistical weight** of the specific outcome "exactly $n$ successes".
 - Because the variable is discrete/binary, the distribution appears as a set of discrete steps.
@@ -167,12 +201,19 @@ $$P(n) = \frac{N!}{n!\,(N-n)!}\; p^{\,n}\,(1-p)^{\,N-n}$$
 ### 3.4 Mean of the binomial — quick argument
 
 Let each trial give an indicator variable $x_i$ with
-$$x_i = 1 \ \text{(success)}, \qquad x_i = 0 \ \text{(failure)}$$
+
+```math
+x_i = 1 \ \text{(success)}, \qquad x_i = 0 \ \text{(failure)}
+```
 Then the number of successes is $n = \sum_i x_i$, and since $E[x_i] = p_1$ for every trial,
 
-$$\langle n \rangle = E\!\left[\sum_{i=1}^{N} x_i\right] = \sum_{i=1}^{N} E[x_i] = N\,p_1$$
+```math
+\langle n \rangle = E\!\left[\sum_{i=1}^{N} x_i\right] = \sum_{i=1}^{N} E[x_i] = N\,p_1
+```
 
-$$\boxed{\;\langle n \rangle = N p_1 \;}$$
+```math
+\boxed{\;\langle n \rangle = N p_1 \;}
+```
 
 i.e. **mean = (total number of trials) × (probability of success)**.
 
@@ -180,14 +221,16 @@ i.e. **mean = (total number of trials) × (probability of success)**.
 
 For a **discrete** variable the moment integral $\int_{-\infty}^{\infty}$ is replaced by a **summation**, and the limits are *not* $\pm\infty$: $n$ can only run over the physically allowed range $0 \le n \le N$:
 
-$$\langle n \rangle = \sum_{n=0}^{N} n\,P(n) = \sum_{n=1}^{N} n\,\frac{N!}{n!\,(N-n)!}\,p_1^{\,n} p_2^{\,N-n}$$
+```math
+\langle n \rangle = \sum_{n=0}^{N} n\,P(n) = \sum_{n=1}^{N} n\,\frac{N!}{n!\,(N-n)!}\,p_1^{\,n} p_2^{\,N-n}
+```
 
-(then substitute $p_2 = 1-p_1$, use $n! = n\,(n-1)!$ to cancel the factor $n$, and apply the sum rule) $\;\Rightarrow\; \langle n \rangle = N p_1$.
+(then substitute $p_2 = 1-p_1$, use $n! = n\ (n-1)!$ to cancel the factor $n$, and apply the sum rule) $\ \Rightarrow\  \langle n \rangle = N p_1$.
 
 **Q&A points raised in class:**
 - *Why did the integral become a summation?* Because the random variable is discrete and is not free to range over $(-\infty,\infty)$ — here it is restricted by the finite number of trials $N$. Whenever we speak of an *expectation value estimated from a finite number of samples/trials*, the sum runs over those finite trials.
 - *Why does the lower limit change from $n=0$ to $n=1$?* Two complementary answers given:
-  1. There is a factor $n$ multiplying the terms; writing $n! = n\,(n-1)!$ cancels the $n$, leaving $(n-1)!$ — which is **undefined at $n=0$** (you would need $(-1)!$). Hence the sum starts at $n=1$.
+  1. There is a factor $n$ multiplying the terms; writing $n! = n\ (n-1)!$ cancels the $n$, leaving $(n-1)!$ — which is **undefined at $n=0$** (you would need $(-1)!$). Hence the sum starts at $n=1$.
   2. The $n=0$ term contributes nothing to $\sum n P(n)$ anyway (it is the "zero successes" scenario).
   *(This was initially set as a think-about-it exercise and then resolved by a student in class — see §5.)*
 
@@ -223,27 +266,35 @@ $$\langle n \rangle = \sum_{n=0}^{N} n\,P(n) = \sum_{n=1}^{N} n\,\frac{N!}{n!\,(
 
 ## 6. Formula Sheet (all formulas used in this session)
 
-$$\int_{-\infty}^{\infty} P(x)\,dx = 1 \quad \text{(zeroth moment / normalisation, sum rule)}$$
+```math
+\int_{-\infty}^{\infty} P(x)\,dx = 1 \quad \text{(zeroth moment / normalisation, sum rule)}
+```
 
-$$\langle x \rangle = E[X] = \int_{-\infty}^{\infty} x\,P(x)\,dx \quad \text{(first moment, mean)}$$
+```math
+\langle x \rangle = E[X] = \int_{-\infty}^{\infty} x\,P(x)\,dx \quad \text{(first moment, mean)}
+```
 
-$$\langle x^k \rangle = \int_{-\infty}^{\infty} x^k P(x)\,dx \quad (k\text{-th moment})$$
+```math
+\langle x^k \rangle = \int_{-\infty}^{\infty} x^k P(x)\,dx \quad (k\text{-th moment})
+```
 
-$$\mathrm{Var}(X) = E[X^2] - \left(E[X]\right)^2 \quad \text{(second central moment)}$$
+```math
+\mathrm{Var}(X) = E[X^2] - \left(E[X]\right)^2 \quad \text{(second central moment)}
+```
 
 Discrete analogue: $\displaystyle E[X] = \sum_i x_i P(x_i)$, $\displaystyle \sum_i P(x_i)=1$.
 
-**Fair die:** $\displaystyle P(x_i)=\frac16$, $\;E[X]=\frac16(1+2+3+4+5+6)=3.5$
+**Fair die:** $\displaystyle P(x_i)=\frac16$, $\ E[X]=\frac16(1+2+3+4+5+6)=3.5$
 
 **Two-coin expansion:** $\left(P(H)+P(T)\right)^2 = P(H)^2 + 2P(H)P(T) + P(T)^2$
 
-**Binomial PDF:** $\displaystyle P(n)=\binom{N}{n}p^{\,n}q^{\,N-n}=\frac{N!}{n!(N-n)!}p^{\,n}(1-p)^{\,N-n},\quad 0\le n\le N,\; q=1-p$
+**Binomial PDF:** $\displaystyle P(n)=\binom{N}{n}p^{\ n}q^{\ N-n}=\frac{N!}{n!(N-n)!}p^{\ n}(1-p)^{\ N-n},\quad 0\le n\le N,\  q=1-p$
 
-**Binomial mean:** $\displaystyle \langle n\rangle=\sum_{n=1}^{N} n\,P(n)=N p_1$
+**Binomial mean:** $\displaystyle \langle n\rangle=\sum_{n=1}^{N} n\ P(n)=N p_1$
 
-**Indicator-variable construction:** $x_i\in\{0,1\}$, $E[x_i]=p_1$, $n=\sum_{i=1}^{N}x_i \Rightarrow \langle n\rangle = N p_1$
+**Indicator-variable construction:** $x_i\in\lbrace 0,1\rbrace $, $E[x_i]=p_1$, $n=\sum_{i=1}^{N}x_i \Rightarrow \langle n\rangle = N p_1$
 
-**Large-$N$ limit:** binomial $\xrightarrow[\;N\to\infty\;]{}$ symmetric, Gaussian-like envelope about $n=Np_1$ (Central Limit Theorem in action).
+**Large-$N$ limit:** binomial $\xrightarrow[\ N\to\infty\ ]{}$ symmetric, Gaussian-like envelope about $n=Np_1$ (Central Limit Theorem in action).
 
 <!-- nav -->
 ← [Session 4 (2026-08-24)](DSM-101-4_2026-08-24_Suman-Majumdar.md) · [All lectures](./) · [Session 6 (2026-08-29)](DSM-101-6_2026-08-29_Suman-Majumdar.md) →

@@ -34,11 +34,15 @@ This session introduces **Bayes' theorem** as the engine of *Bayesian inference*
 ### 2.2 Bayes' theorem — the full form with unspoken conditioning
 Popular (incomplete) form:
 
-$$P(\theta \mid D) = \frac{P(D \mid \theta)\, P(\theta)}{P(D)}$$
+```math
+P(\theta \mid D) = \frac{P(D \mid \theta)\, P(\theta)}{P(D)}
+```
 
 Full form, with the **normally unspoken** conditioning made explicit:
 
-$$P(\theta \mid D, I, M) = \frac{P(D \mid \theta, I, M)\; P(\theta \mid I, M)}{P(D \mid I, M)}$$
+```math
+P(\theta \mid D, I, M) = \frac{P(D \mid \theta, I, M)\; P(\theta \mid I, M)}{P(D \mid I, M)}
+```
 
 where:
 - **θ** = the parameters of the model you are using to describe the data
@@ -60,7 +64,7 @@ where:
 
 ### 2.4 The working form — *important note flagged in class*
 > **Posterior ∝ Likelihood × Prior**
-> $$P(\theta \mid D, I, M) \;\propto\; P(D \mid \theta, I, M)\, P(\theta \mid I, M)$$
+> $\displaystyle P(\theta \mid D, I, M) \ \propto\  P(D \mid \theta, I, M)\  P(\theta \mid I, M)$
 
 - This proportional form is what you will use **most of the time**: for **parameter estimation** and **hypothesis testing**, where normalization is unnecessary.
 - The **equality** form (i.e. including the evidence) is needed only for **model selection** — when comparing model 1 vs. model 2 vs. model 3, because P(D) depends on M. You compute the posterior separately for each model and compare.
@@ -78,13 +82,17 @@ where:
   - Likelihood asks: *assume the model is true and its parameters take the specific value θ — what is the probability that this would give rise to the data I actually observe?*
 - So: posterior is the **posterior of the parameters**; likelihood is the **likelihood of the data**.
 - **Combining multiple data sets:** for many data points drawn from the *same* model, the total likelihood is the **product** of the individual likelihoods:
+
   $$L(\theta) = \prod_i P(d_i \mid \theta, I, M)$$
+
 - **Q&A clarification (student question):** you may multiply likelihoods **only when each data point was obtained via an independent experiment** — independent draws from the same underlying population probability distribution function (i.i.d.).
   - Illustration: seeing an apple fall from one tree is one experiment; walking to a different tree at a random location and seeing another apple fall is a second, uncorrelated experiment → independent → multiply.
 
 ### 2.7 Worked conceptual example: straight-line model
 - Suppose the data are fitted by
+
   $$y = mx + c$$
+
 - Parameters of this model: **m** and **c**.
 - What you want: **P(m | data)** and **P(c | data)** — the posteriors of the slope and intercept.
 - Using Bayes: on the RHS you need the **likelihood of the data given a specific value of m**, and given a specific value of c.
@@ -99,7 +107,9 @@ where:
 
 ### 2.9 Evidence — detailed
 - P(D | I, M) = **probability of the data** = the integral (marginalization) of the numerator over *all* parameters:
-  $$P(D \mid I, M) = \int P(D \mid \theta, I, M)\, P(\theta \mid I, M)\, d\theta$$
+
+  $$P(D \mid I, M) = \int P(D \mid \theta, I, M)\  P(\theta \mid I, M)\  d\theta$$
+
 - Interpretation: **all possibilities via which the data could have been obtained** — including possibilities the model allows *and* those it does not.
 - Needed only for **model selection** (see §2.4).
 
@@ -148,7 +158,9 @@ where:
 
 ### 2.12 Kinds of priors and practical guidance
 - **Uniform / flat / non-informative prior:** when you know nothing about the experiment or model before performing it, take
+
   $$P(\theta) = \text{constant}$$
+
   i.e. all values of θ equally probable. Reasonable as a starting point; has advantages *and* disadvantages (to be discussed later).
 - **Effect of the prior diminishes with data:** as the experiment gathers more and more data, the likelihood becomes **more robust and narrower**, and the influence of the prior shrinks.
 - **Rule of thumb (flagged):**
@@ -159,18 +171,32 @@ where:
 **Setup:** data set **D1** obtained one year ago; new survey gives data set **D2**, obtained independently.
 
 **Step 1 — posterior from D1 alone:**
-$$P(\theta \mid D_1) \;\propto\; P(D_1 \mid \theta)\, P(\theta)$$
+
+```math
+P(\theta \mid D_1) \;\propto\; P(D_1 \mid \theta)\, P(\theta)
+```
 
 **Step 2 — posterior from both data sets:**
-$$P(\theta \mid D_1, D_2, I, M) \;\propto\; P(D_1, D_2 \mid \theta)\, P(\theta)$$
+
+```math
+P(\theta \mid D_1, D_2, I, M) \;\propto\; P(D_1, D_2 \mid \theta)\, P(\theta)
+```
 
 **Step 3 — use independence of the two experiments:**
-$$P(D_1, D_2 \mid \theta) = P(D_1 \mid \theta)\, P(D_2 \mid \theta)$$
+
+```math
+P(D_1, D_2 \mid \theta) = P(D_1 \mid \theta)\, P(D_2 \mid \theta)
+```
 
 **Step 4 — regroup:**
-$$P(\theta \mid D_1, D_2) \;\propto\; P(D_2 \mid \theta)\, \underbrace{\big[\,P(D_1 \mid \theta)\, P(\theta)\,\big]}_{\displaystyle \propto\; P(\theta \mid D_1)}$$
 
-$$\boxed{\,P(\theta \mid D_1, D_2) \;\propto\; P(D_2 \mid \theta)\; P(\theta \mid D_1)\,}$$
+```math
+P(\theta \mid D_1, D_2) \;\propto\; P(D_2 \mid \theta)\, \underbrace{\big[\,P(D_1 \mid \theta)\, P(\theta)\,\big]}_{\displaystyle \propto\; P(\theta \mid D_1)}
+```
+
+```math
+\boxed{\,P(\theta \mid D_1, D_2) \;\propto\; P(D_2 \mid \theta)\; P(\theta \mid D_1)\,}
+```
 
 **Interpretation (the key takeaway):**
 - The **posterior obtained from the old data set becomes the prior for the new data set**.

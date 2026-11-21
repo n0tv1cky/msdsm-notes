@@ -40,9 +40,13 @@ GDP can rise because **prices rise**, because **output rises**, or both. We care
 
 **Formulas** (for $n$ commodities, $i = 1,\dots,n$; $t$ = current year, $b$ = base year):
 
-$$\text{Nominal GDP}_t = \sum_{i=1}^{n} P_{i,t}\,Q_{i,t}$$
+```math
+\text{Nominal GDP}_t = \sum_{i=1}^{n} P_{i,t}\,Q_{i,t}
+```
 
-$$\text{Real GDP}_t = \sum_{i=1}^{n} P_{i,b}\,Q_{i,t}$$
+```math
+\text{Real GDP}_t = \sum_{i=1}^{n} P_{i,b}\,Q_{i,t}
+```
 
 Prices are used as weights because physical quantities of different goods cannot be added directly ("can't add apples and oranges").
 
@@ -96,7 +100,9 @@ Nominal GDP therefore rises from ₹200 to ₹3200, a **16-fold** jump.
 
 **Formula (weighted-average form):**
 
-$$\text{CPI}_t = \sum_{i=1}^{n} s_{i,b}\,\frac{P_{i,t}}{P_{i,b}}, \qquad s_{i,b} = \frac{P_{i,b}\,Q_{i,b}}{\sum_{j=1}^{n} P_{j,b}\,Q_{j,b}}$$
+```math
+\text{CPI}_t = \sum_{i=1}^{n} s_{i,b}\,\frac{P_{i,t}}{P_{i,b}}, \qquad s_{i,b} = \frac{P_{i,b}\,Q_{i,b}}{\sum_{j=1}^{n} P_{j,b}\,Q_{j,b}}
+```
 
 - $\dfrac{P_{i,t}}{P_{i,b}}$ is the proportionate price change of item $i$.
 - $s_{i,b}$ is item $i$'s share in base-year spending, so $0 < s_{i,b} < 1$ and $\sum_i s_{i,b} = 1$.
@@ -106,7 +112,9 @@ Illustration of shares: out of each ₹1 spent, perhaps 25 paise on health, 25 p
 
 **Simplified form (after cancellation):** this is the Laspeyres index.
 
-$$\text{CPI}_t = \frac{\sum_{i} P_{i,t}\,Q_{i,b}}{\sum_{i} P_{i,b}\,Q_{i,b}} \quad (\text{often} \times 100)$$
+```math
+\text{CPI}_t = \frac{\sum_{i} P_{i,t}\,Q_{i,b}}{\sum_{i} P_{i,b}\,Q_{i,b}} \quad (\text{often} \times 100)
+```
 
 Interpretation:
 
@@ -115,9 +123,11 @@ Interpretation:
 
 Inflation between $t-1$ and $t$:
 
-$$\pi_t = \frac{\text{CPI}_t - \text{CPI}_{t-1}}{\text{CPI}_{t-1}} \times 100$$
+```math
+\pi_t = \frac{\text{CPI}_t - \text{CPI}_{t-1}}{\text{CPI}_{t-1}} \times 100
+```
 
-**RBI target:** CPI inflation of 4% with a band of $\pm 2\%$, i.e., 2% to 6%. The 4% midpoint is the anchor.
+**RBI target:** CPI inflation of 4% with a band of $\pm 2\text{%}$, i.e., 2% to 6%. The 4% midpoint is the anchor.
 
 ---
 
@@ -174,20 +184,20 @@ The method is the same (fixed-basket weighted index). The coverage differs:
 
 - Income is ₹100. Consume ₹70 and lend ₹30 (saving means deferring consumption to tomorrow).
 - You lend because you want the money back, and more than you gave, as compensation for waiting.
-- In the example: lend ₹100 today and get ₹110 next year, so the **nominal interest rate** is $i = 10\%$.
+- In the example: lend ₹100 today and get ₹110 next year, so the **nominal interest rate** is $i = 10\text{%}$.
 
 **Case 1: expected inflation 6%**
 
 - What ₹100 buys today costs ₹106 next year. An item priced ₹1 today costs ₹1.06.
 - With ₹110 you buy more than today, with ₹4 extra.
-- Real return: $\dfrac{110}{106} - 1 \approx 3.8\%$, which the lecturer described as "close to 4%" or "three point something."
-- Approximation (Fisher relation): $r \approx i - \pi^e = 10\% - 6\% = 4\%$.
+- Real return: $\dfrac{110}{106} - 1 \approx 3.8\text{%}$, which the lecturer described as "close to 4%" or "three point something."
+- Approximation (Fisher relation): $r \approx i - \pi^e = 10\text{%} - 6\text{%} = 4\text{%}$.
 - Exact form: $1 + r = \dfrac{1+i}{1+\pi}$.
 
 **Case 2: actual inflation turns out to be 12%**
 
 - The same basket now costs ₹112, but the lender receives only ₹110.
-- Real return: $\dfrac{110}{112} - 1 \approx -1.8\%$ (approximately $10\% - 12\% = -2\%$). The lender buys fewer than 100 "chocolates."
+- Real return: $\dfrac{110}{112} - 1 \approx -1.8\text{%}$ (approximately $10\text{%} - 12\text{%} = -2\text{%}$). The lender buys fewer than 100 "chocolates."
 - The borrower (e.g., someone building a toffee factory) expected to sell 100 chocolates for ₹106 but actually gets ₹112, so they gain.
 
 **Conclusions**
@@ -266,7 +276,7 @@ The method is the same (fixed-basket weighted index). The coverage differs:
 
 ### 2.9 Potential Output and Full Employment
 
-**Potential output ($Y^*$):** the output producible using labour and capital at **full employment**, in the usual or normal fashion.
+**Potential output ($Y^\ast $):** the output producible using labour and capital at **full employment**, in the usual or normal fashion.
 
 - Full employment does **not** mean 100% of workers working three 8-hour shifts.
 - Analogy: just before exams your absorption ability peaks, but you cannot sustain that all 365 days. Potential is the **average sustainable** level over time.
@@ -299,8 +309,8 @@ None of this means the economy is below full employment. The real problem is whe
 
 - **Horizontal axis:** output, income, or spending $Y$. Income = expenditure, since someone's income is someone else's spending.
 - **Vertical axis:** price level $P$.
-- **Vertical (green) line at $Y^*$:** potential output (long-run supply). It does not shift with demand.
-- In a recession, firms produce $Y_1 < Y^*$ because they believe they cannot sell $Y^*$ at prevailing prices.
+- **Vertical (green) line at $Y^\ast $:** potential output (long-run supply). It does not shift with demand.
+- In a recession, firms produce $Y_1 < Y^\ast $ because they believe they cannot sell $Y^\ast $ at prevailing prices.
 - Simple micro logic says firms could cut prices and sell everything. In practice, firms **cut production first**.
 
 **Why firms cut production rather than prices**
@@ -321,13 +331,13 @@ None of this means the economy is below full employment. The real problem is whe
 
 - In the Great Depression, firms fired workers rather than cut prices because wages are rigid.
 - Since wages are part of costs, **prices are sticky in the short run**.
-- **Business cycles are driven by shifts in aggregate demand (AD).** $Y^*$ does not change.
+- **Business cycles are driven by shifts in aggregate demand (AD).** $Y^\ast $ does not change.
 
 **Policy implication:** boost AD, for example through government spending.
 
 - Example: the government builds a highway, which raises demand for cement and steel.
 - Factories recall laid-off workers at prevailing wages.
-- Output expands **without higher costs** (movement along the flat SRAS toward $Y^*$).
+- Output expands **without higher costs** (movement along the flat SRAS toward $Y^\ast $).
 
 ---
 
@@ -362,12 +372,16 @@ None of this means the economy is below full employment. The real problem is whe
 
 **Consumption function:**
 
-$$C = \bar{C} + c\,Y$$
+```math
+C = \bar{C} + c\,Y
+```
 
 - $\bar{C}$ is **autonomous (baseline) consumption**, consumed even with zero income for survival.
 - $c$ is the **marginal propensity to consume (MPC)**: the extra consumption out of each additional ₹1 of income, typically $0 < c < 1$:
 
-$$c = \frac{\Delta C}{\Delta Y}$$
+```math
+c = \frac{\Delta C}{\Delta Y}
+```
 
 - So total consumption = autonomous part + income-induced part.
 
@@ -402,7 +416,7 @@ No specific exam or assignment was mentioned. The lecturer emphasised these poin
 - **The base year is "very crucial."** Know why real GDP uses base-year prices, the criteria for choosing a base year (normal, recent), and why it is revised.
 - **Real vs. nominal GDP calculation.** Be able to reproduce the wheat/potato example (200 to 3200 nominal; 200 to 800 real; $16 = 4 \times 4$).
 - **The CPI formula** in both forms (weighted average of price relatives with base-year expenditure shares, and the Laspeyres ratio), and the CPI vs. WPI distinction.
-- **Unexpected inflation redistributes from lenders to borrowers.** Know the $i = 10\%$, $\pi^e = 6\%$ vs. $\pi = 12\%$ example.
+- **Unexpected inflation redistributes from lenders to borrowers.** Know the $i = 10\text{%}$, $\pi^e = 6\text{%}$ vs. $\pi = 12\text{%}$ example.
 - **The Keynesian logic** of sticky wages, sticky prices, flat SRAS, and AD-driven cycles, plus the consumption function $C = \bar{C} + cY$. This is the foundation for **the multiplier model next session**.
 - Monetary policy and inflation uncertainty will be covered in a later (fifth or sixth) session of the macro module.
 
@@ -410,17 +424,29 @@ No specific exam or assignment was mentioned. The lecturer emphasised these poin
 
 ### Quick Formula Sheet
 
-$$\text{Nominal GDP}_t = \sum_{i} P_{i,t}Q_{i,t} \qquad \text{Real GDP}_t = \sum_{i} P_{i,b}Q_{i,t}$$
+```math
+\text{Nominal GDP}_t = \sum_{i} P_{i,t}Q_{i,t} \qquad \text{Real GDP}_t = \sum_{i} P_{i,b}Q_{i,t}
+```
 
-$$\text{CPI}_t = \sum_{i} s_{i,b}\frac{P_{i,t}}{P_{i,b}} = \frac{\sum_i P_{i,t}Q_{i,b}}{\sum_i P_{i,b}Q_{i,b}}, \qquad s_{i,b} = \frac{P_{i,b}Q_{i,b}}{\sum_j P_{j,b}Q_{j,b}}$$
+```math
+\text{CPI}_t = \sum_{i} s_{i,b}\frac{P_{i,t}}{P_{i,b}} = \frac{\sum_i P_{i,t}Q_{i,b}}{\sum_i P_{i,b}Q_{i,b}}, \qquad s_{i,b} = \frac{P_{i,b}Q_{i,b}}{\sum_j P_{j,b}Q_{j,b}}
+```
 
-$$\pi_t = \frac{\text{CPI}_t - \text{CPI}_{t-1}}{\text{CPI}_{t-1}}\times 100 \qquad g_{\text{nominal}} \approx g_{\text{real}} + \pi$$
+```math
+\pi_t = \frac{\text{CPI}_t - \text{CPI}_{t-1}}{\text{CPI}_{t-1}}\times 100 \qquad g_{\text{nominal}} \approx g_{\text{real}} + \pi
+```
 
-$$1 + r = \frac{1+i}{1+\pi} \;\;\Rightarrow\;\; r \approx i - \pi^e$$
+```math
+1 + r = \frac{1+i}{1+\pi} \;\;\Rightarrow\;\; r \approx i - \pi^e
+```
 
-$$C = \bar{C} + cY, \qquad c = \text{MPC} = \frac{\Delta C}{\Delta Y}$$
+```math
+C = \bar{C} + cY, \qquad c = \text{MPC} = \frac{\Delta C}{\Delta Y}
+```
 
-$$Y = C + I + G + X - M$$
+```math
+Y = C + I + G + X - M
+```
 
 <!-- nav -->
 ← [Session 12 (2026-10-07)](DSM-107-12_2026-10-07_Deepak-Sethia.md) · [All lectures](./) · [Session 14 (2026-10-13)](DSM-107-14_2026-10-13_Deepak-Sethia.md) →

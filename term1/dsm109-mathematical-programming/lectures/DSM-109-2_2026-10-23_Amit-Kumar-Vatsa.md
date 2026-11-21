@@ -54,9 +54,9 @@ The session starts with a recap: a revenue-management pricing problem solved wit
 
 | Subset | Check |
 |---|---|
-| $\{3, 7, 10, 11, 9\}$ | $3+7+10+11+9 = 40$ |
-| $\{17, 14, 9\}$ | $17+14+9 = 40$ |
-| $\{3, 7, 10, 14, 6\}$ | $3+7+10+14+6 = 40$ |
+| $\lbrace 3, 7, 10, 11, 9\rbrace $ | $3+7+10+11+9 = 40$ |
+| $\lbrace 17, 14, 9\rbrace $ | $17+14+9 = 40$ |
+| $\lbrace 3, 7, 10, 14, 6\rbrace $ | $3+7+10+14+6 = 40$ |
 
 > ⚠️ **Inferred data:** the full list of 10 weights was shown on screen but not read out. From the answers, the items include weights $3, 6, 7, 9, 10, 11, 14, 17$. The remaining two weights are unknown.
 
@@ -71,7 +71,10 @@ The session starts with a recap: a revenue-management pricing problem solved wit
 3. Check triples, then quadruples, and so on.
 
 Total number of checks:
-$$\binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = \sum_{k=1}^{n} \binom{n}{k} = 2^n - 1$$
+
+```math
+\binom{n}{1} + \binom{n}{2} + \cdots + \binom{n}{n} = \sum_{k=1}^{n} \binom{n}{k} = 2^n - 1
+```
 This uses $\sum_{k=0}^{n}\binom{n}{k} = 2^n$ and excludes the $k=0$ (empty) term. The work grows **exponentially** in $n$. For $n = 100$, $2^{100}$ is astronomically large.
 
 ### 2.4 Story: the chessboard and grains of wheat (exponential growth)
@@ -81,7 +84,9 @@ This uses $\sum_{k=0}^{n}\binom{n}{k} = 2^n$ and excludes the $k=0$ (empty) term
 - The king thought this was only a few grains and agreed. The treasurer later said it could not be paid.
 - Square $k$ holds $2^{k-1}$ grains: square 1 has $2^0$, square 2 has $2^1$, …, square 64 has $2^{63}$.
 - Total (not computed in class; added for completeness):
+
   $$\sum_{k=1}^{64} 2^{k-1} = 2^{64} - 1 \approx 1.8 \times 10^{19} \text{ grains.}$$
+
 - **Lesson:** the king underestimated **compounding**, i.e. exponential growth. It feels small at the start and explodes at the end; he should have thought about the *last* square.
   - One version says Sissa was rewarded; another says he was executed.
 - Exponential growth is slower than factorial growth but still overwhelming.
@@ -93,12 +98,15 @@ This uses $\sum_{k=0}^{n}\binom{n}{k} = 2^n$ and excludes the $k=0$ (empty) term
 | Time complexity | Equation | New solvable size $n'$ |
 |---|---|---|
 | $O(\log n)$ | $\log n' = 2\log 100$ | $n' = 100^2 = 10{,}000$ |
-| $O(n)$ (linear) | $k\,n' = 2 \cdot k \cdot 100$ | $n' = 200$ |
-| $O(n^2)$ (quadratic, e.g. basic sorting) | $k\,n'^2 = 2 \cdot k \cdot 100^2$ | $n' = 100\sqrt{2} \approx 141$ |
-| $O(2^n)$ (exponential) | $k\,2^{n'} = 2 \cdot k \cdot 2^{100} = k \cdot 2^{101}$ | $n' = 101$ |
+| $O(n)$ (linear) | $k\ n' = 2 \cdot k \cdot 100$ | $n' = 200$ |
+| $O(n^2)$ (quadratic, e.g. basic sorting) | $k\ n'^2 = 2 \cdot k \cdot 100^2$ | $n' = 100\sqrt{2} \approx 141$ |
+| $O(2^n)$ (exponential) | $k\ 2^{n'} = 2 \cdot k \cdot 2^{100} = k \cdot 2^{101}$ | $n' = 101$ |
 
 **Working for the exponential case.**
-$$2 \cdot k \cdot 2^{100} = k \cdot 2^{n'} \;\Rightarrow\; k\,2^{101} = k\,2^{n'} \;\Rightarrow\; n' = 101$$
+
+```math
+2 \cdot k \cdot 2^{100} = k \cdot 2^{n'} \;\Rightarrow\; k\,2^{101} = k\,2^{n'} \;\Rightarrow\; n' = 101
+```
 Four years of hardware progress gives exactly **one** more city in the routing problem.
 
 A factorial algorithm is even worse (my remark, not from class): since $101! = 101 \times 100!$, doubling compute does not even reach $n' = 101$.
@@ -124,22 +132,26 @@ A factorial algorithm is even worse (my remark, not from class): since $101! = 1
 
 **Model.**
 
-*Indices:* $i \in \{1,2,3,4\}$ (dozers), $j \in \{A,B,C,D\}$ (sites).
+*Indices:* $i \in \lbrace 1,2,3,4\rbrace $ (dozers), $j \in \lbrace A,B,C,D\rbrace $ (sites).
 
 *Parameters:* $d_{ij}$ = distance from dozer $i$ to site $j$ (distance units).
 
 *Decision variables:*
-$$x_{ij} = \begin{cases} 1 & \text{if dozer } i \text{ is assigned to site } j \\ 0 & \text{otherwise} \end{cases}$$
+
+```math
+x_{ij} = \begin{cases} 1 & \text{if dozer } i \text{ is assigned to site } j \\ 0 & \text{otherwise} \end{cases}
+```
 
 *Model:*
-$$
+
+```math
 \begin{aligned}
 \min \quad & Z = \sum_{i}\sum_{j} d_{ij}\, x_{ij} && \text{(total distance travelled)}\\
 \text{s.t.} \quad & \sum_{j} x_{ij} = 1 \quad \forall i && \text{(each dozer goes to exactly one site: row sums = 1)}\\
 & \sum_{i} x_{ij} = 1 \quad \forall j && \text{(each site receives exactly one dozer: column sums = 1)}\\
 & x_{ij} \ge 0 \quad \forall i,j && \text{(non-negativity; binary not required, see below)}
 \end{aligned}
-$$
+```
 
 **Solver settings.**
 
@@ -165,16 +177,20 @@ $$
 *Parameters:* $w_i$ = weight of item $i$ (tons), $i = 1,\dots,10$. Target $T = 40$ tons.
 
 *Decision variables:*
-$$y_i = \begin{cases} 1 & \text{if item } i \text{ is loaded} \\ 0 & \text{otherwise} \end{cases}$$
+
+```math
+y_i = \begin{cases} 1 & \text{if item } i \text{ is loaded} \\ 0 & \text{otherwise} \end{cases}
+```
 
 *Feasibility version (no objective):*
-$$
+
+```math
 \begin{aligned}
 \text{Find } \; & y_1,\dots,y_{10}\\
 \text{s.t.} \quad & \sum_{i=1}^{10} w_i\, y_i = 40 && \text{(weight selected = target weight)}\\
 & y_i \in \{0,1\} \quad \forall i && \text{(each item either loaded once or not)}
 \end{aligned}
-$$
+```
 
 **Excel setup.**
 - Yellow cells hold $y_i$.
@@ -184,10 +200,12 @@ $$
 
 **Step-by-step demo.**
 1. **First run: forgot the binary constraint.** Solver (Simplex LP) returned a value of about 5.7 for a single item. That means 5.7 copies of one item (e.g. $5.71 \times 7 \approx 40$), which is meaningless because you cannot load fractional or multiple copies.
-2. **Added the binary constraint** $y_i \in \{0,1\}$. Solver found five items: $7 + 10 + 3 + 14 + 6 = 40$.
+2. **Added the binary constraint** $y_i \in \lbrace 0,1\rbrace $. Solver found five items: $7 + 10 + 3 + 14 + 6 = 40$.
    - Requiring binary variables is what makes this problem hard.
 3. **Variant: minimise the number of items** (pack heavy items first).
-   $$\min \sum_{i=1}^{10} y_i \quad \text{s.t.} \quad \sum_{i} w_i y_i = 40,\; y_i \in \{0,1\}$$
+
+   $$\min \sum_{i=1}^{10} y_i \quad \text{s.t.} \quad \sum_{i} w_i y_i = 40,\  y_i \in \lbrace 0,1\rbrace$$
+
    Optimum: **3 items**, $14 + 17 + 9 = 40$.
 
 **Complexity notes.**
@@ -233,14 +251,15 @@ $$
 - $x_2$ = number of chairs produced per week (units)
 
 **LP model (standard form).**
-$$
+
+```math
 \begin{aligned}
 \max \quad & Z = 7x_1 + 5x_2 && \text{(total weekly profit)}\\
 \text{s.t.} \quad & 4x_1 + 3x_2 \le 240 && \text{(woodwork hours used} \le \text{available)}\\
 & 2x_1 + x_2 \le 100 && \text{(painting hours used} \le \text{available)}\\
 & x_1,\, x_2 \ge 0 && \text{(non-negativity)}
 \end{aligned}
-$$
+```
 This is the "mathematical programming" or "linear programming" formulation.
 
 **Why non-negativity? (class discussion)**
@@ -274,9 +293,11 @@ This is the "mathematical programming" or "linear programming" formulation.
 | Make Unconstrained Variables Non-Negative | ✔ |
 | Solving Method | **Simplex LP** (everything is linear: all variables appear to power 1 in objective and constraints) |
 
-**Optimal solution:** $x_1^* = 30$ tables and $x_2^* = 40$ chairs.
+**Optimal solution:** $x_1^\ast  = 30$ tables and $x_2^\ast  = 40$ chairs.
 
-$$Z^* = 7(30) + 5(40) = 210 + 200 = 410$$
+```math
+Z^* = 7(30) + 5(40) = 210 + 200 = 410
+```
 
 Resource check:
 - Woodwork: $4(30) + 3(40) = 240$ (binding, fully used).

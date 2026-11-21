@@ -143,7 +143,10 @@ This session has two halves. The **first half** closes out the previous chapter 
 - One important factor is the **available wage**; but individuals facing the **same wage make different choices depending on their tastes** — how they trade off an extra hour of work against an extra hour of free time. Hence we need **preferences**.
 
 ### Basic income equation
-$$Y = w \cdot H$$
+
+```math
+Y = w \cdot H
+```
 where
 - $Y$ = daily income,
 - $w$ = **hourly wage**,

@@ -53,16 +53,19 @@ The lecture then turns to the **open economy**. It covers India's growing trade 
 
 ### 2.2 The Policy Rate Corridor (Repo / Reverse Repo)
 
-**Basis point:** $1 \text{ bp} = \frac{1}{100} \text{ of } 1\% = 0.01\%$
+**Basis point:** $1 \text{ bp} = \frac{1}{100} \text{ of } 1\text{%} = 0.01\text{%}$
 
 **Rates as of October 2026, as stated in class:**
-- Policy rate $= 5.5\%$.
-- **Repo rate** (rate at which the RBI *lends* to banks) $= 5.5\% + 25\text{ bp} = 5.75\%$.
-- **Reverse repo rate** (rate at which the RBI *accepts deposits* from banks) $= 5.5\% - 25\text{ bp} = 5.25\%$.
-- CRR $= 3\%$ and SLR $= 18\%$.
+- Policy rate $= 5.5\text{%}$.
+- **Repo rate** (rate at which the RBI *lends* to banks) $= 5.5\text{%} + 25\text{ bp} = 5.75\text{%}$.
+- **Reverse repo rate** (rate at which the RBI *accepts deposits* from banks) $= 5.5\text{%} - 25\text{ bp} = 5.25\text{%}$.
+- CRR $= 3\text{%}$ and SLR $= 18\text{%}$.
 
 The reverse repo must be below the repo:
-$$\text{Reverse repo} < \text{Repo}$$
+
+```math
+\text{Reverse repo} < \text{Repo}
+```
 Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskless profit.
 
 **Why banks borrow or lend reserves: worked example (illustrative CRR = 4%)**
@@ -70,7 +73,7 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 - A customer writes a cheque for ₹1,000 from HDFC to SBI.
 - **HDFC:**
   - Deposits fall by ₹1,000 and reserves fall by ₹1,000.
-  - It had held only $4\% \times 1000 = ₹40$ as required reserves against that deposit.
+  - It had held only $4\text{%} \times 1000 = ₹40$ as required reserves against that deposit.
   - So its **reserve shortfall = ₹960**.
 - **SBI:**
   - Deposits rise by ₹1,000 and reserves rise by ₹1,000.
@@ -83,7 +86,10 @@ Otherwise banks would borrow from the RBI and re-deposit at the RBI for a riskle
 - If SBI asks HDFC for 6%, HDFC refuses and borrows from the RBI at 5.75%.
 - If HDFC offers SBI only 5%, SBI refuses and deposits with the RBI at 5.25%.
 - Therefore:
-$$\text{Reverse repo} \;\le\; \text{Weighted Average Call Rate (WACR)} \;\le\; \text{Repo}$$
+
+```math
+\text{Reverse repo} \;\le\; \text{Weighted Average Call Rate (WACR)} \;\le\; \text{Repo}
+```
 - **Repo is the ceiling:** no bank borrows above it.
 - **Reverse repo is the floor:** no bank lends below it.
 - By setting repo and reverse repo, the RBI determines the interbank rate, and through it the rates banks charge everyone else.
@@ -117,15 +123,15 @@ $$\text{Reverse repo} \;\le\; \text{Weighted Average Call Rate (WACR)} \;\le\; \
   - Vertical axis: aggregate demand. Horizontal axis: output $Y$.
   - The **45° line** shows where $AD = Y$.
   - The AD line slopes upward (consumption rises with income) and has intercept $\bar{A}$.
-  - Initial equilibrium is at $Y_1$, below **potential output $Y^*$**, so the economy is in recession.
-  - Lower $i$ raises $I$, which raises the intercept $\bar{A}$. The AD line **shifts up** and the equilibrium moves right toward $Y^*$.
+  - Initial equilibrium is at $Y_1$, below **potential output $Y^\ast $**, so the economy is in recession.
+  - Lower $i$ raises $I$, which raises the intercept $\bar{A}$. The AD line **shifts up** and the equilibrium moves right toward $Y^\ast $.
 - **Link to earlier sessions:** in Sessions 4–5, $\bar{A}$ included $G$, so fiscal policy shifted the intercept. Here the intercept shifts via investment instead.
   - The multiplier process "starts from Mumbai (RBI), not Delhi (government)."
   - Firms deploy idle resources, newly employed workers consume, and the multiplier kicks in.
 
 **Key concept: equilibrium vs. potential output**
 - Macro equilibrium means the economy *produces as much as it can sell*.
-- It does **not** mean full capacity. There can be unutilized capacity, which is the gap $Y^* - Y_1$.
+- It does **not** mean full capacity. There can be unutilized capacity, which is the gap $Y^\ast  - Y_1$.
 
 **Student Q&A (savings and interest rates):**
 - The main channel is **firm investment demand**, not households saving less.
@@ -133,7 +139,7 @@ $$\text{Reverse repo} \;\le\; \text{Weighted Average Call Rate (WACR)} \;\le\; \
 - Firms won't produce if they fear they can't sell. Rate cuts raise profit pools and make projects viable.
 
 **Worked example: project viability**
-- Investment: ₹1,000 borrowed. The project yields ₹70 per year, so $IRR = 7\%$.
+- Investment: ₹1,000 borrowed. The project yields ₹70 per year, so $IRR = 7\text{%}$.
 - At an interest rate of **8%**:
   - Interest $= 0.08 \times 1000 = ₹80$.
   - Net $= 70 - 80 = -₹10$, a loss, so the project is **not viable**.
@@ -157,7 +163,10 @@ $$\text{Reverse repo} \;\le\; \text{Weighted Average Call Rate (WACR)} \;\le\; \
 - Now: about 20–22%.
 
 **National income identity:**
-$$Y = C + I + G + NX, \qquad NX = X - M$$
+
+```math
+Y = C + I + G + NX, \qquad NX = X - M
+```
 - **Exports** are not part of $C$, $I$ or $G$, but domestic producers earn from them, so they are added as $+X$.
 - **Imports** are already included inside $C$ and $I$ (e.g., an imported iPad bought by a household or a firm). They are not domestic output, so they are subtracted as $-M$.
 
@@ -209,25 +218,43 @@ The two classifications are independent and form a **2×2 matrix**:
 - Excess debits on the current account are matched by credits on the capital account. Borrowing from abroad brings in dollars, which is a credit today; repayment later is a debit.
 - A **capital account surplus** means forex is flowing in, either via borrowing or via foreigners buying Indian assets.
 - Therefore the two accounts are equal in magnitude and opposite in sign:
-$$CA + KA = 0 \quad\Longleftrightarrow\quad CA = -KA$$
+
+```math
+CA + KA = 0 \quad\Longleftrightarrow\quad CA = -KA
+```
 
 ### 2.7 Saving–Investment Identity in an Open Economy
 
 **Household (private) saving.** Add NFI and NUT to the closed-economy version:
-$$S_{pvt} = (Y + NFI + NUT - T + TR) - C$$
+
+```math
+S_{pvt} = (Y + NFI + NUT - T + TR) - C
+```
 where $T$ is taxes and $TR$ is government transfers.
 
 **Government saving:**
-$$S_{gov} = T - TR - G$$
+
+```math
+S_{gov} = T - TR - G
+```
 
 **National saving:**
-$$S = S_{pvt} + S_{gov} = Y + NFI + NUT - C - G$$
+
+```math
+S = S_{pvt} + S_{gov} = Y + NFI + NUT - C - G
+```
 
 **Substitute $Y = C + I + G + X - M$:** $C$, $G$, $T$ and $TR$ cancel, leaving
-$$S = I + \underbrace{(X - M + NFI + NUT)}_{CA}$$
+
+```math
+S = I + \underbrace{(X - M + NFI + NUT)}_{CA}
+```
 
 Hence:
-$$S = I + CA \qquad\Longrightarrow\qquad S - I = CA$$
+
+```math
+S = I + CA \qquad\Longrightarrow\qquad S - I = CA
+```
 
 **Interpretation:** whatever is produced but not consumed is either **invested at home** or **sent abroad** (a current account surplus).
 
@@ -286,7 +313,7 @@ No explicit exam announcement was made, but the lecturer emphasized:
 - **$CA + KA = 0$** and **$S - I = CA$**: know the derivation.
 - **"Don't put good or bad with deficit."** Judge a current account deficit by whether it comes from rising investment or falling saving, and by how the funds are used.
 - **The interbank rate lies within the repo/reverse-repo corridor.** Know the reasoning and the tight vs. surplus liquidity interpretation.
-- **Monetary transmission:** rate cut → investment up → AD intercept up → output toward $Y^*$. Equilibrium is not the same as potential output.
+- **Monetary transmission:** rate cut → investment up → AD intercept up → output toward $Y^\ast $. Equilibrium is not the same as potential output.
 - **Next session:** flexible exchange rates in detail, and why the rupee will likely cross ₹100/$.
 
 <!-- nav -->

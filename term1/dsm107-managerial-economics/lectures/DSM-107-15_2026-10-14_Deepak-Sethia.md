@@ -53,7 +53,9 @@ The second half introduces money:
 - Consumption has an autonomous part and a part that depends on **post-tax (disposable) income**.
 - Investment, government transfers and government expenditure complete aggregate demand:
 
-$$AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}$$
+```math
+AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}
+```
 
 - Here:
   - $c$ is the marginal propensity to consume (MPC).
@@ -80,7 +82,9 @@ $$AD = \bar{C} + c\left[(1-t)Y + \overline{TR}\right] + \bar{I} + \bar{G}$$
 #### A4. Government spending multiplier
 - If government spending rises by $\Delta G$:
 
-$$\Delta Y = \alpha_G \,\Delta G$$
+```math
+\Delta Y = \alpha_G \,\Delta G
+```
 
 - $\alpha_G$ is the **spending multiplier** introduced in the previous session.
 - **Intuition:** one unit of spending generates more than one unit of output.
@@ -88,13 +92,21 @@ $$\Delta Y = \alpha_G \,\Delta G$$
   - Their wages create **induced demand** in the second, third and later rounds.
 - With proportional income taxes:
 
-$$\alpha_G = \frac{1}{1 - c(1-t)}$$
+```math
+\alpha_G = \frac{1}{1 - c(1-t)}
+```
 
 **Worked example (class answer: 2.5).** The parameters below are implied by the class discussion: $c = 0.8$ and $t = 0.25$.
 - With taxes:
-$$\alpha_G = \frac{1}{1 - 0.8(1-0.25)} = \frac{1}{1-0.6} = \frac{1}{0.4} = 2.5$$
+
+```math
+\alpha_G = \frac{1}{1 - 0.8(1-0.25)} = \frac{1}{1-0.6} = \frac{1}{0.4} = 2.5
+```
 - With no taxes:
-$$\frac{1}{1-c} = \frac{1}{1-0.8} = 5$$
+
+```math
+\frac{1}{1-c} = \frac{1}{1-0.8} = 5
+```
 - **Takeaway:** a 25% tax cuts the multiplier from 5 to 2.5.
 
 **Proportional taxes as an automatic stabiliser:**
@@ -103,14 +115,18 @@ $$\frac{1}{1-c} = \frac{1}{1-0.8} = 5$$
 
 #### A5. Transfer multiplier
 - Suppose transfers rise by $\Delta TR$.
-- Households receive $\Delta TR$ but save the fraction $(1-c)$, so first-round spending is only $c\,\Delta TR$.
+- Households receive $\Delta TR$ but save the fraction $(1-c)$, so first-round spending is only $c\ \Delta TR$.
 - The spending rounds are:
 
-$$c\,\Delta TR,\quad c^2\,\Delta TR,\quad c^3\,\Delta TR,\ \dots$$
+```math
+c\,\Delta TR,\quad c^2\,\Delta TR,\quad c^3\,\Delta TR,\ \dots
+```
 
 - Hence:
 
-$$\Delta Y = c\,\alpha_G\,\Delta TR$$
+```math
+\Delta Y = c\,\alpha_G\,\Delta TR
+```
 
 - **Transfer multiplier $<$ direct spending multiplier.**
   - Direct spending creates first-round demand itself, such as demand for cement and steel, before wages are spent.
@@ -119,7 +135,9 @@ $$\Delta Y = c\,\alpha_G\,\Delta TR$$
 #### A6. Tax changes
 - **Lump-sum tax change:** the effect is MPC times the spending multiplier, with the opposite sign:
 
-$$\Delta Y = -c\,\alpha_G\,\Delta T$$
+```math
+\Delta Y = -c\,\alpha_G\,\Delta T
+```
 
 - A tax rise reduces output and a tax cut raises it.
 - **Raising the marginal (proportional) tax rate $t$ has two effects:**
@@ -137,7 +155,10 @@ $$\Delta Y = -c\,\alpha_G\,\Delta T$$
 - Households and firms who receive transfers or incentives decide based on what they actually need.
 
 #### A8. Budget surplus
-$$BS = tY - G - TR$$
+
+```math
+BS = tY - G - TR
+```
 
 - $tY$ is tax revenue.
 - $G$ and $TR$ are the two types of government spending.
@@ -265,13 +286,15 @@ $$BS = tY - G - TR$$
   - They keep a buffer and lend out the rest.
   - Instructor's illustration: 100 people deposit 1 rupee each; the bank keeps 20 and lends out 80.
 
-#### B8. Worked example: deposit creation ($re = 20\%$, no cash held by public)
+#### B8. Worked example: deposit creation ($re = 20\text{%}$, no cash held by public)
 **First round:**
 - The central bank (RBI or Fed) creates 1,000, which is deposited in a bank.
 - The bank keeps 200 as reserves and lends 800.
 - Money supply after this round:
 
-$$\underbrace{1000}_{\text{deposits}} + \underbrace{800}_{\text{currency with public}} = 1800$$
+```math
+\underbrace{1000}_{\text{deposits}} + \underbrace{800}_{\text{currency with public}} = 1800
+```
 
 - The 200 in the vault is **not** money supply, because it cannot buy toothpaste.
 - The depositor can still spend the 1,000 via UPI or cheque. The borrower spends the 800.
@@ -283,13 +306,17 @@ $$\underbrace{1000}_{\text{deposits}} + \underbrace{800}_{\text{currency with pu
 **Continuing rounds:**
 - Deposits form an infinite geometric progression with common ratio $(1-re) = 0.8$:
 
-$$1000 + 1000(0.8) + 1000(0.8)^2 + \dots = \frac{1000}{1-(1-re)} = \frac{1000}{re} = \frac{1000}{0.2} = 5000$$
+```math
+1000 + 1000(0.8) + 1000(0.8)^2 + \dots = \frac{1000}{1-(1-re)} = \frac{1000}{re} = \frac{1000}{0.2} = 5000
+```
 
 **Result:**
 - Total money supply is **5,000**, so the **money multiplier is 5** in this case.
 - In general:
 
-$$\text{Money supply} = \text{Monetary base} \times \text{Money multiplier}$$
+```math
+\text{Money supply} = \text{Monetary base} \times \text{Money multiplier}
+```
 
 **Key point:** private banks also create money, not just the RBI.
 
@@ -307,11 +334,15 @@ $$\text{Money supply} = \text{Monetary base} \times \text{Money multiplier}$$
 
 **Money stock and base:**
 
-$$M = CU + D, \qquad H = CU + RE$$
+```math
+M = CU + D, \qquad H = CU + RE
+```
 
 **Dividing numerator and denominator by $D$:**
 
-$$mm = \frac{M}{H} = \frac{CU + D}{CU + RE} = \frac{\frac{CU}{D} + 1}{\frac{CU}{D} + \frac{RE}{D}} = \frac{cu + 1}{cu + re}$$
+```math
+mm = \frac{M}{H} = \frac{CU + D}{CU + RE} = \frac{\frac{CU}{D} + 1}{\frac{CU}{D} + \frac{RE}{D}} = \frac{cu + 1}{cu + re}
+```
 
 - Here:
   - $cu = \frac{CU}{D}$ is the **currency–deposit ratio**.
@@ -360,13 +391,13 @@ No explicit exam or assignment announcements were made. Points the instructor st
 
 **Fiscal policy:**
 - **Be able to compute the spending multiplier with taxes.** The in-class quiz used $c = 0.8$ and $t = 0.25$, giving $\alpha_G = 2.5$ versus 5 without taxes.
-- **Know why transfer and lump-sum-tax multipliers equal $c\,\alpha_G$** and are smaller than the direct-spending multiplier.
+- **Know why transfer and lump-sum-tax multipliers equal $c\ \alpha_G$** and are smaller than the direct-spending multiplier.
 - **Know the two effects of raising the marginal tax rate:** lower AD and a smaller multiplier.
 - **Be able to explain procyclical versus countercyclical policy**, including why a government should not behave like a household.
 
 **Money:**
 - **Be able to derive the money multiplier** $\frac{1+cu}{cu+re}$.
-- **Be able to work the GP deposit-creation example:** with $re = 20\%$, the base of 1,000 becomes a money supply of 5,000.
+- **Be able to work the GP deposit-creation example:** with $re = 20\text{%}$, the base of 1,000 becomes a money supply of 5,000.
 - **Know the comparative statics for $re$ and $cu$**, especially the intuition for why higher $cu$ lowers the multiplier.
 - **Conceptual trap:** money is not real wealth, and more money does not mean more goods. Use the phrase "money available for transactions".
 

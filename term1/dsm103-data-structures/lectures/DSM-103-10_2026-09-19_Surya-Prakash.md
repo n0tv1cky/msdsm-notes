@@ -51,21 +51,34 @@ This session completes the discussion of **queue implementations**. It begins by
 ### 2.3 The modular pointer-update formula ★ (central formula of the lecture)
 
 Plain linear queue update rules:
-$$r = r + 1 \qquad\text{(on enqueue)}, \qquad f = f + 1 \qquad\text{(on dequeue)}$$
+
+```math
+r = r + 1 \qquad\text{(on enqueue)}, \qquad f = f + 1 \qquad\text{(on dequeue)}
+```
 
 Circular queue update rules:
-$$r = (r \bmod n) + 1 \qquad\text{(on enqueue)}$$
-$$f = (f \bmod n) + 1 \qquad\text{(on dequeue)}$$
+
+```math
+r = (r \bmod n) + 1 \qquad\text{(on enqueue)}
+```
+
+```math
+f = (f \bmod n) + 1 \qquad\text{(on dequeue)}
+```
 
 where $n = \text{LENGTH}$ = size of the array.
 
 **Why it works (as derived in class, with $n = 5$):**
 
 - Wrap-around case: $r = 5$, so
+
  $$r_{\text{new}} = (5 \bmod 5) + 1 = 0 + 1 = 1$$
+
  → from the last cell we land on the **first** cell. ✔
 - Normal case: $r = 2$, so
+
  $$r_{\text{new}} = (2 \bmod 5) + 1 = 2 + 1 = 3$$
+
  → the ordinary "next index" behaviour is preserved. ✔
 - **General reasoning:** as long as $r < n$, $r \bmod n = r$, so the formula reduces to $r + 1$. As soon as $r = n$, $r \bmod n = 0$, so the formula yields $1$.
 - Contrast: with plain $r = r+1$ and $n=5$, $r=5$ would give $6$ — an invalid index.
@@ -81,7 +94,10 @@ where $n = \text{LENGTH}$ = size of the array.
 **Reasoning:** In a circular queue, when the queue is full the `rear` pointer sits in the cell **immediately before** `front` (going clockwise), i.e. `front` and `rear` end up adjacent. So if you tentatively increment `rear` and the result equals `front`, there is no free cell.
 
 **Condition:**
-$$\text{if } \big((\texttt{rear} \bmod \text{LENGTH}) + 1\big) = \texttt{front} \ \Rightarrow\ \textbf{queue is full}$$
+
+```math
+\text{if } \big((\texttt{rear} \bmod \text{LENGTH}) + 1\big) = \texttt{front} \ \Rightarrow\ \textbf{queue is full}
+```
 
 Implementation note: compute the incremented value into a temporary variable (called `next` in the pseudocode), compare with `front`; insert only if `next` $\neq$ `front`.
 

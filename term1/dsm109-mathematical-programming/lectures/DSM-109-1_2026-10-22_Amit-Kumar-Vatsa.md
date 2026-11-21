@@ -67,7 +67,10 @@ This first session introduced the course and the field of Operations Research / 
 **WWII origins**
 - The Allies (e.g., the UK) assembled teams of mathematicians, logicians, statisticians and code-breakers.
 - **Enigma example:** Treat the password as 10 letters (simplified for class). The number of possibilities is
-$$26 \times 26 \times \cdots \times 26 = 26^{10} \approx 1.41 \times 10^{14}.$$
+
+```math
+26 \times 26 \times \cdots \times 26 = 26^{10} \approx 1.41 \times 10^{14}.
+```
 - Germans reset the setting every midnight, so exhaustive manual search was futile.
 - Turing's team built an early computer. Even that could not brute-force the space.
 - Known repeated words in the 6 a.m. weather reports ("weather", "Heil Hitler") drastically cut the search space.
@@ -84,7 +87,10 @@ $$26 \times 26 \times \cdots \times 26 = 26^{10} \approx 1.41 \times 10^{14}.$$
 ### 2.3 Problem 1: Airline revenue management (single price)
 
 **Setup:** Demand is linear in price, estimated by regression on historical data:
-$$D(p) = a - b\,p, \qquad a, b > 0 \text{ constants.}$$
+
+```math
+D(p) = a - b\,p, \qquad a, b > 0 \text{ constants.}
+```
 Capacity is assumed **not** to be a constraint.
 
 **Model**
@@ -92,32 +98,41 @@ Capacity is assumed **not** to be a constraint.
 - **Objective (₹):** maximise revenue = quantity × price.
 - **Constraints:** non-negative price, and price low enough that demand is non-negative.
 
-$$
+```math
 \begin{aligned}
 \max_{p} \quad & R(p) = p\,(a - b\,p) = a\,p - b\,p^2 \\
 \text{s.t.} \quad & 0 \le p \le \tfrac{a}{b}
 \end{aligned}
-$$
+```
 
 **Method 1: Calculus (closed-form solution)**
 1. First-order condition:
-$$\frac{dR}{dp} = a - 2b\,p = 0 \;\Rightarrow\; p^* = \frac{a}{2b}.$$
+
+```math
+\frac{dR}{dp} = a - 2b\,p = 0 \;\Rightarrow\; p^* = \frac{a}{2b}.
+```
 The ASR wrote "$a - 2b$"; the correct derivative is $a - 2bp$.
 2. Second-order check:
-$$\frac{d^2R}{dp^2} = -2b < 0 \;\Rightarrow\; \text{maximum}.$$
+
+```math
+\frac{d^2R}{dp^2} = -2b < 0 \;\Rightarrow\; \text{maximum}.
+```
 The ASR said "$-2$"; it is $-2b$, which is negative since $b>0$.
 3. Implied values (follow directly; not stated in the lecture):
-$$Q^* = a - b\cdot\frac{a}{2b} = \frac{a}{2}, \qquad R^* = \frac{a^2}{4b}.$$
+
+```math
+Q^* = a - b\cdot\frac{a}{2b} = \frac{a}{2}, \qquad R^* = \frac{a^2}{4b}.
+```
 
 A **closed-form solution** is a formula: plug in $a, b$ and get the answer. Completing the square gives the same result.
 
 **Method 2: Curve plotting**
 - $R(p)$ is a downward parabola with roots at $p = 0$ and $p = a/b$.
-- It is symmetric, so the peak is at the midpoint $p^* = a/(2b)$.
+- It is symmetric, so the peak is at the midpoint $p^\ast  = a/(2b)$.
 
 **Method 3: Trial-and-error or gradient-based search**
-- Start at any price and step in the improving direction, shrinking the step size. This converges to $p^*$ from either side.
-- The search may not land *exactly* on $p^*$. Since $p^*$ is a stationary point, a ±1–2% deviation barely changes revenue, so the answer is robust.
+- Start at any price and step in the improving direction, shrinking the step size. This converges to $p^\ast $ from either side.
+- The search may not land *exactly* on $p^\ast $. Since $p^\ast $ is a stationary point, a ±1–2% deviation barely changes revenue, so the answer is robust.
 
 ### 2.4 Convex vs. non-convex optimisation
 
@@ -131,13 +146,13 @@ A **closed-form solution** is a formula: plug in $a, b$ and get the answer. Comp
   - In non-convex optimisation, a local optimum **may not** be global.
 - **Course scope:** problems solvable by calculus or closed form are *not* the focus; those belong to ML and numerical optimisation courses. LP problems generally have no closed-form solution, so calculus is not the tool. Convex and non-convex problems will be revisited later.
 
-### 2.5 "Can we beat $p^*$?": out-of-the-box thinking
+### 2.5 "Can we beat $p^\ast $?": out-of-the-box thinking
 
-**The limitation:** With a **single price**, nothing beats $p^*$. Revenue is the largest rectangle $p \times Q$ that fits under the demand line (price on the vertical axis, quantity on the horizontal axis).
+**The limitation:** With a **single price**, nothing beats $p^\ast $. Revenue is the largest rectangle $p \times Q$ that fits under the demand line (price on the vertical axis, quantity on the horizontal axis).
 
 **The opportunity**
 - The whole area under the demand curve is "money on the table."
-- Some customers would pay more than $p^*$.
+- Some customers would pay more than $p^\ast $.
 - Charging them a higher price $p_1$ captures extra revenue, shown by the additional area.
 
 **How to do it:** Use **customer segmentation / price discrimination**. Sell *different offerings*, so customers have a reason to pay more:
@@ -147,7 +162,7 @@ A **closed-form solution** is a formula: plug in $a, b$ and get the answer. Comp
 
 **Another example: JIT/Lean vs. EOQ**
 - US firms computed the **Economic Order Quantity** (EOQ). This order size balances inventory holding cost against ordering/setup cost.
-  - The standard formula, not derived in class, is $Q^* = \sqrt{2DS/H}$. Here $D$ = demand rate, $S$ = setup cost per order, and $H$ = holding cost per unit per period.
+  - The standard formula, not derived in class, is $Q^\ast  = \sqrt{2DS/H}$. Here $D$ = demand rate, $S$ = setup cost per order, and $H$ = holding cost per unit per period.
 - Toyota/Japanese firms asked: why can't the order quantity be **one unit**? This led to lean / just-in-time manufacturing, which minimises cash tied up in inventory.
 
 **Takeaway:** Mathematical optimisation and out-of-the-box thinking must balance each other. Don't get so absorbed in the math that you miss the bigger picture.
@@ -182,7 +197,10 @@ Airlines offer the weekend-spanning discount because such travellers look like l
 **Why ₹30,000 is optimal (lower-bound argument)**
 - Every leg must be covered. Covering 2 legs costs at least ₹6,000 (one weekend round trip), versus ₹8,000 or $2 \times 5{,}000$ otherwise.
 - There are 10 legs, so
-$$\text{Cost} \ge 5 \times 6{,}000 = ₹30{,}000.$$
+
+```math
+\text{Cost} \ge 5 \times 6{,}000 = ₹30{,}000.
+```
 - Solution (c) attains this bound, so it is **optimal**.
 
 **Alternative optima exist.** For example:
@@ -195,18 +213,18 @@ $$\text{Cost} \ge 5 \times 6{,}000 = ₹30{,}000.$$
 - A **guarantee of optimality is priceless**. You need a *systematic* method.
 
 **Optional formal model** (my addition; not written in class): a set-partitioning integer program.
-- **Legs:** $L = \{O_1..O_5, R_1..R_5\}$.
+- **Legs:** $L = \lbrace O_1..O_5, R_1..R_5\rbrace $.
 - **Ticket options $T$:** each one-way leg (₹5,000); each same-week pair $(O_k,R_k)$ (₹8,000); each weekend-spanning pair $(O_k,R_m)$ or $(R_k,O_m)$ with $m>k$ (₹6,000).
-- **Decision variables:** $y_t \in \{0,1\}$, equal to 1 if ticket option $t$ is purchased.
+- **Decision variables:** $y_t \in \lbrace 0,1\rbrace $, equal to 1 if ticket option $t$ is purchased.
 - **Parameters:** $c_t$ = cost (₹) of option $t$; $a_{\ell t}=1$ if option $t$ covers leg $\ell$.
 
-$$
+```math
 \begin{aligned}
 \min \quad & \sum_{t \in T} c_t\, y_t && \text{(total ticket cost, ₹)}\\
 \text{s.t.} \quad & \sum_{t \in T} a_{\ell t}\, y_t = 1 && \forall \ell \in L \quad \text{(each leg flown exactly once)}\\
 & y_t \in \{0,1\} && \forall t \in T
 \end{aligned}
-$$
+```
 
 **Optimal value:** ₹30,000.
 
@@ -243,26 +261,29 @@ Total: $5 + 45 + 55 + 85 = 190$ km.
 
 Total: $45 + 35 + 55 + 15 = 150$ km.
 
-- **Improvement:** $(190-150)/190 \approx 21\%$, which the instructor called "about 20%, a huge number."
+- **Improvement:** $(190-150)/190 \approx 21\text{%}$, which the instructor called "about 20%, a huge number."
 - **Instructor's confirmation:** 150 km is optimal, and he believes it is the unique optimum.
 
 **Assignment model** (the class referred to its structure; the solution method comes next class)
 - **Decision variables:** $x_{ij} = 1$ if dozer $i$ is sent to site $j$, else 0.
 - **Parameters:** $d_{ij}$ = distance (km) from dozer $i$'s location to site $j$.
 
-$$
+```math
 \begin{aligned}
 \min \quad & \sum_{i=1}^{4}\sum_{j \in \{A,B,C,D\}} d_{ij}\, x_{ij} && \text{(total km travelled)}\\
 \text{s.t.} \quad & \sum_{j} x_{ij} = 1 && \forall i \quad \text{(each dozer goes to exactly one site)}\\
 & \sum_{i} x_{ij} = 1 && \forall j \quad \text{(each site gets exactly one dozer)}\\
 & x_{ij} \in \{0,1\} && \forall i,j
 \end{aligned}
-$$
+```
 
 ### 2.8 Why brute force fails: combinatorial explosion
 
 **Brute force** means evaluating every alternative and picking the best. With $n$ dozers and $n$ sites:
-$$\#\text{alternatives} = n \times (n-1) \times \cdots \times 1 = n!$$
+
+```math
+\#\text{alternatives} = n \times (n-1) \times \cdots \times 1 = n!
+```
 
 **Excel demo**
 
@@ -277,9 +298,15 @@ $$\#\text{alternatives} = n \times (n-1) \times \cdots \times 1 = n!$$
 **Calculation for $n = 50$**
 1. Assume the fastest supercomputer is about 1 exaflop ($10^{18}$ operations per second). Generously, assume it evaluates $10^{18}$ alternatives per second.
 2. Seconds needed:
-$$\frac{3.04\times10^{64}}{10^{18}} \approx 3.04\times 10^{46}\ \text{s}.$$
+
+```math
+\frac{3.04\times10^{64}}{10^{18}} \approx 3.04\times 10^{46}\ \text{s}.
+```
 3. Years needed:
-$$\frac{3.04\times10^{46}}{365 \times 24 \times 3600} = \frac{3.04\times10^{46}}{3.15\times10^{7}} \approx 9.6 \times 10^{38}\ \text{years}.$$
+
+```math
+\frac{3.04\times10^{46}}{365 \times 24 \times 3600} = \frac{3.04\times10^{46}}{3.15\times10^{7}} \approx 9.6 \times 10^{38}\ \text{years}.
+```
 4. Comparison: the universe is about $1.4 \times 10^{10}$ years old. A computer running since the Big Bang would have checked only a vanishingly small fraction (about $10^{-29}$) of the alternatives.
 5. To finish in 1 year, you would need about $9.6\times10^{38}$ computers running in parallel. This is absurd.
    - The instructor said "$10^{38}$ particles don't exist in the universe." The observable universe actually has about $10^{80}$ particles, but the point stands: this is physically infeasible.
@@ -307,24 +334,48 @@ $$\frac{3.04\times10^{46}}{365 \times 24 \times 3600} = \frac{3.04\times10^{46}}
 ## 4. Formula Sheet
 
 **Linear demand and revenue**
-$$D(p) = a - bp, \qquad R(p) = ap - bp^2$$
+
+```math
+D(p) = a - bp, \qquad R(p) = ap - bp^2
+```
 
 **Optimal single price**
-$$\frac{dR}{dp} = a - 2bp = 0 \;\Rightarrow\; p^* = \frac{a}{2b}$$
-$$\frac{d^2R}{dp^2} = -2b < 0 \;\Rightarrow\; \text{maximum}$$
-$$Q^* = \frac{a}{2}, \qquad R^* = \frac{a^2}{4b}$$
+
+```math
+\frac{dR}{dp} = a - 2bp = 0 \;\Rightarrow\; p^* = \frac{a}{2b}
+```
+
+```math
+\frac{d^2R}{dp^2} = -2b < 0 \;\Rightarrow\; \text{maximum}
+```
+
+```math
+Q^* = \frac{a}{2}, \qquad R^* = \frac{a^2}{4b}
+```
 
 **Enigma toy search space**
-$$26^{10}$$
+
+```math
+26^{10}
+```
 
 **Number of possible assignments**
-$$n!$$
+
+```math
+n!
+```
 
 **EOQ** (mentioned conceptually only)
-$$Q^* = \sqrt{2DS/H}$$
+
+```math
+Q^* = \sqrt{2DS/H}
+```
 
 **Flight lower bound**
-$$\text{Cost} \ge \frac{10 \text{ legs}}{2 \text{ legs per ticket}} \times ₹6{,}000 = ₹30{,}000$$
+
+```math
+\text{Cost} \ge \frac{10 \text{ legs}}{2 \text{ legs per ticket}} \times ₹6{,}000 = ₹30{,}000
+```
 
 <!-- nav -->
 ← (first lecture) · [All lectures](./) · [Session 2 (2026-10-23)](DSM-109-2_2026-10-23_Amit-Kumar-Vatsa.md) →

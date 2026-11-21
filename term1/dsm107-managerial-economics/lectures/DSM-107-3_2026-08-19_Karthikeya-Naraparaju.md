@@ -49,7 +49,9 @@ This session continues the discussion of **technology** — the process by which
   - **N** = number of workers
   - **E** = amount of energy used
 
-$$Y = f(M,\; N,\; E)$$
+```math
+Y = f(M,\; N,\; E)
+```
 
 - Inputs are also called **factors of production**.
 
@@ -69,7 +71,7 @@ $$Y = f(M,\; N,\; E)$$
 ### 2.5 Constant returns to scale (CRS)
 
 - **Definition:** If all inputs are increased by the same proportion **λ**, and output also increases by exactly that proportion **λ**, the technology exhibits **constant returns to scale**.
-  - Formally: $f(\lambda M, \lambda N, \lambda E) = \lambda\, f(M,N,E)$
+  - Formally: $f(\lambda M, \lambda N, \lambda E) = \lambda\  f(M,N,E)$
   - Mathematically: the production function is **homogeneous of degree one**.
 - Worked illustration: workers 1→2, energy 80→160, machines 3→6 ⇒ output 50→100. ✔ CRS.
 - Other cases (mentioned, to be covered later in the course under firm behaviour):
@@ -87,10 +89,16 @@ $$Y = f(M,\; N,\; E)$$
 ### 2.7 Comparing technologies: Average product and input ratios
 
 **Average product of an input:**
-$$AP = \frac{\text{Total output}}{\text{Quantity of that input used}}$$
+
+```math
+AP = \frac{\text{Total output}}{\text{Quantity of that input used}}
+```
 
 **Average product of labour:**
-$$AP_L = \frac{Y}{L}$$
+
+```math
+AP_L = \frac{Y}{L}
+```
 
 - Also called **labour productivity** — how much output is produced per unit of labour.
 
@@ -176,13 +184,18 @@ $$AP_L = \frac{Y}{L}$$
 
 - The firm chooses the technology that gives **maximum profit**.
 
-$$\text{Profit} = \text{Revenue} - \text{Cost}$$
+```math
+\text{Profit} = \text{Revenue} - \text{Cost}
+```
 
 - Since all remaining technologies produce the **same output (100 m of cloth)**, **revenue is identical** ⇒ differences in profit come **entirely from cost**.
 - After eliminating engineering-dominated technologies, we must rely on **economic cost, i.e. prices**.
 
 **The cost equation (two inputs):**
-$$C = wL + pR$$
+
+```math
+C = wL + pR
+```
 where
 
 - **w** = wage (price of a worker)

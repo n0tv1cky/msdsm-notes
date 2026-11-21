@@ -55,13 +55,25 @@ The **EBITDA multiple** analysis was announced but deferred to the next session.
 **Derived figures** (Rahul's calculation, plus checks):
 
 - EPS shortfall:
-$$\frac{0.38 - 0.41}{0.41} \approx -7.32\%$$
+
+```math
+\frac{0.38 - 0.41}{0.41} \approx -7.32\%
+```
 - Dividend increase:
-$$\frac{0.12 - 0.10}{0.10} = 20\%$$
+
+```math
+\frac{0.12 - 0.10}{0.10} = 20\%
+```
 - Payout ratio ("almost a third of earnings"):
-$$\frac{0.12}{0.38} \approx 31.6\%$$
+
+```math
+\frac{0.12}{0.38} \approx 31.6\%
+```
 - Price drop:
-$$\frac{38 - 48}{48} \approx -20.8\%$$
+
+```math
+\frac{38 - 48}{48} \approx -20.8\%
+```
 
 **Rahul's insight:** a firm can still be profitable and raise its dividend, yet see its share price fall. Investors read the earnings miss as a sign of weakening competitive position.
 
@@ -159,24 +171,42 @@ The data came from case exhibits on same-store sales growth and store counts for
 **Formulas used**
 
 EBITDA margin:
-$$\text{EBITDA margin} = \frac{\text{EBITDA}}{\text{Sales}}$$
+
+```math
+\text{EBITDA margin} = \frac{\text{EBITDA}}{\text{Sales}}
+```
 
 After-tax operating profit (NOPAT). In the Excel sheet this is `=C21*(1-C10)`, where C21 is EBIT and C10 is the tax rate:
-$$\text{NOPAT} = \text{EBIT} \times (1 - t)$$
+
+```math
+\text{NOPAT} = \text{EBIT} \times (1 - t)
+```
 
 Net working capital:
-$$\text{NWC} = \text{Current Assets} - \text{Current Liabilities}$$
+
+```math
+\text{NWC} = \text{Current Assets} - \text{Current Liabilities}
+```
 - **Current assets:** mainly inventory held in stores (groceries, milk, meat, vegetables).
 - **Current liabilities:** stock bought on credit from suppliers, with bills settled weekly or monthly.
 
 Invested capital, the "value of the company" or the investment needed:
-$$\text{Capital} = \text{PP\&E} + \text{NWC}$$
+
+```math
+\text{Capital} = \text{PP\&E} + \text{NWC}
+```
 
 Return on capital:
-$$\text{ROC} = \frac{\text{NOPAT}}{\text{Capital}}$$
+
+```math
+\text{ROC} = \frac{\text{NOPAT}}{\text{Capital}}
+```
 
 Earnings per share:
-$$\text{EPS} = \frac{\text{Net income}}{\text{Shares outstanding}}$$
+
+```math
+\text{EPS} = \frac{\text{Net income}}{\text{Shares outstanding}}
+```
 
 **Worked example (first year column, USD million)**
 
@@ -196,15 +226,30 @@ $$\text{EPS} = \frac{\text{Net income}}{\text{Shares outstanding}}$$
 | EPS | about 0.97 |
 
 The calculations behind the table:
-$$548 \times (1 - 0.381) \approx 339$$
-$$\text{Capital} = 1{,}997 + 573 = 2{,}570 \approx 2{,}500$$
-$$\text{ROC} = \frac{339}{2{,}570} \approx 13.2\%$$
-$$\text{EPS} = \frac{339}{350} \approx 0.97$$
+
+```math
+548 \times (1 - 0.381) \approx 339
+```
+
+```math
+\text{Capital} = 1{,}997 + 573 = 2{,}570 \approx 2{,}500
+```
+
+```math
+\text{ROC} = \frac{339}{2{,}570} \approx 13.2\%
+```
+
+```math
+\text{EPS} = \frac{339}{350} \approx 0.97
+```
 
 **Interpretation:** for every 100 invested, the company earns about 13.2 in after-tax operating profit.
 
 **EBITDA margin check for 2011:**
-$$\frac{859}{10{,}108} \approx 8.5\%$$
+
+```math
+\frac{859}{10{,}108} \approx 8.5\%
+```
 The sales figure was transcribed as "10,98"; 10,108 fits the 8.5% result.
 
 **Margin and ROC trend**
@@ -274,30 +319,48 @@ The forecast holds only if the EBITDA margin forecast holds. With more competiti
 - Beta is readily published by financial institutions, just as credit ratings are.
 
 **Cost of equity (CAPM)**
-$$K_e = r_f + \beta \times \text{MRP}$$
+
+```math
+K_e = r_f + \beta \times \text{MRP}
+```
 
 **Weighted average cost of capital**
-$$\text{WACC} = \frac{D}{V}\,K_d\,(1 - t) + \frac{E}{V}\,K_e, \qquad V = D + E$$
+
+```math
+\text{WACC} = \frac{D}{V}\,K_d\,(1 - t) + \frac{E}{V}\,K_e, \qquad V = D + E
+```
 - $E$ is the market capitalisation of equity and $D$ is debt.
 - Debt is multiplied by $(1-t)$ because interest payments are tax-deductible.
 
 **Worked example 1: Whole Foods**
 
-$$K_e = 3.4\% + 0.7 \times 5\% = 6.9\%$$
+```math
+K_e = 3.4\% + 0.7 \times 5\% = 6.9\%
+```
 
 - $V = 14{,}481$ (USD million), all equity.
 - $D/V = 0$.
 
-$$\text{WACC} = K_e = 6.9\%$$
+```math
+\text{WACC} = K_e = 6.9\%
+```
 
 **Worked example 2: Walmart**
 - Debt $D = 55{,}245$ and market cap $E = 251{,}747$ (USD million).
 - Walmart still holds an AA rating because it is large and trusted.
-- $\beta = 0.6$ and $K_d = 4.29\%$.
+- $\beta = 0.6$ and $K_d = 4.29\text{%}$.
 
-$$K_e = 3.4\% + 0.6 \times 5\% = 6.4\%$$
-$$\frac{D}{V} = \frac{55{,}245}{251{,}747 + 55{,}245} = \frac{55{,}245}{306{,}992} \approx 0.18$$
-$$\text{WACC} \approx 0.18 \times 4.29\% \times (1 - 0.39) + 0.82 \times 6.4\% \approx 0.47\% + 5.25\% \approx 5.72\%$$
+```math
+K_e = 3.4\% + 0.6 \times 5\% = 6.4\%
+```
+
+```math
+\frac{D}{V} = \frac{55{,}245}{251{,}747 + 55{,}245} = \frac{55{,}245}{306{,}992} \approx 0.18
+```
+
+```math
+\text{WACC} \approx 0.18 \times 4.29\% \times (1 - 0.39) + 0.82 \times 6.4\% \approx 0.47\% + 5.25\% \approx 5.72\%
+```
 
 > **Transcript errors in this example.** The instructor said "72% multiplied by 6.4"; the equity weight is $1 - 0.18 = 0.82$. A "3.72%" was also mentioned, but the computed result is **5.72%**.
 
@@ -306,7 +369,9 @@ Walmart can raise capital more cheaply than WFM.
 **Worked example 3: SuperValu (mid-level conventional grocer)**
 - $\beta = 1$, so it carries the same risk as the market.
 
-$$K_e = 3.4\% + 1 \times 5\% = 8.4\%$$
+```math
+K_e = 3.4\% + 1 \times 5\% = 8.4\%
+```
 
 - Raising equity is more expensive for SuperValu because it is seen as riskier.
 
@@ -336,7 +401,7 @@ $$K_e = 3.4\% + 1 \times 5\% = 8.4\%$$
 - Intuition given: roughly $\sigma_{\text{company}} / \sigma_{\text{market}}$. The instructor stressed this is **not the exact formula**.
 
 > **Supplementary note:** the standard formula is
-> $$\beta = \frac{\operatorname{Cov}(R_i, R_m)}{\operatorname{Var}(R_m)}$$
+> $\displaystyle \beta = \frac{\operatorname{Cov}(R_i, R_m)}{\operatorname{Var}(R_m)}$
 
 **Zero debt: discount at the cost of equity or a target-structure WACC? (Nihal)**
 - With zero debt, WACC is essentially $K_e$.

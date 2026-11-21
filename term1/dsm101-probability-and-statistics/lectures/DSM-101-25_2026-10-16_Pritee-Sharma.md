@@ -87,12 +87,16 @@ The focus is now only on **numerical data for a single variable**: the observati
 
 Observations are recorded as $X_1, X_2, \dots, X_n$, where $n$ is the sample size. For example, heights of $165$ cm, $180$ cm and $170$ cm.
 
-$$\bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} = \frac{X_1 + X_2 + \cdots + X_n}{n}$$
+```math
+\bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} = \frac{X_1 + X_2 + \cdots + X_n}{n}
+```
 
 - Data does **not** need to be ordered to compute the mean.
 - **Example 1:** a small data set (values partly garbled in the recording) whose mean was $4$.
 - **Example 2 (outlier):** data $1, 1, 1, 1, 51$.
+
   $$\bar{X} = \frac{1+1+1+1+51}{5} = \frac{55}{5} = 11$$
+
   Four of the five values are $1$, yet the mean is $11$.
 - **Key point:** the **mean is affected by extreme values (outliers)**.
 - A student asked how to handle outliers, using the example $1, 3, 5, 6, 64$. The answer is that when extreme values may be present, we use the **median**.
@@ -103,6 +107,7 @@ $$\bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} = \frac{X_1 + X_2 + \cdots + X_n}{n}$$
 
 - Order the data first. Ascending order is conventional, but descending is also acceptable.
 - The **position** of the median in the ordered data is
+
   $$\text{Median position} = \frac{n+1}{2}$$
 
 **Case 1: $n$ odd.** The median is the $\frac{n+1}{2}$-th observation directly.
@@ -115,6 +120,7 @@ $$\bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} = \frac{X_1 + X_2 + \cdots + X_n}{n}$$
 
 - Example: $n = 6$, so position $= \frac{6+1}{2} = 3.5$.
 - Take the 3rd observation ($30$) and the 4th observation ($40$):
+
   $$\text{Median} = \frac{30 + 40}{2} = 35$$
 
 **Three properties of the median (stressed as important):**
@@ -122,6 +128,7 @@ $$\bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} = \frac{X_1 + X_2 + \cdots + X_n}{n}$$
 1. The median is **not affected by extreme values on either side**, low or high. It depends only on the number and order of observations.
 2. Any observation selected at random is **equally likely to be greater than or less than the median**.
 3. The **sum of absolute deviations about the median is minimum**. That is, for any other value $c$:
+
    $$\sum_{i=1}^{n} |X_i - \text{Median}| \le \sum_{i=1}^{n} |X_i - c|$$
 
 **In-class exercise.** Use the data $0, 2, 3, 5, 20, 99, 1000$.
@@ -225,9 +232,13 @@ The lecturer will share slides with more quantile examples to practise. Quintile
 - **Method 2 (ungrouped frequency distribution):**
   - List each distinct score $X_i$ with its frequency $f_i$. For example, the lowest score $5$ was obtained by $2$ students, so $f = 2$.
   - The sum of frequencies must equal the number of observations:
+
     $$\sum f_i = n = 16$$
+
   - Compute $X_i f_i$ for each score, then sum. The mean is
+
     $$\bar{X} = \frac{\sum X_i f_i}{n} = \frac{\sum X_i f_i}{\sum f_i}$$
+
   - For large data sets this is more efficient than summing every individual value.
   - "Ungrouped" means each individual score value gets its own row with its frequency.
 

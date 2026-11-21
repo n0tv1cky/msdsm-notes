@@ -44,13 +44,13 @@ This session moves from one-dimensional arrays (previous lecture: traversal, bub
 
 Take the $3 \times 4$ matrix ($m=3$, $n=4$):
 
-$$
+```math
 \begin{bmatrix}
 a_{11} & a_{12} & a_{13} & a_{14}\\
 a_{21} & a_{22} & a_{23} & a_{24}\\
 a_{31} & a_{32} & a_{33} & a_{34}
 \end{bmatrix}
-$$
+```
 
 **Row-major order** — store the whole first row, then the whole second row, etc. Memory picture (one contiguous strip, left to right):
 
@@ -70,9 +70,13 @@ a11 a21 a31 | a12 a22 a32 | a13 a23 a33 | a14 a24 a34
 
 **Row-major.** Before reaching $a_{ij}$ we must store all elements of the first $i-1$ complete rows ($n$ each), plus $j$ elements of row $i$:
 
-$$\text{Index}_{\text{row-major}}(a_{ij}) = (i-1)\cdot n + j$$
+```math
+\text{Index}_{\text{row-major}}(a_{ij}) = (i-1)\cdot n + j
+```
 
-$$\text{Address}(a_{ij}) = B + \big[(i-1)\cdot n + (j-1)\big]\cdot w$$
+```math
+\text{Address}(a_{ij}) = B + \big[(i-1)\cdot n + (j-1)\big]\cdot w
+```
 
 where $B$ = **base address** (address of the first element) and $w$ = **number of words/bytes per element**.
 
@@ -80,16 +84,26 @@ where $B$ = **base address** (address of the first element) and $w$ = **number o
 
 **Column-major.** Before $a_{ij}$ we store the first $j-1$ complete columns ($m$ each), plus $i$ elements of column $j$:
 
-$$\text{Index}_{\text{col-major}}(a_{ij}) = (j-1)\cdot m + i$$
+```math
+\text{Index}_{\text{col-major}}(a_{ij}) = (j-1)\cdot m + i
+```
 
-$$\text{Address}(a_{ij}) = B + \big[(j-1)\cdot m + (i-1)\big]\cdot w$$
+```math
+\text{Address}(a_{ij}) = B + \big[(j-1)\cdot m + (i-1)\big]\cdot w
+```
 
 **Worked example 1 (row-major), $a_{2,3}$ in the $3\times4$ array:**
-$$\text{Index} = (2-1)\times 4 + 3 = 4 + 3 = 7$$
+
+```math
+\text{Index} = (2-1)\times 4 + 3 = 4 + 3 = 7
+```
 So $a_{23}$ sits at the **7th position**. If $B=100$ and $w=1$ byte: $\text{Address} = 100 + (7-1)\times 1 = 106$.
 
 **Worked example 2 (column-major), $a_{2,3}$ in the same array ($m=3$):**
-$$\text{Index} = (3-1)\times 3 + 2 = 6 + 2 = 8$$
+
+```math
+\text{Index} = (3-1)\times 3 + 2 = 6 + 2 = 8
+```
 So in column-major order $a_{23}$ is the **8th element**. With $w=1$ byte: $\text{Address} = B + (8-1)\times 1 = B + 7$.
 
 ### 2.6 Q&A points raised in class
@@ -129,13 +143,19 @@ a11 | a21 a22 | a31 a32 a33 | a41 ...
 
 **Row-major derivation:** elements in the first $i-1$ rows $= 1+2+\cdots+(i-1)$. Using the sum of the first $n$ natural numbers, $1+2+\cdots+n = \dfrac{n(n+1)}{2}$, with $n = i-1$:
 
-$$1+2+\cdots+(i-1) = \frac{(i-1)\,i}{2}$$
+```math
+1+2+\cdots+(i-1) = \frac{(i-1)\,i}{2}
+```
 
 Then add $j$ elements from row $i$:
 
-$$\boxed{\;\text{Index}(a_{ij}) = \frac{i(i-1)}{2} + j\;}$$
+```math
+\boxed{\;\text{Index}(a_{ij}) = \frac{i(i-1)}{2} + j\;}
+```
 
-$$\text{Address}(a_{ij}) = B + \left[\frac{i(i-1)}{2} + j - 1\right]\cdot w$$
+```math
+\text{Address}(a_{ij}) = B + \left[\frac{i(i-1)}{2} + j - 1\right]\cdot w
+```
 
 **Worked check:** $a_{3,2}$ → $\dfrac{3\cdot 2}{2} + 2 = 3+2 = 5$. Indeed in the layout above $a_{32}$ is the 5th cell. (Note: 5 is the **index**, not the address; the address is $B + (5-1)w$.)
 
@@ -143,12 +163,19 @@ $$\text{Address}(a_{ij}) = B + \left[\frac{i(i-1)}{2} + j - 1\right]\cdot w$$
 - Column 1 has $n$ elements (0 missing), column 2 has $n-1$ (1 missing), column 3 has $n-2$ (2 missing) … so **column $k$ has $n-k+1$ elements**, i.e. $k-1$ missing.
 - Hence **column $j-1$ has $n-j+2$ elements**, i.e. $j-2$ missing. (This was the point of a long clarification: for column $j-1$ the number missing is $(j-1)-1 = j-2$.)
 - Elements before column $j$:
-$$n + (n-1) + (n-2) + \cdots + \big(n-(j-2)\big) \;=\; n(j-1) - \frac{(j-1)(j-2)}{2}$$
+
+```math
+n + (n-1) + (n-2) + \cdots + \big(n-(j-2)\big) \;=\; n(j-1) - \frac{(j-1)(j-2)}{2}
+```
 - Inside column $j$, the column starts at row $j$, so $a_{ij}$ is the $(i-j+1)$-th entry.
 
-$$\boxed{\;\text{Index}(a_{ij}) = n(j-1) - \frac{(j-1)(j-2)}{2} + (i-j+1)\;}$$
+```math
+\boxed{\;\text{Index}(a_{ij}) = n(j-1) - \frac{(j-1)(j-2)}{2} + (i-j+1)\;}
+```
 
-$$\text{Address}(a_{ij}) = B + \big[\text{Index}(a_{ij}) - 1\big]\cdot w$$
+```math
+\text{Address}(a_{ij}) = B + \big[\text{Index}(a_{ij}) - 1\big]\cdot w
+```
 
 **Verification (3×3 lower-left, column-major order = $a_{11},a_{21},a_{31},a_{22},a_{32},a_{33}$):** $a_{3,2}$ → $3(1) - 0 + (3-2+1) = 3+2 = 5$ ✔ (5th cell).
 
@@ -160,13 +187,19 @@ Structure: row $i$ occupies columns $i \ldots n$, so **row $i$ has $n-i+1$ eleme
 
 **Column-major** (columns have $1,2,3,\ldots$ elements — same pattern as rows in the lower-left case):
 
-$$\text{Index}(a_{ij}) = \frac{j(j-1)}{2} + i$$
+```math
+\text{Index}(a_{ij}) = \frac{j(j-1)}{2} + i
+```
 
 **Row-major** (rows have $n, n-1, n-2, \ldots$ elements — same pattern as columns in the lower-left case):
 
-$$\text{Index}(a_{ij}) = n(i-1) - \frac{(i-1)(i-2)}{2} + (j-i+1)$$
+```math
+\text{Index}(a_{ij}) = n(i-1) - \frac{(i-1)(i-2)}{2} + (j-i+1)
+```
 
-$$\text{Address} = B + \big[\text{Index}-1\big]\cdot w$$
+```math
+\text{Address} = B + \big[\text{Index}-1\big]\cdot w
+```
 
 > Principle stated by the instructor: *"index will be changed with respect to this formula — $i$ will be $j$, $j$ will be $i$."* Once you know the per-row / per-column occupancy pattern, the same counting argument produces the formula.
 
@@ -182,16 +215,18 @@ $$\text{Address} = B + \big[\text{Index}-1\big]\cdot w$$
 - Row 1 has **2** elements, rows $2 \ldots n-1$ have **3** elements each, row $n$ has **2**. (Same pattern column-wise: first and last columns have 2, others 3.)
 - **Row-major derivation:** elements in the first $i-1$ rows $= 2 + \underbrace{3+3+\cdots+3}_{(i-2)\text{ terms}} = 2 + 3(i-2)$.
   Row $i$ starts at column $i-1$, so within row $i$ the element $a_{ij}$ is the $\big(j-(i-2)\big)$-th entry.
-- $$\text{Index}(a_{ij}) = \big[2 + 3(i-2)\big] + \big(j - (i-2)\big) \;=\; 2i + j - 2$$
+- $$\text{Index}(a_{ij}) = \big[2 + 3(i-2)\big] + \big(j - (i-2)\big) \ =\  2i + j - 2$$
 - **Column-major:** swap the roles of $i$ and $j$:
+
   $$\text{Index}(a_{ij}) = 2j + i - 2$$
+
 - $$\text{Address} = B + \big[\text{Index}-1\big]\cdot w$$
 
 *Quick check (row-major):* $a_{11}\to 1$, $a_{12}\to 2$, $a_{21}\to 3$, $a_{22}\to 4$, $a_{23}\to 5$ ✔.
 
 ### 2.12 $\alpha$–$\beta$ band matrix — three-case index derivation
 
-**Shape:** row 1 holds $\alpha$ elements (columns $1 \ldots \alpha$); the band then slides down-right. Row $i$ holds columns $\max(1,\,i-\beta+1)$ through $\min(n,\,i+\alpha-1)$. Three regions:
+**Shape:** row 1 holds $\alpha$ elements (columns $1 \ldots \alpha$); the band then slides down-right. Row $i$ holds columns $\max(1,\ i-\beta+1)$ through $\min(n,\ i+\alpha-1)$. Three regions:
 
 1. **Rows $1$ to $\beta$**: the band's left edge is still pinned at column 1, so the row length **grows by 1 each row** — row $k$ has $\alpha + k - 1$ elements.
 2. **Rows $\beta+1$ to $n-\alpha+1$**: full band width, **constant** $\alpha + \beta - 1$ elements per row.
@@ -200,17 +235,26 @@ $$\text{Address} = B + \big[\text{Index}-1\big]\cdot w$$
 Within any row of region 2 or 3 the row starts at column $i-\beta+1$, so $a_{ij}$ is the $(j-i+\beta)$-th element of that row.
 
 **Case 1: $1 \le i \le \beta$**
-$$\text{Index}(a_{ij}) = \sum_{k=1}^{i-1}\big(\alpha + k - 1\big) + j \;=\; (i-1)\alpha + \frac{(i-1)(i-2)}{2} + j$$
+
+```math
+\text{Index}(a_{ij}) = \sum_{k=1}^{i-1}\big(\alpha + k - 1\big) + j \;=\; (i-1)\alpha + \frac{(i-1)(i-2)}{2} + j
+```
 
 **Case 2: $\beta < i \le n-\alpha+1$**
-$$\text{Index}(a_{ij}) = \underbrace{\left[\beta\alpha + \frac{\beta(\beta-1)}{2}\right]}_{\text{rows }1..\beta} \;+\; \underbrace{(i-\beta-1)(\alpha+\beta-1)}_{\text{rows }\beta+1..i-1} \;+\; \underbrace{(j-i+\beta)}_{\text{inside row }i}$$
+
+```math
+\text{Index}(a_{ij}) = \underbrace{\left[\beta\alpha + \frac{\beta(\beta-1)}{2}\right]}_{\text{rows }1..\beta} \;+\; \underbrace{(i-\beta-1)(\alpha+\beta-1)}_{\text{rows }\beta+1..i-1} \;+\; \underbrace{(j-i+\beta)}_{\text{inside row }i}
+```
 
 > The row-count term was derived explicitly in class: the number of rows from $\beta+1$ to $i-1$ is
-> $$(i-1) - (\beta+1) + 1 = i-\beta-1$$
+> $\displaystyle (i-1) - (\beta+1) + 1 = i-\beta-1$
 > using the rule **"last index − first index + 1"** (illustrated with: rows 5 to 10 contain $10-5+1 = 6$ rows).
 
 **Case 3: $n-\alpha+1 < i \le n$** — same idea, one more block:
-$$\text{Index}(a_{ij}) = \underbrace{\left[\beta\alpha + \frac{\beta(\beta-1)}{2}\right]}_{\text{rows }1..\beta} + \underbrace{(n-\alpha+1-\beta)(\alpha+\beta-1)}_{\text{rows }\beta+1..\,n-\alpha+1} + \underbrace{\sum_{k=n-\alpha+2}^{i-1}\big(n-k+\beta\big)}_{\text{shrinking rows}} + \underbrace{(j-i+\beta)}_{\text{inside row }i}$$
+
+```math
+\text{Index}(a_{ij}) = \underbrace{\left[\beta\alpha + \frac{\beta(\beta-1)}{2}\right]}_{\text{rows }1..\beta} + \underbrace{(n-\alpha+1-\beta)(\alpha+\beta-1)}_{\text{rows }\beta+1..\,n-\alpha+1} + \underbrace{\sum_{k=n-\alpha+2}^{i-1}\big(n-k+\beta\big)}_{\text{shrinking rows}} + \underbrace{(j-i+\beta)}_{\text{inside row }i}
+```
 
 (The instructor sketched this last case as "first compute rows 1 to $\beta$, then $\beta+1$ to $n-\alpha+1$, then $n-\alpha+2$ to $i-1$, then position within row $i$" and left the algebraic simplification to the students.)
 
@@ -239,7 +283,9 @@ $$\text{Index}(a_{ij}) = \underbrace{\left[\beta\alpha + \frac{\beta(\beta-1)}{2
 3. Add the **offset of $a_{ij}$ within its own row (or column)** (= position counted from the first *stored* element of that row/column, not from column 1).
 4. That sum is the **1-D index** (1-based).
 5. Convert to an address:
+
  $$\text{Address}(a_{ij}) = B + \big(\text{Index}(a_{ij}) - 1\big)\times w$$
+
  where $B$ = base address, $w$ = bytes/words per element.
 6. Complexity: **$O(1)$ time, $O(1)$ extra space** per access.
 
@@ -265,8 +311,14 @@ $$\text{Index}(a_{ij}) = \underbrace{\left[\beta\alpha + \frac{\beta(\beta-1)}{2
 **In all cases:** $\text{Address}(a_{ij}) = B + \big(\text{Index}-1\big)\cdot w$.
 
 **Supporting identities used:**
-$$1+2+\cdots+n = \frac{n(n+1)}{2}$$
-$$\text{number of rows from } p \text{ to } q = q - p + 1$$
+
+```math
+1+2+\cdots+n = \frac{n(n+1)}{2}
+```
+
+```math
+\text{number of rows from } p \text{ to } q = q - p + 1
+```
 
 ---
 
@@ -275,7 +327,7 @@ $$\text{number of rows from } p \text{ to } q = q - p + 1$$
 - **Homework (explicitly assigned):** derive the **row-major and column-major index (and address) formulas** for
  1. the **lower-right triangular matrix** (row 1 has one element at column $n$, row $n$ is full), and
  2. the **upper-left triangular matrix** — the one written on the board as
- $a_{11}\,a_{12}\,\ldots\,a_{1n}$ / $a_{21}\,a_{22}\,\ldots\,a_{2,n-1}$ / … / $a_{n1}$.
+ $a_{11}\ a_{12}\ \ldots\ a_{1n}$ / $a_{21}\ a_{22}\ \ldots\ a_{2,n-1}$ / … / $a_{n1}$.
 - **"You must practice this $\alpha$–$\beta$ band matrix"** — the instructor singled out the $\alpha$–$\beta$ band derivation (and warned that $\alpha$ and $\beta$ are *different* parameters, so don't collapse them) as the thing to drill.
 - Be able to state clearly the difference between **index** (position number in the 1-D store) and **address** (index converted using $B$ and $w$) — this distinction was repeatedly corrected in class.
 - Know the **1-based indexing assumption** and how the formulas behave at edges (e.g. $j = 1 \Rightarrow$ zero preceding columns, index reduces to $i$).

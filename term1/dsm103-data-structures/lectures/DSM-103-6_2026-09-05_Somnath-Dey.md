@@ -220,10 +220,14 @@ Key insight: **you do not have to traverse at all.** The header's left link alre
 Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, each element occupying **8 bytes**, and each address/pointer also **8 bytes**.
 
 - **Dense 2-D array:**
+
   $$10^4 \times 10^4 \times 8 = 10^8 \times 8 = 8\times10^8 \text{ bytes}$$
+
 - **Actual useful data:** $100 \times 8 = 800$ bytes → almost all of the array is wasted.
 - **Linked representation** (node = data + 2 addresses, as first sketched):
+
   $$8 \times 3 = 24 \text{ bytes per node}, \qquad 24 \times 100 = 2400 \text{ bytes total}$$
+
 - Conclusion: the linked representation is **vastly more memory-efficient** *provided the matrix is genuinely sparse* (large dimensions, few non-zeros).
 
 #### Trade-off (asked by a student)
@@ -277,7 +281,9 @@ Assume a $10{,}000 \times 10{,}000$ matrix with only **100 non-zero elements**, 
 
 #### Complexity of element access in this representation
 - Worst case: to reach element $(n,n)$ you traverse at most $n$ steps down the headers and $n$ steps along the chain:
+
   $$T(n) = O(n + n) = O(2n) = O(n)$$
+
 - Contrast: an array gives element $(i,j)$ in $O(1)$ / constant time.
 - Motivation stated for this design: **avoid $O(n^2)$** work (scanning all $n \times n$ positions) — the header structure brings it down to $O(n)$.
 
@@ -306,11 +312,14 @@ Given in response to a student unfamiliar with Big-O.
 - Example: finding the **maximum in an *unsorted* array**. You must compare every element; the maximum may be the last one, so you cannot stop early.
   - 10 elements → 10 comparisons; 1000 elements → 1000 comparisons → cost depends directly on input size $n$.
 - If the algorithm actually performs $2n$ comparisons plus a constant, it is **still $O(n)$**: constant multipliers are dropped.
+
   $$2n + c \in O(n)$$
 
 **Dominant-term rule**
 - If an algorithm costs $n^2$ operations for one part, $n$ for another, and some constants:
-  $$T(n) = an^2 + bn + c \;\Rightarrow\; T(n) = O(n^2)$$
+
+  $$T(n) = an^2 + bn + c \ \Rightarrow\  T(n) = O(n^2)$$
+
 - Reason given: **we take the highest-order term** because it dominates; $n^2 \ge n$ (for $n$ greater than some threshold $n_0$).
 - $O$ is described as an **upper bound** — "the maximum number of comparisons that would be required."
 - The **formal mathematical definition** (with constants $c$ and $n_0$) was deliberately deferred: *"those mathematical formulations will be taught by Professor Surya"* — the instructor wanted students habituated to the intuition first.

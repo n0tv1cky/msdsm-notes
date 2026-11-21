@@ -26,24 +26,39 @@ This session finishes the unit on the **normal distribution** and then starts **
 ### 2.1 Recap: Normal and Standard Normal Distribution
 
 - A random variable $X$ is **normally distributed** with mean $\mu$ and variance $\sigma^2$, written $X \sim N(\mu, \sigma^2)$, if its PDF is:
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \qquad -\infty < x < \infty$$
+
+```math
+f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \qquad -\infty < x < \infty
+```
   - The denominator of the exponent uses $2\sigma^2$, which is twice the **variance**, not the standard deviation. The instructor corrected herself on this point.
 
 - **Standard normal variate:** this is defined as
-$$Z = \frac{X - \mu}{\sigma}$$
+
+```math
+Z = \frac{X - \mu}{\sigma}
+```
   It has these properties:
   - $E[Z] = 0$ and $\mathrm{Var}(Z) = 1$, so $Z \sim N(0, 1)$.
   - $Z$ is created from $X$. Probability tables are therefore looked up for the **standard normal** distribution, not for the original $N(\mu, \sigma^2)$. This point came up because a student asked about it.
   - Interpretation: you "normalize" a variable by subtracting its mean and dividing by its standard deviation.
 
 - **PDF of the standard normal:**
-$$\varphi(z) = \frac{1}{\sqrt{2\pi}}\, e^{-z^2/2}, \qquad -\infty < z < \infty$$
+
+```math
+\varphi(z) = \frac{1}{\sqrt{2\pi}}\, e^{-z^2/2}, \qquad -\infty < z < \infty
+```
 
 - **Distribution function (CDF)** is the area under the curve up to $z$:
-$$\Phi(z) = P(Z \le z) = \int_{-\infty}^{z} \varphi(u)\, du$$
+
+```math
+\Phi(z) = P(Z \le z) = \int_{-\infty}^{z} \varphi(u)\, du
+```
 
 - **Symmetry property:** the curve is symmetric about its mean of $0$, so
-$$\Phi(-z) = 1 - \Phi(z)$$
+
+```math
+\Phi(-z) = 1 - \Phi(z)
+```
   - The class used this property earlier in a marks example involving the values 73 and 77, where one student scored 87. Full details are in the previous lecture.
 
 ### 2.2 Making Inferences with the $z$-Score (three steps)
@@ -117,15 +132,30 @@ Transcription corrections:
 **Find:** $P(X \ge 20)$, $P(X \le 20)$ and $P(0 \le X \le 12)$. The audio said "0", but the class solution used 20 for the first two parts.
 
 **(a) $P(X \ge 20)$:**
-$$z = \frac{20 - 12}{4} = 2$$
-$$P(X \ge 20) = 1 - P(X \le 20) = 1 - \Phi(2) \approx 1 - 0.9772 = 0.0228$$
+
+```math
+z = \frac{20 - 12}{4} = 2
+```
+
+```math
+P(X \ge 20) = 1 - P(X \le 20) = 1 - \Phi(2) \approx 1 - 0.9772 = 0.0228
+```
 
 **(b) $P(X \le 20)$:** this is the area to the left of $z = 2$.
-$$P(X \le 20) = \Phi(2) \approx 0.9772$$
+
+```math
+P(X \le 20) = \Phi(2) \approx 0.9772
+```
 
 **(c) $P(0 \le X \le 12)$:** the bounds convert to
-$$z_1 = \frac{0-12}{4} = -3, \qquad z_2 = \frac{12-12}{4} = 0$$
-$$P = \Phi(0) - \Phi(-3) = 0.5 - 0.00135 \approx 0.4987 \;(\approx 49.87\%)$$
+
+```math
+z_1 = \frac{0-12}{4} = -3, \qquad z_2 = \frac{12-12}{4} = 0
+```
+
+```math
+P = \Phi(0) - \Phi(-3) = 0.5 - 0.00135 \approx 0.4987 \;(\approx 49.87\%)
+```
 - One student got 49.85% because tables differ slightly in rounding.
 
 ### 2.9 Worked Example 2: Agricultural Yield
@@ -137,21 +167,39 @@ $$P = \Phi(0) - \Phi(-3) = 0.5 - 0.00135 \approx 0.4987 \;(\approx 49.87\%)$$
 
 **(i) Yield $> 760$:**
 - Step 1, $z$-score:
-$$z = \frac{760 - 662}{32} = \frac{98}{32} \approx 3.06$$
+
+```math
+z = \frac{760 - 662}{32} = \frac{98}{32} \approx 3.06
+```
 - Step 2, table lookup: $\Phi(3.06) \approx 0.9989$.
 - Step 3, right-tail probability:
-$$P(X > 760) = 1 - 0.9989 = 0.0011$$
+
+```math
+P(X > 760) = 1 - 0.9989 = 0.0011
+```
 - Expected number of plots: $0.0011 \times 1000 \approx 1.1$, so **about 1 plot**.
 - Note on percentages: the table value is a probability, not a percentage. Multiply by 100 for a percentage, or by 1000 to get a count out of 1000.
 
 **(i′) Side calculation with 700:** a student misheard 760 as 700, and the class also solved this version.
-$$z = \frac{700 - 662}{32} = \frac{38}{32} = 1.1875 \approx 1.19$$
-$$P(X > 700) = 1 - \Phi(1.19) \approx 1 - 0.8830 = 0.1170$$
+
+```math
+z = \frac{700 - 662}{32} = \frac{38}{32} = 1.1875 \approx 1.19
+```
+
+```math
+P(X > 700) = 1 - \Phi(1.19) \approx 1 - 0.8830 = 0.1170
+```
 - Expected number of plots: $0.117 \times 1000 \approx$ **117 plots**.
 
 **(ii) Yield $< 650$:** this is the area to the left of 650, which lies below the mean.
-$$z = \frac{650 - 662}{32} = \frac{-12}{32} = -0.375$$
-$$P(X < 650) = \Phi(-0.375) = 1 - \Phi(0.375) \approx 0.354$$
+
+```math
+z = \frac{650 - 662}{32} = \frac{-12}{32} = -0.375
+```
+
+```math
+P(X < 650) = \Phi(-0.375) = 1 - \Phi(0.375) \approx 0.354
+```
 - Expected number of plots: $0.354 \times 1000 \approx$ **354 plots**. The class arrived at 354.
 
 ### 2.10 Introduction to Correlation: Bivariate Distributions

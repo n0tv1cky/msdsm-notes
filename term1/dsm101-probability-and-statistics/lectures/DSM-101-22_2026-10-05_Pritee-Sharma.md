@@ -67,9 +67,13 @@ Each stage of the nested framework has its own type of error.
 
 **Error decomposition (as presented by the instructor):**
 
-$$\text{Sampling error} = \text{Frame error} + \text{Chance error} + \text{Response error}$$
+```math
+\text{Sampling error} = \text{Frame error} + \text{Chance error} + \text{Response error}
+```
 
-$$\text{Total error} = \text{Sampling error} + \text{Non-sampling (measurement) error}$$
+```math
+\text{Total error} = \text{Sampling error} + \text{Non-sampling (measurement) error}
+```
 
 > Standard textbooks often classify frame and response errors as non-sampling errors. Use the instructor's taxonomy for this course, but be aware that other sources may group these differently.
 
@@ -165,7 +169,9 @@ When $n$ is close to $N$, the sample covers most of the population. However, the
 1. Choose the **first element randomly**.
 2. Then select **every $k$-th element**, where
 
-$$k = \frac{N}{n}$$
+```math
+k = \frac{N}{n}
+```
 
 Here $N$ is the population (universe) size and $n$ is the desired sample size. Both must be known in advance.
 

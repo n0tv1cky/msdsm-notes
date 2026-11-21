@@ -215,7 +215,9 @@ Base case in Chapter 7: **uniform pricing** — everyone pays the same price per
 
 Revenue: **R = P × Q**, and **P is itself a function of Q** (because P comes from the demand curve).
 
-$$MR = \frac{d(PQ)}{dQ} = P + Q\frac{dP}{dQ}$$
+```math
+MR = \frac{d(PQ)}{dQ} = P + Q\frac{dP}{dQ}
+```
 
 (uses the product/"UV" rule, since both P and Q are functions of Q).
 
@@ -225,9 +227,13 @@ $$MR = \frac{d(PQ)}{dQ} = P + Q\frac{dP}{dQ}$$
 
 Let **π = P·Q − C(Q)**.
 
-$$\frac{\partial \pi}{\partial Q} = 0 \;\Rightarrow\; \underbrace{P + Q\frac{dP}{dQ}}_{MR} - \underbrace{\frac{dC}{dQ}}_{MC} = 0$$
+```math
+\frac{\partial \pi}{\partial Q} = 0 \;\Rightarrow\; \underbrace{P + Q\frac{dP}{dQ}}_{MR} - \underbrace{\frac{dC}{dQ}}_{MC} = 0
+```
 
-$$\boxed{MR = MC \text{ at the profit-maximizing quantity}}$$
+```math
+\boxed{MR = MC \text{ at the profit-maximizing quantity}}
+```
 
 *(Note: the lecturer wrote the cost term as (∂C/∂Q)·dQ and then noted that in the standard MC definition dQ = 1, so MC = ∂C/∂Q.)*
 
@@ -238,13 +244,17 @@ $$\boxed{MR = MC \text{ at the profit-maximizing quantity}}$$
 
 Start from **π = P·Q − C(Q)**. Take the total differential; along an isoprofit curve **dπ = 0**:
 
-$$Q\,dP + P\,dQ = \frac{\partial C}{\partial Q}\,dQ = MC\cdot dQ$$
+```math
+Q\,dP + P\,dQ = \frac{\partial C}{\partial Q}\,dQ = MC\cdot dQ
+```
 
 (Here MC·dQ is written because dQ need not equal 1 in this general case.)
 
 Rearranging:
 
-$$\boxed{\frac{dP}{dQ}\Big|_{\text{isoprofit}} = -\frac{P - MC}{Q}}$$
+```math
+\boxed{\frac{dP}{dQ}\Big|_{\text{isoprofit}} = -\frac{P - MC}{Q}}
+```
 
 - **Sign check:** since **P > MC** (profit positive on the marginal unit), **(P − MC) > 0**, so the slope is **negative** ⇒ the isoprofit curve is **downward sloping**.
 
@@ -252,7 +262,9 @@ $$\boxed{\frac{dP}{dQ}\Big|_{\text{isoprofit}} = -\frac{P - MC}{Q}}$$
 
 - **Definition:** the **percentage change in quantity demanded per given percentage change in price** — i.e. consumers' **price sensitivity**.
 
-$$\boxed{\varepsilon = \frac{dQ/Q}{dP/P}}$$
+```math
+\boxed{\varepsilon = \frac{dQ/Q}{dP/P}}
+```
 
 - **Sign:** always **negative**, because dP/dQ (the demand curve slope) is negative.
 - **Elasticity varies along a linear demand curve:** at the top (price-intercept end) ε = **−∞**; moving down the curve it rises toward **0**.
@@ -276,13 +288,19 @@ $$\boxed{\varepsilon = \frac{dQ/Q}{dP/P}}$$
 
 From the elasticity definition:
 
-$$\varepsilon = \frac{P}{Q}\cdot\frac{dQ}{dP} \;\;\Rightarrow\;\; \frac{dP}{dQ} = \frac{P}{\varepsilon\, Q}$$
+```math
+\varepsilon = \frac{P}{Q}\cdot\frac{dQ}{dP} \;\;\Rightarrow\;\; \frac{dP}{dQ} = \frac{P}{\varepsilon\, Q}
+```
 
 Equate with the isoprofit slope at the tangency point Z:
 
-$$\frac{P}{\varepsilon Q} = -\frac{P-MC}{Q}$$
+```math
+\frac{P}{\varepsilon Q} = -\frac{P-MC}{Q}
+```
 
-$$\boxed{\frac{P - MC}{P} = -\frac{1}{\varepsilon}}$$
+```math
+\boxed{\frac{P - MC}{P} = -\frac{1}{\varepsilon}}
+```
 
 - Since **ε is negative**, the two negatives cancel and the **right-hand side is positive**.
 - **Interpretation:** **(P − MC)/P is the profit margin as a percentage of price.** It is **inversely related to the elasticity of demand**:

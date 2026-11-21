@@ -153,14 +153,23 @@ plt.show()
 ### 2.5 The three functions: PMF, PDF, CDF
 
 **PMF (probability mass function)** applies to **discrete** variables:
-$$p(x) = P(X = x), \qquad \sum_x p(x) = 1$$
+
+```math
+p(x) = P(X = x), \qquad \sum_x p(x) = 1
+```
 It gives the probability of each exact value.
 
 **PDF (probability density function)** applies to **continuous** variables. Here probability is an **area**:
-$$P(a \le X \le b) = \int_a^b f(x)\,dx, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 1$$
+
+```math
+P(a \le X \le b) = \int_a^b f(x)\,dx, \qquad \int_{-\infty}^{\infty} f(x)\,dx = 1
+```
 
 **CDF (cumulative distribution function)** works for **both** types:
-$$F(x) = P(X \le x)$$
+
+```math
+F(x) = P(X \le x)
+```
 It always lies between 0 and 1 and **never decreases**.
 
 **Worked Example A (discrete): planets per star**
@@ -180,14 +189,20 @@ A small survey found:
 - At most 2 planets: $F(2) = P(X\le 2) = 0.5+0.3+0.15 = 0.95$.
 - At least one planet: $P(X\ge 1) = 1 - 0.5 = 0.5$.
 - Expected value: multiply each value by its probability and sum.
-$$E[X] = \sum_x x\,p(x) = 0(0.5) + 1(0.3) + 2(0.15) + 3(0.05) = 0.75 \text{ planets per star}$$
+
+```math
+E[X] = \sum_x x\,p(x) = 0(0.5) + 1(0.3) + 2(0.15) + 3(0.05) = 0.75 \text{ planets per star}
+```
 
 **Worked Example B (continuous): repeated magnitude measurements**
 
 - A standard star's measured magnitude scatters around $\mu = 12$ with error $\sigma = 0.05$ mag.
 - The probability that one measurement lies between two values is the **area under the PDF**.
 - Taking the interval as $\mu \pm 2\sigma$ (the bounds are inferred; the result was ≈0.95):
-$$P(11.9 \le m \le 12.1) = \int_{11.9}^{12.1} f(m)\,dm \approx 0.95$$
+
+```math
+P(11.9 \le m \le 12.1) = \int_{11.9}^{12.1} f(m)\,dm \approx 0.95
+```
 - **Key point:** for a continuous variable, $P(m = 12) = 0$ exactly. Only ranges have probability. $f(m)$ is a **density**, not a probability.
 
 **Comparison figure (PMF vs PDF vs CDF)**
@@ -228,12 +243,24 @@ plt.show()
 - It is the building block of the binomial and geometric distributions.
 
 **PMF:**
-$$P(X = x) = p^{x}(1-p)^{1-x}, \qquad x \in \{0, 1\}$$
+
+```math
+P(X = x) = p^{x}(1-p)^{1-x}, \qquad x \in \{0, 1\}
+```
 
 **Mean and variance (derivation shown in class):**
-$$E[X] = 0\cdot(1-p) + 1\cdot p = p$$
-$$E[X^2] = 0^2\cdot(1-p) + 1^2\cdot p = p$$
-$$\mathrm{Var}(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p)$$
+
+```math
+E[X] = 0\cdot(1-p) + 1\cdot p = p
+```
+
+```math
+E[X^2] = 0^2\cdot(1-p) + 1^2\cdot p = p
+```
+
+```math
+\mathrm{Var}(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p)
+```
 
 **Worked example: tonight at the observatory**
 - The sky is clear (success) with $p = 0.6$ and cloudy with $1-p = 0.4$.
@@ -258,31 +285,52 @@ The `stats.bernoulli.pmf(value, p)` argument order was stated: the outcome first
 **Definition:** repeat a Bernoulli trial $n$ times, where the trials are **independent** and $p$ is the **same** each time. The number of successes $X$ is then binomial.
 
 **PMF:**
-$$P(X = k) = \binom{n}{k} p^{k}(1-p)^{n-k}, \qquad k = 0, 1, \dots, n$$
+
+```math
+P(X = k) = \binom{n}{k} p^{k}(1-p)^{n-k}, \qquad k = 0, 1, \dots, n
+```
 
 **Binomial coefficient:**
-$$\binom{n}{k} = \frac{n!}{k!\,(n-k)!}$$
+
+```math
+\binom{n}{k} = \frac{n!}{k!\,(n-k)!}
+```
 
 **Mean and variance:**
-$$E[X] = np, \qquad \mathrm{Var}(X) = np(1-p)$$
+
+```math
+E[X] = np, \qquad \mathrm{Var}(X) = np(1-p)
+```
 
 Here $n$ is the number of trials and $p$ is the success probability.
 
 **Worked example: planet transits**
 
 1. **Transit probability.** A planet transits only if its orbit is nearly edge-on to us. For random orientations:
-$$p \approx \frac{R_\star}{a}$$
+
+```math
+p \approx \frac{R_\star}{a}
+```
 2. **Plug in a hot Jupiter around a Sun-like star.**
    - Orbit: $a = 0.05$ AU.
    - Star radius: $R_\star = 6.96 \times 10^{5}$ km.
-   - Conversion: $1\,\text{AU} = 1.496\times10^{8}$ km.
+   - Conversion: $1\ \text{AU} = 1.496\times10^{8}$ km.
    - Result:
-$$p = \frac{6.96\times10^{5}}{0.05 \times 1.496\times10^{8}} \approx 0.093 \approx 0.1$$
+
+```math
+p = \frac{6.96\times10^{5}}{0.05 \times 1.496\times10^{8}} \approx 0.093 \approx 0.1
+```
 3. **Set up the binomial.** Take $n = 20$ stars, each hosting a hot Jupiter. Then $X$, the number of transits, follows $X \sim \text{Binomial}(20, p)$.
 4. **Exactly 2 transits (by hand, $p = 0.1$):**
-$$P(X=2) = \binom{20}{2}(0.1)^2(0.9)^{18} = 190 \times 0.01 \times 0.1501 \approx 0.285$$
+
+```math
+P(X=2) = \binom{20}{2}(0.1)^2(0.9)^{18} = 190 \times 0.01 \times 0.1501 \approx 0.285
+```
 5. **No transit:**
-$$P(X=0) = (0.9)^{20} \approx 0.122$$
+
+```math
+P(X=0) = (0.9)^{20} \approx 0.122
+```
 
 **Code and results:**
 - In code, the instructor computed $p$ from the constants (giving ≈0.093) and evaluated the PMF with `scipy`.
@@ -345,31 +393,49 @@ The instructor called this "the most important discrete distribution used in ast
 - Events occur **independently** at a **constant average rate** $\lambda$.
 
 **PMF:**
-$$P(X = k) = \frac{\lambda^{k} e^{-\lambda}}{k!}, \qquad k = 0, 1, 2, \dots$$
+
+```math
+P(X = k) = \frac{\lambda^{k} e^{-\lambda}}{k!}, \qquad k = 0, 1, 2, \dots
+```
 
 Here $\lambda$ is the mean number of events per interval.
 
 **Connection to the binomial:** take $n \to \infty$ and $p \to 0$ with $np = \lambda$ fixed, and the binomial PMF becomes the Poisson PMF.
 
 **Key property:** the mean equals the variance.
-$$E[X] = \mathrm{Var}(X) = \lambda$$
+
+```math
+E[X] = \mathrm{Var}(X) = \lambda
+```
 
 **Why astronomers care (photon noise):**
 - Photons arrive randomly and independently at a steady rate, so photon counts are Poisson.
 - **Noise** is the standard deviation, $\sqrt{\lambda}$ (or $\sqrt{N}$ for $N$ counts).
 - **Signal-to-noise ratio:**
-$$\text{S/N} = \frac{N}{\sqrt{N}} = \sqrt{N}$$
+
+```math
+\text{S/N} = \frac{N}{\sqrt{N}} = \sqrt{N}
+```
 
 **Worked example: a faint star sending $\lambda = 4$ photons/s to one pixel**
 
 Exactly 2 photons in 1 second:
-$$P(X=2) = \frac{4^2 e^{-4}}{2!} = 8e^{-4} \approx 0.1465$$
+
+```math
+P(X=2) = \frac{4^2 e^{-4}}{2!} = 8e^{-4} \approx 0.1465
+```
 
 No photons:
-$$P(X=0) = e^{-4} \approx 0.0183$$
+
+```math
+P(X=0) = e^{-4} \approx 0.0183
+```
 
 Exactly 6 photons (the audio said "six … 0.1"; checked by recomputing):
-$$P(X=6) = \frac{4^6 e^{-4}}{6!} \approx 0.104$$
+
+```math
+P(X=6) = \frac{4^6 e^{-4}}{6!} \approx 0.104
+```
 
 ```python
 lam = 4
@@ -400,17 +466,26 @@ This was mentioned only briefly as another discrete distribution built on Bernou
 - **Central Limit Theorem:** sums or averages of many independent random variables tend to be normally distributed.
 
 **PDF:**
-$$f(x) = \frac{1}{\sqrt{2\pi}\,\sigma}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
+
+```math
+f(x) = \frac{1}{\sqrt{2\pi}\,\sigma}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+```
 
 Here $\mu$ is the centre (mean) and $\sigma$ is the spread (standard deviation).
 
 **Z-score:**
-$$z = \frac{x - \mu}{\sigma}$$
+
+```math
+z = \frac{x - \mu}{\sigma}
+```
 
 **Worked example: sky background noise**
 - Background noise is approximately normal.
 - A pixel that is $k\sigma$ above the background could be a noise fluctuation. The chance that noise alone produces a value at least that high is the **one-sided tail probability**:
-$$P(Z \ge k) = 1 - \Phi(k)$$
+
+```math
+P(Z \ge k) = 1 - \Phi(k)
+```
 - $\Phi$ is the standard normal CDF. In code this is `stats.norm.sf(k)` or `1 - stats.norm.cdf(k)`.
 
 | Threshold | One-sided false-alarm probability |
@@ -441,7 +516,10 @@ for k in [1, 2, 3, 5]:
 *The audio said "99.9%". The correct standard value is 99.73%.*
 
 - Each area is computed from the CDF:
-$$P(\mu - k\sigma \le X \le \mu + k\sigma) = \Phi(k) - \Phi(-k)$$
+
+```math
+P(\mu - k\sigma \le X \le \mu + k\sigma) = \Phi(k) - \Phi(-k)
+```
 - Vertical lines mark the mean and the ±5σ positions.
 
 ```python

@@ -112,27 +112,27 @@ This was a classroom version with a smaller list: **15 issues**, and each person
 
 **Formula (from the reading):**
 
-$$
+```math
 D(A,B) = \frac{\displaystyle\sum_{i=1}^{p}\sum_{j=1}^{p} \left| a^{*}_{ij} - b^{*}_{ij} \right|}{6p_c^{2} + 2p_c\,(p_{uA} + p_{uB}) + p_{uA}^{2} + p_{uB}^{2} - (6p_c + p_{uA} + p_{uB})}
-$$
+```
 
-- $a^{*}_{ij}, b^{*}_{ij}$ are the (recoded) cell values for persons A and B.
+- $a^{\ast }_{ij}, b^{\ast }_{ij}$ are the (recoded) cell values for persons A and B.
 - $p$ is the total number of issues, so $i, j$ run from $1$ to $p$.
 - $p_c$ is the number of common issues.
 - $p_{uA}$ and $p_{uB}$ are the numbers of issues unique to A and to B.
-- The difference rule: $|a^{*}_{ij} - b^{*}_{ij}| = 1$ if one person did not choose the issue while the other chose it and gave it a value. Otherwise use the actual difference.
+- The difference rule: $|a^{\ast }_{ij} - b^{\ast }_{ij}| = 1$ if one person did not choose the issue while the other chose it and gave it a value. Otherwise use the actual difference.
 
 **Denominator with $p_c = 2$, $p_{uA} = 3$, $p_{uB} = 3$:**
 
-$$
+```math
 6(2)^2 + 2(2)(3+3) + 3^2 + 3^2 - (6\cdot 2 + 3 + 3) = 24 + 24 + 9 + 9 - 18 = 48
-$$
+```
 
 **Result:**
 
-$$
+```math
 D = \frac{18}{48} = 0.375
-$$
+```
 
 Notes on this calculation:
 

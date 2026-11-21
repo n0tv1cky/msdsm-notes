@@ -92,7 +92,9 @@ The instructor first explained the logistics and evaluation rules: timing, camer
   - China's **996 rule** (9 am–9 pm, 6 days/week) is credited for Alibaba and ByteDance.
 - **"Coordination tax" rebuttal to "just hire more people."** Communication pathways grow as
 
-$$\text{pathways} = \frac{n(n-1)}{2}$$
+```math
+\text{pathways} = \frac{n(n-1)}{2}
+```
 
   - $n=5$ gives $10$.
   - $n=15$ gives $105$.

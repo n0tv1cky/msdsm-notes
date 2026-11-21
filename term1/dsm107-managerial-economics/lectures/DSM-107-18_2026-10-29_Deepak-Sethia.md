@@ -37,7 +37,7 @@ Next, the lecture explains **purchasing power parity (PPP)** and why PPP rates d
   - When the rupee **appreciates** ($E$ falls, e.g. from 100 to 70), imports become cheaper, so the quantity of dollars demanded rises.
 - **Supply of dollars ($S$):** comes from **exporters**. The example is Infosys, which exports IT services, earns dollars and converts them to rupees to pay salaries. The curve is **upward sloping**.
   - When the rupee **depreciates** ($E$ rises, e.g. from 96 to 110), each dollar earned fetches more rupees, so exporters export more and supply more dollars.
-- **Equilibrium** in the lecture's example is $E^* = 96$ ₹/\$.
+- **Equilibrium** in the lecture's example is $E^\ast  = 96$ ₹/\$.
 
 **Definitions of appreciation and depreciation**
 - **Rupee depreciation:** each rupee buys fewer dollars, so $E$ (₹/\$) rises, e.g. 96 → 110.
@@ -78,7 +78,10 @@ Next, the lecture explains **purchasing power parity (PPP)** and why PPP rates d
 **The apparent paradox:** India's **current account is in deficit**. Imports exceed exports plus remittances. So how can reserves keep rising?
 
 **Resolution:** the **capital account** inflows are larger than the current account deficit. These inflows include FDI, FII/FPI and **FCNR deposits**, which are effectively borrowing from NRIs.
-$$\text{BOP balance} = \text{Current account balance} + \text{Capital/financial account balance}$$
+
+```math
+\text{BOP balance} = \text{Current account balance} + \text{Capital/financial account balance}
+```
 - Capital inflows exceed the CAD, so the BOP is in surplus and reserves accumulate.
 
 **Caveat:** a large part of India's reserves is **borrowed**. There are repayment obligations attached.
@@ -128,7 +131,10 @@ Under a **fully flexible rate**, the RBI does not intervene at all, so the **BOP
 - **Real exchange rate ($\varepsilon$):** the relative price of **goods** in the two countries.
 
 **Formula ("keep this formula in mind")**
-$$\varepsilon = \frac{E \times P_f}{P_d}$$
+
+```math
+\varepsilon = \frac{E \times P_f}{P_d}
+```
 - $E$ = nominal exchange rate (₹ per \$).
 - $P_f$ = foreign price of the good (in \$).
 - $P_d$ = domestic price of the good (in ₹).
@@ -140,32 +146,47 @@ $$\varepsilon = \frac{E \times P_f}{P_d}$$
 - $\varepsilon > 1$: the rupee is **depreciated in real terms**. Domestic goods are cheaper, so India **exports more**.
 
 **Worked Example 1: iPhone** (numbers halved for simplicity)
-- US price $P_f = \$500$, Indian price $P_d = ₹26{,}000$, $E = 50$.
-$$\varepsilon = \frac{50 \times 500}{26{,}000} = \frac{25{,}000}{26{,}000} \approx 0.96 < 1$$
+- US price $P_f = \text{USD }500$, Indian price $P_d = ₹26{,}000$, $E = 50$.
+
+```math
+\varepsilon = \frac{50 \times 500}{26{,}000} = \frac{25{,}000}{26{,}000} \approx 0.96 < 1
+```
 - The iPhone is more expensive in India. The rupee is real-appreciated, so India imports.
 
 **Worked Example 2: Furniture export**
 - The good costs ₹50,000 in India. The transcript says "₹1,000", but the later steps make clear the Indian price is ₹50,000.
 - With $E = 50$ and no transport, trade or tax costs, it sells for \$1,000 in the US.
-$$\varepsilon = \frac{50 \times 1{,}000}{50{,}000} = 1$$
+
+```math
+\varepsilon = \frac{50 \times 1{,}000}{50{,}000} = 1
+```
 
 **Worked Example 3: Inflation differential, the key example**
-- Indian inflation is $15\%$; US inflation is $1\%$.
+- Indian inflation is $15\text{%}$; US inflation is $1\text{%}$.
 - Next year the rupee **depreciates nominally by 10%**, so $E$ goes from 50 to 55.
 - **Question:** Does India now export more?
 - **Answer: No.**
   - New Indian price: $50{,}000 \times 1.15 = ₹57{,}500$.
-  - New US price: $1{,}000 \times 1.01 = \$1{,}010$. In rupees: $1{,}010 \times 55 = ₹55{,}550$.
+  - New US price: $1{,}000 \times 1.01 = \text{USD }1{,}010$. In rupees: $1{,}010 \times 55 = ₹55{,}550$.
   - The US good is now **cheaper** than the Indian one, so India will **import** despite the nominal depreciation.
-$$\varepsilon_{\text{new}} = \frac{55 \times 1{,}010}{57{,}500} = \frac{55{,}550}{57{,}500} \approx 0.966$$
-$$\text{Equivalently: } \frac{1.10 \times 1.01}{1.15} = \frac{1.111}{1.15} \approx 0.966 < 1$$
+
+```math
+\varepsilon_{\text{new}} = \frac{55 \times 1{,}010}{57{,}500} = \frac{55{,}550}{57{,}500} \approx 0.966
+```
+
+```math
+\text{Equivalently: } \frac{1.10 \times 1.01}{1.15} = \frac{1.111}{1.15} \approx 0.966 < 1
+```
 - The **nominal rate depreciated, but the real rate appreciated.**
 
 **Why currencies must depreciate nominally**
 - To keep $\varepsilon$ stable, if $\dfrac{P_f}{P_d}$ falls (domestic inflation higher than foreign), then $E$ must rise.
 - **Rule:** higher domestic inflation than abroad means the currency **must depreciate** in nominal terms. *"You cannot avoid it."*
 - An approximate version (relative PPP) follows from this:
-$$\%\Delta E \approx \pi_d - \pi_f$$
+
+```math
+\%\Delta E \approx \pi_d - \pi_f
+```
 - **If a fixed rate is forced** while domestic inflation is high, domestic goods keep getting more expensive relative to imports. Imports surge and the peg becomes unsustainable.
 - **Lecturer's anecdote:** he started his examples at ₹50/\$ and will "certainly" have to revise them to ₹100/\$ eventually, because of the inflation differential.
 
@@ -271,7 +292,10 @@ $$\%\Delta E \approx \pi_d - \pi_f$$
 ## 3. Flagged as Important for Exams and Assignments
 
 - **Real exchange rate formula:** the lecturer said explicitly, *"Keep this formula in mind / you can write it"*:
-$$\varepsilon = \frac{E \cdot P_f}{P_d}$$
+
+```math
+\varepsilon = \frac{E \cdot P_f}{P_d}
+```
   Know how to interpret $\varepsilon$ relative to 1, and be able to work through the 15% vs 1% inflation example.
 - **"Read the last line carefully":** long-run exchange rates are determined by **inflation differentials**. The right question is why inflation is high, not why the rupee is falling.
 - **Terminology:** devaluation/revaluation apply to fixed regimes; depreciation/appreciation apply to flexible regimes.
@@ -285,17 +309,29 @@ $$\varepsilon = \frac{E \cdot P_f}{P_d}$$
 
 ## Quick Formula Sheet
 
-$$\text{Real exchange rate: } \varepsilon = \frac{E \times P_f}{P_d}$$
+```math
+\text{Real exchange rate: } \varepsilon = \frac{E \times P_f}{P_d}
+```
 
-$$\varepsilon = 1 \Rightarrow \text{PPP}; \quad \varepsilon < 1 \Rightarrow \text{real appreciation (import more)}; \quad \varepsilon > 1 \Rightarrow \text{real depreciation (export more)}$$
+```math
+\varepsilon = 1 \Rightarrow \text{PPP}; \quad \varepsilon < 1 \Rightarrow \text{real appreciation (import more)}; \quad \varepsilon > 1 \Rightarrow \text{real depreciation (export more)}
+```
 
-$$\text{Growth form: } \frac{\varepsilon_1}{\varepsilon_0} = \frac{(1+\%\Delta E)(1+\pi_f)}{1+\pi_d}; \quad \text{e.g. } \frac{1.10 \times 1.01}{1.15} \approx 0.966$$
+```math
+\text{Growth form: } \frac{\varepsilon_1}{\varepsilon_0} = \frac{(1+\%\Delta E)(1+\pi_f)}{1+\pi_d}; \quad \text{e.g. } \frac{1.10 \times 1.01}{1.15} \approx 0.966
+```
 
-$$\text{Relative PPP (approx.): } \%\Delta E \approx \pi_d - \pi_f$$
+```math
+\text{Relative PPP (approx.): } \%\Delta E \approx \pi_d - \pi_f
+```
 
-$$\text{BOP} = \text{Current Account} + \text{Capital Account}; \quad \text{BOP surplus} \Leftrightarrow \text{RBI buys \$ (reserves rise)}$$
+```math
+\text{BOP} = \text{Current Account} + \text{Capital Account}; \quad \text{BOP surplus} \Leftrightarrow \text{RBI buys \$ (reserves rise)}
+```
 
-$$\text{Open economy with free capital flows: } i_d \to i_f$$
+```math
+\text{Open economy with free capital flows: } i_d \to i_f
+```
 
 <!-- nav -->
 ← [Session 17 (2026-10-27)](DSM-107-17_2026-10-27_Deepak-Sethia.md) · [All lectures](./) · [Session 19 (2026-11-03)](DSM-107-19_2026-11-03_Deepak-Sethia.md) →
