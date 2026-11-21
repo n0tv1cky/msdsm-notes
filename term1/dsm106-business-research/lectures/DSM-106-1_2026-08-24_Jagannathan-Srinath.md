@@ -44,7 +44,7 @@ This opening session of a 10-session Business Research course introduces how bus
 | Free | $0 | Basic use | **Only 1 project** |
 | Tier 1 | **$29 / month** | **Unlimited projects, unlimited users**, 100 GB storage | **Cannot** distinguish internal employees from external clients |
 | Tier 2 | **$79 / month** | Unlimited projects/users, 100 GB storage | **Can** distinguish internal interface vs. client interface |
-| Tier 3 (enterprise) | **$`3,000 / year ( =`$250 / month)** | Unlimited projects, **2 TB storage**, a **dedicated resource** for setup/support | — |
+| Tier 3 (enterprise) | **$3,000 / year ( = $250 / month)** | Unlimited projects, **2 TB storage**, a **dedicated resource** for setup/support | — |
 
 > *Note: early in the lecture the instructor once says "$59" for Tier 2, then consistently corrects to **$79**. Use $79. The doubled test price for Tier 2 is $149, confirming $79 as the base.*
 
@@ -71,7 +71,7 @@ This opening session of a 10-session Business Research course introduces how bus
 ### D. Founder's constraints on the research (important — these rule out several analyses)
 1. **Price signals quality.** Reducing price would signal that quality has been compromised → **no price reduction is permitted**, under any circumstances.
 2. **No change to product features.** The question is: *given the current feature set*, what is the optimum price / possible price increase?
-3. **"Don't be afraid to be ambitious."** Think big — e.g., consider **not adding tiers but clubbing tiers** (e.g., merge the $`29 and`$79 tiers into one tier in which the internal/client distinction is a built-in standard feature).
+3. **"Don't be afraid to be ambitious."** Think big — e.g., consider **not adding tiers but clubbing tiers** (e.g., merge the $29 and $79 tiers into one tier in which the internal/client distinction is a built-in standard feature).
 4. (From a case exhibit) **Do not rely on historical data.** The company has ~10–12 years of data, but the founder says historical data anchors you to what has already happened; he wants radical, non-historically-anchored possibilities.
 
 ---
@@ -83,12 +83,12 @@ This opening session of a 10-session Business Research course introduces how bus
 **Design as executed:**
 - Run over **3 days** on the live website; ~**5,000 sign-ups** in that window.
 - **Random assignment** of visitors to two groups.
-- **Control group:** shown the real prices — $`29 /`$79 / $3,000.
-- **Test group:** shown **double** the prices — **$`59 /`$149 / $6,000**.
+- **Control group:** shown the real prices — $29 / $79 / $3,000.
+- **Test group:** shown **double** the prices — **$59 / $149 / $6,000**.
 - **Measurement window:** wait **one week** and see how many free sign-ups convert to a paid plan. (Baseline behaviour: users typically sign up free first; roughly 50% convert to paid about a week later, the rest continue free or churn.)
 - **Ethics / debrief:** anyone who bought at the doubled price was **informed it was an experiment** and charged only the normal price.
 
-**Why it can't be repeated:** the experiment generates **customer grievances** (one firm sees $`29, another sees`$59 at the same moment). Resolving these falls on a support team — and Basecamp has only 50 employees for 15 million users. Price experiments in particular are hard to repeat; by contrast, lab experiments on *product features* during new-product development can be repeated freely.
+**Why it can't be repeated:** the experiment generates **customer grievances** (one firm sees $29, another sees $59 at the same moment). Resolving these falls on a support team — and Basecamp has only 50 employees for 15 million users. Price experiments in particular are hard to repeat; by contrast, lab experiments on *product features* during new-product development can be repeated freely.
 
 #### Results table (actual numbers)
 
@@ -107,15 +107,15 @@ This opening session of a 10-session Business Research course introduces how bus
 Value per sign-up = Conversion rate × Average plan value
 ```
 Worked:
-- Control: **$`42.25 × 3.49% =`$1.47**
-- Test:    **$`71.14 × 1.78% =`$1.27**
+- Control: **$42.25 × 3.49% = $1.47**
+- Test:    **$71.14 × 1.78% = $1.27**
 
 #### Interpretation (as developed in class)
-- **Average plan value** = the blended average across the three tiers actually purchased. In control, the 120 buyers split across $`29 /`$79 / $`250(=`$3,000 pa) → average $42.25. In test, the 28 buyers split across $59 / $`149 /`$500(=$`6,000 pa) → average`$71.14.
-- **The benchmark test:** if you double all prices and the *mix* were unchanged, average plan value should at least **double from $`42.25 to`$84.50** (and ideally go higher, to cover lost volume). It only rose to **$71.14** — an increase of only ~**60–70%**, not 100%.
+- **Average plan value** = the blended average across the three tiers actually purchased. In control, the 120 buyers split across $29 / $79 / $250(=$3,000 pa) → average $42.25. In test, the 28 buyers split across $59 / $149 / $500(=$6,000 pa) → average $71.14.
+- **The benchmark test:** if you double all prices and the *mix* were unchanged, average plan value should at least **double from $42.25 to $84.50** (and ideally go higher, to cover lost volume). It only rose to **$71.14** — an increase of only ~**60–70%**, not 100%.
 - **Why:** the test-group buyers skewed to the **cheapest tier** ($59). Very few bought $149; almost none bought the $500 enterprise plan. So the mix deteriorated *as well as* the volume.
 - **Double penalty:** conversion fell (3.49% → 1.78%) *and* the average value failed to double. The two effects do **not** offset.
-- **Conclusion:** value per sign-up **falls from $`1.47 to`$1.27**. **Doubling the price is not feasible — it erodes value and would cause losses.**
+- **Conclusion:** value per sign-up **falls from $1.47 to $1.27**. **Doubling the price is not feasible — it erodes value and would cause losses.**
 
 #### What the A/B test does *not* tell us
 - We only learn that a **100% increase** fails. We have **no data** on 90%, 80%, 70%, 50%, 25%, or 10% increases. Any number in that range is **guesswork/speculation**.
@@ -132,7 +132,7 @@ Worked:
 
 ### F. Research Method 2 — The Van Westendorp Price Sensitivity Meter (PSM) Survey
 
-**What it is:** A very popular marketing survey / business research method containing **only four questions**. Respondents answer using a **sliding meter** (here, a slider ranging from **$`0 to`$500**). Its advantage is that it is **very simple and cheap to conduct**.
+**What it is:** A very popular marketing survey / business research method containing **only four questions**. Respondents answer using a **sliding meter** (here, a slider ranging from **$0 to $500**). Its advantage is that it is **very simple and cheap to conduct**.
 
 **The four questions (as read out):**
 1. **Too cheap:** "At what total monthly price would you consider Basecamp to be priced *so low* that you feel the quality can't be very good?"
@@ -193,7 +193,7 @@ To strip out the anchoring problem and to make the three tiers comparable, the s
 - **"Cheap / bargain" bar:** median around **0.7x** (≈ a **30% discount**) is seen as a bargain — **but** a large mass of respondents extends **up to 1.0x (the current price is already a bargain)**, and the **top quartile extends to ~1.8x — i.e., an 80% price increase would still be considered "cheap."**
   - **Managerial implication:** unlike the raw PSM curves, this presentation reveals **real headroom for a price increase** among a meaningful segment of customers.
 
-**Why this presentation is superior:** it normalises across the $`29 /`$79 / $250 tiers and exposes the distribution (spread and tails) rather than a single anchored intersection point.
+**Why this presentation is superior:** it normalises across the $29 / $79 / $250 tiers and exposes the distribution (spread and tails) rather than a single anchored intersection point.
 
 ---
 
@@ -201,7 +201,7 @@ To strip out the anchoring problem and to make the three tiers comparable, the s
 1. Define the **business decision** (what price maximises CLV?) and the **constraints** imposed by management.
 2. **Method 1 — Field experiment (A/B test):** random assignment, control vs test, one clean manipulation (2× price), measure conversion over a fixed window.
    - Compute **conversion rate**, **average plan value**, and **value per sign-up = conversion rate × average plan value**.
-   - Test against the "should-have-doubled" benchmark ($`42.25 →`$84.50).
+   - Test against the "should-have-doubled" benchmark ($42.25 → $84.50).
    - **Limitation:** cannot be repeated frequently; generates customer grievances; gives only a binary answer about one price point (100% increase fails) with no information on intermediate increases.
 3. **Method 2 — Survey (Van Westendorp PSM):** 4 questions, cheap/bargain/expensive/too-expensive; derive OPP, IPP, and acceptable range.
    - **Limitation:** **anchoring bias** — self-interested respondents anchored to the current price; results not to be taken at face value.
@@ -217,7 +217,7 @@ To strip out the anchoring problem and to make the three tiers comparable, the s
 - **Next class: next Friday** (after a break). The case will be discussed for **at least 15 more minutes** before moving to the next case/activity.
 - Concepts explicitly named and worth knowing cold:
   - **A/B test / field experiment vs. laboratory experiment**; control group vs. test group; random assignment.
-  - **Value per sign-up = conversion rate × average plan value** (and the actual numbers: 3.49%, 1.78%, $`42.25,`$71.14, $`1.47,`$1.27, 120/3,438, 28/1,573).
+  - **Value per sign-up = conversion rate × average plan value** (and the actual numbers: 3.49%, 1.78%, $42.25, $71.14, $1.47, $1.27, 120/3,438, 28/1,573).
   - **Customer lifetime value (CLV)**.
   - **Van Westendorp Price Sensitivity Meter** — the four exact questions, the four curves, and the **Optimal Price Point (red × green)**, **Indifference Price Point (orange × blue)**, **highest price point (orange × green)**, lowest acceptable price.
   - **Anchoring bias** in survey research — why survey price data cannot be taken at face value.

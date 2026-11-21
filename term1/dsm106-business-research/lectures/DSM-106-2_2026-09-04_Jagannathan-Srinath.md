@@ -18,7 +18,7 @@ faculty: Jagannathan Srinath
 
 ## 1. Overview
 
-This session completes the **Basecamp (BC3) pricing case study** that was begun in the previous class. The class recaps the company's three-tier price structure ($`29 /`$79 / $250 per month), the **A/B test** which showed that doubling prices destroys revenue, and the follow-up **Van Westendorp Price Sensitivity Meter (PSM) survey**. Because survey respondents suffer from **anchoring bias** (nobody voluntarily tells a researcher they'd pay more), the PSM results cannot be read off conventional Van Westendorp intersection graphs; instead the class interprets **interquartile-range (box-plot style) distributions** of the four PSM curves (too cheap, cheap, expensive, too expensive) expressed as multiples of the current price (1x). Students volunteer readings of each curve's median, Q3 and whisker, and then propose pricing decisions; the instructor then reveals what Basecamp actually did (killed tiers 1 and 3, raised tier 2 from $79 to $99, added a 10% annual discount) and works through a **100-customer revenue scenario** showing an ~20–25% revenue gain, plus a counter-scenario at 2x pricing showing a revenue loss. The methodological takeaway is **method triangulation**: experiments tell you what *won't* work, surveys narrow the range, and scenario analysis fills the remaining gap — evidence-based decision-making still contains guesswork. The last 15 minutes introduces the **next case**: a dataset of 30 middle managers rated 1–10 on 7 survey items (I1–I7), with the assignment of grouping the items into constructs (leading into factor analysis next session).
+This session completes the **Basecamp (BC3) pricing case study** that was begun in the previous class. The class recaps the company's three-tier price structure ($29 / $79 / $250 per month), the **A/B test** which showed that doubling prices destroys revenue, and the follow-up **Van Westendorp Price Sensitivity Meter (PSM) survey**. Because survey respondents suffer from **anchoring bias** (nobody voluntarily tells a researcher they'd pay more), the PSM results cannot be read off conventional Van Westendorp intersection graphs; instead the class interprets **interquartile-range (box-plot style) distributions** of the four PSM curves (too cheap, cheap, expensive, too expensive) expressed as multiples of the current price (1x). Students volunteer readings of each curve's median, Q3 and whisker, and then propose pricing decisions; the instructor then reveals what Basecamp actually did (killed tiers 1 and 3, raised tier 2 from $79 to $99, added a 10% annual discount) and works through a **100-customer revenue scenario** showing an ~20–25% revenue gain, plus a counter-scenario at 2x pricing showing a revenue loss. The methodological takeaway is **method triangulation**: experiments tell you what *won't* work, surveys narrow the range, and scenario analysis fills the remaining gap — evidence-based decision-making still contains guesswork. The last 15 minutes introduces the **next case**: a dataset of 30 middle managers rated 1–10 on 7 survey items (I1–I7), with the assignment of grouping the items into constructs (leading into factor analysis next session).
 
 ---
 
@@ -33,7 +33,7 @@ This session completes the **Basecamp (BC3) pricing case study** that was begun 
 |---|---|---|
 | Tier 1 | **$29/month** | Unlimited projects, unlimited users; **cannot distinguish** between own company and the client for whom the project is delivered |
 | Tier 2 | **$79/month** | Unlimited projects, unlimited users; **can distinguish** company vs. client organisation |
-| Tier 3 (Enterprise) | **$`250/month =`$3,000/year** (paid up front) | Unlimited users/projects, **1 TB storage**, **one dedicated employee** for setup and issue resolution |
+| Tier 3 (Enterprise) | **$250/month = $3,000/year** (paid up front) | Unlimited users/projects, **1 TB storage**, **one dedicated employee** for setup and issue resolution |
 
 - **Billing at the time:** monthly or annual subscription, but **no discount for annual payment** (except Tier 3, which must be bought as $3,000 up front).
 
@@ -105,7 +105,7 @@ All values are **multiples of the current price**, where **1x = current price**.
 ### F. What Basecamp actually did
 1. **Eliminated Tier 1 ($29) entirely** — it refused to sell a version that cannot distinguish internal team from client organisation. "$29 is too cheap for me."
 2. **Eliminated Tier 3 ($3,000/yr) entirely** — only ~**1%** of customers were in it, and serving it means customization/dedicated support, which conflicts with the **high-volume, non-customized** strategy.
-3. **Kept only Tier 2** and raised it **$`79 →`$99** — a **25% increase**, even though the blue-curve median said a **50% increase** was tolerable (deliberately **conservative**).
+3. **Kept only Tier 2** and raised it **$79 → $99** — a **25% increase**, even though the blue-curve median said a **50% increase** was tolerable (deliberately **conservative**).
 4. Introduced a **10% annual (prepay) discount** — the only "feature" added. Effective annual price ≈ **$90/month**, i.e. only about a **10–14% effective increase** over $79.
 5. **Effects claimed:** overall revenue **optimized/increased (~20%)**; plus **annual prepay = customer lock-in**, **cash up front**, and no monthly renewal risk for a full year.
 6. **Migration logic:** former $29 customers are **forced up to ~$90** but receive a **genuine additional feature** (company-vs-client distinction). Former $79 customers face only a ~10% effective rise, so **almost none churn** (at most ~10%).
@@ -114,33 +114,33 @@ All values are **multiples of the current price**, where **1x = current price**.
 
 **Simple illustration (with Aayushi):**
 - 10 customers × $29 = **$290**
-- If only **50%** (5 customers) convert to the $`90 annual-equivalent plan: 5 ×`$90 = **$450** → substantial gain even losing half the base.
+- If only **50%** (5 customers) convert to the $90 annual-equivalent plan: 5 × $90 = **$450** → substantial gain even losing half the base.
 - Break-even framing: "even if only **30%** of the $29 customers convert, that's fine, because each pays roughly **3x** more."
 
 **Full 100-customer scenario (with Jasraj), using the tier mix 66 : 33 : 1**
 - **Status quo revenue:**
-  - 66 × $`29 =`$1,914
-  - 33 × $`79 =`$2,607
-  - 1 × $`250 =`$250
+  - 66 × $29 = $1,914
+  - 33 × $79 = $2,607
+  - 1 × $250 = $250
   - **Total = $4,771**
-- **Post-change scenario (Tier 1 and Tier 3 killed, everyone on $`99 with 10% annual discount =`$90; assume 50% of the 66 convert, ~zero churn from the 33):**
-  - Converts: 50% of 66 = 33; plus the existing 33 → **66 customers × $`90 =`$5,940**
+- **Post-change scenario (Tier 1 and Tier 3 killed, everyone on $99 with 10% annual discount = $90; assume 50% of the 66 convert, ~zero churn from the 33):**
+  - Converts: 50% of 66 = 33; plus the existing 33 → **66 customers × $90 = $5,940**
   - **Gain ≈ +$1,169 ≈ +20–25% revenue**
 
 **Counter-scenario tested (Jasraj's "why not go to 2x?"): price Tier 2 at $150**
 - Conversion of existing $79 users at 2x: assume **60% of 33 ≈ 20 customers**
-- Conversion of $`29 users to`$150 (a **~5x jump** for them): only a small minority — the blue curve shows 5x is held by only **~5–10%** of respondents → assume **~10 customers**
+- Conversion of $29 users to $150 (a **~5x jump** for them): only a small minority — the blue curve shows 5x is held by only **~5–10%** of respondents → assume **~10 customers**
 - Total = 30 customers × $150 = **$4,500**
-- **$`4,500 <`$4,771 → revenue falls.** This is why the aggressive 2x option was rejected.
+- **$4,500 < $4,771 → revenue falls.** This is why the aggressive 2x option was rejected.
 
-**Why $`90 and not`$150 for the ex-$29 customer:** a jump from $29 → $90 (~3x) is well inside the distribution (blue 4th quartile extends to ~3.5x; green Q3 to 3x), whereas $29 → $150 (~5x) sits in the far minority tail.
+**Why $90 and not $150 for the ex-$29 customer:** a jump from $29 → $90 (~3x) is well inside the distribution (blue 4th quartile extends to ~3.5x; green Q3 to 3x), whereas $29 → $150 (~5x) sits in the far minority tail.
 
 **Instructor's caveat (repeated):** Basecamp's solution was **not necessarily the optimal** solution — it was **logically justifiable** and did in fact raise revenue ~20%. Other options might have earned more but carry unknown risk.
 
 ### H. Q&A clarifications (Vikat's and Jasraj's questions)
 - **Q: Is the IQR graph pooled across all three tiers? Doesn't the 66:33:1 mix skew it?**
-  A: Yes, pooled. The case also contains **separate IQR graphs for the $`29 and`$79 cohorts**, and they produce **broadly the same conclusions**. Pooling is acceptable because **anchoring bias affects every user identically** regardless of tier.
-- **Q: Respondents already know the prices ($`29/`$79/$250) — doesn't that form an opinion?**
+  A: Yes, pooled. The case also contains **separate IQR graphs for the $29 and $79 cohorts**, and they produce **broadly the same conclusions**. Pooling is acceptable because **anchoring bias affects every user identically** regardless of tier.
+- **Q: Respondents already know the prices ($29/$79/$250) — doesn't that form an opinion?**
   A: Yes — these are all **current users**, which is precisely the source of anchoring bias; the IQR method is the workaround.
 - **Q: Was there a specific pricing model behind $99?**
   A: **No formal pricing model** — only these PSM graphs plus **multiple scenario simulations** with different assumed conversion probabilities and their associated risks. The scenario table is **not in the case**; students must generate it.
@@ -174,7 +174,7 @@ All values are **multiples of the current price**, where **1x = current price**.
 
 ## 3. Flagged for exams / assignments / next class
 
-- **Assignment given to the whole class:** construct **8–10 alternative pricing scenarios** for Basecamp (different price points × different assumed conversion rates for the $`29 and`$79 cohorts) and compute the revenue for each, to see which would have been best. Two scenarios were done in class ($`90 and`$150); the rest are **left to students**. Bring these to the next session for discussion.
+- **Assignment given to the whole class:** construct **8–10 alternative pricing scenarios** for Basecamp (different price points × different assumed conversion rates for the $29 and $79 cohorts) and compute the revenue for each, to see which would have been best. Two scenarios were done in class ($90 and $150); the rest are **left to students**. Bring these to the next session for discussion.
 - **Pre-work for the next session:** locate the **shared Excel dataset** (30 managers × I1–I7) in the readings and think about **how to group the seven items**. The next class **begins exactly at this point** — categorising the indicators.
 - **What the instructor says actually matters for assessment:**
   > "To us what is important is **not the decision per se** but the **research techniques** we have been able to learn."
