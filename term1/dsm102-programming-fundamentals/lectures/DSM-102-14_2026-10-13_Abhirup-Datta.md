@@ -481,7 +481,7 @@ S(\beta_0, \beta_1) = \sum_{i=1}^{n} \big(y_i - \beta_0 - \beta_1 x_i\big)^2
 **Result:**
 
 ```math
-\beta_1 = \frac{\operatorname{Cov}(x,y)}{\operatorname{Var}(x)} = \frac{\sum_i (x_i-\bar{x})(y_i-\bar{y})}{\sum_i (x_i-\bar{x})^2}, \qquad \beta_0 = \bar{y} - \beta_1 \bar{x}
+\beta_1 = \frac{\mathrm{Cov}(x,y)}{\mathrm{Var}(x)} = \frac{\sum_i (x_i-\bar{x})(y_i-\bar{y})}{\sum_i (x_i-\bar{x})^2}, \qquad \beta_0 = \bar{y} - \beta_1 \bar{x}
 ```
 
 The instructor suggested doing this derivation **by hand**. The data values used in class were not read out, so the arrays below are placeholders.

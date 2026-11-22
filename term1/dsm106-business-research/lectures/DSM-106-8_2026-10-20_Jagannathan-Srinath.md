@@ -401,7 +401,7 @@ K_e = 3.4\% + 1 \times 5\% = 8.4\%
 - Intuition given: roughly $`\sigma_{\text{company}} / \sigma_{\text{market}}`$. The instructor stressed this is **not the exact formula**.
 
 > **Supplementary note:** the standard formula is
-> $`\displaystyle \beta = \frac{\operatorname{Cov}(R_i, R_m)}{\operatorname{Var}(R_m)}`$
+> $`\displaystyle \beta = \frac{\mathrm{Cov}(R_i, R_m)}{\mathrm{Var}(R_m)}`$
 
 **Zero debt: discount at the cost of equity or a target-structure WACC? (Nihal)**
 - With zero debt, WACC is essentially $`K_e`$.

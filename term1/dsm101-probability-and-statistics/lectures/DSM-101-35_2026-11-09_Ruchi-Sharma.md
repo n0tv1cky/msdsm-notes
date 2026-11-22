@@ -84,7 +84,7 @@ E[X] = \int_{-\infty}^{\infty} x f(x)\,dx = \int_\alpha^\beta \frac{x}{\beta - \
 - A student suggested a substitution leading to a logarithm. That approach is wrong: the denominator is the constant $`(\beta - \alpha)`$, not $`(\beta - x)`$. The integral is direct.
 
 #### Variance of the uniform distribution
-Use $`\operatorname{Var}(X) = E[X^2] - (E[X])^2`$.
+Use $`\mathrm{Var}(X) = E[X^2] - (E[X])^2`$.
 
 **Step 1: compute $`E[X^2]`$.** Use the factorisation $`\beta^3 - \alpha^3 = (\beta - \alpha)(\beta^2 + \alpha\beta + \alpha^2)`$:
 
@@ -95,10 +95,10 @@ E[X^2] = \int_\alpha^\beta \frac{x^2}{\beta - \alpha}\,dx = \frac{\beta^3 - \alp
 **Step 2: subtract the squared mean.**
 
 ```math
-\operatorname{Var}(X) = \frac{\beta^2 + \alpha\beta + \alpha^2}{3} - \left(\frac{\alpha + \beta}{2}\right)^2 = \frac{(\beta - \alpha)^2}{12}
+\mathrm{Var}(X) = \frac{\beta^2 + \alpha\beta + \alpha^2}{3} - \left(\frac{\alpha + \beta}{2}\right)^2 = \frac{(\beta - \alpha)^2}{12}
 ```
 
-> **Summary:** $`E[X] = \dfrac{\alpha + \beta}{2}`$, $`\quad \operatorname{Var}(X) = \dfrac{(\beta - \alpha)^2}{12}`$
+> **Summary:** $`E[X] = \dfrac{\alpha + \beta}{2}`$, $`\quad \mathrm{Var}(X) = \dfrac{(\beta - \alpha)^2}{12}`$
 
 #### Worked Example 2: $`X \sim U(\alpha = 200, \beta = 250)`$
 1. **PDF:** $`f(x) = \frac{1}{250 - 200} = \frac{1}{50}`$ for $`200 < x < 250`$.
@@ -151,7 +151,7 @@ To standardise $`X \sim N(\mu, \sigma^2)`$, compute
 Z = \frac{X - \mu}{\sigma}
 ```
 
-Then $`E[Z] = 0`$ and $`\operatorname{Var}(Z) = 1`$, so $`Z \sim N(0, 1)`$. The PDF of $`Z`$ is
+Then $`E[Z] = 0`$ and $`\mathrm{Var}(Z) = 1`$, so $`Z \sim N(0, 1)`$. The PDF of $`Z`$ is
 
 ```math
 \phi(z) = \frac{1}{\sqrt{2\pi}}\, e^{-z^2/2}

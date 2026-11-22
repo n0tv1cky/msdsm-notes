@@ -571,7 +571,7 @@ In 1-D this reduces to: $`f'' > 0`$ means a minimum, $`f'' < 0`$ means a maximum
    This explains the divergence seen in the Hubble example.
 2. **Parameter uncertainty:** a sharp curvature of the NLL means a precise estimate.
 
-   $`\displaystyle \sigma_\theta \approx \frac{1}{\sqrt{H}} \quad\text{(1-D)}, \qquad \operatorname{Cov}(\hat\theta) \approx H^{-1}`$
+   $`\displaystyle \sigma_\theta \approx \frac{1}{\sqrt{H}} \quad\text{(1-D)}, \qquad \mathrm{Cov}(\hat\theta) \approx H^{-1}`$
 
 **Poisson example (continuing §2.5).** The Hessian of the NLL is
 

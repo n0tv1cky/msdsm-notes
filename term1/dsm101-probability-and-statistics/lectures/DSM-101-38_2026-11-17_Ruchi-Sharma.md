@@ -28,7 +28,7 @@ The session opens with a recap of the Pearson correlation coefficient: its range
 
 - **Definition.** The correlation coefficient is the covariance divided by the product of the standard deviations:
 
-  $`\displaystyle r = \rho = \frac{\operatorname{Cov}(X,Y)}{\sigma_X \sigma_Y}`$
+  $`\displaystyle r = \rho = \frac{\mathrm{Cov}(X,Y)}{\sigma_X \sigma_Y}`$
 
 - **Range.** $`-1 \le r \le 1`$.
 - **What $`r`$ tells you:**
@@ -101,7 +101,7 @@ d_i = (x_i - \bar{x}) - (y_i - \bar{y})
 \sum d_i^2 = \sum (x_i - \bar{x})^2 + \sum (y_i - \bar{y})^2 - 2\sum (x_i - \bar{x})(y_i - \bar{y})
 ```
 
-Divide both sides by $`n`$, and use $`\operatorname{Cov}(X,Y) = \rho\,\sigma_X\sigma_Y`$:
+Divide both sides by $`n`$, and use $`\mathrm{Cov}(X,Y) = \rho\,\sigma_X\sigma_Y`$:
 
 ```math
 \frac{1}{n}\sum d_i^2 = \sigma_X^2 + \sigma_Y^2 - 2\rho\,\sigma_X\sigma_Y

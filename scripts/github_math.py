@@ -231,9 +231,50 @@ def table_pass(text):
     return "\n".join(res)
 
 
+# GitHub's maths renderer rejects some macros outright ("The following macros
+# are not allowed: operatorname") and shows an error box instead of the maths.
+# Map each to an allowed equivalent; \mathrm only loses operator spacing.
+GH_MACROS = re.compile(r"\\operatorname\*?(?=\s*\{)")
+GH_MACRO_SUB = r"\\mathrm"
+CODESPAN = re.compile(r"\$`.*?`\$|(`+).+?\1")
+
+
+def _macros_line(ln):
+    # rewrite prose and $`...`$ maths spans; leave plain code spans alone
+    out, i = [], 0
+    for m in CODESPAN.finditer(ln):
+        out.append(GH_MACROS.sub(GH_MACRO_SUB, ln[i:m.start()]))
+        tok = m.group(0)
+        out.append(tok if m.group(1) else GH_MACROS.sub(GH_MACRO_SUB, tok))
+        i = m.end()
+    out.append(GH_MACROS.sub(GH_MACRO_SUB, ln[i:]))
+    return "".join(out)
+
+
+def macro_pass(text):
+    """Replace macros GitHub refuses to render. Skips non-maths code blocks.
+    (github_issues catches leftovers via the to_github(text) != text check.)"""
+    res, fence, is_math = [], None, False
+    for ln in text.split("\n"):
+        f = FENCE2.match(ln)
+        if fence:
+            if f and ln.strip() == fence:
+                fence = None
+            elif is_math:
+                ln = GH_MACROS.sub(GH_MACRO_SUB, ln)
+            res.append(ln)
+            continue
+        if f:
+            fence, is_math = f.group(1), ln.strip() == "```math"
+            res.append(ln)
+            continue
+        res.append(_macros_line(ln))
+    return "\n".join(res)
+
+
 def to_github(text):
     """Plain-$ LaTeX notes -> GitHub-safe maths. Idempotent."""
-    return table_pass(verbatim_pass(unindent_fences(convert(text))))
+    return macro_pass(table_pass(verbatim_pass(unindent_fences(convert(text)))))
 
 
 # ---- reverse, for consumers that want plain $ delimiters (Notion) ----

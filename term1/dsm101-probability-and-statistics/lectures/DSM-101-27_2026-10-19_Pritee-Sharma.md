@@ -129,13 +129,13 @@ The population variance is $`\sigma^2`$.
 1. **Additivity for independent random variables.** For independent random variables $`X`$ and $`Y`$:
 
 ```math
-\operatorname{Var}(X + Y) = \operatorname{Var}(X) + \operatorname{Var}(Y)
+\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)
 ```
    - The instructor compared this to the associative property of addition.
    - **Standard deviation does NOT have this property.** Since $`\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}`$:
 
 ```math
-\operatorname{SD}(A + B) = \sqrt{\operatorname{Var}(A) + \operatorname{Var}(B)} \neq \operatorname{SD}(A) + \operatorname{SD}(B)
+\mathrm{SD}(A + B) = \sqrt{\mathrm{Var}(A) + \mathrm{Var}(B)} \neq \mathrm{SD}(A) + \mathrm{SD}(B)
 ```
    - So when forecasting, comparing or projecting with **two independent random variables at the same time**, work with **variances**, not SDs.
 2. **Theoretical importance.**
@@ -314,7 +314,7 @@ For a population, $`z = \dfrac{x - \mu}{\sigma}`$.
 - **Unbiased estimation (emphasized):** $`n-1`$ makes the sample statistic an unbiased estimator of the **population parameter** $`\sigma`$ (strictly, $`s^2`$ is unbiased for $`\sigma^2`$). It is not an "unbiased estimate of $`s`$".
 - **Know when to use each measure:**
   - **SD** for reporting and visualizing, because it keeps the original units.
-  - **Variance** for theory and for combining independent variables: $`\operatorname{Var}(X+Y) = \operatorname{Var}(X) + \operatorname{Var}(Y)`$.
+  - **Variance** for theory and for combining independent variables: $`\mathrm{Var}(X+Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)`$.
   - **CV** for comparing variability across different units or very different scales.
   - **z-scores** for unit-free comparison and for detecting outliers.
 - **Pearson's skewness:** $`(\bar{x} - \text{Mode})/s`$ is not applicable to bimodal data.
@@ -334,7 +334,7 @@ s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}, \qquad \sigma = \sqrt{\f
 ```
 
 ```math
-s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}, \qquad \operatorname{Var}(X+Y) = \operatorname{Var}(X) + \operatorname{Var}(Y)\ \ (X, Y \text{ independent})
+s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}, \qquad \mathrm{Var}(X+Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)\ \ (X, Y \text{ independent})
 ```
 
 ```math

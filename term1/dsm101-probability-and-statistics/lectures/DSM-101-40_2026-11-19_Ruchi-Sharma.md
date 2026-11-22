@@ -248,7 +248,7 @@ Solve for $`\hat\beta_1`$:
 - Any $`\frac{1}{n-1}`$ factors cancel, so:
 
 ```math
-\hat\beta_1 = \frac{\widehat{\operatorname{Cov}}(X, Y)}{\widehat{\operatorname{Var}}(X)}
+\hat\beta_1 = \frac{\widehat{\mathrm{Cov}}(X, Y)}{\widehat{\mathrm{Var}}(X)}
 ```
 
 Both estimators are built entirely from **deviations from the mean**. The lecturer linked this back to Galton's idea of regression toward the average.

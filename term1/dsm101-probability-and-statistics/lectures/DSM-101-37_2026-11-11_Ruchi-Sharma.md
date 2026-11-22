@@ -46,13 +46,13 @@ The lecture also covers spurious ("nonsense") correlation and why correlation do
 **Covariance** (population form):
 
 ```math
-\operatorname{Cov}(X,Y) = E\big[(X - E[X])(Y - E[Y])\big]
+\mathrm{Cov}(X,Y) = E\big[(X - E[X])(Y - E[Y])\big]
 ```
 
 Sample/data version, also written as the product moment $`\mu_{11}`$:
 
 ```math
-\operatorname{Cov}(X,Y) = \mu_{11} = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})
+\mathrm{Cov}(X,Y) = \mu_{11} = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})
 ```
 
 **Variances:**
@@ -64,7 +64,7 @@ Sample/data version, also written as the product moment $`\mu_{11}`$:
 **Pearson correlation coefficient:**
 
 ```math
-r_{XY} = \frac{\operatorname{Cov}(X,Y)}{\sigma_X\,\sigma_Y} = \frac{\mu_{11}}{\sqrt{\mu_{20}}\sqrt{\mu_{02}}}
+r_{XY} = \frac{\mathrm{Cov}(X,Y)}{\sigma_X\,\sigma_Y} = \frac{\mu_{11}}{\sqrt{\mu_{20}}\sqrt{\mu_{02}}}
 ```
 
 Written out in full:
@@ -85,7 +85,7 @@ r_{XY} = \frac{\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar
 3. Use $`\frac{1}{n}\sum x_i = \bar{x}`$ and $`\frac{1}{n}\sum y_i = \bar{y}`$. The terms become $`-\bar{x}\bar{y} - \bar{x}\bar{y} + \bar{x}\bar{y} = -\bar{x}\bar{y}`$.
 
 ```math
-\boxed{\operatorname{Cov}(X,Y) = \frac{1}{n}\sum x_i y_i - \bar{x}\,\bar{y}}
+\boxed{\mathrm{Cov}(X,Y) = \frac{1}{n}\sum x_i y_i - \bar{x}\,\bar{y}}
 ```
 
 In words: multiply the two series term by term, sum, divide by $`n`$, then subtract the product of the means.
@@ -188,7 +188,7 @@ X - E[X] = h\,(U - E[U]), \qquad Y - E[Y] = k\,(V - E[V])
 3. Numerator:
 
 ```math
-\operatorname{Cov}(X,Y) = E\big[h(U - E[U])\cdot k(V - E[V])\big] = hk\,\operatorname{Cov}(U,V)
+\mathrm{Cov}(X,Y) = E\big[h(U - E[U])\cdot k(V - E[V])\big] = hk\,\mathrm{Cov}(U,V)
 ```
 4. Denominator:
 
@@ -202,7 +202,7 @@ X - E[X] = h\,(U - E[U]), \qquad Y - E[Y] = k\,(V - E[V])
 5. Therefore:
 
 ```math
-r_{XY} = \frac{hk\,\operatorname{Cov}(U,V)}{hk\,\sigma_U\,\sigma_V} = r_{UV}
+r_{XY} = \frac{hk\,\mathrm{Cov}(U,V)}{hk\,\sigma_U\,\sigma_V} = r_{UV}
 ```
 
 > *Note added for completeness (not stated in class):* strictly, $`\sigma_X = |h|\,\sigma_U`$. So $`r_{XY} = r_{UV}`$ when $`h`$ and $`k`$ have the same sign, and $`r_{XY} = -r_{UV}`$ if exactly one of them is negative. The magnitude is always preserved.
@@ -216,7 +216,7 @@ r_{XY} = \frac{hk\,\operatorname{Cov}(U,V)}{hk\,\sigma_U\,\sigma_V} = r_{UV}
 
 ### 2.8 Property 3 — Independence vs. zero correlation
 
-**Independent ⇒ uncorrelated.** If $`X`$ and $`Y`$ are independent, then $`\operatorname{Cov}(X,Y) = 0`$, so $`r = 0`$.
+**Independent ⇒ uncorrelated.** If $`X`$ and $`Y`$ are independent, then $`\mathrm{Cov}(X,Y) = 0`$, so $`r = 0`$.
 
 **Uncorrelated does NOT imply independent.**
 

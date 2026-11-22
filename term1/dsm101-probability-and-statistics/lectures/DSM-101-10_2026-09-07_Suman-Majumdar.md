@@ -90,7 +90,7 @@ z = \frac{50{,}000 - 52{,}174}{750} \approx -2.90 \qquad\Rightarrow\qquad P(\bar
 **Given:** A bank teller serves customers one at a time (serially). The service time $`X_i`$ for customer $`i`$ has
 
 ```math
-\mathbb{E}[X_i] = \mu = 2 \text{ minutes}, \qquad \operatorname{Var}(X_i) = \sigma^2 = 1 \ (\text{so } \sigma = 1)
+\mathbb{E}[X_i] = \mu = 2 \text{ minutes}, \qquad \mathrm{Var}(X_i) = \sigma^2 = 1 \ (\text{so } \sigma = 1)
 ```
 Service times for different customers are **independent**. Let $`Y`$ be the total time to serve 50 customers:
 
@@ -254,7 +254,7 @@ P(D\mid E) = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.0001)(0.995)} = \frac{0.004
 | **CLT — sample mean** | $`\bar{X} \to \mu`$ as $`n\to\infty`$; $`\bar{X} \sim N\!\left(\mu, \frac{\sigma^2}{n}\right)`$ |
 | **Standard error** | $`\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}}`$, $`\quad \sigma^2_{\bar{X}} = \dfrac{\sigma^2}{n}`$ |
 | Standardisation (sample mean) | $`z = \dfrac{\bar{x} - \mu}{\sigma/\sqrt{n}}`$ |
-| **CLT — sum of $`n`$ i.i.d.** | $`Y = \sum_{i=1}^{n} X_i`$, $`\ \mathbb{E}[Y] = n\mu`$, $`\ \operatorname{SD}(Y) = \sqrt{n}\,\sigma`$, $`\ Z = \dfrac{Y - n\mu}{\sqrt{n}\,\sigma} \sim N(0,1)`$ |
+| **CLT — sum of $`n`$ i.i.d.** | $`Y = \sum_{i=1}^{n} X_i`$, $`\ \mathbb{E}[Y] = n\mu`$, $`\ \mathrm{SD}(Y) = \sqrt{n}\,\sigma`$, $`\ Z = \dfrac{Y - n\mu}{\sqrt{n}\,\sigma} \sim N(0,1)`$ |
 | Probability in an interval | $`P(a<Y<b) = F(b) - F(a)`$ |
 | Empirical rule | $`\pm1\sigma \approx 68.2\%`$ ($`34\%+34\%`$); next band $`\approx 13.6\%`$ per side |
 | **Bayes' theorem** | $`P(A\mid B) = \dfrac{P(B\mid A)P(A)}{P(B\mid A)P(A) + P(B\mid A^{c})P(A^{c})}`$ |
@@ -265,7 +265,7 @@ P(D\mid E) = \frac{(0.99)(0.005)}{(0.99)(0.005) + (0.0001)(0.995)} = \frac{0.004
 **Numerical answers to remember:**
 - Teacher salary, single draw: $`z \approx -0.29 \Rightarrow \approx 0.38`$
 - Teacher salary, $`n=100`$ sample mean: $`\sigma_{\bar X} = 750`$, $`z \approx -2.90 \Rightarrow \approx 0.0019`$
-- Bank teller: $`\mathbb{E}[Y]=100`$, $`\operatorname{SD}(Y)=\sqrt{50}`$, $`z=\pm\sqrt{2} \Rightarrow 0.8427`$
+- Bank teller: $`\mathbb{E}[Y]=100`$, $`\mathrm{SD}(Y)=\sqrt{50}`$, $`z=\pm\sqrt{2} \Rightarrow 0.8427`$
 - MCQ, $`m=5`$, $`p=0.5`$: $`5/6 \approx 0.833`$
 - Criminal: $`0.60/0.68 \approx 0.88`$; with 90% evidence reliability: $`0.54/0.62 \approx 0.87`$
 - Blood test: $`\approx 0.33`$ at 1% FPR; $`\approx 0.98`$ at 0.01% FPR
