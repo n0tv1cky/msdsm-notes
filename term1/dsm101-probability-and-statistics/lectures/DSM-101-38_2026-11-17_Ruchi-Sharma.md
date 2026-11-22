@@ -7,7 +7,7 @@ faculty: Ruchi Sharma
 ---
 
 <!-- nav -->
-← [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) · [All lectures](./) · [Session 39 (2026-11-18)](DSM-101-39_2026-11-18_Ruchi-Sharma.md) →
 <!-- /nav -->
 
 # DSM-101 · Session 38 Study Notes: Rank Correlation, Partial Correlation, and an Introduction to Regression
@@ -288,5 +288,5 @@ Details of how regression handles these errors are deferred to the next class.
 - **Schedule:** regression will be covered over the next 2 to 2.5 lectures, starting tomorrow.
 
 <!-- nav -->
-← [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) · [All lectures](./) · (latest lecture) →
+← [Session 37 (2026-11-11)](DSM-101-37_2026-11-11_Ruchi-Sharma.md) · [All lectures](./) · [Session 39 (2026-11-18)](DSM-101-39_2026-11-18_Ruchi-Sharma.md) →
 <!-- /nav -->
