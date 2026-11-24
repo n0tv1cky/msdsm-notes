@@ -7,7 +7,7 @@ faculty: Jagannathan Srinath
 ---
 
 <!-- nav -->
-← [Session 8 (2026-10-20)](DSM-106-8_2026-10-20_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+← [Session 8 (2026-10-20)](DSM-106-8_2026-10-20_Jagannathan-Srinath.md) · [All lectures](./) · [Session 10 (2026-11-02)](DSM-106-10_2026-11-02_Jagannathan-Srinath.md) →
 <!-- /nav -->
 
 # DSM-106 (Business Research), Session 9: Whole Foods Market Valuation (EV/EBITDA Multiples and Discounted Cash Flow)
@@ -371,5 +371,5 @@ This explains Deutsche Bank's USD 60 target.
   - **Read the remaining cases beforehand.** Extra classes will be scheduled if needed.
 
 <!-- nav -->
-← [Session 8 (2026-10-20)](DSM-106-8_2026-10-20_Jagannathan-Srinath.md) · [All lectures](./) · (latest lecture) →
+← [Session 8 (2026-10-20)](DSM-106-8_2026-10-20_Jagannathan-Srinath.md) · [All lectures](./) · [Session 10 (2026-11-02)](DSM-106-10_2026-11-02_Jagannathan-Srinath.md) →
 <!-- /nav -->
